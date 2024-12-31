@@ -1,7 +1,8 @@
 plugins {
+    id 'java-library'
     id 'idea'
-    id 'java'
-    id 'maven-publish'
+    id 'ru.vyarus.java-lib' version '3.0.0'
+    id 'ru.vyarus.github-info' version '2.0.0'
     id 'signing'
     id "io.github.gradle-nexus.publish-plugin" version "2.0.0"
     id "com.github.ben-manes.versions" version "0.51.0"
@@ -14,6 +15,7 @@ version = '0.21.0-SNAPSHOT'
 def isBuildSnapshot = version.toString().endsWith("-SNAPSHOT")
 
 repositories {
+    mavenLocal()
     mavenCentral()
     if (isBuildSnapshot) {
         maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/" }
@@ -26,16 +28,6 @@ targetCompatibility = JavaVersion.VERSION_1_8
 task execute(type:JavaExec) {
    main = System.getProperty('mainClass')
    classpath = sourceSets.main.runtimeClasspath
-}
-
-task sourcesJar(type: Jar, dependsOn: classes) {
-    archiveClassifier = 'sources'
-    from sourceSets.main.allSource
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    archiveClassifier = 'javadoc'
-    from javadoc.destinationDir
 }
 
 artifacts {
@@ -77,6 +69,20 @@ nexusPublishing {
             snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
         }
     }
+}
+
+maven.pom {
+    developers {
+        developer {
+            id = "tchiotludo"
+            name = "Ludovic Dehon"
+        }
+    }
+}
+
+github {
+    user 'kestra-io'
+    license 'Apache'
 }
 
 /**********************************************************************************************************************\
