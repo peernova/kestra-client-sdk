@@ -1,0 +1,7 @@
+src/main/AndroidManifest.xml
+.travis.yml
+build.sbt
+git_push.sh
+pom.xml
+.github/workflows/maven.yml
+build.gradle
