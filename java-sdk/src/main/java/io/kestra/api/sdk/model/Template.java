@@ -34,6 +34,7 @@ import java.util.StringJoiner;
  * Template
  */
 @JsonPropertyOrder({
+  Template.JSON_PROPERTY_FINALLY,
   Template.JSON_PROPERTY_ID,
   Template.JSON_PROPERTY_NAMESPACE,
   Template.JSON_PROPERTY_DESCRIPTION,
@@ -41,8 +42,12 @@ import java.util.StringJoiner;
   Template.JSON_PROPERTY_ERRORS,
   Template.JSON_PROPERTY_DELETED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-09T14:00:04.441521653Z[Etc/UTC]", comments = "Generator version: 7.13.0-SNAPSHOT")
 public class Template {
+  public static final String JSON_PROPERTY_FINALLY = "finally";
+  @javax.annotation.Nullable
+  private List<Task> _finally = new ArrayList<>();
+
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nonnull
   private String id;
@@ -68,6 +73,39 @@ public class Template {
   private Boolean deleted;
 
   public Template() {
+  }
+
+  public Template _finally(@javax.annotation.Nullable List<Task> _finally) {
+    
+    this._finally = _finally;
+    return this;
+  }
+
+  public Template addFinallyItem(Task _finallyItem) {
+    if (this._finally == null) {
+      this._finally = new ArrayList<>();
+    }
+    this._finally.add(_finallyItem);
+    return this;
+  }
+
+  /**
+   * Get _finally
+   * @return _finally
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FINALLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<Task> getFinally() {
+    return _finally;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FINALLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFinally(@javax.annotation.Nullable List<Task> _finally) {
+    this._finally = _finally;
   }
 
   public Template id(@javax.annotation.Nonnull String id) {
@@ -245,7 +283,8 @@ public class Template {
       return false;
     }
     Template template = (Template) o;
-    return Objects.equals(this.id, template.id) &&
+    return Objects.equals(this._finally, template._finally) &&
+        Objects.equals(this.id, template.id) &&
         Objects.equals(this.namespace, template.namespace) &&
         Objects.equals(this.description, template.description) &&
         Objects.equals(this.tasks, template.tasks) &&
@@ -255,13 +294,14 @@ public class Template {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, namespace, description, tasks, errors, deleted);
+    return Objects.hash(_finally, id, namespace, description, tasks, errors, deleted);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Template {\n");
+    sb.append("    _finally: ").append(toIndentedString(_finally)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -314,6 +354,16 @@ public class Template {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `finally` to the URL query string
+    if (getFinally() != null) {
+      for (int i = 0; i < getFinally().size(); i++) {
+        if (getFinally().get(i) != null) {
+          joiner.add(getFinally().get(i).toUrlQueryString(String.format("%sfinally%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
 
     // add `id` to the URL query string
     if (getId() != null) {

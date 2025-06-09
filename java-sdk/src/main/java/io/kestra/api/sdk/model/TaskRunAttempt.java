@@ -26,6 +26,10 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -38,9 +42,10 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   TaskRunAttempt.JSON_PROPERTY_METRICS,
   TaskRunAttempt.JSON_PROPERTY_STATE,
+  TaskRunAttempt.JSON_PROPERTY_WORKER_ID,
   TaskRunAttempt.JSON_PROPERTY_LOG_FILE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class TaskRunAttempt {
   public static final String JSON_PROPERTY_METRICS = "metrics";
   @javax.annotation.Nullable
@@ -50,9 +55,13 @@ public class TaskRunAttempt {
   @javax.annotation.Nonnull
   private State state;
 
+  public static final String JSON_PROPERTY_WORKER_ID = "workerId";
+  @javax.annotation.Nullable
+  private JsonNullable<String> workerId = JsonNullable.<String>undefined();
+
   public static final String JSON_PROPERTY_LOG_FILE = "logFile";
-  @javax.annotation.Nonnull
-  private URI logFile;
+  @javax.annotation.Nullable
+  private JsonNullable<URI> logFile = JsonNullable.<URI>undefined();
 
   public TaskRunAttempt() {
   }
@@ -117,9 +126,42 @@ public class TaskRunAttempt {
     this.state = state;
   }
 
-  public TaskRunAttempt logFile(@javax.annotation.Nonnull URI logFile) {
+  public TaskRunAttempt workerId(@javax.annotation.Nullable String workerId) {
+    this.workerId = JsonNullable.<String>of(workerId);
     
-    this.logFile = logFile;
+    return this;
+  }
+
+  /**
+   * Get workerId
+   * @return workerId
+   */
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public String getWorkerId() {
+        return workerId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_WORKER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getWorkerId_JsonNullable() {
+    return workerId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WORKER_ID)
+  public void setWorkerId_JsonNullable(JsonNullable<String> workerId) {
+    this.workerId = workerId;
+  }
+
+  public void setWorkerId(@javax.annotation.Nullable String workerId) {
+    this.workerId = JsonNullable.<String>of(workerId);
+  }
+
+  public TaskRunAttempt logFile(@javax.annotation.Nullable URI logFile) {
+    this.logFile = JsonNullable.<URI>of(logFile);
+    
     return this;
   }
 
@@ -127,19 +169,27 @@ public class TaskRunAttempt {
    * Get logFile
    * @return logFile
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_LOG_FILE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @JsonIgnore
 
   public URI getLogFile() {
-    return logFile;
+        return logFile.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_LOG_FILE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLogFile(@javax.annotation.Nonnull URI logFile) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<URI> getLogFile_JsonNullable() {
+    return logFile;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LOG_FILE)
+  public void setLogFile_JsonNullable(JsonNullable<URI> logFile) {
     this.logFile = logFile;
+  }
+
+  public void setLogFile(@javax.annotation.Nullable URI logFile) {
+    this.logFile = JsonNullable.<URI>of(logFile);
   }
 
   @Override
@@ -153,12 +203,24 @@ public class TaskRunAttempt {
     TaskRunAttempt taskRunAttempt = (TaskRunAttempt) o;
     return Objects.equals(this.metrics, taskRunAttempt.metrics) &&
         Objects.equals(this.state, taskRunAttempt.state) &&
-        Objects.equals(this.logFile, taskRunAttempt.logFile);
+        equalsNullable(this.workerId, taskRunAttempt.workerId) &&
+        equalsNullable(this.logFile, taskRunAttempt.logFile);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(metrics, state, logFile);
+    return Objects.hash(metrics, state, hashCodeNullable(workerId), hashCodeNullable(logFile));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -167,6 +229,7 @@ public class TaskRunAttempt {
     sb.append("class TaskRunAttempt {\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    workerId: ").append(toIndentedString(workerId)).append("\n");
     sb.append("    logFile: ").append(toIndentedString(logFile)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -228,6 +291,16 @@ public class TaskRunAttempt {
     // add `state` to the URL query string
     if (getState() != null) {
       joiner.add(getState().toUrlQueryString(prefix + "state" + suffix));
+    }
+
+    // add `workerId` to the URL query string
+    if (getWorkerId() != null) {
+      try {
+        joiner.add(String.format("%sworkerId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getWorkerId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `logFile` to the URL query string

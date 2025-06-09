@@ -30,22 +30,12 @@ import java.util.StringJoiner;
  * MiscControllerTenantConfigurationInfo
  */
 @JsonPropertyOrder({
-  MiscControllerTenantConfigurationInfo.JSON_PROPERTY_ENABLED,
-  MiscControllerTenantConfigurationInfo.JSON_PROPERTY_DEFAULT_TENANT,
   MiscControllerTenantConfigurationInfo.JSON_PROPERTY_STORAGE_BY_TENANT,
   MiscControllerTenantConfigurationInfo.JSON_PROPERTY_SECRET_BY_TENANT
 })
 @JsonTypeName("MiscController.TenantConfigurationInfo")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class MiscControllerTenantConfigurationInfo {
-  public static final String JSON_PROPERTY_ENABLED = "enabled";
-  @javax.annotation.Nonnull
-  private Boolean enabled;
-
-  public static final String JSON_PROPERTY_DEFAULT_TENANT = "defaultTenant";
-  @javax.annotation.Nonnull
-  private Boolean defaultTenant;
-
   public static final String JSON_PROPERTY_STORAGE_BY_TENANT = "storageByTenant";
   @javax.annotation.Nonnull
   private Boolean storageByTenant;
@@ -55,56 +45,6 @@ public class MiscControllerTenantConfigurationInfo {
   private Boolean secretByTenant;
 
   public MiscControllerTenantConfigurationInfo() {
-  }
-
-  public MiscControllerTenantConfigurationInfo enabled(@javax.annotation.Nonnull Boolean enabled) {
-    
-    this.enabled = enabled;
-    return this;
-  }
-
-  /**
-   * Get enabled
-   * @return enabled
-   */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Boolean getEnabled() {
-    return enabled;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEnabled(@javax.annotation.Nonnull Boolean enabled) {
-    this.enabled = enabled;
-  }
-
-  public MiscControllerTenantConfigurationInfo defaultTenant(@javax.annotation.Nonnull Boolean defaultTenant) {
-    
-    this.defaultTenant = defaultTenant;
-    return this;
-  }
-
-  /**
-   * Get defaultTenant
-   * @return defaultTenant
-   */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DEFAULT_TENANT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Boolean getDefaultTenant() {
-    return defaultTenant;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_DEFAULT_TENANT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDefaultTenant(@javax.annotation.Nonnull Boolean defaultTenant) {
-    this.defaultTenant = defaultTenant;
   }
 
   public MiscControllerTenantConfigurationInfo storageByTenant(@javax.annotation.Nonnull Boolean storageByTenant) {
@@ -166,23 +106,19 @@ public class MiscControllerTenantConfigurationInfo {
       return false;
     }
     MiscControllerTenantConfigurationInfo miscControllerTenantConfigurationInfo = (MiscControllerTenantConfigurationInfo) o;
-    return Objects.equals(this.enabled, miscControllerTenantConfigurationInfo.enabled) &&
-        Objects.equals(this.defaultTenant, miscControllerTenantConfigurationInfo.defaultTenant) &&
-        Objects.equals(this.storageByTenant, miscControllerTenantConfigurationInfo.storageByTenant) &&
+    return Objects.equals(this.storageByTenant, miscControllerTenantConfigurationInfo.storageByTenant) &&
         Objects.equals(this.secretByTenant, miscControllerTenantConfigurationInfo.secretByTenant);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, defaultTenant, storageByTenant, secretByTenant);
+    return Objects.hash(storageByTenant, secretByTenant);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MiscControllerTenantConfigurationInfo {\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    defaultTenant: ").append(toIndentedString(defaultTenant)).append("\n");
     sb.append("    storageByTenant: ").append(toIndentedString(storageByTenant)).append("\n");
     sb.append("    secretByTenant: ").append(toIndentedString(secretByTenant)).append("\n");
     sb.append("}");
@@ -231,26 +167,6 @@ public class MiscControllerTenantConfigurationInfo {
     }
 
     StringJoiner joiner = new StringJoiner("&");
-
-    // add `enabled` to the URL query string
-    if (getEnabled() != null) {
-      try {
-        joiner.add(String.format("%senabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEnabled()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `defaultTenant` to the URL query string
-    if (getDefaultTenant() != null) {
-      try {
-        joiner.add(String.format("%sdefaultTenant%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDefaultTenant()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
 
     // add `storageByTenant` to the URL query string
     if (getStorageByTenant() != null) {

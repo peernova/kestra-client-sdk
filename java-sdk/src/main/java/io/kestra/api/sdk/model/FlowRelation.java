@@ -29,9 +29,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum FlowRelation {
   
-  TASK("FLOW_TASK"),
+  FLOW_TASK("FLOW_TASK"),
   
-  TRIGGER("FLOW_TRIGGER");
+  FLOW_TRIGGER("FLOW_TRIGGER");
 
   private String value;
 

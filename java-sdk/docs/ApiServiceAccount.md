@@ -8,9 +8,9 @@ A User Service Account.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **String** | the user&#39;s ID. |  |
-|**username** | **String** | the user&#39;s name. |  |
-|**description** | **String** | the user&#39;s description. |  |
+|**id** | **String** | the identifier of this service account. |  |
+|**name** | **String** | the name of this service account. |  |
+|**description** | **String** | the description of this service account. |  |
 |**groupList** | [**List&lt;AbstractUserGroupIdentifier&gt;**](AbstractUserGroupIdentifier.md) |  |  |
 
 

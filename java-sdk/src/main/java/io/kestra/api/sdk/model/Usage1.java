@@ -68,7 +68,7 @@ import java.util.StringJoiner;
   Usage1.JSON_PROPERTY_TENANTS
 })
 @JsonTypeName("Usage_1")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-05T09:35:00.542044223Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class Usage1 {
   public static final String JSON_PROPERTY_UUID = "uuid";
   @javax.annotation.Nonnull

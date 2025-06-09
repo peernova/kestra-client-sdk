@@ -17,6 +17,8 @@
 
 * `BOOLEAN` (value: `"BOOLEAN"`)
 
+* `BOOL` (value: `"BOOL"`)
+
 * `DATETIME` (value: `"DATETIME"`)
 
 * `DATE` (value: `"DATE"`)

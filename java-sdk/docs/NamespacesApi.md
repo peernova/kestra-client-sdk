@@ -4,42 +4,27 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**autocomplete1**](NamespacesApi.md#autocomplete1) | **POST** /api/v1/namespaces/autocomplete | List namespaces for autocomplete |
-| [**autocomplete13**](NamespacesApi.md#autocomplete13) | **POST** /api/v1/{tenant}/namespaces/autocomplete | List namespaces for autocomplete |
-| [**autocomplete16**](NamespacesApi.md#autocomplete16) | **POST** /api/v1/{tenant}/tenants/namespaces/autocomplete | List namespaces for autocomplete |
-| [**autocomplete20**](NamespacesApi.md#autocomplete20) | **POST** /api/v1/{tenant}/tenants/{ressourceTenant}/namespaces/autocomplete | List namespaces for autocomplete |
-| [**autocomplete4**](NamespacesApi.md#autocomplete4) | **POST** /api/v1/tenants/namespaces/autocomplete | List namespaces for autocomplete |
-| [**autocomplete8**](NamespacesApi.md#autocomplete8) | **POST** /api/v1/tenants/{ressourceTenant}/namespaces/autocomplete | List namespaces for autocomplete |
-| [**create10**](NamespacesApi.md#create10) | **POST** /api/v1/namespaces | Create a namespace |
-| [**create35**](NamespacesApi.md#create35) | **POST** /api/v1/{tenant}/namespaces | Create a namespace |
-| [**delete11**](NamespacesApi.md#delete11) | **DELETE** /api/v1/namespaces/{id} | Delete a flow |
-| [**delete39**](NamespacesApi.md#delete39) | **DELETE** /api/v1/{tenant}/namespaces/{id} | Delete a flow |
-| [**deleteSecret**](NamespacesApi.md#deleteSecret) | **DELETE** /api/v1/namespaces/{namespace}/secrets/{key} | Delete a secret for a namespace |
-| [**deleteSecret1**](NamespacesApi.md#deleteSecret1) | **DELETE** /api/v1/{tenant}/namespaces/{namespace}/secrets/{key} | Delete a secret for a namespace |
-| [**find11**](NamespacesApi.md#find11) | **GET** /api/v1/namespaces/search | Search for namespaces |
-| [**find37**](NamespacesApi.md#find37) | **GET** /api/v1/{tenant}/namespaces/search | Search for namespaces |
-| [**index27**](NamespacesApi.md#index27) | **GET** /api/v1/{tenant}/namespaces/{id} | Get a namespace |
-| [**index6**](NamespacesApi.md#index6) | **GET** /api/v1/namespaces/{id} | Get a namespace |
-| [**inheritedPluginDefaults**](NamespacesApi.md#inheritedPluginDefaults) | **GET** /api/v1/namespaces/{id}/inherited-plugindefaults | List inherited plugin defaults |
-| [**inheritedPluginDefaults1**](NamespacesApi.md#inheritedPluginDefaults1) | **GET** /api/v1/{tenant}/namespaces/{id}/inherited-plugindefaults | List inherited plugin defaults |
-| [**inheritedSecrets**](NamespacesApi.md#inheritedSecrets) | **GET** /api/v1/namespaces/{namespace}/inherited-secrets | List inherited secrets |
-| [**inheritedSecrets1**](NamespacesApi.md#inheritedSecrets1) | **GET** /api/v1/{tenant}/namespaces/{namespace}/inherited-secrets | List inherited secrets |
-| [**inheritedVariables**](NamespacesApi.md#inheritedVariables) | **GET** /api/v1/namespaces/{id}/inherited-variables | List inherited variables |
-| [**inheritedVariables1**](NamespacesApi.md#inheritedVariables1) | **GET** /api/v1/{tenant}/namespaces/{id}/inherited-variables | List inherited variables |
-| [**listSecret**](NamespacesApi.md#listSecret) | **GET** /api/v1/namespaces/{namespace}/secrets | Get secrets for a namespace |
-| [**listSecret1**](NamespacesApi.md#listSecret1) | **GET** /api/v1/{tenant}/namespaces/{namespace}/secrets | Get secrets for a namespace |
-| [**patchSecret**](NamespacesApi.md#patchSecret) | **PATCH** /api/v1/namespaces/{namespace}/secrets/{key} | Patch a secret metadata for a namespace |
-| [**patchSecret1**](NamespacesApi.md#patchSecret1) | **PATCH** /api/v1/{tenant}/namespaces/{namespace}/secrets/{key} | Patch a secret metadata for a namespace |
-| [**putSecrets**](NamespacesApi.md#putSecrets) | **PUT** /api/v1/namespaces/{namespace}/secrets | Update secrets for a namespace |
-| [**putSecrets1**](NamespacesApi.md#putSecrets1) | **PUT** /api/v1/{tenant}/namespaces/{namespace}/secrets | Update secrets for a namespace |
-| [**update25**](NamespacesApi.md#update25) | **PUT** /api/v1/{tenant}/namespaces/{id} | Update a namespace |
-| [**update7**](NamespacesApi.md#update7) | **PUT** /api/v1/namespaces/{id} | Update a namespace |
+| [**autocompleteNamespaces**](NamespacesApi.md#autocompleteNamespaces) | **POST** /api/v1/{tenant}/namespaces/autocomplete | List namespaces for autocomplete |
+| [**autocompleteNamespacesWithResourceTenantasSuperAdmin**](NamespacesApi.md#autocompleteNamespacesWithResourceTenantasSuperAdmin) | **POST** /api/v1/tenants/{resourceTenant}/namespaces/autocomplete | List namespaces for autocomplete |
+| [**autocompleteNamespacesasSuperAdmin**](NamespacesApi.md#autocompleteNamespacesasSuperAdmin) | **POST** /api/v1/tenants/namespaces/autocomplete | List namespaces for autocomplete |
+| [**createNamespace**](NamespacesApi.md#createNamespace) | **POST** /api/v1/{tenant}/namespaces | Create a namespace |
+| [**deleteNamespace**](NamespacesApi.md#deleteNamespace) | **DELETE** /api/v1/{tenant}/namespaces/{id} | Delete a flow |
+| [**deleteSecret**](NamespacesApi.md#deleteSecret) | **DELETE** /api/v1/{tenant}/namespaces/{namespace}/secrets/{key} | Delete a secret for a namespace |
+| [**getInheritedSecrets**](NamespacesApi.md#getInheritedSecrets) | **GET** /api/v1/{tenant}/namespaces/{namespace}/inherited-secrets | List inherited secrets |
+| [**getNamespace**](NamespacesApi.md#getNamespace) | **GET** /api/v1/{tenant}/namespaces/{id} | Get a namespace |
+| [**inheritedPluginDefaults**](NamespacesApi.md#inheritedPluginDefaults) | **GET** /api/v1/{tenant}/namespaces/{id}/inherited-plugindefaults | List inherited plugin defaults |
+| [**inheritedVariables**](NamespacesApi.md#inheritedVariables) | **GET** /api/v1/{tenant}/namespaces/{id}/inherited-variables | List inherited variables |
+| [**listNamespaceSecrets**](NamespacesApi.md#listNamespaceSecrets) | **GET** /api/v1/{tenant}/namespaces/{namespace}/secrets | Get secrets for a namespace |
+| [**patchSecret**](NamespacesApi.md#patchSecret) | **PATCH** /api/v1/{tenant}/namespaces/{namespace}/secrets/{key} | Patch a secret metadata for a namespace |
+| [**putSecrets**](NamespacesApi.md#putSecrets) | **PUT** /api/v1/{tenant}/namespaces/{namespace}/secrets | Update secrets for a namespace |
+| [**searchNamespaces**](NamespacesApi.md#searchNamespaces) | **GET** /api/v1/{tenant}/namespaces/search | Search for namespaces |
+| [**updateNamespace**](NamespacesApi.md#updateNamespace) | **PUT** /api/v1/{tenant}/namespaces/{id} | Update a namespace |
 
 
 
-## autocomplete1
+## autocompleteNamespaces
 
-> List&lt;String&gt; autocomplete1(q, apiIds)
+> List&lt;String&gt; autocompleteNamespaces(tenant, q, apiIds)
 
 List namespaces for autocomplete
 
@@ -50,6 +35,7 @@ List namespaces for autocomplete
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.NamespacesApi;
 
@@ -57,82 +43,25 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-        NamespacesApi apiInstance = new NamespacesApi(defaultClient);
-        String q = "q_example"; // String | A string filter
-        ApiIds apiIds = new ApiIds(); // ApiIds | 
-        try {
-            List<String> result = apiInstance.autocomplete1(q, apiIds);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#autocomplete1");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **q** | **String**| A string filter | [optional] |
-| **apiIds** | [**ApiIds**](ApiIds.md)|  | [optional] |
-
-### Return type
-
-**List&lt;String&gt;**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | autocomplete_1 200 response |  -  |
-
-
-## autocomplete13
-
-> List&lt;String&gt; autocomplete13(tenant, q, apiIds)
-
-List namespaces for autocomplete
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String tenant = "tenant_example"; // String | 
         String q = "q_example"; // String | A string filter
         ApiIds apiIds = new ApiIds(); // ApiIds | 
         try {
-            List<String> result = apiInstance.autocomplete13(tenant, q, apiIds);
+            List<String> result = apiInstance.autocompleteNamespaces(tenant, q, apiIds);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#autocomplete13");
+            System.err.println("Exception when calling NamespacesApi#autocompleteNamespaces");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -157,7 +86,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -168,12 +97,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | autocomplete_13 200 response |  -  |
+| **200** | autocompleteNamespaces 200 response |  -  |
 
 
-## autocomplete16
+## autocompleteNamespacesWithResourceTenantasSuperAdmin
 
-> List&lt;String&gt; autocomplete16(tenant, q, apiIds)
+> List&lt;String&gt; autocompleteNamespacesWithResourceTenantasSuperAdmin(resourceTenant, q, apiIds)
 
 List namespaces for autocomplete
 
@@ -184,6 +113,7 @@ List namespaces for autocomplete
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.NamespacesApi;
 
@@ -191,16 +121,25 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String | 
         String q = "q_example"; // String | A string filter
         ApiIds apiIds = new ApiIds(); // ApiIds | 
         try {
-            List<String> result = apiInstance.autocomplete16(tenant, q, apiIds);
+            List<String> result = apiInstance.autocompleteNamespacesWithResourceTenantasSuperAdmin(resourceTenant, q, apiIds);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#autocomplete16");
+            System.err.println("Exception when calling NamespacesApi#autocompleteNamespacesWithResourceTenantasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -215,7 +154,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
+| **resourceTenant** | **String**|  | |
 | **q** | **String**| A string filter | [optional] |
 | **apiIds** | [**ApiIds**](ApiIds.md)|  | [optional] |
 
@@ -225,7 +164,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -236,82 +175,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | autocomplete_16 200 response |  -  |
+| **200** | autocompleteNamespacesWithResourceTenantasSuperAdmin 200 response |  -  |
 
 
-## autocomplete20
+## autocompleteNamespacesasSuperAdmin
 
-> List&lt;String&gt; autocomplete20(ressourceTenant, tenant, q, apiIds)
-
-List namespaces for autocomplete
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        NamespacesApi apiInstance = new NamespacesApi(defaultClient);
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        String q = "q_example"; // String | A string filter
-        ApiIds apiIds = new ApiIds(); // ApiIds | 
-        try {
-            List<String> result = apiInstance.autocomplete20(ressourceTenant, tenant, q, apiIds);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#autocomplete20");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **ressourceTenant** | **String**|  | |
-| **tenant** | **String**|  | |
-| **q** | **String**| A string filter | [optional] |
-| **apiIds** | [**ApiIds**](ApiIds.md)|  | [optional] |
-
-### Return type
-
-**List&lt;String&gt;**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | autocomplete_20 200 response |  -  |
-
-
-## autocomplete4
-
-> List&lt;String&gt; autocomplete4(q, apiIds)
+> List&lt;String&gt; autocompleteNamespacesasSuperAdmin(q, apiIds)
 
 List namespaces for autocomplete
 
@@ -322,6 +191,7 @@ List namespaces for autocomplete
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.NamespacesApi;
 
@@ -329,15 +199,24 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String q = "q_example"; // String | A string filter
         ApiIds apiIds = new ApiIds(); // ApiIds | 
         try {
-            List<String> result = apiInstance.autocomplete4(q, apiIds);
+            List<String> result = apiInstance.autocompleteNamespacesasSuperAdmin(q, apiIds);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#autocomplete4");
+            System.err.println("Exception when calling NamespacesApi#autocompleteNamespacesasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -361,7 +240,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -372,80 +251,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | autocomplete_4 200 response |  -  |
+| **200** | autocompleteNamespacesasSuperAdmin 200 response |  -  |
 
 
-## autocomplete8
+## createNamespace
 
-> List&lt;String&gt; autocomplete8(ressourceTenant, q, apiIds)
-
-List namespaces for autocomplete
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        NamespacesApi apiInstance = new NamespacesApi(defaultClient);
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String q = "q_example"; // String | A string filter
-        ApiIds apiIds = new ApiIds(); // ApiIds | 
-        try {
-            List<String> result = apiInstance.autocomplete8(ressourceTenant, q, apiIds);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#autocomplete8");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **ressourceTenant** | **String**|  | |
-| **q** | **String**| A string filter | [optional] |
-| **apiIds** | [**ApiIds**](ApiIds.md)|  | [optional] |
-
-### Return type
-
-**List&lt;String&gt;**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | autocomplete_8 200 response |  -  |
-
-
-## create10
-
-> Namespace create10(namespace)
+> Namespace createNamespace(tenant, namespace)
 
 Create a namespace
 
@@ -456,6 +267,7 @@ Create a namespace
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.NamespacesApi;
 
@@ -463,79 +275,24 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-        NamespacesApi apiInstance = new NamespacesApi(defaultClient);
-        Namespace namespace = new Namespace(); // Namespace | 
-        try {
-            Namespace result = apiInstance.create10(namespace);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#create10");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **namespace** | [**Namespace**](Namespace.md)|  | |
-
-### Return type
-
-[**Namespace**](Namespace.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | create_10 200 response |  -  |
-
-
-## create35
-
-> Namespace create35(tenant, namespace)
-
-Create a namespace
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String tenant = "tenant_example"; // String | 
-        Namespace namespace = new Namespace(); // Namespace | 
+        Namespace namespace = new Namespace(); // Namespace | The namespace
         try {
-            Namespace result = apiInstance.create35(tenant, namespace);
+            Namespace result = apiInstance.createNamespace(tenant, namespace);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#create35");
+            System.err.println("Exception when calling NamespacesApi#createNamespace");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -551,7 +308,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenant** | **String**|  | |
-| **namespace** | [**Namespace**](Namespace.md)|  | |
+| **namespace** | [**Namespace**](Namespace.md)| The namespace | |
 
 ### Return type
 
@@ -559,7 +316,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -570,75 +327,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | create_35 200 response |  -  |
+| **200** | createNamespace 200 response |  -  |
 
 
-## delete11
+## deleteNamespace
 
-> delete11(id)
-
-Delete a flow
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        NamespacesApi apiInstance = new NamespacesApi(defaultClient);
-        String id = "id_example"; // String | The namespace id
-        try {
-            apiInstance.delete11(id);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#delete11");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The namespace id | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | On success |  -  |
-
-
-## delete39
-
-> delete39(id, tenant)
+> deleteNamespace(id, tenant)
 
 Delete a flow
 
@@ -649,6 +343,7 @@ Delete a flow
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.NamespacesApi;
 
@@ -656,14 +351,23 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String id = "id_example"; // String | The namespace id
         String tenant = "tenant_example"; // String | 
         try {
-            apiInstance.delete39(id, tenant);
+            apiInstance.deleteNamespace(id, tenant);
         } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#delete39");
+            System.err.println("Exception when calling NamespacesApi#deleteNamespace");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -687,7 +391,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -703,7 +407,7 @@ No authorization required
 
 ## deleteSecret
 
-> List&lt;String&gt; deleteSecret(namespace, key)
+> List&lt;String&gt; deleteSecret(namespace, key, tenant)
 
 Delete a secret for a namespace
 
@@ -714,6 +418,7 @@ Delete a secret for a namespace
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.NamespacesApi;
 
@@ -721,12 +426,22 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String namespace = "namespace_example"; // String | The namespace id
         String key = "key_example"; // String | The secret key
+        String tenant = "tenant_example"; // String | 
         try {
-            List<String> result = apiInstance.deleteSecret(namespace, key);
+            List<String> result = apiInstance.deleteSecret(namespace, key, tenant);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling NamespacesApi#deleteSecret");
@@ -746,6 +461,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **namespace** | **String**| The namespace id | |
 | **key** | **String**| The secret key | |
+| **tenant** | **String**|  | |
 
 ### Return type
 
@@ -753,7 +469,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -767,11 +483,11 @@ No authorization required
 | **200** | deleteSecret 200 response |  -  |
 
 
-## deleteSecret1
+## getInheritedSecrets
 
-> List&lt;String&gt; deleteSecret1(namespace, key, tenant)
+> Map&lt;String, List&lt;String&gt;&gt; getInheritedSecrets(namespace, tenant)
 
-Delete a secret for a namespace
+List inherited secrets
 
 ### Example
 
@@ -780,6 +496,7 @@ Delete a secret for a namespace
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.NamespacesApi;
 
@@ -787,16 +504,24 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String namespace = "namespace_example"; // String | The namespace id
-        String key = "key_example"; // String | The secret key
         String tenant = "tenant_example"; // String | 
         try {
-            List<String> result = apiInstance.deleteSecret1(namespace, key, tenant);
+            Map<String, List<String>> result = apiInstance.getInheritedSecrets(namespace, tenant);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#deleteSecret1");
+            System.err.println("Exception when calling NamespacesApi#getInheritedSecrets");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -812,16 +537,15 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **namespace** | **String**| The namespace id | |
-| **key** | **String**| The secret key | |
 | **tenant** | **String**|  | |
 
 ### Return type
 
-**List&lt;String&gt;**
+[**Map&lt;String, List&lt;String&gt;&gt;**](List.md)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -832,158 +556,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | deleteSecret_1 200 response |  -  |
+| **200** | getInheritedSecrets 200 response |  -  |
 
 
-## find11
+## getNamespace
 
-> PagedResultsNamespaceWithDisabled find11(page, size, q, sort, existing)
-
-Search for namespaces
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        NamespacesApi apiInstance = new NamespacesApi(defaultClient);
-        Integer page = 1; // Integer | The current page
-        Integer size = 10; // Integer | The current page size
-        String q = "q_example"; // String | A string filter
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        Boolean existing = false; // Boolean | Return only existing namespace
-        try {
-            PagedResultsNamespaceWithDisabled result = apiInstance.find11(page, size, q, sort, existing);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#find11");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | **Integer**| The current page | [default to 1] |
-| **size** | **Integer**| The current page size | [default to 10] |
-| **q** | **String**| A string filter | [optional] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-| **existing** | **Boolean**| Return only existing namespace | [optional] [default to false] |
-
-### Return type
-
-[**PagedResultsNamespaceWithDisabled**](PagedResultsNamespaceWithDisabled.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | find_11 200 response |  -  |
-
-
-## find37
-
-> PagedResultsNamespaceWithDisabled find37(page, size, tenant, q, sort, existing)
-
-Search for namespaces
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        NamespacesApi apiInstance = new NamespacesApi(defaultClient);
-        Integer page = 1; // Integer | The current page
-        Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String | 
-        String q = "q_example"; // String | A string filter
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        Boolean existing = false; // Boolean | Return only existing namespace
-        try {
-            PagedResultsNamespaceWithDisabled result = apiInstance.find37(page, size, tenant, q, sort, existing);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#find37");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | **Integer**| The current page | [default to 1] |
-| **size** | **Integer**| The current page size | [default to 10] |
-| **tenant** | **String**|  | |
-| **q** | **String**| A string filter | [optional] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-| **existing** | **Boolean**| Return only existing namespace | [optional] [default to false] |
-
-### Return type
-
-[**PagedResultsNamespaceWithDisabled**](PagedResultsNamespaceWithDisabled.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | find_37 200 response |  -  |
-
-
-## index27
-
-> Namespace index27(id, tenant)
+> Namespace getNamespace(id, tenant)
 
 Get a namespace
 
@@ -994,6 +572,7 @@ Get a namespace
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.NamespacesApi;
 
@@ -1001,15 +580,24 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String id = "id_example"; // String | The namespace id
         String tenant = "tenant_example"; // String | 
         try {
-            Namespace result = apiInstance.index27(id, tenant);
+            Namespace result = apiInstance.getNamespace(id, tenant);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#index27");
+            System.err.println("Exception when calling NamespacesApi#getNamespace");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1033,7 +621,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1044,76 +632,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | index_27 200 response |  -  |
-
-
-## index6
-
-> Namespace index6(id)
-
-Get a namespace
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        NamespacesApi apiInstance = new NamespacesApi(defaultClient);
-        String id = "id_example"; // String | The namespace id
-        try {
-            Namespace result = apiInstance.index6(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#index6");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The namespace id | |
-
-### Return type
-
-[**Namespace**](Namespace.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | index_6 200 response |  -  |
+| **200** | getNamespace 200 response |  -  |
 
 
 ## inheritedPluginDefaults
 
-> List&lt;PluginDefault&gt; inheritedPluginDefaults(id)
+> List&lt;PluginDefault&gt; inheritedPluginDefaults(id, tenant)
 
 List inherited plugin defaults
 
@@ -1124,6 +648,7 @@ List inherited plugin defaults
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.NamespacesApi;
 
@@ -1131,11 +656,21 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String id = "id_example"; // String | The namespace id
+        String tenant = "tenant_example"; // String | 
         try {
-            List<PluginDefault> result = apiInstance.inheritedPluginDefaults(id);
+            List<PluginDefault> result = apiInstance.inheritedPluginDefaults(id, tenant);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling NamespacesApi#inheritedPluginDefaults");
@@ -1154,6 +689,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The namespace id | |
+| **tenant** | **String**|  | |
 
 ### Return type
 
@@ -1161,7 +697,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1175,205 +711,9 @@ No authorization required
 | **200** | inheritedPluginDefaults 200 response |  -  |
 
 
-## inheritedPluginDefaults1
-
-> List&lt;PluginDefault&gt; inheritedPluginDefaults1(id, tenant)
-
-List inherited plugin defaults
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        NamespacesApi apiInstance = new NamespacesApi(defaultClient);
-        String id = "id_example"; // String | The namespace id
-        String tenant = "tenant_example"; // String | 
-        try {
-            List<PluginDefault> result = apiInstance.inheritedPluginDefaults1(id, tenant);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#inheritedPluginDefaults1");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The namespace id | |
-| **tenant** | **String**|  | |
-
-### Return type
-
-[**List&lt;PluginDefault&gt;**](PluginDefault.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | inheritedPluginDefaults_1 200 response |  -  |
-
-
-## inheritedSecrets
-
-> Map&lt;String, List&lt;String&gt;&gt; inheritedSecrets(namespace)
-
-List inherited secrets
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        NamespacesApi apiInstance = new NamespacesApi(defaultClient);
-        String namespace = "namespace_example"; // String | The namespace id
-        try {
-            Map<String, List<String>> result = apiInstance.inheritedSecrets(namespace);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#inheritedSecrets");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **namespace** | **String**| The namespace id | |
-
-### Return type
-
-[**Map&lt;String, List&lt;String&gt;&gt;**](List.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | inheritedSecrets 200 response |  -  |
-
-
-## inheritedSecrets1
-
-> Map&lt;String, List&lt;String&gt;&gt; inheritedSecrets1(namespace, tenant)
-
-List inherited secrets
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        NamespacesApi apiInstance = new NamespacesApi(defaultClient);
-        String namespace = "namespace_example"; // String | The namespace id
-        String tenant = "tenant_example"; // String | 
-        try {
-            Map<String, List<String>> result = apiInstance.inheritedSecrets1(namespace, tenant);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#inheritedSecrets1");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **namespace** | **String**| The namespace id | |
-| **tenant** | **String**|  | |
-
-### Return type
-
-[**Map&lt;String, List&lt;String&gt;&gt;**](List.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | inheritedSecrets_1 200 response |  -  |
-
-
 ## inheritedVariables
 
-> Map&lt;String, Object&gt; inheritedVariables(id)
+> Map&lt;String, Object&gt; inheritedVariables(id, tenant)
 
 List inherited variables
 
@@ -1384,6 +724,7 @@ List inherited variables
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.NamespacesApi;
 
@@ -1391,11 +732,21 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String id = "id_example"; // String | The namespace id
+        String tenant = "tenant_example"; // String | 
         try {
-            Map<String, Object> result = apiInstance.inheritedVariables(id);
+            Map<String, Object> result = apiInstance.inheritedVariables(id, tenant);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling NamespacesApi#inheritedVariables");
@@ -1414,6 +765,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The namespace id | |
+| **tenant** | **String**|  | |
 
 ### Return type
 
@@ -1421,7 +773,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1435,75 +787,9 @@ No authorization required
 | **200** | inheritedVariables 200 response |  -  |
 
 
-## inheritedVariables1
+## listNamespaceSecrets
 
-> Map&lt;String, Object&gt; inheritedVariables1(id, tenant)
-
-List inherited variables
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        NamespacesApi apiInstance = new NamespacesApi(defaultClient);
-        String id = "id_example"; // String | The namespace id
-        String tenant = "tenant_example"; // String | 
-        try {
-            Map<String, Object> result = apiInstance.inheritedVariables1(id, tenant);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#inheritedVariables1");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The namespace id | |
-| **tenant** | **String**|  | |
-
-### Return type
-
-**Map&lt;String, Object&gt;**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | inheritedVariables_1 200 response |  -  |
-
-
-## listSecret
-
-> List&lt;ApiSecretMeta&gt; listSecret(namespace)
+> ApiSecretListResponse listNamespaceSecrets(namespace, page, size, filters, tenant, sort)
 
 Get secrets for a namespace
 
@@ -1514,6 +800,7 @@ Get secrets for a namespace
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.NamespacesApi;
 
@@ -1521,14 +808,28 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String namespace = "namespace_example"; // String | The namespace id
+        Integer page = 1; // Integer | The current page
+        Integer size = 10; // Integer | The current page size
+        List<QueryFilter> filters = Arrays.asList(); // List<QueryFilter> | Filters
+        String tenant = "tenant_example"; // String | 
+        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         try {
-            List<ApiSecretMeta> result = apiInstance.listSecret(namespace);
+            ApiSecretListResponse result = apiInstance.listNamespaceSecrets(namespace, page, size, filters, tenant, sort);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#listSecret");
+            System.err.println("Exception when calling NamespacesApi#listNamespaceSecrets");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1544,80 +845,19 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **namespace** | **String**| The namespace id | |
-
-### Return type
-
-[**List&lt;ApiSecretMeta&gt;**](ApiSecretMeta.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | listSecret 200 response |  -  |
-
-
-## listSecret1
-
-> List&lt;ApiSecretMeta&gt; listSecret1(namespace, tenant)
-
-Get secrets for a namespace
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        NamespacesApi apiInstance = new NamespacesApi(defaultClient);
-        String namespace = "namespace_example"; // String | The namespace id
-        String tenant = "tenant_example"; // String | 
-        try {
-            List<ApiSecretMeta> result = apiInstance.listSecret1(namespace, tenant);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#listSecret1");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **namespace** | **String**| The namespace id | |
+| **page** | **Integer**| The current page | [default to 1] |
+| **size** | **Integer**| The current page size | [default to 10] |
+| **filters** | [**List&lt;QueryFilter&gt;**](QueryFilter.md)| Filters | |
 | **tenant** | **String**|  | |
+| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
 
 ### Return type
 
-[**List&lt;ApiSecretMeta&gt;**](ApiSecretMeta.md)
+[**ApiSecretListResponse**](ApiSecretListResponse.md)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1628,12 +868,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | listSecret_1 200 response |  -  |
+| **200** | listNamespaceSecrets 200 response |  -  |
 
 
 ## patchSecret
 
-> List&lt;ApiSecretMeta&gt; patchSecret(namespace, key, apiSecretMeta)
+> List&lt;ApiSecretMeta&gt; patchSecret(namespace, tenant, key, apiSecretMetaEE)
 
 Patch a secret metadata for a namespace
 
@@ -1644,6 +884,7 @@ Patch a secret metadata for a namespace
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.NamespacesApi;
 
@@ -1651,13 +892,23 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String namespace = "namespace_example"; // String | The namespace id
+        String tenant = "tenant_example"; // String | 
         String key = "key_example"; // String | 
-        ApiSecretMeta apiSecretMeta = new ApiSecretMeta(); // ApiSecretMeta | 
+        ApiSecretMetaEE apiSecretMetaEE = new ApiSecretMetaEE(); // ApiSecretMetaEE | 
         try {
-            List<ApiSecretMeta> result = apiInstance.patchSecret(namespace, key, apiSecretMeta);
+            List<ApiSecretMeta> result = apiInstance.patchSecret(namespace, tenant, key, apiSecretMetaEE);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling NamespacesApi#patchSecret");
@@ -1676,8 +927,9 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **namespace** | **String**| The namespace id | |
+| **tenant** | **String**|  | |
 | **key** | **String**|  | |
-| **apiSecretMeta** | [**ApiSecretMeta**](ApiSecretMeta.md)|  | |
+| **apiSecretMetaEE** | [**ApiSecretMetaEE**](ApiSecretMetaEE.md)|  | |
 
 ### Return type
 
@@ -1685,7 +937,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1699,79 +951,9 @@ No authorization required
 | **200** | patchSecret 200 response |  -  |
 
 
-## patchSecret1
-
-> List&lt;ApiSecretMeta&gt; patchSecret1(namespace, tenant, key, apiSecretMeta)
-
-Patch a secret metadata for a namespace
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        NamespacesApi apiInstance = new NamespacesApi(defaultClient);
-        String namespace = "namespace_example"; // String | The namespace id
-        String tenant = "tenant_example"; // String | 
-        String key = "key_example"; // String | 
-        ApiSecretMeta apiSecretMeta = new ApiSecretMeta(); // ApiSecretMeta | 
-        try {
-            List<ApiSecretMeta> result = apiInstance.patchSecret1(namespace, tenant, key, apiSecretMeta);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#patchSecret1");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **namespace** | **String**| The namespace id | |
-| **tenant** | **String**|  | |
-| **key** | **String**|  | |
-| **apiSecretMeta** | [**ApiSecretMeta**](ApiSecretMeta.md)|  | |
-
-### Return type
-
-[**List&lt;ApiSecretMeta&gt;**](ApiSecretMeta.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | patchSecret_1 200 response |  -  |
-
-
 ## putSecrets
 
-> List&lt;ApiSecretMeta&gt; putSecrets(namespace, apiSecretValue)
+> List&lt;ApiSecretMeta&gt; putSecrets(namespace, tenant, apiSecretValue)
 
 Update secrets for a namespace
 
@@ -1782,6 +964,7 @@ Update secrets for a namespace
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.NamespacesApi;
 
@@ -1789,12 +972,22 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String namespace = "namespace_example"; // String | The namespace id
+        String tenant = "tenant_example"; // String | 
         ApiSecretValue apiSecretValue = new ApiSecretValue(); // ApiSecretValue | 
         try {
-            List<ApiSecretMeta> result = apiInstance.putSecrets(namespace, apiSecretValue);
+            List<ApiSecretMeta> result = apiInstance.putSecrets(namespace, tenant, apiSecretValue);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling NamespacesApi#putSecrets");
@@ -1813,6 +1006,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **namespace** | **String**| The namespace id | |
+| **tenant** | **String**|  | |
 | **apiSecretValue** | [**ApiSecretValue**](ApiSecretValue.md)|  | |
 
 ### Return type
@@ -1821,7 +1015,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1835,11 +1029,11 @@ No authorization required
 | **200** | putSecrets 200 response |  -  |
 
 
-## putSecrets1
+## searchNamespaces
 
-> List&lt;ApiSecretMeta&gt; putSecrets1(namespace, tenant, apiSecretValue)
+> PagedResultsNamespaceWithDisabled searchNamespaces(page, size, tenant, q, sort, existing)
 
-Update secrets for a namespace
+Search for namespaces
 
 ### Example
 
@@ -1848,6 +1042,7 @@ Update secrets for a namespace
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.NamespacesApi;
 
@@ -1855,16 +1050,28 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
-        String namespace = "namespace_example"; // String | The namespace id
+        Integer page = 1; // Integer | The current page
+        Integer size = 10; // Integer | The current page size
         String tenant = "tenant_example"; // String | 
-        ApiSecretValue apiSecretValue = new ApiSecretValue(); // ApiSecretValue | 
+        String q = "q_example"; // String | A string filter
+        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
+        Boolean existing = false; // Boolean | Return only existing namespace
         try {
-            List<ApiSecretMeta> result = apiInstance.putSecrets1(namespace, tenant, apiSecretValue);
+            PagedResultsNamespaceWithDisabled result = apiInstance.searchNamespaces(page, size, tenant, q, sort, existing);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#putSecrets1");
+            System.err.println("Exception when calling NamespacesApi#searchNamespaces");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1879,33 +1086,36 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **namespace** | **String**| The namespace id | |
+| **page** | **Integer**| The current page | [default to 1] |
+| **size** | **Integer**| The current page size | [default to 10] |
 | **tenant** | **String**|  | |
-| **apiSecretValue** | [**ApiSecretValue**](ApiSecretValue.md)|  | |
+| **q** | **String**| A string filter | [optional] |
+| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
+| **existing** | **Boolean**| Return only existing namespace | [optional] [default to false] |
 
 ### Return type
 
-[**List&lt;ApiSecretMeta&gt;**](ApiSecretMeta.md)
+[**PagedResultsNamespaceWithDisabled**](PagedResultsNamespaceWithDisabled.md)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | putSecrets_1 200 response |  -  |
+| **200** | searchNamespaces 200 response |  -  |
 
 
-## update25
+## updateNamespace
 
-> Namespace update25(id, tenant, namespace)
+> Namespace updateNamespace(id, tenant, namespace)
 
 Update a namespace
 
@@ -1916,6 +1126,7 @@ Update a namespace
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.NamespacesApi;
 
@@ -1923,16 +1134,25 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String id = "id_example"; // String | The namespace id
         String tenant = "tenant_example"; // String | 
-        Namespace namespace = new Namespace(); // Namespace | 
+        Namespace namespace = new Namespace(); // Namespace | The namespace
         try {
-            Namespace result = apiInstance.update25(id, tenant, namespace);
+            Namespace result = apiInstance.updateNamespace(id, tenant, namespace);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#update25");
+            System.err.println("Exception when calling NamespacesApi#updateNamespace");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1949,7 +1169,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The namespace id | |
 | **tenant** | **String**|  | |
-| **namespace** | [**Namespace**](Namespace.md)|  | |
+| **namespace** | [**Namespace**](Namespace.md)| The namespace | |
 
 ### Return type
 
@@ -1957,7 +1177,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1968,71 +1188,5 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | update_25 200 response |  -  |
-
-
-## update7
-
-> Namespace update7(id, namespace)
-
-Update a namespace
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        NamespacesApi apiInstance = new NamespacesApi(defaultClient);
-        String id = "id_example"; // String | The namespace id
-        Namespace namespace = new Namespace(); // Namespace | 
-        try {
-            Namespace result = apiInstance.update7(id, namespace);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling NamespacesApi#update7");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The namespace id | |
-| **namespace** | [**Namespace**](Namespace.md)|  | |
-
-### Return type
-
-[**Namespace**](Namespace.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | update_7 200 response |  -  |
+| **200** | updateNamespace 200 response |  -  |
 

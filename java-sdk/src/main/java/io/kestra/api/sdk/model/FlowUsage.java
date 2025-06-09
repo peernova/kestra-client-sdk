@@ -38,7 +38,7 @@ import java.util.StringJoiner;
   FlowUsage.JSON_PROPERTY_TRIGGER_TYPE_COUNT,
   FlowUsage.JSON_PROPERTY_TASK_RUNNER_TYPE_COUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class FlowUsage {
   public static final String JSON_PROPERTY_COUNT = "count";
   @javax.annotation.Nullable

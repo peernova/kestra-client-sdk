@@ -16,10 +16,12 @@
 |**isAnonymousUsageEnabled** | **Boolean** |  |  [optional] |
 |**isTemplateEnabled** | **Boolean** |  |  [optional] |
 |**environment** | [**MiscControllerEnvironment**](MiscControllerEnvironment.md) |  |  [optional] |
+|**url** | **String** |  |  [optional] |
 |**preview** | [**MiscControllerPreview**](MiscControllerPreview.md) |  |  [optional] |
 |**isBasicAuthEnabled** | **Boolean** |  |  [optional] |
 |**systemNamespace** | **String** |  |  [optional] |
 |**hiddenLabelsPrefixes** | **List&lt;String&gt;** |  |  [optional] |
+|**resourceToFilters** | [**List&lt;QueryFilterResourceField&gt;**](QueryFilterResourceField.md) |  |  [optional] |
 
 
 

@@ -22,8 +22,6 @@ import io.kestra.api.sdk.internal.Pair;
 
 import io.kestra.api.sdk.model.AuthControllerInvitationUserRequest;
 import io.kestra.api.sdk.model.AuthControllerResetPasswordRequest;
-import io.kestra.api.sdk.model.Invitation;
-import java.time.LocalDate;
 
 
 import java.util.ArrayList;
@@ -33,7 +31,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class DefaultApi extends BaseApi {
 
   public DefaultApi() {
@@ -48,10 +46,10 @@ public class DefaultApi extends BaseApi {
    * 
    * 
    * @param invitationId  (required)
-   * @return Invitation
+   * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Invitation acceptInvitation(String invitationId) throws ApiException {
+  public Object acceptInvitation(@javax.annotation.Nonnull String invitationId) throws ApiException {
     return this.acceptInvitation(invitationId, Collections.emptyMap());
   }
 
@@ -61,10 +59,10 @@ public class DefaultApi extends BaseApi {
    * 
    * @param invitationId  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return Invitation
+   * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Invitation acceptInvitation(String invitationId, Map<String, String> additionalHeaders) throws ApiException {
+  public Object acceptInvitation(@javax.annotation.Nonnull String invitationId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'invitationId' is set
@@ -101,7 +99,7 @@ public class DefaultApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<Invitation> localVarReturnType = new TypeReference<Invitation>() {};
+    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -123,11 +121,11 @@ public class DefaultApi extends BaseApi {
    * 
    * 
    * @param invitationId  (required)
-   * @param authControllerInvitationUserRequest  (required)
+   * @param authControllerInvitationUserRequest The basic information to create an account from an invitation (required)
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object createFromInvitation(String invitationId, AuthControllerInvitationUserRequest authControllerInvitationUserRequest) throws ApiException {
+  public Object createFromInvitation(@javax.annotation.Nonnull String invitationId, @javax.annotation.Nonnull AuthControllerInvitationUserRequest authControllerInvitationUserRequest) throws ApiException {
     return this.createFromInvitation(invitationId, authControllerInvitationUserRequest, Collections.emptyMap());
   }
 
@@ -136,12 +134,12 @@ public class DefaultApi extends BaseApi {
    * 
    * 
    * @param invitationId  (required)
-   * @param authControllerInvitationUserRequest  (required)
+   * @param authControllerInvitationUserRequest The basic information to create an account from an invitation (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object createFromInvitation(String invitationId, AuthControllerInvitationUserRequest authControllerInvitationUserRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public Object createFromInvitation(@javax.annotation.Nonnull String invitationId, @javax.annotation.Nonnull AuthControllerInvitationUserRequest authControllerInvitationUserRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = authControllerInvitationUserRequest;
     
     // verify the required parameter 'invitationId' is set
@@ -202,26 +200,26 @@ public class DefaultApi extends BaseApi {
   }
 
   /**
-   * Send an email to reset a password.
-   * Send an email to reset a password. Note that whatever the username is found or not, the response will always be 200 to avoid leaking information.
+   * Sends an email to reset a password.
+   * Sends an email to reset a password. Note that whatever the username is found or not, the response will always be 200 to avoid leaking information.
    * @param username User that has forgotten his password (required)
-   * @return String
+   * @return Object
    * @throws ApiException if fails to make API call
    */
-  public String forgottenPassword(String username) throws ApiException {
+  public Object forgottenPassword(@javax.annotation.Nonnull String username) throws ApiException {
     return this.forgottenPassword(username, Collections.emptyMap());
   }
 
 
   /**
-   * Send an email to reset a password.
-   * Send an email to reset a password. Note that whatever the username is found or not, the response will always be 200 to avoid leaking information.
+   * Sends an email to reset a password.
+   * Sends an email to reset a password. Note that whatever the username is found or not, the response will always be 200 to avoid leaking information.
    * @param username User that has forgotten his password (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return String
+   * @return Object
    * @throws ApiException if fails to make API call
    */
-  public String forgottenPassword(String username, Map<String, String> additionalHeaders) throws ApiException {
+  public Object forgottenPassword(@javax.annotation.Nonnull String username, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'username' is set
@@ -258,7 +256,7 @@ public class DefaultApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<String> localVarReturnType = new TypeReference<String>() {};
+    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -279,106 +277,44 @@ public class DefaultApi extends BaseApi {
   /**
    * 
    * 
-   * @param from The start date (optional)
-   * @return List&lt;byte[]&gt;
+   * @param username  (required)
+   * @param password  (required)
+   * @param identity  (optional)
+   * @param secret  (optional)
+   * @return Object
    * @throws ApiException if fails to make API call
    */
-  public List<byte[]> generate(LocalDate from) throws ApiException {
-    return this.generate(from, Collections.emptyMap());
+  public Object login(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String identity, @javax.annotation.Nullable String secret) throws ApiException {
+    return this.login(username, password, identity, secret, Collections.emptyMap());
   }
 
 
   /**
    * 
    * 
-   * @param from The start date (optional)
+   * @param username  (required)
+   * @param password  (required)
+   * @param identity  (optional)
+   * @param secret  (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;byte[]&gt;
+   * @return Object
    * @throws ApiException if fails to make API call
    */
-  public List<byte[]> generate(LocalDate from, Map<String, String> additionalHeaders) throws ApiException {
+  public Object login(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String identity, @javax.annotation.Nullable String secret, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
-    // create path and map variables
-    String localVarPath = "/api/v1/stats/generate-reports";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("from", from));
+    // verify the required parameter 'username' is set
+    if (username == null) {
+      throw new ApiException(400, "Missing the required parameter 'username' when calling login");
+    }
     
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/octet-stream"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<byte[]>> localVarReturnType = new TypeReference<List<byte[]>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * 
-   * 
-   * @param tenant  (required)
-   * @param from The start date (optional)
-   * @return List&lt;byte[]&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<byte[]> generate1(String tenant, LocalDate from) throws ApiException {
-    return this.generate1(tenant, from, Collections.emptyMap());
-  }
-
-
-  /**
-   * 
-   * 
-   * @param tenant  (required)
-   * @param from The start date (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;byte[]&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<byte[]> generate1(String tenant, LocalDate from, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling generate1");
+    // verify the required parameter 'password' is set
+    if (password == null) {
+      throw new ApiException(400, "Missing the required parameter 'password' when calling login");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/stats/generate-reports"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+    String localVarPath = "/login";
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -388,28 +324,35 @@ public class DefaultApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("from", from));
     
     localVarHeaderParams.putAll(additionalHeaders);
 
     
-    
+    if (username != null)
+      localVarFormParams.put("username", username);
+if (password != null)
+      localVarFormParams.put("password", password);
+if (identity != null)
+      localVarFormParams.put("identity", identity);
+if (secret != null)
+      localVarFormParams.put("secret", secret);
+
     final String[] localVarAccepts = {
-      "application/octet-stream"
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/x-www-form-urlencoded", "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
     String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<List<byte[]>> localVarReturnType = new TypeReference<List<byte[]>>() {};
+    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
         localVarPath,
-        "GET",
+        "POST",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),
@@ -427,11 +370,11 @@ public class DefaultApi extends BaseApi {
   /**
    * Change a password for given token.
    * Change a password for given token. If password does not match password policy, use can still retry.
-   * @param authControllerResetPasswordRequest An object containing the token and the new password. (required)
-   * @return String
+   * @param authControllerResetPasswordRequest The password (required)
+   * @return Object
    * @throws ApiException if fails to make API call
    */
-  public String resetPassword(AuthControllerResetPasswordRequest authControllerResetPasswordRequest) throws ApiException {
+  public Object resetPassword(@javax.annotation.Nonnull AuthControllerResetPasswordRequest authControllerResetPasswordRequest) throws ApiException {
     return this.resetPassword(authControllerResetPasswordRequest, Collections.emptyMap());
   }
 
@@ -439,12 +382,12 @@ public class DefaultApi extends BaseApi {
   /**
    * Change a password for given token.
    * Change a password for given token. If password does not match password policy, use can still retry.
-   * @param authControllerResetPasswordRequest An object containing the token and the new password. (required)
+   * @param authControllerResetPasswordRequest The password (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return String
+   * @return Object
    * @throws ApiException if fails to make API call
    */
-  public String resetPassword(AuthControllerResetPasswordRequest authControllerResetPasswordRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public Object resetPassword(@javax.annotation.Nonnull AuthControllerResetPasswordRequest authControllerResetPasswordRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = authControllerResetPasswordRequest;
     
     // verify the required parameter 'authControllerResetPasswordRequest' is set
@@ -480,7 +423,7 @@ public class DefaultApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<String> localVarReturnType = new TypeReference<String>() {};
+    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",

@@ -13,6 +13,8 @@
 |**tags** | **List&lt;String&gt;** |  |  |
 |**disabled** | **Boolean** |  |  |
 |**source** | **String** |  |  |
+|**created** | **OffsetDateTime** |  |  |
+|**updated** | **OffsetDateTime** |  |  |
 
 
 

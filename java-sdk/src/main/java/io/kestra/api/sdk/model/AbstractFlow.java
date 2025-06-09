@@ -20,10 +20,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.kestra.api.sdk.model.AbstractFlowLabels;
 import io.kestra.api.sdk.model.InputObject;
+import io.kestra.api.sdk.model.Output;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -38,10 +42,13 @@ import java.util.StringJoiner;
   AbstractFlow.JSON_PROPERTY_NAMESPACE,
   AbstractFlow.JSON_PROPERTY_REVISION,
   AbstractFlow.JSON_PROPERTY_INPUTS,
+  AbstractFlow.JSON_PROPERTY_OUTPUTS,
   AbstractFlow.JSON_PROPERTY_DISABLED,
+  AbstractFlow.JSON_PROPERTY_LABELS,
+  AbstractFlow.JSON_PROPERTY_VARIABLES,
   AbstractFlow.JSON_PROPERTY_DELETED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class AbstractFlow {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nonnull
@@ -59,9 +66,21 @@ public class AbstractFlow {
   @javax.annotation.Nullable
   private List<InputObject> inputs = new ArrayList<>();
 
+  public static final String JSON_PROPERTY_OUTPUTS = "outputs";
+  @javax.annotation.Nullable
+  private List<Output> outputs = new ArrayList<>();
+
   public static final String JSON_PROPERTY_DISABLED = "disabled";
   @javax.annotation.Nonnull
   private Boolean disabled;
+
+  public static final String JSON_PROPERTY_LABELS = "labels";
+  @javax.annotation.Nullable
+  private AbstractFlowLabels labels;
+
+  public static final String JSON_PROPERTY_VARIABLES = "variables";
+  @javax.annotation.Nullable
+  private Map<String, Object> variables = new HashMap<>();
 
   public static final String JSON_PROPERTY_DELETED = "deleted";
   @javax.annotation.Nonnull
@@ -179,6 +198,39 @@ public class AbstractFlow {
     this.inputs = inputs;
   }
 
+  public AbstractFlow outputs(@javax.annotation.Nullable List<Output> outputs) {
+    
+    this.outputs = outputs;
+    return this;
+  }
+
+  public AbstractFlow addOutputsItem(Output outputsItem) {
+    if (this.outputs == null) {
+      this.outputs = new ArrayList<>();
+    }
+    this.outputs.add(outputsItem);
+    return this;
+  }
+
+  /**
+   * Get outputs
+   * @return outputs
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OUTPUTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<Output> getOutputs() {
+    return outputs;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_OUTPUTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOutputs(@javax.annotation.Nullable List<Output> outputs) {
+    this.outputs = outputs;
+  }
+
   public AbstractFlow disabled(@javax.annotation.Nonnull Boolean disabled) {
     
     this.disabled = disabled;
@@ -202,6 +254,64 @@ public class AbstractFlow {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDisabled(@javax.annotation.Nonnull Boolean disabled) {
     this.disabled = disabled;
+  }
+
+  public AbstractFlow labels(@javax.annotation.Nullable AbstractFlowLabels labels) {
+    
+    this.labels = labels;
+    return this;
+  }
+
+  /**
+   * Get labels
+   * @return labels
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LABELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AbstractFlowLabels getLabels() {
+    return labels;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LABELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLabels(@javax.annotation.Nullable AbstractFlowLabels labels) {
+    this.labels = labels;
+  }
+
+  public AbstractFlow variables(@javax.annotation.Nullable Map<String, Object> variables) {
+    
+    this.variables = variables;
+    return this;
+  }
+
+  public AbstractFlow putVariablesItem(String key, Object variablesItem) {
+    if (this.variables == null) {
+      this.variables = new HashMap<>();
+    }
+    this.variables.put(key, variablesItem);
+    return this;
+  }
+
+  /**
+   * Get variables
+   * @return variables
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VARIABLES)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, Object> getVariables() {
+    return variables;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VARIABLES)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVariables(@javax.annotation.Nullable Map<String, Object> variables) {
+    this.variables = variables;
   }
 
   public AbstractFlow deleted(@javax.annotation.Nonnull Boolean deleted) {
@@ -242,13 +352,16 @@ public class AbstractFlow {
         Objects.equals(this.namespace, abstractFlow.namespace) &&
         Objects.equals(this.revision, abstractFlow.revision) &&
         Objects.equals(this.inputs, abstractFlow.inputs) &&
+        Objects.equals(this.outputs, abstractFlow.outputs) &&
         Objects.equals(this.disabled, abstractFlow.disabled) &&
+        Objects.equals(this.labels, abstractFlow.labels) &&
+        Objects.equals(this.variables, abstractFlow.variables) &&
         Objects.equals(this.deleted, abstractFlow.deleted);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, namespace, revision, inputs, disabled, deleted);
+    return Objects.hash(id, namespace, revision, inputs, outputs, disabled, labels, variables, deleted);
   }
 
   @Override
@@ -259,7 +372,10 @@ public class AbstractFlow {
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
+    sb.append("    outputs: ").append(toIndentedString(outputs)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
+    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -348,6 +464,16 @@ public class AbstractFlow {
       }
     }
 
+    // add `outputs` to the URL query string
+    if (getOutputs() != null) {
+      for (int i = 0; i < getOutputs().size(); i++) {
+        if (getOutputs().get(i) != null) {
+          joiner.add(getOutputs().get(i).toUrlQueryString(String.format("%soutputs%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
     // add `disabled` to the URL query string
     if (getDisabled() != null) {
       try {
@@ -355,6 +481,25 @@ public class AbstractFlow {
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
+      }
+    }
+
+    // add `labels` to the URL query string
+    if (getLabels() != null) {
+      joiner.add(getLabels().toUrlQueryString(prefix + "labels" + suffix));
+    }
+
+    // add `variables` to the URL query string
+    if (getVariables() != null) {
+      for (String _key : getVariables().keySet()) {
+        try {
+          joiner.add(String.format("%svariables%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+              getVariables().get(_key), URLEncoder.encode(String.valueOf(getVariables().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
       }
     }
 

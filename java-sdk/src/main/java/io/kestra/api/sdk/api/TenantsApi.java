@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class TenantsApi extends BaseApi {
 
   public TenantsApi() {
@@ -51,8 +51,8 @@ public class TenantsApi extends BaseApi {
    * @return Tenant
    * @throws ApiException if fails to make API call
    */
-  public Tenant create14(Tenant tenant) throws ApiException {
-    return this.create14(tenant, Collections.emptyMap());
+  public Tenant create(@javax.annotation.Nonnull Tenant tenant) throws ApiException {
+    return this.create(tenant, Collections.emptyMap());
   }
 
 
@@ -64,12 +64,12 @@ public class TenantsApi extends BaseApi {
    * @return Tenant
    * @throws ApiException if fails to make API call
    */
-  public Tenant create14(Tenant tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public Tenant create(@javax.annotation.Nonnull Tenant tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = tenant;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling create14");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling create");
     }
     
     // create path and map variables
@@ -119,111 +119,29 @@ public class TenantsApi extends BaseApi {
   }
 
   /**
-   * Create a tenant
-   * 
-   * @param tenant  (required)
-   * @param tenant2  (required)
-   * @return Tenant
-   * @throws ApiException if fails to make API call
-   */
-  public Tenant create39(String tenant, Tenant tenant2) throws ApiException {
-    return this.create39(tenant, tenant2, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create a tenant
-   * 
-   * @param tenant  (required)
-   * @param tenant2  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Tenant
-   * @throws ApiException if fails to make API call
-   */
-  public Tenant create39(String tenant, Tenant tenant2, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = tenant2;
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling create39");
-    }
-    
-    // verify the required parameter 'tenant2' is set
-    if (tenant2 == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant2' when calling create39");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Tenant> localVarReturnType = new TypeReference<Tenant>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete a tenant
+   * Delete a tenant and all its resources (flows, namespaces, apps, ...
    * 
    * @param id The tenant id (required)
    * @throws ApiException if fails to make API call
    */
-  public void delete22(String id) throws ApiException {
-    this.delete22(id, Collections.emptyMap());
+  public void delete(@javax.annotation.Nonnull String id) throws ApiException {
+    this.delete(id, Collections.emptyMap());
   }
 
 
   /**
-   * Delete a tenant
+   * Delete a tenant and all its resources (flows, namespaces, apps, ...
    * 
    * @param id The tenant id (required)
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void delete22(String id, Map<String, String> additionalHeaders) throws ApiException {
+  public void delete(@javax.annotation.Nonnull String id, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete22");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
     }
     
     // create path and map variables
@@ -273,86 +191,6 @@ public class TenantsApi extends BaseApi {
   }
 
   /**
-   * Delete a tenant
-   * 
-   * @param id The tenant id (required)
-   * @param tenant  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void delete50(String id, String tenant) throws ApiException {
-    this.delete50(id, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete a tenant
-   * 
-   * @param id The tenant id (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void delete50(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete50");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling delete50");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
    * Search for tenants
    * 
    * @param page The current page (required)
@@ -362,8 +200,8 @@ public class TenantsApi extends BaseApi {
    * @return PagedResultsTenant
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsTenant find18(Integer page, Integer size, String q, List<String> sort) throws ApiException {
-    return this.find18(page, size, q, sort, Collections.emptyMap());
+  public PagedResultsTenant find(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort) throws ApiException {
+    return this.find(page, size, q, sort, Collections.emptyMap());
   }
 
 
@@ -378,17 +216,17 @@ public class TenantsApi extends BaseApi {
    * @return PagedResultsTenant
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsTenant find18(Integer page, Integer size, String q, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
+  public PagedResultsTenant find(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'page' is set
     if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find18");
+      throw new ApiException(400, "Missing the required parameter 'page' when calling find");
     }
     
     // verify the required parameter 'size' is set
     if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find18");
+      throw new ApiException(400, "Missing the required parameter 'size' when calling find");
     }
     
     // create path and map variables
@@ -442,112 +280,14 @@ public class TenantsApi extends BaseApi {
   }
 
   /**
-   * Search for tenants
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @return PagedResultsTenant
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsTenant find44(Integer page, Integer size, String tenant, String q, List<String> sort) throws ApiException {
-    return this.find44(page, size, tenant, q, sort, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for tenants
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsTenant
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsTenant find44(Integer page, Integer size, String tenant, String q, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find44");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find44");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling find44");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/search"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsTenant> localVarReturnType = new TypeReference<PagedResultsTenant>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
    * Get a tenant
    * 
    * @param id The tenant id (required)
-   * @param tenant  (required)
    * @return Tenant
    * @throws ApiException if fails to make API call
    */
-  public Tenant get14(String id, String tenant) throws ApiException {
-    return this.get14(id, tenant, Collections.emptyMap());
+  public Tenant get(@javax.annotation.Nonnull String id) throws ApiException {
+    return this.get(id, Collections.emptyMap());
   }
 
 
@@ -555,98 +295,16 @@ public class TenantsApi extends BaseApi {
    * Get a tenant
    * 
    * @param id The tenant id (required)
-   * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Tenant
    * @throws ApiException if fails to make API call
    */
-  public Tenant get14(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public Tenant get(@javax.annotation.Nonnull String id, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling get14");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling get14");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Tenant> localVarReturnType = new TypeReference<Tenant>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get a tenant
-   * 
-   * @param id The tenant id (required)
-   * @return Tenant
-   * @throws ApiException if fails to make API call
-   */
-  public Tenant get6(String id) throws ApiException {
-    return this.get6(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a tenant
-   * 
-   * @param id The tenant id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Tenant
-   * @throws ApiException if fails to make API call
-   */
-  public Tenant get6(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling get6");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling get");
     }
     
     // create path and map variables
@@ -704,7 +362,7 @@ public class TenantsApi extends BaseApi {
    * @return ApiTenant
    * @throws ApiException if fails to make API call
    */
-  public ApiTenant setLogo(String id, File logo) throws ApiException {
+  public ApiTenant setLogo(@javax.annotation.Nonnull String id, @javax.annotation.Nullable File logo) throws ApiException {
     return this.setLogo(id, logo, Collections.emptyMap());
   }
 
@@ -718,7 +376,7 @@ public class TenantsApi extends BaseApi {
    * @return ApiTenant
    * @throws ApiException if fails to make API call
    */
-  public ApiTenant setLogo(String id, File logo, Map<String, String> additionalHeaders) throws ApiException {
+  public ApiTenant setLogo(@javax.annotation.Nonnull String id, @javax.annotation.Nullable File logo, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -776,93 +434,6 @@ public class TenantsApi extends BaseApi {
   }
 
   /**
-   * Set a tenant logo
-   * 
-   * @param id The tenant id (required)
-   * @param tenant  (required)
-   * @param logo The logo file (optional)
-   * @return ApiTenant
-   * @throws ApiException if fails to make API call
-   */
-  public ApiTenant setLogo1(String id, String tenant, File logo) throws ApiException {
-    return this.setLogo1(id, tenant, logo, Collections.emptyMap());
-  }
-
-
-  /**
-   * Set a tenant logo
-   * 
-   * @param id The tenant id (required)
-   * @param tenant  (required)
-   * @param logo The logo file (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ApiTenant
-   * @throws ApiException if fails to make API call
-   */
-  public ApiTenant setLogo1(String id, String tenant, File logo, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling setLogo1");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling setLogo1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{id}/logo"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    if (logo != null)
-      localVarFormParams.put("logo", logo);
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "multipart/form-data"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ApiTenant> localVarReturnType = new TypeReference<ApiTenant>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
    * Update a tenant
    * 
    * @param id The tenant id (required)
@@ -870,8 +441,8 @@ public class TenantsApi extends BaseApi {
    * @return Tenant
    * @throws ApiException if fails to make API call
    */
-  public Tenant update13(String id, Tenant tenant) throws ApiException {
-    return this.update13(id, tenant, Collections.emptyMap());
+  public Tenant update(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull Tenant tenant) throws ApiException {
+    return this.update(id, tenant, Collections.emptyMap());
   }
 
 
@@ -884,112 +455,22 @@ public class TenantsApi extends BaseApi {
    * @return Tenant
    * @throws ApiException if fails to make API call
    */
-  public Tenant update13(String id, Tenant tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public Tenant update(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull Tenant tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = tenant;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update13");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling update13");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling update");
     }
     
     // create path and map variables
     String localVarPath = "/api/v1/tenants/{id}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Tenant> localVarReturnType = new TypeReference<Tenant>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Update a tenant
-   * 
-   * @param id The tenant id (required)
-   * @param tenant  (required)
-   * @param tenant2  (required)
-   * @return Tenant
-   * @throws ApiException if fails to make API call
-   */
-  public Tenant update31(String id, String tenant, Tenant tenant2) throws ApiException {
-    return this.update31(id, tenant, tenant2, Collections.emptyMap());
-  }
-
-
-  /**
-   * Update a tenant
-   * 
-   * @param id The tenant id (required)
-   * @param tenant  (required)
-   * @param tenant2  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Tenant
-   * @throws ApiException if fails to make API call
-   */
-  public Tenant update31(String id, String tenant, Tenant tenant2, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = tenant2;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update31");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling update31");
-    }
-    
-    // verify the required parameter 'tenant2' is set
-    if (tenant2 == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant2' when calling update31");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;

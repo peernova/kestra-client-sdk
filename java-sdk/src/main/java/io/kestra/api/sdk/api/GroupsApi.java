@@ -21,6 +21,7 @@ import io.kestra.api.sdk.internal.Configuration;
 import io.kestra.api.sdk.internal.Pair;
 
 import io.kestra.api.sdk.model.AbstractGroupControllerGroupWithMembers;
+import io.kestra.api.sdk.model.AbstractUserGroupIdentifierMembership;
 import io.kestra.api.sdk.model.ApiAutocomplete;
 import io.kestra.api.sdk.model.ApiIds;
 import io.kestra.api.sdk.model.ApiUser;
@@ -36,7 +37,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class GroupsApi extends BaseApi {
 
   public GroupsApi() {
@@ -52,269 +53,12 @@ public class GroupsApi extends BaseApi {
    * 
    * @param id The group id (required)
    * @param userId The user id (required)
-   * @return ApiUser
-   * @throws ApiException if fails to make API call
-   */
-  public ApiUser addGroup(String id, String userId) throws ApiException {
-    return this.addGroup(id, userId, Collections.emptyMap());
-  }
-
-
-  /**
-   * Add a group for a user
-   * 
-   * @param id The group id (required)
-   * @param userId The user id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ApiUser
-   * @throws ApiException if fails to make API call
-   */
-  public ApiUser addGroup(String id, String userId, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling addGroup");
-    }
-    
-    // verify the required parameter 'userId' is set
-    if (userId == null) {
-      throw new ApiException(400, "Missing the required parameter 'userId' when calling addGroup");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/groups/{id}/members/{userId}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ApiUser> localVarReturnType = new TypeReference<ApiUser>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Add a group for a user
-   * 
-   * @param id The group id (required)
-   * @param userId The user id (required)
-   * @return ApiUser
-   * @throws ApiException if fails to make API call
-   */
-  public ApiUser addGroup1(String id, String userId) throws ApiException {
-    return this.addGroup1(id, userId, Collections.emptyMap());
-  }
-
-
-  /**
-   * Add a group for a user
-   * 
-   * @param id The group id (required)
-   * @param userId The user id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ApiUser
-   * @throws ApiException if fails to make API call
-   */
-  public ApiUser addGroup1(String id, String userId, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling addGroup1");
-    }
-    
-    // verify the required parameter 'userId' is set
-    if (userId == null) {
-      throw new ApiException(400, "Missing the required parameter 'userId' when calling addGroup1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/groups/{id}/members/{userId}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ApiUser> localVarReturnType = new TypeReference<ApiUser>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Add a group for a user
-   * 
-   * @param id The group id (required)
-   * @param userId The user id (required)
-   * @param ressourceTenant  (required)
-   * @return ApiUser
-   * @throws ApiException if fails to make API call
-   */
-  public ApiUser addGroup2(String id, String userId, String ressourceTenant) throws ApiException {
-    return this.addGroup2(id, userId, ressourceTenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Add a group for a user
-   * 
-   * @param id The group id (required)
-   * @param userId The user id (required)
-   * @param ressourceTenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ApiUser
-   * @throws ApiException if fails to make API call
-   */
-  public ApiUser addGroup2(String id, String userId, String ressourceTenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling addGroup2");
-    }
-    
-    // verify the required parameter 'userId' is set
-    if (userId == null) {
-      throw new ApiException(400, "Missing the required parameter 'userId' when calling addGroup2");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling addGroup2");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/{ressourceTenant}/groups/{id}/members/{userId}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ApiUser> localVarReturnType = new TypeReference<ApiUser>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Add a group for a user
-   * 
-   * @param id The group id (required)
-   * @param userId The user id (required)
    * @param tenant  (required)
    * @return ApiUser
    * @throws ApiException if fails to make API call
    */
-  public ApiUser addGroup3(String id, String userId, String tenant) throws ApiException {
-    return this.addGroup3(id, userId, tenant, Collections.emptyMap());
+  public ApiUser addUserToGroup(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.addUserToGroup(id, userId, tenant, Collections.emptyMap());
   }
 
 
@@ -328,22 +72,22 @@ public class GroupsApi extends BaseApi {
    * @return ApiUser
    * @throws ApiException if fails to make API call
    */
-  public ApiUser addGroup3(String id, String userId, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public ApiUser addUserToGroup(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling addGroup3");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling addUserToGroup");
     }
     
     // verify the required parameter 'userId' is set
     if (userId == null) {
-      throw new ApiException(400, "Missing the required parameter 'userId' when calling addGroup3");
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling addUserToGroup");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling addGroup3");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling addUserToGroup");
     }
     
     // create path and map variables
@@ -375,7 +119,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<ApiUser> localVarReturnType = new TypeReference<ApiUser>() {};
     return apiClient.invokeAPI(
@@ -400,12 +144,12 @@ public class GroupsApi extends BaseApi {
    * 
    * @param id The group id (required)
    * @param userId The user id (required)
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
    * @return ApiUser
    * @throws ApiException if fails to make API call
    */
-  public ApiUser addGroup4(String id, String userId, String tenant) throws ApiException {
-    return this.addGroup4(id, userId, tenant, Collections.emptyMap());
+  public ApiUser addUserToGroupWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull String resourceTenant) throws ApiException {
+    return this.addUserToGroupWithResourceTenantasSuperAdmin(id, userId, resourceTenant, Collections.emptyMap());
   }
 
 
@@ -414,34 +158,34 @@ public class GroupsApi extends BaseApi {
    * 
    * @param id The group id (required)
    * @param userId The user id (required)
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ApiUser
    * @throws ApiException if fails to make API call
    */
-  public ApiUser addGroup4(String id, String userId, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public ApiUser addUserToGroupWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull String resourceTenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling addGroup4");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling addUserToGroupWithResourceTenantasSuperAdmin");
     }
     
     // verify the required parameter 'userId' is set
     if (userId == null) {
-      throw new ApiException(400, "Missing the required parameter 'userId' when calling addGroup4");
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling addUserToGroupWithResourceTenantasSuperAdmin");
     }
     
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling addGroup4");
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling addUserToGroupWithResourceTenantasSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/groups/{id}/members/{userId}"
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/groups/{id}/members/{userId}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
       .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -466,7 +210,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<ApiUser> localVarReturnType = new TypeReference<ApiUser>() {};
     return apiClient.invokeAPI(
@@ -491,13 +235,11 @@ public class GroupsApi extends BaseApi {
    * 
    * @param id The group id (required)
    * @param userId The user id (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
    * @return ApiUser
    * @throws ApiException if fails to make API call
    */
-  public ApiUser addGroup5(String id, String userId, String ressourceTenant, String tenant) throws ApiException {
-    return this.addGroup5(id, userId, ressourceTenant, tenant, Collections.emptyMap());
+  public ApiUser addUserToGroupasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String userId) throws ApiException {
+    return this.addUserToGroupasSuperAdmin(id, userId, Collections.emptyMap());
   }
 
 
@@ -506,41 +248,27 @@ public class GroupsApi extends BaseApi {
    * 
    * @param id The group id (required)
    * @param userId The user id (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ApiUser
    * @throws ApiException if fails to make API call
    */
-  public ApiUser addGroup5(String id, String userId, String ressourceTenant, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public ApiUser addUserToGroupasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String userId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling addGroup5");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling addUserToGroupasSuperAdmin");
     }
     
     // verify the required parameter 'userId' is set
     if (userId == null) {
-      throw new ApiException(400, "Missing the required parameter 'userId' when calling addGroup5");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling addGroup5");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling addGroup5");
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling addUserToGroupasSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{ressourceTenant}/groups/{id}/members/{userId}"
+    String localVarPath = "/api/v1/tenants/groups/{id}/members/{userId}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -565,7 +293,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<ApiUser> localVarReturnType = new TypeReference<ApiUser>() {};
     return apiClient.invokeAPI(
@@ -588,87 +316,13 @@ public class GroupsApi extends BaseApi {
   /**
    * List groups for autocomplete
    * 
-   * @param apiAutocomplete  (required)
-   * @return List&lt;Group&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Group> autocomplete(ApiAutocomplete apiAutocomplete) throws ApiException {
-    return this.autocomplete(apiAutocomplete, Collections.emptyMap());
-  }
-
-
-  /**
-   * List groups for autocomplete
-   * 
-   * @param apiAutocomplete  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Group&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Group> autocomplete(ApiAutocomplete apiAutocomplete, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = apiAutocomplete;
-    
-    // verify the required parameter 'apiAutocomplete' is set
-    if (apiAutocomplete == null) {
-      throw new ApiException(400, "Missing the required parameter 'apiAutocomplete' when calling autocomplete");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/groups/autocomplete";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<Group>> localVarReturnType = new TypeReference<List<Group>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List groups for autocomplete
-   * 
    * @param tenant  (required)
-   * @param apiAutocomplete  (required)
+   * @param apiAutocomplete Autocomplete request (required)
    * @return List&lt;Group&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Group> autocomplete12(String tenant, ApiAutocomplete apiAutocomplete) throws ApiException {
-    return this.autocomplete12(tenant, apiAutocomplete, Collections.emptyMap());
+  public List<Group> autocompleteGroups(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ApiAutocomplete apiAutocomplete) throws ApiException {
+    return this.autocompleteGroups(tenant, apiAutocomplete, Collections.emptyMap());
   }
 
 
@@ -676,22 +330,22 @@ public class GroupsApi extends BaseApi {
    * List groups for autocomplete
    * 
    * @param tenant  (required)
-   * @param apiAutocomplete  (required)
+   * @param apiAutocomplete Autocomplete request (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return List&lt;Group&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Group> autocomplete12(String tenant, ApiAutocomplete apiAutocomplete, Map<String, String> additionalHeaders) throws ApiException {
+  public List<Group> autocompleteGroups(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ApiAutocomplete apiAutocomplete, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = apiAutocomplete;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling autocomplete12");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling autocompleteGroups");
     }
     
     // verify the required parameter 'apiAutocomplete' is set
     if (apiAutocomplete == null) {
-      throw new ApiException(400, "Missing the required parameter 'apiAutocomplete' when calling autocomplete12");
+      throw new ApiException(400, "Missing the required parameter 'apiAutocomplete' when calling autocompleteGroups");
     }
     
     // create path and map variables
@@ -721,7 +375,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<List<Group>> localVarReturnType = new TypeReference<List<Group>>() {};
     return apiClient.invokeAPI(
@@ -744,41 +398,41 @@ public class GroupsApi extends BaseApi {
   /**
    * List groups for autocomplete
    * 
-   * @param tenant  (required)
-   * @param apiAutocomplete  (required)
+   * @param resourceTenant  (required)
+   * @param apiAutocomplete Autocomplete request (required)
    * @return List&lt;Group&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Group> autocomplete15(String tenant, ApiAutocomplete apiAutocomplete) throws ApiException {
-    return this.autocomplete15(tenant, apiAutocomplete, Collections.emptyMap());
+  public List<Group> autocompleteGroupsWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nonnull ApiAutocomplete apiAutocomplete) throws ApiException {
+    return this.autocompleteGroupsWithResourceTenantasSuperAdmin(resourceTenant, apiAutocomplete, Collections.emptyMap());
   }
 
 
   /**
    * List groups for autocomplete
    * 
-   * @param tenant  (required)
-   * @param apiAutocomplete  (required)
+   * @param resourceTenant  (required)
+   * @param apiAutocomplete Autocomplete request (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return List&lt;Group&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Group> autocomplete15(String tenant, ApiAutocomplete apiAutocomplete, Map<String, String> additionalHeaders) throws ApiException {
+  public List<Group> autocompleteGroupsWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nonnull ApiAutocomplete apiAutocomplete, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = apiAutocomplete;
     
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling autocomplete15");
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling autocompleteGroupsWithResourceTenantasSuperAdmin");
     }
     
     // verify the required parameter 'apiAutocomplete' is set
     if (apiAutocomplete == null) {
-      throw new ApiException(400, "Missing the required parameter 'apiAutocomplete' when calling autocomplete15");
+      throw new ApiException(400, "Missing the required parameter 'apiAutocomplete' when calling autocompleteGroupsWithResourceTenantasSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/groups/autocomplete"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/groups/autocomplete"
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -803,7 +457,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<List<Group>> localVarReturnType = new TypeReference<List<Group>>() {};
     return apiClient.invokeAPI(
@@ -826,119 +480,29 @@ public class GroupsApi extends BaseApi {
   /**
    * List groups for autocomplete
    * 
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param apiAutocomplete  (required)
+   * @param apiAutocomplete Autocomplete request (required)
    * @return List&lt;Group&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Group> autocomplete19(String ressourceTenant, String tenant, ApiAutocomplete apiAutocomplete) throws ApiException {
-    return this.autocomplete19(ressourceTenant, tenant, apiAutocomplete, Collections.emptyMap());
+  public List<Group> autocompleteGroupsasSuperAdmin(@javax.annotation.Nonnull ApiAutocomplete apiAutocomplete) throws ApiException {
+    return this.autocompleteGroupsasSuperAdmin(apiAutocomplete, Collections.emptyMap());
   }
 
 
   /**
    * List groups for autocomplete
    * 
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param apiAutocomplete  (required)
+   * @param apiAutocomplete Autocomplete request (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return List&lt;Group&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Group> autocomplete19(String ressourceTenant, String tenant, ApiAutocomplete apiAutocomplete, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = apiAutocomplete;
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling autocomplete19");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling autocomplete19");
-    }
-    
-    // verify the required parameter 'apiAutocomplete' is set
-    if (apiAutocomplete == null) {
-      throw new ApiException(400, "Missing the required parameter 'apiAutocomplete' when calling autocomplete19");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{ressourceTenant}/groups/autocomplete"
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<Group>> localVarReturnType = new TypeReference<List<Group>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List groups for autocomplete
-   * 
-   * @param apiAutocomplete  (required)
-   * @return List&lt;Group&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Group> autocomplete3(ApiAutocomplete apiAutocomplete) throws ApiException {
-    return this.autocomplete3(apiAutocomplete, Collections.emptyMap());
-  }
-
-
-  /**
-   * List groups for autocomplete
-   * 
-   * @param apiAutocomplete  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Group&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Group> autocomplete3(ApiAutocomplete apiAutocomplete, Map<String, String> additionalHeaders) throws ApiException {
+  public List<Group> autocompleteGroupsasSuperAdmin(@javax.annotation.Nonnull ApiAutocomplete apiAutocomplete, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = apiAutocomplete;
     
     // verify the required parameter 'apiAutocomplete' is set
     if (apiAutocomplete == null) {
-      throw new ApiException(400, "Missing the required parameter 'apiAutocomplete' when calling autocomplete3");
+      throw new ApiException(400, "Missing the required parameter 'apiAutocomplete' when calling autocompleteGroupsasSuperAdmin");
     }
     
     // create path and map variables
@@ -967,89 +531,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<Group>> localVarReturnType = new TypeReference<List<Group>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List groups for autocomplete
-   * 
-   * @param ressourceTenant  (required)
-   * @param apiAutocomplete  (required)
-   * @return List&lt;Group&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Group> autocomplete7(String ressourceTenant, ApiAutocomplete apiAutocomplete) throws ApiException {
-    return this.autocomplete7(ressourceTenant, apiAutocomplete, Collections.emptyMap());
-  }
-
-
-  /**
-   * List groups for autocomplete
-   * 
-   * @param ressourceTenant  (required)
-   * @param apiAutocomplete  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Group&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Group> autocomplete7(String ressourceTenant, ApiAutocomplete apiAutocomplete, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = apiAutocomplete;
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling autocomplete7");
-    }
-    
-    // verify the required parameter 'apiAutocomplete' is set
-    if (apiAutocomplete == null) {
-      throw new ApiException(400, "Missing the required parameter 'apiAutocomplete' when calling autocomplete7");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/{ressourceTenant}/groups/autocomplete"
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<List<Group>> localVarReturnType = new TypeReference<List<Group>>() {};
     return apiClient.invokeAPI(
@@ -1072,169 +554,13 @@ public class GroupsApi extends BaseApi {
   /**
    * Create a group
    * 
-   * @param abstractGroupControllerGroupWithMembers  (required)
-   * @return Group
-   * @throws ApiException if fails to make API call
-   */
-  public Group create16(AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers) throws ApiException {
-    return this.create16(abstractGroupControllerGroupWithMembers, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create a group
-   * 
-   * @param abstractGroupControllerGroupWithMembers  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Group
-   * @throws ApiException if fails to make API call
-   */
-  public Group create16(AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = abstractGroupControllerGroupWithMembers;
-    
-    // verify the required parameter 'abstractGroupControllerGroupWithMembers' is set
-    if (abstractGroupControllerGroupWithMembers == null) {
-      throw new ApiException(400, "Missing the required parameter 'abstractGroupControllerGroupWithMembers' when calling create16");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/groups";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Group> localVarReturnType = new TypeReference<Group>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Create a group
-   * 
-   * @param ressourceTenant  (required)
-   * @param abstractGroupControllerGroupWithMembers  (required)
-   * @return Group
-   * @throws ApiException if fails to make API call
-   */
-  public Group create21(String ressourceTenant, AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers) throws ApiException {
-    return this.create21(ressourceTenant, abstractGroupControllerGroupWithMembers, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create a group
-   * 
-   * @param ressourceTenant  (required)
-   * @param abstractGroupControllerGroupWithMembers  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Group
-   * @throws ApiException if fails to make API call
-   */
-  public Group create21(String ressourceTenant, AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = abstractGroupControllerGroupWithMembers;
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling create21");
-    }
-    
-    // verify the required parameter 'abstractGroupControllerGroupWithMembers' is set
-    if (abstractGroupControllerGroupWithMembers == null) {
-      throw new ApiException(400, "Missing the required parameter 'abstractGroupControllerGroupWithMembers' when calling create21");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/{ressourceTenant}/groups"
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Group> localVarReturnType = new TypeReference<Group>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Create a group
-   * 
    * @param tenant  (required)
-   * @param abstractGroupControllerGroupWithMembers  (required)
+   * @param abstractGroupControllerGroupWithMembers The group (required)
    * @return Group
    * @throws ApiException if fails to make API call
    */
-  public Group create31(String tenant, AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers) throws ApiException {
-    return this.create31(tenant, abstractGroupControllerGroupWithMembers, Collections.emptyMap());
+  public Group createGroup(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers) throws ApiException {
+    return this.createGroup(tenant, abstractGroupControllerGroupWithMembers, Collections.emptyMap());
   }
 
 
@@ -1242,22 +568,22 @@ public class GroupsApi extends BaseApi {
    * Create a group
    * 
    * @param tenant  (required)
-   * @param abstractGroupControllerGroupWithMembers  (required)
+   * @param abstractGroupControllerGroupWithMembers The group (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Group
    * @throws ApiException if fails to make API call
    */
-  public Group create31(String tenant, AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers, Map<String, String> additionalHeaders) throws ApiException {
+  public Group createGroup(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = abstractGroupControllerGroupWithMembers;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling create31");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling createGroup");
     }
     
     // verify the required parameter 'abstractGroupControllerGroupWithMembers' is set
     if (abstractGroupControllerGroupWithMembers == null) {
-      throw new ApiException(400, "Missing the required parameter 'abstractGroupControllerGroupWithMembers' when calling create31");
+      throw new ApiException(400, "Missing the required parameter 'abstractGroupControllerGroupWithMembers' when calling createGroup");
     }
     
     // create path and map variables
@@ -1287,7 +613,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Group> localVarReturnType = new TypeReference<Group>() {};
     return apiClient.invokeAPI(
@@ -1310,41 +636,41 @@ public class GroupsApi extends BaseApi {
   /**
    * Create a group
    * 
-   * @param tenant  (required)
-   * @param abstractGroupControllerGroupWithMembers  (required)
+   * @param resourceTenant  (required)
+   * @param abstractGroupControllerGroupWithMembers The group (required)
    * @return Group
    * @throws ApiException if fails to make API call
    */
-  public Group create41(String tenant, AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers) throws ApiException {
-    return this.create41(tenant, abstractGroupControllerGroupWithMembers, Collections.emptyMap());
+  public Group createGroupWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nonnull AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers) throws ApiException {
+    return this.createGroupWithResourceTenantasSuperAdmin(resourceTenant, abstractGroupControllerGroupWithMembers, Collections.emptyMap());
   }
 
 
   /**
    * Create a group
    * 
-   * @param tenant  (required)
-   * @param abstractGroupControllerGroupWithMembers  (required)
+   * @param resourceTenant  (required)
+   * @param abstractGroupControllerGroupWithMembers The group (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Group
    * @throws ApiException if fails to make API call
    */
-  public Group create41(String tenant, AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers, Map<String, String> additionalHeaders) throws ApiException {
+  public Group createGroupWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nonnull AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = abstractGroupControllerGroupWithMembers;
     
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling create41");
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling createGroupWithResourceTenantasSuperAdmin");
     }
     
     // verify the required parameter 'abstractGroupControllerGroupWithMembers' is set
     if (abstractGroupControllerGroupWithMembers == null) {
-      throw new ApiException(400, "Missing the required parameter 'abstractGroupControllerGroupWithMembers' when calling create41");
+      throw new ApiException(400, "Missing the required parameter 'abstractGroupControllerGroupWithMembers' when calling createGroupWithResourceTenantasSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/groups"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/groups"
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1369,7 +695,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Group> localVarReturnType = new TypeReference<Group>() {};
     return apiClient.invokeAPI(
@@ -1392,123 +718,33 @@ public class GroupsApi extends BaseApi {
   /**
    * Create a group
    * 
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param abstractGroupControllerGroupWithMembers  (required)
+   * @param abstractGroupControllerGroupWithMembers The group (required)
    * @return Group
    * @throws ApiException if fails to make API call
    */
-  public Group create46(String ressourceTenant, String tenant, AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers) throws ApiException {
-    return this.create46(ressourceTenant, tenant, abstractGroupControllerGroupWithMembers, Collections.emptyMap());
+  public Group createGroupasSuperAdmin(@javax.annotation.Nonnull AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers) throws ApiException {
+    return this.createGroupasSuperAdmin(abstractGroupControllerGroupWithMembers, Collections.emptyMap());
   }
 
 
   /**
    * Create a group
    * 
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param abstractGroupControllerGroupWithMembers  (required)
+   * @param abstractGroupControllerGroupWithMembers The group (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Group
    * @throws ApiException if fails to make API call
    */
-  public Group create46(String ressourceTenant, String tenant, AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = abstractGroupControllerGroupWithMembers;
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling create46");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling create46");
-    }
-    
-    // verify the required parameter 'abstractGroupControllerGroupWithMembers' is set
-    if (abstractGroupControllerGroupWithMembers == null) {
-      throw new ApiException(400, "Missing the required parameter 'abstractGroupControllerGroupWithMembers' when calling create46");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{ressourceTenant}/groups"
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Group> localVarReturnType = new TypeReference<Group>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Create a group
-   * 
-   * @param abstractGroupControllerGroupWithMembers  (required)
-   * @return Group
-   * @throws ApiException if fails to make API call
-   */
-  public Group create6(AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers) throws ApiException {
-    return this.create6(abstractGroupControllerGroupWithMembers, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create a group
-   * 
-   * @param abstractGroupControllerGroupWithMembers  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Group
-   * @throws ApiException if fails to make API call
-   */
-  public Group create6(AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers, Map<String, String> additionalHeaders) throws ApiException {
+  public Group createGroupasSuperAdmin(@javax.annotation.Nonnull AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = abstractGroupControllerGroupWithMembers;
     
     // verify the required parameter 'abstractGroupControllerGroupWithMembers' is set
     if (abstractGroupControllerGroupWithMembers == null) {
-      throw new ApiException(400, "Missing the required parameter 'abstractGroupControllerGroupWithMembers' when calling create6");
+      throw new ApiException(400, "Missing the required parameter 'abstractGroupControllerGroupWithMembers' when calling createGroupasSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/groups";
+    String localVarPath = "/api/v1/tenants/groups";
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1533,7 +769,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Group> localVarReturnType = new TypeReference<Group>() {};
     return apiClient.invokeAPI(
@@ -1557,163 +793,11 @@ public class GroupsApi extends BaseApi {
    * Delete a group
    * 
    * @param id The group id (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void delete18(String id) throws ApiException {
-    this.delete18(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete a group
-   * 
-   * @param id The group id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void delete18(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete18");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/groups/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Delete a group
-   * 
-   * @param id The group id (required)
-   * @param ressourceTenant  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void delete24(String id, String ressourceTenant) throws ApiException {
-    this.delete24(id, ressourceTenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete a group
-   * 
-   * @param id The group id (required)
-   * @param ressourceTenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void delete24(String id, String ressourceTenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete24");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling delete24");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/{ressourceTenant}/groups/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Delete a group
-   * 
-   * @param id The group id (required)
    * @param tenant  (required)
    * @throws ApiException if fails to make API call
    */
-  public void delete34(String id, String tenant) throws ApiException {
-    this.delete34(id, tenant, Collections.emptyMap());
+  public void deleteGroup(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    this.deleteGroup(id, tenant, Collections.emptyMap());
   }
 
 
@@ -1725,17 +809,17 @@ public class GroupsApi extends BaseApi {
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void delete34(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteGroup(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete34");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteGroup");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling delete34");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteGroup");
     }
     
     // create path and map variables
@@ -1766,7 +850,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -1789,11 +873,11 @@ public class GroupsApi extends BaseApi {
    * Delete a group
    * 
    * @param id The group id (required)
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
    * @throws ApiException if fails to make API call
    */
-  public void delete46(String id, String tenant) throws ApiException {
-    this.delete46(id, tenant, Collections.emptyMap());
+  public void deleteGroupWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String resourceTenant) throws ApiException {
+    this.deleteGroupWithResourceTenantasSuperAdmin(id, resourceTenant, Collections.emptyMap());
   }
 
 
@@ -1801,27 +885,27 @@ public class GroupsApi extends BaseApi {
    * Delete a group
    * 
    * @param id The group id (required)
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void delete46(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteGroupWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String resourceTenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete46");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteGroupWithResourceTenantasSuperAdmin");
     }
     
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling delete46");
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling deleteGroupWithResourceTenantasSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/groups/{id}"
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/groups/{id}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1846,95 +930,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Delete a group
-   * 
-   * @param id The group id (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void delete52(String id, String ressourceTenant, String tenant) throws ApiException {
-    this.delete52(id, ressourceTenant, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete a group
-   * 
-   * @param id The group id (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void delete52(String id, String ressourceTenant, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete52");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling delete52");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling delete52");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{ressourceTenant}/groups/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -1959,8 +955,8 @@ public class GroupsApi extends BaseApi {
    * @param id The group id (required)
    * @throws ApiException if fails to make API call
    */
-  public void delete6(String id) throws ApiException {
-    this.delete6(id, Collections.emptyMap());
+  public void deleteGroupasSuperAdmin(@javax.annotation.Nonnull String id) throws ApiException {
+    this.deleteGroupasSuperAdmin(id, Collections.emptyMap());
   }
 
 
@@ -1971,16 +967,16 @@ public class GroupsApi extends BaseApi {
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void delete6(String id, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteGroupasSuperAdmin(@javax.annotation.Nonnull String id, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete6");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteGroupasSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/groups/{id}"
+    String localVarPath = "/api/v1/tenants/groups/{id}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
@@ -2006,7 +1002,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -2030,269 +1026,12 @@ public class GroupsApi extends BaseApi {
    * 
    * @param id The group id (required)
    * @param userId The user id (required)
-   * @return ApiUser
-   * @throws ApiException if fails to make API call
-   */
-  public ApiUser deleteGroup(String id, String userId) throws ApiException {
-    return this.deleteGroup(id, userId, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete a group for a user
-   * 
-   * @param id The group id (required)
-   * @param userId The user id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ApiUser
-   * @throws ApiException if fails to make API call
-   */
-  public ApiUser deleteGroup(String id, String userId, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteGroup");
-    }
-    
-    // verify the required parameter 'userId' is set
-    if (userId == null) {
-      throw new ApiException(400, "Missing the required parameter 'userId' when calling deleteGroup");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/groups/{id}/members/{userId}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ApiUser> localVarReturnType = new TypeReference<ApiUser>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete a group for a user
-   * 
-   * @param id The group id (required)
-   * @param userId The user id (required)
-   * @return ApiUser
-   * @throws ApiException if fails to make API call
-   */
-  public ApiUser deleteGroup1(String id, String userId) throws ApiException {
-    return this.deleteGroup1(id, userId, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete a group for a user
-   * 
-   * @param id The group id (required)
-   * @param userId The user id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ApiUser
-   * @throws ApiException if fails to make API call
-   */
-  public ApiUser deleteGroup1(String id, String userId, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteGroup1");
-    }
-    
-    // verify the required parameter 'userId' is set
-    if (userId == null) {
-      throw new ApiException(400, "Missing the required parameter 'userId' when calling deleteGroup1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/groups/{id}/members/{userId}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ApiUser> localVarReturnType = new TypeReference<ApiUser>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete a group for a user
-   * 
-   * @param id The group id (required)
-   * @param userId The user id (required)
-   * @param ressourceTenant  (required)
-   * @return ApiUser
-   * @throws ApiException if fails to make API call
-   */
-  public ApiUser deleteGroup2(String id, String userId, String ressourceTenant) throws ApiException {
-    return this.deleteGroup2(id, userId, ressourceTenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete a group for a user
-   * 
-   * @param id The group id (required)
-   * @param userId The user id (required)
-   * @param ressourceTenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ApiUser
-   * @throws ApiException if fails to make API call
-   */
-  public ApiUser deleteGroup2(String id, String userId, String ressourceTenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteGroup2");
-    }
-    
-    // verify the required parameter 'userId' is set
-    if (userId == null) {
-      throw new ApiException(400, "Missing the required parameter 'userId' when calling deleteGroup2");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling deleteGroup2");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/{ressourceTenant}/groups/{id}/members/{userId}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ApiUser> localVarReturnType = new TypeReference<ApiUser>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete a group for a user
-   * 
-   * @param id The group id (required)
-   * @param userId The user id (required)
    * @param tenant  (required)
    * @return ApiUser
    * @throws ApiException if fails to make API call
    */
-  public ApiUser deleteGroup3(String id, String userId, String tenant) throws ApiException {
-    return this.deleteGroup3(id, userId, tenant, Collections.emptyMap());
+  public ApiUser deleteUserFromGroup(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.deleteUserFromGroup(id, userId, tenant, Collections.emptyMap());
   }
 
 
@@ -2306,22 +1045,22 @@ public class GroupsApi extends BaseApi {
    * @return ApiUser
    * @throws ApiException if fails to make API call
    */
-  public ApiUser deleteGroup3(String id, String userId, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public ApiUser deleteUserFromGroup(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteGroup3");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteUserFromGroup");
     }
     
     // verify the required parameter 'userId' is set
     if (userId == null) {
-      throw new ApiException(400, "Missing the required parameter 'userId' when calling deleteGroup3");
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling deleteUserFromGroup");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteGroup3");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteUserFromGroup");
     }
     
     // create path and map variables
@@ -2353,7 +1092,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<ApiUser> localVarReturnType = new TypeReference<ApiUser>() {};
     return apiClient.invokeAPI(
@@ -2378,12 +1117,12 @@ public class GroupsApi extends BaseApi {
    * 
    * @param id The group id (required)
    * @param userId The user id (required)
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
    * @return ApiUser
    * @throws ApiException if fails to make API call
    */
-  public ApiUser deleteGroup4(String id, String userId, String tenant) throws ApiException {
-    return this.deleteGroup4(id, userId, tenant, Collections.emptyMap());
+  public ApiUser deleteUserFromGroupWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull String resourceTenant) throws ApiException {
+    return this.deleteUserFromGroupWithResourceTenantasSuperAdmin(id, userId, resourceTenant, Collections.emptyMap());
   }
 
 
@@ -2392,34 +1131,34 @@ public class GroupsApi extends BaseApi {
    * 
    * @param id The group id (required)
    * @param userId The user id (required)
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ApiUser
    * @throws ApiException if fails to make API call
    */
-  public ApiUser deleteGroup4(String id, String userId, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public ApiUser deleteUserFromGroupWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull String resourceTenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteGroup4");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteUserFromGroupWithResourceTenantasSuperAdmin");
     }
     
     // verify the required parameter 'userId' is set
     if (userId == null) {
-      throw new ApiException(400, "Missing the required parameter 'userId' when calling deleteGroup4");
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling deleteUserFromGroupWithResourceTenantasSuperAdmin");
     }
     
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteGroup4");
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling deleteUserFromGroupWithResourceTenantasSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/groups/{id}/members/{userId}"
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/groups/{id}/members/{userId}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
       .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -2444,7 +1183,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<ApiUser> localVarReturnType = new TypeReference<ApiUser>() {};
     return apiClient.invokeAPI(
@@ -2469,13 +1208,11 @@ public class GroupsApi extends BaseApi {
    * 
    * @param id The group id (required)
    * @param userId The user id (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
    * @return ApiUser
    * @throws ApiException if fails to make API call
    */
-  public ApiUser deleteGroup5(String id, String userId, String ressourceTenant, String tenant) throws ApiException {
-    return this.deleteGroup5(id, userId, ressourceTenant, tenant, Collections.emptyMap());
+  public ApiUser deleteUserFromGroupasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String userId) throws ApiException {
+    return this.deleteUserFromGroupasSuperAdmin(id, userId, Collections.emptyMap());
   }
 
 
@@ -2484,41 +1221,27 @@ public class GroupsApi extends BaseApi {
    * 
    * @param id The group id (required)
    * @param userId The user id (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ApiUser
    * @throws ApiException if fails to make API call
    */
-  public ApiUser deleteGroup5(String id, String userId, String ressourceTenant, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public ApiUser deleteUserFromGroupasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String userId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteGroup5");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteUserFromGroupasSuperAdmin");
     }
     
     // verify the required parameter 'userId' is set
     if (userId == null) {
-      throw new ApiException(400, "Missing the required parameter 'userId' when calling deleteGroup5");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling deleteGroup5");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteGroup5");
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling deleteUserFromGroupasSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{ressourceTenant}/groups/{id}/members/{userId}"
+    String localVarPath = "/api/v1/tenants/groups/{id}/members/{userId}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -2543,7 +1266,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<ApiUser> localVarReturnType = new TypeReference<ApiUser>() {};
     return apiClient.invokeAPI(
@@ -2564,1072 +1287,15 @@ public class GroupsApi extends BaseApi {
   }
 
   /**
-   * Search for groups
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @return PagedResultsGroup
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsGroup find15(Integer page, Integer size, String q, List<String> sort) throws ApiException {
-    return this.find15(page, size, q, sort, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for groups
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsGroup
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsGroup find15(Integer page, Integer size, String q, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find15");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find15");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/groups/search";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsGroup> localVarReturnType = new TypeReference<PagedResultsGroup>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Search for groups
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param ressourceTenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @return PagedResultsGroup
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsGroup find21(Integer page, Integer size, String ressourceTenant, String q, List<String> sort) throws ApiException {
-    return this.find21(page, size, ressourceTenant, q, sort, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for groups
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param ressourceTenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsGroup
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsGroup find21(Integer page, Integer size, String ressourceTenant, String q, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find21");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find21");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling find21");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/{ressourceTenant}/groups/search"
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsGroup> localVarReturnType = new TypeReference<PagedResultsGroup>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Search for groups
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @return PagedResultsGroup
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsGroup find32(Integer page, Integer size, String tenant, String q, List<String> sort) throws ApiException {
-    return this.find32(page, size, tenant, q, sort, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for groups
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsGroup
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsGroup find32(Integer page, Integer size, String tenant, String q, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find32");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find32");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling find32");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/groups/search"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsGroup> localVarReturnType = new TypeReference<PagedResultsGroup>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Search for groups
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @return PagedResultsGroup
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsGroup find41(Integer page, Integer size, String tenant, String q, List<String> sort) throws ApiException {
-    return this.find41(page, size, tenant, q, sort, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for groups
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsGroup
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsGroup find41(Integer page, Integer size, String tenant, String q, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find41");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find41");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling find41");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/groups/search"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsGroup> localVarReturnType = new TypeReference<PagedResultsGroup>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Search for groups
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @return PagedResultsGroup
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsGroup find47(Integer page, Integer size, String ressourceTenant, String tenant, String q, List<String> sort) throws ApiException {
-    return this.find47(page, size, ressourceTenant, tenant, q, sort, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for groups
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsGroup
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsGroup find47(Integer page, Integer size, String ressourceTenant, String tenant, String q, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find47");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find47");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling find47");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling find47");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{ressourceTenant}/groups/search"
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsGroup> localVarReturnType = new TypeReference<PagedResultsGroup>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Search for groups
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @return PagedResultsGroup
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsGroup find6(Integer page, Integer size, String q, List<String> sort) throws ApiException {
-    return this.find6(page, size, q, sort, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for groups
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsGroup
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsGroup find6(Integer page, Integer size, String q, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find6");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find6");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/groups/search";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsGroup> localVarReturnType = new TypeReference<PagedResultsGroup>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List groups by ids
-   * 
-   * @param apiIds  (required)
-   * @return List&lt;Group&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Group> ids(ApiIds apiIds) throws ApiException {
-    return this.ids(apiIds, Collections.emptyMap());
-  }
-
-
-  /**
-   * List groups by ids
-   * 
-   * @param apiIds  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Group&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Group> ids(ApiIds apiIds, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = apiIds;
-    
-    // verify the required parameter 'apiIds' is set
-    if (apiIds == null) {
-      throw new ApiException(400, "Missing the required parameter 'apiIds' when calling ids");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/groups/ids";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<Group>> localVarReturnType = new TypeReference<List<Group>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List groups by ids
-   * 
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param apiIds  (required)
-   * @return List&lt;Group&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Group> ids10(String ressourceTenant, String tenant, ApiIds apiIds) throws ApiException {
-    return this.ids10(ressourceTenant, tenant, apiIds, Collections.emptyMap());
-  }
-
-
-  /**
-   * List groups by ids
-   * 
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param apiIds  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Group&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Group> ids10(String ressourceTenant, String tenant, ApiIds apiIds, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = apiIds;
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling ids10");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling ids10");
-    }
-    
-    // verify the required parameter 'apiIds' is set
-    if (apiIds == null) {
-      throw new ApiException(400, "Missing the required parameter 'apiIds' when calling ids10");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{ressourceTenant}/groups/ids"
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<Group>> localVarReturnType = new TypeReference<List<Group>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List groups by ids
-   * 
-   * @param apiIds  (required)
-   * @return List&lt;Group&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Group> ids2(ApiIds apiIds) throws ApiException {
-    return this.ids2(apiIds, Collections.emptyMap());
-  }
-
-
-  /**
-   * List groups by ids
-   * 
-   * @param apiIds  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Group&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Group> ids2(ApiIds apiIds, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = apiIds;
-    
-    // verify the required parameter 'apiIds' is set
-    if (apiIds == null) {
-      throw new ApiException(400, "Missing the required parameter 'apiIds' when calling ids2");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/groups/ids";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<Group>> localVarReturnType = new TypeReference<List<Group>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List groups by ids
-   * 
-   * @param ressourceTenant  (required)
-   * @param apiIds  (required)
-   * @return List&lt;Group&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Group> ids4(String ressourceTenant, ApiIds apiIds) throws ApiException {
-    return this.ids4(ressourceTenant, apiIds, Collections.emptyMap());
-  }
-
-
-  /**
-   * List groups by ids
-   * 
-   * @param ressourceTenant  (required)
-   * @param apiIds  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Group&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Group> ids4(String ressourceTenant, ApiIds apiIds, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = apiIds;
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling ids4");
-    }
-    
-    // verify the required parameter 'apiIds' is set
-    if (apiIds == null) {
-      throw new ApiException(400, "Missing the required parameter 'apiIds' when calling ids4");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/{ressourceTenant}/groups/ids"
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<Group>> localVarReturnType = new TypeReference<List<Group>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List groups by ids
-   * 
-   * @param tenant  (required)
-   * @param apiIds  (required)
-   * @return List&lt;Group&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Group> ids6(String tenant, ApiIds apiIds) throws ApiException {
-    return this.ids6(tenant, apiIds, Collections.emptyMap());
-  }
-
-
-  /**
-   * List groups by ids
-   * 
-   * @param tenant  (required)
-   * @param apiIds  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Group&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Group> ids6(String tenant, ApiIds apiIds, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = apiIds;
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling ids6");
-    }
-    
-    // verify the required parameter 'apiIds' is set
-    if (apiIds == null) {
-      throw new ApiException(400, "Missing the required parameter 'apiIds' when calling ids6");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/groups/ids"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<Group>> localVarReturnType = new TypeReference<List<Group>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List groups by ids
-   * 
-   * @param tenant  (required)
-   * @param apiIds  (required)
-   * @return List&lt;Group&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Group> ids8(String tenant, ApiIds apiIds) throws ApiException {
-    return this.ids8(tenant, apiIds, Collections.emptyMap());
-  }
-
-
-  /**
-   * List groups by ids
-   * 
-   * @param tenant  (required)
-   * @param apiIds  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Group&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Group> ids8(String tenant, ApiIds apiIds, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = apiIds;
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling ids8");
-    }
-    
-    // verify the required parameter 'apiIds' is set
-    if (apiIds == null) {
-      throw new ApiException(400, "Missing the required parameter 'apiIds' when calling ids8");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/groups/ids"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<Group>> localVarReturnType = new TypeReference<List<Group>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
    * Get a group
    * 
    * @param id The group id (required)
+   * @param tenant  (required)
    * @return Group
    * @throws ApiException if fails to make API call
    */
-  public Group index11(String id) throws ApiException {
-    return this.index11(id, Collections.emptyMap());
+  public Group getGroup(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getGroup(id, tenant, Collections.emptyMap());
   }
 
 
@@ -3637,181 +1303,22 @@ public class GroupsApi extends BaseApi {
    * Get a group
    * 
    * @param id The group id (required)
+   * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Group
    * @throws ApiException if fails to make API call
    */
-  public Group index11(String id, Map<String, String> additionalHeaders) throws ApiException {
+  public Group getGroup(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index11");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/groups/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Group> localVarReturnType = new TypeReference<Group>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get a group
-   * 
-   * @param id The group id (required)
-   * @param ressourceTenant  (required)
-   * @return Group
-   * @throws ApiException if fails to make API call
-   */
-  public Group index16(String id, String ressourceTenant) throws ApiException {
-    return this.index16(id, ressourceTenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a group
-   * 
-   * @param id The group id (required)
-   * @param ressourceTenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Group
-   * @throws ApiException if fails to make API call
-   */
-  public Group index16(String id, String ressourceTenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index16");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling index16");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/{ressourceTenant}/groups/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Group> localVarReturnType = new TypeReference<Group>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get a group
-   * 
-   * @param id The group id (required)
-   * @param tenant  (required)
-   * @return Group
-   * @throws ApiException if fails to make API call
-   */
-  public Group index25(String id, String tenant) throws ApiException {
-    return this.index25(id, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a group
-   * 
-   * @param id The group id (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Group
-   * @throws ApiException if fails to make API call
-   */
-  public Group index25(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index25");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getGroup");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling index25");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getGroup");
     }
     
     // create path and map variables
@@ -3842,7 +1349,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Group> localVarReturnType = new TypeReference<Group>() {};
     return apiClient.invokeAPI(
@@ -3866,12 +1373,12 @@ public class GroupsApi extends BaseApi {
    * Get a group
    * 
    * @param id The group id (required)
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
    * @return Group
    * @throws ApiException if fails to make API call
    */
-  public Group index32(String id, String tenant) throws ApiException {
-    return this.index32(id, tenant, Collections.emptyMap());
+  public Group getGroupWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String resourceTenant) throws ApiException {
+    return this.getGroupWithResourceTenantasSuperAdmin(id, resourceTenant, Collections.emptyMap());
   }
 
 
@@ -3879,27 +1386,184 @@ public class GroupsApi extends BaseApi {
    * Get a group
    * 
    * @param id The group id (required)
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Group
    * @throws ApiException if fails to make API call
    */
-  public Group index32(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public Group getGroupWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String resourceTenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index32");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getGroupWithResourceTenantasSuperAdmin");
     }
     
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling index32");
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling getGroupWithResourceTenantasSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/groups/{id}"
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/groups/{id}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<Group> localVarReturnType = new TypeReference<Group>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get a group
+   * 
+   * @param id The group id (required)
+   * @return Group
+   * @throws ApiException if fails to make API call
+   */
+  public Group getGroupasSuperAdmin(@javax.annotation.Nonnull String id) throws ApiException {
+    return this.getGroupasSuperAdmin(id, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get a group
+   * 
+   * @param id The group id (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return Group
+   * @throws ApiException if fails to make API call
+   */
+  public Group getGroupasSuperAdmin(@javax.annotation.Nonnull String id, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getGroupasSuperAdmin");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/tenants/groups/{id}"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<Group> localVarReturnType = new TypeReference<Group>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * List groups by ids
+   * 
+   * @param tenant  (required)
+   * @param apiIds The ids that must be present on results (required)
+   * @return List&lt;Group&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<Group> listGroupIds(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ApiIds apiIds) throws ApiException {
+    return this.listGroupIds(tenant, apiIds, Collections.emptyMap());
+  }
+
+
+  /**
+   * List groups by ids
+   * 
+   * @param tenant  (required)
+   * @param apiIds The ids that must be present on results (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return List&lt;Group&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<Group> listGroupIds(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ApiIds apiIds, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = apiIds;
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listGroupIds");
+    }
+    
+    // verify the required parameter 'apiIds' is set
+    if (apiIds == null) {
+      throw new ApiException(400, "Missing the required parameter 'apiIds' when calling listGroupIds");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/groups/ids"
       .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
@@ -3921,16 +1585,16 @@ public class GroupsApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<Group> localVarReturnType = new TypeReference<Group>() {};
+    TypeReference<List<Group>> localVarReturnType = new TypeReference<List<Group>>() {};
     return apiClient.invokeAPI(
         localVarPath,
-        "GET",
+        "POST",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),
@@ -3946,521 +1610,212 @@ public class GroupsApi extends BaseApi {
   }
 
   /**
-   * Get a group
+   * List groups by ids
    * 
-   * @param id The group id (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @return Group
+   * @param resourceTenant  (required)
+   * @param apiIds The ids that must be present on results (required)
+   * @return List&lt;Group&gt;
    * @throws ApiException if fails to make API call
    */
-  public Group index37(String id, String ressourceTenant, String tenant) throws ApiException {
-    return this.index37(id, ressourceTenant, tenant, Collections.emptyMap());
+  public List<Group> listGroupIdsWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nonnull ApiIds apiIds) throws ApiException {
+    return this.listGroupIdsWithResourceTenantasSuperAdmin(resourceTenant, apiIds, Collections.emptyMap());
   }
 
 
   /**
-   * Get a group
+   * List groups by ids
    * 
-   * @param id The group id (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
+   * @param apiIds The ids that must be present on results (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return Group
+   * @return List&lt;Group&gt;
    * @throws ApiException if fails to make API call
    */
-  public Group index37(String id, String ressourceTenant, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public List<Group> listGroupIdsWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nonnull ApiIds apiIds, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = apiIds;
+    
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling listGroupIdsWithResourceTenantasSuperAdmin");
+    }
+    
+    // verify the required parameter 'apiIds' is set
+    if (apiIds == null) {
+      throw new ApiException(400, "Missing the required parameter 'apiIds' when calling listGroupIdsWithResourceTenantasSuperAdmin");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/groups/ids"
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<List<Group>> localVarReturnType = new TypeReference<List<Group>>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * List groups by ids
+   * 
+   * @param apiIds The ids that must be present on results (required)
+   * @return List&lt;Group&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<Group> listGroupIdsasSuperAdmin(@javax.annotation.Nonnull ApiIds apiIds) throws ApiException {
+    return this.listGroupIdsasSuperAdmin(apiIds, Collections.emptyMap());
+  }
+
+
+  /**
+   * List groups by ids
+   * 
+   * @param apiIds The ids that must be present on results (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return List&lt;Group&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<Group> listGroupIdsasSuperAdmin(@javax.annotation.Nonnull ApiIds apiIds, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = apiIds;
+    
+    // verify the required parameter 'apiIds' is set
+    if (apiIds == null) {
+      throw new ApiException(400, "Missing the required parameter 'apiIds' when calling listGroupIdsasSuperAdmin");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/tenants/groups/ids";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<List<Group>> localVarReturnType = new TypeReference<List<Group>>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Search for users in a group
+   * 
+   * @param id The group id (required)
+   * @param page The current page (required)
+   * @param size The current page size (required)
+   * @param tenant  (required)
+   * @param q A string filter (optional)
+   * @param sort The sort of current page (optional)
+   * @return PagedResultsApiUser
+   * @throws ApiException if fails to make API call
+   */
+  public PagedResultsApiUser searchGroupMembers(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort) throws ApiException {
+    return this.searchGroupMembers(id, page, size, tenant, q, sort, Collections.emptyMap());
+  }
+
+
+  /**
+   * Search for users in a group
+   * 
+   * @param id The group id (required)
+   * @param page The current page (required)
+   * @param size The current page size (required)
+   * @param tenant  (required)
+   * @param q A string filter (optional)
+   * @param sort The sort of current page (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return PagedResultsApiUser
+   * @throws ApiException if fails to make API call
+   */
+  public PagedResultsApiUser searchGroupMembers(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index37");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling searchGroupMembers");
     }
     
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling index37");
+    // verify the required parameter 'page' is set
+    if (page == null) {
+      throw new ApiException(400, "Missing the required parameter 'page' when calling searchGroupMembers");
+    }
+    
+    // verify the required parameter 'size' is set
+    if (size == null) {
+      throw new ApiException(400, "Missing the required parameter 'size' when calling searchGroupMembers");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling index37");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{ressourceTenant}/groups/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Group> localVarReturnType = new TypeReference<Group>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get a group
-   * 
-   * @param id The group id (required)
-   * @return Group
-   * @throws ApiException if fails to make API call
-   */
-  public Group index4(String id) throws ApiException {
-    return this.index4(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a group
-   * 
-   * @param id The group id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Group
-   * @throws ApiException if fails to make API call
-   */
-  public Group index4(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index4");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/groups/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Group> localVarReturnType = new TypeReference<Group>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Search for users in a group
-   * 
-   * @param id The group id (required)
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @return PagedResultsApiUser
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsApiUser members(String id, Integer page, Integer size, String q, List<String> sort) throws ApiException {
-    return this.members(id, page, size, q, sort, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for users in a group
-   * 
-   * @param id The group id (required)
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsApiUser
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsApiUser members(String id, Integer page, Integer size, String q, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling members");
-    }
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling members");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling members");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/groups/{id}/members"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsApiUser> localVarReturnType = new TypeReference<PagedResultsApiUser>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Search for users in a group
-   * 
-   * @param id The group id (required)
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @return PagedResultsApiUser
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsApiUser members1(String id, Integer page, Integer size, String q, List<String> sort) throws ApiException {
-    return this.members1(id, page, size, q, sort, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for users in a group
-   * 
-   * @param id The group id (required)
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsApiUser
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsApiUser members1(String id, Integer page, Integer size, String q, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling members1");
-    }
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling members1");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling members1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/groups/{id}/members"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsApiUser> localVarReturnType = new TypeReference<PagedResultsApiUser>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Search for users in a group
-   * 
-   * @param id The group id (required)
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param ressourceTenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @return PagedResultsApiUser
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsApiUser members2(String id, Integer page, Integer size, String ressourceTenant, String q, List<String> sort) throws ApiException {
-    return this.members2(id, page, size, ressourceTenant, q, sort, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for users in a group
-   * 
-   * @param id The group id (required)
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param ressourceTenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsApiUser
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsApiUser members2(String id, Integer page, Integer size, String ressourceTenant, String q, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling members2");
-    }
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling members2");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling members2");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling members2");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/{ressourceTenant}/groups/{id}/members"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsApiUser> localVarReturnType = new TypeReference<PagedResultsApiUser>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Search for users in a group
-   * 
-   * @param id The group id (required)
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @return PagedResultsApiUser
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsApiUser members3(String id, Integer page, Integer size, String tenant, String q, List<String> sort) throws ApiException {
-    return this.members3(id, page, size, tenant, q, sort, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for users in a group
-   * 
-   * @param id The group id (required)
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsApiUser
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsApiUser members3(String id, Integer page, Integer size, String tenant, String q, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling members3");
-    }
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling members3");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling members3");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling members3");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling searchGroupMembers");
     }
     
     // create path and map variables
@@ -4495,7 +1850,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<PagedResultsApiUser> localVarReturnType = new TypeReference<PagedResultsApiUser>() {};
     return apiClient.invokeAPI(
@@ -4521,14 +1876,14 @@ public class GroupsApi extends BaseApi {
    * @param id The group id (required)
    * @param page The current page (required)
    * @param size The current page size (required)
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
    * @param q A string filter (optional)
    * @param sort The sort of current page (optional)
    * @return PagedResultsApiUser
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsApiUser members4(String id, Integer page, Integer size, String tenant, String q, List<String> sort) throws ApiException {
-    return this.members4(id, page, size, tenant, q, sort, Collections.emptyMap());
+  public PagedResultsApiUser searchGroupMembersWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort) throws ApiException {
+    return this.searchGroupMembersWithResourceTenantasSuperAdmin(id, page, size, resourceTenant, q, sort, Collections.emptyMap());
   }
 
 
@@ -4538,40 +1893,40 @@ public class GroupsApi extends BaseApi {
    * @param id The group id (required)
    * @param page The current page (required)
    * @param size The current page size (required)
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
    * @param q A string filter (optional)
    * @param sort The sort of current page (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return PagedResultsApiUser
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsApiUser members4(String id, Integer page, Integer size, String tenant, String q, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
+  public PagedResultsApiUser searchGroupMembersWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling members4");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling searchGroupMembersWithResourceTenantasSuperAdmin");
     }
     
     // verify the required parameter 'page' is set
     if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling members4");
+      throw new ApiException(400, "Missing the required parameter 'page' when calling searchGroupMembersWithResourceTenantasSuperAdmin");
     }
     
     // verify the required parameter 'size' is set
     if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling members4");
+      throw new ApiException(400, "Missing the required parameter 'size' when calling searchGroupMembersWithResourceTenantasSuperAdmin");
     }
     
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling members4");
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling searchGroupMembersWithResourceTenantasSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/groups/{id}/members"
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/groups/{id}/members"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -4600,7 +1955,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<PagedResultsApiUser> localVarReturnType = new TypeReference<PagedResultsApiUser>() {};
     return apiClient.invokeAPI(
@@ -4626,15 +1981,13 @@ public class GroupsApi extends BaseApi {
    * @param id The group id (required)
    * @param page The current page (required)
    * @param size The current page size (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
    * @param q A string filter (optional)
    * @param sort The sort of current page (optional)
    * @return PagedResultsApiUser
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsApiUser members5(String id, Integer page, Integer size, String ressourceTenant, String tenant, String q, List<String> sort) throws ApiException {
-    return this.members5(id, page, size, ressourceTenant, tenant, q, sort, Collections.emptyMap());
+  public PagedResultsApiUser searchGroupMembersasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort) throws ApiException {
+    return this.searchGroupMembersasSuperAdmin(id, page, size, q, sort, Collections.emptyMap());
   }
 
 
@@ -4644,132 +1997,32 @@ public class GroupsApi extends BaseApi {
    * @param id The group id (required)
    * @param page The current page (required)
    * @param size The current page size (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
    * @param q A string filter (optional)
    * @param sort The sort of current page (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return PagedResultsApiUser
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsApiUser members5(String id, Integer page, Integer size, String ressourceTenant, String tenant, String q, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
+  public PagedResultsApiUser searchGroupMembersasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling members5");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling searchGroupMembersasSuperAdmin");
     }
     
     // verify the required parameter 'page' is set
     if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling members5");
+      throw new ApiException(400, "Missing the required parameter 'page' when calling searchGroupMembersasSuperAdmin");
     }
     
     // verify the required parameter 'size' is set
     if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling members5");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling members5");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling members5");
+      throw new ApiException(400, "Missing the required parameter 'size' when calling searchGroupMembersasSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{ressourceTenant}/groups/{id}/members"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsApiUser> localVarReturnType = new TypeReference<PagedResultsApiUser>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Update a group
-   * 
-   * @param id The group id (required)
-   * @param group  (required)
-   * @return Group
-   * @throws ApiException if fails to make API call
-   */
-  public Group update10(String id, Group group) throws ApiException {
-    return this.update10(id, group, Collections.emptyMap());
-  }
-
-
-  /**
-   * Update a group
-   * 
-   * @param id The group id (required)
-   * @param group  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Group
-   * @throws ApiException if fails to make API call
-   */
-  public Group update10(String id, Group group, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = group;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update10");
-    }
-    
-    // verify the required parameter 'group' is set
-    if (group == null) {
-      throw new ApiException(400, "Missing the required parameter 'group' when calling update10");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/groups/{id}"
+    String localVarPath = "/api/v1/tenants/groups/{id}/members"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
@@ -4780,6 +2033,10 @@ public class GroupsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
+    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
     
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -4791,16 +2048,16 @@ public class GroupsApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json"
+      
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<Group> localVarReturnType = new TypeReference<Group>() {};
+    TypeReference<PagedResultsApiUser> localVarReturnType = new TypeReference<PagedResultsApiUser>() {};
     return apiClient.invokeAPI(
         localVarPath,
-        "PUT",
+        "GET",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),
@@ -4816,51 +2073,54 @@ public class GroupsApi extends BaseApi {
   }
 
   /**
-   * Update a group
+   * Search for groups
    * 
-   * @param id The group id (required)
-   * @param ressourceTenant  (required)
-   * @param group  (required)
-   * @return Group
+   * @param page The current page (required)
+   * @param size The current page size (required)
+   * @param tenant  (required)
+   * @param q A string filter (optional)
+   * @param sort The sort of current page (optional)
+   * @return PagedResultsGroup
    * @throws ApiException if fails to make API call
    */
-  public Group update14(String id, String ressourceTenant, Group group) throws ApiException {
-    return this.update14(id, ressourceTenant, group, Collections.emptyMap());
+  public PagedResultsGroup searchGroups(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort) throws ApiException {
+    return this.searchGroups(page, size, tenant, q, sort, Collections.emptyMap());
   }
 
 
   /**
-   * Update a group
+   * Search for groups
    * 
-   * @param id The group id (required)
-   * @param ressourceTenant  (required)
-   * @param group  (required)
+   * @param page The current page (required)
+   * @param size The current page size (required)
+   * @param tenant  (required)
+   * @param q A string filter (optional)
+   * @param sort The sort of current page (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return Group
+   * @return PagedResultsGroup
    * @throws ApiException if fails to make API call
    */
-  public Group update14(String id, String ressourceTenant, Group group, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = group;
+  public PagedResultsGroup searchGroups(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
     
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update14");
+    // verify the required parameter 'page' is set
+    if (page == null) {
+      throw new ApiException(400, "Missing the required parameter 'page' when calling searchGroups");
     }
     
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling update14");
+    // verify the required parameter 'size' is set
+    if (size == null) {
+      throw new ApiException(400, "Missing the required parameter 'size' when calling searchGroups");
     }
     
-    // verify the required parameter 'group' is set
-    if (group == null) {
-      throw new ApiException(400, "Missing the required parameter 'group' when calling update14");
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling searchGroups");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/tenants/{ressourceTenant}/groups/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)));
+    String localVarPath = "/api/v1/{tenant}/groups/search"
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -4870,6 +2130,10 @@ public class GroupsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
+    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
     
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -4881,13 +2145,488 @@ public class GroupsApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json"
+      
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<Group> localVarReturnType = new TypeReference<Group>() {};
+    TypeReference<PagedResultsGroup> localVarReturnType = new TypeReference<PagedResultsGroup>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Search for groups
+   * 
+   * @param page The current page (required)
+   * @param size The current page size (required)
+   * @param resourceTenant  (required)
+   * @param q A string filter (optional)
+   * @param sort The sort of current page (optional)
+   * @return PagedResultsGroup
+   * @throws ApiException if fails to make API call
+   */
+  public PagedResultsGroup searchGroupsWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort) throws ApiException {
+    return this.searchGroupsWithResourceTenantasSuperAdmin(page, size, resourceTenant, q, sort, Collections.emptyMap());
+  }
+
+
+  /**
+   * Search for groups
+   * 
+   * @param page The current page (required)
+   * @param size The current page size (required)
+   * @param resourceTenant  (required)
+   * @param q A string filter (optional)
+   * @param sort The sort of current page (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return PagedResultsGroup
+   * @throws ApiException if fails to make API call
+   */
+  public PagedResultsGroup searchGroupsWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'page' is set
+    if (page == null) {
+      throw new ApiException(400, "Missing the required parameter 'page' when calling searchGroupsWithResourceTenantasSuperAdmin");
+    }
+    
+    // verify the required parameter 'size' is set
+    if (size == null) {
+      throw new ApiException(400, "Missing the required parameter 'size' when calling searchGroupsWithResourceTenantasSuperAdmin");
+    }
+    
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling searchGroupsWithResourceTenantasSuperAdmin");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/groups/search"
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
+    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<PagedResultsGroup> localVarReturnType = new TypeReference<PagedResultsGroup>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Search for groups
+   * 
+   * @param page The current page (required)
+   * @param size The current page size (required)
+   * @param q A string filter (optional)
+   * @param sort The sort of current page (optional)
+   * @return PagedResultsGroup
+   * @throws ApiException if fails to make API call
+   */
+  public PagedResultsGroup searchGroupsasSuperAdmin(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort) throws ApiException {
+    return this.searchGroupsasSuperAdmin(page, size, q, sort, Collections.emptyMap());
+  }
+
+
+  /**
+   * Search for groups
+   * 
+   * @param page The current page (required)
+   * @param size The current page size (required)
+   * @param q A string filter (optional)
+   * @param sort The sort of current page (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return PagedResultsGroup
+   * @throws ApiException if fails to make API call
+   */
+  public PagedResultsGroup searchGroupsasSuperAdmin(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'page' is set
+    if (page == null) {
+      throw new ApiException(400, "Missing the required parameter 'page' when calling searchGroupsasSuperAdmin");
+    }
+    
+    // verify the required parameter 'size' is set
+    if (size == null) {
+      throw new ApiException(400, "Missing the required parameter 'size' when calling searchGroupsasSuperAdmin");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/tenants/groups/search";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
+    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<PagedResultsGroup> localVarReturnType = new TypeReference<PagedResultsGroup>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Set the membership type of a user in a group
+   * Sets the membership type of a user in a group. This method allows a group owner or a user with UPDATE permission to modify the membership of a user in a specific group.
+   * @param id The group id (required)
+   * @param userId The user id (required)
+   * @param membership The membership type (required)
+   * @param tenant  (required)
+   * @return ApiUser
+   * @throws ApiException if fails to make API call
+   */
+  public ApiUser setUserMembershipForGroup(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull AbstractUserGroupIdentifierMembership membership, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.setUserMembershipForGroup(id, userId, membership, tenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Set the membership type of a user in a group
+   * Sets the membership type of a user in a group. This method allows a group owner or a user with UPDATE permission to modify the membership of a user in a specific group.
+   * @param id The group id (required)
+   * @param userId The user id (required)
+   * @param membership The membership type (required)
+   * @param tenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return ApiUser
+   * @throws ApiException if fails to make API call
+   */
+  public ApiUser setUserMembershipForGroup(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull AbstractUserGroupIdentifierMembership membership, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling setUserMembershipForGroup");
+    }
+    
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling setUserMembershipForGroup");
+    }
+    
+    // verify the required parameter 'membership' is set
+    if (membership == null) {
+      throw new ApiException(400, "Missing the required parameter 'membership' when calling setUserMembershipForGroup");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling setUserMembershipForGroup");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/groups/{id}/members/membership/{userId}"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("membership", membership));
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<ApiUser> localVarReturnType = new TypeReference<ApiUser>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Set the membership type of a user in a group
+   * Sets the membership type of a user in a group. This method allows a group owner or a user with UPDATE permission to modify the membership of a user in a specific group.
+   * @param id The group id (required)
+   * @param userId The user id (required)
+   * @param membership The membership type (required)
+   * @param resourceTenant  (required)
+   * @return ApiUser
+   * @throws ApiException if fails to make API call
+   */
+  public ApiUser setUserMembershipForGroupWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull AbstractUserGroupIdentifierMembership membership, @javax.annotation.Nonnull String resourceTenant) throws ApiException {
+    return this.setUserMembershipForGroupWithResourceTenantasSuperAdmin(id, userId, membership, resourceTenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Set the membership type of a user in a group
+   * Sets the membership type of a user in a group. This method allows a group owner or a user with UPDATE permission to modify the membership of a user in a specific group.
+   * @param id The group id (required)
+   * @param userId The user id (required)
+   * @param membership The membership type (required)
+   * @param resourceTenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return ApiUser
+   * @throws ApiException if fails to make API call
+   */
+  public ApiUser setUserMembershipForGroupWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull AbstractUserGroupIdentifierMembership membership, @javax.annotation.Nonnull String resourceTenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling setUserMembershipForGroupWithResourceTenantasSuperAdmin");
+    }
+    
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling setUserMembershipForGroupWithResourceTenantasSuperAdmin");
+    }
+    
+    // verify the required parameter 'membership' is set
+    if (membership == null) {
+      throw new ApiException(400, "Missing the required parameter 'membership' when calling setUserMembershipForGroupWithResourceTenantasSuperAdmin");
+    }
+    
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling setUserMembershipForGroupWithResourceTenantasSuperAdmin");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/groups/{id}/members/membership/{userId}"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)))
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("membership", membership));
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<ApiUser> localVarReturnType = new TypeReference<ApiUser>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Set the membership type of a user in a group
+   * Sets the membership type of a user in a group. This method allows a group owner or a user with UPDATE permission to modify the membership of a user in a specific group.
+   * @param id The group id (required)
+   * @param userId The user id (required)
+   * @param membership The membership type (required)
+   * @return ApiUser
+   * @throws ApiException if fails to make API call
+   */
+  public ApiUser setUserMembershipForGroupasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull AbstractUserGroupIdentifierMembership membership) throws ApiException {
+    return this.setUserMembershipForGroupasSuperAdmin(id, userId, membership, Collections.emptyMap());
+  }
+
+
+  /**
+   * Set the membership type of a user in a group
+   * Sets the membership type of a user in a group. This method allows a group owner or a user with UPDATE permission to modify the membership of a user in a specific group.
+   * @param id The group id (required)
+   * @param userId The user id (required)
+   * @param membership The membership type (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return ApiUser
+   * @throws ApiException if fails to make API call
+   */
+  public ApiUser setUserMembershipForGroupasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull AbstractUserGroupIdentifierMembership membership, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling setUserMembershipForGroupasSuperAdmin");
+    }
+    
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling setUserMembershipForGroupasSuperAdmin");
+    }
+    
+    // verify the required parameter 'membership' is set
+    if (membership == null) {
+      throw new ApiException(400, "Missing the required parameter 'membership' when calling setUserMembershipForGroupasSuperAdmin");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/tenants/groups/{id}/members/membership/{userId}"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("membership", membership));
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<ApiUser> localVarReturnType = new TypeReference<ApiUser>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",
@@ -4910,12 +2649,12 @@ public class GroupsApi extends BaseApi {
    * 
    * @param id The group id (required)
    * @param tenant  (required)
-   * @param group  (required)
+   * @param group The group (required)
    * @return Group
    * @throws ApiException if fails to make API call
    */
-  public Group update22(String id, String tenant, Group group) throws ApiException {
-    return this.update22(id, tenant, group, Collections.emptyMap());
+  public Group updateGroup(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Group group) throws ApiException {
+    return this.updateGroup(id, tenant, group, Collections.emptyMap());
   }
 
 
@@ -4924,27 +2663,27 @@ public class GroupsApi extends BaseApi {
    * 
    * @param id The group id (required)
    * @param tenant  (required)
-   * @param group  (required)
+   * @param group The group (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Group
    * @throws ApiException if fails to make API call
    */
-  public Group update22(String id, String tenant, Group group, Map<String, String> additionalHeaders) throws ApiException {
+  public Group updateGroup(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Group group, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = group;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update22");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateGroup");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling update22");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling updateGroup");
     }
     
     // verify the required parameter 'group' is set
     if (group == null) {
-      throw new ApiException(400, "Missing the required parameter 'group' when calling update22");
+      throw new ApiException(400, "Missing the required parameter 'group' when calling updateGroup");
     }
     
     // create path and map variables
@@ -4975,7 +2714,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Group> localVarReturnType = new TypeReference<Group>() {};
     return apiClient.invokeAPI(
@@ -4999,13 +2738,13 @@ public class GroupsApi extends BaseApi {
    * Update a group
    * 
    * @param id The group id (required)
-   * @param tenant  (required)
-   * @param group  (required)
+   * @param resourceTenant  (required)
+   * @param group The group (required)
    * @return Group
    * @throws ApiException if fails to make API call
    */
-  public Group update28(String id, String tenant, Group group) throws ApiException {
-    return this.update28(id, tenant, group, Collections.emptyMap());
+  public Group updateGroupWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nonnull Group group) throws ApiException {
+    return this.updateGroupWithResourceTenantasSuperAdmin(id, resourceTenant, group, Collections.emptyMap());
   }
 
 
@@ -5013,34 +2752,34 @@ public class GroupsApi extends BaseApi {
    * Update a group
    * 
    * @param id The group id (required)
-   * @param tenant  (required)
-   * @param group  (required)
+   * @param resourceTenant  (required)
+   * @param group The group (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Group
    * @throws ApiException if fails to make API call
    */
-  public Group update28(String id, String tenant, Group group, Map<String, String> additionalHeaders) throws ApiException {
+  public Group updateGroupWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nonnull Group group, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = group;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update28");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateGroupWithResourceTenantasSuperAdmin");
     }
     
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling update28");
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling updateGroupWithResourceTenantasSuperAdmin");
     }
     
     // verify the required parameter 'group' is set
     if (group == null) {
-      throw new ApiException(400, "Missing the required parameter 'group' when calling update28");
+      throw new ApiException(400, "Missing the required parameter 'group' when calling updateGroupWithResourceTenantasSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/groups/{id}"
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/groups/{id}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -5065,7 +2804,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Group> localVarReturnType = new TypeReference<Group>() {};
     return apiClient.invokeAPI(
@@ -5089,14 +2828,12 @@ public class GroupsApi extends BaseApi {
    * Update a group
    * 
    * @param id The group id (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param group  (required)
+   * @param group The group (required)
    * @return Group
    * @throws ApiException if fails to make API call
    */
-  public Group update32(String id, String ressourceTenant, String tenant, Group group) throws ApiException {
-    return this.update32(id, ressourceTenant, tenant, group, Collections.emptyMap());
+  public Group updateGroupasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull Group group) throws ApiException {
+    return this.updateGroupasSuperAdmin(id, group, Collections.emptyMap());
   }
 
 
@@ -5104,122 +2841,26 @@ public class GroupsApi extends BaseApi {
    * Update a group
    * 
    * @param id The group id (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param group  (required)
+   * @param group The group (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Group
    * @throws ApiException if fails to make API call
    */
-  public Group update32(String id, String ressourceTenant, String tenant, Group group, Map<String, String> additionalHeaders) throws ApiException {
+  public Group updateGroupasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull Group group, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = group;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update32");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling update32");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling update32");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateGroupasSuperAdmin");
     }
     
     // verify the required parameter 'group' is set
     if (group == null) {
-      throw new ApiException(400, "Missing the required parameter 'group' when calling update32");
+      throw new ApiException(400, "Missing the required parameter 'group' when calling updateGroupasSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{ressourceTenant}/groups/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Group> localVarReturnType = new TypeReference<Group>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Update a group
-   * 
-   * @param id The group id (required)
-   * @param group  (required)
-   * @return Group
-   * @throws ApiException if fails to make API call
-   */
-  public Group update4(String id, Group group) throws ApiException {
-    return this.update4(id, group, Collections.emptyMap());
-  }
-
-
-  /**
-   * Update a group
-   * 
-   * @param id The group id (required)
-   * @param group  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Group
-   * @throws ApiException if fails to make API call
-   */
-  public Group update4(String id, Group group, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = group;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update4");
-    }
-    
-    // verify the required parameter 'group' is set
-    if (group == null) {
-      throw new ApiException(400, "Missing the required parameter 'group' when calling update4");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/groups/{id}"
+    String localVarPath = "/api/v1/tenants/groups/{id}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
@@ -5245,7 +2886,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Group> localVarReturnType = new TypeReference<Group>() {};
     return apiClient.invokeAPI(
@@ -5287,7 +2928,7 @@ public class GroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

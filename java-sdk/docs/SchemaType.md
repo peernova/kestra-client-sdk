@@ -5,19 +5,21 @@
 ## Enum
 
 
-* `flow` (value: `"flow"`)
+* `FLOW` (value: `"FLOW"`)
 
-* `template` (value: `"template"`)
+* `TEMPLATE` (value: `"TEMPLATE"`)
 
-* `task` (value: `"task"`)
+* `TASK` (value: `"TASK"`)
 
-* `trigger` (value: `"trigger"`)
+* `TRIGGER` (value: `"TRIGGER"`)
 
-* `plugindefault` (value: `"plugindefault"`)
+* `PLUGINDEFAULT` (value: `"PLUGINDEFAULT"`)
 
-* `apps` (value: `"apps"`)
+* `APPS` (value: `"APPS"`)
 
-* `dashboard` (value: `"dashboard"`)
+* `TESTSUITES` (value: `"TESTSUITES"`)
+
+* `DASHBOARD` (value: `"DASHBOARD"`)
 
 
 

@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kestra.api.sdk.model.Binding;
 import io.kestra.api.sdk.model.InvitationInvitationStatus;
+import io.kestra.api.sdk.model.UserType;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,23 +38,29 @@ import java.util.StringJoiner;
  */
 @JsonPropertyOrder({
   Invitation.JSON_PROPERTY_IS_EXPIRED,
+  Invitation.JSON_PROPERTY_EMAIL,
   Invitation.JSON_PROPERTY_ID,
   Invitation.JSON_PROPERTY_BINDINGS,
   Invitation.JSON_PROPERTY_GROUP_IDS,
   Invitation.JSON_PROPERTY_TENANT_ID,
-  Invitation.JSON_PROPERTY_EMAIL,
   Invitation.JSON_PROPERTY_STATUS,
   Invitation.JSON_PROPERTY_SENT_AT,
   Invitation.JSON_PROPERTY_EXPIRED_AT,
   Invitation.JSON_PROPERTY_ACCEPTED_AT,
   Invitation.JSON_PROPERTY_DELETED,
+  Invitation.JSON_PROPERTY_USER_TYPE,
+  Invitation.JSON_PROPERTY_SUPER_ADMIN,
   Invitation.JSON_PROPERTY_LINK
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class Invitation {
   public static final String JSON_PROPERTY_IS_EXPIRED = "isExpired";
   @javax.annotation.Nonnull
   private Boolean isExpired;
+
+  public static final String JSON_PROPERTY_EMAIL = "email";
+  @javax.annotation.Nonnull
+  private String email;
 
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nonnull
@@ -70,10 +77,6 @@ public class Invitation {
   public static final String JSON_PROPERTY_TENANT_ID = "tenantId";
   @javax.annotation.Nonnull
   private String tenantId;
-
-  public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nonnull
-  private String email;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   @javax.annotation.Nonnull
@@ -94,6 +97,14 @@ public class Invitation {
   public static final String JSON_PROPERTY_DELETED = "deleted";
   @javax.annotation.Nonnull
   private Boolean deleted;
+
+  public static final String JSON_PROPERTY_USER_TYPE = "userType";
+  @javax.annotation.Nonnull
+  private UserType userType;
+
+  public static final String JSON_PROPERTY_SUPER_ADMIN = "superAdmin";
+  @javax.annotation.Nonnull
+  private Boolean superAdmin;
 
   public static final String JSON_PROPERTY_LINK = "link";
   @javax.annotation.Nonnull
@@ -125,6 +136,31 @@ public class Invitation {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsExpired(@javax.annotation.Nonnull Boolean isExpired) {
     this.isExpired = isExpired;
+  }
+
+  public Invitation email(@javax.annotation.Nonnull String email) {
+    
+    this.email = email;
+    return this;
+  }
+
+  /**
+   * Get email
+   * @return email
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getEmail() {
+    return email;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setEmail(@javax.annotation.Nonnull String email) {
+    this.email = email;
   }
 
   public Invitation id(@javax.annotation.Nonnull String id) {
@@ -241,31 +277,6 @@ public class Invitation {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTenantId(@javax.annotation.Nonnull String tenantId) {
     this.tenantId = tenantId;
-  }
-
-  public Invitation email(@javax.annotation.Nonnull String email) {
-    
-    this.email = email;
-    return this;
-  }
-
-  /**
-   * Get email
-   * @return email
-   */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getEmail() {
-    return email;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEmail(@javax.annotation.Nonnull String email) {
-    this.email = email;
   }
 
   public Invitation status(@javax.annotation.Nonnull InvitationInvitationStatus status) {
@@ -393,6 +404,56 @@ public class Invitation {
     this.deleted = deleted;
   }
 
+  public Invitation userType(@javax.annotation.Nonnull UserType userType) {
+    
+    this.userType = userType;
+    return this;
+  }
+
+  /**
+   * Get userType
+   * @return userType
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_USER_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public UserType getUserType() {
+    return userType;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_USER_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setUserType(@javax.annotation.Nonnull UserType userType) {
+    this.userType = userType;
+  }
+
+  public Invitation superAdmin(@javax.annotation.Nonnull Boolean superAdmin) {
+    
+    this.superAdmin = superAdmin;
+    return this;
+  }
+
+  /**
+   * Get superAdmin
+   * @return superAdmin
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SUPER_ADMIN)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getSuperAdmin() {
+    return superAdmin;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SUPER_ADMIN)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setSuperAdmin(@javax.annotation.Nonnull Boolean superAdmin) {
+    this.superAdmin = superAdmin;
+  }
+
   public Invitation link(@javax.annotation.Nonnull String link) {
     
     this.link = link;
@@ -428,22 +489,24 @@ public class Invitation {
     }
     Invitation invitation = (Invitation) o;
     return Objects.equals(this.isExpired, invitation.isExpired) &&
+        Objects.equals(this.email, invitation.email) &&
         Objects.equals(this.id, invitation.id) &&
         Objects.equals(this.bindings, invitation.bindings) &&
         Objects.equals(this.groupIds, invitation.groupIds) &&
         Objects.equals(this.tenantId, invitation.tenantId) &&
-        Objects.equals(this.email, invitation.email) &&
         Objects.equals(this.status, invitation.status) &&
         Objects.equals(this.sentAt, invitation.sentAt) &&
         Objects.equals(this.expiredAt, invitation.expiredAt) &&
         Objects.equals(this.acceptedAt, invitation.acceptedAt) &&
         Objects.equals(this.deleted, invitation.deleted) &&
+        Objects.equals(this.userType, invitation.userType) &&
+        Objects.equals(this.superAdmin, invitation.superAdmin) &&
         Objects.equals(this.link, invitation.link);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isExpired, id, bindings, groupIds, tenantId, email, status, sentAt, expiredAt, acceptedAt, deleted, link);
+    return Objects.hash(isExpired, email, id, bindings, groupIds, tenantId, status, sentAt, expiredAt, acceptedAt, deleted, userType, superAdmin, link);
   }
 
   @Override
@@ -451,16 +514,18 @@ public class Invitation {
     StringBuilder sb = new StringBuilder();
     sb.append("class Invitation {\n");
     sb.append("    isExpired: ").append(toIndentedString(isExpired)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    bindings: ").append(toIndentedString(bindings)).append("\n");
     sb.append("    groupIds: ").append(toIndentedString(groupIds)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    sentAt: ").append(toIndentedString(sentAt)).append("\n");
     sb.append("    expiredAt: ").append(toIndentedString(expiredAt)).append("\n");
     sb.append("    acceptedAt: ").append(toIndentedString(acceptedAt)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
+    sb.append("    userType: ").append(toIndentedString(userType)).append("\n");
+    sb.append("    superAdmin: ").append(toIndentedString(superAdmin)).append("\n");
     sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -519,6 +584,16 @@ public class Invitation {
       }
     }
 
+    // add `email` to the URL query string
+    if (getEmail() != null) {
+      try {
+        joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmail()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
     // add `id` to the URL query string
     if (getId() != null) {
       try {
@@ -557,16 +632,6 @@ public class Invitation {
     if (getTenantId() != null) {
       try {
         joiner.add(String.format("%stenantId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTenantId()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `email` to the URL query string
-    if (getEmail() != null) {
-      try {
-        joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmail()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
@@ -617,6 +682,26 @@ public class Invitation {
     if (getDeleted() != null) {
       try {
         joiner.add(String.format("%sdeleted%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDeleted()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `userType` to the URL query string
+    if (getUserType() != null) {
+      try {
+        joiner.add(String.format("%suserType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUserType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `superAdmin` to the URL query string
+    if (getSuperAdmin() != null) {
+      try {
+        joiner.add(String.format("%ssuperAdmin%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSuperAdmin()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

@@ -21,6 +21,8 @@ import io.kestra.api.sdk.internal.Configuration;
 import io.kestra.api.sdk.internal.Pair;
 
 import io.kestra.api.sdk.model.Dashboard;
+import io.kestra.api.sdk.model.DashboardControllerPreviewRequest;
+import io.kestra.api.sdk.model.GlobalFilter;
 import io.kestra.api.sdk.model.PagedResultsDashboard;
 import io.kestra.api.sdk.model.PagedResultsMapStringObject;
 import io.kestra.api.sdk.model.ValidateConstraintViolation;
@@ -33,7 +35,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class DashboardsApi extends BaseApi {
 
   public DashboardsApi() {
@@ -45,104 +47,15 @@ public class DashboardsApi extends BaseApi {
   }
 
   /**
-   * List all dashboards
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param q The filter query (optional)
-   * @param sort The sort of current page (optional)
-   * @return PagedResultsDashboard
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsDashboard callList(Integer page, Integer size, String q, List<String> sort) throws ApiException {
-    return this.callList(page, size, q, sort, Collections.emptyMap());
-  }
-
-
-  /**
-   * List all dashboards
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param q The filter query (optional)
-   * @param sort The sort of current page (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsDashboard
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsDashboard callList(Integer page, Integer size, String q, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling callList");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling callList");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/dashboards";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsDashboard> localVarReturnType = new TypeReference<PagedResultsDashboard>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
    * Create a dashboard from yaml source
    * 
    * @param tenant  (required)
-   * @param body  (required)
+   * @param body The dashboard definition as YAML (required)
    * @return Dashboard
    * @throws ApiException if fails to make API call
    */
-  public Dashboard create28(String tenant, String body) throws ApiException {
-    return this.create28(tenant, body, Collections.emptyMap());
+  public Dashboard createDashboard(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String body) throws ApiException {
+    return this.createDashboard(tenant, body, Collections.emptyMap());
   }
 
 
@@ -150,22 +63,22 @@ public class DashboardsApi extends BaseApi {
    * Create a dashboard from yaml source
    * 
    * @param tenant  (required)
-   * @param body  (required)
+   * @param body The dashboard definition as YAML (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Dashboard
    * @throws ApiException if fails to make API call
    */
-  public Dashboard create28(String tenant, String body, Map<String, String> additionalHeaders) throws ApiException {
+  public Dashboard createDashboard(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String body, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling create28");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling createDashboard");
     }
     
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling create28");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createDashboard");
     }
     
     // create path and map variables
@@ -216,35 +129,124 @@ public class DashboardsApi extends BaseApi {
   }
 
   /**
-   * Create a dashboard from yaml source
+   * Delete a dashboard
    * 
-   * @param body  (required)
-   * @return Dashboard
+   * @param id The dashboard id (required)
+   * @param tenant  (required)
    * @throws ApiException if fails to make API call
    */
-  public Dashboard create3(String body) throws ApiException {
-    return this.create3(body, Collections.emptyMap());
+  public void deleteDashboard(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    this.deleteDashboard(id, tenant, Collections.emptyMap());
   }
 
 
   /**
-   * Create a dashboard from yaml source
+   * Delete a dashboard
    * 
-   * @param body  (required)
+   * @param id The dashboard id (required)
+   * @param tenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteDashboard(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteDashboard");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteDashboard");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/dashboards/{id}"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    apiClient.invokeAPI(
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null
+    );
+  }
+
+  /**
+   * Get a dashboard
+   * 
+   * @param id The dashboard id (required)
+   * @param tenant  (required)
+   * @return Dashboard
+   * @throws ApiException if fails to make API call
+   */
+  public Dashboard getDashboard(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getDashboard(id, tenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get a dashboard
+   * 
+   * @param id The dashboard id (required)
+   * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Dashboard
    * @throws ApiException if fails to make API call
    */
-  public Dashboard create3(String body, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = body;
+  public Dashboard getDashboard(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
     
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling create3");
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getDashboard");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getDashboard");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/dashboards";
+    String localVarPath = "/api/v1/{tenant}/dashboards/{id}"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -265,7 +267,7 @@ public class DashboardsApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/x-yaml"
+      
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -274,97 +276,7 @@ public class DashboardsApi extends BaseApi {
     TypeReference<Dashboard> localVarReturnType = new TypeReference<Dashboard>() {};
     return apiClient.invokeAPI(
         localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Generate a dashboard chart data
-   * 
-   * @param id The dashboard id (required)
-   * @param chartId The chart id (required)
-   * @param requestBody  (required)
-   * @return PagedResultsMapStringObject
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsMapStringObject dashboardChart(String id, String chartId, Map<String, Object> requestBody) throws ApiException {
-    return this.dashboardChart(id, chartId, requestBody, Collections.emptyMap());
-  }
-
-
-  /**
-   * Generate a dashboard chart data
-   * 
-   * @param id The dashboard id (required)
-   * @param chartId The chart id (required)
-   * @param requestBody  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsMapStringObject
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsMapStringObject dashboardChart(String id, String chartId, Map<String, Object> requestBody, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = requestBody;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling dashboardChart");
-    }
-    
-    // verify the required parameter 'chartId' is set
-    if (chartId == null) {
-      throw new ApiException(400, "Missing the required parameter 'chartId' when calling dashboardChart");
-    }
-    
-    // verify the required parameter 'requestBody' is set
-    if (requestBody == null) {
-      throw new ApiException(400, "Missing the required parameter 'requestBody' when calling dashboardChart");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/dashboards/{id}/charts/{chartId}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "chartId" + "\\}", apiClient.escapeString(apiClient.parameterToString(chartId)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsMapStringObject> localVarReturnType = new TypeReference<PagedResultsMapStringObject>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
+        "GET",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),
@@ -385,12 +297,12 @@ public class DashboardsApi extends BaseApi {
    * @param id The dashboard id (required)
    * @param chartId The chart id (required)
    * @param tenant  (required)
-   * @param requestBody  (required)
+   * @param globalFilter The filters to apply, some can override chart definition like labels &amp; namespace (required)
    * @return PagedResultsMapStringObject
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsMapStringObject dashboardChart1(String id, String chartId, String tenant, Map<String, Object> requestBody) throws ApiException {
-    return this.dashboardChart1(id, chartId, tenant, requestBody, Collections.emptyMap());
+  public PagedResultsMapStringObject getDashboardChartData(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String chartId, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull GlobalFilter globalFilter) throws ApiException {
+    return this.getDashboardChartData(id, chartId, tenant, globalFilter, Collections.emptyMap());
   }
 
 
@@ -400,32 +312,32 @@ public class DashboardsApi extends BaseApi {
    * @param id The dashboard id (required)
    * @param chartId The chart id (required)
    * @param tenant  (required)
-   * @param requestBody  (required)
+   * @param globalFilter The filters to apply, some can override chart definition like labels &amp; namespace (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return PagedResultsMapStringObject
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsMapStringObject dashboardChart1(String id, String chartId, String tenant, Map<String, Object> requestBody, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = requestBody;
+  public PagedResultsMapStringObject getDashboardChartData(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String chartId, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull GlobalFilter globalFilter, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = globalFilter;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling dashboardChart1");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getDashboardChartData");
     }
     
     // verify the required parameter 'chartId' is set
     if (chartId == null) {
-      throw new ApiException(400, "Missing the required parameter 'chartId' when calling dashboardChart1");
+      throw new ApiException(400, "Missing the required parameter 'chartId' when calling getDashboardChartData");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling dashboardChart1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getDashboardChartData");
     }
     
-    // verify the required parameter 'requestBody' is set
-    if (requestBody == null) {
-      throw new ApiException(400, "Missing the required parameter 'requestBody' when calling dashboardChart1");
+    // verify the required parameter 'globalFilter' is set
+    if (globalFilter == null) {
+      throw new ApiException(400, "Missing the required parameter 'globalFilter' when calling getDashboardChartData");
     }
     
     // create path and map variables
@@ -478,270 +390,42 @@ public class DashboardsApi extends BaseApi {
   }
 
   /**
-   * Delete a dashboard
+   * Preview a chart data
    * 
-   * @param id The dashboard id (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void delete3(String id) throws ApiException {
-    this.delete3(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete a dashboard
-   * 
-   * @param id The dashboard id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void delete3(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete3");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/dashboards/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Delete a dashboard
-   * 
-   * @param id The dashboard id (required)
    * @param tenant  (required)
+   * @param dashboardControllerPreviewRequest  (required)
+   * @return PagedResultsMapStringObject
    * @throws ApiException if fails to make API call
    */
-  public void delete31(String id, String tenant) throws ApiException {
-    this.delete31(id, tenant, Collections.emptyMap());
+  public PagedResultsMapStringObject previewChart(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull DashboardControllerPreviewRequest dashboardControllerPreviewRequest) throws ApiException {
+    return this.previewChart(tenant, dashboardControllerPreviewRequest, Collections.emptyMap());
   }
 
 
   /**
-   * Delete a dashboard
+   * Preview a chart data
    * 
-   * @param id The dashboard id (required)
    * @param tenant  (required)
+   * @param dashboardControllerPreviewRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
+   * @return PagedResultsMapStringObject
    * @throws ApiException if fails to make API call
    */
-  public void delete31(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete31");
-    }
+  public PagedResultsMapStringObject previewChart(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull DashboardControllerPreviewRequest dashboardControllerPreviewRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = dashboardControllerPreviewRequest;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling delete31");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling previewChart");
+    }
+    
+    // verify the required parameter 'dashboardControllerPreviewRequest' is set
+    if (dashboardControllerPreviewRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'dashboardControllerPreviewRequest' when calling previewChart");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/dashboards/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Retrieve a dashboard
-   * 
-   * @param id The dashboard id (required)
-   * @return Dashboard
-   * @throws ApiException if fails to make API call
-   */
-  public Dashboard get1(String id) throws ApiException {
-    return this.get1(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Retrieve a dashboard
-   * 
-   * @param id The dashboard id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Dashboard
-   * @throws ApiException if fails to make API call
-   */
-  public Dashboard get1(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling get1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/dashboards/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Dashboard> localVarReturnType = new TypeReference<Dashboard>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Retrieve a dashboard
-   * 
-   * @param id The dashboard id (required)
-   * @param tenant  (required)
-   * @return Dashboard
-   * @throws ApiException if fails to make API call
-   */
-  public Dashboard get9(String id, String tenant) throws ApiException {
-    return this.get9(id, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Retrieve a dashboard
-   * 
-   * @param id The dashboard id (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Dashboard
-   * @throws ApiException if fails to make API call
-   */
-  public Dashboard get9(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling get9");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling get9");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/dashboards/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+    String localVarPath = "/api/v1/{tenant}/dashboards/charts/preview"
       .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
@@ -763,16 +447,16 @@ public class DashboardsApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
     String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<Dashboard> localVarReturnType = new TypeReference<Dashboard>() {};
+    TypeReference<PagedResultsMapStringObject> localVarReturnType = new TypeReference<PagedResultsMapStringObject>() {};
     return apiClient.invokeAPI(
         localVarPath,
-        "GET",
+        "POST",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),
@@ -788,7 +472,7 @@ public class DashboardsApi extends BaseApi {
   }
 
   /**
-   * List all dashboards
+   * Search for dashboards
    * 
    * @param page The current page (required)
    * @param size The current page size (required)
@@ -798,13 +482,13 @@ public class DashboardsApi extends BaseApi {
    * @return PagedResultsDashboard
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsDashboard list4(Integer page, Integer size, String tenant, String q, List<String> sort) throws ApiException {
-    return this.list4(page, size, tenant, q, sort, Collections.emptyMap());
+  public PagedResultsDashboard searchDashboards(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort) throws ApiException {
+    return this.searchDashboards(page, size, tenant, q, sort, Collections.emptyMap());
   }
 
 
   /**
-   * List all dashboards
+   * Search for dashboards
    * 
    * @param page The current page (required)
    * @param size The current page size (required)
@@ -815,22 +499,22 @@ public class DashboardsApi extends BaseApi {
    * @return PagedResultsDashboard
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsDashboard list4(Integer page, Integer size, String tenant, String q, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
+  public PagedResultsDashboard searchDashboards(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'page' is set
     if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling list4");
+      throw new ApiException(400, "Missing the required parameter 'page' when calling searchDashboards");
     }
     
     // verify the required parameter 'size' is set
     if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling list4");
+      throw new ApiException(400, "Missing the required parameter 'size' when calling searchDashboards");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling list4");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling searchDashboards");
     }
     
     // create path and map variables
@@ -888,95 +572,13 @@ public class DashboardsApi extends BaseApi {
    * Update a dashboard
    * 
    * @param id The dashboard id (required)
-   * @param body  (required)
-   * @return Dashboard
-   * @throws ApiException if fails to make API call
-   */
-  public Dashboard update2(String id, String body) throws ApiException {
-    return this.update2(id, body, Collections.emptyMap());
-  }
-
-
-  /**
-   * Update a dashboard
-   * 
-   * @param id The dashboard id (required)
-   * @param body  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Dashboard
-   * @throws ApiException if fails to make API call
-   */
-  public Dashboard update2(String id, String body, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update2");
-    }
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling update2");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/dashboards/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/x-yaml"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Dashboard> localVarReturnType = new TypeReference<Dashboard>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Update a dashboard
-   * 
-   * @param id The dashboard id (required)
    * @param tenant  (required)
-   * @param body  (required)
+   * @param body The dashboard definition as YAML (required)
    * @return Dashboard
    * @throws ApiException if fails to make API call
    */
-  public Dashboard update20(String id, String tenant, String body) throws ApiException {
-    return this.update20(id, tenant, body, Collections.emptyMap());
+  public Dashboard updateDashboard(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String body) throws ApiException {
+    return this.updateDashboard(id, tenant, body, Collections.emptyMap());
   }
 
 
@@ -985,27 +587,27 @@ public class DashboardsApi extends BaseApi {
    * 
    * @param id The dashboard id (required)
    * @param tenant  (required)
-   * @param body  (required)
+   * @param body The dashboard definition as YAML (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Dashboard
    * @throws ApiException if fails to make API call
    */
-  public Dashboard update20(String id, String tenant, String body, Map<String, String> additionalHeaders) throws ApiException {
+  public Dashboard updateDashboard(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String body, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update20");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateDashboard");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling update20");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling updateDashboard");
     }
     
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling update20");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateDashboard");
     }
     
     // create path and map variables
@@ -1057,35 +659,43 @@ public class DashboardsApi extends BaseApi {
   }
 
   /**
-   * Validate dashboard from yaml source
+   * Validate a chart from yaml source
    * 
-   * @param body  (required)
+   * @param tenant  (required)
+   * @param body The chart definition as YAML (required)
    * @return ValidateConstraintViolation
    * @throws ApiException if fails to make API call
    */
-  public ValidateConstraintViolation validate(String body) throws ApiException {
-    return this.validate(body, Collections.emptyMap());
+  public ValidateConstraintViolation validateChart(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String body) throws ApiException {
+    return this.validateChart(tenant, body, Collections.emptyMap());
   }
 
 
   /**
-   * Validate dashboard from yaml source
+   * Validate a chart from yaml source
    * 
-   * @param body  (required)
+   * @param tenant  (required)
+   * @param body The chart definition as YAML (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ValidateConstraintViolation
    * @throws ApiException if fails to make API call
    */
-  public ValidateConstraintViolation validate(String body, Map<String, String> additionalHeaders) throws ApiException {
+  public ValidateConstraintViolation validateChart(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String body, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = body;
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling validateChart");
+    }
     
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling validate");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling validateChart");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/dashboards/validate";
+    String localVarPath = "/api/v1/{tenant}/dashboards/validate/chart"
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1134,12 +744,12 @@ public class DashboardsApi extends BaseApi {
    * Validate dashboard from yaml source
    * 
    * @param tenant  (required)
-   * @param body  (required)
+   * @param body The dashboard definition as YAML (required)
    * @return ValidateConstraintViolation
    * @throws ApiException if fails to make API call
    */
-  public ValidateConstraintViolation validate1(String tenant, String body) throws ApiException {
-    return this.validate1(tenant, body, Collections.emptyMap());
+  public ValidateConstraintViolation validateDashboard(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String body) throws ApiException {
+    return this.validateDashboard(tenant, body, Collections.emptyMap());
   }
 
 
@@ -1147,22 +757,22 @@ public class DashboardsApi extends BaseApi {
    * Validate dashboard from yaml source
    * 
    * @param tenant  (required)
-   * @param body  (required)
+   * @param body The dashboard definition as YAML (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ValidateConstraintViolation
    * @throws ApiException if fails to make API call
    */
-  public ValidateConstraintViolation validate1(String tenant, String body, Map<String, String> additionalHeaders) throws ApiException {
+  public ValidateConstraintViolation validateDashboard(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String body, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling validate1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling validateDashboard");
     }
     
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling validate1");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling validateDashboard");
     }
     
     // create path and map variables

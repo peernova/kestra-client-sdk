@@ -20,12 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.kestra.api.sdk.model.ListObject;
 import io.kestra.api.sdk.model.MapObjectObject;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -36,24 +32,14 @@ import java.util.StringJoiner;
  * TheLabelsToPassToTheExecutionCreated
  */
 @JsonPropertyOrder({
-  TheLabelsToPassToTheExecutionCreated.JSON_PROPERTY_EMPTY,
-  TheLabelsToPassToTheExecutionCreated.JSON_PROPERTY_FIRST,
-  TheLabelsToPassToTheExecutionCreated.JSON_PROPERTY_LAST
+  TheLabelsToPassToTheExecutionCreated.JSON_PROPERTY_EMPTY
 })
 @JsonTypeName("The_labels_to_pass_to_the_execution_created_")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class TheLabelsToPassToTheExecutionCreated {
   public static final String JSON_PROPERTY_EMPTY = "empty";
   @javax.annotation.Nullable
   private Boolean empty;
-
-  public static final String JSON_PROPERTY_FIRST = "first";
-  @javax.annotation.Nullable
-  private JsonNullable<Object> first = JsonNullable.<Object>undefined();
-
-  public static final String JSON_PROPERTY_LAST = "last";
-  @javax.annotation.Nullable
-  private JsonNullable<Object> last = JsonNullable.<Object>undefined();
 
   public TheLabelsToPassToTheExecutionCreated() {
   }
@@ -83,72 +69,6 @@ public class TheLabelsToPassToTheExecutionCreated {
     this.empty = empty;
   }
 
-  public TheLabelsToPassToTheExecutionCreated first(@javax.annotation.Nullable Object first) {
-    this.first = JsonNullable.<Object>of(first);
-    
-    return this;
-  }
-
-  /**
-   * Get first
-   * @return first
-   */
-  @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getFirst() {
-        return first.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_FIRST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Object> getFirst_JsonNullable() {
-    return first;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_FIRST)
-  public void setFirst_JsonNullable(JsonNullable<Object> first) {
-    this.first = first;
-  }
-
-  public void setFirst(@javax.annotation.Nullable Object first) {
-    this.first = JsonNullable.<Object>of(first);
-  }
-
-  public TheLabelsToPassToTheExecutionCreated last(@javax.annotation.Nullable Object last) {
-    this.last = JsonNullable.<Object>of(last);
-    
-    return this;
-  }
-
-  /**
-   * Get last
-   * @return last
-   */
-  @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getLast() {
-        return last.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_LAST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Object> getLast_JsonNullable() {
-    return last;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_LAST)
-  public void setLast_JsonNullable(JsonNullable<Object> last) {
-    this.last = last;
-  }
-
-  public void setLast(@javax.annotation.Nullable Object last) {
-    this.last = JsonNullable.<Object>of(last);
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -158,25 +78,12 @@ public class TheLabelsToPassToTheExecutionCreated {
       return false;
     }
     TheLabelsToPassToTheExecutionCreated theLabelsToPassToTheExecutionCreated = (TheLabelsToPassToTheExecutionCreated) o;
-    return Objects.equals(this.empty, theLabelsToPassToTheExecutionCreated.empty) &&
-        equalsNullable(this.first, theLabelsToPassToTheExecutionCreated.first) &&
-        equalsNullable(this.last, theLabelsToPassToTheExecutionCreated.last);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.empty, theLabelsToPassToTheExecutionCreated.empty);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(empty, hashCodeNullable(first), hashCodeNullable(last));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(empty);
   }
 
   @Override
@@ -184,8 +91,6 @@ public class TheLabelsToPassToTheExecutionCreated {
     StringBuilder sb = new StringBuilder();
     sb.append("class TheLabelsToPassToTheExecutionCreated {\n");
     sb.append("    empty: ").append(toIndentedString(empty)).append("\n");
-    sb.append("    first: ").append(toIndentedString(first)).append("\n");
-    sb.append("    last: ").append(toIndentedString(last)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -237,26 +142,6 @@ public class TheLabelsToPassToTheExecutionCreated {
     if (getEmpty() != null) {
       try {
         joiner.add(String.format("%sempty%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmpty()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `first` to the URL query string
-    if (getFirst() != null) {
-      try {
-        joiner.add(String.format("%sfirst%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFirst()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `last` to the URL query string
-    if (getLast() != null) {
-      try {
-        joiner.add(String.format("%slast%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLast()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

@@ -46,7 +46,7 @@ import java.util.StringJoiner;
   DailyExecutionStatisticsExecutionCounts.JSON_PROPERTY_S_K_I_P_P_E_D
 })
 @JsonTypeName("DailyExecutionStatistics_executionCounts")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class DailyExecutionStatisticsExecutionCounts {
   public static final String JSON_PROPERTY_C_R_E_A_T_E_D = "CREATED";
   @javax.annotation.Nullable

@@ -33,10 +33,11 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   AbstractUserGroupIdentifier.JSON_PROPERTY_TENANT_ID,
   AbstractUserGroupIdentifier.JSON_PROPERTY_GROUP_ID,
-  AbstractUserGroupIdentifier.JSON_PROPERTY_MEMBERSHIP
+  AbstractUserGroupIdentifier.JSON_PROPERTY_MEMBERSHIP,
+  AbstractUserGroupIdentifier.JSON_PROPERTY_MANAGED_EXTERNALLY
 })
 @JsonTypeName("AbstractUser.GroupIdentifier")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class AbstractUserGroupIdentifier {
   public static final String JSON_PROPERTY_TENANT_ID = "tenantId";
   @javax.annotation.Nullable
@@ -49,6 +50,10 @@ public class AbstractUserGroupIdentifier {
   public static final String JSON_PROPERTY_MEMBERSHIP = "membership";
   @javax.annotation.Nonnull
   private AbstractUserGroupIdentifierMembership membership;
+
+  public static final String JSON_PROPERTY_MANAGED_EXTERNALLY = "managedExternally";
+  @javax.annotation.Nonnull
+  private Boolean managedExternally;
 
   public AbstractUserGroupIdentifier() {
   }
@@ -128,6 +133,31 @@ public class AbstractUserGroupIdentifier {
     this.membership = membership;
   }
 
+  public AbstractUserGroupIdentifier managedExternally(@javax.annotation.Nonnull Boolean managedExternally) {
+    
+    this.managedExternally = managedExternally;
+    return this;
+  }
+
+  /**
+   * Get managedExternally
+   * @return managedExternally
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_MANAGED_EXTERNALLY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getManagedExternally() {
+    return managedExternally;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MANAGED_EXTERNALLY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setManagedExternally(@javax.annotation.Nonnull Boolean managedExternally) {
+    this.managedExternally = managedExternally;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -139,12 +169,13 @@ public class AbstractUserGroupIdentifier {
     AbstractUserGroupIdentifier abstractUserGroupIdentifier = (AbstractUserGroupIdentifier) o;
     return Objects.equals(this.tenantId, abstractUserGroupIdentifier.tenantId) &&
         Objects.equals(this.groupId, abstractUserGroupIdentifier.groupId) &&
-        Objects.equals(this.membership, abstractUserGroupIdentifier.membership);
+        Objects.equals(this.membership, abstractUserGroupIdentifier.membership) &&
+        Objects.equals(this.managedExternally, abstractUserGroupIdentifier.managedExternally);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tenantId, groupId, membership);
+    return Objects.hash(tenantId, groupId, membership, managedExternally);
   }
 
   @Override
@@ -154,6 +185,7 @@ public class AbstractUserGroupIdentifier {
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    membership: ").append(toIndentedString(membership)).append("\n");
+    sb.append("    managedExternally: ").append(toIndentedString(managedExternally)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -225,6 +257,16 @@ public class AbstractUserGroupIdentifier {
     if (getMembership() != null) {
       try {
         joiner.add(String.format("%smembership%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMembership()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `managedExternally` to the URL query string
+    if (getManagedExternally() != null) {
+      try {
+        joiner.add(String.format("%smanagedExternally%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getManagedExternally()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

@@ -4,96 +4,21 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**callList**](DashboardsApi.md#callList) | **GET** /api/v1/dashboards | List all dashboards |
-| [**create28**](DashboardsApi.md#create28) | **POST** /api/v1/{tenant}/dashboards | Create a dashboard from yaml source |
-| [**create3**](DashboardsApi.md#create3) | **POST** /api/v1/dashboards | Create a dashboard from yaml source |
-| [**dashboardChart**](DashboardsApi.md#dashboardChart) | **POST** /api/v1/dashboards/{id}/charts/{chartId} | Generate a dashboard chart data |
-| [**dashboardChart1**](DashboardsApi.md#dashboardChart1) | **POST** /api/v1/{tenant}/dashboards/{id}/charts/{chartId} | Generate a dashboard chart data |
-| [**delete3**](DashboardsApi.md#delete3) | **DELETE** /api/v1/dashboards/{id} | Delete a dashboard |
-| [**delete31**](DashboardsApi.md#delete31) | **DELETE** /api/v1/{tenant}/dashboards/{id} | Delete a dashboard |
-| [**get1**](DashboardsApi.md#get1) | **GET** /api/v1/dashboards/{id} | Retrieve a dashboard |
-| [**get9**](DashboardsApi.md#get9) | **GET** /api/v1/{tenant}/dashboards/{id} | Retrieve a dashboard |
-| [**list4**](DashboardsApi.md#list4) | **GET** /api/v1/{tenant}/dashboards | List all dashboards |
-| [**update2**](DashboardsApi.md#update2) | **PUT** /api/v1/dashboards/{id} | Update a dashboard |
-| [**update20**](DashboardsApi.md#update20) | **PUT** /api/v1/{tenant}/dashboards/{id} | Update a dashboard |
-| [**validate**](DashboardsApi.md#validate) | **POST** /api/v1/dashboards/validate | Validate dashboard from yaml source |
-| [**validate1**](DashboardsApi.md#validate1) | **POST** /api/v1/{tenant}/dashboards/validate | Validate dashboard from yaml source |
+| [**createDashboard**](DashboardsApi.md#createDashboard) | **POST** /api/v1/{tenant}/dashboards | Create a dashboard from yaml source |
+| [**deleteDashboard**](DashboardsApi.md#deleteDashboard) | **DELETE** /api/v1/{tenant}/dashboards/{id} | Delete a dashboard |
+| [**getDashboard**](DashboardsApi.md#getDashboard) | **GET** /api/v1/{tenant}/dashboards/{id} | Get a dashboard |
+| [**getDashboardChartData**](DashboardsApi.md#getDashboardChartData) | **POST** /api/v1/{tenant}/dashboards/{id}/charts/{chartId} | Generate a dashboard chart data |
+| [**previewChart**](DashboardsApi.md#previewChart) | **POST** /api/v1/{tenant}/dashboards/charts/preview | Preview a chart data |
+| [**searchDashboards**](DashboardsApi.md#searchDashboards) | **GET** /api/v1/{tenant}/dashboards | Search for dashboards |
+| [**updateDashboard**](DashboardsApi.md#updateDashboard) | **PUT** /api/v1/{tenant}/dashboards/{id} | Update a dashboard |
+| [**validateChart**](DashboardsApi.md#validateChart) | **POST** /api/v1/{tenant}/dashboards/validate/chart | Validate a chart from yaml source |
+| [**validateDashboard**](DashboardsApi.md#validateDashboard) | **POST** /api/v1/{tenant}/dashboards/validate | Validate dashboard from yaml source |
 
 
 
-## callList
+## createDashboard
 
-> PagedResultsDashboard callList(page, size, q, sort)
-
-List all dashboards
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.DashboardsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        DashboardsApi apiInstance = new DashboardsApi(defaultClient);
-        Integer page = 1; // Integer | The current page
-        Integer size = 10; // Integer | The current page size
-        String q = "q_example"; // String | The filter query
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        try {
-            PagedResultsDashboard result = apiInstance.callList(page, size, q, sort);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DashboardsApi#callList");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | **Integer**| The current page | [default to 1] |
-| **size** | **Integer**| The current page size | [default to 10] |
-| **q** | **String**| The filter query | [optional] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-
-### Return type
-
-[**PagedResultsDashboard**](PagedResultsDashboard.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | list 200 response |  -  |
-
-
-## create28
-
-> Dashboard create28(tenant, body)
+> Dashboard createDashboard(tenant, body)
 
 Create a dashboard from yaml source
 
@@ -114,12 +39,12 @@ public class Example {
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         String tenant = "tenant_example"; // String | 
-        String body = "body_example"; // String | 
+        String body = "body_example"; // String | The dashboard definition as YAML
         try {
-            Dashboard result = apiInstance.create28(tenant, body);
+            Dashboard result = apiInstance.createDashboard(tenant, body);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DashboardsApi#create28");
+            System.err.println("Exception when calling DashboardsApi#createDashboard");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -135,7 +60,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenant** | **String**|  | |
-| **body** | **String**|  | |
+| **body** | **String**| The dashboard definition as YAML | |
 
 ### Return type
 
@@ -154,277 +79,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | create_28 200 response |  -  |
+| **200** | createDashboard 200 response |  -  |
 
 
-## create3
+## deleteDashboard
 
-> Dashboard create3(body)
-
-Create a dashboard from yaml source
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.DashboardsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        DashboardsApi apiInstance = new DashboardsApi(defaultClient);
-        String body = "body_example"; // String | 
-        try {
-            Dashboard result = apiInstance.create3(body);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DashboardsApi#create3");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **body** | **String**|  | |
-
-### Return type
-
-[**Dashboard**](Dashboard.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/x-yaml
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | create_3 200 response |  -  |
-
-
-## dashboardChart
-
-> PagedResultsMapStringObject dashboardChart(id, chartId, requestBody)
-
-Generate a dashboard chart data
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.DashboardsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        DashboardsApi apiInstance = new DashboardsApi(defaultClient);
-        String id = "id_example"; // String | The dashboard id
-        String chartId = "chartId_example"; // String | The chart id
-        Map<String, Object> requestBody = null; // Map<String, Object> | 
-        try {
-            PagedResultsMapStringObject result = apiInstance.dashboardChart(id, chartId, requestBody);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DashboardsApi#dashboardChart");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The dashboard id | |
-| **chartId** | **String**| The chart id | |
-| **requestBody** | [**Map&lt;String, Object&gt;**](Object.md)|  | |
-
-### Return type
-
-[**PagedResultsMapStringObject**](PagedResultsMapStringObject.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | dashboardChart 200 response |  -  |
-
-
-## dashboardChart1
-
-> PagedResultsMapStringObject dashboardChart1(id, chartId, tenant, requestBody)
-
-Generate a dashboard chart data
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.DashboardsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        DashboardsApi apiInstance = new DashboardsApi(defaultClient);
-        String id = "id_example"; // String | The dashboard id
-        String chartId = "chartId_example"; // String | The chart id
-        String tenant = "tenant_example"; // String | 
-        Map<String, Object> requestBody = null; // Map<String, Object> | 
-        try {
-            PagedResultsMapStringObject result = apiInstance.dashboardChart1(id, chartId, tenant, requestBody);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DashboardsApi#dashboardChart1");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The dashboard id | |
-| **chartId** | **String**| The chart id | |
-| **tenant** | **String**|  | |
-| **requestBody** | [**Map&lt;String, Object&gt;**](Object.md)|  | |
-
-### Return type
-
-[**PagedResultsMapStringObject**](PagedResultsMapStringObject.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | dashboardChart_1 200 response |  -  |
-
-
-## delete3
-
-> delete3(id)
-
-Delete a dashboard
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.DashboardsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        DashboardsApi apiInstance = new DashboardsApi(defaultClient);
-        String id = "id_example"; // String | The dashboard id
-        try {
-            apiInstance.delete3(id);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DashboardsApi#delete3");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The dashboard id | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | delete_3 200 response |  -  |
-
-
-## delete31
-
-> delete31(id, tenant)
+> deleteDashboard(id, tenant)
 
 Delete a dashboard
 
@@ -447,9 +107,9 @@ public class Example {
         String id = "id_example"; // String | The dashboard id
         String tenant = "tenant_example"; // String | 
         try {
-            apiInstance.delete31(id, tenant);
+            apiInstance.deleteDashboard(id, tenant);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DashboardsApi#delete31");
+            System.err.println("Exception when calling DashboardsApi#deleteDashboard");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -484,78 +144,14 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | delete_31 200 response |  -  |
+| **200** | deleteDashboard 200 response |  -  |
 
 
-## get1
+## getDashboard
 
-> Dashboard get1(id)
+> Dashboard getDashboard(id, tenant)
 
-Retrieve a dashboard
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.DashboardsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        DashboardsApi apiInstance = new DashboardsApi(defaultClient);
-        String id = "id_example"; // String | The dashboard id
-        try {
-            Dashboard result = apiInstance.get1(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DashboardsApi#get1");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The dashboard id | |
-
-### Return type
-
-[**Dashboard**](Dashboard.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | get_1 200 response |  -  |
-
-
-## get9
-
-> Dashboard get9(id, tenant)
-
-Retrieve a dashboard
+Get a dashboard
 
 ### Example
 
@@ -576,10 +172,10 @@ public class Example {
         String id = "id_example"; // String | The dashboard id
         String tenant = "tenant_example"; // String | 
         try {
-            Dashboard result = apiInstance.get9(id, tenant);
+            Dashboard result = apiInstance.getDashboard(id, tenant);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DashboardsApi#get9");
+            System.err.println("Exception when calling DashboardsApi#getDashboard");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -614,14 +210,150 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | get_9 200 response |  -  |
+| **200** | getDashboard 200 response |  -  |
 
 
-## list4
+## getDashboardChartData
 
-> PagedResultsDashboard list4(page, size, tenant, q, sort)
+> PagedResultsMapStringObject getDashboardChartData(id, chartId, tenant, globalFilter)
 
-List all dashboards
+Generate a dashboard chart data
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.DashboardsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+
+        DashboardsApi apiInstance = new DashboardsApi(defaultClient);
+        String id = "id_example"; // String | The dashboard id
+        String chartId = "chartId_example"; // String | The chart id
+        String tenant = "tenant_example"; // String | 
+        GlobalFilter globalFilter = new GlobalFilter(); // GlobalFilter | The filters to apply, some can override chart definition like labels & namespace
+        try {
+            PagedResultsMapStringObject result = apiInstance.getDashboardChartData(id, chartId, tenant, globalFilter);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DashboardsApi#getDashboardChartData");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| The dashboard id | |
+| **chartId** | **String**| The chart id | |
+| **tenant** | **String**|  | |
+| **globalFilter** | [**GlobalFilter**](GlobalFilter.md)| The filters to apply, some can override chart definition like labels &amp; namespace | |
+
+### Return type
+
+[**PagedResultsMapStringObject**](PagedResultsMapStringObject.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | getDashboardChartData 200 response |  -  |
+
+
+## previewChart
+
+> PagedResultsMapStringObject previewChart(tenant, dashboardControllerPreviewRequest)
+
+Preview a chart data
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.DashboardsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+
+        DashboardsApi apiInstance = new DashboardsApi(defaultClient);
+        String tenant = "tenant_example"; // String | 
+        DashboardControllerPreviewRequest dashboardControllerPreviewRequest = new DashboardControllerPreviewRequest(); // DashboardControllerPreviewRequest | 
+        try {
+            PagedResultsMapStringObject result = apiInstance.previewChart(tenant, dashboardControllerPreviewRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DashboardsApi#previewChart");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenant** | **String**|  | |
+| **dashboardControllerPreviewRequest** | [**DashboardControllerPreviewRequest**](DashboardControllerPreviewRequest.md)|  | |
+
+### Return type
+
+[**PagedResultsMapStringObject**](PagedResultsMapStringObject.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | previewChart 200 response |  -  |
+
+
+## searchDashboards
+
+> PagedResultsDashboard searchDashboards(page, size, tenant, q, sort)
+
+Search for dashboards
 
 ### Example
 
@@ -645,10 +377,10 @@ public class Example {
         String q = "q_example"; // String | The filter query
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         try {
-            PagedResultsDashboard result = apiInstance.list4(page, size, tenant, q, sort);
+            PagedResultsDashboard result = apiInstance.searchDashboards(page, size, tenant, q, sort);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DashboardsApi#list4");
+            System.err.println("Exception when calling DashboardsApi#searchDashboards");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -686,78 +418,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | list_4 200 response |  -  |
+| **200** | searchDashboards 200 response |  -  |
 
 
-## update2
+## updateDashboard
 
-> Dashboard update2(id, body)
-
-Update a dashboard
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.DashboardsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        DashboardsApi apiInstance = new DashboardsApi(defaultClient);
-        String id = "id_example"; // String | The dashboard id
-        String body = "body_example"; // String | 
-        try {
-            Dashboard result = apiInstance.update2(id, body);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DashboardsApi#update2");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The dashboard id | |
-| **body** | **String**|  | |
-
-### Return type
-
-[**Dashboard**](Dashboard.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/x-yaml
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | update_2 200 response |  -  |
-
-
-## update20
-
-> Dashboard update20(id, tenant, body)
+> Dashboard updateDashboard(id, tenant, body)
 
 Update a dashboard
 
@@ -779,12 +445,12 @@ public class Example {
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         String id = "id_example"; // String | The dashboard id
         String tenant = "tenant_example"; // String | 
-        String body = "body_example"; // String | 
+        String body = "body_example"; // String | The dashboard definition as YAML
         try {
-            Dashboard result = apiInstance.update20(id, tenant, body);
+            Dashboard result = apiInstance.updateDashboard(id, tenant, body);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DashboardsApi#update20");
+            System.err.println("Exception when calling DashboardsApi#updateDashboard");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -801,7 +467,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The dashboard id | |
 | **tenant** | **String**|  | |
-| **body** | **String**|  | |
+| **body** | **String**| The dashboard definition as YAML | |
 
 ### Return type
 
@@ -820,14 +486,14 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | update_20 200 response |  -  |
+| **200** | updateDashboard 200 response |  -  |
 
 
-## validate
+## validateChart
 
-> ValidateConstraintViolation validate(body)
+> ValidateConstraintViolation validateChart(tenant, body)
 
-Validate dashboard from yaml source
+Validate a chart from yaml source
 
 ### Example
 
@@ -845,12 +511,13 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
-        String body = "body_example"; // String | 
+        String tenant = "tenant_example"; // String | 
+        String body = "body_example"; // String | The chart definition as YAML
         try {
-            ValidateConstraintViolation result = apiInstance.validate(body);
+            ValidateConstraintViolation result = apiInstance.validateChart(tenant, body);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DashboardsApi#validate");
+            System.err.println("Exception when calling DashboardsApi#validateChart");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -865,7 +532,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | **String**|  | |
+| **tenant** | **String**|  | |
+| **body** | **String**| The chart definition as YAML | |
 
 ### Return type
 
@@ -884,12 +552,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | validate 200 response |  -  |
+| **200** | validateChart 200 response |  -  |
 
 
-## validate1
+## validateDashboard
 
-> ValidateConstraintViolation validate1(tenant, body)
+> ValidateConstraintViolation validateDashboard(tenant, body)
 
 Validate dashboard from yaml source
 
@@ -910,12 +578,12 @@ public class Example {
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         String tenant = "tenant_example"; // String | 
-        String body = "body_example"; // String | 
+        String body = "body_example"; // String | The dashboard definition as YAML
         try {
-            ValidateConstraintViolation result = apiInstance.validate1(tenant, body);
+            ValidateConstraintViolation result = apiInstance.validateDashboard(tenant, body);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DashboardsApi#validate1");
+            System.err.println("Exception when calling DashboardsApi#validateDashboard");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -931,7 +599,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenant** | **String**|  | |
-| **body** | **String**|  | |
+| **body** | **String**| The dashboard definition as YAML | |
 
 ### Return type
 
@@ -950,5 +618,5 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | validate_1 200 response |  -  |
+| **200** | validateDashboard 200 response |  -  |
 

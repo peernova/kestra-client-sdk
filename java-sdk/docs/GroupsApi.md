@@ -4,72 +4,45 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**addGroup**](GroupsApi.md#addGroup) | **PUT** /api/v1/groups/{id}/members/{userId} | Add a group for a user |
-| [**addGroup1**](GroupsApi.md#addGroup1) | **PUT** /api/v1/tenants/groups/{id}/members/{userId} | Add a group for a user |
-| [**addGroup2**](GroupsApi.md#addGroup2) | **PUT** /api/v1/tenants/{ressourceTenant}/groups/{id}/members/{userId} | Add a group for a user |
-| [**addGroup3**](GroupsApi.md#addGroup3) | **PUT** /api/v1/{tenant}/groups/{id}/members/{userId} | Add a group for a user |
-| [**addGroup4**](GroupsApi.md#addGroup4) | **PUT** /api/v1/{tenant}/tenants/groups/{id}/members/{userId} | Add a group for a user |
-| [**addGroup5**](GroupsApi.md#addGroup5) | **PUT** /api/v1/{tenant}/tenants/{ressourceTenant}/groups/{id}/members/{userId} | Add a group for a user |
-| [**autocomplete**](GroupsApi.md#autocomplete) | **POST** /api/v1/groups/autocomplete | List groups for autocomplete |
-| [**autocomplete12**](GroupsApi.md#autocomplete12) | **POST** /api/v1/{tenant}/groups/autocomplete | List groups for autocomplete |
-| [**autocomplete15**](GroupsApi.md#autocomplete15) | **POST** /api/v1/{tenant}/tenants/groups/autocomplete | List groups for autocomplete |
-| [**autocomplete19**](GroupsApi.md#autocomplete19) | **POST** /api/v1/{tenant}/tenants/{ressourceTenant}/groups/autocomplete | List groups for autocomplete |
-| [**autocomplete3**](GroupsApi.md#autocomplete3) | **POST** /api/v1/tenants/groups/autocomplete | List groups for autocomplete |
-| [**autocomplete7**](GroupsApi.md#autocomplete7) | **POST** /api/v1/tenants/{ressourceTenant}/groups/autocomplete | List groups for autocomplete |
-| [**create16**](GroupsApi.md#create16) | **POST** /api/v1/tenants/groups | Create a group |
-| [**create21**](GroupsApi.md#create21) | **POST** /api/v1/tenants/{ressourceTenant}/groups | Create a group |
-| [**create31**](GroupsApi.md#create31) | **POST** /api/v1/{tenant}/groups | Create a group |
-| [**create41**](GroupsApi.md#create41) | **POST** /api/v1/{tenant}/tenants/groups | Create a group |
-| [**create46**](GroupsApi.md#create46) | **POST** /api/v1/{tenant}/tenants/{ressourceTenant}/groups | Create a group |
-| [**create6**](GroupsApi.md#create6) | **POST** /api/v1/groups | Create a group |
-| [**delete18**](GroupsApi.md#delete18) | **DELETE** /api/v1/tenants/groups/{id} | Delete a group |
-| [**delete24**](GroupsApi.md#delete24) | **DELETE** /api/v1/tenants/{ressourceTenant}/groups/{id} | Delete a group |
-| [**delete34**](GroupsApi.md#delete34) | **DELETE** /api/v1/{tenant}/groups/{id} | Delete a group |
-| [**delete46**](GroupsApi.md#delete46) | **DELETE** /api/v1/{tenant}/tenants/groups/{id} | Delete a group |
-| [**delete52**](GroupsApi.md#delete52) | **DELETE** /api/v1/{tenant}/tenants/{ressourceTenant}/groups/{id} | Delete a group |
-| [**delete6**](GroupsApi.md#delete6) | **DELETE** /api/v1/groups/{id} | Delete a group |
-| [**deleteGroup**](GroupsApi.md#deleteGroup) | **DELETE** /api/v1/groups/{id}/members/{userId} | Delete a group for a user |
-| [**deleteGroup1**](GroupsApi.md#deleteGroup1) | **DELETE** /api/v1/tenants/groups/{id}/members/{userId} | Delete a group for a user |
-| [**deleteGroup2**](GroupsApi.md#deleteGroup2) | **DELETE** /api/v1/tenants/{ressourceTenant}/groups/{id}/members/{userId} | Delete a group for a user |
-| [**deleteGroup3**](GroupsApi.md#deleteGroup3) | **DELETE** /api/v1/{tenant}/groups/{id}/members/{userId} | Delete a group for a user |
-| [**deleteGroup4**](GroupsApi.md#deleteGroup4) | **DELETE** /api/v1/{tenant}/tenants/groups/{id}/members/{userId} | Delete a group for a user |
-| [**deleteGroup5**](GroupsApi.md#deleteGroup5) | **DELETE** /api/v1/{tenant}/tenants/{ressourceTenant}/groups/{id}/members/{userId} | Delete a group for a user |
-| [**find15**](GroupsApi.md#find15) | **GET** /api/v1/tenants/groups/search | Search for groups |
-| [**find21**](GroupsApi.md#find21) | **GET** /api/v1/tenants/{ressourceTenant}/groups/search | Search for groups |
-| [**find32**](GroupsApi.md#find32) | **GET** /api/v1/{tenant}/groups/search | Search for groups |
-| [**find41**](GroupsApi.md#find41) | **GET** /api/v1/{tenant}/tenants/groups/search | Search for groups |
-| [**find47**](GroupsApi.md#find47) | **GET** /api/v1/{tenant}/tenants/{ressourceTenant}/groups/search | Search for groups |
-| [**find6**](GroupsApi.md#find6) | **GET** /api/v1/groups/search | Search for groups |
-| [**ids**](GroupsApi.md#ids) | **POST** /api/v1/groups/ids | List groups by ids |
-| [**ids10**](GroupsApi.md#ids10) | **POST** /api/v1/{tenant}/tenants/{ressourceTenant}/groups/ids | List groups by ids |
-| [**ids2**](GroupsApi.md#ids2) | **POST** /api/v1/tenants/groups/ids | List groups by ids |
-| [**ids4**](GroupsApi.md#ids4) | **POST** /api/v1/tenants/{ressourceTenant}/groups/ids | List groups by ids |
-| [**ids6**](GroupsApi.md#ids6) | **POST** /api/v1/{tenant}/groups/ids | List groups by ids |
-| [**ids8**](GroupsApi.md#ids8) | **POST** /api/v1/{tenant}/tenants/groups/ids | List groups by ids |
-| [**index11**](GroupsApi.md#index11) | **GET** /api/v1/tenants/groups/{id} | Get a group |
-| [**index16**](GroupsApi.md#index16) | **GET** /api/v1/tenants/{ressourceTenant}/groups/{id} | Get a group |
-| [**index25**](GroupsApi.md#index25) | **GET** /api/v1/{tenant}/groups/{id} | Get a group |
-| [**index32**](GroupsApi.md#index32) | **GET** /api/v1/{tenant}/tenants/groups/{id} | Get a group |
-| [**index37**](GroupsApi.md#index37) | **GET** /api/v1/{tenant}/tenants/{ressourceTenant}/groups/{id} | Get a group |
-| [**index4**](GroupsApi.md#index4) | **GET** /api/v1/groups/{id} | Get a group |
-| [**members**](GroupsApi.md#members) | **GET** /api/v1/groups/{id}/members | Search for users in a group |
-| [**members1**](GroupsApi.md#members1) | **GET** /api/v1/tenants/groups/{id}/members | Search for users in a group |
-| [**members2**](GroupsApi.md#members2) | **GET** /api/v1/tenants/{ressourceTenant}/groups/{id}/members | Search for users in a group |
-| [**members3**](GroupsApi.md#members3) | **GET** /api/v1/{tenant}/groups/{id}/members | Search for users in a group |
-| [**members4**](GroupsApi.md#members4) | **GET** /api/v1/{tenant}/tenants/groups/{id}/members | Search for users in a group |
-| [**members5**](GroupsApi.md#members5) | **GET** /api/v1/{tenant}/tenants/{ressourceTenant}/groups/{id}/members | Search for users in a group |
-| [**update10**](GroupsApi.md#update10) | **PUT** /api/v1/tenants/groups/{id} | Update a group |
-| [**update14**](GroupsApi.md#update14) | **PUT** /api/v1/tenants/{ressourceTenant}/groups/{id} | Update a group |
-| [**update22**](GroupsApi.md#update22) | **PUT** /api/v1/{tenant}/groups/{id} | Update a group |
-| [**update28**](GroupsApi.md#update28) | **PUT** /api/v1/{tenant}/tenants/groups/{id} | Update a group |
-| [**update32**](GroupsApi.md#update32) | **PUT** /api/v1/{tenant}/tenants/{ressourceTenant}/groups/{id} | Update a group |
-| [**update4**](GroupsApi.md#update4) | **PUT** /api/v1/groups/{id} | Update a group |
+| [**addUserToGroup**](GroupsApi.md#addUserToGroup) | **PUT** /api/v1/{tenant}/groups/{id}/members/{userId} | Add a group for a user |
+| [**addUserToGroupWithResourceTenantasSuperAdmin**](GroupsApi.md#addUserToGroupWithResourceTenantasSuperAdmin) | **PUT** /api/v1/tenants/{resourceTenant}/groups/{id}/members/{userId} | Add a group for a user |
+| [**addUserToGroupasSuperAdmin**](GroupsApi.md#addUserToGroupasSuperAdmin) | **PUT** /api/v1/tenants/groups/{id}/members/{userId} | Add a group for a user |
+| [**autocompleteGroups**](GroupsApi.md#autocompleteGroups) | **POST** /api/v1/{tenant}/groups/autocomplete | List groups for autocomplete |
+| [**autocompleteGroupsWithResourceTenantasSuperAdmin**](GroupsApi.md#autocompleteGroupsWithResourceTenantasSuperAdmin) | **POST** /api/v1/tenants/{resourceTenant}/groups/autocomplete | List groups for autocomplete |
+| [**autocompleteGroupsasSuperAdmin**](GroupsApi.md#autocompleteGroupsasSuperAdmin) | **POST** /api/v1/tenants/groups/autocomplete | List groups for autocomplete |
+| [**createGroup**](GroupsApi.md#createGroup) | **POST** /api/v1/{tenant}/groups | Create a group |
+| [**createGroupWithResourceTenantasSuperAdmin**](GroupsApi.md#createGroupWithResourceTenantasSuperAdmin) | **POST** /api/v1/tenants/{resourceTenant}/groups | Create a group |
+| [**createGroupasSuperAdmin**](GroupsApi.md#createGroupasSuperAdmin) | **POST** /api/v1/tenants/groups | Create a group |
+| [**deleteGroup**](GroupsApi.md#deleteGroup) | **DELETE** /api/v1/{tenant}/groups/{id} | Delete a group |
+| [**deleteGroupWithResourceTenantasSuperAdmin**](GroupsApi.md#deleteGroupWithResourceTenantasSuperAdmin) | **DELETE** /api/v1/tenants/{resourceTenant}/groups/{id} | Delete a group |
+| [**deleteGroupasSuperAdmin**](GroupsApi.md#deleteGroupasSuperAdmin) | **DELETE** /api/v1/tenants/groups/{id} | Delete a group |
+| [**deleteUserFromGroup**](GroupsApi.md#deleteUserFromGroup) | **DELETE** /api/v1/{tenant}/groups/{id}/members/{userId} | Delete a group for a user |
+| [**deleteUserFromGroupWithResourceTenantasSuperAdmin**](GroupsApi.md#deleteUserFromGroupWithResourceTenantasSuperAdmin) | **DELETE** /api/v1/tenants/{resourceTenant}/groups/{id}/members/{userId} | Delete a group for a user |
+| [**deleteUserFromGroupasSuperAdmin**](GroupsApi.md#deleteUserFromGroupasSuperAdmin) | **DELETE** /api/v1/tenants/groups/{id}/members/{userId} | Delete a group for a user |
+| [**getGroup**](GroupsApi.md#getGroup) | **GET** /api/v1/{tenant}/groups/{id} | Get a group |
+| [**getGroupWithResourceTenantasSuperAdmin**](GroupsApi.md#getGroupWithResourceTenantasSuperAdmin) | **GET** /api/v1/tenants/{resourceTenant}/groups/{id} | Get a group |
+| [**getGroupasSuperAdmin**](GroupsApi.md#getGroupasSuperAdmin) | **GET** /api/v1/tenants/groups/{id} | Get a group |
+| [**listGroupIds**](GroupsApi.md#listGroupIds) | **POST** /api/v1/{tenant}/groups/ids | List groups by ids |
+| [**listGroupIdsWithResourceTenantasSuperAdmin**](GroupsApi.md#listGroupIdsWithResourceTenantasSuperAdmin) | **POST** /api/v1/tenants/{resourceTenant}/groups/ids | List groups by ids |
+| [**listGroupIdsasSuperAdmin**](GroupsApi.md#listGroupIdsasSuperAdmin) | **POST** /api/v1/tenants/groups/ids | List groups by ids |
+| [**searchGroupMembers**](GroupsApi.md#searchGroupMembers) | **GET** /api/v1/{tenant}/groups/{id}/members | Search for users in a group |
+| [**searchGroupMembersWithResourceTenantasSuperAdmin**](GroupsApi.md#searchGroupMembersWithResourceTenantasSuperAdmin) | **GET** /api/v1/tenants/{resourceTenant}/groups/{id}/members | Search for users in a group |
+| [**searchGroupMembersasSuperAdmin**](GroupsApi.md#searchGroupMembersasSuperAdmin) | **GET** /api/v1/tenants/groups/{id}/members | Search for users in a group |
+| [**searchGroups**](GroupsApi.md#searchGroups) | **GET** /api/v1/{tenant}/groups/search | Search for groups |
+| [**searchGroupsWithResourceTenantasSuperAdmin**](GroupsApi.md#searchGroupsWithResourceTenantasSuperAdmin) | **GET** /api/v1/tenants/{resourceTenant}/groups/search | Search for groups |
+| [**searchGroupsasSuperAdmin**](GroupsApi.md#searchGroupsasSuperAdmin) | **GET** /api/v1/tenants/groups/search | Search for groups |
+| [**setUserMembershipForGroup**](GroupsApi.md#setUserMembershipForGroup) | **PUT** /api/v1/{tenant}/groups/{id}/members/membership/{userId} | Set the membership type of a user in a group |
+| [**setUserMembershipForGroupWithResourceTenantasSuperAdmin**](GroupsApi.md#setUserMembershipForGroupWithResourceTenantasSuperAdmin) | **PUT** /api/v1/tenants/{resourceTenant}/groups/{id}/members/membership/{userId} | Set the membership type of a user in a group |
+| [**setUserMembershipForGroupasSuperAdmin**](GroupsApi.md#setUserMembershipForGroupasSuperAdmin) | **PUT** /api/v1/tenants/groups/{id}/members/membership/{userId} | Set the membership type of a user in a group |
+| [**updateGroup**](GroupsApi.md#updateGroup) | **PUT** /api/v1/{tenant}/groups/{id} | Update a group |
+| [**updateGroupWithResourceTenantasSuperAdmin**](GroupsApi.md#updateGroupWithResourceTenantasSuperAdmin) | **PUT** /api/v1/tenants/{resourceTenant}/groups/{id} | Update a group |
+| [**updateGroupasSuperAdmin**](GroupsApi.md#updateGroupasSuperAdmin) | **PUT** /api/v1/tenants/groups/{id} | Update a group |
 
 
 
-## addGroup
+## addUserToGroup
 
-> ApiUser addGroup(id, userId)
+> ApiUser addUserToGroup(id, userId, tenant)
 
 Add a group for a user
 
@@ -80,6 +53,7 @@ Add a group for a user
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.GroupsApi;
 
@@ -87,216 +61,25 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        String userId = "userId_example"; // String | The user id
-        try {
-            ApiUser result = apiInstance.addGroup(id, userId);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#addGroup");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-| **userId** | **String**| The user id | |
-
-### Return type
-
-[**ApiUser**](ApiUser.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | addGroup 200 response |  -  |
-
-
-## addGroup1
-
-> ApiUser addGroup1(id, userId)
-
-Add a group for a user
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        String userId = "userId_example"; // String | The user id
-        try {
-            ApiUser result = apiInstance.addGroup1(id, userId);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#addGroup1");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-| **userId** | **String**| The user id | |
-
-### Return type
-
-[**ApiUser**](ApiUser.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | addGroup_1 200 response |  -  |
-
-
-## addGroup2
-
-> ApiUser addGroup2(id, userId, ressourceTenant)
-
-Add a group for a user
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        String userId = "userId_example"; // String | The user id
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        try {
-            ApiUser result = apiInstance.addGroup2(id, userId, ressourceTenant);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#addGroup2");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-| **userId** | **String**| The user id | |
-| **ressourceTenant** | **String**|  | |
-
-### Return type
-
-[**ApiUser**](ApiUser.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | addGroup_2 200 response |  -  |
-
-
-## addGroup3
-
-> ApiUser addGroup3(id, userId, tenant)
-
-Add a group for a user
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         GroupsApi apiInstance = new GroupsApi(defaultClient);
         String id = "id_example"; // String | The group id
         String userId = "userId_example"; // String | The user id
         String tenant = "tenant_example"; // String | 
         try {
-            ApiUser result = apiInstance.addGroup3(id, userId, tenant);
+            ApiUser result = apiInstance.addUserToGroup(id, userId, tenant);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#addGroup3");
+            System.err.println("Exception when calling GroupsApi#addUserToGroup");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -321,7 +104,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -332,12 +115,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | addGroup_3 200 response |  -  |
+| **200** | addUserToGroup 200 response |  -  |
 
 
-## addGroup4
+## addUserToGroupWithResourceTenantasSuperAdmin
 
-> ApiUser addGroup4(id, userId, tenant)
+> ApiUser addUserToGroupWithResourceTenantasSuperAdmin(id, userId, resourceTenant)
 
 Add a group for a user
 
@@ -348,6 +131,7 @@ Add a group for a user
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.GroupsApi;
 
@@ -355,16 +139,25 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         GroupsApi apiInstance = new GroupsApi(defaultClient);
         String id = "id_example"; // String | The group id
         String userId = "userId_example"; // String | The user id
-        String tenant = "tenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String | 
         try {
-            ApiUser result = apiInstance.addGroup4(id, userId, tenant);
+            ApiUser result = apiInstance.addUserToGroupWithResourceTenantasSuperAdmin(id, userId, resourceTenant);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#addGroup4");
+            System.err.println("Exception when calling GroupsApi#addUserToGroupWithResourceTenantasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -381,7 +174,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The group id | |
 | **userId** | **String**| The user id | |
-| **tenant** | **String**|  | |
+| **resourceTenant** | **String**|  | |
 
 ### Return type
 
@@ -389,7 +182,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -400,12 +193,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | addGroup_4 200 response |  -  |
+| **200** | addUserToGroupWithResourceTenantasSuperAdmin 200 response |  -  |
 
 
-## addGroup5
+## addUserToGroupasSuperAdmin
 
-> ApiUser addGroup5(id, userId, ressourceTenant, tenant)
+> ApiUser addUserToGroupasSuperAdmin(id, userId)
 
 Add a group for a user
 
@@ -416,6 +209,7 @@ Add a group for a user
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.GroupsApi;
 
@@ -423,17 +217,24 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         GroupsApi apiInstance = new GroupsApi(defaultClient);
         String id = "id_example"; // String | The group id
         String userId = "userId_example"; // String | The user id
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String tenant = "tenant_example"; // String | 
         try {
-            ApiUser result = apiInstance.addGroup5(id, userId, ressourceTenant, tenant);
+            ApiUser result = apiInstance.addUserToGroupasSuperAdmin(id, userId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#addGroup5");
+            System.err.println("Exception when calling GroupsApi#addUserToGroupasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -450,8 +251,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The group id | |
 | **userId** | **String**| The user id | |
-| **ressourceTenant** | **String**|  | |
-| **tenant** | **String**|  | |
 
 ### Return type
 
@@ -459,7 +258,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -470,12 +269,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | addGroup_5 200 response |  -  |
+| **200** | addUserToGroupasSuperAdmin 200 response |  -  |
 
 
-## autocomplete
+## autocompleteGroups
 
-> List&lt;Group&gt; autocomplete(apiAutocomplete)
+> List&lt;Group&gt; autocompleteGroups(tenant, apiAutocomplete)
 
 List groups for autocomplete
 
@@ -486,6 +285,7 @@ List groups for autocomplete
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.GroupsApi;
 
@@ -493,14 +293,24 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         GroupsApi apiInstance = new GroupsApi(defaultClient);
-        ApiAutocomplete apiAutocomplete = new ApiAutocomplete(); // ApiAutocomplete | 
+        String tenant = "tenant_example"; // String | 
+        ApiAutocomplete apiAutocomplete = new ApiAutocomplete(); // ApiAutocomplete | Autocomplete request
         try {
-            List<Group> result = apiInstance.autocomplete(apiAutocomplete);
+            List<Group> result = apiInstance.autocompleteGroups(tenant, apiAutocomplete);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#autocomplete");
+            System.err.println("Exception when calling GroupsApi#autocompleteGroups");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -515,7 +325,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiAutocomplete** | [**ApiAutocomplete**](ApiAutocomplete.md)|  | |
+| **tenant** | **String**|  | |
+| **apiAutocomplete** | [**ApiAutocomplete**](ApiAutocomplete.md)| Autocomplete request | |
 
 ### Return type
 
@@ -523,7 +334,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -534,12 +345,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | autocomplete 200 response |  -  |
+| **200** | autocompleteGroups 200 response |  -  |
 
 
-## autocomplete12
+## autocompleteGroupsWithResourceTenantasSuperAdmin
 
-> List&lt;Group&gt; autocomplete12(tenant, apiAutocomplete)
+> List&lt;Group&gt; autocompleteGroupsWithResourceTenantasSuperAdmin(resourceTenant, apiAutocomplete)
 
 List groups for autocomplete
 
@@ -550,6 +361,7 @@ List groups for autocomplete
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.GroupsApi;
 
@@ -557,15 +369,24 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        ApiAutocomplete apiAutocomplete = new ApiAutocomplete(); // ApiAutocomplete | 
+        String resourceTenant = "resourceTenant_example"; // String | 
+        ApiAutocomplete apiAutocomplete = new ApiAutocomplete(); // ApiAutocomplete | Autocomplete request
         try {
-            List<Group> result = apiInstance.autocomplete12(tenant, apiAutocomplete);
+            List<Group> result = apiInstance.autocompleteGroupsWithResourceTenantasSuperAdmin(resourceTenant, apiAutocomplete);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#autocomplete12");
+            System.err.println("Exception when calling GroupsApi#autocompleteGroupsWithResourceTenantasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -580,8 +401,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
-| **apiAutocomplete** | [**ApiAutocomplete**](ApiAutocomplete.md)|  | |
+| **resourceTenant** | **String**|  | |
+| **apiAutocomplete** | [**ApiAutocomplete**](ApiAutocomplete.md)| Autocomplete request | |
 
 ### Return type
 
@@ -589,7 +410,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -600,12 +421,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | autocomplete_12 200 response |  -  |
+| **200** | autocompleteGroupsWithResourceTenantasSuperAdmin 200 response |  -  |
 
 
-## autocomplete15
+## autocompleteGroupsasSuperAdmin
 
-> List&lt;Group&gt; autocomplete15(tenant, apiAutocomplete)
+> List&lt;Group&gt; autocompleteGroupsasSuperAdmin(apiAutocomplete)
 
 List groups for autocomplete
 
@@ -616,6 +437,7 @@ List groups for autocomplete
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.GroupsApi;
 
@@ -623,15 +445,23 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        ApiAutocomplete apiAutocomplete = new ApiAutocomplete(); // ApiAutocomplete | 
+        ApiAutocomplete apiAutocomplete = new ApiAutocomplete(); // ApiAutocomplete | Autocomplete request
         try {
-            List<Group> result = apiInstance.autocomplete15(tenant, apiAutocomplete);
+            List<Group> result = apiInstance.autocompleteGroupsasSuperAdmin(apiAutocomplete);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#autocomplete15");
+            System.err.println("Exception when calling GroupsApi#autocompleteGroupsasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -646,8 +476,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
-| **apiAutocomplete** | [**ApiAutocomplete**](ApiAutocomplete.md)|  | |
+| **apiAutocomplete** | [**ApiAutocomplete**](ApiAutocomplete.md)| Autocomplete request | |
 
 ### Return type
 
@@ -655,7 +484,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -666,210 +495,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | autocomplete_15 200 response |  -  |
+| **200** | autocompleteGroupsasSuperAdmin 200 response |  -  |
 
 
-## autocomplete19
+## createGroup
 
-> List&lt;Group&gt; autocomplete19(ressourceTenant, tenant, apiAutocomplete)
-
-List groups for autocomplete
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        ApiAutocomplete apiAutocomplete = new ApiAutocomplete(); // ApiAutocomplete | 
-        try {
-            List<Group> result = apiInstance.autocomplete19(ressourceTenant, tenant, apiAutocomplete);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#autocomplete19");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **ressourceTenant** | **String**|  | |
-| **tenant** | **String**|  | |
-| **apiAutocomplete** | [**ApiAutocomplete**](ApiAutocomplete.md)|  | |
-
-### Return type
-
-[**List&lt;Group&gt;**](Group.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | autocomplete_19 200 response |  -  |
-
-
-## autocomplete3
-
-> List&lt;Group&gt; autocomplete3(apiAutocomplete)
-
-List groups for autocomplete
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        ApiAutocomplete apiAutocomplete = new ApiAutocomplete(); // ApiAutocomplete | 
-        try {
-            List<Group> result = apiInstance.autocomplete3(apiAutocomplete);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#autocomplete3");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **apiAutocomplete** | [**ApiAutocomplete**](ApiAutocomplete.md)|  | |
-
-### Return type
-
-[**List&lt;Group&gt;**](Group.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | autocomplete_3 200 response |  -  |
-
-
-## autocomplete7
-
-> List&lt;Group&gt; autocomplete7(ressourceTenant, apiAutocomplete)
-
-List groups for autocomplete
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        ApiAutocomplete apiAutocomplete = new ApiAutocomplete(); // ApiAutocomplete | 
-        try {
-            List<Group> result = apiInstance.autocomplete7(ressourceTenant, apiAutocomplete);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#autocomplete7");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **ressourceTenant** | **String**|  | |
-| **apiAutocomplete** | [**ApiAutocomplete**](ApiAutocomplete.md)|  | |
-
-### Return type
-
-[**List&lt;Group&gt;**](Group.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | autocomplete_7 200 response |  -  |
-
-
-## create16
-
-> Group create16(abstractGroupControllerGroupWithMembers)
+> Group createGroup(tenant, abstractGroupControllerGroupWithMembers)
 
 Create a group
 
@@ -880,6 +511,7 @@ Create a group
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.GroupsApi;
 
@@ -887,14 +519,24 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         GroupsApi apiInstance = new GroupsApi(defaultClient);
-        AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers = new AbstractGroupControllerGroupWithMembers(); // AbstractGroupControllerGroupWithMembers | 
+        String tenant = "tenant_example"; // String | 
+        AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers = new AbstractGroupControllerGroupWithMembers(); // AbstractGroupControllerGroupWithMembers | The group
         try {
-            Group result = apiInstance.create16(abstractGroupControllerGroupWithMembers);
+            Group result = apiInstance.createGroup(tenant, abstractGroupControllerGroupWithMembers);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#create16");
+            System.err.println("Exception when calling GroupsApi#createGroup");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -909,7 +551,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **abstractGroupControllerGroupWithMembers** | [**AbstractGroupControllerGroupWithMembers**](AbstractGroupControllerGroupWithMembers.md)|  | |
+| **tenant** | **String**|  | |
+| **abstractGroupControllerGroupWithMembers** | [**AbstractGroupControllerGroupWithMembers**](AbstractGroupControllerGroupWithMembers.md)| The group | |
 
 ### Return type
 
@@ -917,7 +560,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -928,12 +571,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | create_16 200 response |  -  |
+| **200** | createGroup 200 response |  -  |
 
 
-## create21
+## createGroupWithResourceTenantasSuperAdmin
 
-> Group create21(ressourceTenant, abstractGroupControllerGroupWithMembers)
+> Group createGroupWithResourceTenantasSuperAdmin(resourceTenant, abstractGroupControllerGroupWithMembers)
 
 Create a group
 
@@ -944,6 +587,7 @@ Create a group
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.GroupsApi;
 
@@ -951,15 +595,24 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers = new AbstractGroupControllerGroupWithMembers(); // AbstractGroupControllerGroupWithMembers | 
+        String resourceTenant = "resourceTenant_example"; // String | 
+        AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers = new AbstractGroupControllerGroupWithMembers(); // AbstractGroupControllerGroupWithMembers | The group
         try {
-            Group result = apiInstance.create21(ressourceTenant, abstractGroupControllerGroupWithMembers);
+            Group result = apiInstance.createGroupWithResourceTenantasSuperAdmin(resourceTenant, abstractGroupControllerGroupWithMembers);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#create21");
+            System.err.println("Exception when calling GroupsApi#createGroupWithResourceTenantasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -974,8 +627,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **ressourceTenant** | **String**|  | |
-| **abstractGroupControllerGroupWithMembers** | [**AbstractGroupControllerGroupWithMembers**](AbstractGroupControllerGroupWithMembers.md)|  | |
+| **resourceTenant** | **String**|  | |
+| **abstractGroupControllerGroupWithMembers** | [**AbstractGroupControllerGroupWithMembers**](AbstractGroupControllerGroupWithMembers.md)| The group | |
 
 ### Return type
 
@@ -983,7 +636,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -994,12 +647,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | create_21 200 response |  -  |
+| **200** | createGroupWithResourceTenantasSuperAdmin 200 response |  -  |
 
 
-## create31
+## createGroupasSuperAdmin
 
-> Group create31(tenant, abstractGroupControllerGroupWithMembers)
+> Group createGroupasSuperAdmin(abstractGroupControllerGroupWithMembers)
 
 Create a group
 
@@ -1010,6 +663,7 @@ Create a group
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.GroupsApi;
 
@@ -1017,15 +671,23 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers = new AbstractGroupControllerGroupWithMembers(); // AbstractGroupControllerGroupWithMembers | 
+        AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers = new AbstractGroupControllerGroupWithMembers(); // AbstractGroupControllerGroupWithMembers | The group
         try {
-            Group result = apiInstance.create31(tenant, abstractGroupControllerGroupWithMembers);
+            Group result = apiInstance.createGroupasSuperAdmin(abstractGroupControllerGroupWithMembers);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#create31");
+            System.err.println("Exception when calling GroupsApi#createGroupasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1040,8 +702,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
-| **abstractGroupControllerGroupWithMembers** | [**AbstractGroupControllerGroupWithMembers**](AbstractGroupControllerGroupWithMembers.md)|  | |
+| **abstractGroupControllerGroupWithMembers** | [**AbstractGroupControllerGroupWithMembers**](AbstractGroupControllerGroupWithMembers.md)| The group | |
 
 ### Return type
 
@@ -1049,7 +710,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1060,600 +721,14 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | create_31 200 response |  -  |
-
-
-## create41
-
-> Group create41(tenant, abstractGroupControllerGroupWithMembers)
-
-Create a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers = new AbstractGroupControllerGroupWithMembers(); // AbstractGroupControllerGroupWithMembers | 
-        try {
-            Group result = apiInstance.create41(tenant, abstractGroupControllerGroupWithMembers);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#create41");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
-| **abstractGroupControllerGroupWithMembers** | [**AbstractGroupControllerGroupWithMembers**](AbstractGroupControllerGroupWithMembers.md)|  | |
-
-### Return type
-
-[**Group**](Group.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | create_41 200 response |  -  |
-
-
-## create46
-
-> Group create46(ressourceTenant, tenant, abstractGroupControllerGroupWithMembers)
-
-Create a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers = new AbstractGroupControllerGroupWithMembers(); // AbstractGroupControllerGroupWithMembers | 
-        try {
-            Group result = apiInstance.create46(ressourceTenant, tenant, abstractGroupControllerGroupWithMembers);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#create46");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **ressourceTenant** | **String**|  | |
-| **tenant** | **String**|  | |
-| **abstractGroupControllerGroupWithMembers** | [**AbstractGroupControllerGroupWithMembers**](AbstractGroupControllerGroupWithMembers.md)|  | |
-
-### Return type
-
-[**Group**](Group.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | create_46 200 response |  -  |
-
-
-## create6
-
-> Group create6(abstractGroupControllerGroupWithMembers)
-
-Create a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        AbstractGroupControllerGroupWithMembers abstractGroupControllerGroupWithMembers = new AbstractGroupControllerGroupWithMembers(); // AbstractGroupControllerGroupWithMembers | 
-        try {
-            Group result = apiInstance.create6(abstractGroupControllerGroupWithMembers);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#create6");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **abstractGroupControllerGroupWithMembers** | [**AbstractGroupControllerGroupWithMembers**](AbstractGroupControllerGroupWithMembers.md)|  | |
-
-### Return type
-
-[**Group**](Group.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | create_6 200 response |  -  |
-
-
-## delete18
-
-> delete18(id)
-
-Delete a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        try {
-            apiInstance.delete18(id);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#delete18");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | On success |  -  |
-
-
-## delete24
-
-> delete24(id, ressourceTenant)
-
-Delete a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        try {
-            apiInstance.delete24(id, ressourceTenant);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#delete24");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-| **ressourceTenant** | **String**|  | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | On success |  -  |
-
-
-## delete34
-
-> delete34(id, tenant)
-
-Delete a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        String tenant = "tenant_example"; // String | 
-        try {
-            apiInstance.delete34(id, tenant);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#delete34");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-| **tenant** | **String**|  | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | On success |  -  |
-
-
-## delete46
-
-> delete46(id, tenant)
-
-Delete a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        String tenant = "tenant_example"; // String | 
-        try {
-            apiInstance.delete46(id, tenant);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#delete46");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-| **tenant** | **String**|  | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | On success |  -  |
-
-
-## delete52
-
-> delete52(id, ressourceTenant, tenant)
-
-Delete a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        try {
-            apiInstance.delete52(id, ressourceTenant, tenant);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#delete52");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-| **ressourceTenant** | **String**|  | |
-| **tenant** | **String**|  | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | On success |  -  |
-
-
-## delete6
-
-> delete6(id)
-
-Delete a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        try {
-            apiInstance.delete6(id);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#delete6");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | On success |  -  |
+| **200** | createGroupasSuperAdmin 200 response |  -  |
 
 
 ## deleteGroup
 
-> ApiUser deleteGroup(id, userId)
+> deleteGroup(id, tenant)
 
-Delete a group for a user
+Delete a group
 
 ### Example
 
@@ -1662,6 +737,7 @@ Delete a group for a user
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.GroupsApi;
 
@@ -1669,13 +745,21 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         GroupsApi apiInstance = new GroupsApi(defaultClient);
         String id = "id_example"; // String | The group id
-        String userId = "userId_example"; // String | The user id
+        String tenant = "tenant_example"; // String | 
         try {
-            ApiUser result = apiInstance.deleteGroup(id, userId);
-            System.out.println(result);
+            apiInstance.deleteGroup(id, tenant);
         } catch (ApiException e) {
             System.err.println("Exception when calling GroupsApi#deleteGroup");
             System.err.println("Status code: " + e.getCode());
@@ -1693,31 +777,179 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The group id | |
-| **userId** | **String**| The user id | |
+| **tenant** | **String**|  | |
 
 ### Return type
 
-[**ApiUser**](ApiUser.md)
+null (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | deleteGroup 200 response |  -  |
+| **204** | On success |  -  |
 
 
-## deleteGroup1
+## deleteGroupWithResourceTenantasSuperAdmin
 
-> ApiUser deleteGroup1(id, userId)
+> deleteGroupWithResourceTenantasSuperAdmin(id, resourceTenant)
+
+Delete a group
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.GroupsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        GroupsApi apiInstance = new GroupsApi(defaultClient);
+        String id = "id_example"; // String | The group id
+        String resourceTenant = "resourceTenant_example"; // String | 
+        try {
+            apiInstance.deleteGroupWithResourceTenantasSuperAdmin(id, resourceTenant);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling GroupsApi#deleteGroupWithResourceTenantasSuperAdmin");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| The group id | |
+| **resourceTenant** | **String**|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | On success |  -  |
+
+
+## deleteGroupasSuperAdmin
+
+> deleteGroupasSuperAdmin(id)
+
+Delete a group
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.GroupsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        GroupsApi apiInstance = new GroupsApi(defaultClient);
+        String id = "id_example"; // String | The group id
+        try {
+            apiInstance.deleteGroupasSuperAdmin(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling GroupsApi#deleteGroupasSuperAdmin");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| The group id | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | On success |  -  |
+
+
+## deleteUserFromGroup
+
+> ApiUser deleteUserFromGroup(id, userId, tenant)
 
 Delete a group for a user
 
@@ -1728,6 +960,7 @@ Delete a group for a user
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.GroupsApi;
 
@@ -1735,15 +968,25 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         GroupsApi apiInstance = new GroupsApi(defaultClient);
         String id = "id_example"; // String | The group id
         String userId = "userId_example"; // String | The user id
+        String tenant = "tenant_example"; // String | 
         try {
-            ApiUser result = apiInstance.deleteGroup1(id, userId);
+            ApiUser result = apiInstance.deleteUserFromGroup(id, userId, tenant);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#deleteGroup1");
+            System.err.println("Exception when calling GroupsApi#deleteUserFromGroup");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1760,6 +1003,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The group id | |
 | **userId** | **String**| The user id | |
+| **tenant** | **String**|  | |
 
 ### Return type
 
@@ -1767,7 +1011,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1778,12 +1022,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | deleteGroup_1 200 response |  -  |
+| **200** | deleteUserFromGroup 200 response |  -  |
 
 
-## deleteGroup2
+## deleteUserFromGroupWithResourceTenantasSuperAdmin
 
-> ApiUser deleteGroup2(id, userId, ressourceTenant)
+> ApiUser deleteUserFromGroupWithResourceTenantasSuperAdmin(id, userId, resourceTenant)
 
 Delete a group for a user
 
@@ -1794,6 +1038,7 @@ Delete a group for a user
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.GroupsApi;
 
@@ -1801,16 +1046,25 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         GroupsApi apiInstance = new GroupsApi(defaultClient);
         String id = "id_example"; // String | The group id
         String userId = "userId_example"; // String | The user id
-        String ressourceTenant = "ressourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String | 
         try {
-            ApiUser result = apiInstance.deleteGroup2(id, userId, ressourceTenant);
+            ApiUser result = apiInstance.deleteUserFromGroupWithResourceTenantasSuperAdmin(id, userId, resourceTenant);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#deleteGroup2");
+            System.err.println("Exception when calling GroupsApi#deleteUserFromGroupWithResourceTenantasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1827,7 +1081,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The group id | |
 | **userId** | **String**| The user id | |
-| **ressourceTenant** | **String**|  | |
+| **resourceTenant** | **String**|  | |
 
 ### Return type
 
@@ -1835,7 +1089,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1846,12 +1100,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | deleteGroup_2 200 response |  -  |
+| **200** | deleteUserFromGroupWithResourceTenantasSuperAdmin 200 response |  -  |
 
 
-## deleteGroup3
+## deleteUserFromGroupasSuperAdmin
 
-> ApiUser deleteGroup3(id, userId, tenant)
+> ApiUser deleteUserFromGroupasSuperAdmin(id, userId)
 
 Delete a group for a user
 
@@ -1862,6 +1116,7 @@ Delete a group for a user
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.GroupsApi;
 
@@ -1869,16 +1124,24 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         GroupsApi apiInstance = new GroupsApi(defaultClient);
         String id = "id_example"; // String | The group id
         String userId = "userId_example"; // String | The user id
-        String tenant = "tenant_example"; // String | 
         try {
-            ApiUser result = apiInstance.deleteGroup3(id, userId, tenant);
+            ApiUser result = apiInstance.deleteUserFromGroupasSuperAdmin(id, userId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#deleteGroup3");
+            System.err.println("Exception when calling GroupsApi#deleteUserFromGroupasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1895,7 +1158,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The group id | |
 | **userId** | **String**| The user id | |
-| **tenant** | **String**|  | |
 
 ### Return type
 
@@ -1903,7 +1165,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1914,14 +1176,14 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | deleteGroup_3 200 response |  -  |
+| **200** | deleteUserFromGroupasSuperAdmin 200 response |  -  |
 
 
-## deleteGroup4
+## getGroup
 
-> ApiUser deleteGroup4(id, userId, tenant)
+> Group getGroup(id, tenant)
 
-Delete a group for a user
+Get a group
 
 ### Example
 
@@ -1930,6 +1192,7 @@ Delete a group for a user
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.GroupsApi;
 
@@ -1937,16 +1200,974 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        GroupsApi apiInstance = new GroupsApi(defaultClient);
+        String id = "id_example"; // String | The group id
+        String tenant = "tenant_example"; // String | 
+        try {
+            Group result = apiInstance.getGroup(id, tenant);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling GroupsApi#getGroup");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| The group id | |
+| **tenant** | **String**|  | |
+
+### Return type
+
+[**Group**](Group.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | getGroup 200 response |  -  |
+
+
+## getGroupWithResourceTenantasSuperAdmin
+
+> Group getGroupWithResourceTenantasSuperAdmin(id, resourceTenant)
+
+Get a group
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.GroupsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        GroupsApi apiInstance = new GroupsApi(defaultClient);
+        String id = "id_example"; // String | The group id
+        String resourceTenant = "resourceTenant_example"; // String | 
+        try {
+            Group result = apiInstance.getGroupWithResourceTenantasSuperAdmin(id, resourceTenant);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling GroupsApi#getGroupWithResourceTenantasSuperAdmin");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| The group id | |
+| **resourceTenant** | **String**|  | |
+
+### Return type
+
+[**Group**](Group.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | getGroupWithResourceTenantasSuperAdmin 200 response |  -  |
+
+
+## getGroupasSuperAdmin
+
+> Group getGroupasSuperAdmin(id)
+
+Get a group
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.GroupsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        GroupsApi apiInstance = new GroupsApi(defaultClient);
+        String id = "id_example"; // String | The group id
+        try {
+            Group result = apiInstance.getGroupasSuperAdmin(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling GroupsApi#getGroupasSuperAdmin");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| The group id | |
+
+### Return type
+
+[**Group**](Group.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | getGroupasSuperAdmin 200 response |  -  |
+
+
+## listGroupIds
+
+> List&lt;Group&gt; listGroupIds(tenant, apiIds)
+
+List groups by ids
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.GroupsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        GroupsApi apiInstance = new GroupsApi(defaultClient);
+        String tenant = "tenant_example"; // String | 
+        ApiIds apiIds = new ApiIds(); // ApiIds | The ids that must be present on results
+        try {
+            List<Group> result = apiInstance.listGroupIds(tenant, apiIds);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling GroupsApi#listGroupIds");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenant** | **String**|  | |
+| **apiIds** | [**ApiIds**](ApiIds.md)| The ids that must be present on results | |
+
+### Return type
+
+[**List&lt;Group&gt;**](Group.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | listGroupIds 200 response |  -  |
+
+
+## listGroupIdsWithResourceTenantasSuperAdmin
+
+> List&lt;Group&gt; listGroupIdsWithResourceTenantasSuperAdmin(resourceTenant, apiIds)
+
+List groups by ids
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.GroupsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        GroupsApi apiInstance = new GroupsApi(defaultClient);
+        String resourceTenant = "resourceTenant_example"; // String | 
+        ApiIds apiIds = new ApiIds(); // ApiIds | The ids that must be present on results
+        try {
+            List<Group> result = apiInstance.listGroupIdsWithResourceTenantasSuperAdmin(resourceTenant, apiIds);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling GroupsApi#listGroupIdsWithResourceTenantasSuperAdmin");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **resourceTenant** | **String**|  | |
+| **apiIds** | [**ApiIds**](ApiIds.md)| The ids that must be present on results | |
+
+### Return type
+
+[**List&lt;Group&gt;**](Group.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | listGroupIdsWithResourceTenantasSuperAdmin 200 response |  -  |
+
+
+## listGroupIdsasSuperAdmin
+
+> List&lt;Group&gt; listGroupIdsasSuperAdmin(apiIds)
+
+List groups by ids
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.GroupsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        GroupsApi apiInstance = new GroupsApi(defaultClient);
+        ApiIds apiIds = new ApiIds(); // ApiIds | The ids that must be present on results
+        try {
+            List<Group> result = apiInstance.listGroupIdsasSuperAdmin(apiIds);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling GroupsApi#listGroupIdsasSuperAdmin");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **apiIds** | [**ApiIds**](ApiIds.md)| The ids that must be present on results | |
+
+### Return type
+
+[**List&lt;Group&gt;**](Group.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | listGroupIdsasSuperAdmin 200 response |  -  |
+
+
+## searchGroupMembers
+
+> PagedResultsApiUser searchGroupMembers(id, page, size, tenant, q, sort)
+
+Search for users in a group
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.GroupsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        GroupsApi apiInstance = new GroupsApi(defaultClient);
+        String id = "id_example"; // String | The group id
+        Integer page = 1; // Integer | The current page
+        Integer size = 10; // Integer | The current page size
+        String tenant = "tenant_example"; // String | 
+        String q = "q_example"; // String | A string filter
+        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
+        try {
+            PagedResultsApiUser result = apiInstance.searchGroupMembers(id, page, size, tenant, q, sort);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling GroupsApi#searchGroupMembers");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| The group id | |
+| **page** | **Integer**| The current page | [default to 1] |
+| **size** | **Integer**| The current page size | [default to 10] |
+| **tenant** | **String**|  | |
+| **q** | **String**| A string filter | [optional] |
+| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
+
+### Return type
+
+[**PagedResultsApiUser**](PagedResultsApiUser.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | searchGroupMembers 200 response |  -  |
+
+
+## searchGroupMembersWithResourceTenantasSuperAdmin
+
+> PagedResultsApiUser searchGroupMembersWithResourceTenantasSuperAdmin(id, page, size, resourceTenant, q, sort)
+
+Search for users in a group
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.GroupsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        GroupsApi apiInstance = new GroupsApi(defaultClient);
+        String id = "id_example"; // String | The group id
+        Integer page = 1; // Integer | The current page
+        Integer size = 10; // Integer | The current page size
+        String resourceTenant = "resourceTenant_example"; // String | 
+        String q = "q_example"; // String | A string filter
+        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
+        try {
+            PagedResultsApiUser result = apiInstance.searchGroupMembersWithResourceTenantasSuperAdmin(id, page, size, resourceTenant, q, sort);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling GroupsApi#searchGroupMembersWithResourceTenantasSuperAdmin");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| The group id | |
+| **page** | **Integer**| The current page | [default to 1] |
+| **size** | **Integer**| The current page size | [default to 10] |
+| **resourceTenant** | **String**|  | |
+| **q** | **String**| A string filter | [optional] |
+| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
+
+### Return type
+
+[**PagedResultsApiUser**](PagedResultsApiUser.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | searchGroupMembersWithResourceTenantasSuperAdmin 200 response |  -  |
+
+
+## searchGroupMembersasSuperAdmin
+
+> PagedResultsApiUser searchGroupMembersasSuperAdmin(id, page, size, q, sort)
+
+Search for users in a group
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.GroupsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        GroupsApi apiInstance = new GroupsApi(defaultClient);
+        String id = "id_example"; // String | The group id
+        Integer page = 1; // Integer | The current page
+        Integer size = 10; // Integer | The current page size
+        String q = "q_example"; // String | A string filter
+        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
+        try {
+            PagedResultsApiUser result = apiInstance.searchGroupMembersasSuperAdmin(id, page, size, q, sort);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling GroupsApi#searchGroupMembersasSuperAdmin");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| The group id | |
+| **page** | **Integer**| The current page | [default to 1] |
+| **size** | **Integer**| The current page size | [default to 10] |
+| **q** | **String**| A string filter | [optional] |
+| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
+
+### Return type
+
+[**PagedResultsApiUser**](PagedResultsApiUser.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | searchGroupMembersasSuperAdmin 200 response |  -  |
+
+
+## searchGroups
+
+> PagedResultsGroup searchGroups(page, size, tenant, q, sort)
+
+Search for groups
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.GroupsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        GroupsApi apiInstance = new GroupsApi(defaultClient);
+        Integer page = 1; // Integer | The current page
+        Integer size = 10; // Integer | The current page size
+        String tenant = "tenant_example"; // String | 
+        String q = "q_example"; // String | A string filter
+        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
+        try {
+            PagedResultsGroup result = apiInstance.searchGroups(page, size, tenant, q, sort);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling GroupsApi#searchGroups");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | **Integer**| The current page | [default to 1] |
+| **size** | **Integer**| The current page size | [default to 10] |
+| **tenant** | **String**|  | |
+| **q** | **String**| A string filter | [optional] |
+| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
+
+### Return type
+
+[**PagedResultsGroup**](PagedResultsGroup.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | searchGroups 200 response |  -  |
+
+
+## searchGroupsWithResourceTenantasSuperAdmin
+
+> PagedResultsGroup searchGroupsWithResourceTenantasSuperAdmin(page, size, resourceTenant, q, sort)
+
+Search for groups
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.GroupsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        GroupsApi apiInstance = new GroupsApi(defaultClient);
+        Integer page = 1; // Integer | The current page
+        Integer size = 10; // Integer | The current page size
+        String resourceTenant = "resourceTenant_example"; // String | 
+        String q = "q_example"; // String | A string filter
+        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
+        try {
+            PagedResultsGroup result = apiInstance.searchGroupsWithResourceTenantasSuperAdmin(page, size, resourceTenant, q, sort);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling GroupsApi#searchGroupsWithResourceTenantasSuperAdmin");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | **Integer**| The current page | [default to 1] |
+| **size** | **Integer**| The current page size | [default to 10] |
+| **resourceTenant** | **String**|  | |
+| **q** | **String**| A string filter | [optional] |
+| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
+
+### Return type
+
+[**PagedResultsGroup**](PagedResultsGroup.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | searchGroupsWithResourceTenantasSuperAdmin 200 response |  -  |
+
+
+## searchGroupsasSuperAdmin
+
+> PagedResultsGroup searchGroupsasSuperAdmin(page, size, q, sort)
+
+Search for groups
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.GroupsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        GroupsApi apiInstance = new GroupsApi(defaultClient);
+        Integer page = 1; // Integer | The current page
+        Integer size = 10; // Integer | The current page size
+        String q = "q_example"; // String | A string filter
+        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
+        try {
+            PagedResultsGroup result = apiInstance.searchGroupsasSuperAdmin(page, size, q, sort);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling GroupsApi#searchGroupsasSuperAdmin");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | **Integer**| The current page | [default to 1] |
+| **size** | **Integer**| The current page size | [default to 10] |
+| **q** | **String**| A string filter | [optional] |
+| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
+
+### Return type
+
+[**PagedResultsGroup**](PagedResultsGroup.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | searchGroupsasSuperAdmin 200 response |  -  |
+
+
+## setUserMembershipForGroup
+
+> ApiUser setUserMembershipForGroup(id, userId, membership, tenant)
+
+Set the membership type of a user in a group
+
+Sets the membership type of a user in a group. This method allows a group owner or a user with UPDATE permission to modify the membership of a user in a specific group.
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.GroupsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         GroupsApi apiInstance = new GroupsApi(defaultClient);
         String id = "id_example"; // String | The group id
         String userId = "userId_example"; // String | The user id
+        AbstractUserGroupIdentifierMembership membership = AbstractUserGroupIdentifierMembership.fromValue("OWNER"); // AbstractUserGroupIdentifierMembership | The membership type
         String tenant = "tenant_example"; // String | 
         try {
-            ApiUser result = apiInstance.deleteGroup4(id, userId, tenant);
+            ApiUser result = apiInstance.setUserMembershipForGroup(id, userId, membership, tenant);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#deleteGroup4");
+            System.err.println("Exception when calling GroupsApi#setUserMembershipForGroup");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1963,6 +2184,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The group id | |
 | **userId** | **String**| The user id | |
+| **membership** | [**AbstractUserGroupIdentifierMembership**](.md)| The membership type | [enum: OWNER, MEMBER] |
 | **tenant** | **String**|  | |
 
 ### Return type
@@ -1971,7 +2193,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1982,14 +2204,16 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | deleteGroup_4 200 response |  -  |
+| **200** | An HttpResponse containing the ApiUser object with the updated membership information. |  -  |
 
 
-## deleteGroup5
+## setUserMembershipForGroupWithResourceTenantasSuperAdmin
 
-> ApiUser deleteGroup5(id, userId, ressourceTenant, tenant)
+> ApiUser setUserMembershipForGroupWithResourceTenantasSuperAdmin(id, userId, membership, resourceTenant)
 
-Delete a group for a user
+Set the membership type of a user in a group
+
+Sets the membership type of a user in a group. This method allows a group owner or a user with UPDATE permission to modify the membership of a user in a specific group.
 
 ### Example
 
@@ -1998,6 +2222,7 @@ Delete a group for a user
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.GroupsApi;
 
@@ -2005,17 +2230,26 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         GroupsApi apiInstance = new GroupsApi(defaultClient);
         String id = "id_example"; // String | The group id
         String userId = "userId_example"; // String | The user id
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String tenant = "tenant_example"; // String | 
+        AbstractUserGroupIdentifierMembership membership = AbstractUserGroupIdentifierMembership.fromValue("OWNER"); // AbstractUserGroupIdentifierMembership | The membership type
+        String resourceTenant = "resourceTenant_example"; // String | 
         try {
-            ApiUser result = apiInstance.deleteGroup5(id, userId, ressourceTenant, tenant);
+            ApiUser result = apiInstance.setUserMembershipForGroupWithResourceTenantasSuperAdmin(id, userId, membership, resourceTenant);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#deleteGroup5");
+            System.err.println("Exception when calling GroupsApi#setUserMembershipForGroupWithResourceTenantasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2032,8 +2266,8 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The group id | |
 | **userId** | **String**| The user id | |
-| **ressourceTenant** | **String**|  | |
-| **tenant** | **String**|  | |
+| **membership** | [**AbstractUserGroupIdentifierMembership**](.md)| The membership type | [enum: OWNER, MEMBER] |
+| **resourceTenant** | **String**|  | |
 
 ### Return type
 
@@ -2041,7 +2275,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -2052,84 +2286,16 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | deleteGroup_5 200 response |  -  |
+| **200** | An HttpResponse containing the ApiUser object with the updated membership information. |  -  |
 
 
-## find15
+## setUserMembershipForGroupasSuperAdmin
 
-> PagedResultsGroup find15(page, size, q, sort)
+> ApiUser setUserMembershipForGroupasSuperAdmin(id, userId, membership)
 
-Search for groups
+Set the membership type of a user in a group
 
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        Integer page = 1; // Integer | The current page
-        Integer size = 10; // Integer | The current page size
-        String q = "q_example"; // String | A string filter
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        try {
-            PagedResultsGroup result = apiInstance.find15(page, size, q, sort);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#find15");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | **Integer**| The current page | [default to 1] |
-| **size** | **Integer**| The current page size | [default to 10] |
-| **q** | **String**| A string filter | [optional] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-
-### Return type
-
-[**PagedResultsGroup**](PagedResultsGroup.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | find_15 200 response |  -  |
-
-
-## find21
-
-> PagedResultsGroup find21(page, size, ressourceTenant, q, sort)
-
-Search for groups
+Sets the membership type of a user in a group. This method allows a group owner or a user with UPDATE permission to modify the membership of a user in a specific group.
 
 ### Example
 
@@ -2138,6 +2304,7 @@ Search for groups
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.GroupsApi;
 
@@ -2145,768 +2312,25 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        Integer page = 1; // Integer | The current page
-        Integer size = 10; // Integer | The current page size
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String q = "q_example"; // String | A string filter
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        try {
-            PagedResultsGroup result = apiInstance.find21(page, size, ressourceTenant, q, sort);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#find21");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | **Integer**| The current page | [default to 1] |
-| **size** | **Integer**| The current page size | [default to 10] |
-| **ressourceTenant** | **String**|  | |
-| **q** | **String**| A string filter | [optional] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-
-### Return type
-
-[**PagedResultsGroup**](PagedResultsGroup.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | find_21 200 response |  -  |
-
-
-## find32
-
-> PagedResultsGroup find32(page, size, tenant, q, sort)
-
-Search for groups
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        Integer page = 1; // Integer | The current page
-        Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String | 
-        String q = "q_example"; // String | A string filter
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        try {
-            PagedResultsGroup result = apiInstance.find32(page, size, tenant, q, sort);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#find32");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | **Integer**| The current page | [default to 1] |
-| **size** | **Integer**| The current page size | [default to 10] |
-| **tenant** | **String**|  | |
-| **q** | **String**| A string filter | [optional] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-
-### Return type
-
-[**PagedResultsGroup**](PagedResultsGroup.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | find_32 200 response |  -  |
-
-
-## find41
-
-> PagedResultsGroup find41(page, size, tenant, q, sort)
-
-Search for groups
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        Integer page = 1; // Integer | The current page
-        Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String | 
-        String q = "q_example"; // String | A string filter
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        try {
-            PagedResultsGroup result = apiInstance.find41(page, size, tenant, q, sort);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#find41");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | **Integer**| The current page | [default to 1] |
-| **size** | **Integer**| The current page size | [default to 10] |
-| **tenant** | **String**|  | |
-| **q** | **String**| A string filter | [optional] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-
-### Return type
-
-[**PagedResultsGroup**](PagedResultsGroup.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | find_41 200 response |  -  |
-
-
-## find47
-
-> PagedResultsGroup find47(page, size, ressourceTenant, tenant, q, sort)
-
-Search for groups
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        Integer page = 1; // Integer | The current page
-        Integer size = 10; // Integer | The current page size
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        String q = "q_example"; // String | A string filter
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        try {
-            PagedResultsGroup result = apiInstance.find47(page, size, ressourceTenant, tenant, q, sort);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#find47");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | **Integer**| The current page | [default to 1] |
-| **size** | **Integer**| The current page size | [default to 10] |
-| **ressourceTenant** | **String**|  | |
-| **tenant** | **String**|  | |
-| **q** | **String**| A string filter | [optional] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-
-### Return type
-
-[**PagedResultsGroup**](PagedResultsGroup.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | find_47 200 response |  -  |
-
-
-## find6
-
-> PagedResultsGroup find6(page, size, q, sort)
-
-Search for groups
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        Integer page = 1; // Integer | The current page
-        Integer size = 10; // Integer | The current page size
-        String q = "q_example"; // String | A string filter
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        try {
-            PagedResultsGroup result = apiInstance.find6(page, size, q, sort);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#find6");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | **Integer**| The current page | [default to 1] |
-| **size** | **Integer**| The current page size | [default to 10] |
-| **q** | **String**| A string filter | [optional] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-
-### Return type
-
-[**PagedResultsGroup**](PagedResultsGroup.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | find_6 200 response |  -  |
-
-
-## ids
-
-> List&lt;Group&gt; ids(apiIds)
-
-List groups by ids
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        ApiIds apiIds = new ApiIds(); // ApiIds | 
-        try {
-            List<Group> result = apiInstance.ids(apiIds);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#ids");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **apiIds** | [**ApiIds**](ApiIds.md)|  | |
-
-### Return type
-
-[**List&lt;Group&gt;**](Group.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | ids 200 response |  -  |
-
-
-## ids10
-
-> List&lt;Group&gt; ids10(ressourceTenant, tenant, apiIds)
-
-List groups by ids
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        ApiIds apiIds = new ApiIds(); // ApiIds | 
-        try {
-            List<Group> result = apiInstance.ids10(ressourceTenant, tenant, apiIds);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#ids10");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **ressourceTenant** | **String**|  | |
-| **tenant** | **String**|  | |
-| **apiIds** | [**ApiIds**](ApiIds.md)|  | |
-
-### Return type
-
-[**List&lt;Group&gt;**](Group.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | ids_10 200 response |  -  |
-
-
-## ids2
-
-> List&lt;Group&gt; ids2(apiIds)
-
-List groups by ids
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        ApiIds apiIds = new ApiIds(); // ApiIds | 
-        try {
-            List<Group> result = apiInstance.ids2(apiIds);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#ids2");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **apiIds** | [**ApiIds**](ApiIds.md)|  | |
-
-### Return type
-
-[**List&lt;Group&gt;**](Group.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | ids_2 200 response |  -  |
-
-
-## ids4
-
-> List&lt;Group&gt; ids4(ressourceTenant, apiIds)
-
-List groups by ids
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        ApiIds apiIds = new ApiIds(); // ApiIds | 
-        try {
-            List<Group> result = apiInstance.ids4(ressourceTenant, apiIds);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#ids4");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **ressourceTenant** | **String**|  | |
-| **apiIds** | [**ApiIds**](ApiIds.md)|  | |
-
-### Return type
-
-[**List&lt;Group&gt;**](Group.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | ids_4 200 response |  -  |
-
-
-## ids6
-
-> List&lt;Group&gt; ids6(tenant, apiIds)
-
-List groups by ids
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        ApiIds apiIds = new ApiIds(); // ApiIds | 
-        try {
-            List<Group> result = apiInstance.ids6(tenant, apiIds);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#ids6");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
-| **apiIds** | [**ApiIds**](ApiIds.md)|  | |
-
-### Return type
-
-[**List&lt;Group&gt;**](Group.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | ids_6 200 response |  -  |
-
-
-## ids8
-
-> List&lt;Group&gt; ids8(tenant, apiIds)
-
-List groups by ids
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        ApiIds apiIds = new ApiIds(); // ApiIds | 
-        try {
-            List<Group> result = apiInstance.ids8(tenant, apiIds);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#ids8");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
-| **apiIds** | [**ApiIds**](ApiIds.md)|  | |
-
-### Return type
-
-[**List&lt;Group&gt;**](Group.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | ids_8 200 response |  -  |
-
-
-## index11
-
-> Group index11(id)
-
-Get a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         GroupsApi apiInstance = new GroupsApi(defaultClient);
         String id = "id_example"; // String | The group id
+        String userId = "userId_example"; // String | The user id
+        AbstractUserGroupIdentifierMembership membership = AbstractUserGroupIdentifierMembership.fromValue("OWNER"); // AbstractUserGroupIdentifierMembership | The membership type
         try {
-            Group result = apiInstance.index11(id);
+            ApiUser result = apiInstance.setUserMembershipForGroupasSuperAdmin(id, userId, membership);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#index11");
+            System.err.println("Exception when calling GroupsApi#setUserMembershipForGroupasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2922,14 +2346,16 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The group id | |
+| **userId** | **String**| The user id | |
+| **membership** | [**AbstractUserGroupIdentifierMembership**](.md)| The membership type | [enum: OWNER, MEMBER] |
 
 ### Return type
 
-[**Group**](Group.md)
+[**ApiUser**](ApiUser.md)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -2940,784 +2366,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | index_11 200 response |  -  |
+| **200** | An HttpResponse containing the ApiUser object with the updated membership information. |  -  |
 
 
-## index16
+## updateGroup
 
-> Group index16(id, ressourceTenant)
-
-Get a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        try {
-            Group result = apiInstance.index16(id, ressourceTenant);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#index16");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-| **ressourceTenant** | **String**|  | |
-
-### Return type
-
-[**Group**](Group.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | index_16 200 response |  -  |
-
-
-## index25
-
-> Group index25(id, tenant)
-
-Get a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        String tenant = "tenant_example"; // String | 
-        try {
-            Group result = apiInstance.index25(id, tenant);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#index25");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-| **tenant** | **String**|  | |
-
-### Return type
-
-[**Group**](Group.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | index_25 200 response |  -  |
-
-
-## index32
-
-> Group index32(id, tenant)
-
-Get a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        String tenant = "tenant_example"; // String | 
-        try {
-            Group result = apiInstance.index32(id, tenant);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#index32");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-| **tenant** | **String**|  | |
-
-### Return type
-
-[**Group**](Group.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | index_32 200 response |  -  |
-
-
-## index37
-
-> Group index37(id, ressourceTenant, tenant)
-
-Get a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        try {
-            Group result = apiInstance.index37(id, ressourceTenant, tenant);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#index37");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-| **ressourceTenant** | **String**|  | |
-| **tenant** | **String**|  | |
-
-### Return type
-
-[**Group**](Group.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | index_37 200 response |  -  |
-
-
-## index4
-
-> Group index4(id)
-
-Get a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        try {
-            Group result = apiInstance.index4(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#index4");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-
-### Return type
-
-[**Group**](Group.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | index_4 200 response |  -  |
-
-
-## members
-
-> PagedResultsApiUser members(id, page, size, q, sort)
-
-Search for users in a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        Integer page = 1; // Integer | The current page
-        Integer size = 10; // Integer | The current page size
-        String q = "q_example"; // String | A string filter
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        try {
-            PagedResultsApiUser result = apiInstance.members(id, page, size, q, sort);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#members");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-| **page** | **Integer**| The current page | [default to 1] |
-| **size** | **Integer**| The current page size | [default to 10] |
-| **q** | **String**| A string filter | [optional] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-
-### Return type
-
-[**PagedResultsApiUser**](PagedResultsApiUser.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | members 200 response |  -  |
-
-
-## members1
-
-> PagedResultsApiUser members1(id, page, size, q, sort)
-
-Search for users in a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        Integer page = 1; // Integer | The current page
-        Integer size = 10; // Integer | The current page size
-        String q = "q_example"; // String | A string filter
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        try {
-            PagedResultsApiUser result = apiInstance.members1(id, page, size, q, sort);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#members1");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-| **page** | **Integer**| The current page | [default to 1] |
-| **size** | **Integer**| The current page size | [default to 10] |
-| **q** | **String**| A string filter | [optional] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-
-### Return type
-
-[**PagedResultsApiUser**](PagedResultsApiUser.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | members_1 200 response |  -  |
-
-
-## members2
-
-> PagedResultsApiUser members2(id, page, size, ressourceTenant, q, sort)
-
-Search for users in a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        Integer page = 1; // Integer | The current page
-        Integer size = 10; // Integer | The current page size
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String q = "q_example"; // String | A string filter
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        try {
-            PagedResultsApiUser result = apiInstance.members2(id, page, size, ressourceTenant, q, sort);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#members2");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-| **page** | **Integer**| The current page | [default to 1] |
-| **size** | **Integer**| The current page size | [default to 10] |
-| **ressourceTenant** | **String**|  | |
-| **q** | **String**| A string filter | [optional] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-
-### Return type
-
-[**PagedResultsApiUser**](PagedResultsApiUser.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | members_2 200 response |  -  |
-
-
-## members3
-
-> PagedResultsApiUser members3(id, page, size, tenant, q, sort)
-
-Search for users in a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        Integer page = 1; // Integer | The current page
-        Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String | 
-        String q = "q_example"; // String | A string filter
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        try {
-            PagedResultsApiUser result = apiInstance.members3(id, page, size, tenant, q, sort);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#members3");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-| **page** | **Integer**| The current page | [default to 1] |
-| **size** | **Integer**| The current page size | [default to 10] |
-| **tenant** | **String**|  | |
-| **q** | **String**| A string filter | [optional] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-
-### Return type
-
-[**PagedResultsApiUser**](PagedResultsApiUser.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | members_3 200 response |  -  |
-
-
-## members4
-
-> PagedResultsApiUser members4(id, page, size, tenant, q, sort)
-
-Search for users in a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        Integer page = 1; // Integer | The current page
-        Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String | 
-        String q = "q_example"; // String | A string filter
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        try {
-            PagedResultsApiUser result = apiInstance.members4(id, page, size, tenant, q, sort);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#members4");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-| **page** | **Integer**| The current page | [default to 1] |
-| **size** | **Integer**| The current page size | [default to 10] |
-| **tenant** | **String**|  | |
-| **q** | **String**| A string filter | [optional] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-
-### Return type
-
-[**PagedResultsApiUser**](PagedResultsApiUser.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | members_4 200 response |  -  |
-
-
-## members5
-
-> PagedResultsApiUser members5(id, page, size, ressourceTenant, tenant, q, sort)
-
-Search for users in a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        Integer page = 1; // Integer | The current page
-        Integer size = 10; // Integer | The current page size
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        String q = "q_example"; // String | A string filter
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        try {
-            PagedResultsApiUser result = apiInstance.members5(id, page, size, ressourceTenant, tenant, q, sort);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#members5");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-| **page** | **Integer**| The current page | [default to 1] |
-| **size** | **Integer**| The current page size | [default to 10] |
-| **ressourceTenant** | **String**|  | |
-| **tenant** | **String**|  | |
-| **q** | **String**| A string filter | [optional] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-
-### Return type
-
-[**PagedResultsApiUser**](PagedResultsApiUser.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | members_5 200 response |  -  |
-
-
-## update10
-
-> Group update10(id, group)
+> Group updateGroup(id, tenant, group)
 
 Update a group
 
@@ -3728,6 +2382,7 @@ Update a group
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.GroupsApi;
 
@@ -3735,150 +2390,25 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        Group group = new Group(); // Group | 
-        try {
-            Group result = apiInstance.update10(id, group);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#update10");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-| **group** | [**Group**](Group.md)|  | |
-
-### Return type
-
-[**Group**](Group.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | update_10 200 response |  -  |
-
-
-## update14
-
-> Group update14(id, ressourceTenant, group)
-
-Update a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        Group group = new Group(); // Group | 
-        try {
-            Group result = apiInstance.update14(id, ressourceTenant, group);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#update14");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-| **ressourceTenant** | **String**|  | |
-| **group** | [**Group**](Group.md)|  | |
-
-### Return type
-
-[**Group**](Group.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | update_14 200 response |  -  |
-
-
-## update22
-
-> Group update22(id, tenant, group)
-
-Update a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         GroupsApi apiInstance = new GroupsApi(defaultClient);
         String id = "id_example"; // String | The group id
         String tenant = "tenant_example"; // String | 
-        Group group = new Group(); // Group | 
+        Group group = new Group(); // Group | The group
         try {
-            Group result = apiInstance.update22(id, tenant, group);
+            Group result = apiInstance.updateGroup(id, tenant, group);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#update22");
+            System.err.println("Exception when calling GroupsApi#updateGroup");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -3895,7 +2425,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The group id | |
 | **tenant** | **String**|  | |
-| **group** | [**Group**](Group.md)|  | |
+| **group** | [**Group**](Group.md)| The group | |
 
 ### Return type
 
@@ -3903,7 +2433,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -3914,12 +2444,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | update_22 200 response |  -  |
+| **200** | updateGroup 200 response |  -  |
 
 
-## update28
+## updateGroupWithResourceTenantasSuperAdmin
 
-> Group update28(id, tenant, group)
+> Group updateGroupWithResourceTenantasSuperAdmin(id, resourceTenant, group)
 
 Update a group
 
@@ -3930,6 +2460,7 @@ Update a group
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.GroupsApi;
 
@@ -3937,16 +2468,25 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         GroupsApi apiInstance = new GroupsApi(defaultClient);
         String id = "id_example"; // String | The group id
-        String tenant = "tenant_example"; // String | 
-        Group group = new Group(); // Group | 
+        String resourceTenant = "resourceTenant_example"; // String | 
+        Group group = new Group(); // Group | The group
         try {
-            Group result = apiInstance.update28(id, tenant, group);
+            Group result = apiInstance.updateGroupWithResourceTenantasSuperAdmin(id, resourceTenant, group);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#update28");
+            System.err.println("Exception when calling GroupsApi#updateGroupWithResourceTenantasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -3962,8 +2502,8 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The group id | |
-| **tenant** | **String**|  | |
-| **group** | [**Group**](Group.md)|  | |
+| **resourceTenant** | **String**|  | |
+| **group** | [**Group**](Group.md)| The group | |
 
 ### Return type
 
@@ -3971,7 +2511,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -3982,12 +2522,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | update_28 200 response |  -  |
+| **200** | updateGroupWithResourceTenantasSuperAdmin 200 response |  -  |
 
 
-## update32
+## updateGroupasSuperAdmin
 
-> Group update32(id, ressourceTenant, tenant, group)
+> Group updateGroupasSuperAdmin(id, group)
 
 Update a group
 
@@ -3998,6 +2538,7 @@ Update a group
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.GroupsApi;
 
@@ -4005,17 +2546,24 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         GroupsApi apiInstance = new GroupsApi(defaultClient);
         String id = "id_example"; // String | The group id
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        Group group = new Group(); // Group | 
+        Group group = new Group(); // Group | The group
         try {
-            Group result = apiInstance.update32(id, ressourceTenant, tenant, group);
+            Group result = apiInstance.updateGroupasSuperAdmin(id, group);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#update32");
+            System.err.println("Exception when calling GroupsApi#updateGroupasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -4031,9 +2579,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The group id | |
-| **ressourceTenant** | **String**|  | |
-| **tenant** | **String**|  | |
-| **group** | [**Group**](Group.md)|  | |
+| **group** | [**Group**](Group.md)| The group | |
 
 ### Return type
 
@@ -4041,7 +2587,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -4052,71 +2598,5 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | update_32 200 response |  -  |
-
-
-## update4
-
-> Group update4(id, group)
-
-Update a group
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.GroupsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        GroupsApi apiInstance = new GroupsApi(defaultClient);
-        String id = "id_example"; // String | The group id
-        Group group = new Group(); // Group | 
-        try {
-            Group result = apiInstance.update4(id, group);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling GroupsApi#update4");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The group id | |
-| **group** | [**Group**](Group.md)|  | |
-
-### Return type
-
-[**Group**](Group.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | update_4 200 response |  -  |
+| **200** | updateGroupasSuperAdmin 200 response |  -  |
 

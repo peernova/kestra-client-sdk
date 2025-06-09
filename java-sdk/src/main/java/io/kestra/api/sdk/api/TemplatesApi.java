@@ -35,7 +35,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-09T14:00:04.441521653Z[Etc/UTC]", comments = "Generator version: 7.13.0-SNAPSHOT")
 public class TemplatesApi extends BaseApi {
 
   public TemplatesApi() {
@@ -53,8 +53,8 @@ public class TemplatesApi extends BaseApi {
    * @return Template
    * @throws ApiException if fails to make API call
    */
-  public Template create13(Template template) throws ApiException {
-    return this.create13(template, Collections.emptyMap());
+  public Template create12(@javax.annotation.Nonnull Template template) throws ApiException {
+    return this.create12(template, Collections.emptyMap());
   }
 
 
@@ -66,12 +66,12 @@ public class TemplatesApi extends BaseApi {
    * @return Template
    * @throws ApiException if fails to make API call
    */
-  public Template create13(Template template, Map<String, String> additionalHeaders) throws ApiException {
+  public Template create12(@javax.annotation.Nonnull Template template, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = template;
     
     // verify the required parameter 'template' is set
     if (template == null) {
-      throw new ApiException(400, "Missing the required parameter 'template' when calling create13");
+      throw new ApiException(400, "Missing the required parameter 'template' when calling create12");
     }
     
     // create path and map variables
@@ -128,8 +128,8 @@ public class TemplatesApi extends BaseApi {
    * @return Template
    * @throws ApiException if fails to make API call
    */
-  public Template create38(String tenant, Template template) throws ApiException {
-    return this.create38(tenant, template, Collections.emptyMap());
+  public Template createWithTenant11(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Template template) throws ApiException {
+    return this.createWithTenant11(tenant, template, Collections.emptyMap());
   }
 
 
@@ -142,17 +142,17 @@ public class TemplatesApi extends BaseApi {
    * @return Template
    * @throws ApiException if fails to make API call
    */
-  public Template create38(String tenant, Template template, Map<String, String> additionalHeaders) throws ApiException {
+  public Template createWithTenant11(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Template template, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = template;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling create38");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling createWithTenant11");
     }
     
     // verify the required parameter 'template' is set
     if (template == null) {
-      throw new ApiException(400, "Missing the required parameter 'template' when calling create38");
+      throw new ApiException(400, "Missing the required parameter 'template' when calling createWithTenant11");
     }
     
     // create path and map variables
@@ -209,8 +209,8 @@ public class TemplatesApi extends BaseApi {
    * @param id The template id (required)
    * @throws ApiException if fails to make API call
    */
-  public void delete16(String namespace, String id) throws ApiException {
-    this.delete16(namespace, id, Collections.emptyMap());
+  public void delete15(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id) throws ApiException {
+    this.delete15(namespace, id, Collections.emptyMap());
   }
 
 
@@ -222,17 +222,17 @@ public class TemplatesApi extends BaseApi {
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void delete16(String namespace, String id, Map<String, String> additionalHeaders) throws ApiException {
+  public void delete15(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling delete16");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling delete15");
     }
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete16");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling delete15");
     }
     
     // create path and map variables
@@ -283,102 +283,14 @@ public class TemplatesApi extends BaseApi {
   }
 
   /**
-   * Delete a template
-   * 
-   * @param namespace The template namespace (required)
-   * @param id The template id (required)
-   * @param tenant  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void delete44(String namespace, String id, String tenant) throws ApiException {
-    this.delete44(namespace, id, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete a template
-   * 
-   * @param namespace The template namespace (required)
-   * @param id The template id (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void delete44(String namespace, String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling delete44");
-    }
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete44");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling delete44");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/templates/{namespace}/{id}"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
    * Delete templates by their IDs.
    * 
    * @param idWithNamespace  (required)
    * @return BulkResponse
    * @throws ApiException if fails to make API call
    */
-  public BulkResponse deleteByIds2(List<IdWithNamespace> idWithNamespace) throws ApiException {
-    return this.deleteByIds2(idWithNamespace, Collections.emptyMap());
+  public BulkResponse deleteByIds1(@javax.annotation.Nonnull List<IdWithNamespace> idWithNamespace) throws ApiException {
+    return this.deleteByIds1(idWithNamespace, Collections.emptyMap());
   }
 
 
@@ -390,12 +302,12 @@ public class TemplatesApi extends BaseApi {
    * @return BulkResponse
    * @throws ApiException if fails to make API call
    */
-  public BulkResponse deleteByIds2(List<IdWithNamespace> idWithNamespace, Map<String, String> additionalHeaders) throws ApiException {
+  public BulkResponse deleteByIds1(@javax.annotation.Nonnull List<IdWithNamespace> idWithNamespace, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = idWithNamespace;
     
     // verify the required parameter 'idWithNamespace' is set
     if (idWithNamespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'idWithNamespace' when calling deleteByIds2");
+      throw new ApiException(400, "Missing the required parameter 'idWithNamespace' when calling deleteByIds1");
     }
     
     // create path and map variables
@@ -452,8 +364,8 @@ public class TemplatesApi extends BaseApi {
    * @return BulkResponse
    * @throws ApiException if fails to make API call
    */
-  public BulkResponse deleteByIds5(String tenant, List<IdWithNamespace> idWithNamespace) throws ApiException {
-    return this.deleteByIds5(tenant, idWithNamespace, Collections.emptyMap());
+  public BulkResponse deleteByIdsWithTenant1(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<IdWithNamespace> idWithNamespace) throws ApiException {
+    return this.deleteByIdsWithTenant1(tenant, idWithNamespace, Collections.emptyMap());
   }
 
 
@@ -466,17 +378,17 @@ public class TemplatesApi extends BaseApi {
    * @return BulkResponse
    * @throws ApiException if fails to make API call
    */
-  public BulkResponse deleteByIds5(String tenant, List<IdWithNamespace> idWithNamespace, Map<String, String> additionalHeaders) throws ApiException {
+  public BulkResponse deleteByIdsWithTenant1(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<IdWithNamespace> idWithNamespace, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = idWithNamespace;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteByIds5");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteByIdsWithTenant1");
     }
     
     // verify the required parameter 'idWithNamespace' is set
     if (idWithNamespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'idWithNamespace' when calling deleteByIds5");
+      throw new ApiException(400, "Missing the required parameter 'idWithNamespace' when calling deleteByIdsWithTenant1");
     }
     
     // create path and map variables
@@ -534,8 +446,8 @@ public class TemplatesApi extends BaseApi {
    * @return BulkResponse
    * @throws ApiException if fails to make API call
    */
-  public BulkResponse deleteByQuery2(String q, String namespace) throws ApiException {
-    return this.deleteByQuery2(q, namespace, Collections.emptyMap());
+  public BulkResponse deleteByQuery1(@javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace) throws ApiException {
+    return this.deleteByQuery1(q, namespace, Collections.emptyMap());
   }
 
 
@@ -548,7 +460,7 @@ public class TemplatesApi extends BaseApi {
    * @return BulkResponse
    * @throws ApiException if fails to make API call
    */
-  public BulkResponse deleteByQuery2(String q, String namespace, Map<String, String> additionalHeaders) throws ApiException {
+  public BulkResponse deleteByQuery1(@javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -608,8 +520,8 @@ public class TemplatesApi extends BaseApi {
    * @return BulkResponse
    * @throws ApiException if fails to make API call
    */
-  public BulkResponse deleteByQuery5(String tenant, String q, String namespace) throws ApiException {
-    return this.deleteByQuery5(tenant, q, namespace, Collections.emptyMap());
+  public BulkResponse deleteByQueryWithTenant1(@javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace) throws ApiException {
+    return this.deleteByQueryWithTenant1(tenant, q, namespace, Collections.emptyMap());
   }
 
 
@@ -623,12 +535,12 @@ public class TemplatesApi extends BaseApi {
    * @return BulkResponse
    * @throws ApiException if fails to make API call
    */
-  public BulkResponse deleteByQuery5(String tenant, String q, String namespace, Map<String, String> additionalHeaders) throws ApiException {
+  public BulkResponse deleteByQueryWithTenant1(@javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteByQuery5");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteByQueryWithTenant1");
     }
     
     // create path and map variables
@@ -681,14 +593,102 @@ public class TemplatesApi extends BaseApi {
   }
 
   /**
+   * Delete a template
+   * 
+   * @param namespace The template namespace (required)
+   * @param id The template id (required)
+   * @param tenant  (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteWithTenant14(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    this.deleteWithTenant14(namespace, id, tenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Delete a template
+   * 
+   * @param namespace The template namespace (required)
+   * @param id The template id (required)
+   * @param tenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteWithTenant14(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'namespace' is set
+    if (namespace == null) {
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling deleteWithTenant14");
+    }
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteWithTenant14");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteWithTenant14");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/templates/{namespace}/{id}"
+      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    apiClient.invokeAPI(
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null
+    );
+  }
+
+  /**
    * Export templates as a ZIP archive of yaml sources.
    * 
    * @param idWithNamespace  (required)
    * @return List&lt;byte[]&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<byte[]> exportByIds1(List<IdWithNamespace> idWithNamespace) throws ApiException {
-    return this.exportByIds1(idWithNamespace, Collections.emptyMap());
+  public List<byte[]> exportByIds(@javax.annotation.Nonnull List<IdWithNamespace> idWithNamespace) throws ApiException {
+    return this.exportByIds(idWithNamespace, Collections.emptyMap());
   }
 
 
@@ -700,12 +700,12 @@ public class TemplatesApi extends BaseApi {
    * @return List&lt;byte[]&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<byte[]> exportByIds1(List<IdWithNamespace> idWithNamespace, Map<String, String> additionalHeaders) throws ApiException {
+  public List<byte[]> exportByIds(@javax.annotation.Nonnull List<IdWithNamespace> idWithNamespace, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = idWithNamespace;
     
     // verify the required parameter 'idWithNamespace' is set
     if (idWithNamespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'idWithNamespace' when calling exportByIds1");
+      throw new ApiException(400, "Missing the required parameter 'idWithNamespace' when calling exportByIds");
     }
     
     // create path and map variables
@@ -762,8 +762,8 @@ public class TemplatesApi extends BaseApi {
    * @return List&lt;byte[]&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<byte[]> exportByIds3(String tenant, List<IdWithNamespace> idWithNamespace) throws ApiException {
-    return this.exportByIds3(tenant, idWithNamespace, Collections.emptyMap());
+  public List<byte[]> exportByIdsWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<IdWithNamespace> idWithNamespace) throws ApiException {
+    return this.exportByIdsWithTenant(tenant, idWithNamespace, Collections.emptyMap());
   }
 
 
@@ -776,17 +776,17 @@ public class TemplatesApi extends BaseApi {
    * @return List&lt;byte[]&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<byte[]> exportByIds3(String tenant, List<IdWithNamespace> idWithNamespace, Map<String, String> additionalHeaders) throws ApiException {
+  public List<byte[]> exportByIdsWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<IdWithNamespace> idWithNamespace, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = idWithNamespace;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling exportByIds3");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling exportByIdsWithTenant");
     }
     
     // verify the required parameter 'idWithNamespace' is set
     if (idWithNamespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'idWithNamespace' when calling exportByIds3");
+      throw new ApiException(400, "Missing the required parameter 'idWithNamespace' when calling exportByIdsWithTenant");
     }
     
     // create path and map variables
@@ -844,8 +844,8 @@ public class TemplatesApi extends BaseApi {
    * @return List&lt;byte[]&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<byte[]> exportByQuery1(String q, String namespace) throws ApiException {
-    return this.exportByQuery1(q, namespace, Collections.emptyMap());
+  public List<byte[]> exportByQuery(@javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace) throws ApiException {
+    return this.exportByQuery(q, namespace, Collections.emptyMap());
   }
 
 
@@ -858,7 +858,7 @@ public class TemplatesApi extends BaseApi {
    * @return List&lt;byte[]&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<byte[]> exportByQuery1(String q, String namespace, Map<String, String> additionalHeaders) throws ApiException {
+  public List<byte[]> exportByQuery(@javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -918,8 +918,8 @@ public class TemplatesApi extends BaseApi {
    * @return List&lt;byte[]&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<byte[]> exportByQuery3(String tenant, String q, String namespace) throws ApiException {
-    return this.exportByQuery3(tenant, q, namespace, Collections.emptyMap());
+  public List<byte[]> exportByQueryWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace) throws ApiException {
+    return this.exportByQueryWithTenant(tenant, q, namespace, Collections.emptyMap());
   }
 
 
@@ -933,12 +933,12 @@ public class TemplatesApi extends BaseApi {
    * @return List&lt;byte[]&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<byte[]> exportByQuery3(String tenant, String q, String namespace, Map<String, String> additionalHeaders) throws ApiException {
+  public List<byte[]> exportByQueryWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling exportByQuery3");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling exportByQueryWithTenant");
     }
     
     // create path and map variables
@@ -1001,8 +1001,8 @@ public class TemplatesApi extends BaseApi {
    * @return PagedResultsTemplate
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsTemplate find13(Integer page, Integer size, List<String> sort, String q, String namespace) throws ApiException {
-    return this.find13(page, size, sort, q, namespace, Collections.emptyMap());
+  public PagedResultsTemplate find12(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace) throws ApiException {
+    return this.find12(page, size, sort, q, namespace, Collections.emptyMap());
   }
 
 
@@ -1018,17 +1018,17 @@ public class TemplatesApi extends BaseApi {
    * @return PagedResultsTemplate
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsTemplate find13(Integer page, Integer size, List<String> sort, String q, String namespace, Map<String, String> additionalHeaders) throws ApiException {
+  public PagedResultsTemplate find12(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'page' is set
     if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find13");
+      throw new ApiException(400, "Missing the required parameter 'page' when calling find12");
     }
     
     // verify the required parameter 'size' is set
     if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find13");
+      throw new ApiException(400, "Missing the required parameter 'size' when calling find12");
     }
     
     // create path and map variables
@@ -1094,8 +1094,8 @@ public class TemplatesApi extends BaseApi {
    * @return PagedResultsTemplate
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsTemplate find39(Integer page, Integer size, String tenant, List<String> sort, String q, String namespace) throws ApiException {
-    return this.find39(page, size, tenant, sort, q, namespace, Collections.emptyMap());
+  public PagedResultsTemplate findWithTenant11(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace) throws ApiException {
+    return this.findWithTenant11(page, size, tenant, sort, q, namespace, Collections.emptyMap());
   }
 
 
@@ -1112,22 +1112,22 @@ public class TemplatesApi extends BaseApi {
    * @return PagedResultsTemplate
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsTemplate find39(Integer page, Integer size, String tenant, List<String> sort, String q, String namespace, Map<String, String> additionalHeaders) throws ApiException {
+  public PagedResultsTemplate findWithTenant11(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'page' is set
     if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find39");
+      throw new ApiException(400, "Missing the required parameter 'page' when calling findWithTenant11");
     }
     
     // verify the required parameter 'size' is set
     if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find39");
+      throw new ApiException(400, "Missing the required parameter 'size' when calling findWithTenant11");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling find39");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling findWithTenant11");
     }
     
     // create path and map variables
@@ -1188,7 +1188,7 @@ public class TemplatesApi extends BaseApi {
    * @param fileUpload The file to import, can be a ZIP archive or a multi-objects YAML file (optional)
    * @throws ApiException if fails to make API call
    */
-  public void importTemplates(File fileUpload) throws ApiException {
+  public void importTemplates(@javax.annotation.Nullable File fileUpload) throws ApiException {
     this.importTemplates(fileUpload, Collections.emptyMap());
   }
 
@@ -1200,7 +1200,7 @@ public class TemplatesApi extends BaseApi {
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void importTemplates(File fileUpload, Map<String, String> additionalHeaders) throws ApiException {
+  public void importTemplates(@javax.annotation.Nullable File fileUpload, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -1257,8 +1257,8 @@ public class TemplatesApi extends BaseApi {
    * @param fileUpload The file to import, can be a ZIP archive or a multi-objects YAML file (optional)
    * @throws ApiException if fails to make API call
    */
-  public void importTemplates1(String tenant, File fileUpload) throws ApiException {
-    this.importTemplates1(tenant, fileUpload, Collections.emptyMap());
+  public void importTemplatesWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nullable File fileUpload) throws ApiException {
+    this.importTemplatesWithTenant(tenant, fileUpload, Collections.emptyMap());
   }
 
 
@@ -1270,12 +1270,12 @@ public class TemplatesApi extends BaseApi {
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void importTemplates1(String tenant, File fileUpload, Map<String, String> additionalHeaders) throws ApiException {
+  public void importTemplatesWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nullable File fileUpload, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling importTemplates1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling importTemplatesWithTenant");
     }
     
     // create path and map variables
@@ -1331,12 +1331,95 @@ public class TemplatesApi extends BaseApi {
    * 
    * @param namespace The template namespace (required)
    * @param id The template id (required)
+   * @return Template
+   * @throws ApiException if fails to make API call
+   */
+  public Template index8(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id) throws ApiException {
+    return this.index8(namespace, id, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get a template
+   * 
+   * @param namespace The template namespace (required)
+   * @param id The template id (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return Template
+   * @throws ApiException if fails to make API call
+   */
+  public Template index8(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'namespace' is set
+    if (namespace == null) {
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling index8");
+    }
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling index8");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/templates/{namespace}/{id}"
+      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    TypeReference<Template> localVarReturnType = new TypeReference<Template>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get a template
+   * 
+   * @param namespace The template namespace (required)
+   * @param id The template id (required)
    * @param tenant  (required)
    * @return Template
    * @throws ApiException if fails to make API call
    */
-  public Template index30(String namespace, String id, String tenant) throws ApiException {
-    return this.index30(namespace, id, tenant, Collections.emptyMap());
+  public Template indexWithTenant7(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.indexWithTenant7(namespace, id, tenant, Collections.emptyMap());
   }
 
 
@@ -1350,22 +1433,22 @@ public class TemplatesApi extends BaseApi {
    * @return Template
    * @throws ApiException if fails to make API call
    */
-  public Template index30(String namespace, String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public Template indexWithTenant7(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling index30");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling indexWithTenant7");
     }
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index30");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling indexWithTenant7");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling index30");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling indexWithTenant7");
     }
     
     // create path and map variables
@@ -1418,96 +1501,13 @@ public class TemplatesApi extends BaseApi {
   }
 
   /**
-   * Get a template
-   * 
-   * @param namespace The template namespace (required)
-   * @param id The template id (required)
-   * @return Template
-   * @throws ApiException if fails to make API call
-   */
-  public Template index9(String namespace, String id) throws ApiException {
-    return this.index9(namespace, id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a template
-   * 
-   * @param namespace The template namespace (required)
-   * @param id The template id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Template
-   * @throws ApiException if fails to make API call
-   */
-  public Template index9(String namespace, String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling index9");
-    }
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index9");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/templates/{namespace}/{id}"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Template> localVarReturnType = new TypeReference<Template>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
    * List all distinct namespaces
    * 
    * @return List&lt;String&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<String> listDistinctNamespace2() throws ApiException {
-    return this.listDistinctNamespace2(Collections.emptyMap());
+  public List<String> listDistinctNamespace1() throws ApiException {
+    return this.listDistinctNamespace1(Collections.emptyMap());
   }
 
 
@@ -1518,7 +1518,7 @@ public class TemplatesApi extends BaseApi {
    * @return List&lt;String&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<String> listDistinctNamespace2(Map<String, String> additionalHeaders) throws ApiException {
+  public List<String> listDistinctNamespace1(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -1574,8 +1574,8 @@ public class TemplatesApi extends BaseApi {
    * @return List&lt;String&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<String> listDistinctNamespace5(String tenant) throws ApiException {
-    return this.listDistinctNamespace5(tenant, Collections.emptyMap());
+  public List<String> listDistinctNamespaceWithTenant1(@javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.listDistinctNamespaceWithTenant1(tenant, Collections.emptyMap());
   }
 
 
@@ -1587,12 +1587,12 @@ public class TemplatesApi extends BaseApi {
    * @return List&lt;String&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<String> listDistinctNamespace5(String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public List<String> listDistinctNamespaceWithTenant1(@javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listDistinctNamespace5");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listDistinctNamespaceWithTenant1");
     }
     
     // create path and map variables
@@ -1647,110 +1647,12 @@ public class TemplatesApi extends BaseApi {
    * 
    * @param namespace The template namespace (required)
    * @param id The template id (required)
-   * @param tenant  (required)
    * @param template  (required)
    * @return Template
    * @throws ApiException if fails to make API call
    */
-  public Template update27(String namespace, String id, String tenant, Template template) throws ApiException {
-    return this.update27(namespace, id, tenant, template, Collections.emptyMap());
-  }
-
-
-  /**
-   * Update a template
-   * 
-   * @param namespace The template namespace (required)
-   * @param id The template id (required)
-   * @param tenant  (required)
-   * @param template  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Template
-   * @throws ApiException if fails to make API call
-   */
-  public Template update27(String namespace, String id, String tenant, Template template, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = template;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling update27");
-    }
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update27");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling update27");
-    }
-    
-    // verify the required parameter 'template' is set
-    if (template == null) {
-      throw new ApiException(400, "Missing the required parameter 'template' when calling update27");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/templates/{namespace}/{id}"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Template> localVarReturnType = new TypeReference<Template>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Update a template
-   * 
-   * @param namespace The template namespace (required)
-   * @param id The template id (required)
-   * @param template  (required)
-   * @return Template
-   * @throws ApiException if fails to make API call
-   */
-  public Template update9(String namespace, String id, Template template) throws ApiException {
-    return this.update9(namespace, id, template, Collections.emptyMap());
+  public Template update8(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull Template template) throws ApiException {
+    return this.update8(namespace, id, template, Collections.emptyMap());
   }
 
 
@@ -1764,22 +1666,22 @@ public class TemplatesApi extends BaseApi {
    * @return Template
    * @throws ApiException if fails to make API call
    */
-  public Template update9(String namespace, String id, Template template, Map<String, String> additionalHeaders) throws ApiException {
+  public Template update8(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull Template template, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = template;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling update9");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling update8");
     }
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update9");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling update8");
     }
     
     // verify the required parameter 'template' is set
     if (template == null) {
-      throw new ApiException(400, "Missing the required parameter 'template' when calling update9");
+      throw new ApiException(400, "Missing the required parameter 'template' when calling update8");
     }
     
     // create path and map variables
@@ -1839,8 +1741,8 @@ public class TemplatesApi extends BaseApi {
    * @return List&lt;Template&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Template> updateNamespace1(String namespace, Boolean delete, List<Template> template) throws ApiException {
-    return this.updateNamespace1(namespace, delete, template, Collections.emptyMap());
+  public List<Template> updateNamespace(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull Boolean delete, @javax.annotation.Nonnull List<Template> template) throws ApiException {
+    return this.updateNamespace(namespace, delete, template, Collections.emptyMap());
   }
 
 
@@ -1854,22 +1756,22 @@ public class TemplatesApi extends BaseApi {
    * @return List&lt;Template&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Template> updateNamespace1(String namespace, Boolean delete, List<Template> template, Map<String, String> additionalHeaders) throws ApiException {
+  public List<Template> updateNamespace(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull Boolean delete, @javax.annotation.Nonnull List<Template> template, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = template;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling updateNamespace1");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling updateNamespace");
     }
     
     // verify the required parameter 'delete' is set
     if (delete == null) {
-      throw new ApiException(400, "Missing the required parameter 'delete' when calling updateNamespace1");
+      throw new ApiException(400, "Missing the required parameter 'delete' when calling updateNamespace");
     }
     
     // verify the required parameter 'template' is set
     if (template == null) {
-      throw new ApiException(400, "Missing the required parameter 'template' when calling updateNamespace1");
+      throw new ApiException(400, "Missing the required parameter 'template' when calling updateNamespace");
     }
     
     // create path and map variables
@@ -1930,8 +1832,8 @@ public class TemplatesApi extends BaseApi {
    * @return List&lt;Template&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Template> updateNamespace3(String namespace, Boolean delete, String tenant, List<Template> template) throws ApiException {
-    return this.updateNamespace3(namespace, delete, tenant, template, Collections.emptyMap());
+  public List<Template> updateNamespaceWithTenant(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull Boolean delete, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<Template> template) throws ApiException {
+    return this.updateNamespaceWithTenant(namespace, delete, tenant, template, Collections.emptyMap());
   }
 
 
@@ -1946,27 +1848,27 @@ public class TemplatesApi extends BaseApi {
    * @return List&lt;Template&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Template> updateNamespace3(String namespace, Boolean delete, String tenant, List<Template> template, Map<String, String> additionalHeaders) throws ApiException {
+  public List<Template> updateNamespaceWithTenant(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull Boolean delete, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<Template> template, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = template;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling updateNamespace3");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling updateNamespaceWithTenant");
     }
     
     // verify the required parameter 'delete' is set
     if (delete == null) {
-      throw new ApiException(400, "Missing the required parameter 'delete' when calling updateNamespace3");
+      throw new ApiException(400, "Missing the required parameter 'delete' when calling updateNamespaceWithTenant");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling updateNamespace3");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling updateNamespaceWithTenant");
     }
     
     // verify the required parameter 'template' is set
     if (template == null) {
-      throw new ApiException(400, "Missing the required parameter 'template' when calling updateNamespace3");
+      throw new ApiException(400, "Missing the required parameter 'template' when calling updateNamespaceWithTenant");
     }
     
     // create path and map variables
@@ -2019,13 +1921,111 @@ public class TemplatesApi extends BaseApi {
   }
 
   /**
+   * Update a template
+   * 
+   * @param namespace The template namespace (required)
+   * @param id The template id (required)
+   * @param tenant  (required)
+   * @param template  (required)
+   * @return Template
+   * @throws ApiException if fails to make API call
+   */
+  public Template updateWithTenant7(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Template template) throws ApiException {
+    return this.updateWithTenant7(namespace, id, tenant, template, Collections.emptyMap());
+  }
+
+
+  /**
+   * Update a template
+   * 
+   * @param namespace The template namespace (required)
+   * @param id The template id (required)
+   * @param tenant  (required)
+   * @param template  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return Template
+   * @throws ApiException if fails to make API call
+   */
+  public Template updateWithTenant7(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Template template, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = template;
+    
+    // verify the required parameter 'namespace' is set
+    if (namespace == null) {
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling updateWithTenant7");
+    }
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateWithTenant7");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling updateWithTenant7");
+    }
+    
+    // verify the required parameter 'template' is set
+    if (template == null) {
+      throw new ApiException(400, "Missing the required parameter 'template' when calling updateWithTenant7");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/templates/{namespace}/{id}"
+      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    TypeReference<Template> localVarReturnType = new TypeReference<Template>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Validate a list of templates
    * 
    * @param body  (required)
    * @return List&lt;ValidateConstraintViolation&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<ValidateConstraintViolation> validateTemplates(String body) throws ApiException {
+  public List<ValidateConstraintViolation> validateTemplates(@javax.annotation.Nonnull String body) throws ApiException {
     return this.validateTemplates(body, Collections.emptyMap());
   }
 
@@ -2038,7 +2038,7 @@ public class TemplatesApi extends BaseApi {
    * @return List&lt;ValidateConstraintViolation&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<ValidateConstraintViolation> validateTemplates(String body, Map<String, String> additionalHeaders) throws ApiException {
+  public List<ValidateConstraintViolation> validateTemplates(@javax.annotation.Nonnull String body, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'body' is set
@@ -2100,8 +2100,8 @@ public class TemplatesApi extends BaseApi {
    * @return List&lt;ValidateConstraintViolation&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<ValidateConstraintViolation> validateTemplates1(String tenant, String body) throws ApiException {
-    return this.validateTemplates1(tenant, body, Collections.emptyMap());
+  public List<ValidateConstraintViolation> validateTemplatesWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String body) throws ApiException {
+    return this.validateTemplatesWithTenant(tenant, body, Collections.emptyMap());
   }
 
 
@@ -2114,17 +2114,17 @@ public class TemplatesApi extends BaseApi {
    * @return List&lt;ValidateConstraintViolation&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<ValidateConstraintViolation> validateTemplates1(String tenant, String body, Map<String, String> additionalHeaders) throws ApiException {
+  public List<ValidateConstraintViolation> validateTemplatesWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String body, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling validateTemplates1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling validateTemplatesWithTenant");
     }
     
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling validateTemplates1");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling validateTemplatesWithTenant");
     }
     
     // create path and map variables

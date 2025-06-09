@@ -39,6 +39,8 @@
 
 * `APPEXECUTION` (value: `"APPEXECUTION"`)
 
+* `TEST` (value: `"TEST"`)
+
 * `ME` (value: `"ME"`)
 
 * `APITOKEN` (value: `"APITOKEN"`)
@@ -46,6 +48,8 @@
 * `DASHBOARD` (value: `"DASHBOARD"`)
 
 * `TENANT` (value: `"TENANT"`)
+
+* `UNKNOWN` (value: `"UNKNOWN"`)
 
 
 

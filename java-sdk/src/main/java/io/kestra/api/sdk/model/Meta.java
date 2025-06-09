@@ -37,7 +37,7 @@ import java.util.StringJoiner;
   Meta.JSON_PROPERTY_LOCATION,
   Meta.JSON_PROPERTY_VERSION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class Meta {
   public static final String JSON_PROPERTY_RESOURCE_TYPE = "resourceType";
   @javax.annotation.Nullable

@@ -40,11 +40,12 @@ import java.util.StringJoiner;
   AbstractMetricEntryObject.JSON_PROPERTY_TYPE,
   AbstractMetricEntryObject.JSON_PROPERTY_VALUE,
   AbstractMetricEntryObject.JSON_PROPERTY_NAME,
+  AbstractMetricEntryObject.JSON_PROPERTY_DESCRIPTION,
   AbstractMetricEntryObject.JSON_PROPERTY_TAGS,
   AbstractMetricEntryObject.JSON_PROPERTY_TIMESTAMP
 })
 @JsonTypeName("AbstractMetricEntry_Object_")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class AbstractMetricEntryObject {
   public static final String JSON_PROPERTY_TYPE = "type";
   @javax.annotation.Nullable
@@ -57,6 +58,10 @@ public class AbstractMetricEntryObject {
   public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nonnull
   private String name;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
+  private String description;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   @javax.annotation.Nullable
@@ -152,6 +157,31 @@ public class AbstractMetricEntryObject {
     this.name = name;
   }
 
+  public AbstractMetricEntryObject description(@javax.annotation.Nullable String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * Get description
+   * @return description
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDescription(@javax.annotation.Nullable String description) {
+    this.description = description;
+  }
+
   public AbstractMetricEntryObject tags(@javax.annotation.Nullable Map<String, String> tags) {
     
     this.tags = tags;
@@ -222,6 +252,7 @@ public class AbstractMetricEntryObject {
     return Objects.equals(this.type, abstractMetricEntryObject.type) &&
         equalsNullable(this.value, abstractMetricEntryObject.value) &&
         Objects.equals(this.name, abstractMetricEntryObject.name) &&
+        Objects.equals(this.description, abstractMetricEntryObject.description) &&
         Objects.equals(this.tags, abstractMetricEntryObject.tags) &&
         Objects.equals(this.timestamp, abstractMetricEntryObject.timestamp);
   }
@@ -232,7 +263,7 @@ public class AbstractMetricEntryObject {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, hashCodeNullable(value), name, tags, timestamp);
+    return Objects.hash(type, hashCodeNullable(value), name, description, tags, timestamp);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -249,6 +280,7 @@ public class AbstractMetricEntryObject {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("}");
@@ -322,6 +354,16 @@ public class AbstractMetricEntryObject {
     if (getName() != null) {
       try {
         joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `description` to the URL query string
+    if (getDescription() != null) {
+      try {
+        joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

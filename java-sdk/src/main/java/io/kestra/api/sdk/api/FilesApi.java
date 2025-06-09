@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class FilesApi extends BaseApi {
 
   public FilesApi() {
@@ -47,87 +47,12 @@ public class FilesApi extends BaseApi {
    * Create a directory
    * 
    * @param namespace The namespace id (required)
-   * @param path The internal storage uri (optional)
-   * @throws ApiException if fails to make API call
-   */
-  public void createDirectory(String namespace, String path) throws ApiException {
-    this.createDirectory(namespace, path, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create a directory
-   * 
-   * @param namespace The namespace id (required)
-   * @param path The internal storage uri (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void createDirectory(String namespace, String path, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling createDirectory");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{namespace}/files/directory"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("path", path));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Create a directory
-   * 
-   * @param namespace The namespace id (required)
    * @param tenant  (required)
    * @param path The internal storage uri (optional)
    * @throws ApiException if fails to make API call
    */
-  public void createDirectory1(String namespace, String tenant, String path) throws ApiException {
-    this.createDirectory1(namespace, tenant, path, Collections.emptyMap());
+  public void createNamespaceDirectory(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String path) throws ApiException {
+    this.createNamespaceDirectory(namespace, tenant, path, Collections.emptyMap());
   }
 
 
@@ -140,17 +65,17 @@ public class FilesApi extends BaseApi {
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void createDirectory1(String namespace, String tenant, String path, Map<String, String> additionalHeaders) throws ApiException {
+  public void createNamespaceDirectory(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String path, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling createDirectory1");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling createNamespaceDirectory");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling createDirectory1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling createNamespaceDirectory");
     }
     
     // create path and map variables
@@ -182,91 +107,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Create a file
-   * 
-   * @param namespace The namespace id (required)
-   * @param path The internal storage uri (required)
-   * @param fileContent  (optional)
-   * @throws ApiException if fails to make API call
-   */
-  public void createFile(String namespace, String path, File fileContent) throws ApiException {
-    this.createFile(namespace, path, fileContent, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create a file
-   * 
-   * @param namespace The namespace id (required)
-   * @param path The internal storage uri (required)
-   * @param fileContent  (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void createFile(String namespace, String path, File fileContent, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling createFile");
-    }
-    
-    // verify the required parameter 'path' is set
-    if (path == null) {
-      throw new ApiException(400, "Missing the required parameter 'path' when calling createFile");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{namespace}/files"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("path", path));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    if (fileContent != null)
-      localVarFormParams.put("fileContent", fileContent);
-
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "multipart/form-data"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -291,11 +132,11 @@ public class FilesApi extends BaseApi {
    * @param namespace The namespace id (required)
    * @param path The internal storage uri (required)
    * @param tenant  (required)
-   * @param fileContent  (optional)
+   * @param fileContent The file to upload (optional)
    * @throws ApiException if fails to make API call
    */
-  public void createFile1(String namespace, String path, String tenant, File fileContent) throws ApiException {
-    this.createFile1(namespace, path, tenant, fileContent, Collections.emptyMap());
+  public void createNamespaceFile(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String path, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable File fileContent) throws ApiException {
+    this.createNamespaceFile(namespace, path, tenant, fileContent, Collections.emptyMap());
   }
 
 
@@ -305,26 +146,26 @@ public class FilesApi extends BaseApi {
    * @param namespace The namespace id (required)
    * @param path The internal storage uri (required)
    * @param tenant  (required)
-   * @param fileContent  (optional)
+   * @param fileContent The file to upload (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void createFile1(String namespace, String path, String tenant, File fileContent, Map<String, String> additionalHeaders) throws ApiException {
+  public void createNamespaceFile(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String path, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable File fileContent, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling createFile1");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling createNamespaceFile");
     }
     
     // verify the required parameter 'path' is set
     if (path == null) {
-      throw new ApiException(400, "Missing the required parameter 'path' when calling createFile1");
+      throw new ApiException(400, "Missing the required parameter 'path' when calling createNamespaceFile");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling createFile1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling createNamespaceFile");
     }
     
     // create path and map variables
@@ -358,7 +199,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -382,91 +223,11 @@ public class FilesApi extends BaseApi {
    * 
    * @param namespace The namespace id (required)
    * @param path The internal storage uri of the file / directory to delete (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void delete12(String namespace, String path) throws ApiException {
-    this.delete12(namespace, path, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete a file or directory
-   * 
-   * @param namespace The namespace id (required)
-   * @param path The internal storage uri of the file / directory to delete (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void delete12(String namespace, String path, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling delete12");
-    }
-    
-    // verify the required parameter 'path' is set
-    if (path == null) {
-      throw new ApiException(400, "Missing the required parameter 'path' when calling delete12");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{namespace}/files"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("path", path));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Delete a file or directory
-   * 
-   * @param namespace The namespace id (required)
-   * @param path The internal storage uri of the file / directory to delete (required)
    * @param tenant  (required)
    * @throws ApiException if fails to make API call
    */
-  public void delete40(String namespace, String path, String tenant) throws ApiException {
-    this.delete40(namespace, path, tenant, Collections.emptyMap());
+  public void deleteFileDirectory(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String path, @javax.annotation.Nonnull String tenant) throws ApiException {
+    this.deleteFileDirectory(namespace, path, tenant, Collections.emptyMap());
   }
 
 
@@ -479,22 +240,22 @@ public class FilesApi extends BaseApi {
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void delete40(String namespace, String path, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteFileDirectory(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String path, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling delete40");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling deleteFileDirectory");
     }
     
     // verify the required parameter 'path' is set
     if (path == null) {
-      throw new ApiException(400, "Missing the required parameter 'path' when calling delete40");
+      throw new ApiException(400, "Missing the required parameter 'path' when calling deleteFileDirectory");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling delete40");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteFileDirectory");
     }
     
     // create path and map variables
@@ -526,7 +287,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -549,87 +310,12 @@ public class FilesApi extends BaseApi {
    * Export namespace files as a ZIP
    * 
    * @param namespace The namespace id (required)
-   * @return List&lt;byte[]&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<byte[]> export(String namespace) throws ApiException {
-    return this.export(namespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * Export namespace files as a ZIP
-   * 
-   * @param namespace The namespace id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;byte[]&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<byte[]> export(String namespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling export");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{namespace}/files/export"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/octet-stream"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<byte[]>> localVarReturnType = new TypeReference<List<byte[]>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Export namespace files as a ZIP
-   * 
-   * @param namespace The namespace id (required)
    * @param tenant  (required)
    * @return List&lt;byte[]&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<byte[]> export1(String namespace, String tenant) throws ApiException {
-    return this.export1(namespace, tenant, Collections.emptyMap());
+  public List<byte[]> exportNamespaceFiles(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.exportNamespaceFiles(namespace, tenant, Collections.emptyMap());
   }
 
 
@@ -642,17 +328,17 @@ public class FilesApi extends BaseApi {
    * @return List&lt;byte[]&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<byte[]> export1(String namespace, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public List<byte[]> exportNamespaceFiles(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling export1");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling exportNamespaceFiles");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling export1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling exportNamespaceFiles");
     }
     
     // create path and map variables
@@ -683,7 +369,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<List<byte[]>> localVarReturnType = new TypeReference<List<byte[]>>() {};
     return apiClient.invokeAPI(
@@ -708,95 +394,12 @@ public class FilesApi extends BaseApi {
    * 
    * @param namespace The namespace id (required)
    * @param path The internal storage uri (required)
-   * @return File
-   * @throws ApiException if fails to make API call
-   */
-  public File file1(String namespace, String path) throws ApiException {
-    return this.file1(namespace, path, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get namespace file content
-   * 
-   * @param namespace The namespace id (required)
-   * @param path The internal storage uri (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return File
-   * @throws ApiException if fails to make API call
-   */
-  public File file1(String namespace, String path, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling file1");
-    }
-    
-    // verify the required parameter 'path' is set
-    if (path == null) {
-      throw new ApiException(400, "Missing the required parameter 'path' when calling file1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{namespace}/files"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("path", path));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/octet-stream"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<File> localVarReturnType = new TypeReference<File>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get namespace file content
-   * 
-   * @param namespace The namespace id (required)
-   * @param path The internal storage uri (required)
    * @param tenant  (required)
    * @return File
    * @throws ApiException if fails to make API call
    */
-  public File file3(String namespace, String path, String tenant) throws ApiException {
-    return this.file3(namespace, path, tenant, Collections.emptyMap());
+  public File getFileContent(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String path, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getFileContent(namespace, path, tenant, Collections.emptyMap());
   }
 
 
@@ -810,22 +413,22 @@ public class FilesApi extends BaseApi {
    * @return File
    * @throws ApiException if fails to make API call
    */
-  public File file3(String namespace, String path, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public File getFileContent(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String path, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling file3");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling getFileContent");
     }
     
     // verify the required parameter 'path' is set
     if (path == null) {
-      throw new ApiException(400, "Missing the required parameter 'path' when calling file3");
+      throw new ApiException(400, "Missing the required parameter 'path' when calling getFileContent");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling file3");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getFileContent");
     }
     
     // create path and map variables
@@ -857,7 +460,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<File> localVarReturnType = new TypeReference<File>() {};
     return apiClient.invokeAPI(
@@ -878,606 +481,6 @@ public class FilesApi extends BaseApi {
   }
 
   /**
-   * List directory content
-   * 
-   * @param namespace The namespace id (required)
-   * @param path The internal storage uri (optional)
-   * @return List&lt;FileAttributes&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<FileAttributes> list1(String namespace, String path) throws ApiException {
-    return this.list1(namespace, path, Collections.emptyMap());
-  }
-
-
-  /**
-   * List directory content
-   * 
-   * @param namespace The namespace id (required)
-   * @param path The internal storage uri (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;FileAttributes&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<FileAttributes> list1(String namespace, String path, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling list1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{namespace}/files/directory"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("path", path));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<FileAttributes>> localVarReturnType = new TypeReference<List<FileAttributes>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List directory content
-   * 
-   * @param namespace The namespace id (required)
-   * @param tenant  (required)
-   * @param path The internal storage uri (optional)
-   * @return List&lt;FileAttributes&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<FileAttributes> list5(String namespace, String tenant, String path) throws ApiException {
-    return this.list5(namespace, tenant, path, Collections.emptyMap());
-  }
-
-
-  /**
-   * List directory content
-   * 
-   * @param namespace The namespace id (required)
-   * @param tenant  (required)
-   * @param path The internal storage uri (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;FileAttributes&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<FileAttributes> list5(String namespace, String tenant, String path, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling list5");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling list5");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/namespaces/{namespace}/files/directory"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("path", path));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<FileAttributes>> localVarReturnType = new TypeReference<List<FileAttributes>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Move a file or directory
-   * 
-   * @param namespace The namespace id (required)
-   * @param from The internal storage uri to move from (required)
-   * @param to The internal storage uri to move to (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void move(String namespace, URI from, URI to) throws ApiException {
-    this.move(namespace, from, to, Collections.emptyMap());
-  }
-
-
-  /**
-   * Move a file or directory
-   * 
-   * @param namespace The namespace id (required)
-   * @param from The internal storage uri to move from (required)
-   * @param to The internal storage uri to move to (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void move(String namespace, URI from, URI to, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling move");
-    }
-    
-    // verify the required parameter 'from' is set
-    if (from == null) {
-      throw new ApiException(400, "Missing the required parameter 'from' when calling move");
-    }
-    
-    // verify the required parameter 'to' is set
-    if (to == null) {
-      throw new ApiException(400, "Missing the required parameter 'to' when calling move");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{namespace}/files"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("from", from));
-    localVarQueryParams.addAll(apiClient.parameterToPair("to", to));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Move a file or directory
-   * 
-   * @param namespace The namespace id (required)
-   * @param from The internal storage uri to move from (required)
-   * @param to The internal storage uri to move to (required)
-   * @param tenant  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void move1(String namespace, URI from, URI to, String tenant) throws ApiException {
-    this.move1(namespace, from, to, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Move a file or directory
-   * 
-   * @param namespace The namespace id (required)
-   * @param from The internal storage uri to move from (required)
-   * @param to The internal storage uri to move to (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void move1(String namespace, URI from, URI to, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling move1");
-    }
-    
-    // verify the required parameter 'from' is set
-    if (from == null) {
-      throw new ApiException(400, "Missing the required parameter 'from' when calling move1");
-    }
-    
-    // verify the required parameter 'to' is set
-    if (to == null) {
-      throw new ApiException(400, "Missing the required parameter 'to' when calling move1");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling move1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/namespaces/{namespace}/files"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("from", from));
-    localVarQueryParams.addAll(apiClient.parameterToPair("to", to));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Find files which path contain the given string in their URI
-   * 
-   * @param namespace The namespace id (required)
-   * @param q The string the file path should contain (required)
-   * @return List&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<String> search2(String namespace, String q) throws ApiException {
-    return this.search2(namespace, q, Collections.emptyMap());
-  }
-
-
-  /**
-   * Find files which path contain the given string in their URI
-   * 
-   * @param namespace The namespace id (required)
-   * @param q The string the file path should contain (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<String> search2(String namespace, String q, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling search2");
-    }
-    
-    // verify the required parameter 'q' is set
-    if (q == null) {
-      throw new ApiException(400, "Missing the required parameter 'q' when calling search2");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{namespace}/files/search"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<String>> localVarReturnType = new TypeReference<List<String>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Find files which path contain the given string in their URI
-   * 
-   * @param namespace The namespace id (required)
-   * @param q The string the file path should contain (required)
-   * @param tenant  (required)
-   * @return List&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<String> search7(String namespace, String q, String tenant) throws ApiException {
-    return this.search7(namespace, q, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Find files which path contain the given string in their URI
-   * 
-   * @param namespace The namespace id (required)
-   * @param q The string the file path should contain (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<String> search7(String namespace, String q, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling search7");
-    }
-    
-    // verify the required parameter 'q' is set
-    if (q == null) {
-      throw new ApiException(400, "Missing the required parameter 'q' when calling search7");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling search7");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/namespaces/{namespace}/files/search"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<String>> localVarReturnType = new TypeReference<List<String>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get namespace file stats such as size, creation &amp; modification dates and type
-   * 
-   * @param namespace The namespace id (required)
-   * @param path The internal storage uri (optional)
-   * @return FileAttributes
-   * @throws ApiException if fails to make API call
-   */
-  public FileAttributes stats(String namespace, String path) throws ApiException {
-    return this.stats(namespace, path, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get namespace file stats such as size, creation &amp; modification dates and type
-   * 
-   * @param namespace The namespace id (required)
-   * @param path The internal storage uri (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return FileAttributes
-   * @throws ApiException if fails to make API call
-   */
-  public FileAttributes stats(String namespace, String path, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling stats");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{namespace}/files/stats"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("path", path));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<FileAttributes> localVarReturnType = new TypeReference<FileAttributes>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
    * Get namespace file stats such as size, creation &amp; modification dates and type
    * 
    * @param namespace The namespace id (required)
@@ -1486,8 +489,8 @@ public class FilesApi extends BaseApi {
    * @return FileAttributes
    * @throws ApiException if fails to make API call
    */
-  public FileAttributes stats1(String namespace, String tenant, String path) throws ApiException {
-    return this.stats1(namespace, tenant, path, Collections.emptyMap());
+  public FileAttributes getFileMetadatas(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String path) throws ApiException {
+    return this.getFileMetadatas(namespace, tenant, path, Collections.emptyMap());
   }
 
 
@@ -1501,17 +504,17 @@ public class FilesApi extends BaseApi {
    * @return FileAttributes
    * @throws ApiException if fails to make API call
    */
-  public FileAttributes stats1(String namespace, String tenant, String path, Map<String, String> additionalHeaders) throws ApiException {
+  public FileAttributes getFileMetadatas(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String path, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling stats1");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling getFileMetadatas");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling stats1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getFileMetadatas");
     }
     
     // create path and map variables
@@ -1543,9 +546,282 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<FileAttributes> localVarReturnType = new TypeReference<FileAttributes>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * List directory content
+   * 
+   * @param namespace The namespace id (required)
+   * @param tenant  (required)
+   * @param path The internal storage uri (optional)
+   * @return List&lt;FileAttributes&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<FileAttributes> listNamespaceDirectoryFiles(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String path) throws ApiException {
+    return this.listNamespaceDirectoryFiles(namespace, tenant, path, Collections.emptyMap());
+  }
+
+
+  /**
+   * List directory content
+   * 
+   * @param namespace The namespace id (required)
+   * @param tenant  (required)
+   * @param path The internal storage uri (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return List&lt;FileAttributes&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<FileAttributes> listNamespaceDirectoryFiles(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String path, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'namespace' is set
+    if (namespace == null) {
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling listNamespaceDirectoryFiles");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listNamespaceDirectoryFiles");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/namespaces/{namespace}/files/directory"
+      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("path", path));
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<List<FileAttributes>> localVarReturnType = new TypeReference<List<FileAttributes>>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Move a file or directory
+   * 
+   * @param namespace The namespace id (required)
+   * @param from The internal storage uri to move from (required)
+   * @param to The internal storage uri to move to (required)
+   * @param tenant  (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void moveFileDirectory(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull URI from, @javax.annotation.Nonnull URI to, @javax.annotation.Nonnull String tenant) throws ApiException {
+    this.moveFileDirectory(namespace, from, to, tenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Move a file or directory
+   * 
+   * @param namespace The namespace id (required)
+   * @param from The internal storage uri to move from (required)
+   * @param to The internal storage uri to move to (required)
+   * @param tenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @throws ApiException if fails to make API call
+   */
+  public void moveFileDirectory(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull URI from, @javax.annotation.Nonnull URI to, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'namespace' is set
+    if (namespace == null) {
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling moveFileDirectory");
+    }
+    
+    // verify the required parameter 'from' is set
+    if (from == null) {
+      throw new ApiException(400, "Missing the required parameter 'from' when calling moveFileDirectory");
+    }
+    
+    // verify the required parameter 'to' is set
+    if (to == null) {
+      throw new ApiException(400, "Missing the required parameter 'to' when calling moveFileDirectory");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling moveFileDirectory");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/namespaces/{namespace}/files"
+      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("from", from));
+    localVarQueryParams.addAll(apiClient.parameterToPair("to", to));
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    apiClient.invokeAPI(
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null
+    );
+  }
+
+  /**
+   * Find files which path contain the given string in their URI
+   * 
+   * @param namespace The namespace id (required)
+   * @param q The string the file path should contain (required)
+   * @param tenant  (required)
+   * @return List&lt;String&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<String> searchNamespaceFiles(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String q, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.searchNamespaceFiles(namespace, q, tenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Find files which path contain the given string in their URI
+   * 
+   * @param namespace The namespace id (required)
+   * @param q The string the file path should contain (required)
+   * @param tenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return List&lt;String&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<String> searchNamespaceFiles(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String q, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'namespace' is set
+    if (namespace == null) {
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling searchNamespaceFiles");
+    }
+    
+    // verify the required parameter 'q' is set
+    if (q == null) {
+      throw new ApiException(400, "Missing the required parameter 'q' when calling searchNamespaceFiles");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling searchNamespaceFiles");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/namespaces/{namespace}/files/search"
+      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<List<String>> localVarReturnType = new TypeReference<List<String>>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -1585,7 +861,7 @@ public class FilesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

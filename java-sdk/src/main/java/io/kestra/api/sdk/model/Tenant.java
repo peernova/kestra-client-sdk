@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.kestra.api.sdk.model.Isolation;
 import io.kestra.api.sdk.model.WorkerGroup;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,6 +34,8 @@ import java.util.StringJoiner;
  * Tenant
  */
 @JsonPropertyOrder({
+  Tenant.JSON_PROPERTY_STORAGE_ISOLATION,
+  Tenant.JSON_PROPERTY_SECRET_ISOLATION,
   Tenant.JSON_PROPERTY_ID,
   Tenant.JSON_PROPERTY_NAME,
   Tenant.JSON_PROPERTY_DELETED,
@@ -40,10 +43,21 @@ import java.util.StringJoiner;
   Tenant.JSON_PROPERTY_STORAGE_TYPE,
   Tenant.JSON_PROPERTY_STORAGE_CONFIGURATION,
   Tenant.JSON_PROPERTY_SECRET_TYPE,
-  Tenant.JSON_PROPERTY_SECRET_CONFIGURATION
+  Tenant.JSON_PROPERTY_SECRET_READ_ONLY,
+  Tenant.JSON_PROPERTY_SECRET_CONFIGURATION,
+  Tenant.JSON_PROPERTY_REQUIRE_EXISTING_NAMESPACE,
+  Tenant.JSON_PROPERTY_OUTPUTS_IN_INTERNAL_STORAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class Tenant {
+  public static final String JSON_PROPERTY_STORAGE_ISOLATION = "storageIsolation";
+  @javax.annotation.Nonnull
+  private Isolation storageIsolation;
+
+  public static final String JSON_PROPERTY_SECRET_ISOLATION = "secretIsolation";
+  @javax.annotation.Nonnull
+  private Isolation secretIsolation;
+
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nonnull
   private String id;
@@ -72,11 +86,73 @@ public class Tenant {
   @javax.annotation.Nonnull
   private String secretType;
 
+  public static final String JSON_PROPERTY_SECRET_READ_ONLY = "secretReadOnly";
+  @javax.annotation.Nonnull
+  private Boolean secretReadOnly;
+
   public static final String JSON_PROPERTY_SECRET_CONFIGURATION = "secretConfiguration";
   @javax.annotation.Nonnull
   private Map<String, Object> secretConfiguration = new HashMap<>();
 
+  public static final String JSON_PROPERTY_REQUIRE_EXISTING_NAMESPACE = "requireExistingNamespace";
+  @javax.annotation.Nonnull
+  private Boolean requireExistingNamespace;
+
+  public static final String JSON_PROPERTY_OUTPUTS_IN_INTERNAL_STORAGE = "outputsInInternalStorage";
+  @javax.annotation.Nonnull
+  private Boolean outputsInInternalStorage;
+
   public Tenant() {
+  }
+
+  public Tenant storageIsolation(@javax.annotation.Nonnull Isolation storageIsolation) {
+    
+    this.storageIsolation = storageIsolation;
+    return this;
+  }
+
+  /**
+   * Get storageIsolation
+   * @return storageIsolation
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_STORAGE_ISOLATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Isolation getStorageIsolation() {
+    return storageIsolation;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STORAGE_ISOLATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setStorageIsolation(@javax.annotation.Nonnull Isolation storageIsolation) {
+    this.storageIsolation = storageIsolation;
+  }
+
+  public Tenant secretIsolation(@javax.annotation.Nonnull Isolation secretIsolation) {
+    
+    this.secretIsolation = secretIsolation;
+    return this;
+  }
+
+  /**
+   * Get secretIsolation
+   * @return secretIsolation
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SECRET_ISOLATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Isolation getSecretIsolation() {
+    return secretIsolation;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SECRET_ISOLATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setSecretIsolation(@javax.annotation.Nonnull Isolation secretIsolation) {
+    this.secretIsolation = secretIsolation;
   }
 
   public Tenant id(@javax.annotation.Nonnull String id) {
@@ -259,6 +335,31 @@ public class Tenant {
     this.secretType = secretType;
   }
 
+  public Tenant secretReadOnly(@javax.annotation.Nonnull Boolean secretReadOnly) {
+    
+    this.secretReadOnly = secretReadOnly;
+    return this;
+  }
+
+  /**
+   * Get secretReadOnly
+   * @return secretReadOnly
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SECRET_READ_ONLY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getSecretReadOnly() {
+    return secretReadOnly;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SECRET_READ_ONLY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setSecretReadOnly(@javax.annotation.Nonnull Boolean secretReadOnly) {
+    this.secretReadOnly = secretReadOnly;
+  }
+
   public Tenant secretConfiguration(@javax.annotation.Nonnull Map<String, Object> secretConfiguration) {
     
     this.secretConfiguration = secretConfiguration;
@@ -289,6 +390,56 @@ public class Tenant {
     this.secretConfiguration = secretConfiguration;
   }
 
+  public Tenant requireExistingNamespace(@javax.annotation.Nonnull Boolean requireExistingNamespace) {
+    
+    this.requireExistingNamespace = requireExistingNamespace;
+    return this;
+  }
+
+  /**
+   * Get requireExistingNamespace
+   * @return requireExistingNamespace
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_REQUIRE_EXISTING_NAMESPACE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getRequireExistingNamespace() {
+    return requireExistingNamespace;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_REQUIRE_EXISTING_NAMESPACE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setRequireExistingNamespace(@javax.annotation.Nonnull Boolean requireExistingNamespace) {
+    this.requireExistingNamespace = requireExistingNamespace;
+  }
+
+  public Tenant outputsInInternalStorage(@javax.annotation.Nonnull Boolean outputsInInternalStorage) {
+    
+    this.outputsInInternalStorage = outputsInInternalStorage;
+    return this;
+  }
+
+  /**
+   * Get outputsInInternalStorage
+   * @return outputsInInternalStorage
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_OUTPUTS_IN_INTERNAL_STORAGE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getOutputsInInternalStorage() {
+    return outputsInInternalStorage;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_OUTPUTS_IN_INTERNAL_STORAGE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setOutputsInInternalStorage(@javax.annotation.Nonnull Boolean outputsInInternalStorage) {
+    this.outputsInInternalStorage = outputsInInternalStorage;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -298,25 +449,32 @@ public class Tenant {
       return false;
     }
     Tenant tenant = (Tenant) o;
-    return Objects.equals(this.id, tenant.id) &&
+    return Objects.equals(this.storageIsolation, tenant.storageIsolation) &&
+        Objects.equals(this.secretIsolation, tenant.secretIsolation) &&
+        Objects.equals(this.id, tenant.id) &&
         Objects.equals(this.name, tenant.name) &&
         Objects.equals(this.deleted, tenant.deleted) &&
         Objects.equals(this.workerGroup, tenant.workerGroup) &&
         Objects.equals(this.storageType, tenant.storageType) &&
         Objects.equals(this.storageConfiguration, tenant.storageConfiguration) &&
         Objects.equals(this.secretType, tenant.secretType) &&
-        Objects.equals(this.secretConfiguration, tenant.secretConfiguration);
+        Objects.equals(this.secretReadOnly, tenant.secretReadOnly) &&
+        Objects.equals(this.secretConfiguration, tenant.secretConfiguration) &&
+        Objects.equals(this.requireExistingNamespace, tenant.requireExistingNamespace) &&
+        Objects.equals(this.outputsInInternalStorage, tenant.outputsInInternalStorage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, deleted, workerGroup, storageType, storageConfiguration, secretType, secretConfiguration);
+    return Objects.hash(storageIsolation, secretIsolation, id, name, deleted, workerGroup, storageType, storageConfiguration, secretType, secretReadOnly, secretConfiguration, requireExistingNamespace, outputsInInternalStorage);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Tenant {\n");
+    sb.append("    storageIsolation: ").append(toIndentedString(storageIsolation)).append("\n");
+    sb.append("    secretIsolation: ").append(toIndentedString(secretIsolation)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
@@ -324,7 +482,10 @@ public class Tenant {
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    storageConfiguration: ").append(toIndentedString(storageConfiguration)).append("\n");
     sb.append("    secretType: ").append(toIndentedString(secretType)).append("\n");
+    sb.append("    secretReadOnly: ").append(toIndentedString(secretReadOnly)).append("\n");
     sb.append("    secretConfiguration: ").append(toIndentedString(secretConfiguration)).append("\n");
+    sb.append("    requireExistingNamespace: ").append(toIndentedString(requireExistingNamespace)).append("\n");
+    sb.append("    outputsInInternalStorage: ").append(toIndentedString(outputsInInternalStorage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -371,6 +532,16 @@ public class Tenant {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `storageIsolation` to the URL query string
+    if (getStorageIsolation() != null) {
+      joiner.add(getStorageIsolation().toUrlQueryString(prefix + "storageIsolation" + suffix));
+    }
+
+    // add `secretIsolation` to the URL query string
+    if (getSecretIsolation() != null) {
+      joiner.add(getSecretIsolation().toUrlQueryString(prefix + "secretIsolation" + suffix));
+    }
 
     // add `id` to the URL query string
     if (getId() != null) {
@@ -441,6 +612,16 @@ public class Tenant {
       }
     }
 
+    // add `secretReadOnly` to the URL query string
+    if (getSecretReadOnly() != null) {
+      try {
+        joiner.add(String.format("%ssecretReadOnly%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSecretReadOnly()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
     // add `secretConfiguration` to the URL query string
     if (getSecretConfiguration() != null) {
       for (String _key : getSecretConfiguration().keySet()) {
@@ -452,6 +633,26 @@ public class Tenant {
           // Should never happen, UTF-8 is always supported
           throw new RuntimeException(e);
         }
+      }
+    }
+
+    // add `requireExistingNamespace` to the URL query string
+    if (getRequireExistingNamespace() != null) {
+      try {
+        joiner.add(String.format("%srequireExistingNamespace%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRequireExistingNamespace()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `outputsInInternalStorage` to the URL query string
+    if (getOutputsInInternalStorage() != null) {
+      try {
+        joiner.add(String.format("%soutputsInInternalStorage%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOutputsInInternalStorage()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
       }
     }
 

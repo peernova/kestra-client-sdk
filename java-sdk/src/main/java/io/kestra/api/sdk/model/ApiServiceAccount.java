@@ -35,19 +35,19 @@ import java.util.StringJoiner;
  */
 @JsonPropertyOrder({
   ApiServiceAccount.JSON_PROPERTY_ID,
-  ApiServiceAccount.JSON_PROPERTY_USERNAME,
+  ApiServiceAccount.JSON_PROPERTY_NAME,
   ApiServiceAccount.JSON_PROPERTY_DESCRIPTION,
   ApiServiceAccount.JSON_PROPERTY_GROUP_LIST
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class ApiServiceAccount {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nonnull
   private String id;
 
-  public static final String JSON_PROPERTY_USERNAME = "username";
+  public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nonnull
-  private String username;
+  private String name;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   @javax.annotation.Nonnull
@@ -67,7 +67,7 @@ public class ApiServiceAccount {
   }
 
   /**
-   * the user&#39;s ID.
+   * the identifier of this service account.
    * @return id
    */
   @javax.annotation.Nonnull
@@ -85,29 +85,29 @@ public class ApiServiceAccount {
     this.id = id;
   }
 
-  public ApiServiceAccount username(@javax.annotation.Nonnull String username) {
+  public ApiServiceAccount name(@javax.annotation.Nonnull String name) {
     
-    this.username = username;
+    this.name = name;
     return this;
   }
 
   /**
-   * the user&#39;s name.
-   * @return username
+   * the name of this service account.
+   * @return name
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_USERNAME)
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getUsername() {
-    return username;
+  public String getName() {
+    return name;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USERNAME)
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUsername(@javax.annotation.Nonnull String username) {
-    this.username = username;
+  public void setName(@javax.annotation.Nonnull String name) {
+    this.name = name;
   }
 
   public ApiServiceAccount description(@javax.annotation.Nonnull String description) {
@@ -117,7 +117,7 @@ public class ApiServiceAccount {
   }
 
   /**
-   * the user&#39;s description.
+   * the description of this service account.
    * @return description
    */
   @javax.annotation.Nonnull
@@ -178,14 +178,14 @@ public class ApiServiceAccount {
     }
     ApiServiceAccount apiServiceAccount = (ApiServiceAccount) o;
     return Objects.equals(this.id, apiServiceAccount.id) &&
-        Objects.equals(this.username, apiServiceAccount.username) &&
+        Objects.equals(this.name, apiServiceAccount.name) &&
         Objects.equals(this.description, apiServiceAccount.description) &&
         Objects.equals(this.groupList, apiServiceAccount.groupList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, username, description, groupList);
+    return Objects.hash(id, name, description, groupList);
   }
 
   @Override
@@ -193,7 +193,7 @@ public class ApiServiceAccount {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApiServiceAccount {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    groupList: ").append(toIndentedString(groupList)).append("\n");
     sb.append("}");
@@ -253,10 +253,10 @@ public class ApiServiceAccount {
       }
     }
 
-    // add `username` to the URL query string
-    if (getUsername() != null) {
+    // add `name` to the URL query string
+    if (getName() != null) {
       try {
-        joiner.add(String.format("%susername%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUsername()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

@@ -20,9 +20,18 @@ import io.kestra.api.sdk.internal.BaseApi;
 import io.kestra.api.sdk.internal.Configuration;
 import io.kestra.api.sdk.internal.Pair;
 
+import io.kestra.api.sdk.model.ClusterControllerApiPluginArtifactListPluginArtifact;
+import io.kestra.api.sdk.model.ClusterControllerApiPluginArtifactListPluginResolutionResult;
+import io.kestra.api.sdk.model.ClusterControllerApiPluginListRequest;
+import io.kestra.api.sdk.model.ClusterControllerApiPluginVersionDetails;
+import io.kestra.api.sdk.model.ClusterControllerApiPluginVersions;
 import io.kestra.api.sdk.model.DocumentationWithSchema;
+import java.io.File;
 import io.kestra.api.sdk.model.InputType;
+import io.kestra.api.sdk.model.PagedResultsClusterControllerApiPluginArtifact;
 import io.kestra.api.sdk.model.Plugin;
+import io.kestra.api.sdk.model.PluginArtifact;
+import io.kestra.api.sdk.model.PluginControllerApiPluginVersions;
 import io.kestra.api.sdk.model.PluginIcon;
 import io.kestra.api.sdk.model.SchemaType;
 import io.kestra.api.sdk.model.Type;
@@ -35,7 +44,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class PluginsApi extends BaseApi {
 
   public PluginsApi() {
@@ -47,398 +56,31 @@ public class PluginsApi extends BaseApi {
   }
 
   /**
-   * Get plugins icons
-   * 
-   * @return Map&lt;String, PluginIcon&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public Map<String, PluginIcon> icons() throws ApiException {
-    return this.icons(Collections.emptyMap());
-  }
-
-
-  /**
-   * Get plugins icons
-   * 
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Map&lt;String, PluginIcon&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public Map<String, PluginIcon> icons(Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/plugins/icons";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Map<String, PluginIcon>> localVarReturnType = new TypeReference<Map<String, PluginIcon>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get plugins icons
+   * Get all types for an inputs
    * 
    * @param tenant  (required)
-   * @return Map&lt;String, PluginIcon&gt;
+   * @return List&lt;InputType&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, PluginIcon> icons1(String tenant) throws ApiException {
-    return this.icons1(tenant, Collections.emptyMap());
+  public List<InputType> getAllInputTypes(@javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getAllInputTypes(tenant, Collections.emptyMap());
   }
 
 
   /**
-   * Get plugins icons
+   * Get all types for an inputs
    * 
    * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return Map&lt;String, PluginIcon&gt;
+   * @return List&lt;InputType&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, PluginIcon> icons1(String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public List<InputType> getAllInputTypes(@javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling icons1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/plugins/icons"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Map<String, PluginIcon>> localVarReturnType = new TypeReference<Map<String, PluginIcon>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get all json schemas for a type
-   * The schema will be output as [http://json-schema.org/draft-07/schema](Json Schema Draft 7)
-   * @param type The schema needed (required)
-   * @return DocumentationWithSchema
-   * @throws ApiException if fails to make API call
-   */
-  public DocumentationWithSchema inputSchemas(Type type) throws ApiException {
-    return this.inputSchemas(type, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get all json schemas for a type
-   * The schema will be output as [http://json-schema.org/draft-07/schema](Json Schema Draft 7)
-   * @param type The schema needed (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return DocumentationWithSchema
-   * @throws ApiException if fails to make API call
-   */
-  public DocumentationWithSchema inputSchemas(Type type, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'type' is set
-    if (type == null) {
-      throw new ApiException(400, "Missing the required parameter 'type' when calling inputSchemas");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/plugins/inputs/{type}"
-      .replaceAll("\\{" + "type" + "\\}", apiClient.escapeString(apiClient.parameterToString(type)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<DocumentationWithSchema> localVarReturnType = new TypeReference<DocumentationWithSchema>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get all json schemas for a type
-   * The schema will be output as [http://json-schema.org/draft-07/schema](Json Schema Draft 7)
-   * @param type The schema needed (required)
-   * @param tenant  (required)
-   * @return DocumentationWithSchema
-   * @throws ApiException if fails to make API call
-   */
-  public DocumentationWithSchema inputSchemas1(Type type, String tenant) throws ApiException {
-    return this.inputSchemas1(type, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get all json schemas for a type
-   * The schema will be output as [http://json-schema.org/draft-07/schema](Json Schema Draft 7)
-   * @param type The schema needed (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return DocumentationWithSchema
-   * @throws ApiException if fails to make API call
-   */
-  public DocumentationWithSchema inputSchemas1(Type type, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'type' is set
-    if (type == null) {
-      throw new ApiException(400, "Missing the required parameter 'type' when calling inputSchemas1");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling inputSchemas1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/plugins/inputs/{type}"
-      .replaceAll("\\{" + "type" + "\\}", apiClient.escapeString(apiClient.parameterToString(type)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<DocumentationWithSchema> localVarReturnType = new TypeReference<DocumentationWithSchema>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get all types for an inputs
-   * 
-   * @return List&lt;InputType&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<InputType> inputs() throws ApiException {
-    return this.inputs(Collections.emptyMap());
-  }
-
-
-  /**
-   * Get all types for an inputs
-   * 
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;InputType&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<InputType> inputs(Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/plugins/inputs";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<InputType>> localVarReturnType = new TypeReference<List<InputType>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get all types for an inputs
-   * 
-   * @param tenant  (required)
-   * @return List&lt;InputType&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<InputType> inputs1(String tenant) throws ApiException {
-    return this.inputs1(tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get all types for an inputs
-   * 
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;InputType&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<InputType> inputs1(String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling inputs1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getAllInputTypes");
     }
     
     // create path and map variables
@@ -468,7 +110,7 @@ public class PluginsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<List<InputType>> localVarReturnType = new TypeReference<List<InputType>>() {};
     return apiClient.invokeAPI(
@@ -489,43 +131,43 @@ public class PluginsApi extends BaseApi {
   }
 
   /**
-   * Get plugin documentation
+   * Get plugins group by subgroups
    * 
-   * @param cls The plugin full class name (required)
-   * @param all Include all the properties (required)
-   * @return DocumentationWithSchema
+   * @param includeDeprecated Whether to include deprecated plugins (required)
+   * @param tenant  (required)
+   * @return List&lt;Plugin&gt;
    * @throws ApiException if fails to make API call
    */
-  public DocumentationWithSchema pluginDocumentation(String cls, Boolean all) throws ApiException {
-    return this.pluginDocumentation(cls, all, Collections.emptyMap());
+  public List<Plugin> getPluginBySubgroups(@javax.annotation.Nonnull Boolean includeDeprecated, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getPluginBySubgroups(includeDeprecated, tenant, Collections.emptyMap());
   }
 
 
   /**
-   * Get plugin documentation
+   * Get plugins group by subgroups
    * 
-   * @param cls The plugin full class name (required)
-   * @param all Include all the properties (required)
+   * @param includeDeprecated Whether to include deprecated plugins (required)
+   * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return DocumentationWithSchema
+   * @return List&lt;Plugin&gt;
    * @throws ApiException if fails to make API call
    */
-  public DocumentationWithSchema pluginDocumentation(String cls, Boolean all, Map<String, String> additionalHeaders) throws ApiException {
+  public List<Plugin> getPluginBySubgroups(@javax.annotation.Nonnull Boolean includeDeprecated, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'cls' is set
-    if (cls == null) {
-      throw new ApiException(400, "Missing the required parameter 'cls' when calling pluginDocumentation");
+    // verify the required parameter 'includeDeprecated' is set
+    if (includeDeprecated == null) {
+      throw new ApiException(400, "Missing the required parameter 'includeDeprecated' when calling getPluginBySubgroups");
     }
     
-    // verify the required parameter 'all' is set
-    if (all == null) {
-      throw new ApiException(400, "Missing the required parameter 'all' when calling pluginDocumentation");
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getPluginBySubgroups");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/plugins/{cls}"
-      .replaceAll("\\{" + "cls" + "\\}", apiClient.escapeString(apiClient.parameterToString(cls)));
+    String localVarPath = "/api/v1/{tenant}/plugins/groups/subgroups"
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -535,7 +177,7 @@ public class PluginsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("all", all));
+    localVarQueryParams.addAll(apiClient.parameterToPair("includeDeprecated", includeDeprecated));
     
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -551,9 +193,9 @@ public class PluginsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<DocumentationWithSchema> localVarReturnType = new TypeReference<DocumentationWithSchema>() {};
+    TypeReference<List<Plugin>> localVarReturnType = new TypeReference<List<Plugin>>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -580,8 +222,8 @@ public class PluginsApi extends BaseApi {
    * @return DocumentationWithSchema
    * @throws ApiException if fails to make API call
    */
-  public DocumentationWithSchema pluginDocumentation1(String cls, Boolean all, String tenant) throws ApiException {
-    return this.pluginDocumentation1(cls, all, tenant, Collections.emptyMap());
+  public DocumentationWithSchema getPluginDocumentation(@javax.annotation.Nonnull String cls, @javax.annotation.Nonnull Boolean all, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getPluginDocumentation(cls, all, tenant, Collections.emptyMap());
   }
 
 
@@ -595,22 +237,22 @@ public class PluginsApi extends BaseApi {
    * @return DocumentationWithSchema
    * @throws ApiException if fails to make API call
    */
-  public DocumentationWithSchema pluginDocumentation1(String cls, Boolean all, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public DocumentationWithSchema getPluginDocumentation(@javax.annotation.Nonnull String cls, @javax.annotation.Nonnull Boolean all, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'cls' is set
     if (cls == null) {
-      throw new ApiException(400, "Missing the required parameter 'cls' when calling pluginDocumentation1");
+      throw new ApiException(400, "Missing the required parameter 'cls' when calling getPluginDocumentation");
     }
     
     // verify the required parameter 'all' is set
     if (all == null) {
-      throw new ApiException(400, "Missing the required parameter 'all' when calling pluginDocumentation1");
+      throw new ApiException(400, "Missing the required parameter 'all' when calling getPluginDocumentation");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling pluginDocumentation1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getPluginDocumentation");
     }
     
     // create path and map variables
@@ -642,7 +284,106 @@ public class PluginsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<DocumentationWithSchema> localVarReturnType = new TypeReference<DocumentationWithSchema>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get plugin documentation
+   * 
+   * @param cls The plugin type (required)
+   * @param version The plugin version (required)
+   * @param all Include all the properties (required)
+   * @param tenant  (required)
+   * @return DocumentationWithSchema
+   * @throws ApiException if fails to make API call
+   */
+  public DocumentationWithSchema getPluginDocumentationFromVersion(@javax.annotation.Nonnull String cls, @javax.annotation.Nonnull String version, @javax.annotation.Nonnull Boolean all, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getPluginDocumentationFromVersion(cls, version, all, tenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get plugin documentation
+   * 
+   * @param cls The plugin type (required)
+   * @param version The plugin version (required)
+   * @param all Include all the properties (required)
+   * @param tenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return DocumentationWithSchema
+   * @throws ApiException if fails to make API call
+   */
+  public DocumentationWithSchema getPluginDocumentationFromVersion(@javax.annotation.Nonnull String cls, @javax.annotation.Nonnull String version, @javax.annotation.Nonnull Boolean all, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'cls' is set
+    if (cls == null) {
+      throw new ApiException(400, "Missing the required parameter 'cls' when calling getPluginDocumentationFromVersion");
+    }
+    
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      throw new ApiException(400, "Missing the required parameter 'version' when calling getPluginDocumentationFromVersion");
+    }
+    
+    // verify the required parameter 'all' is set
+    if (all == null) {
+      throw new ApiException(400, "Missing the required parameter 'all' when calling getPluginDocumentationFromVersion");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getPluginDocumentationFromVersion");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/plugins/{cls}/versions/{version}"
+      .replaceAll("\\{" + "cls" + "\\}", apiClient.escapeString(apiClient.parameterToString(cls)))
+      .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(apiClient.parameterToString(version)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("all", all));
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<DocumentationWithSchema> localVarReturnType = new TypeReference<DocumentationWithSchema>() {};
     return apiClient.invokeAPI(
@@ -665,79 +406,12 @@ public class PluginsApi extends BaseApi {
   /**
    * Get plugins icons
    * 
-   * @return Map&lt;String, PluginIcon&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public Map<String, PluginIcon> pluginGroupIcons() throws ApiException {
-    return this.pluginGroupIcons(Collections.emptyMap());
-  }
-
-
-  /**
-   * Get plugins icons
-   * 
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Map&lt;String, PluginIcon&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public Map<String, PluginIcon> pluginGroupIcons(Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/plugins/icons/groups";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Map<String, PluginIcon>> localVarReturnType = new TypeReference<Map<String, PluginIcon>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get plugins icons
-   * 
    * @param tenant  (required)
    * @return Map&lt;String, PluginIcon&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, PluginIcon> pluginGroupIcons1(String tenant) throws ApiException {
-    return this.pluginGroupIcons1(tenant, Collections.emptyMap());
+  public Map<String, PluginIcon> getPluginGroupIcons(@javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getPluginGroupIcons(tenant, Collections.emptyMap());
   }
 
 
@@ -749,12 +423,12 @@ public class PluginsApi extends BaseApi {
    * @return Map&lt;String, PluginIcon&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, PluginIcon> pluginGroupIcons1(String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public Map<String, PluginIcon> getPluginGroupIcons(@javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling pluginGroupIcons1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getPluginGroupIcons");
     }
     
     // create path and map variables
@@ -784,7 +458,7 @@ public class PluginsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Map<String, PluginIcon>> localVarReturnType = new TypeReference<Map<String, PluginIcon>>() {};
     return apiClient.invokeAPI(
@@ -805,38 +479,36 @@ public class PluginsApi extends BaseApi {
   }
 
   /**
-   * Get all json schemas for a type
-   * The schema will be output as [http://json-schema.org/draft-07/schema](Json Schema Draft 7)
-   * @param type The schema needed (required)
-   * @param arrayOf If schema should be an array of requested type (optional, default to false)
-   * @return Map&lt;String, Object&gt;
+   * Get plugins icons
+   * 
+   * @param tenant  (required)
+   * @return Map&lt;String, PluginIcon&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, Object> schemas(SchemaType type, Boolean arrayOf) throws ApiException {
-    return this.schemas(type, arrayOf, Collections.emptyMap());
+  public Map<String, PluginIcon> getPluginIcons(@javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getPluginIcons(tenant, Collections.emptyMap());
   }
 
 
   /**
-   * Get all json schemas for a type
-   * The schema will be output as [http://json-schema.org/draft-07/schema](Json Schema Draft 7)
-   * @param type The schema needed (required)
-   * @param arrayOf If schema should be an array of requested type (optional, default to false)
+   * Get plugins icons
+   * 
+   * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return Map&lt;String, Object&gt;
+   * @return Map&lt;String, PluginIcon&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, Object> schemas(SchemaType type, Boolean arrayOf, Map<String, String> additionalHeaders) throws ApiException {
+  public Map<String, PluginIcon> getPluginIcons(@javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'type' is set
-    if (type == null) {
-      throw new ApiException(400, "Missing the required parameter 'type' when calling schemas");
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getPluginIcons");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/plugins/schemas/{type}"
-      .replaceAll("\\{" + "type" + "\\}", apiClient.escapeString(apiClient.parameterToString(type)));
+    String localVarPath = "/api/v1/{tenant}/plugins/icons"
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -846,7 +518,6 @@ public class PluginsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("arrayOf", arrayOf));
     
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -862,9 +533,175 @@ public class PluginsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<Map<String, Object>> localVarReturnType = new TypeReference<Map<String, Object>>() {};
+    TypeReference<Map<String, PluginIcon>> localVarReturnType = new TypeReference<Map<String, PluginIcon>>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get all versions for a plugin
+   * 
+   * @param cls The plugin type (required)
+   * @param tenant  (required)
+   * @return PluginControllerApiPluginVersions
+   * @throws ApiException if fails to make API call
+   */
+  public PluginControllerApiPluginVersions getPluginVersions(@javax.annotation.Nonnull String cls, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getPluginVersions(cls, tenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get all versions for a plugin
+   * 
+   * @param cls The plugin type (required)
+   * @param tenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return PluginControllerApiPluginVersions
+   * @throws ApiException if fails to make API call
+   */
+  public PluginControllerApiPluginVersions getPluginVersions(@javax.annotation.Nonnull String cls, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'cls' is set
+    if (cls == null) {
+      throw new ApiException(400, "Missing the required parameter 'cls' when calling getPluginVersions");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getPluginVersions");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/plugins/{cls}/versions"
+      .replaceAll("\\{" + "cls" + "\\}", apiClient.escapeString(apiClient.parameterToString(cls)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<PluginControllerApiPluginVersions> localVarReturnType = new TypeReference<PluginControllerApiPluginVersions>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get json schemas for an input type
+   * The schema will be output as [http://json-schema.org/draft-07/schema](Json Schema Draft 7)
+   * @param type The schema needed (required)
+   * @param tenant  (required)
+   * @return DocumentationWithSchema
+   * @throws ApiException if fails to make API call
+   */
+  public DocumentationWithSchema getSchemaFromInputType(@javax.annotation.Nonnull Type type, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getSchemaFromInputType(type, tenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get json schemas for an input type
+   * The schema will be output as [http://json-schema.org/draft-07/schema](Json Schema Draft 7)
+   * @param type The schema needed (required)
+   * @param tenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return DocumentationWithSchema
+   * @throws ApiException if fails to make API call
+   */
+  public DocumentationWithSchema getSchemaFromInputType(@javax.annotation.Nonnull Type type, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'type' is set
+    if (type == null) {
+      throw new ApiException(400, "Missing the required parameter 'type' when calling getSchemaFromInputType");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getSchemaFromInputType");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/plugins/inputs/{type}"
+      .replaceAll("\\{" + "type" + "\\}", apiClient.escapeString(apiClient.parameterToString(type)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<DocumentationWithSchema> localVarReturnType = new TypeReference<DocumentationWithSchema>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -886,13 +723,13 @@ public class PluginsApi extends BaseApi {
    * Get all json schemas for a type
    * The schema will be output as [http://json-schema.org/draft-07/schema](Json Schema Draft 7)
    * @param type The schema needed (required)
+   * @param arrayOf If schema should be an array of requested type (required)
    * @param tenant  (required)
-   * @param arrayOf If schema should be an array of requested type (optional, default to false)
    * @return Map&lt;String, Object&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, Object> schemas1(SchemaType type, String tenant, Boolean arrayOf) throws ApiException {
-    return this.schemas1(type, tenant, arrayOf, Collections.emptyMap());
+  public Map<String, Object> getSchemasFromType(@javax.annotation.Nonnull SchemaType type, @javax.annotation.Nonnull Boolean arrayOf, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getSchemasFromType(type, arrayOf, tenant, Collections.emptyMap());
   }
 
 
@@ -900,23 +737,28 @@ public class PluginsApi extends BaseApi {
    * Get all json schemas for a type
    * The schema will be output as [http://json-schema.org/draft-07/schema](Json Schema Draft 7)
    * @param type The schema needed (required)
+   * @param arrayOf If schema should be an array of requested type (required)
    * @param tenant  (required)
-   * @param arrayOf If schema should be an array of requested type (optional, default to false)
    * @param additionalHeaders additionalHeaders for this call
    * @return Map&lt;String, Object&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, Object> schemas1(SchemaType type, String tenant, Boolean arrayOf, Map<String, String> additionalHeaders) throws ApiException {
+  public Map<String, Object> getSchemasFromType(@javax.annotation.Nonnull SchemaType type, @javax.annotation.Nonnull Boolean arrayOf, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'type' is set
     if (type == null) {
-      throw new ApiException(400, "Missing the required parameter 'type' when calling schemas1");
+      throw new ApiException(400, "Missing the required parameter 'type' when calling getSchemasFromType");
+    }
+    
+    // verify the required parameter 'arrayOf' is set
+    if (arrayOf == null) {
+      throw new ApiException(400, "Missing the required parameter 'arrayOf' when calling getSchemasFromType");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling schemas1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getSchemasFromType");
     }
     
     // create path and map variables
@@ -948,7 +790,7 @@ public class PluginsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Map<String, Object>> localVarReturnType = new TypeReference<Map<String, Object>>() {};
     return apiClient.invokeAPI(
@@ -969,28 +811,52 @@ public class PluginsApi extends BaseApi {
   }
 
   /**
-   * Get list of plugins
+   * Get details about a Kestra&#39;s plugin artifact.
    * 
-   * @return List&lt;Plugin&gt;
+   * @param groupId  (required)
+   * @param artifactId  (required)
+   * @param tenant  (required)
+   * @return ClusterControllerApiPluginVersions
    * @throws ApiException if fails to make API call
    */
-  public List<Plugin> search3() throws ApiException {
-    return this.search3(Collections.emptyMap());
+  public ClusterControllerApiPluginVersions getVersionedPluginDetails(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String artifactId, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getVersionedPluginDetails(groupId, artifactId, tenant, Collections.emptyMap());
   }
 
 
   /**
-   * Get list of plugins
+   * Get details about a Kestra&#39;s plugin artifact.
    * 
+   * @param groupId  (required)
+   * @param artifactId  (required)
+   * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Plugin&gt;
+   * @return ClusterControllerApiPluginVersions
    * @throws ApiException if fails to make API call
    */
-  public List<Plugin> search3(Map<String, String> additionalHeaders) throws ApiException {
+  public ClusterControllerApiPluginVersions getVersionedPluginDetails(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String artifactId, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
+    // verify the required parameter 'groupId' is set
+    if (groupId == null) {
+      throw new ApiException(400, "Missing the required parameter 'groupId' when calling getVersionedPluginDetails");
+    }
+    
+    // verify the required parameter 'artifactId' is set
+    if (artifactId == null) {
+      throw new ApiException(400, "Missing the required parameter 'artifactId' when calling getVersionedPluginDetails");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getVersionedPluginDetails");
+    }
+    
     // create path and map variables
-    String localVarPath = "/api/v1/plugins";
+    String localVarPath = "/api/v1/{tenant}/cluster/versioned-plugins/{groupId}/{artifactId}"
+      .replaceAll("\\{" + "groupId" + "\\}", apiClient.escapeString(apiClient.parameterToString(groupId)))
+      .replaceAll("\\{" + "artifactId" + "\\}", apiClient.escapeString(apiClient.parameterToString(artifactId)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1015,9 +881,265 @@ public class PluginsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<List<Plugin>> localVarReturnType = new TypeReference<List<Plugin>>() {};
+    TypeReference<ClusterControllerApiPluginVersions> localVarReturnType = new TypeReference<ClusterControllerApiPluginVersions>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get details about a specific Kestra&#39;s plugin artifact version.
+   * 
+   * @param groupId  (required)
+   * @param artifactId  (required)
+   * @param version  (required)
+   * @param tenant  (required)
+   * @return ClusterControllerApiPluginVersionDetails
+   * @throws ApiException if fails to make API call
+   */
+  public ClusterControllerApiPluginVersionDetails getVersionedPluginDetailsFromVersion(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String artifactId, @javax.annotation.Nonnull String version, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getVersionedPluginDetailsFromVersion(groupId, artifactId, version, tenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get details about a specific Kestra&#39;s plugin artifact version.
+   * 
+   * @param groupId  (required)
+   * @param artifactId  (required)
+   * @param version  (required)
+   * @param tenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return ClusterControllerApiPluginVersionDetails
+   * @throws ApiException if fails to make API call
+   */
+  public ClusterControllerApiPluginVersionDetails getVersionedPluginDetailsFromVersion(@javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String artifactId, @javax.annotation.Nonnull String version, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'groupId' is set
+    if (groupId == null) {
+      throw new ApiException(400, "Missing the required parameter 'groupId' when calling getVersionedPluginDetailsFromVersion");
+    }
+    
+    // verify the required parameter 'artifactId' is set
+    if (artifactId == null) {
+      throw new ApiException(400, "Missing the required parameter 'artifactId' when calling getVersionedPluginDetailsFromVersion");
+    }
+    
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      throw new ApiException(400, "Missing the required parameter 'version' when calling getVersionedPluginDetailsFromVersion");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getVersionedPluginDetailsFromVersion");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/cluster/versioned-plugins/{groupId}/{artifactId}/{version}"
+      .replaceAll("\\{" + "groupId" + "\\}", apiClient.escapeString(apiClient.parameterToString(groupId)))
+      .replaceAll("\\{" + "artifactId" + "\\}", apiClient.escapeString(apiClient.parameterToString(artifactId)))
+      .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(apiClient.parameterToString(version)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<ClusterControllerApiPluginVersionDetails> localVarReturnType = new TypeReference<ClusterControllerApiPluginVersionDetails>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Install a specific Kestra&#39;s plugin artifact
+   * 
+   * @param tenant  (required)
+   * @param clusterControllerApiPluginListRequest List of plugins (required)
+   * @return ClusterControllerApiPluginArtifactListPluginArtifact
+   * @throws ApiException if fails to make API call
+   */
+  public ClusterControllerApiPluginArtifactListPluginArtifact installVersionedPlugins(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ClusterControllerApiPluginListRequest clusterControllerApiPluginListRequest) throws ApiException {
+    return this.installVersionedPlugins(tenant, clusterControllerApiPluginListRequest, Collections.emptyMap());
+  }
+
+
+  /**
+   * Install a specific Kestra&#39;s plugin artifact
+   * 
+   * @param tenant  (required)
+   * @param clusterControllerApiPluginListRequest List of plugins (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return ClusterControllerApiPluginArtifactListPluginArtifact
+   * @throws ApiException if fails to make API call
+   */
+  public ClusterControllerApiPluginArtifactListPluginArtifact installVersionedPlugins(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ClusterControllerApiPluginListRequest clusterControllerApiPluginListRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = clusterControllerApiPluginListRequest;
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling installVersionedPlugins");
+    }
+    
+    // verify the required parameter 'clusterControllerApiPluginListRequest' is set
+    if (clusterControllerApiPluginListRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'clusterControllerApiPluginListRequest' when calling installVersionedPlugins");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/cluster/versioned-plugins/install"
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<ClusterControllerApiPluginArtifactListPluginArtifact> localVarReturnType = new TypeReference<ClusterControllerApiPluginArtifactListPluginArtifact>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get the list of available Kestra&#39;s plugin artifact.
+   * 
+   * @param tenant  (required)
+   * @return Object
+   * @throws ApiException if fails to make API call
+   */
+  public Object listAvailableVersionedPlugins(@javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.listAvailableVersionedPlugins(tenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get the list of available Kestra&#39;s plugin artifact.
+   * 
+   * @param tenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return Object
+   * @throws ApiException if fails to make API call
+   */
+  public Object listAvailableVersionedPlugins(@javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listAvailableVersionedPlugins");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/cluster/versioned-plugins/available"
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -1042,8 +1164,8 @@ public class PluginsApi extends BaseApi {
    * @return List&lt;Plugin&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Plugin> search8(String tenant) throws ApiException {
-    return this.search8(tenant, Collections.emptyMap());
+  public List<Plugin> listPlugins(@javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.listPlugins(tenant, Collections.emptyMap());
   }
 
 
@@ -1055,12 +1177,12 @@ public class PluginsApi extends BaseApi {
    * @return List&lt;Plugin&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Plugin> search8(String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public List<Plugin> listPlugins(@javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling search8");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listPlugins");
     }
     
     // create path and map variables
@@ -1090,7 +1212,7 @@ public class PluginsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<List<Plugin>> localVarReturnType = new TypeReference<List<Plugin>>() {};
     return apiClient.invokeAPI(
@@ -1111,28 +1233,54 @@ public class PluginsApi extends BaseApi {
   }
 
   /**
-   * Get plugins group by subgroups
+   * Get the list of installed Kestra&#39;s plugin artifact.
    * 
-   * @return List&lt;Plugin&gt;
+   * @param page The current page (required)
+   * @param size The current page size (required)
+   * @param tenant  (required)
+   * @param sort The sort of current page (optional)
+   * @param q The query (optional)
+   * @return PagedResultsClusterControllerApiPluginArtifact
    * @throws ApiException if fails to make API call
    */
-  public List<Plugin> subgroups() throws ApiException {
-    return this.subgroups(Collections.emptyMap());
+  public PagedResultsClusterControllerApiPluginArtifact listVersionedPlugin(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable String q) throws ApiException {
+    return this.listVersionedPlugin(page, size, tenant, sort, q, Collections.emptyMap());
   }
 
 
   /**
-   * Get plugins group by subgroups
+   * Get the list of installed Kestra&#39;s plugin artifact.
    * 
+   * @param page The current page (required)
+   * @param size The current page size (required)
+   * @param tenant  (required)
+   * @param sort The sort of current page (optional)
+   * @param q The query (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Plugin&gt;
+   * @return PagedResultsClusterControllerApiPluginArtifact
    * @throws ApiException if fails to make API call
    */
-  public List<Plugin> subgroups(Map<String, String> additionalHeaders) throws ApiException {
+  public PagedResultsClusterControllerApiPluginArtifact listVersionedPlugin(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable String q, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
+    // verify the required parameter 'page' is set
+    if (page == null) {
+      throw new ApiException(400, "Missing the required parameter 'page' when calling listVersionedPlugin");
+    }
+    
+    // verify the required parameter 'size' is set
+    if (size == null) {
+      throw new ApiException(400, "Missing the required parameter 'size' when calling listVersionedPlugin");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listVersionedPlugin");
+    }
+    
     // create path and map variables
-    String localVarPath = "/api/v1/plugins/groups/subgroups";
+    String localVarPath = "/api/v1/{tenant}/cluster/versioned-plugins"
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1142,6 +1290,10 @@ public class PluginsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
     
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -1157,9 +1309,9 @@ public class PluginsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<List<Plugin>> localVarReturnType = new TypeReference<List<Plugin>>() {};
+    TypeReference<PagedResultsClusterControllerApiPluginArtifact> localVarReturnType = new TypeReference<PagedResultsClusterControllerApiPluginArtifact>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -1178,35 +1330,42 @@ public class PluginsApi extends BaseApi {
   }
 
   /**
-   * Get plugins group by subgroups
+   * Resolve a specific Kestra&#39;s plugin artifact
    * 
    * @param tenant  (required)
-   * @return List&lt;Plugin&gt;
+   * @param clusterControllerApiPluginListRequest List of plugins (required)
+   * @return ClusterControllerApiPluginArtifactListPluginResolutionResult
    * @throws ApiException if fails to make API call
    */
-  public List<Plugin> subgroups1(String tenant) throws ApiException {
-    return this.subgroups1(tenant, Collections.emptyMap());
+  public ClusterControllerApiPluginArtifactListPluginResolutionResult resolveVersionedPlugins(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ClusterControllerApiPluginListRequest clusterControllerApiPluginListRequest) throws ApiException {
+    return this.resolveVersionedPlugins(tenant, clusterControllerApiPluginListRequest, Collections.emptyMap());
   }
 
 
   /**
-   * Get plugins group by subgroups
+   * Resolve a specific Kestra&#39;s plugin artifact
    * 
    * @param tenant  (required)
+   * @param clusterControllerApiPluginListRequest List of plugins (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Plugin&gt;
+   * @return ClusterControllerApiPluginArtifactListPluginResolutionResult
    * @throws ApiException if fails to make API call
    */
-  public List<Plugin> subgroups1(String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
+  public ClusterControllerApiPluginArtifactListPluginResolutionResult resolveVersionedPlugins(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ClusterControllerApiPluginListRequest clusterControllerApiPluginListRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = clusterControllerApiPluginListRequest;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling subgroups1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling resolveVersionedPlugins");
+    }
+    
+    // verify the required parameter 'clusterControllerApiPluginListRequest' is set
+    if (clusterControllerApiPluginListRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'clusterControllerApiPluginListRequest' when calling resolveVersionedPlugins");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/plugins/groups/subgroups"
+    String localVarPath = "/api/v1/{tenant}/cluster/versioned-plugins/resolve"
       .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
@@ -1228,16 +1387,177 @@ public class PluginsApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<List<Plugin>> localVarReturnType = new TypeReference<List<Plugin>>() {};
+    TypeReference<ClusterControllerApiPluginArtifactListPluginResolutionResult> localVarReturnType = new TypeReference<ClusterControllerApiPluginArtifactListPluginResolutionResult>() {};
     return apiClient.invokeAPI(
         localVarPath,
-        "GET",
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Uninstall Kestra&#39;s plugin artifacts
+   * 
+   * @param tenant  (required)
+   * @param clusterControllerApiPluginListRequest List of plugins (required)
+   * @return ClusterControllerApiPluginArtifactListPluginArtifact
+   * @throws ApiException if fails to make API call
+   */
+  public ClusterControllerApiPluginArtifactListPluginArtifact uninstallVersionedPlugins(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ClusterControllerApiPluginListRequest clusterControllerApiPluginListRequest) throws ApiException {
+    return this.uninstallVersionedPlugins(tenant, clusterControllerApiPluginListRequest, Collections.emptyMap());
+  }
+
+
+  /**
+   * Uninstall Kestra&#39;s plugin artifacts
+   * 
+   * @param tenant  (required)
+   * @param clusterControllerApiPluginListRequest List of plugins (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return ClusterControllerApiPluginArtifactListPluginArtifact
+   * @throws ApiException if fails to make API call
+   */
+  public ClusterControllerApiPluginArtifactListPluginArtifact uninstallVersionedPlugins(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ClusterControllerApiPluginListRequest clusterControllerApiPluginListRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = clusterControllerApiPluginListRequest;
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling uninstallVersionedPlugins");
+    }
+    
+    // verify the required parameter 'clusterControllerApiPluginListRequest' is set
+    if (clusterControllerApiPluginListRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'clusterControllerApiPluginListRequest' when calling uninstallVersionedPlugins");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/cluster/versioned-plugins/uninstall"
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<ClusterControllerApiPluginArtifactListPluginArtifact> localVarReturnType = new TypeReference<ClusterControllerApiPluginArtifactListPluginArtifact>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Upload a Kestra&#39;s plugin artifact
+   * 
+   * @param tenant  (required)
+   * @param _file  (optional)
+   * @return PluginArtifact
+   * @throws ApiException if fails to make API call
+   */
+  public PluginArtifact uploadVersionedPlugins(@javax.annotation.Nonnull String tenant, @javax.annotation.Nullable File _file) throws ApiException {
+    return this.uploadVersionedPlugins(tenant, _file, Collections.emptyMap());
+  }
+
+
+  /**
+   * Upload a Kestra&#39;s plugin artifact
+   * 
+   * @param tenant  (required)
+   * @param _file  (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return PluginArtifact
+   * @throws ApiException if fails to make API call
+   */
+  public PluginArtifact uploadVersionedPlugins(@javax.annotation.Nonnull String tenant, @javax.annotation.Nullable File _file, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling uploadVersionedPlugins");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/cluster/versioned-plugins/upload"
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    if (_file != null)
+      localVarFormParams.put("file", _file);
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "multipart/form-data"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<PluginArtifact> localVarReturnType = new TypeReference<PluginArtifact>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),
@@ -1270,11 +1590,11 @@ public class PluginsApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "multipart/form-data"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

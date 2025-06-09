@@ -55,10 +55,14 @@ import java.util.StringJoiner;
   Plugin.JSON_PROPERTY_ALIASES,
   Plugin.JSON_PROPERTY_APPS,
   Plugin.JSON_PROPERTY_APP_BLOCKS,
+  Plugin.JSON_PROPERTY_CHARTS,
+  Plugin.JSON_PROPERTY_DATA_FILTERS,
+  Plugin.JSON_PROPERTY_LOG_EXPORTERS,
+  Plugin.JSON_PROPERTY_ADDITIONAL_PLUGINS,
   Plugin.JSON_PROPERTY_CATEGORIES,
   Plugin.JSON_PROPERTY_SUB_GROUP
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class Plugin {
   public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nullable
@@ -135,6 +139,22 @@ public class Plugin {
   public static final String JSON_PROPERTY_APP_BLOCKS = "appBlocks";
   @javax.annotation.Nullable
   private List<String> appBlocks = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_CHARTS = "charts";
+  @javax.annotation.Nullable
+  private List<String> charts = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_DATA_FILTERS = "dataFilters";
+  @javax.annotation.Nullable
+  private List<String> dataFilters = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_LOG_EXPORTERS = "logExporters";
+  @javax.annotation.Nullable
+  private List<String> logExporters = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_ADDITIONAL_PLUGINS = "additionalPlugins";
+  @javax.annotation.Nullable
+  private List<String> additionalPlugins = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CATEGORIES = "categories";
   @javax.annotation.Nullable
@@ -718,6 +738,138 @@ public class Plugin {
     this.appBlocks = appBlocks;
   }
 
+  public Plugin charts(@javax.annotation.Nullable List<String> charts) {
+    
+    this.charts = charts;
+    return this;
+  }
+
+  public Plugin addChartsItem(String chartsItem) {
+    if (this.charts == null) {
+      this.charts = new ArrayList<>();
+    }
+    this.charts.add(chartsItem);
+    return this;
+  }
+
+  /**
+   * Get charts
+   * @return charts
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CHARTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getCharts() {
+    return charts;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CHARTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCharts(@javax.annotation.Nullable List<String> charts) {
+    this.charts = charts;
+  }
+
+  public Plugin dataFilters(@javax.annotation.Nullable List<String> dataFilters) {
+    
+    this.dataFilters = dataFilters;
+    return this;
+  }
+
+  public Plugin addDataFiltersItem(String dataFiltersItem) {
+    if (this.dataFilters == null) {
+      this.dataFilters = new ArrayList<>();
+    }
+    this.dataFilters.add(dataFiltersItem);
+    return this;
+  }
+
+  /**
+   * Get dataFilters
+   * @return dataFilters
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getDataFilters() {
+    return dataFilters;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DATA_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDataFilters(@javax.annotation.Nullable List<String> dataFilters) {
+    this.dataFilters = dataFilters;
+  }
+
+  public Plugin logExporters(@javax.annotation.Nullable List<String> logExporters) {
+    
+    this.logExporters = logExporters;
+    return this;
+  }
+
+  public Plugin addLogExportersItem(String logExportersItem) {
+    if (this.logExporters == null) {
+      this.logExporters = new ArrayList<>();
+    }
+    this.logExporters.add(logExportersItem);
+    return this;
+  }
+
+  /**
+   * Get logExporters
+   * @return logExporters
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOG_EXPORTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getLogExporters() {
+    return logExporters;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LOG_EXPORTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLogExporters(@javax.annotation.Nullable List<String> logExporters) {
+    this.logExporters = logExporters;
+  }
+
+  public Plugin additionalPlugins(@javax.annotation.Nullable List<String> additionalPlugins) {
+    
+    this.additionalPlugins = additionalPlugins;
+    return this;
+  }
+
+  public Plugin addAdditionalPluginsItem(String additionalPluginsItem) {
+    if (this.additionalPlugins == null) {
+      this.additionalPlugins = new ArrayList<>();
+    }
+    this.additionalPlugins.add(additionalPluginsItem);
+    return this;
+  }
+
+  /**
+   * Get additionalPlugins
+   * @return additionalPlugins
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_PLUGINS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getAdditionalPlugins() {
+    return additionalPlugins;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_PLUGINS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAdditionalPlugins(@javax.annotation.Nullable List<String> additionalPlugins) {
+    this.additionalPlugins = additionalPlugins;
+  }
+
   public Plugin categories(@javax.annotation.Nullable List<PluginSubGroupPluginCategory> categories) {
     
     this.categories = categories;
@@ -804,13 +956,17 @@ public class Plugin {
         Objects.equals(this.aliases, plugin.aliases) &&
         Objects.equals(this.apps, plugin.apps) &&
         Objects.equals(this.appBlocks, plugin.appBlocks) &&
+        Objects.equals(this.charts, plugin.charts) &&
+        Objects.equals(this.dataFilters, plugin.dataFilters) &&
+        Objects.equals(this.logExporters, plugin.logExporters) &&
+        Objects.equals(this.additionalPlugins, plugin.additionalPlugins) &&
         Objects.equals(this.categories, plugin.categories) &&
         Objects.equals(this.subGroup, plugin.subGroup);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, title, description, license, longDescription, group, version, manifest, tasks, triggers, conditions, controllers, storages, secrets, taskRunners, guides, aliases, apps, appBlocks, categories, subGroup);
+    return Objects.hash(name, title, description, license, longDescription, group, version, manifest, tasks, triggers, conditions, controllers, storages, secrets, taskRunners, guides, aliases, apps, appBlocks, charts, dataFilters, logExporters, additionalPlugins, categories, subGroup);
   }
 
   @Override
@@ -836,6 +992,10 @@ public class Plugin {
     sb.append("    aliases: ").append(toIndentedString(aliases)).append("\n");
     sb.append("    apps: ").append(toIndentedString(apps)).append("\n");
     sb.append("    appBlocks: ").append(toIndentedString(appBlocks)).append("\n");
+    sb.append("    charts: ").append(toIndentedString(charts)).append("\n");
+    sb.append("    dataFilters: ").append(toIndentedString(dataFilters)).append("\n");
+    sb.append("    logExporters: ").append(toIndentedString(logExporters)).append("\n");
+    sb.append("    additionalPlugins: ").append(toIndentedString(additionalPlugins)).append("\n");
     sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
     sb.append("    subGroup: ").append(toIndentedString(subGroup)).append("\n");
     sb.append("}");
@@ -1116,6 +1276,62 @@ public class Plugin {
           joiner.add(String.format("%sappBlocks%s%s=%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
               URLEncoder.encode(String.valueOf(getAppBlocks().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
+    // add `charts` to the URL query string
+    if (getCharts() != null) {
+      for (int i = 0; i < getCharts().size(); i++) {
+        try {
+          joiner.add(String.format("%scharts%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getCharts().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
+    // add `dataFilters` to the URL query string
+    if (getDataFilters() != null) {
+      for (int i = 0; i < getDataFilters().size(); i++) {
+        try {
+          joiner.add(String.format("%sdataFilters%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getDataFilters().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
+    // add `logExporters` to the URL query string
+    if (getLogExporters() != null) {
+      for (int i = 0; i < getLogExporters().size(); i++) {
+        try {
+          joiner.add(String.format("%slogExporters%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getLogExporters().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
+    // add `additionalPlugins` to the URL query string
+    if (getAdditionalPlugins() != null) {
+      for (int i = 0; i < getAdditionalPlugins().size(); i++) {
+        try {
+          joiner.add(String.format("%sadditionalPlugins%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getAdditionalPlugins().get(i)), "UTF-8").replaceAll("\\+", "%20")));
         } catch (UnsupportedEncodingException e) {
           // Should never happen, UTF-8 is always supported
           throw new RuntimeException(e);

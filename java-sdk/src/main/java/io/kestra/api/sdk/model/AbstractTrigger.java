@@ -41,6 +41,7 @@ import java.util.StringJoiner;
   AbstractTrigger.JSON_PROPERTY_MIN_LOG_LEVEL,
   AbstractTrigger.JSON_PROPERTY_ID,
   AbstractTrigger.JSON_PROPERTY_TYPE,
+  AbstractTrigger.JSON_PROPERTY_VERSION,
   AbstractTrigger.JSON_PROPERTY_DESCRIPTION,
   AbstractTrigger.JSON_PROPERTY_CONDITIONS,
   AbstractTrigger.JSON_PROPERTY_DISABLED,
@@ -50,7 +51,7 @@ import java.util.StringJoiner;
   AbstractTrigger.JSON_PROPERTY_STOP_AFTER,
   AbstractTrigger.JSON_PROPERTY_LOG_TO_FILE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class AbstractTrigger {
   public static final String JSON_PROPERTY_MIN_LOG_LEVEL = "minLogLevel";
   @javax.annotation.Nullable
@@ -63,6 +64,10 @@ public class AbstractTrigger {
   public static final String JSON_PROPERTY_TYPE = "type";
   @javax.annotation.Nonnull
   private String type;
+
+  public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
+  private String version;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   @javax.annotation.Nullable
@@ -174,6 +179,31 @@ public class AbstractTrigger {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(@javax.annotation.Nonnull String type) {
     this.type = type;
+  }
+
+  public AbstractTrigger version(@javax.annotation.Nullable String version) {
+    
+    this.version = version;
+    return this;
+  }
+
+  /**
+   * Get version
+   * @return version
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getVersion() {
+    return version;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVersion(@javax.annotation.Nullable String version) {
+    this.version = version;
   }
 
   public AbstractTrigger description(@javax.annotation.Nullable String description) {
@@ -404,6 +434,7 @@ public class AbstractTrigger {
     return Objects.equals(this.minLogLevel, abstractTrigger.minLogLevel) &&
         Objects.equals(this.id, abstractTrigger.id) &&
         Objects.equals(this.type, abstractTrigger.type) &&
+        Objects.equals(this.version, abstractTrigger.version) &&
         Objects.equals(this.description, abstractTrigger.description) &&
         Objects.equals(this.conditions, abstractTrigger.conditions) &&
         Objects.equals(this.disabled, abstractTrigger.disabled) &&
@@ -416,7 +447,7 @@ public class AbstractTrigger {
 
   @Override
   public int hashCode() {
-    return Objects.hash(minLogLevel, id, type, description, conditions, disabled, workerGroup, logLevel, labels, stopAfter, logToFile);
+    return Objects.hash(minLogLevel, id, type, version, description, conditions, disabled, workerGroup, logLevel, labels, stopAfter, logToFile);
   }
 
   @Override
@@ -426,6 +457,7 @@ public class AbstractTrigger {
     sb.append("    minLogLevel: ").append(toIndentedString(minLogLevel)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
@@ -505,6 +537,16 @@ public class AbstractTrigger {
     if (getType() != null) {
       try {
         joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `version` to the URL query string
+    if (getVersion() != null) {
+      try {
+        joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

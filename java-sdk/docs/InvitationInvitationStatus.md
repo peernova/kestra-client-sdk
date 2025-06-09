@@ -9,5 +9,7 @@
 
 * `ACCEPTED` (value: `"ACCEPTED"`)
 
+* `EXPIRED` (value: `"EXPIRED"`)
+
 
 

@@ -9,15 +9,16 @@
 |------------ | ------------- | ------------- | -------------|
 |**namespace** | **String** |  |  |
 |**flowId** | **String** |  |  |
-|**taskId** | **String** |  |  |
-|**executionId** | **String** |  |  |
-|**taskRunId** | **String** |  |  |
+|**taskId** | **String** |  |  [optional] |
+|**executionId** | **String** |  |  [optional] |
+|**taskRunId** | **String** |  |  [optional] |
 |**type** | **String** |  |  |
 |**name** | **String** |  |  |
 |**value** | **Double** |  |  |
 |**timestamp** | **OffsetDateTime** |  |  |
-|**tags** | **Map&lt;String, String&gt;** |  |  |
+|**tags** | **Map&lt;String, String&gt;** |  |  [optional] |
 |**deleted** | **Boolean** |  |  |
+|**executionKind** | **ExecutionKind** |  |  [optional] |
 
 
 

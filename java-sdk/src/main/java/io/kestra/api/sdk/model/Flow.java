@@ -47,23 +47,25 @@ import java.util.StringJoiner;
   Flow.JSON_PROPERTY_NAMESPACE,
   Flow.JSON_PROPERTY_REVISION,
   Flow.JSON_PROPERTY_INPUTS,
+  Flow.JSON_PROPERTY_OUTPUTS,
   Flow.JSON_PROPERTY_DISABLED,
-  Flow.JSON_PROPERTY_DELETED,
-  Flow.JSON_PROPERTY_TASK_DEFAULTS,
-  Flow.JSON_PROPERTY_DESCRIPTION,
   Flow.JSON_PROPERTY_LABELS,
   Flow.JSON_PROPERTY_VARIABLES,
+  Flow.JSON_PROPERTY_DELETED,
+  Flow.JSON_PROPERTY_FINALLY,
+  Flow.JSON_PROPERTY_TASK_DEFAULTS,
+  Flow.JSON_PROPERTY_DESCRIPTION,
   Flow.JSON_PROPERTY_TASKS,
   Flow.JSON_PROPERTY_ERRORS,
   Flow.JSON_PROPERTY_LISTENERS,
+  Flow.JSON_PROPERTY_AFTER_EXECUTION,
   Flow.JSON_PROPERTY_TRIGGERS,
   Flow.JSON_PROPERTY_PLUGIN_DEFAULTS,
   Flow.JSON_PROPERTY_CONCURRENCY,
-  Flow.JSON_PROPERTY_OUTPUTS,
   Flow.JSON_PROPERTY_RETRY,
   Flow.JSON_PROPERTY_SLA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class Flow {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nonnull
@@ -81,21 +83,13 @@ public class Flow {
   @javax.annotation.Nullable
   private List<InputObject> inputs = new ArrayList<>();
 
+  public static final String JSON_PROPERTY_OUTPUTS = "outputs";
+  @javax.annotation.Nullable
+  private List<Output> outputs = new ArrayList<>();
+
   public static final String JSON_PROPERTY_DISABLED = "disabled";
   @javax.annotation.Nonnull
   private Boolean disabled;
-
-  public static final String JSON_PROPERTY_DELETED = "deleted";
-  @javax.annotation.Nonnull
-  private Boolean deleted;
-
-  public static final String JSON_PROPERTY_TASK_DEFAULTS = "taskDefaults";
-  @javax.annotation.Nullable
-  private List<PluginDefault> taskDefaults = new ArrayList<>();
-
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  @javax.annotation.Nullable
-  private String description;
 
   public static final String JSON_PROPERTY_LABELS = "labels";
   @javax.annotation.Nullable
@@ -104,6 +98,22 @@ public class Flow {
   public static final String JSON_PROPERTY_VARIABLES = "variables";
   @javax.annotation.Nullable
   private Map<String, Object> variables = new HashMap<>();
+
+  public static final String JSON_PROPERTY_DELETED = "deleted";
+  @javax.annotation.Nonnull
+  private Boolean deleted;
+
+  public static final String JSON_PROPERTY_FINALLY = "finally";
+  @javax.annotation.Nullable
+  private List<Task> _finally = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_TASK_DEFAULTS = "taskDefaults";
+  @javax.annotation.Nullable
+  private List<PluginDefault> taskDefaults = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
+  private String description;
 
   public static final String JSON_PROPERTY_TASKS = "tasks";
   @javax.annotation.Nonnull
@@ -117,6 +127,10 @@ public class Flow {
   @javax.annotation.Nullable
   private List<Listener> listeners = new ArrayList<>();
 
+  public static final String JSON_PROPERTY_AFTER_EXECUTION = "afterExecution";
+  @javax.annotation.Nullable
+  private List<Task> afterExecution = new ArrayList<>();
+
   public static final String JSON_PROPERTY_TRIGGERS = "triggers";
   @javax.annotation.Nullable
   private List<AbstractTrigger> triggers = new ArrayList<>();
@@ -128,10 +142,6 @@ public class Flow {
   public static final String JSON_PROPERTY_CONCURRENCY = "concurrency";
   @javax.annotation.Nullable
   private Concurrency concurrency;
-
-  public static final String JSON_PROPERTY_OUTPUTS = "outputs";
-  @javax.annotation.Nullable
-  private List<Output> outputs = new ArrayList<>();
 
   public static final String JSON_PROPERTY_RETRY = "retry";
   @javax.annotation.Nullable
@@ -253,6 +263,39 @@ public class Flow {
     this.inputs = inputs;
   }
 
+  public Flow outputs(@javax.annotation.Nullable List<Output> outputs) {
+    
+    this.outputs = outputs;
+    return this;
+  }
+
+  public Flow addOutputsItem(Output outputsItem) {
+    if (this.outputs == null) {
+      this.outputs = new ArrayList<>();
+    }
+    this.outputs.add(outputsItem);
+    return this;
+  }
+
+  /**
+   * Output values make information about the execution of your Flow available and expose for other Kestra flows to use. Output values are similar to return values in programming languages.
+   * @return outputs
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OUTPUTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<Output> getOutputs() {
+    return outputs;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_OUTPUTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOutputs(@javax.annotation.Nullable List<Output> outputs) {
+    this.outputs = outputs;
+  }
+
   public Flow disabled(@javax.annotation.Nonnull Boolean disabled) {
     
     this.disabled = disabled;
@@ -278,6 +321,64 @@ public class Flow {
     this.disabled = disabled;
   }
 
+  public Flow labels(@javax.annotation.Nullable Object labels) {
+    
+    this.labels = labels;
+    return this;
+  }
+
+  /**
+   * Get labels
+   * @return labels
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LABELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Object getLabels() {
+    return labels;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LABELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLabels(@javax.annotation.Nullable Object labels) {
+    this.labels = labels;
+  }
+
+  public Flow variables(@javax.annotation.Nullable Map<String, Object> variables) {
+    
+    this.variables = variables;
+    return this;
+  }
+
+  public Flow putVariablesItem(String key, Object variablesItem) {
+    if (this.variables == null) {
+      this.variables = new HashMap<>();
+    }
+    this.variables.put(key, variablesItem);
+    return this;
+  }
+
+  /**
+   * Get variables
+   * @return variables
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VARIABLES)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, Object> getVariables() {
+    return variables;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VARIABLES)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVariables(@javax.annotation.Nullable Map<String, Object> variables) {
+    this.variables = variables;
+  }
+
   public Flow deleted(@javax.annotation.Nonnull Boolean deleted) {
     
     this.deleted = deleted;
@@ -301,6 +402,39 @@ public class Flow {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDeleted(@javax.annotation.Nonnull Boolean deleted) {
     this.deleted = deleted;
+  }
+
+  public Flow _finally(@javax.annotation.Nullable List<Task> _finally) {
+    
+    this._finally = _finally;
+    return this;
+  }
+
+  public Flow addFinallyItem(Task _finallyItem) {
+    if (this._finally == null) {
+      this._finally = new ArrayList<>();
+    }
+    this._finally.add(_finallyItem);
+    return this;
+  }
+
+  /**
+   * Get _finally
+   * @return _finally
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FINALLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<Task> getFinally() {
+    return _finally;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FINALLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFinally(@javax.annotation.Nullable List<Task> _finally) {
+    this._finally = _finally;
   }
 
   public Flow taskDefaults(@javax.annotation.Nullable List<PluginDefault> taskDefaults) {
@@ -361,64 +495,6 @@ public class Flow {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
-  }
-
-  public Flow labels(@javax.annotation.Nullable Object labels) {
-    
-    this.labels = labels;
-    return this;
-  }
-
-  /**
-   * Get labels
-   * @return labels
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LABELS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Object getLabels() {
-    return labels;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_LABELS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLabels(@javax.annotation.Nullable Object labels) {
-    this.labels = labels;
-  }
-
-  public Flow variables(@javax.annotation.Nullable Map<String, Object> variables) {
-    
-    this.variables = variables;
-    return this;
-  }
-
-  public Flow putVariablesItem(String key, Object variablesItem) {
-    if (this.variables == null) {
-      this.variables = new HashMap<>();
-    }
-    this.variables.put(key, variablesItem);
-    return this;
-  }
-
-  /**
-   * Get variables
-   * @return variables
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VARIABLES)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Map<String, Object> getVariables() {
-    return variables;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_VARIABLES)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-  public void setVariables(@javax.annotation.Nullable Map<String, Object> variables) {
-    this.variables = variables;
   }
 
   public Flow tasks(@javax.annotation.Nonnull List<Task> tasks) {
@@ -522,6 +598,39 @@ public class Flow {
     this.listeners = listeners;
   }
 
+  public Flow afterExecution(@javax.annotation.Nullable List<Task> afterExecution) {
+    
+    this.afterExecution = afterExecution;
+    return this;
+  }
+
+  public Flow addAfterExecutionItem(Task afterExecutionItem) {
+    if (this.afterExecution == null) {
+      this.afterExecution = new ArrayList<>();
+    }
+    this.afterExecution.add(afterExecutionItem);
+    return this;
+  }
+
+  /**
+   * Get afterExecution
+   * @return afterExecution
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AFTER_EXECUTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<Task> getAfterExecution() {
+    return afterExecution;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_AFTER_EXECUTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAfterExecution(@javax.annotation.Nullable List<Task> afterExecution) {
+    this.afterExecution = afterExecution;
+  }
+
   public Flow triggers(@javax.annotation.Nullable List<AbstractTrigger> triggers) {
     
     this.triggers = triggers;
@@ -613,39 +722,6 @@ public class Flow {
     this.concurrency = concurrency;
   }
 
-  public Flow outputs(@javax.annotation.Nullable List<Output> outputs) {
-    
-    this.outputs = outputs;
-    return this;
-  }
-
-  public Flow addOutputsItem(Output outputsItem) {
-    if (this.outputs == null) {
-      this.outputs = new ArrayList<>();
-    }
-    this.outputs.add(outputsItem);
-    return this;
-  }
-
-  /**
-   * Output values make information about the execution of your Flow available and expose for other Kestra flows to use. Output values are similar to return values in programming languages.
-   * @return outputs
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OUTPUTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<Output> getOutputs() {
-    return outputs;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_OUTPUTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOutputs(@javax.annotation.Nullable List<Output> outputs) {
-    this.outputs = outputs;
-  }
-
   public Flow retry(@javax.annotation.Nullable Object retry) {
     
     this.retry = retry;
@@ -717,26 +793,28 @@ public class Flow {
         Objects.equals(this.namespace, flow.namespace) &&
         Objects.equals(this.revision, flow.revision) &&
         Objects.equals(this.inputs, flow.inputs) &&
+        Objects.equals(this.outputs, flow.outputs) &&
         Objects.equals(this.disabled, flow.disabled) &&
-        Objects.equals(this.deleted, flow.deleted) &&
-        Objects.equals(this.taskDefaults, flow.taskDefaults) &&
-        Objects.equals(this.description, flow.description) &&
         Objects.equals(this.labels, flow.labels) &&
         Objects.equals(this.variables, flow.variables) &&
+        Objects.equals(this.deleted, flow.deleted) &&
+        Objects.equals(this._finally, flow._finally) &&
+        Objects.equals(this.taskDefaults, flow.taskDefaults) &&
+        Objects.equals(this.description, flow.description) &&
         Objects.equals(this.tasks, flow.tasks) &&
         Objects.equals(this.errors, flow.errors) &&
         Objects.equals(this.listeners, flow.listeners) &&
+        Objects.equals(this.afterExecution, flow.afterExecution) &&
         Objects.equals(this.triggers, flow.triggers) &&
         Objects.equals(this.pluginDefaults, flow.pluginDefaults) &&
         Objects.equals(this.concurrency, flow.concurrency) &&
-        Objects.equals(this.outputs, flow.outputs) &&
         Objects.equals(this.retry, flow.retry) &&
         Objects.equals(this.sla, flow.sla);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, namespace, revision, inputs, disabled, deleted, taskDefaults, description, labels, variables, tasks, errors, listeners, triggers, pluginDefaults, concurrency, outputs, retry, sla);
+    return Objects.hash(id, namespace, revision, inputs, outputs, disabled, labels, variables, deleted, _finally, taskDefaults, description, tasks, errors, listeners, afterExecution, triggers, pluginDefaults, concurrency, retry, sla);
   }
 
   @Override
@@ -747,19 +825,21 @@ public class Flow {
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
+    sb.append("    outputs: ").append(toIndentedString(outputs)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
-    sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
-    sb.append("    taskDefaults: ").append(toIndentedString(taskDefaults)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
+    sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
+    sb.append("    _finally: ").append(toIndentedString(_finally)).append("\n");
+    sb.append("    taskDefaults: ").append(toIndentedString(taskDefaults)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    tasks: ").append(toIndentedString(tasks)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
+    sb.append("    afterExecution: ").append(toIndentedString(afterExecution)).append("\n");
     sb.append("    triggers: ").append(toIndentedString(triggers)).append("\n");
     sb.append("    pluginDefaults: ").append(toIndentedString(pluginDefaults)).append("\n");
     sb.append("    concurrency: ").append(toIndentedString(concurrency)).append("\n");
-    sb.append("    outputs: ").append(toIndentedString(outputs)).append("\n");
     sb.append("    retry: ").append(toIndentedString(retry)).append("\n");
     sb.append("    sla: ").append(toIndentedString(sla)).append("\n");
     sb.append("}");
@@ -849,40 +929,20 @@ public class Flow {
       }
     }
 
-    // add `disabled` to the URL query string
-    if (getDisabled() != null) {
-      try {
-        joiner.add(String.format("%sdisabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDisabled()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `deleted` to the URL query string
-    if (getDeleted() != null) {
-      try {
-        joiner.add(String.format("%sdeleted%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDeleted()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `taskDefaults` to the URL query string
-    if (getTaskDefaults() != null) {
-      for (int i = 0; i < getTaskDefaults().size(); i++) {
-        if (getTaskDefaults().get(i) != null) {
-          joiner.add(getTaskDefaults().get(i).toUrlQueryString(String.format("%staskDefaults%s%s", prefix, suffix,
+    // add `outputs` to the URL query string
+    if (getOutputs() != null) {
+      for (int i = 0; i < getOutputs().size(); i++) {
+        if (getOutputs().get(i) != null) {
+          joiner.add(getOutputs().get(i).toUrlQueryString(String.format("%soutputs%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
     }
 
-    // add `description` to the URL query string
-    if (getDescription() != null) {
+    // add `disabled` to the URL query string
+    if (getDisabled() != null) {
       try {
-        joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%sdisabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDisabled()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
@@ -910,6 +970,46 @@ public class Flow {
           // Should never happen, UTF-8 is always supported
           throw new RuntimeException(e);
         }
+      }
+    }
+
+    // add `deleted` to the URL query string
+    if (getDeleted() != null) {
+      try {
+        joiner.add(String.format("%sdeleted%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDeleted()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `finally` to the URL query string
+    if (getFinally() != null) {
+      for (int i = 0; i < getFinally().size(); i++) {
+        if (getFinally().get(i) != null) {
+          joiner.add(getFinally().get(i).toUrlQueryString(String.format("%sfinally%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `taskDefaults` to the URL query string
+    if (getTaskDefaults() != null) {
+      for (int i = 0; i < getTaskDefaults().size(); i++) {
+        if (getTaskDefaults().get(i) != null) {
+          joiner.add(getTaskDefaults().get(i).toUrlQueryString(String.format("%staskDefaults%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `description` to the URL query string
+    if (getDescription() != null) {
+      try {
+        joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
       }
     }
 
@@ -943,6 +1043,16 @@ public class Flow {
       }
     }
 
+    // add `afterExecution` to the URL query string
+    if (getAfterExecution() != null) {
+      for (int i = 0; i < getAfterExecution().size(); i++) {
+        if (getAfterExecution().get(i) != null) {
+          joiner.add(getAfterExecution().get(i).toUrlQueryString(String.format("%safterExecution%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
     // add `triggers` to the URL query string
     if (getTriggers() != null) {
       for (int i = 0; i < getTriggers().size(); i++) {
@@ -966,16 +1076,6 @@ public class Flow {
     // add `concurrency` to the URL query string
     if (getConcurrency() != null) {
       joiner.add(getConcurrency().toUrlQueryString(prefix + "concurrency" + suffix));
-    }
-
-    // add `outputs` to the URL query string
-    if (getOutputs() != null) {
-      for (int i = 0; i < getOutputs().size(); i++) {
-        if (getOutputs().get(i) != null) {
-          joiner.add(getOutputs().get(i).toUrlQueryString(String.format("%soutputs%s%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
-        }
-      }
     }
 
     // add `retry` to the URL query string

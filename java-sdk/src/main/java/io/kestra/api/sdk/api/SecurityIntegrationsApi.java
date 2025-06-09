@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class SecurityIntegrationsApi extends BaseApi {
 
   public SecurityIntegrationsApi() {
@@ -44,87 +44,13 @@ public class SecurityIntegrationsApi extends BaseApi {
   /**
    * Create a security integration.
    * 
-   * @param createSecurityIntegrationRequest  (required)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object create12(CreateSecurityIntegrationRequest createSecurityIntegrationRequest) throws ApiException {
-    return this.create12(createSecurityIntegrationRequest, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create a security integration.
-   * 
-   * @param createSecurityIntegrationRequest  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object create12(CreateSecurityIntegrationRequest createSecurityIntegrationRequest, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = createSecurityIntegrationRequest;
-    
-    // verify the required parameter 'createSecurityIntegrationRequest' is set
-    if (createSecurityIntegrationRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'createSecurityIntegrationRequest' when calling create12");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/security-integrations";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Create a security integration.
-   * 
    * @param tenant  (required)
-   * @param createSecurityIntegrationRequest  (required)
+   * @param createSecurityIntegrationRequest The security integration definition (required)
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object create37(String tenant, CreateSecurityIntegrationRequest createSecurityIntegrationRequest) throws ApiException {
-    return this.create37(tenant, createSecurityIntegrationRequest, Collections.emptyMap());
+  public Object createSecurityIntegration(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull CreateSecurityIntegrationRequest createSecurityIntegrationRequest) throws ApiException {
+    return this.createSecurityIntegration(tenant, createSecurityIntegrationRequest, Collections.emptyMap());
   }
 
 
@@ -132,22 +58,22 @@ public class SecurityIntegrationsApi extends BaseApi {
    * Create a security integration.
    * 
    * @param tenant  (required)
-   * @param createSecurityIntegrationRequest  (required)
+   * @param createSecurityIntegrationRequest The security integration definition (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object create37(String tenant, CreateSecurityIntegrationRequest createSecurityIntegrationRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public Object createSecurityIntegration(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull CreateSecurityIntegrationRequest createSecurityIntegrationRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = createSecurityIntegrationRequest;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling create37");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling createSecurityIntegration");
     }
     
     // verify the required parameter 'createSecurityIntegrationRequest' is set
     if (createSecurityIntegrationRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'createSecurityIntegrationRequest' when calling create37");
+      throw new ApiException(400, "Missing the required parameter 'createSecurityIntegrationRequest' when calling createSecurityIntegration");
     }
     
     // create path and map variables
@@ -177,7 +103,7 @@ public class SecurityIntegrationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
@@ -201,87 +127,12 @@ public class SecurityIntegrationsApi extends BaseApi {
    * Delete the security integration.
    * 
    * @param id The ID of security integration (required)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object delete15(String id) throws ApiException {
-    return this.delete15(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete the security integration.
-   * 
-   * @param id The ID of security integration (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object delete15(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete15");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/security-integrations/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete the security integration.
-   * 
-   * @param id The ID of security integration (required)
    * @param tenant  (required)
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object delete43(String id, String tenant) throws ApiException {
-    return this.delete43(id, tenant, Collections.emptyMap());
+  public Object deleteSecurityIntegration(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.deleteSecurityIntegration(id, tenant, Collections.emptyMap());
   }
 
 
@@ -294,17 +145,17 @@ public class SecurityIntegrationsApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object delete43(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public Object deleteSecurityIntegration(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete43");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteSecurityIntegration");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling delete43");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteSecurityIntegration");
     }
     
     // create path and map variables
@@ -335,7 +186,7 @@ public class SecurityIntegrationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
@@ -359,87 +210,12 @@ public class SecurityIntegrationsApi extends BaseApi {
    * Disable the security integration.
    * 
    * @param id The ID of security integration (required)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object disable1(String id) throws ApiException {
-    return this.disable1(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Disable the security integration.
-   * 
-   * @param id The ID of security integration (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object disable1(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling disable1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/security-integrations/{id}/disable"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Disable the security integration.
-   * 
-   * @param id The ID of security integration (required)
    * @param tenant  (required)
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object disable3(String id, String tenant) throws ApiException {
-    return this.disable3(id, tenant, Collections.emptyMap());
+  public Object disableSecurityIntegration(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.disableSecurityIntegration(id, tenant, Collections.emptyMap());
   }
 
 
@@ -452,17 +228,17 @@ public class SecurityIntegrationsApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object disable3(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public Object disableSecurityIntegration(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling disable3");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling disableSecurityIntegration");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling disable3");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling disableSecurityIntegration");
     }
     
     // create path and map variables
@@ -493,82 +269,7 @@ public class SecurityIntegrationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Enable the security integration.
-   * 
-   * @param id The ID of security integration (required)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object enable1(String id) throws ApiException {
-    return this.enable1(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Enable the security integration.
-   * 
-   * @param id The ID of security integration (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object enable1(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling enable1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/security-integrations/{id}/enable"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
@@ -596,8 +297,8 @@ public class SecurityIntegrationsApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object enable3(String id, String tenant) throws ApiException {
-    return this.enable3(id, tenant, Collections.emptyMap());
+  public Object enableSecurityIntegration(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.enableSecurityIntegration(id, tenant, Collections.emptyMap());
   }
 
 
@@ -610,17 +311,17 @@ public class SecurityIntegrationsApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object enable3(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public Object enableSecurityIntegration(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling enable3");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling enableSecurityIntegration");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling enable3");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling enableSecurityIntegration");
     }
     
     // create path and map variables
@@ -651,7 +352,7 @@ public class SecurityIntegrationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
@@ -679,8 +380,8 @@ public class SecurityIntegrationsApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object index29(String id, String tenant) throws ApiException {
-    return this.index29(id, tenant, Collections.emptyMap());
+  public Object getSecurityIntegration(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getSecurityIntegration(id, tenant, Collections.emptyMap());
   }
 
 
@@ -693,17 +394,17 @@ public class SecurityIntegrationsApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object index29(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public Object getSecurityIntegration(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index29");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getSecurityIntegration");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling index29");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getSecurityIntegration");
     }
     
     // create path and map variables
@@ -734,149 +435,7 @@ public class SecurityIntegrationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get a security integration.
-   * 
-   * @param id The ID of security integration (required)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object index8(String id) throws ApiException {
-    return this.index8(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a security integration.
-   * 
-   * @param id The ID of security integration (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object index8(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index8");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/security-integrations/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List all security integrations.
-   * 
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object list3() throws ApiException {
-    return this.list3(Collections.emptyMap());
-  }
-
-
-  /**
-   * List all security integrations.
-   * 
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object list3(Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/security-integrations";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
@@ -903,8 +462,8 @@ public class SecurityIntegrationsApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object list7(String tenant) throws ApiException {
-    return this.list7(tenant, Collections.emptyMap());
+  public Object listSecurityIntegrations(@javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.listSecurityIntegrations(tenant, Collections.emptyMap());
   }
 
 
@@ -916,12 +475,12 @@ public class SecurityIntegrationsApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object list7(String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public Object listSecurityIntegrations(@javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling list7");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listSecurityIntegrations");
     }
     
     // create path and map variables
@@ -951,7 +510,7 @@ public class SecurityIntegrationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
@@ -993,7 +552,7 @@ public class SecurityIntegrationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

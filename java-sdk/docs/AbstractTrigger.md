@@ -10,6 +10,7 @@
 |**minLogLevel** | **Level** |  |  [optional] |
 |**id** | **String** |  |  |
 |**type** | **String** |  |  |
+|**version** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**conditions** | [**List&lt;Condition&gt;**](Condition.md) |  |  [optional] |
 |**disabled** | **Boolean** |  |  |

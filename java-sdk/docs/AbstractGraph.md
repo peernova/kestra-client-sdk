@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**uid** | **String** |  |  [optional] |
 |**type** | **String** |  |  [optional] |
-|**error** | **Boolean** |  |  [optional] |
+|**branchType** | **AbstractGraphBranchType** |  |  [optional] |
 
 
 

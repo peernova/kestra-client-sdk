@@ -25,7 +25,7 @@ import io.kestra.api.sdk.model.ServerConfig;
 import io.kestra.api.sdk.model.ServerInstance;
 import io.kestra.api.sdk.model.ServiceInstanceTimestampedEvent;
 import io.kestra.api.sdk.model.ServiceServiceState;
-import io.kestra.api.sdk.model.ServiceServiceType;
+import io.kestra.api.sdk.model.ServiceType;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,7 +54,7 @@ import java.util.StringJoiner;
   ServiceInstance.JSON_PROPERTY_PROPS,
   ServiceInstance.JSON_PROPERTY_SEQ_ID
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class ServiceInstance {
   public static final String JSON_PROPERTY_SERVER = "server";
   @javax.annotation.Nonnull
@@ -74,7 +74,7 @@ public class ServiceInstance {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   @javax.annotation.Nonnull
-  private ServiceServiceType type;
+  private ServiceType type;
 
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   @javax.annotation.Nonnull
@@ -211,7 +211,7 @@ public class ServiceInstance {
     this.id = id;
   }
 
-  public ServiceInstance type(@javax.annotation.Nonnull ServiceServiceType type) {
+  public ServiceInstance type(@javax.annotation.Nonnull ServiceType type) {
     
     this.type = type;
     return this;
@@ -225,14 +225,14 @@ public class ServiceInstance {
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public ServiceServiceType getType() {
+  public ServiceType getType() {
     return type;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(@javax.annotation.Nonnull ServiceServiceType type) {
+  public void setType(@javax.annotation.Nonnull ServiceType type) {
     this.type = type;
   }
 

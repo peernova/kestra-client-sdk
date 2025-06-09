@@ -22,10 +22,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kestra.api.sdk.model.DependsOn;
 import io.kestra.api.sdk.model.Type;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,7 +42,7 @@ import java.util.StringJoiner;
   InputObject.JSON_PROPERTY_DISPLAY_NAME
 })
 @JsonTypeName("Input_Object_")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class InputObject {
   public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nullable
@@ -74,7 +70,7 @@ public class InputObject {
 
   public static final String JSON_PROPERTY_DEFAULTS = "defaults";
   @javax.annotation.Nullable
-  private JsonNullable<Object> defaults = JsonNullable.<Object>of(null);
+  private Object defaults;
 
   public static final String JSON_PROPERTY_DISPLAY_NAME = "displayName";
   @javax.annotation.Nullable
@@ -236,8 +232,8 @@ public class InputObject {
   }
 
   public InputObject defaults(@javax.annotation.Nullable Object defaults) {
-    this.defaults = JsonNullable.<Object>of(defaults);
     
+    this.defaults = defaults;
     return this;
   }
 
@@ -246,26 +242,18 @@ public class InputObject {
    * @return defaults
    */
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getDefaults() {
-        return defaults.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_DEFAULTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getDefaults_JsonNullable() {
+  public Object getDefaults() {
     return defaults;
   }
-  
-  @JsonProperty(JSON_PROPERTY_DEFAULTS)
-  public void setDefaults_JsonNullable(JsonNullable<Object> defaults) {
-    this.defaults = defaults;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefaults(@javax.annotation.Nullable Object defaults) {
-    this.defaults = JsonNullable.<Object>of(defaults);
+    this.defaults = defaults;
   }
 
   public InputObject displayName(@javax.annotation.Nullable String displayName) {
@@ -308,24 +296,13 @@ public class InputObject {
         Objects.equals(this.description, inputObject.description) &&
         Objects.equals(this.dependsOn, inputObject.dependsOn) &&
         Objects.equals(this.required, inputObject.required) &&
-        equalsNullable(this.defaults, inputObject.defaults) &&
+        Objects.equals(this.defaults, inputObject.defaults) &&
         Objects.equals(this.displayName, inputObject.displayName);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, id, type, description, dependsOn, required, hashCodeNullable(defaults), displayName);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(name, id, type, description, dependsOn, required, defaults, displayName);
   }
 
   @Override

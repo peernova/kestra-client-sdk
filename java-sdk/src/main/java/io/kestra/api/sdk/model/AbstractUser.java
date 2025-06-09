@@ -39,15 +39,18 @@ import java.util.StringJoiner;
   AbstractUser.JSON_PROPERTY_TYPE,
   AbstractUser.JSON_PROPERTY_GROUP_LIST,
   AbstractUser.JSON_PROPERTY_GROUPS,
-  AbstractUser.JSON_PROPERTY_ID,
   AbstractUser.JSON_PROPERTY_USERNAME,
+  AbstractUser.JSON_PROPERTY_EMAIL,
+  AbstractUser.JSON_PROPERTY_SUPER_ADMIN,
+  AbstractUser.JSON_PROPERTY_ID,
+  AbstractUser.JSON_PROPERTY_NAME,
   AbstractUser.JSON_PROPERTY_DESCRIPTION,
   AbstractUser.JSON_PROPERTY_FIRST_NAME,
   AbstractUser.JSON_PROPERTY_LAST_NAME,
-  AbstractUser.JSON_PROPERTY_EMAIL,
-  AbstractUser.JSON_PROPERTY_PROVIDERS
+  AbstractUser.JSON_PROPERTY_PROVIDERS,
+  AbstractUser.JSON_PROPERTY_IS_SUPER_ADMIN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class AbstractUser {
   public static final String JSON_PROPERTY_TYPE = "type";
   @javax.annotation.Nonnull
@@ -61,13 +64,25 @@ public class AbstractUser {
   @javax.annotation.Nullable
   private List<Object> groups = new ArrayList<>();
 
+  public static final String JSON_PROPERTY_USERNAME = "username";
+  @javax.annotation.Nonnull
+  private String username;
+
+  public static final String JSON_PROPERTY_EMAIL = "email";
+  @javax.annotation.Nonnull
+  private String email;
+
+  public static final String JSON_PROPERTY_SUPER_ADMIN = "superAdmin";
+  @javax.annotation.Nullable
+  private Boolean superAdmin;
+
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
   private String id;
 
-  public static final String JSON_PROPERTY_USERNAME = "username";
-  @javax.annotation.Nonnull
-  private String username;
+  public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
+  private String name;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   @javax.annotation.Nullable
@@ -81,13 +96,13 @@ public class AbstractUser {
   @javax.annotation.Nullable
   private String lastName;
 
-  public static final String JSON_PROPERTY_EMAIL = "email";
-  @javax.annotation.Nonnull
-  private String email;
-
   public static final String JSON_PROPERTY_PROVIDERS = "providers";
   @javax.annotation.Nullable
   private List<AbstractUserTenantIdentityProvider> providers = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_IS_SUPER_ADMIN = "isSuperAdmin";
+  @javax.annotation.Nullable
+  private Boolean isSuperAdmin;
 
   public AbstractUser() {
   }
@@ -183,6 +198,81 @@ public class AbstractUser {
     this.groups = groups;
   }
 
+  public AbstractUser username(@javax.annotation.Nonnull String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+  /**
+   * Get username
+   * @return username
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_USERNAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_USERNAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setUsername(@javax.annotation.Nonnull String username) {
+    this.username = username;
+  }
+
+  public AbstractUser email(@javax.annotation.Nonnull String email) {
+    
+    this.email = email;
+    return this;
+  }
+
+  /**
+   * Get email
+   * @return email
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getEmail() {
+    return email;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setEmail(@javax.annotation.Nonnull String email) {
+    this.email = email;
+  }
+
+  public AbstractUser superAdmin(@javax.annotation.Nullable Boolean superAdmin) {
+    
+    this.superAdmin = superAdmin;
+    return this;
+  }
+
+  /**
+   * Get superAdmin
+   * @return superAdmin
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUPER_ADMIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getSuperAdmin() {
+    return superAdmin;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SUPER_ADMIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSuperAdmin(@javax.annotation.Nullable Boolean superAdmin) {
+    this.superAdmin = superAdmin;
+  }
+
   public AbstractUser id(@javax.annotation.Nullable String id) {
     
     this.id = id;
@@ -208,29 +298,29 @@ public class AbstractUser {
     this.id = id;
   }
 
-  public AbstractUser username(@javax.annotation.Nonnull String username) {
+  public AbstractUser name(@javax.annotation.Nullable String name) {
     
-    this.username = username;
+    this.name = name;
     return this;
   }
 
   /**
-   * Get username
-   * @return username
+   * Get name
+   * @return name
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_USERNAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getUsername() {
-    return username;
+  public String getName() {
+    return name;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USERNAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUsername(@javax.annotation.Nonnull String username) {
-    this.username = username;
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setName(@javax.annotation.Nullable String name) {
+    this.name = name;
   }
 
   public AbstractUser description(@javax.annotation.Nullable String description) {
@@ -308,31 +398,6 @@ public class AbstractUser {
     this.lastName = lastName;
   }
 
-  public AbstractUser email(@javax.annotation.Nonnull String email) {
-    
-    this.email = email;
-    return this;
-  }
-
-  /**
-   * Get email
-   * @return email
-   */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getEmail() {
-    return email;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEmail(@javax.annotation.Nonnull String email) {
-    this.email = email;
-  }
-
   public AbstractUser providers(@javax.annotation.Nullable List<AbstractUserTenantIdentityProvider> providers) {
     
     this.providers = providers;
@@ -366,6 +431,31 @@ public class AbstractUser {
     this.providers = providers;
   }
 
+  public AbstractUser isSuperAdmin(@javax.annotation.Nullable Boolean isSuperAdmin) {
+    
+    this.isSuperAdmin = isSuperAdmin;
+    return this;
+  }
+
+  /**
+   * Get isSuperAdmin
+   * @return isSuperAdmin
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_SUPER_ADMIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsSuperAdmin() {
+    return isSuperAdmin;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_SUPER_ADMIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsSuperAdmin(@javax.annotation.Nullable Boolean isSuperAdmin) {
+    this.isSuperAdmin = isSuperAdmin;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -378,18 +468,21 @@ public class AbstractUser {
     return Objects.equals(this.type, abstractUser.type) &&
         Objects.equals(this.groupList, abstractUser.groupList) &&
         Objects.equals(this.groups, abstractUser.groups) &&
-        Objects.equals(this.id, abstractUser.id) &&
         Objects.equals(this.username, abstractUser.username) &&
+        Objects.equals(this.email, abstractUser.email) &&
+        Objects.equals(this.superAdmin, abstractUser.superAdmin) &&
+        Objects.equals(this.id, abstractUser.id) &&
+        Objects.equals(this.name, abstractUser.name) &&
         Objects.equals(this.description, abstractUser.description) &&
         Objects.equals(this.firstName, abstractUser.firstName) &&
         Objects.equals(this.lastName, abstractUser.lastName) &&
-        Objects.equals(this.email, abstractUser.email) &&
-        Objects.equals(this.providers, abstractUser.providers);
+        Objects.equals(this.providers, abstractUser.providers) &&
+        Objects.equals(this.isSuperAdmin, abstractUser.isSuperAdmin);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, groupList, groups, id, username, description, firstName, lastName, email, providers);
+    return Objects.hash(type, groupList, groups, username, email, superAdmin, id, name, description, firstName, lastName, providers, isSuperAdmin);
   }
 
   @Override
@@ -399,13 +492,16 @@ public class AbstractUser {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    groupList: ").append(toIndentedString(groupList)).append("\n");
     sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    superAdmin: ").append(toIndentedString(superAdmin)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    providers: ").append(toIndentedString(providers)).append("\n");
+    sb.append("    isSuperAdmin: ").append(toIndentedString(isSuperAdmin)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -487,6 +583,36 @@ public class AbstractUser {
       }
     }
 
+    // add `username` to the URL query string
+    if (getUsername() != null) {
+      try {
+        joiner.add(String.format("%susername%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUsername()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `email` to the URL query string
+    if (getEmail() != null) {
+      try {
+        joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmail()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `superAdmin` to the URL query string
+    if (getSuperAdmin() != null) {
+      try {
+        joiner.add(String.format("%ssuperAdmin%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSuperAdmin()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
     // add `id` to the URL query string
     if (getId() != null) {
       try {
@@ -497,10 +623,10 @@ public class AbstractUser {
       }
     }
 
-    // add `username` to the URL query string
-    if (getUsername() != null) {
+    // add `name` to the URL query string
+    if (getName() != null) {
       try {
-        joiner.add(String.format("%susername%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUsername()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
@@ -537,16 +663,6 @@ public class AbstractUser {
       }
     }
 
-    // add `email` to the URL query string
-    if (getEmail() != null) {
-      try {
-        joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmail()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
     // add `providers` to the URL query string
     if (getProviders() != null) {
       for (int i = 0; i < getProviders().size(); i++) {
@@ -554,6 +670,16 @@ public class AbstractUser {
           joiner.add(getProviders().get(i).toUrlQueryString(String.format("%sproviders%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
+      }
+    }
+
+    // add `isSuperAdmin` to the URL query string
+    if (getIsSuperAdmin() != null) {
+      try {
+        joiner.add(String.format("%sisSuperAdmin%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsSuperAdmin()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
       }
     }
 

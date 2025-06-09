@@ -20,21 +20,24 @@ import io.kestra.api.sdk.internal.BaseApi;
 import io.kestra.api.sdk.internal.Configuration;
 import io.kestra.api.sdk.internal.Pair;
 
+import io.kestra.api.sdk.model.AppsControllerApiBulkImportResponse;
 import io.kestra.api.sdk.model.BulkResponse;
-import io.kestra.api.sdk.model.Create5200Response;
+import io.kestra.api.sdk.model.DeleteExecutionsByQueryRequest;
 import java.io.File;
 import io.kestra.api.sdk.model.Flow;
 import io.kestra.api.sdk.model.FlowControllerTaskValidationType;
 import io.kestra.api.sdk.model.FlowGraph;
+import io.kestra.api.sdk.model.FlowInterface;
 import io.kestra.api.sdk.model.FlowScope;
 import io.kestra.api.sdk.model.FlowTopologyGraph;
 import io.kestra.api.sdk.model.FlowWithSource;
 import io.kestra.api.sdk.model.IdWithNamespace;
 import io.kestra.api.sdk.model.PagedResultsFlow;
 import io.kestra.api.sdk.model.PagedResultsSearchResultFlow;
+import io.kestra.api.sdk.model.QueryFilter;
 import io.kestra.api.sdk.model.Task;
-import io.kestra.api.sdk.model.Update3200Response;
-import io.kestra.api.sdk.model.UpdateNamespace200Response;
+import io.kestra.api.sdk.model.UpdateFlow200Response;
+import io.kestra.api.sdk.model.UpdateFlowsInNamespaceFromJson200Response;
 import io.kestra.api.sdk.model.ValidateConstraintViolation;
 
 
@@ -45,7 +48,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class FlowsApi extends BaseApi {
 
   public FlowsApi() {
@@ -57,42 +60,38 @@ public class FlowsApi extends BaseApi {
   }
 
   /**
-   * Update from multiples yaml sources
-   * All flow will be created / updated for this namespace. Flow that already created but not in &#x60;flows&#x60; will be deleted if the query delete is &#x60;true&#x60;
-   * @param delete If missing flow should be deleted (required)
-   * @param body  (required)
-   * @return List&lt;FlowWithSource&gt;
+   *     Import apps as a ZIP archive of yaml sources or a multi-objects YAML file.     When sending a Yaml that contains one or more apps, a list of index is returned.     When sending a ZIP archive, a list of files that couldn&#39;t be imported is returned. 
+   * 
+   * @param tenant  (required)
+   * @param fileUpload The file to import, can be a ZIP archive or a multi-objects YAML file (optional)
+   * @return AppsControllerApiBulkImportResponse
    * @throws ApiException if fails to make API call
    */
-  public List<FlowWithSource> bulkUpdate(Boolean delete, String body) throws ApiException {
-    return this.bulkUpdate(delete, body, Collections.emptyMap());
+  public AppsControllerApiBulkImportResponse bulkImportApps(@javax.annotation.Nonnull String tenant, @javax.annotation.Nullable File fileUpload) throws ApiException {
+    return this.bulkImportApps(tenant, fileUpload, Collections.emptyMap());
   }
 
 
   /**
-   * Update from multiples yaml sources
-   * All flow will be created / updated for this namespace. Flow that already created but not in &#x60;flows&#x60; will be deleted if the query delete is &#x60;true&#x60;
-   * @param delete If missing flow should be deleted (required)
-   * @param body  (required)
+   *     Import apps as a ZIP archive of yaml sources or a multi-objects YAML file.     When sending a Yaml that contains one or more apps, a list of index is returned.     When sending a ZIP archive, a list of files that couldn&#39;t be imported is returned. 
+   * 
+   * @param tenant  (required)
+   * @param fileUpload The file to import, can be a ZIP archive or a multi-objects YAML file (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;FlowWithSource&gt;
+   * @return AppsControllerApiBulkImportResponse
    * @throws ApiException if fails to make API call
    */
-  public List<FlowWithSource> bulkUpdate(Boolean delete, String body, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = body;
+  public AppsControllerApiBulkImportResponse bulkImportApps(@javax.annotation.Nonnull String tenant, @javax.annotation.Nullable File fileUpload, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
     
-    // verify the required parameter 'delete' is set
-    if (delete == null) {
-      throw new ApiException(400, "Missing the required parameter 'delete' when calling bulkUpdate");
-    }
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling bulkUpdate");
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling bulkImportApps");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/flows/bulk";
+    String localVarPath = "/api/v1/{tenant}/apps/import"
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -102,25 +101,26 @@ public class FlowsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("delete", delete));
     
     localVarHeaderParams.putAll(additionalHeaders);
 
     
-    
+    if (fileUpload != null)
+      localVarFormParams.put("fileUpload", fileUpload);
+
     final String[] localVarAccepts = {
       "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/x-yaml"
+      "multipart/form-data"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<List<FlowWithSource>> localVarReturnType = new TypeReference<List<FlowWithSource>>() {};
+    TypeReference<AppsControllerApiBulkImportResponse> localVarReturnType = new TypeReference<AppsControllerApiBulkImportResponse>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -142,13 +142,15 @@ public class FlowsApi extends BaseApi {
    * Update from multiples yaml sources
    * All flow will be created / updated for this namespace. Flow that already created but not in &#x60;flows&#x60; will be deleted if the query delete is &#x60;true&#x60;
    * @param delete If missing flow should be deleted (required)
+   * @param allowNamespaceChild If namespace child should are allowed to be updated (required)
    * @param tenant  (required)
-   * @param body  (required)
-   * @return List&lt;FlowWithSource&gt;
+   * @param namespace The namespace where to update flows (optional)
+   * @param body A list of flows source code splitted with \&quot;---\&quot; (optional)
+   * @return List&lt;FlowInterface&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<FlowWithSource> bulkUpdate1(Boolean delete, String tenant, String body) throws ApiException {
-    return this.bulkUpdate1(delete, tenant, body, Collections.emptyMap());
+  public List<FlowInterface> bulkUpdateFlows(@javax.annotation.Nonnull Boolean delete, @javax.annotation.Nonnull Boolean allowNamespaceChild, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String namespace, @javax.annotation.Nullable String body) throws ApiException {
+    return this.bulkUpdateFlows(delete, allowNamespaceChild, tenant, namespace, body, Collections.emptyMap());
   }
 
 
@@ -156,28 +158,30 @@ public class FlowsApi extends BaseApi {
    * Update from multiples yaml sources
    * All flow will be created / updated for this namespace. Flow that already created but not in &#x60;flows&#x60; will be deleted if the query delete is &#x60;true&#x60;
    * @param delete If missing flow should be deleted (required)
+   * @param allowNamespaceChild If namespace child should are allowed to be updated (required)
    * @param tenant  (required)
-   * @param body  (required)
+   * @param namespace The namespace where to update flows (optional)
+   * @param body A list of flows source code splitted with \&quot;---\&quot; (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;FlowWithSource&gt;
+   * @return List&lt;FlowInterface&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<FlowWithSource> bulkUpdate1(Boolean delete, String tenant, String body, Map<String, String> additionalHeaders) throws ApiException {
+  public List<FlowInterface> bulkUpdateFlows(@javax.annotation.Nonnull Boolean delete, @javax.annotation.Nonnull Boolean allowNamespaceChild, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String namespace, @javax.annotation.Nullable String body, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'delete' is set
     if (delete == null) {
-      throw new ApiException(400, "Missing the required parameter 'delete' when calling bulkUpdate1");
+      throw new ApiException(400, "Missing the required parameter 'delete' when calling bulkUpdateFlows");
+    }
+    
+    // verify the required parameter 'allowNamespaceChild' is set
+    if (allowNamespaceChild == null) {
+      throw new ApiException(400, "Missing the required parameter 'allowNamespaceChild' when calling bulkUpdateFlows");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling bulkUpdate1");
-    }
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling bulkUpdate1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling bulkUpdateFlows");
     }
     
     // create path and map variables
@@ -193,6 +197,8 @@ public class FlowsApi extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPair("delete", delete));
+    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
+    localVarQueryParams.addAll(apiClient.parameterToPair("allowNamespaceChild", allowNamespaceChild));
     
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -208,9 +214,9 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<List<FlowWithSource>> localVarReturnType = new TypeReference<List<FlowWithSource>>() {};
+    TypeReference<List<FlowInterface>> localVarReturnType = new TypeReference<List<FlowInterface>>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -229,42 +235,38 @@ public class FlowsApi extends BaseApi {
   }
 
   /**
-   * Create a flow from json object
+   * Create a flow from yaml source
    * 
    * @param tenant  (required)
-   * @param flow  (required)
-   * @return Create5200Response
+   * @param body The flow source code (required)
+   * @return FlowWithSource
    * @throws ApiException if fails to make API call
-   * @deprecated
    */
-  @Deprecated
-  public Create5200Response create30(String tenant, Flow flow) throws ApiException {
-    return this.create30(tenant, flow, Collections.emptyMap());
+  public FlowWithSource createFlow(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String body) throws ApiException {
+    return this.createFlow(tenant, body, Collections.emptyMap());
   }
 
 
   /**
-   * Create a flow from json object
+   * Create a flow from yaml source
    * 
    * @param tenant  (required)
-   * @param flow  (required)
+   * @param body The flow source code (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return Create5200Response
+   * @return FlowWithSource
    * @throws ApiException if fails to make API call
-   * @deprecated
    */
-  @Deprecated
-  public Create5200Response create30(String tenant, Flow flow, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = flow;
+  public FlowWithSource createFlow(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String body, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = body;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling create30");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling createFlow");
     }
     
-    // verify the required parameter 'flow' is set
-    if (flow == null) {
-      throw new ApiException(400, "Missing the required parameter 'flow' when calling create30");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createFlow");
     }
     
     // create path and map variables
@@ -294,87 +296,9 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<Create5200Response> localVarReturnType = new TypeReference<Create5200Response>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Create a flow from json object
-   * 
-   * @param flow  (required)
-   * @return Create5200Response
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public Create5200Response create5(Flow flow) throws ApiException {
-    return this.create5(flow, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create a flow from json object
-   * 
-   * @param flow  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Create5200Response
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public Create5200Response create5(Flow flow, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = flow;
-    
-    // verify the required parameter 'flow' is set
-    if (flow == null) {
-      throw new ApiException(400, "Missing the required parameter 'flow' when calling create5");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/x-yaml"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Create5200Response> localVarReturnType = new TypeReference<Create5200Response>() {};
+    TypeReference<FlowWithSource> localVarReturnType = new TypeReference<FlowWithSource>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -400,8 +324,8 @@ public class FlowsApi extends BaseApi {
    * @param tenant  (required)
    * @throws ApiException if fails to make API call
    */
-  public void delete33(String namespace, String id, String tenant) throws ApiException {
-    this.delete33(namespace, id, tenant, Collections.emptyMap());
+  public void deleteFlow(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    this.deleteFlow(namespace, id, tenant, Collections.emptyMap());
   }
 
 
@@ -414,22 +338,22 @@ public class FlowsApi extends BaseApi {
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void delete33(String namespace, String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteFlow(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling delete33");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling deleteFlow");
     }
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete33");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteFlow");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling delete33");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteFlow");
     }
     
     // create path and map variables
@@ -461,87 +385,7 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Delete a flow
-   * 
-   * @param namespace The flow namespace (required)
-   * @param id The flow id (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void delete5(String namespace, String id) throws ApiException {
-    this.delete5(namespace, id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete a flow
-   * 
-   * @param namespace The flow namespace (required)
-   * @param id The flow id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void delete5(String namespace, String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling delete5");
-    }
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete5");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/{namespace}/{id}"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -563,87 +407,13 @@ public class FlowsApi extends BaseApi {
   /**
    * Delete flows by their IDs.
    * 
-   * @param idWithNamespace  (required)
-   * @return BulkResponse
-   * @throws ApiException if fails to make API call
-   */
-  public BulkResponse deleteByIds1(List<IdWithNamespace> idWithNamespace) throws ApiException {
-    return this.deleteByIds1(idWithNamespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete flows by their IDs.
-   * 
-   * @param idWithNamespace  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return BulkResponse
-   * @throws ApiException if fails to make API call
-   */
-  public BulkResponse deleteByIds1(List<IdWithNamespace> idWithNamespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = idWithNamespace;
-    
-    // verify the required parameter 'idWithNamespace' is set
-    if (idWithNamespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'idWithNamespace' when calling deleteByIds1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/delete/by-ids";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<BulkResponse> localVarReturnType = new TypeReference<BulkResponse>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete flows by their IDs.
-   * 
    * @param tenant  (required)
-   * @param idWithNamespace  (required)
+   * @param idWithNamespace A list of tuple flow ID and namespace as flow identifiers (required)
    * @return BulkResponse
    * @throws ApiException if fails to make API call
    */
-  public BulkResponse deleteByIds4(String tenant, List<IdWithNamespace> idWithNamespace) throws ApiException {
-    return this.deleteByIds4(tenant, idWithNamespace, Collections.emptyMap());
+  public BulkResponse deleteFlowsByIds(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<IdWithNamespace> idWithNamespace) throws ApiException {
+    return this.deleteFlowsByIds(tenant, idWithNamespace, Collections.emptyMap());
   }
 
 
@@ -651,22 +421,22 @@ public class FlowsApi extends BaseApi {
    * Delete flows by their IDs.
    * 
    * @param tenant  (required)
-   * @param idWithNamespace  (required)
+   * @param idWithNamespace A list of tuple flow ID and namespace as flow identifiers (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return BulkResponse
    * @throws ApiException if fails to make API call
    */
-  public BulkResponse deleteByIds4(String tenant, List<IdWithNamespace> idWithNamespace, Map<String, String> additionalHeaders) throws ApiException {
+  public BulkResponse deleteFlowsByIds(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<IdWithNamespace> idWithNamespace, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = idWithNamespace;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteByIds4");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteFlowsByIds");
     }
     
     // verify the required parameter 'idWithNamespace' is set
     if (idWithNamespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'idWithNamespace' when calling deleteByIds4");
+      throw new ApiException(400, "Missing the required parameter 'idWithNamespace' when calling deleteFlowsByIds");
     }
     
     // create path and map variables
@@ -696,86 +466,7 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<BulkResponse> localVarReturnType = new TypeReference<BulkResponse>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete flows returned by the query parameters.
-   * 
-   * @param q A string filter (optional)
-   * @param scope The scope of the flows to include (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param labels A labels filter as a list of &#39;key:value&#39; (optional)
-   * @return BulkResponse
-   * @throws ApiException if fails to make API call
-   */
-  public BulkResponse deleteByQuery1(String q, List<FlowScope> scope, String namespace, List<String> labels) throws ApiException {
-    return this.deleteByQuery1(q, scope, namespace, labels, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete flows returned by the query parameters.
-   * 
-   * @param q A string filter (optional)
-   * @param scope The scope of the flows to include (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param labels A labels filter as a list of &#39;key:value&#39; (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return BulkResponse
-   * @throws ApiException if fails to make API call
-   */
-  public BulkResponse deleteByQuery1(String q, List<FlowScope> scope, String namespace, List<String> labels, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/delete/by-query";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "scope", scope));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "labels", labels));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<BulkResponse> localVarReturnType = new TypeReference<BulkResponse>() {};
     return apiClient.invokeAPI(
@@ -799,6 +490,7 @@ public class FlowsApi extends BaseApi {
    * Delete flows returned by the query parameters.
    * 
    * @param tenant  (required)
+   * @param deleteExecutionsByQueryRequest  (required)
    * @param q A string filter (optional)
    * @param scope The scope of the flows to include (optional)
    * @param namespace A namespace filter prefix (optional)
@@ -806,8 +498,8 @@ public class FlowsApi extends BaseApi {
    * @return BulkResponse
    * @throws ApiException if fails to make API call
    */
-  public BulkResponse deleteByQuery4(String tenant, String q, List<FlowScope> scope, String namespace, List<String> labels) throws ApiException {
-    return this.deleteByQuery4(tenant, q, scope, namespace, labels, Collections.emptyMap());
+  public BulkResponse deleteFlowsByQuery(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<FlowScope> scope, @javax.annotation.Nullable String namespace, @javax.annotation.Nullable List<String> labels) throws ApiException {
+    return this.deleteFlowsByQuery(tenant, deleteExecutionsByQueryRequest, q, scope, namespace, labels, Collections.emptyMap());
   }
 
 
@@ -815,6 +507,7 @@ public class FlowsApi extends BaseApi {
    * Delete flows returned by the query parameters.
    * 
    * @param tenant  (required)
+   * @param deleteExecutionsByQueryRequest  (required)
    * @param q A string filter (optional)
    * @param scope The scope of the flows to include (optional)
    * @param namespace A namespace filter prefix (optional)
@@ -823,12 +516,17 @@ public class FlowsApi extends BaseApi {
    * @return BulkResponse
    * @throws ApiException if fails to make API call
    */
-  public BulkResponse deleteByQuery4(String tenant, String q, List<FlowScope> scope, String namespace, List<String> labels, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
+  public BulkResponse deleteFlowsByQuery(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<FlowScope> scope, @javax.annotation.Nullable String namespace, @javax.annotation.Nullable List<String> labels, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = deleteExecutionsByQueryRequest;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteByQuery4");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteFlowsByQuery");
+    }
+    
+    // verify the required parameter 'deleteExecutionsByQueryRequest' is set
+    if (deleteExecutionsByQueryRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'deleteExecutionsByQueryRequest' when calling deleteFlowsByQuery");
     }
     
     // create path and map variables
@@ -858,11 +556,11 @@ public class FlowsApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<BulkResponse> localVarReturnType = new TypeReference<BulkResponse>() {};
     return apiClient.invokeAPI(
@@ -883,453 +581,15 @@ public class FlowsApi extends BaseApi {
   }
 
   /**
-   * Get flow dependencies
-   * 
-   * @param namespace The flow namespace (required)
-   * @param id The flow id (required)
-   * @param destinationOnly if true, list only destination dependencies, otherwise list also source dependencies (required)
-   * @return FlowTopologyGraph
-   * @throws ApiException if fails to make API call
-   */
-  public FlowTopologyGraph dependencies(String namespace, String id, Boolean destinationOnly) throws ApiException {
-    return this.dependencies(namespace, id, destinationOnly, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get flow dependencies
-   * 
-   * @param namespace The flow namespace (required)
-   * @param id The flow id (required)
-   * @param destinationOnly if true, list only destination dependencies, otherwise list also source dependencies (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return FlowTopologyGraph
-   * @throws ApiException if fails to make API call
-   */
-  public FlowTopologyGraph dependencies(String namespace, String id, Boolean destinationOnly, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling dependencies");
-    }
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling dependencies");
-    }
-    
-    // verify the required parameter 'destinationOnly' is set
-    if (destinationOnly == null) {
-      throw new ApiException(400, "Missing the required parameter 'destinationOnly' when calling dependencies");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/{namespace}/{id}/dependencies"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("destinationOnly", destinationOnly));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<FlowTopologyGraph> localVarReturnType = new TypeReference<FlowTopologyGraph>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get flow dependencies
-   * 
-   * @param namespace The flow namespace (required)
-   * @param destinationOnly if true, list only destination dependencies, otherwise list also source dependencies (required)
-   * @return FlowTopologyGraph
-   * @throws ApiException if fails to make API call
-   */
-  public FlowTopologyGraph dependencies1(String namespace, Boolean destinationOnly) throws ApiException {
-    return this.dependencies1(namespace, destinationOnly, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get flow dependencies
-   * 
-   * @param namespace The flow namespace (required)
-   * @param destinationOnly if true, list only destination dependencies, otherwise list also source dependencies (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return FlowTopologyGraph
-   * @throws ApiException if fails to make API call
-   */
-  public FlowTopologyGraph dependencies1(String namespace, Boolean destinationOnly, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling dependencies1");
-    }
-    
-    // verify the required parameter 'destinationOnly' is set
-    if (destinationOnly == null) {
-      throw new ApiException(400, "Missing the required parameter 'destinationOnly' when calling dependencies1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{namespace}/dependencies"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("destinationOnly", destinationOnly));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<FlowTopologyGraph> localVarReturnType = new TypeReference<FlowTopologyGraph>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get flow dependencies
-   * 
-   * @param namespace The flow namespace (required)
-   * @param id The flow id (required)
-   * @param destinationOnly if true, list only destination dependencies, otherwise list also source dependencies (required)
-   * @param tenant  (required)
-   * @return FlowTopologyGraph
-   * @throws ApiException if fails to make API call
-   */
-  public FlowTopologyGraph dependencies2(String namespace, String id, Boolean destinationOnly, String tenant) throws ApiException {
-    return this.dependencies2(namespace, id, destinationOnly, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get flow dependencies
-   * 
-   * @param namespace The flow namespace (required)
-   * @param id The flow id (required)
-   * @param destinationOnly if true, list only destination dependencies, otherwise list also source dependencies (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return FlowTopologyGraph
-   * @throws ApiException if fails to make API call
-   */
-  public FlowTopologyGraph dependencies2(String namespace, String id, Boolean destinationOnly, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling dependencies2");
-    }
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling dependencies2");
-    }
-    
-    // verify the required parameter 'destinationOnly' is set
-    if (destinationOnly == null) {
-      throw new ApiException(400, "Missing the required parameter 'destinationOnly' when calling dependencies2");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling dependencies2");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/flows/{namespace}/{id}/dependencies"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("destinationOnly", destinationOnly));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<FlowTopologyGraph> localVarReturnType = new TypeReference<FlowTopologyGraph>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get flow dependencies
-   * 
-   * @param namespace The flow namespace (required)
-   * @param destinationOnly if true, list only destination dependencies, otherwise list also source dependencies (required)
-   * @param tenant  (required)
-   * @return FlowTopologyGraph
-   * @throws ApiException if fails to make API call
-   */
-  public FlowTopologyGraph dependencies3(String namespace, Boolean destinationOnly, String tenant) throws ApiException {
-    return this.dependencies3(namespace, destinationOnly, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get flow dependencies
-   * 
-   * @param namespace The flow namespace (required)
-   * @param destinationOnly if true, list only destination dependencies, otherwise list also source dependencies (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return FlowTopologyGraph
-   * @throws ApiException if fails to make API call
-   */
-  public FlowTopologyGraph dependencies3(String namespace, Boolean destinationOnly, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling dependencies3");
-    }
-    
-    // verify the required parameter 'destinationOnly' is set
-    if (destinationOnly == null) {
-      throw new ApiException(400, "Missing the required parameter 'destinationOnly' when calling dependencies3");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling dependencies3");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/namespaces/{namespace}/dependencies"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("destinationOnly", destinationOnly));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<FlowTopologyGraph> localVarReturnType = new TypeReference<FlowTopologyGraph>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Disable flows by their IDs.
-   * 
-   * @param idWithNamespace  (required)
-   * @return BulkResponse
-   * @throws ApiException if fails to make API call
-   */
-  public BulkResponse disableByIds(List<IdWithNamespace> idWithNamespace) throws ApiException {
-    return this.disableByIds(idWithNamespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * Disable flows by their IDs.
-   * 
-   * @param idWithNamespace  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return BulkResponse
-   * @throws ApiException if fails to make API call
-   */
-  public BulkResponse disableByIds(List<IdWithNamespace> idWithNamespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = idWithNamespace;
-    
-    // verify the required parameter 'idWithNamespace' is set
-    if (idWithNamespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'idWithNamespace' when calling disableByIds");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/disable/by-ids";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<BulkResponse> localVarReturnType = new TypeReference<BulkResponse>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
    * Disable flows by their IDs.
    * 
    * @param tenant  (required)
-   * @param idWithNamespace  (required)
+   * @param idWithNamespace A list of tuple flow ID and namespace as flow identifiers (required)
    * @return BulkResponse
    * @throws ApiException if fails to make API call
    */
-  public BulkResponse disableByIds1(String tenant, List<IdWithNamespace> idWithNamespace) throws ApiException {
-    return this.disableByIds1(tenant, idWithNamespace, Collections.emptyMap());
+  public BulkResponse disableFlowsByIds(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<IdWithNamespace> idWithNamespace) throws ApiException {
+    return this.disableFlowsByIds(tenant, idWithNamespace, Collections.emptyMap());
   }
 
 
@@ -1337,22 +597,22 @@ public class FlowsApi extends BaseApi {
    * Disable flows by their IDs.
    * 
    * @param tenant  (required)
-   * @param idWithNamespace  (required)
+   * @param idWithNamespace A list of tuple flow ID and namespace as flow identifiers (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return BulkResponse
    * @throws ApiException if fails to make API call
    */
-  public BulkResponse disableByIds1(String tenant, List<IdWithNamespace> idWithNamespace, Map<String, String> additionalHeaders) throws ApiException {
+  public BulkResponse disableFlowsByIds(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<IdWithNamespace> idWithNamespace, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = idWithNamespace;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling disableByIds1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling disableFlowsByIds");
     }
     
     // verify the required parameter 'idWithNamespace' is set
     if (idWithNamespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'idWithNamespace' when calling disableByIds1");
+      throw new ApiException(400, "Missing the required parameter 'idWithNamespace' when calling disableFlowsByIds");
     }
     
     // create path and map variables
@@ -1382,86 +642,7 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<BulkResponse> localVarReturnType = new TypeReference<BulkResponse>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Disable flows returned by the query parameters.
-   * 
-   * @param q A string filter (optional)
-   * @param scope The scope of the flows to include (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param labels A labels filter as a list of &#39;key:value&#39; (optional)
-   * @return BulkResponse
-   * @throws ApiException if fails to make API call
-   */
-  public BulkResponse disableByQuery(String q, List<FlowScope> scope, String namespace, List<String> labels) throws ApiException {
-    return this.disableByQuery(q, scope, namespace, labels, Collections.emptyMap());
-  }
-
-
-  /**
-   * Disable flows returned by the query parameters.
-   * 
-   * @param q A string filter (optional)
-   * @param scope The scope of the flows to include (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param labels A labels filter as a list of &#39;key:value&#39; (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return BulkResponse
-   * @throws ApiException if fails to make API call
-   */
-  public BulkResponse disableByQuery(String q, List<FlowScope> scope, String namespace, List<String> labels, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/disable/by-query";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "scope", scope));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "labels", labels));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<BulkResponse> localVarReturnType = new TypeReference<BulkResponse>() {};
     return apiClient.invokeAPI(
@@ -1485,6 +666,7 @@ public class FlowsApi extends BaseApi {
    * Disable flows returned by the query parameters.
    * 
    * @param tenant  (required)
+   * @param deleteExecutionsByQueryRequest  (required)
    * @param q A string filter (optional)
    * @param scope The scope of the flows to include (optional)
    * @param namespace A namespace filter prefix (optional)
@@ -1492,8 +674,8 @@ public class FlowsApi extends BaseApi {
    * @return BulkResponse
    * @throws ApiException if fails to make API call
    */
-  public BulkResponse disableByQuery1(String tenant, String q, List<FlowScope> scope, String namespace, List<String> labels) throws ApiException {
-    return this.disableByQuery1(tenant, q, scope, namespace, labels, Collections.emptyMap());
+  public BulkResponse disableFlowsByQuery(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<FlowScope> scope, @javax.annotation.Nullable String namespace, @javax.annotation.Nullable List<String> labels) throws ApiException {
+    return this.disableFlowsByQuery(tenant, deleteExecutionsByQueryRequest, q, scope, namespace, labels, Collections.emptyMap());
   }
 
 
@@ -1501,6 +683,7 @@ public class FlowsApi extends BaseApi {
    * Disable flows returned by the query parameters.
    * 
    * @param tenant  (required)
+   * @param deleteExecutionsByQueryRequest  (required)
    * @param q A string filter (optional)
    * @param scope The scope of the flows to include (optional)
    * @param namespace A namespace filter prefix (optional)
@@ -1509,12 +692,17 @@ public class FlowsApi extends BaseApi {
    * @return BulkResponse
    * @throws ApiException if fails to make API call
    */
-  public BulkResponse disableByQuery1(String tenant, String q, List<FlowScope> scope, String namespace, List<String> labels, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
+  public BulkResponse disableFlowsByQuery(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<FlowScope> scope, @javax.annotation.Nullable String namespace, @javax.annotation.Nullable List<String> labels, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = deleteExecutionsByQueryRequest;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling disableByQuery1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling disableFlowsByQuery");
+    }
+    
+    // verify the required parameter 'deleteExecutionsByQueryRequest' is set
+    if (deleteExecutionsByQueryRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'deleteExecutionsByQueryRequest' when calling disableFlowsByQuery");
     }
     
     // create path and map variables
@@ -1544,85 +732,11 @@ public class FlowsApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<BulkResponse> localVarReturnType = new TypeReference<BulkResponse>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Enable flows by their IDs.
-   * 
-   * @param idWithNamespace  (required)
-   * @return BulkResponse
-   * @throws ApiException if fails to make API call
-   */
-  public BulkResponse enableByIds(List<IdWithNamespace> idWithNamespace) throws ApiException {
-    return this.enableByIds(idWithNamespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * Enable flows by their IDs.
-   * 
-   * @param idWithNamespace  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return BulkResponse
-   * @throws ApiException if fails to make API call
-   */
-  public BulkResponse enableByIds(List<IdWithNamespace> idWithNamespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = idWithNamespace;
-    
-    // verify the required parameter 'idWithNamespace' is set
-    if (idWithNamespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'idWithNamespace' when calling enableByIds");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/enable/by-ids";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
       "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<BulkResponse> localVarReturnType = new TypeReference<BulkResponse>() {};
     return apiClient.invokeAPI(
@@ -1646,12 +760,12 @@ public class FlowsApi extends BaseApi {
    * Enable flows by their IDs.
    * 
    * @param tenant  (required)
-   * @param idWithNamespace  (required)
+   * @param idWithNamespace A list of tuple flow ID and namespace as flow identifiers (required)
    * @return BulkResponse
    * @throws ApiException if fails to make API call
    */
-  public BulkResponse enableByIds1(String tenant, List<IdWithNamespace> idWithNamespace) throws ApiException {
-    return this.enableByIds1(tenant, idWithNamespace, Collections.emptyMap());
+  public BulkResponse enableFlowsByIds(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<IdWithNamespace> idWithNamespace) throws ApiException {
+    return this.enableFlowsByIds(tenant, idWithNamespace, Collections.emptyMap());
   }
 
 
@@ -1659,22 +773,22 @@ public class FlowsApi extends BaseApi {
    * Enable flows by their IDs.
    * 
    * @param tenant  (required)
-   * @param idWithNamespace  (required)
+   * @param idWithNamespace A list of tuple flow ID and namespace as flow identifiers (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return BulkResponse
    * @throws ApiException if fails to make API call
    */
-  public BulkResponse enableByIds1(String tenant, List<IdWithNamespace> idWithNamespace, Map<String, String> additionalHeaders) throws ApiException {
+  public BulkResponse enableFlowsByIds(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<IdWithNamespace> idWithNamespace, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = idWithNamespace;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling enableByIds1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling enableFlowsByIds");
     }
     
     // verify the required parameter 'idWithNamespace' is set
     if (idWithNamespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'idWithNamespace' when calling enableByIds1");
+      throw new ApiException(400, "Missing the required parameter 'idWithNamespace' when calling enableFlowsByIds");
     }
     
     // create path and map variables
@@ -1704,86 +818,7 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<BulkResponse> localVarReturnType = new TypeReference<BulkResponse>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Enable flows returned by the query parameters.
-   * 
-   * @param q A string filter (optional)
-   * @param scope The scope of the flows to include (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param labels A labels filter as a list of &#39;key:value&#39; (optional)
-   * @return BulkResponse
-   * @throws ApiException if fails to make API call
-   */
-  public BulkResponse enableByQuery(String q, List<FlowScope> scope, String namespace, List<String> labels) throws ApiException {
-    return this.enableByQuery(q, scope, namespace, labels, Collections.emptyMap());
-  }
-
-
-  /**
-   * Enable flows returned by the query parameters.
-   * 
-   * @param q A string filter (optional)
-   * @param scope The scope of the flows to include (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param labels A labels filter as a list of &#39;key:value&#39; (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return BulkResponse
-   * @throws ApiException if fails to make API call
-   */
-  public BulkResponse enableByQuery(String q, List<FlowScope> scope, String namespace, List<String> labels, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/enable/by-query";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "scope", scope));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "labels", labels));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<BulkResponse> localVarReturnType = new TypeReference<BulkResponse>() {};
     return apiClient.invokeAPI(
@@ -1807,6 +842,7 @@ public class FlowsApi extends BaseApi {
    * Enable flows returned by the query parameters.
    * 
    * @param tenant  (required)
+   * @param deleteExecutionsByQueryRequest  (required)
    * @param q A string filter (optional)
    * @param scope The scope of the flows to include (optional)
    * @param namespace A namespace filter prefix (optional)
@@ -1814,8 +850,8 @@ public class FlowsApi extends BaseApi {
    * @return BulkResponse
    * @throws ApiException if fails to make API call
    */
-  public BulkResponse enableByQuery1(String tenant, String q, List<FlowScope> scope, String namespace, List<String> labels) throws ApiException {
-    return this.enableByQuery1(tenant, q, scope, namespace, labels, Collections.emptyMap());
+  public BulkResponse enableFlowsByQuery(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<FlowScope> scope, @javax.annotation.Nullable String namespace, @javax.annotation.Nullable List<String> labels) throws ApiException {
+    return this.enableFlowsByQuery(tenant, deleteExecutionsByQueryRequest, q, scope, namespace, labels, Collections.emptyMap());
   }
 
 
@@ -1823,6 +859,7 @@ public class FlowsApi extends BaseApi {
    * Enable flows returned by the query parameters.
    * 
    * @param tenant  (required)
+   * @param deleteExecutionsByQueryRequest  (required)
    * @param q A string filter (optional)
    * @param scope The scope of the flows to include (optional)
    * @param namespace A namespace filter prefix (optional)
@@ -1831,12 +868,17 @@ public class FlowsApi extends BaseApi {
    * @return BulkResponse
    * @throws ApiException if fails to make API call
    */
-  public BulkResponse enableByQuery1(String tenant, String q, List<FlowScope> scope, String namespace, List<String> labels, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
+  public BulkResponse enableFlowsByQuery(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<FlowScope> scope, @javax.annotation.Nullable String namespace, @javax.annotation.Nullable List<String> labels, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = deleteExecutionsByQueryRequest;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling enableByQuery1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling enableFlowsByQuery");
+    }
+    
+    // verify the required parameter 'deleteExecutionsByQueryRequest' is set
+    if (deleteExecutionsByQueryRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'deleteExecutionsByQueryRequest' when calling enableFlowsByQuery");
     }
     
     // create path and map variables
@@ -1866,11 +908,11 @@ public class FlowsApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<BulkResponse> localVarReturnType = new TypeReference<BulkResponse>() {};
     return apiClient.invokeAPI(
@@ -1893,87 +935,13 @@ public class FlowsApi extends BaseApi {
   /**
    * Export flows as a ZIP archive of yaml sources.
    * 
-   * @param idWithNamespace  (required)
-   * @return List&lt;byte[]&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<byte[]> exportByIds(List<IdWithNamespace> idWithNamespace) throws ApiException {
-    return this.exportByIds(idWithNamespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * Export flows as a ZIP archive of yaml sources.
-   * 
-   * @param idWithNamespace  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;byte[]&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<byte[]> exportByIds(List<IdWithNamespace> idWithNamespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = idWithNamespace;
-    
-    // verify the required parameter 'idWithNamespace' is set
-    if (idWithNamespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'idWithNamespace' when calling exportByIds");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/export/by-ids";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/octet-stream"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<byte[]>> localVarReturnType = new TypeReference<List<byte[]>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Export flows as a ZIP archive of yaml sources.
-   * 
    * @param tenant  (required)
-   * @param idWithNamespace  (required)
-   * @return List&lt;byte[]&gt;
+   * @param idWithNamespace A list of tuple flow ID and namespace as flow identifiers (required)
+   * @return byte[]
    * @throws ApiException if fails to make API call
    */
-  public List<byte[]> exportByIds2(String tenant, List<IdWithNamespace> idWithNamespace) throws ApiException {
-    return this.exportByIds2(tenant, idWithNamespace, Collections.emptyMap());
+  public byte[] exportFlowsByIds(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<IdWithNamespace> idWithNamespace) throws ApiException {
+    return this.exportFlowsByIds(tenant, idWithNamespace, Collections.emptyMap());
   }
 
 
@@ -1981,22 +949,22 @@ public class FlowsApi extends BaseApi {
    * Export flows as a ZIP archive of yaml sources.
    * 
    * @param tenant  (required)
-   * @param idWithNamespace  (required)
+   * @param idWithNamespace A list of tuple flow ID and namespace as flow identifiers (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;byte[]&gt;
+   * @return byte[]
    * @throws ApiException if fails to make API call
    */
-  public List<byte[]> exportByIds2(String tenant, List<IdWithNamespace> idWithNamespace, Map<String, String> additionalHeaders) throws ApiException {
+  public byte[] exportFlowsByIds(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<IdWithNamespace> idWithNamespace, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = idWithNamespace;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling exportByIds2");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling exportFlowsByIds");
     }
     
     // verify the required parameter 'idWithNamespace' is set
     if (idWithNamespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'idWithNamespace' when calling exportByIds2");
+      throw new ApiException(400, "Missing the required parameter 'idWithNamespace' when calling exportFlowsByIds");
     }
     
     // create path and map variables
@@ -2026,9 +994,9 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<List<byte[]>> localVarReturnType = new TypeReference<List<byte[]>>() {};
+    TypeReference<byte[]> localVarReturnType = new TypeReference<byte[]>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -2049,6 +1017,8 @@ public class FlowsApi extends BaseApi {
   /**
    * Export flows as a ZIP archive of yaml sources.
    * 
+   * @param tenant  (required)
+   * @param filters Filters (optional)
    * @param q A string filter (optional)
    * @param scope The scope of the flows to include (optional)
    * @param namespace A namespace filter prefix (optional)
@@ -2056,14 +1026,16 @@ public class FlowsApi extends BaseApi {
    * @return List&lt;byte[]&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<byte[]> exportByQuery(String q, List<FlowScope> scope, String namespace, List<String> labels) throws ApiException {
-    return this.exportByQuery(q, scope, namespace, labels, Collections.emptyMap());
+  public List<byte[]> exportFlowsByQuery(@javax.annotation.Nonnull String tenant, @javax.annotation.Nullable List<QueryFilter> filters, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<FlowScope> scope, @javax.annotation.Nullable String namespace, @javax.annotation.Nullable List<String> labels) throws ApiException {
+    return this.exportFlowsByQuery(tenant, filters, q, scope, namespace, labels, Collections.emptyMap());
   }
 
 
   /**
    * Export flows as a ZIP archive of yaml sources.
    * 
+   * @param tenant  (required)
+   * @param filters Filters (optional)
    * @param q A string filter (optional)
    * @param scope The scope of the flows to include (optional)
    * @param namespace A namespace filter prefix (optional)
@@ -2072,93 +1044,12 @@ public class FlowsApi extends BaseApi {
    * @return List&lt;byte[]&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<byte[]> exportByQuery(String q, List<FlowScope> scope, String namespace, List<String> labels, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/export/by-query";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "scope", scope));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "labels", labels));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/octet-stream"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<byte[]>> localVarReturnType = new TypeReference<List<byte[]>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Export flows as a ZIP archive of yaml sources.
-   * 
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param scope The scope of the flows to include (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param labels A labels filter as a list of &#39;key:value&#39; (optional)
-   * @return List&lt;byte[]&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<byte[]> exportByQuery2(String tenant, String q, List<FlowScope> scope, String namespace, List<String> labels) throws ApiException {
-    return this.exportByQuery2(tenant, q, scope, namespace, labels, Collections.emptyMap());
-  }
-
-
-  /**
-   * Export flows as a ZIP archive of yaml sources.
-   * 
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param scope The scope of the flows to include (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param labels A labels filter as a list of &#39;key:value&#39; (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;byte[]&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<byte[]> exportByQuery2(String tenant, String q, List<FlowScope> scope, String namespace, List<String> labels, Map<String, String> additionalHeaders) throws ApiException {
+  public List<byte[]> exportFlowsByQuery(@javax.annotation.Nonnull String tenant, @javax.annotation.Nullable List<QueryFilter> filters, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<FlowScope> scope, @javax.annotation.Nullable String namespace, @javax.annotation.Nullable List<String> labels, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling exportByQuery2");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling exportFlowsByQuery");
     }
     
     // create path and map variables
@@ -2173,6 +1064,7 @@ public class FlowsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "filters", filters));
     localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "scope", scope));
     localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
@@ -2192,7 +1084,7 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<List<byte[]>> localVarReturnType = new TypeReference<List<byte[]>>() {};
     return apiClient.invokeAPI(
@@ -2213,221 +1105,18 @@ public class FlowsApi extends BaseApi {
   }
 
   /**
-   * Search for flows
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param tenant  (required)
-   * @param sort The sort of current page (optional)
-   * @param q A string filter (optional)
-   * @param scope The scope of the flows to include (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param labels A labels filter as a list of &#39;key:value&#39; (optional)
-   * @return PagedResultsFlow
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsFlow find31(Integer page, Integer size, String tenant, List<String> sort, String q, List<FlowScope> scope, String namespace, List<String> labels) throws ApiException {
-    return this.find31(page, size, tenant, sort, q, scope, namespace, labels, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for flows
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param tenant  (required)
-   * @param sort The sort of current page (optional)
-   * @param q A string filter (optional)
-   * @param scope The scope of the flows to include (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param labels A labels filter as a list of &#39;key:value&#39; (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsFlow
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsFlow find31(Integer page, Integer size, String tenant, List<String> sort, String q, List<FlowScope> scope, String namespace, List<String> labels, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find31");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find31");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling find31");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/flows/search"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "scope", scope));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "labels", labels));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsFlow> localVarReturnType = new TypeReference<PagedResultsFlow>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Search for flows
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param sort The sort of current page (optional)
-   * @param q A string filter (optional)
-   * @param scope The scope of the flows to include (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param labels A labels filter as a list of &#39;key:value&#39; (optional)
-   * @return PagedResultsFlow
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsFlow find5(Integer page, Integer size, List<String> sort, String q, List<FlowScope> scope, String namespace, List<String> labels) throws ApiException {
-    return this.find5(page, size, sort, q, scope, namespace, labels, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for flows
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param sort The sort of current page (optional)
-   * @param q A string filter (optional)
-   * @param scope The scope of the flows to include (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param labels A labels filter as a list of &#39;key:value&#39; (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsFlow
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsFlow find5(Integer page, Integer size, List<String> sort, String q, List<FlowScope> scope, String namespace, List<String> labels, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find5");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find5");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/search";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "scope", scope));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "labels", labels));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsFlow> localVarReturnType = new TypeReference<PagedResultsFlow>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
    * Generate a graph for a flow
    * 
    * @param namespace The flow namespace (required)
    * @param id The flow id (required)
+   * @param tenant  (required)
    * @param revision The flow revision (optional)
    * @param subflows The subflow tasks to display (optional)
    * @return FlowGraph
    * @throws ApiException if fails to make API call
    */
-  public FlowGraph flowGraph1(String namespace, String id, Integer revision, List<String> subflows) throws ApiException {
-    return this.flowGraph1(namespace, id, revision, subflows, Collections.emptyMap());
+  public FlowGraph generateFlowGraph(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable Integer revision, @javax.annotation.Nullable List<String> subflows) throws ApiException {
+    return this.generateFlowGraph(namespace, id, tenant, revision, subflows, Collections.emptyMap());
   }
 
 
@@ -2436,119 +1125,29 @@ public class FlowsApi extends BaseApi {
    * 
    * @param namespace The flow namespace (required)
    * @param id The flow id (required)
+   * @param tenant  (required)
    * @param revision The flow revision (optional)
    * @param subflows The subflow tasks to display (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FlowGraph
    * @throws ApiException if fails to make API call
    */
-  public FlowGraph flowGraph1(String namespace, String id, Integer revision, List<String> subflows, Map<String, String> additionalHeaders) throws ApiException {
+  public FlowGraph generateFlowGraph(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable Integer revision, @javax.annotation.Nullable List<String> subflows, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling flowGraph1");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling generateFlowGraph");
     }
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling flowGraph1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/{namespace}/{id}/graph"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("revision", revision));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "subflows", subflows));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<FlowGraph> localVarReturnType = new TypeReference<FlowGraph>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Generate a graph for a flow
-   * 
-   * @param namespace The flow namespace (required)
-   * @param id The flow id (required)
-   * @param tenant  (required)
-   * @param revision The flow revision (optional)
-   * @param subflows The subflow tasks to display (optional)
-   * @return FlowGraph
-   * @throws ApiException if fails to make API call
-   */
-  public FlowGraph flowGraph3(String namespace, String id, String tenant, Integer revision, List<String> subflows) throws ApiException {
-    return this.flowGraph3(namespace, id, tenant, revision, subflows, Collections.emptyMap());
-  }
-
-
-  /**
-   * Generate a graph for a flow
-   * 
-   * @param namespace The flow namespace (required)
-   * @param id The flow id (required)
-   * @param tenant  (required)
-   * @param revision The flow revision (optional)
-   * @param subflows The subflow tasks to display (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return FlowGraph
-   * @throws ApiException if fails to make API call
-   */
-  public FlowGraph flowGraph3(String namespace, String id, String tenant, Integer revision, List<String> subflows, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling flowGraph3");
-    }
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling flowGraph3");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling generateFlowGraph");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling flowGraph3");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling generateFlowGraph");
     }
     
     // create path and map variables
@@ -2582,7 +1181,7 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<FlowGraph> localVarReturnType = new TypeReference<FlowGraph>() {};
     return apiClient.invokeAPI(
@@ -2605,91 +1204,14 @@ public class FlowsApi extends BaseApi {
   /**
    * Generate a graph for a flow source
    * 
-   * @param body  (required)
-   * @param subflows The subflow tasks to display (optional)
-   * @return FlowGraph
-   * @throws ApiException if fails to make API call
-   */
-  public FlowGraph flowGraphSource(String body, List<String> subflows) throws ApiException {
-    return this.flowGraphSource(body, subflows, Collections.emptyMap());
-  }
-
-
-  /**
-   * Generate a graph for a flow source
-   * 
-   * @param body  (required)
-   * @param subflows The subflow tasks to display (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return FlowGraph
-   * @throws ApiException if fails to make API call
-   */
-  public FlowGraph flowGraphSource(String body, List<String> subflows, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling flowGraphSource");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/graph";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "subflows", subflows));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/x-yaml"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<FlowGraph> localVarReturnType = new TypeReference<FlowGraph>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Generate a graph for a flow source
-   * 
    * @param tenant  (required)
-   * @param body  (required)
+   * @param body The flow source code (required)
    * @param subflows The subflow tasks to display (optional)
    * @return FlowGraph
    * @throws ApiException if fails to make API call
    */
-  public FlowGraph flowGraphSource1(String tenant, String body, List<String> subflows) throws ApiException {
-    return this.flowGraphSource1(tenant, body, subflows, Collections.emptyMap());
+  public FlowGraph generateFlowGraphFromSource(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String body, @javax.annotation.Nullable List<String> subflows) throws ApiException {
+    return this.generateFlowGraphFromSource(tenant, body, subflows, Collections.emptyMap());
   }
 
 
@@ -2697,23 +1219,23 @@ public class FlowsApi extends BaseApi {
    * Generate a graph for a flow source
    * 
    * @param tenant  (required)
-   * @param body  (required)
+   * @param body The flow source code (required)
    * @param subflows The subflow tasks to display (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return FlowGraph
    * @throws ApiException if fails to make API call
    */
-  public FlowGraph flowGraphSource1(String tenant, String body, List<String> subflows, Map<String, String> additionalHeaders) throws ApiException {
+  public FlowGraph generateFlowGraphFromSource(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String body, @javax.annotation.Nullable List<String> subflows, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling flowGraphSource1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling generateFlowGraphFromSource");
     }
     
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling flowGraphSource1");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling generateFlowGraphFromSource");
     }
     
     // create path and map variables
@@ -2744,7 +1266,7 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<FlowGraph> localVarReturnType = new TypeReference<FlowGraph>() {};
     return apiClient.invokeAPI(
@@ -2765,510 +1287,6 @@ public class FlowsApi extends BaseApi {
   }
 
   /**
-   * Get a flow task
-   * 
-   * @param namespace The flow namespace (required)
-   * @param id The flow id (required)
-   * @param taskId The task id (required)
-   * @param revision The flow revision (optional)
-   * @return Task
-   * @throws ApiException if fails to make API call
-   */
-  public Task flowTask(String namespace, String id, String taskId, Integer revision) throws ApiException {
-    return this.flowTask(namespace, id, taskId, revision, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a flow task
-   * 
-   * @param namespace The flow namespace (required)
-   * @param id The flow id (required)
-   * @param taskId The task id (required)
-   * @param revision The flow revision (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Task
-   * @throws ApiException if fails to make API call
-   */
-  public Task flowTask(String namespace, String id, String taskId, Integer revision, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling flowTask");
-    }
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling flowTask");
-    }
-    
-    // verify the required parameter 'taskId' is set
-    if (taskId == null) {
-      throw new ApiException(400, "Missing the required parameter 'taskId' when calling flowTask");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/{namespace}/{id}/tasks/{taskId}"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "taskId" + "\\}", apiClient.escapeString(apiClient.parameterToString(taskId)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("revision", revision));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Task> localVarReturnType = new TypeReference<Task>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get a flow task
-   * 
-   * @param namespace The flow namespace (required)
-   * @param id The flow id (required)
-   * @param taskId The task id (required)
-   * @param tenant  (required)
-   * @param revision The flow revision (optional)
-   * @return Task
-   * @throws ApiException if fails to make API call
-   */
-  public Task flowTask1(String namespace, String id, String taskId, String tenant, Integer revision) throws ApiException {
-    return this.flowTask1(namespace, id, taskId, tenant, revision, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a flow task
-   * 
-   * @param namespace The flow namespace (required)
-   * @param id The flow id (required)
-   * @param taskId The task id (required)
-   * @param tenant  (required)
-   * @param revision The flow revision (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Task
-   * @throws ApiException if fails to make API call
-   */
-  public Task flowTask1(String namespace, String id, String taskId, String tenant, Integer revision, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling flowTask1");
-    }
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling flowTask1");
-    }
-    
-    // verify the required parameter 'taskId' is set
-    if (taskId == null) {
-      throw new ApiException(400, "Missing the required parameter 'taskId' when calling flowTask1");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling flowTask1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/flows/{namespace}/{id}/tasks/{taskId}"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "taskId" + "\\}", apiClient.escapeString(apiClient.parameterToString(taskId)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("revision", revision));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Task> localVarReturnType = new TypeReference<Task>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Retrieve all flows from a given namespace
-   * 
-   * @param namespace Namespace to filter flows (required)
-   * @return List&lt;Flow&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Flow> getFlowsByNamespace1(String namespace) throws ApiException {
-    return this.getFlowsByNamespace1(namespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * Retrieve all flows from a given namespace
-   * 
-   * @param namespace Namespace to filter flows (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Flow&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Flow> getFlowsByNamespace1(String namespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling getFlowsByNamespace1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/{namespace}"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<Flow>> localVarReturnType = new TypeReference<List<Flow>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Retrieve all flows from a given namespace
-   * 
-   * @param namespace Namespace to filter flows (required)
-   * @param tenant  (required)
-   * @return List&lt;Flow&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Flow> getFlowsByNamespace3(String namespace, String tenant) throws ApiException {
-    return this.getFlowsByNamespace3(namespace, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Retrieve all flows from a given namespace
-   * 
-   * @param namespace Namespace to filter flows (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Flow&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Flow> getFlowsByNamespace3(String namespace, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling getFlowsByNamespace3");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getFlowsByNamespace3");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/flows/{namespace}"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<Flow>> localVarReturnType = new TypeReference<List<Flow>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   *     Import flows as a ZIP archive of yaml sources or a multi-objects YAML file.     When sending a Yaml that contains one or more flows, a list of index is returned.     When sending a ZIP archive, a list of files that couldn&#39;t be imported is returned. 
-   * 
-   * @param fileUpload The file to import, can be a ZIP archive or a multi-objects YAML file (optional)
-   * @return List&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<String> importFlows(File fileUpload) throws ApiException {
-    return this.importFlows(fileUpload, Collections.emptyMap());
-  }
-
-
-  /**
-   *     Import flows as a ZIP archive of yaml sources or a multi-objects YAML file.     When sending a Yaml that contains one or more flows, a list of index is returned.     When sending a ZIP archive, a list of files that couldn&#39;t be imported is returned. 
-   * 
-   * @param fileUpload The file to import, can be a ZIP archive or a multi-objects YAML file (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<String> importFlows(File fileUpload, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/import";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    if (fileUpload != null)
-      localVarFormParams.put("fileUpload", fileUpload);
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "multipart/form-data"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<String>> localVarReturnType = new TypeReference<List<String>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   *     Import flows as a ZIP archive of yaml sources or a multi-objects YAML file.     When sending a Yaml that contains one or more flows, a list of index is returned.     When sending a ZIP archive, a list of files that couldn&#39;t be imported is returned. 
-   * 
-   * @param tenant  (required)
-   * @param fileUpload The file to import, can be a ZIP archive or a multi-objects YAML file (optional)
-   * @return List&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<String> importFlows1(String tenant, File fileUpload) throws ApiException {
-    return this.importFlows1(tenant, fileUpload, Collections.emptyMap());
-  }
-
-
-  /**
-   *     Import flows as a ZIP archive of yaml sources or a multi-objects YAML file.     When sending a Yaml that contains one or more flows, a list of index is returned.     When sending a ZIP archive, a list of files that couldn&#39;t be imported is returned. 
-   * 
-   * @param tenant  (required)
-   * @param fileUpload The file to import, can be a ZIP archive or a multi-objects YAML file (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<String> importFlows1(String tenant, File fileUpload, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling importFlows1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/flows/import"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    if (fileUpload != null)
-      localVarFormParams.put("fileUpload", fileUpload);
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "multipart/form-data"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<String>> localVarReturnType = new TypeReference<List<String>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
    * Get a flow
    * 
    * @param namespace The flow namespace (required)
@@ -3280,8 +1298,8 @@ public class FlowsApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object index24(String namespace, String id, Boolean source, Boolean allowDeleted, String tenant, Integer revision) throws ApiException {
-    return this.index24(namespace, id, source, allowDeleted, tenant, revision, Collections.emptyMap());
+  public Object getFlow(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull Boolean source, @javax.annotation.Nonnull Boolean allowDeleted, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable Integer revision) throws ApiException {
+    return this.getFlow(namespace, id, source, allowDeleted, tenant, revision, Collections.emptyMap());
   }
 
 
@@ -3298,32 +1316,32 @@ public class FlowsApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object index24(String namespace, String id, Boolean source, Boolean allowDeleted, String tenant, Integer revision, Map<String, String> additionalHeaders) throws ApiException {
+  public Object getFlow(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull Boolean source, @javax.annotation.Nonnull Boolean allowDeleted, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable Integer revision, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling index24");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling getFlow");
     }
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index24");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getFlow");
     }
     
     // verify the required parameter 'source' is set
     if (source == null) {
-      throw new ApiException(400, "Missing the required parameter 'source' when calling index24");
+      throw new ApiException(400, "Missing the required parameter 'source' when calling getFlow");
     }
     
     // verify the required parameter 'allowDeleted' is set
     if (allowDeleted == null) {
-      throw new ApiException(400, "Missing the required parameter 'allowDeleted' when calling index24");
+      throw new ApiException(400, "Missing the required parameter 'allowDeleted' when calling getFlow");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling index24");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getFlow");
     }
     
     // create path and map variables
@@ -3358,7 +1376,7 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
@@ -3379,60 +1397,59 @@ public class FlowsApi extends BaseApi {
   }
 
   /**
-   * Get a flow
+   * Get flow dependencies
    * 
    * @param namespace The flow namespace (required)
    * @param id The flow id (required)
-   * @param source Include the source code (required)
-   * @param allowDeleted Get flow even if deleted (required)
-   * @param revision Get latest revision by default (optional)
-   * @return Object
+   * @param destinationOnly If true, list only destination dependencies, otherwise list also source dependencies (required)
+   * @param tenant  (required)
+   * @return FlowTopologyGraph
    * @throws ApiException if fails to make API call
    */
-  public Object index3(String namespace, String id, Boolean source, Boolean allowDeleted, Integer revision) throws ApiException {
-    return this.index3(namespace, id, source, allowDeleted, revision, Collections.emptyMap());
+  public FlowTopologyGraph getFlowDependencies(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull Boolean destinationOnly, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getFlowDependencies(namespace, id, destinationOnly, tenant, Collections.emptyMap());
   }
 
 
   /**
-   * Get a flow
+   * Get flow dependencies
    * 
    * @param namespace The flow namespace (required)
    * @param id The flow id (required)
-   * @param source Include the source code (required)
-   * @param allowDeleted Get flow even if deleted (required)
-   * @param revision Get latest revision by default (optional)
+   * @param destinationOnly If true, list only destination dependencies, otherwise list also source dependencies (required)
+   * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return Object
+   * @return FlowTopologyGraph
    * @throws ApiException if fails to make API call
    */
-  public Object index3(String namespace, String id, Boolean source, Boolean allowDeleted, Integer revision, Map<String, String> additionalHeaders) throws ApiException {
+  public FlowTopologyGraph getFlowDependencies(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull Boolean destinationOnly, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling index3");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling getFlowDependencies");
     }
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index3");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getFlowDependencies");
     }
     
-    // verify the required parameter 'source' is set
-    if (source == null) {
-      throw new ApiException(400, "Missing the required parameter 'source' when calling index3");
+    // verify the required parameter 'destinationOnly' is set
+    if (destinationOnly == null) {
+      throw new ApiException(400, "Missing the required parameter 'destinationOnly' when calling getFlowDependencies");
     }
     
-    // verify the required parameter 'allowDeleted' is set
-    if (allowDeleted == null) {
-      throw new ApiException(400, "Missing the required parameter 'allowDeleted' when calling index3");
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getFlowDependencies");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/flows/{namespace}/{id}"
+    String localVarPath = "/api/v1/{tenant}/flows/{namespace}/{id}/dependencies"
       .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -3442,9 +1459,7 @@ public class FlowsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("source", source));
-    localVarQueryParams.addAll(apiClient.parameterToPair("revision", revision));
-    localVarQueryParams.addAll(apiClient.parameterToPair("allowDeleted", allowDeleted));
+    localVarQueryParams.addAll(apiClient.parameterToPair("destinationOnly", destinationOnly));
     
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -3460,9 +1475,9 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
+    TypeReference<FlowTopologyGraph> localVarReturnType = new TypeReference<FlowTopologyGraph>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -3481,30 +1496,51 @@ public class FlowsApi extends BaseApi {
   }
 
   /**
-   * List all distinct namespaces
+   * Get flow dependencies
    * 
-   * @param q A string filter (optional)
-   * @return List&lt;String&gt;
+   * @param namespace The flow namespace (required)
+   * @param destinationOnly if true, list only destination dependencies, otherwise list also source dependencies (required)
+   * @param tenant  (required)
+   * @return FlowTopologyGraph
    * @throws ApiException if fails to make API call
    */
-  public List<String> listDistinctNamespace1(String q) throws ApiException {
-    return this.listDistinctNamespace1(q, Collections.emptyMap());
+  public FlowTopologyGraph getFlowDependenciesFromNamespace(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull Boolean destinationOnly, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getFlowDependenciesFromNamespace(namespace, destinationOnly, tenant, Collections.emptyMap());
   }
 
 
   /**
-   * List all distinct namespaces
+   * Get flow dependencies
    * 
-   * @param q A string filter (optional)
+   * @param namespace The flow namespace (required)
+   * @param destinationOnly if true, list only destination dependencies, otherwise list also source dependencies (required)
+   * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;String&gt;
+   * @return FlowTopologyGraph
    * @throws ApiException if fails to make API call
    */
-  public List<String> listDistinctNamespace1(String q, Map<String, String> additionalHeaders) throws ApiException {
+  public FlowTopologyGraph getFlowDependenciesFromNamespace(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull Boolean destinationOnly, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
+    // verify the required parameter 'namespace' is set
+    if (namespace == null) {
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling getFlowDependenciesFromNamespace");
+    }
+    
+    // verify the required parameter 'destinationOnly' is set
+    if (destinationOnly == null) {
+      throw new ApiException(400, "Missing the required parameter 'destinationOnly' when calling getFlowDependenciesFromNamespace");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getFlowDependenciesFromNamespace");
+    }
+    
     // create path and map variables
-    String localVarPath = "/api/v1/flows/distinct-namespaces";
+    String localVarPath = "/api/v1/{tenant}/namespaces/{namespace}/dependencies"
+      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -3514,7 +1550,7 @@ public class FlowsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
+    localVarQueryParams.addAll(apiClient.parameterToPair("destinationOnly", destinationOnly));
     
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -3530,9 +1566,9 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<List<String>> localVarReturnType = new TypeReference<List<String>>() {};
+    TypeReference<FlowTopologyGraph> localVarReturnType = new TypeReference<FlowTopologyGraph>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -3551,33 +1587,214 @@ public class FlowsApi extends BaseApi {
   }
 
   /**
-   * List all distinct namespaces
+   * Get a flow task
    * 
+   * @param namespace The flow namespace (required)
+   * @param id The flow id (required)
+   * @param taskId The task id (required)
    * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @return List&lt;String&gt;
+   * @param revision The flow revision (optional)
+   * @return Task
    * @throws ApiException if fails to make API call
    */
-  public List<String> listDistinctNamespace4(String tenant, String q) throws ApiException {
-    return this.listDistinctNamespace4(tenant, q, Collections.emptyMap());
+  public Task getTaskFromFlow(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String taskId, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable Integer revision) throws ApiException {
+    return this.getTaskFromFlow(namespace, id, taskId, tenant, revision, Collections.emptyMap());
   }
 
 
   /**
-   * List all distinct namespaces
+   * Get a flow task
+   * 
+   * @param namespace The flow namespace (required)
+   * @param id The flow id (required)
+   * @param taskId The task id (required)
+   * @param tenant  (required)
+   * @param revision The flow revision (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return Task
+   * @throws ApiException if fails to make API call
+   */
+  public Task getTaskFromFlow(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String taskId, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable Integer revision, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'namespace' is set
+    if (namespace == null) {
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling getTaskFromFlow");
+    }
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getTaskFromFlow");
+    }
+    
+    // verify the required parameter 'taskId' is set
+    if (taskId == null) {
+      throw new ApiException(400, "Missing the required parameter 'taskId' when calling getTaskFromFlow");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getTaskFromFlow");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/flows/{namespace}/{id}/tasks/{taskId}"
+      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "taskId" + "\\}", apiClient.escapeString(apiClient.parameterToString(taskId)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("revision", revision));
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<Task> localVarReturnType = new TypeReference<Task>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   *     Import flows as a ZIP archive of yaml sources or a multi-objects YAML file.     When sending a Yaml that contains one or more flows, a list of index is returned.     When sending a ZIP archive, a list of files that couldn&#39;t be imported is returned. 
    * 
    * @param tenant  (required)
-   * @param q A string filter (optional)
+   * @param fileUpload The file to import, can be a ZIP archive or a multi-objects YAML file (optional)
+   * @return List&lt;String&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<String> importFlows(@javax.annotation.Nonnull String tenant, @javax.annotation.Nullable File fileUpload) throws ApiException {
+    return this.importFlows(tenant, fileUpload, Collections.emptyMap());
+  }
+
+
+  /**
+   *     Import flows as a ZIP archive of yaml sources or a multi-objects YAML file.     When sending a Yaml that contains one or more flows, a list of index is returned.     When sending a ZIP archive, a list of files that couldn&#39;t be imported is returned. 
+   * 
+   * @param tenant  (required)
+   * @param fileUpload The file to import, can be a ZIP archive or a multi-objects YAML file (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return List&lt;String&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<String> listDistinctNamespace4(String tenant, String q, Map<String, String> additionalHeaders) throws ApiException {
+  public List<String> importFlows(@javax.annotation.Nonnull String tenant, @javax.annotation.Nullable File fileUpload, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listDistinctNamespace4");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling importFlows");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/flows/import"
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    if (fileUpload != null)
+      localVarFormParams.put("fileUpload", fileUpload);
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "multipart/form-data"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<List<String>> localVarReturnType = new TypeReference<List<String>>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * List all distinct namespaces
+   * 
+   * @param tenant  (required)
+   * @param q A string filter (optional)
+   * @return List&lt;String&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<String> listDistinctNamespaces(@javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q) throws ApiException {
+    return this.listDistinctNamespaces(tenant, q, Collections.emptyMap());
+  }
+
+
+  /**
+   * List all distinct namespaces
+   * 
+   * @param tenant  (required)
+   * @param q A string filter (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return List&lt;String&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<String> listDistinctNamespaces(@javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listDistinctNamespaces");
     }
     
     // create path and map variables
@@ -3608,7 +1825,7 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<List<String>> localVarReturnType = new TypeReference<List<String>>() {};
     return apiClient.invokeAPI(
@@ -3633,95 +1850,12 @@ public class FlowsApi extends BaseApi {
    * 
    * @param namespace The flow namespace (required)
    * @param id The flow id (required)
-   * @return List&lt;FlowWithSource&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<FlowWithSource> revisions(String namespace, String id) throws ApiException {
-    return this.revisions(namespace, id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get revisions for a flow
-   * 
-   * @param namespace The flow namespace (required)
-   * @param id The flow id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;FlowWithSource&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<FlowWithSource> revisions(String namespace, String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling revisions");
-    }
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling revisions");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/{namespace}/{id}/revisions"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<FlowWithSource>> localVarReturnType = new TypeReference<List<FlowWithSource>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get revisions for a flow
-   * 
-   * @param namespace The flow namespace (required)
-   * @param id The flow id (required)
    * @param tenant  (required)
    * @return List&lt;FlowWithSource&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<FlowWithSource> revisions1(String namespace, String id, String tenant) throws ApiException {
-    return this.revisions1(namespace, id, tenant, Collections.emptyMap());
+  public List<FlowWithSource> listFlowRevisions(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.listFlowRevisions(namespace, id, tenant, Collections.emptyMap());
   }
 
 
@@ -3735,22 +1869,22 @@ public class FlowsApi extends BaseApi {
    * @return List&lt;FlowWithSource&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<FlowWithSource> revisions1(String namespace, String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public List<FlowWithSource> listFlowRevisions(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling revisions1");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling listFlowRevisions");
     }
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling revisions1");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling listFlowRevisions");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling revisions1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listFlowRevisions");
     }
     
     // create path and map variables
@@ -3782,7 +1916,7 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<List<FlowWithSource>> localVarReturnType = new TypeReference<List<FlowWithSource>>() {};
     return apiClient.invokeAPI(
@@ -3803,48 +1937,44 @@ public class FlowsApi extends BaseApi {
   }
 
   /**
-   * Search for flows source code
+   * Retrieve all flows from a given namespace
    * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param sort The sort of current page (optional)
-   * @param q A string filter (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @return PagedResultsSearchResultFlow
+   * @param namespace Namespace to filter flows (required)
+   * @param tenant  (required)
+   * @return List&lt;Flow&gt;
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsSearchResultFlow source(Integer page, Integer size, List<String> sort, String q, String namespace) throws ApiException {
-    return this.source(page, size, sort, q, namespace, Collections.emptyMap());
+  public List<Flow> listFlowsByNamespace(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.listFlowsByNamespace(namespace, tenant, Collections.emptyMap());
   }
 
 
   /**
-   * Search for flows source code
+   * Retrieve all flows from a given namespace
    * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param sort The sort of current page (optional)
-   * @param q A string filter (optional)
-   * @param namespace A namespace filter prefix (optional)
+   * @param namespace Namespace to filter flows (required)
+   * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsSearchResultFlow
+   * @return List&lt;Flow&gt;
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsSearchResultFlow source(Integer page, Integer size, List<String> sort, String q, String namespace, Map<String, String> additionalHeaders) throws ApiException {
+  public List<Flow> listFlowsByNamespace(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling source");
+    // verify the required parameter 'namespace' is set
+    if (namespace == null) {
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling listFlowsByNamespace");
     }
     
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling source");
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listFlowsByNamespace");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/flows/source";
+    String localVarPath = "/api/v1/{tenant}/flows/{namespace}"
+      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -3854,11 +1984,6 @@ public class FlowsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
     
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -3874,9 +1999,118 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<PagedResultsSearchResultFlow> localVarReturnType = new TypeReference<PagedResultsSearchResultFlow>() {};
+    TypeReference<List<Flow>> localVarReturnType = new TypeReference<List<Flow>>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Search for flows
+   * 
+   * @param page The current page (required)
+   * @param size The current page size (required)
+   * @param tenant  (required)
+   * @param sort The sort of current page (optional)
+   * @param filters Filters (optional)
+   * @param q A string filter (optional)
+   * @param scope The scope of the flows to include (optional)
+   * @param namespace A namespace filter prefix (optional)
+   * @param labels A labels filter as a list of &#39;key:value&#39; (optional)
+   * @return PagedResultsFlow
+   * @throws ApiException if fails to make API call
+   */
+  public PagedResultsFlow searchFlows(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable List<QueryFilter> filters, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<FlowScope> scope, @javax.annotation.Nullable String namespace, @javax.annotation.Nullable List<String> labels) throws ApiException {
+    return this.searchFlows(page, size, tenant, sort, filters, q, scope, namespace, labels, Collections.emptyMap());
+  }
+
+
+  /**
+   * Search for flows
+   * 
+   * @param page The current page (required)
+   * @param size The current page size (required)
+   * @param tenant  (required)
+   * @param sort The sort of current page (optional)
+   * @param filters Filters (optional)
+   * @param q A string filter (optional)
+   * @param scope The scope of the flows to include (optional)
+   * @param namespace A namespace filter prefix (optional)
+   * @param labels A labels filter as a list of &#39;key:value&#39; (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return PagedResultsFlow
+   * @throws ApiException if fails to make API call
+   */
+  public PagedResultsFlow searchFlows(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable List<QueryFilter> filters, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<FlowScope> scope, @javax.annotation.Nullable String namespace, @javax.annotation.Nullable List<String> labels, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'page' is set
+    if (page == null) {
+      throw new ApiException(400, "Missing the required parameter 'page' when calling searchFlows");
+    }
+    
+    // verify the required parameter 'size' is set
+    if (size == null) {
+      throw new ApiException(400, "Missing the required parameter 'size' when calling searchFlows");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling searchFlows");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/flows/search"
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "filters", filters));
+    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "scope", scope));
+    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "labels", labels));
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<PagedResultsFlow> localVarReturnType = new TypeReference<PagedResultsFlow>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -3906,8 +2140,8 @@ public class FlowsApi extends BaseApi {
    * @return PagedResultsSearchResultFlow
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsSearchResultFlow source1(Integer page, Integer size, String tenant, List<String> sort, String q, String namespace) throws ApiException {
-    return this.source1(page, size, tenant, sort, q, namespace, Collections.emptyMap());
+  public PagedResultsSearchResultFlow searchFlowsBySourceCode(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace) throws ApiException {
+    return this.searchFlowsBySourceCode(page, size, tenant, sort, q, namespace, Collections.emptyMap());
   }
 
 
@@ -3924,22 +2158,22 @@ public class FlowsApi extends BaseApi {
    * @return PagedResultsSearchResultFlow
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsSearchResultFlow source1(Integer page, Integer size, String tenant, List<String> sort, String q, String namespace, Map<String, String> additionalHeaders) throws ApiException {
+  public PagedResultsSearchResultFlow searchFlowsBySourceCode(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'page' is set
     if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling source1");
+      throw new ApiException(400, "Missing the required parameter 'page' when calling searchFlowsBySourceCode");
     }
     
     // verify the required parameter 'size' is set
     if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling source1");
+      throw new ApiException(400, "Missing the required parameter 'size' when calling searchFlowsBySourceCode");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling source1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling searchFlowsBySourceCode");
     }
     
     // create path and map variables
@@ -3974,7 +2208,7 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<PagedResultsSearchResultFlow> localVarReturnType = new TypeReference<PagedResultsSearchResultFlow>() {};
     return apiClient.invokeAPI(
@@ -4000,14 +2234,14 @@ public class FlowsApi extends BaseApi {
    * @param tenant  (required)
    * @param namespace The flow namespace (required)
    * @param id The flow id (required)
-   * @param body  (required)
-   * @return Update3200Response
+   * @param body The flow source code (required)
+   * @return UpdateFlow200Response
    * @throws ApiException if fails to make API call
    * @deprecated
    */
   @Deprecated
-  public Update3200Response update21(String tenant, String namespace, String id, String body) throws ApiException {
-    return this.update21(tenant, namespace, id, body, Collections.emptyMap());
+  public UpdateFlow200Response updateFlow(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String body) throws ApiException {
+    return this.updateFlow(tenant, namespace, id, body, Collections.emptyMap());
   }
 
 
@@ -4017,34 +2251,34 @@ public class FlowsApi extends BaseApi {
    * @param tenant  (required)
    * @param namespace The flow namespace (required)
    * @param id The flow id (required)
-   * @param body  (required)
+   * @param body The flow source code (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return Update3200Response
+   * @return UpdateFlow200Response
    * @throws ApiException if fails to make API call
    * @deprecated
    */
   @Deprecated
-  public Update3200Response update21(String tenant, String namespace, String id, String body, Map<String, String> additionalHeaders) throws ApiException {
+  public UpdateFlow200Response updateFlow(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String body, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling update21");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling updateFlow");
     }
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling update21");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling updateFlow");
     }
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update21");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateFlow");
     }
     
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling update21");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateFlow");
     }
     
     // create path and map variables
@@ -4076,103 +2310,9 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<Update3200Response> localVarReturnType = new TypeReference<Update3200Response>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Update a flow
-   * 
-   * @param namespace The flow namespace (required)
-   * @param id The flow id (required)
-   * @param body  (required)
-   * @return Update3200Response
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public Update3200Response update3(String namespace, String id, String body) throws ApiException {
-    return this.update3(namespace, id, body, Collections.emptyMap());
-  }
-
-
-  /**
-   * Update a flow
-   * 
-   * @param namespace The flow namespace (required)
-   * @param id The flow id (required)
-   * @param body  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Update3200Response
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public Update3200Response update3(String namespace, String id, String body, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling update3");
-    }
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update3");
-    }
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling update3");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/{namespace}/{id}"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/x-yaml"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Update3200Response> localVarReturnType = new TypeReference<Update3200Response>() {};
+    TypeReference<UpdateFlow200Response> localVarReturnType = new TypeReference<UpdateFlow200Response>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "PUT",
@@ -4193,111 +2333,17 @@ public class FlowsApi extends BaseApi {
   /**
    * Update a complete namespace from json object
    * All flow will be created / updated for this namespace. Flow that already created but not in &#x60;flows&#x60; will be deleted if the query delete is &#x60;true&#x60;
-   * @param namespace The flow namespace (required)
-   * @param delete If missing flow should be deleted (required)
-   * @param flow  (required)
-   * @return UpdateNamespace200Response
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public UpdateNamespace200Response updateNamespace(String namespace, Boolean delete, List<Flow> flow) throws ApiException {
-    return this.updateNamespace(namespace, delete, flow, Collections.emptyMap());
-  }
-
-
-  /**
-   * Update a complete namespace from json object
-   * All flow will be created / updated for this namespace. Flow that already created but not in &#x60;flows&#x60; will be deleted if the query delete is &#x60;true&#x60;
-   * @param namespace The flow namespace (required)
-   * @param delete If missing flow should be deleted (required)
-   * @param flow  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return UpdateNamespace200Response
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public UpdateNamespace200Response updateNamespace(String namespace, Boolean delete, List<Flow> flow, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = flow;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling updateNamespace");
-    }
-    
-    // verify the required parameter 'delete' is set
-    if (delete == null) {
-      throw new ApiException(400, "Missing the required parameter 'delete' when calling updateNamespace");
-    }
-    
-    // verify the required parameter 'flow' is set
-    if (flow == null) {
-      throw new ApiException(400, "Missing the required parameter 'flow' when calling updateNamespace");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/{namespace}"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("delete", delete));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json", "application/x-yaml"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<UpdateNamespace200Response> localVarReturnType = new TypeReference<UpdateNamespace200Response>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Update a complete namespace from json object
-   * All flow will be created / updated for this namespace. Flow that already created but not in &#x60;flows&#x60; will be deleted if the query delete is &#x60;true&#x60;
    * @param tenant  (required)
    * @param namespace The flow namespace (required)
    * @param delete If missing flow should be deleted (required)
-   * @param flow  (required)
-   * @return UpdateNamespace200Response
+   * @param flow A list of flows (required)
+   * @return UpdateFlowsInNamespaceFromJson200Response
    * @throws ApiException if fails to make API call
    * @deprecated
    */
   @Deprecated
-  public UpdateNamespace200Response updateNamespace2(String tenant, String namespace, Boolean delete, List<Flow> flow) throws ApiException {
-    return this.updateNamespace2(tenant, namespace, delete, flow, Collections.emptyMap());
+  public UpdateFlowsInNamespaceFromJson200Response updateFlowsInNamespaceFromJson(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull Boolean delete, @javax.annotation.Nonnull List<Flow> flow) throws ApiException {
+    return this.updateFlowsInNamespaceFromJson(tenant, namespace, delete, flow, Collections.emptyMap());
   }
 
 
@@ -4307,34 +2353,34 @@ public class FlowsApi extends BaseApi {
    * @param tenant  (required)
    * @param namespace The flow namespace (required)
    * @param delete If missing flow should be deleted (required)
-   * @param flow  (required)
+   * @param flow A list of flows (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return UpdateNamespace200Response
+   * @return UpdateFlowsInNamespaceFromJson200Response
    * @throws ApiException if fails to make API call
    * @deprecated
    */
   @Deprecated
-  public UpdateNamespace200Response updateNamespace2(String tenant, String namespace, Boolean delete, List<Flow> flow, Map<String, String> additionalHeaders) throws ApiException {
+  public UpdateFlowsInNamespaceFromJson200Response updateFlowsInNamespaceFromJson(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull Boolean delete, @javax.annotation.Nonnull List<Flow> flow, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = flow;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling updateNamespace2");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling updateFlowsInNamespaceFromJson");
     }
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling updateNamespace2");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling updateFlowsInNamespaceFromJson");
     }
     
     // verify the required parameter 'delete' is set
     if (delete == null) {
-      throw new ApiException(400, "Missing the required parameter 'delete' when calling updateNamespace2");
+      throw new ApiException(400, "Missing the required parameter 'delete' when calling updateFlowsInNamespaceFromJson");
     }
     
     // verify the required parameter 'flow' is set
     if (flow == null) {
-      throw new ApiException(400, "Missing the required parameter 'flow' when calling updateNamespace2");
+      throw new ApiException(400, "Missing the required parameter 'flow' when calling updateFlowsInNamespaceFromJson");
     }
     
     // create path and map variables
@@ -4366,9 +2412,9 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<UpdateNamespace200Response> localVarReturnType = new TypeReference<UpdateNamespace200Response>() {};
+    TypeReference<UpdateFlowsInNamespaceFromJson200Response> localVarReturnType = new TypeReference<UpdateFlowsInNamespaceFromJson200Response>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -4392,14 +2438,15 @@ public class FlowsApi extends BaseApi {
    * @param namespace The flow namespace (required)
    * @param id The flow id (required)
    * @param taskId The task id (required)
-   * @param task  (required)
+   * @param tenant  (required)
+   * @param task The task (required)
    * @return Flow
    * @throws ApiException if fails to make API call
    * @deprecated
    */
   @Deprecated
-  public Flow updateTask(String namespace, String id, String taskId, Task task) throws ApiException {
-    return this.updateTask(namespace, id, taskId, task, Collections.emptyMap());
+  public Flow updateTask(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String taskId, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Task task) throws ApiException {
+    return this.updateTask(namespace, id, taskId, tenant, task, Collections.emptyMap());
   }
 
 
@@ -4409,14 +2456,15 @@ public class FlowsApi extends BaseApi {
    * @param namespace The flow namespace (required)
    * @param id The flow id (required)
    * @param taskId The task id (required)
-   * @param task  (required)
+   * @param tenant  (required)
+   * @param task The task (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Flow
    * @throws ApiException if fails to make API call
    * @deprecated
    */
   @Deprecated
-  public Flow updateTask(String namespace, String id, String taskId, Task task, Map<String, String> additionalHeaders) throws ApiException {
+  public Flow updateTask(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String taskId, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Task task, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = task;
     
     // verify the required parameter 'namespace' is set
@@ -4434,118 +2482,14 @@ public class FlowsApi extends BaseApi {
       throw new ApiException(400, "Missing the required parameter 'taskId' when calling updateTask");
     }
     
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling updateTask");
+    }
+    
     // verify the required parameter 'task' is set
     if (task == null) {
       throw new ApiException(400, "Missing the required parameter 'task' when calling updateTask");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/{namespace}/{id}/{taskId}"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "taskId" + "\\}", apiClient.escapeString(apiClient.parameterToString(taskId)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Flow> localVarReturnType = new TypeReference<Flow>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PATCH",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Update a single task on a flow
-   * 
-   * @param namespace The flow namespace (required)
-   * @param id The flow id (required)
-   * @param taskId The task id (required)
-   * @param tenant  (required)
-   * @param task  (required)
-   * @return Flow
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public Flow updateTask1(String namespace, String id, String taskId, String tenant, Task task) throws ApiException {
-    return this.updateTask1(namespace, id, taskId, tenant, task, Collections.emptyMap());
-  }
-
-
-  /**
-   * Update a single task on a flow
-   * 
-   * @param namespace The flow namespace (required)
-   * @param id The flow id (required)
-   * @param taskId The task id (required)
-   * @param tenant  (required)
-   * @param task  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Flow
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public Flow updateTask1(String namespace, String id, String taskId, String tenant, Task task, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = task;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling updateTask1");
-    }
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateTask1");
-    }
-    
-    // verify the required parameter 'taskId' is set
-    if (taskId == null) {
-      throw new ApiException(400, "Missing the required parameter 'taskId' when calling updateTask1");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling updateTask1");
-    }
-    
-    // verify the required parameter 'task' is set
-    if (task == null) {
-      throw new ApiException(400, "Missing the required parameter 'task' when calling updateTask1");
     }
     
     // create path and map variables
@@ -4578,7 +2522,7 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Flow> localVarReturnType = new TypeReference<Flow>() {};
     return apiClient.invokeAPI(
@@ -4601,87 +2545,13 @@ public class FlowsApi extends BaseApi {
   /**
    * Validate a list of flows
    * 
-   * @param body  (required)
-   * @return List&lt;ValidateConstraintViolation&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<ValidateConstraintViolation> validateFlows(String body) throws ApiException {
-    return this.validateFlows(body, Collections.emptyMap());
-  }
-
-
-  /**
-   * Validate a list of flows
-   * 
-   * @param body  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;ValidateConstraintViolation&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<ValidateConstraintViolation> validateFlows(String body, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling validateFlows");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/validate";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/x-yaml"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<ValidateConstraintViolation>> localVarReturnType = new TypeReference<List<ValidateConstraintViolation>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Validate a list of flows
-   * 
    * @param tenant  (required)
-   * @param body  (required)
+   * @param body A list of flows source code in a single string (required)
    * @return List&lt;ValidateConstraintViolation&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<ValidateConstraintViolation> validateFlows1(String tenant, String body) throws ApiException {
-    return this.validateFlows1(tenant, body, Collections.emptyMap());
+  public List<ValidateConstraintViolation> validateFlows(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String body) throws ApiException {
+    return this.validateFlows(tenant, body, Collections.emptyMap());
   }
 
 
@@ -4689,22 +2559,22 @@ public class FlowsApi extends BaseApi {
    * Validate a list of flows
    * 
    * @param tenant  (required)
-   * @param body  (required)
+   * @param body A list of flows source code in a single string (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return List&lt;ValidateConstraintViolation&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<ValidateConstraintViolation> validateFlows1(String tenant, String body, Map<String, String> additionalHeaders) throws ApiException {
+  public List<ValidateConstraintViolation> validateFlows(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String body, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling validateFlows1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling validateFlows");
     }
     
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling validateFlows1");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling validateFlows");
     }
     
     // create path and map variables
@@ -4734,7 +2604,7 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<List<ValidateConstraintViolation>> localVarReturnType = new TypeReference<List<ValidateConstraintViolation>>() {};
     return apiClient.invokeAPI(
@@ -4755,29 +2625,36 @@ public class FlowsApi extends BaseApi {
   }
 
   /**
-   * Validate a list of flows
+   * Validate a task
    * 
-   * @param section Type of task (required)
-   * @param body  (required)
+   * @param tenant  (required)
+   * @param section The type of task (required)
+   * @param body A task definition that can be from tasks or triggers (required)
    * @return ValidateConstraintViolation
    * @throws ApiException if fails to make API call
    */
-  public ValidateConstraintViolation validateTask(FlowControllerTaskValidationType section, String body) throws ApiException {
-    return this.validateTask(section, body, Collections.emptyMap());
+  public ValidateConstraintViolation validateTask(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull FlowControllerTaskValidationType section, @javax.annotation.Nonnull String body) throws ApiException {
+    return this.validateTask(tenant, section, body, Collections.emptyMap());
   }
 
 
   /**
-   * Validate a list of flows
+   * Validate a task
    * 
-   * @param section Type of task (required)
-   * @param body  (required)
+   * @param tenant  (required)
+   * @param section The type of task (required)
+   * @param body A task definition that can be from tasks or triggers (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ValidateConstraintViolation
    * @throws ApiException if fails to make API call
    */
-  public ValidateConstraintViolation validateTask(FlowControllerTaskValidationType section, String body, Map<String, String> additionalHeaders) throws ApiException {
+  public ValidateConstraintViolation validateTask(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull FlowControllerTaskValidationType section, @javax.annotation.Nonnull String body, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = body;
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling validateTask");
+    }
     
     // verify the required parameter 'section' is set
     if (section == null) {
@@ -4787,95 +2664,6 @@ public class FlowsApi extends BaseApi {
     // verify the required parameter 'body' is set
     if (body == null) {
       throw new ApiException(400, "Missing the required parameter 'body' when calling validateTask");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/validate/task";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("section", section));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/x-yaml", "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ValidateConstraintViolation> localVarReturnType = new TypeReference<ValidateConstraintViolation>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Validate a list of flows
-   * 
-   * @param tenant  (required)
-   * @param section Type of task (required)
-   * @param body  (required)
-   * @return ValidateConstraintViolation
-   * @throws ApiException if fails to make API call
-   */
-  public ValidateConstraintViolation validateTask1(String tenant, FlowControllerTaskValidationType section, String body) throws ApiException {
-    return this.validateTask1(tenant, section, body, Collections.emptyMap());
-  }
-
-
-  /**
-   * Validate a list of flows
-   * 
-   * @param tenant  (required)
-   * @param section Type of task (required)
-   * @param body  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ValidateConstraintViolation
-   * @throws ApiException if fails to make API call
-   */
-  public ValidateConstraintViolation validateTask1(String tenant, FlowControllerTaskValidationType section, String body, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling validateTask1");
-    }
-    
-    // verify the required parameter 'section' is set
-    if (section == null) {
-      throw new ApiException(400, "Missing the required parameter 'section' when calling validateTask1");
-    }
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling validateTask1");
     }
     
     // create path and map variables
@@ -4906,81 +2694,7 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ValidateConstraintViolation> localVarReturnType = new TypeReference<ValidateConstraintViolation>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Validate trigger
-   * 
-   * @param body  (required)
-   * @return ValidateConstraintViolation
-   * @throws ApiException if fails to make API call
-   */
-  public ValidateConstraintViolation validateTrigger(String body) throws ApiException {
-    return this.validateTrigger(body, Collections.emptyMap());
-  }
-
-
-  /**
-   * Validate trigger
-   * 
-   * @param body  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ValidateConstraintViolation
-   * @throws ApiException if fails to make API call
-   */
-  public ValidateConstraintViolation validateTrigger(String body, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling validateTrigger");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/flows/validate/trigger";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<ValidateConstraintViolation> localVarReturnType = new TypeReference<ValidateConstraintViolation>() {};
     return apiClient.invokeAPI(
@@ -5004,12 +2718,12 @@ public class FlowsApi extends BaseApi {
    * Validate trigger
    * 
    * @param tenant  (required)
-   * @param body  (required)
+   * @param body The trigger (required)
    * @return ValidateConstraintViolation
    * @throws ApiException if fails to make API call
    */
-  public ValidateConstraintViolation validateTrigger1(String tenant, String body) throws ApiException {
-    return this.validateTrigger1(tenant, body, Collections.emptyMap());
+  public ValidateConstraintViolation validateTrigger(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String body) throws ApiException {
+    return this.validateTrigger(tenant, body, Collections.emptyMap());
   }
 
 
@@ -5017,22 +2731,22 @@ public class FlowsApi extends BaseApi {
    * Validate trigger
    * 
    * @param tenant  (required)
-   * @param body  (required)
+   * @param body The trigger (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ValidateConstraintViolation
    * @throws ApiException if fails to make API call
    */
-  public ValidateConstraintViolation validateTrigger1(String tenant, String body, Map<String, String> additionalHeaders) throws ApiException {
+  public ValidateConstraintViolation validateTrigger(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String body, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling validateTrigger1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling validateTrigger");
     }
     
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling validateTrigger1");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling validateTrigger");
     }
     
     // create path and map variables
@@ -5062,7 +2776,7 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<ValidateConstraintViolation> localVarReturnType = new TypeReference<ValidateConstraintViolation>() {};
     return apiClient.invokeAPI(
@@ -5104,7 +2818,7 @@ public class FlowsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

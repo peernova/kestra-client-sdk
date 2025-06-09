@@ -30,14 +30,19 @@ import java.util.StringJoiner;
  * PropertyDuration
  */
 @JsonPropertyOrder({
-  PropertyDuration.JSON_PROPERTY_EXPRESSION
+  PropertyDuration.JSON_PROPERTY_EXPRESSION,
+  PropertyDuration.JSON_PROPERTY_VALUE
 })
 @JsonTypeName("Property_Duration_")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class PropertyDuration {
   public static final String JSON_PROPERTY_EXPRESSION = "expression";
   @javax.annotation.Nonnull
   private String expression;
+
+  public static final String JSON_PROPERTY_VALUE = "value";
+  @javax.annotation.Nullable
+  private String value;
 
   public PropertyDuration() {
   }
@@ -67,6 +72,31 @@ public class PropertyDuration {
     this.expression = expression;
   }
 
+  public PropertyDuration value(@javax.annotation.Nullable String value) {
+    
+    this.value = value;
+    return this;
+  }
+
+  /**
+   * Get value
+   * @return value
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getValue() {
+    return value;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setValue(@javax.annotation.Nullable String value) {
+    this.value = value;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -76,12 +106,13 @@ public class PropertyDuration {
       return false;
     }
     PropertyDuration propertyDuration = (PropertyDuration) o;
-    return Objects.equals(this.expression, propertyDuration.expression);
+    return Objects.equals(this.expression, propertyDuration.expression) &&
+        Objects.equals(this.value, propertyDuration.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(expression);
+    return Objects.hash(expression, value);
   }
 
   @Override
@@ -89,6 +120,7 @@ public class PropertyDuration {
     StringBuilder sb = new StringBuilder();
     sb.append("class PropertyDuration {\n");
     sb.append("    expression: ").append(toIndentedString(expression)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -140,6 +172,16 @@ public class PropertyDuration {
     if (getExpression() != null) {
       try {
         joiner.add(String.format("%sexpression%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpression()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `value` to the URL query string
+    if (getValue() != null) {
+      try {
+        joiner.add(String.format("%svalue%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getValue()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

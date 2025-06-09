@@ -5,9 +5,9 @@
 ## Enum
 
 
-* `TASK` (value: `"FLOW_TASK"`)
+* `FLOW_TASK` (value: `"FLOW_TASK"`)
 
-* `TRIGGER` (value: `"FLOW_TRIGGER"`)
+* `FLOW_TRIGGER` (value: `"FLOW_TRIGGER"`)
 
 
 

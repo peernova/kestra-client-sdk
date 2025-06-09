@@ -37,7 +37,7 @@ import java.util.StringJoiner;
   LogStatisticsCounts.JSON_PROPERTY_T_R_A_C_E
 })
 @JsonTypeName("LogStatistics_counts")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-09T14:00:04.441521653Z[Etc/UTC]", comments = "Generator version: 7.13.0-SNAPSHOT")
 public class LogStatisticsCounts {
   public static final String JSON_PROPERTY_E_R_R_O_R = "ERROR";
   @javax.annotation.Nullable

@@ -9,7 +9,8 @@
 |------------ | ------------- | ------------- | -------------|
 |**metrics** | [**List&lt;AbstractMetricEntryObject&gt;**](AbstractMetricEntryObject.md) |  |  [optional] |
 |**state** | [**State**](State.md) |  |  |
-|**logFile** | **URI** |  |  |
+|**workerId** | **String** |  |  [optional] |
+|**logFile** | **URI** |  |  [optional] |
 
 
 

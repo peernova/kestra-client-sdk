@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class BindingsApi extends BaseApi {
 
   public BindingsApi() {
@@ -47,243 +47,13 @@ public class BindingsApi extends BaseApi {
   /**
    * Create multiple bindings
    * 
-   * @param binding  (required)
-   * @return List&lt;AbstractBindingControllerBindingDetail&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<AbstractBindingControllerBindingDetail> bulkCreate(List<Binding> binding) throws ApiException {
-    return this.bulkCreate(binding, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create multiple bindings
-   * 
-   * @param binding  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;AbstractBindingControllerBindingDetail&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<AbstractBindingControllerBindingDetail> bulkCreate(List<Binding> binding, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = binding;
-    
-    // verify the required parameter 'binding' is set
-    if (binding == null) {
-      throw new ApiException(400, "Missing the required parameter 'binding' when calling bulkCreate");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/bindings/bulk";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<AbstractBindingControllerBindingDetail>> localVarReturnType = new TypeReference<List<AbstractBindingControllerBindingDetail>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Create multiple bindings
-   * 
-   * @param binding  (required)
-   * @return List&lt;AbstractBindingControllerBindingDetail&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<AbstractBindingControllerBindingDetail> bulkCreate1(List<Binding> binding) throws ApiException {
-    return this.bulkCreate1(binding, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create multiple bindings
-   * 
-   * @param binding  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;AbstractBindingControllerBindingDetail&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<AbstractBindingControllerBindingDetail> bulkCreate1(List<Binding> binding, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = binding;
-    
-    // verify the required parameter 'binding' is set
-    if (binding == null) {
-      throw new ApiException(400, "Missing the required parameter 'binding' when calling bulkCreate1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/bindings/bulk";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<AbstractBindingControllerBindingDetail>> localVarReturnType = new TypeReference<List<AbstractBindingControllerBindingDetail>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Create multiple bindings
-   * 
-   * @param ressourceTenant  (required)
-   * @param binding  (required)
-   * @return List&lt;AbstractBindingControllerBindingDetail&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<AbstractBindingControllerBindingDetail> bulkCreate2(String ressourceTenant, List<Binding> binding) throws ApiException {
-    return this.bulkCreate2(ressourceTenant, binding, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create multiple bindings
-   * 
-   * @param ressourceTenant  (required)
-   * @param binding  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;AbstractBindingControllerBindingDetail&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<AbstractBindingControllerBindingDetail> bulkCreate2(String ressourceTenant, List<Binding> binding, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = binding;
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling bulkCreate2");
-    }
-    
-    // verify the required parameter 'binding' is set
-    if (binding == null) {
-      throw new ApiException(400, "Missing the required parameter 'binding' when calling bulkCreate2");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/{ressourceTenant}/bindings/bulk"
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<AbstractBindingControllerBindingDetail>> localVarReturnType = new TypeReference<List<AbstractBindingControllerBindingDetail>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Create multiple bindings
-   * 
    * @param tenant  (required)
-   * @param binding  (required)
+   * @param binding The bindings (required)
    * @return List&lt;AbstractBindingControllerBindingDetail&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<AbstractBindingControllerBindingDetail> bulkCreate3(String tenant, List<Binding> binding) throws ApiException {
-    return this.bulkCreate3(tenant, binding, Collections.emptyMap());
+  public List<AbstractBindingControllerBindingDetail> bulkCreateBinding(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<Binding> binding) throws ApiException {
+    return this.bulkCreateBinding(tenant, binding, Collections.emptyMap());
   }
 
 
@@ -291,22 +61,22 @@ public class BindingsApi extends BaseApi {
    * Create multiple bindings
    * 
    * @param tenant  (required)
-   * @param binding  (required)
+   * @param binding The bindings (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return List&lt;AbstractBindingControllerBindingDetail&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<AbstractBindingControllerBindingDetail> bulkCreate3(String tenant, List<Binding> binding, Map<String, String> additionalHeaders) throws ApiException {
+  public List<AbstractBindingControllerBindingDetail> bulkCreateBinding(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<Binding> binding, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = binding;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling bulkCreate3");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling bulkCreateBinding");
     }
     
     // verify the required parameter 'binding' is set
     if (binding == null) {
-      throw new ApiException(400, "Missing the required parameter 'binding' when calling bulkCreate3");
+      throw new ApiException(400, "Missing the required parameter 'binding' when calling bulkCreateBinding");
     }
     
     // create path and map variables
@@ -336,7 +106,7 @@ public class BindingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<List<AbstractBindingControllerBindingDetail>> localVarReturnType = new TypeReference<List<AbstractBindingControllerBindingDetail>>() {};
     return apiClient.invokeAPI(
@@ -359,41 +129,41 @@ public class BindingsApi extends BaseApi {
   /**
    * Create multiple bindings
    * 
-   * @param tenant  (required)
-   * @param binding  (required)
+   * @param resourceTenant  (required)
+   * @param binding The bindings (required)
    * @return List&lt;AbstractBindingControllerBindingDetail&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<AbstractBindingControllerBindingDetail> bulkCreate4(String tenant, List<Binding> binding) throws ApiException {
-    return this.bulkCreate4(tenant, binding, Collections.emptyMap());
+  public List<AbstractBindingControllerBindingDetail> bulkCreateBindingapsSuperAdmin(@javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nonnull List<Binding> binding) throws ApiException {
+    return this.bulkCreateBindingapsSuperAdmin(resourceTenant, binding, Collections.emptyMap());
   }
 
 
   /**
    * Create multiple bindings
    * 
-   * @param tenant  (required)
-   * @param binding  (required)
+   * @param resourceTenant  (required)
+   * @param binding The bindings (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return List&lt;AbstractBindingControllerBindingDetail&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<AbstractBindingControllerBindingDetail> bulkCreate4(String tenant, List<Binding> binding, Map<String, String> additionalHeaders) throws ApiException {
+  public List<AbstractBindingControllerBindingDetail> bulkCreateBindingapsSuperAdmin(@javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nonnull List<Binding> binding, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = binding;
     
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling bulkCreate4");
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling bulkCreateBindingapsSuperAdmin");
     }
     
     // verify the required parameter 'binding' is set
     if (binding == null) {
-      throw new ApiException(400, "Missing the required parameter 'binding' when calling bulkCreate4");
+      throw new ApiException(400, "Missing the required parameter 'binding' when calling bulkCreateBindingapsSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/bindings/bulk"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/bindings/bulk"
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -418,97 +188,7 @@ public class BindingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<AbstractBindingControllerBindingDetail>> localVarReturnType = new TypeReference<List<AbstractBindingControllerBindingDetail>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Create multiple bindings
-   * 
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param binding  (required)
-   * @return List&lt;AbstractBindingControllerBindingDetail&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<AbstractBindingControllerBindingDetail> bulkCreate5(String ressourceTenant, String tenant, List<Binding> binding) throws ApiException {
-    return this.bulkCreate5(ressourceTenant, tenant, binding, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create multiple bindings
-   * 
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param binding  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;AbstractBindingControllerBindingDetail&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<AbstractBindingControllerBindingDetail> bulkCreate5(String ressourceTenant, String tenant, List<Binding> binding, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = binding;
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling bulkCreate5");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling bulkCreate5");
-    }
-    
-    // verify the required parameter 'binding' is set
-    if (binding == null) {
-      throw new ApiException(400, "Missing the required parameter 'binding' when calling bulkCreate5");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{ressourceTenant}/bindings/bulk"
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<List<AbstractBindingControllerBindingDetail>> localVarReturnType = new TypeReference<List<AbstractBindingControllerBindingDetail>>() {};
     return apiClient.invokeAPI(
@@ -531,243 +211,13 @@ public class BindingsApi extends BaseApi {
   /**
    * Create a binding
    * 
-   * @param binding  (required)
-   * @return AbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public AbstractBindingControllerBindingDetail create15(Binding binding) throws ApiException {
-    return this.create15(binding, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create a binding
-   * 
-   * @param binding  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return AbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public AbstractBindingControllerBindingDetail create15(Binding binding, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = binding;
-    
-    // verify the required parameter 'binding' is set
-    if (binding == null) {
-      throw new ApiException(400, "Missing the required parameter 'binding' when calling create15");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/bindings";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<AbstractBindingControllerBindingDetail> localVarReturnType = new TypeReference<AbstractBindingControllerBindingDetail>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Create a binding
-   * 
-   * @param binding  (required)
-   * @return AbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public AbstractBindingControllerBindingDetail create2(Binding binding) throws ApiException {
-    return this.create2(binding, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create a binding
-   * 
-   * @param binding  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return AbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public AbstractBindingControllerBindingDetail create2(Binding binding, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = binding;
-    
-    // verify the required parameter 'binding' is set
-    if (binding == null) {
-      throw new ApiException(400, "Missing the required parameter 'binding' when calling create2");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/bindings";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<AbstractBindingControllerBindingDetail> localVarReturnType = new TypeReference<AbstractBindingControllerBindingDetail>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Create a binding
-   * 
-   * @param ressourceTenant  (required)
-   * @param binding  (required)
-   * @return AbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public AbstractBindingControllerBindingDetail create20(String ressourceTenant, Binding binding) throws ApiException {
-    return this.create20(ressourceTenant, binding, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create a binding
-   * 
-   * @param ressourceTenant  (required)
-   * @param binding  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return AbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public AbstractBindingControllerBindingDetail create20(String ressourceTenant, Binding binding, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = binding;
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling create20");
-    }
-    
-    // verify the required parameter 'binding' is set
-    if (binding == null) {
-      throw new ApiException(400, "Missing the required parameter 'binding' when calling create20");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/{ressourceTenant}/bindings"
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<AbstractBindingControllerBindingDetail> localVarReturnType = new TypeReference<AbstractBindingControllerBindingDetail>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Create a binding
-   * 
    * @param tenant  (required)
-   * @param binding  (required)
+   * @param binding The binding (required)
    * @return AbstractBindingControllerBindingDetail
    * @throws ApiException if fails to make API call
    */
-  public AbstractBindingControllerBindingDetail create27(String tenant, Binding binding) throws ApiException {
-    return this.create27(tenant, binding, Collections.emptyMap());
+  public AbstractBindingControllerBindingDetail createBinding(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Binding binding) throws ApiException {
+    return this.createBinding(tenant, binding, Collections.emptyMap());
   }
 
 
@@ -775,22 +225,22 @@ public class BindingsApi extends BaseApi {
    * Create a binding
    * 
    * @param tenant  (required)
-   * @param binding  (required)
+   * @param binding The binding (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AbstractBindingControllerBindingDetail
    * @throws ApiException if fails to make API call
    */
-  public AbstractBindingControllerBindingDetail create27(String tenant, Binding binding, Map<String, String> additionalHeaders) throws ApiException {
+  public AbstractBindingControllerBindingDetail createBinding(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Binding binding, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = binding;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling create27");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling createBinding");
     }
     
     // verify the required parameter 'binding' is set
     if (binding == null) {
-      throw new ApiException(400, "Missing the required parameter 'binding' when calling create27");
+      throw new ApiException(400, "Missing the required parameter 'binding' when calling createBinding");
     }
     
     // create path and map variables
@@ -820,7 +270,7 @@ public class BindingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<AbstractBindingControllerBindingDetail> localVarReturnType = new TypeReference<AbstractBindingControllerBindingDetail>() {};
     return apiClient.invokeAPI(
@@ -843,41 +293,41 @@ public class BindingsApi extends BaseApi {
   /**
    * Create a binding
    * 
-   * @param tenant  (required)
-   * @param binding  (required)
+   * @param resourceTenant  (required)
+   * @param binding The binding (required)
    * @return AbstractBindingControllerBindingDetail
    * @throws ApiException if fails to make API call
    */
-  public AbstractBindingControllerBindingDetail create40(String tenant, Binding binding) throws ApiException {
-    return this.create40(tenant, binding, Collections.emptyMap());
+  public AbstractBindingControllerBindingDetail createBindingapsSuperAdmin(@javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nonnull Binding binding) throws ApiException {
+    return this.createBindingapsSuperAdmin(resourceTenant, binding, Collections.emptyMap());
   }
 
 
   /**
    * Create a binding
    * 
-   * @param tenant  (required)
-   * @param binding  (required)
+   * @param resourceTenant  (required)
+   * @param binding The binding (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return AbstractBindingControllerBindingDetail
    * @throws ApiException if fails to make API call
    */
-  public AbstractBindingControllerBindingDetail create40(String tenant, Binding binding, Map<String, String> additionalHeaders) throws ApiException {
+  public AbstractBindingControllerBindingDetail createBindingapsSuperAdmin(@javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nonnull Binding binding, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = binding;
     
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling create40");
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling createBindingapsSuperAdmin");
     }
     
     // verify the required parameter 'binding' is set
     if (binding == null) {
-      throw new ApiException(400, "Missing the required parameter 'binding' when calling create40");
+      throw new ApiException(400, "Missing the required parameter 'binding' when calling createBindingapsSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/bindings"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/bindings"
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -902,97 +352,7 @@ public class BindingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<AbstractBindingControllerBindingDetail> localVarReturnType = new TypeReference<AbstractBindingControllerBindingDetail>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Create a binding
-   * 
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param binding  (required)
-   * @return AbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public AbstractBindingControllerBindingDetail create45(String ressourceTenant, String tenant, Binding binding) throws ApiException {
-    return this.create45(ressourceTenant, tenant, binding, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create a binding
-   * 
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param binding  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return AbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public AbstractBindingControllerBindingDetail create45(String ressourceTenant, String tenant, Binding binding, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = binding;
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling create45");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling create45");
-    }
-    
-    // verify the required parameter 'binding' is set
-    if (binding == null) {
-      throw new ApiException(400, "Missing the required parameter 'binding' when calling create45");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{ressourceTenant}/bindings"
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<AbstractBindingControllerBindingDetail> localVarReturnType = new TypeReference<AbstractBindingControllerBindingDetail>() {};
     return apiClient.invokeAPI(
@@ -1016,235 +376,11 @@ public class BindingsApi extends BaseApi {
    * Delete a binding
    * 
    * @param id The binding id (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void delete17(String id) throws ApiException {
-    this.delete17(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete a binding
-   * 
-   * @param id The binding id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void delete17(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete17");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/bindings/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Delete a binding
-   * 
-   * @param id The binding id (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void delete2(String id) throws ApiException {
-    this.delete2(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete a binding
-   * 
-   * @param id The binding id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void delete2(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete2");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/bindings/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Delete a binding
-   * 
-   * @param id The binding id (required)
-   * @param ressourceTenant  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void delete23(String id, String ressourceTenant) throws ApiException {
-    this.delete23(id, ressourceTenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete a binding
-   * 
-   * @param id The binding id (required)
-   * @param ressourceTenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void delete23(String id, String ressourceTenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete23");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling delete23");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/{ressourceTenant}/bindings/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Delete a binding
-   * 
-   * @param id The binding id (required)
    * @param tenant  (required)
    * @throws ApiException if fails to make API call
    */
-  public void delete30(String id, String tenant) throws ApiException {
-    this.delete30(id, tenant, Collections.emptyMap());
+  public void deleteBinding(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    this.deleteBinding(id, tenant, Collections.emptyMap());
   }
 
 
@@ -1256,17 +392,17 @@ public class BindingsApi extends BaseApi {
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void delete30(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteBinding(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete30");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteBinding");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling delete30");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteBinding");
     }
     
     // create path and map variables
@@ -1297,7 +433,7 @@ public class BindingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -1320,11 +456,11 @@ public class BindingsApi extends BaseApi {
    * Delete a binding
    * 
    * @param id The binding id (required)
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
    * @throws ApiException if fails to make API call
    */
-  public void delete45(String id, String tenant) throws ApiException {
-    this.delete45(id, tenant, Collections.emptyMap());
+  public void deleteBindingapsSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String resourceTenant) throws ApiException {
+    this.deleteBindingapsSuperAdmin(id, resourceTenant, Collections.emptyMap());
   }
 
 
@@ -1332,25 +468,107 @@ public class BindingsApi extends BaseApi {
    * Delete a binding
    * 
    * @param id The binding id (required)
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void delete45(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteBindingapsSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String resourceTenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete45");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteBindingapsSuperAdmin");
+    }
+    
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling deleteBindingapsSuperAdmin");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/bindings/{id}"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    apiClient.invokeAPI(
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null
+    );
+  }
+
+  /**
+   * Get a binding
+   * 
+   * @param id The binding id (required)
+   * @param tenant  (required)
+   * @return AbstractBindingControllerBindingDetail
+   * @throws ApiException if fails to make API call
+   */
+  public AbstractBindingControllerBindingDetail getBinding(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getBinding(id, tenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get a binding
+   * 
+   * @param id The binding id (required)
+   * @param tenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return AbstractBindingControllerBindingDetail
+   * @throws ApiException if fails to make API call
+   */
+  public AbstractBindingControllerBindingDetail getBinding(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getBinding");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling delete45");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getBinding");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/bindings/{id}"
+    String localVarPath = "/api/v1/{tenant}/bindings/{id}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
       .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
@@ -1368,7 +586,7 @@ public class BindingsApi extends BaseApi {
     
     
     final String[] localVarAccepts = {
-      
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -1377,11 +595,12 @@ public class BindingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    apiClient.invokeAPI(
+    TypeReference<AbstractBindingControllerBindingDetail> localVarReturnType = new TypeReference<AbstractBindingControllerBindingDetail>() {};
+    return apiClient.invokeAPI(
         localVarPath,
-        "DELETE",
+        "GET",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),
@@ -1392,55 +611,49 @@ public class BindingsApi extends BaseApi {
         localVarAccept,
         localVarContentType,
         localVarAuthNames,
-        null
+        localVarReturnType
     );
   }
 
   /**
-   * Delete a binding
+   * Get a binding
    * 
    * @param id The binding id (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
+   * @return AbstractBindingControllerBindingDetail
    * @throws ApiException if fails to make API call
    */
-  public void delete51(String id, String ressourceTenant, String tenant) throws ApiException {
-    this.delete51(id, ressourceTenant, tenant, Collections.emptyMap());
+  public AbstractBindingControllerBindingDetail getBindingapsSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String resourceTenant) throws ApiException {
+    return this.getBindingapsSuperAdmin(id, resourceTenant, Collections.emptyMap());
   }
 
 
   /**
-   * Delete a binding
+   * Get a binding
    * 
    * @param id The binding id (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
    * @param additionalHeaders additionalHeaders for this call
+   * @return AbstractBindingControllerBindingDetail
    * @throws ApiException if fails to make API call
    */
-  public void delete51(String id, String ressourceTenant, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public AbstractBindingControllerBindingDetail getBindingapsSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String resourceTenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete51");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getBindingapsSuperAdmin");
     }
     
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling delete51");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling delete51");
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling getBindingapsSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{ressourceTenant}/bindings/{id}"
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/bindings/{id}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1450,103 +663,6 @@ public class BindingsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Search for bindings
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param type Binding type filter (optional)
-   * @param id External id filter (optional)
-   * @param namespace A namespace filter (optional)
-   * @return PagedResultsAbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsAbstractBindingControllerBindingDetail find14(Integer page, Integer size, String q, List<String> sort, BindingType type, String id, String namespace) throws ApiException {
-    return this.find14(page, size, q, sort, type, id, namespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for bindings
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param type Binding type filter (optional)
-   * @param id External id filter (optional)
-   * @param namespace A namespace filter (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsAbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsAbstractBindingControllerBindingDetail find14(Integer page, Integer size, String q, List<String> sort, BindingType type, String id, String namespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find14");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find14");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/bindings/search";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPair("type", type));
-    localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
     
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -1562,213 +678,9 @@ public class BindingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<PagedResultsAbstractBindingControllerBindingDetail> localVarReturnType = new TypeReference<PagedResultsAbstractBindingControllerBindingDetail>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Search for bindings
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param type Binding type filter (optional)
-   * @param id External id filter (optional)
-   * @param namespace A namespace filter (optional)
-   * @return PagedResultsAbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsAbstractBindingControllerBindingDetail find2(Integer page, Integer size, String q, List<String> sort, BindingType type, String id, String namespace) throws ApiException {
-    return this.find2(page, size, q, sort, type, id, namespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for bindings
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param type Binding type filter (optional)
-   * @param id External id filter (optional)
-   * @param namespace A namespace filter (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsAbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsAbstractBindingControllerBindingDetail find2(Integer page, Integer size, String q, List<String> sort, BindingType type, String id, String namespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find2");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find2");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/bindings/search";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPair("type", type));
-    localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsAbstractBindingControllerBindingDetail> localVarReturnType = new TypeReference<PagedResultsAbstractBindingControllerBindingDetail>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Search for bindings
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param ressourceTenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param type Binding type filter (optional)
-   * @param id External id filter (optional)
-   * @param namespace A namespace filter (optional)
-   * @return PagedResultsAbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsAbstractBindingControllerBindingDetail find20(Integer page, Integer size, String ressourceTenant, String q, List<String> sort, BindingType type, String id, String namespace) throws ApiException {
-    return this.find20(page, size, ressourceTenant, q, sort, type, id, namespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for bindings
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param ressourceTenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param type Binding type filter (optional)
-   * @param id External id filter (optional)
-   * @param namespace A namespace filter (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsAbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsAbstractBindingControllerBindingDetail find20(Integer page, Integer size, String ressourceTenant, String q, List<String> sort, BindingType type, String id, String namespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find20");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find20");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling find20");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/{ressourceTenant}/bindings/search"
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPair("type", type));
-    localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsAbstractBindingControllerBindingDetail> localVarReturnType = new TypeReference<PagedResultsAbstractBindingControllerBindingDetail>() {};
+    TypeReference<AbstractBindingControllerBindingDetail> localVarReturnType = new TypeReference<AbstractBindingControllerBindingDetail>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -1800,8 +712,8 @@ public class BindingsApi extends BaseApi {
    * @return PagedResultsAbstractBindingControllerBindingDetail
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsAbstractBindingControllerBindingDetail find28(Integer page, Integer size, String tenant, String q, List<String> sort, BindingType type, String id, String namespace) throws ApiException {
-    return this.find28(page, size, tenant, q, sort, type, id, namespace, Collections.emptyMap());
+  public PagedResultsAbstractBindingControllerBindingDetail searchBindings(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable BindingType type, @javax.annotation.Nullable String id, @javax.annotation.Nullable String namespace) throws ApiException {
+    return this.searchBindings(page, size, tenant, q, sort, type, id, namespace, Collections.emptyMap());
   }
 
 
@@ -1820,22 +732,22 @@ public class BindingsApi extends BaseApi {
    * @return PagedResultsAbstractBindingControllerBindingDetail
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsAbstractBindingControllerBindingDetail find28(Integer page, Integer size, String tenant, String q, List<String> sort, BindingType type, String id, String namespace, Map<String, String> additionalHeaders) throws ApiException {
+  public PagedResultsAbstractBindingControllerBindingDetail searchBindings(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable BindingType type, @javax.annotation.Nullable String id, @javax.annotation.Nullable String namespace, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'page' is set
     if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find28");
+      throw new ApiException(400, "Missing the required parameter 'page' when calling searchBindings");
     }
     
     // verify the required parameter 'size' is set
     if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find28");
+      throw new ApiException(400, "Missing the required parameter 'size' when calling searchBindings");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling find28");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling searchBindings");
     }
     
     // create path and map variables
@@ -1872,7 +784,7 @@ public class BindingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<PagedResultsAbstractBindingControllerBindingDetail> localVarReturnType = new TypeReference<PagedResultsAbstractBindingControllerBindingDetail>() {};
     return apiClient.invokeAPI(
@@ -1897,7 +809,7 @@ public class BindingsApi extends BaseApi {
    * 
    * @param page The current page (required)
    * @param size The current page size (required)
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
    * @param q A string filter (optional)
    * @param sort The sort of current page (optional)
    * @param type Binding type filter (optional)
@@ -1906,8 +818,8 @@ public class BindingsApi extends BaseApi {
    * @return PagedResultsAbstractBindingControllerBindingDetail
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsAbstractBindingControllerBindingDetail find40(Integer page, Integer size, String tenant, String q, List<String> sort, BindingType type, String id, String namespace) throws ApiException {
-    return this.find40(page, size, tenant, q, sort, type, id, namespace, Collections.emptyMap());
+  public PagedResultsAbstractBindingControllerBindingDetail searchBindingsapsSuperAdmin(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable BindingType type, @javax.annotation.Nullable String id, @javax.annotation.Nullable String namespace) throws ApiException {
+    return this.searchBindingsapsSuperAdmin(page, size, resourceTenant, q, sort, type, id, namespace, Collections.emptyMap());
   }
 
 
@@ -1916,7 +828,7 @@ public class BindingsApi extends BaseApi {
    * 
    * @param page The current page (required)
    * @param size The current page size (required)
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
    * @param q A string filter (optional)
    * @param sort The sort of current page (optional)
    * @param type Binding type filter (optional)
@@ -1926,27 +838,27 @@ public class BindingsApi extends BaseApi {
    * @return PagedResultsAbstractBindingControllerBindingDetail
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsAbstractBindingControllerBindingDetail find40(Integer page, Integer size, String tenant, String q, List<String> sort, BindingType type, String id, String namespace, Map<String, String> additionalHeaders) throws ApiException {
+  public PagedResultsAbstractBindingControllerBindingDetail searchBindingsapsSuperAdmin(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable BindingType type, @javax.annotation.Nullable String id, @javax.annotation.Nullable String namespace, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'page' is set
     if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find40");
+      throw new ApiException(400, "Missing the required parameter 'page' when calling searchBindingsapsSuperAdmin");
     }
     
     // verify the required parameter 'size' is set
     if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find40");
+      throw new ApiException(400, "Missing the required parameter 'size' when calling searchBindingsapsSuperAdmin");
     }
     
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling find40");
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling searchBindingsapsSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/bindings/search"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/bindings/search"
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1978,613 +890,9 @@ public class BindingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<PagedResultsAbstractBindingControllerBindingDetail> localVarReturnType = new TypeReference<PagedResultsAbstractBindingControllerBindingDetail>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Search for bindings
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param type Binding type filter (optional)
-   * @param id External id filter (optional)
-   * @param namespace A namespace filter (optional)
-   * @return PagedResultsAbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsAbstractBindingControllerBindingDetail find46(Integer page, Integer size, String ressourceTenant, String tenant, String q, List<String> sort, BindingType type, String id, String namespace) throws ApiException {
-    return this.find46(page, size, ressourceTenant, tenant, q, sort, type, id, namespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for bindings
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param type Binding type filter (optional)
-   * @param id External id filter (optional)
-   * @param namespace A namespace filter (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsAbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsAbstractBindingControllerBindingDetail find46(Integer page, Integer size, String ressourceTenant, String tenant, String q, List<String> sort, BindingType type, String id, String namespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find46");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find46");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling find46");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling find46");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{ressourceTenant}/bindings/search"
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPair("type", type));
-    localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsAbstractBindingControllerBindingDetail> localVarReturnType = new TypeReference<PagedResultsAbstractBindingControllerBindingDetail>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get a binding
-   * 
-   * @param id The binding id (required)
-   * @return AbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public AbstractBindingControllerBindingDetail index1(String id) throws ApiException {
-    return this.index1(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a binding
-   * 
-   * @param id The binding id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return AbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public AbstractBindingControllerBindingDetail index1(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/bindings/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<AbstractBindingControllerBindingDetail> localVarReturnType = new TypeReference<AbstractBindingControllerBindingDetail>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get a binding
-   * 
-   * @param id The binding id (required)
-   * @return AbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public AbstractBindingControllerBindingDetail index10(String id) throws ApiException {
-    return this.index10(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a binding
-   * 
-   * @param id The binding id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return AbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public AbstractBindingControllerBindingDetail index10(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index10");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/bindings/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<AbstractBindingControllerBindingDetail> localVarReturnType = new TypeReference<AbstractBindingControllerBindingDetail>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get a binding
-   * 
-   * @param id The binding id (required)
-   * @param ressourceTenant  (required)
-   * @return AbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public AbstractBindingControllerBindingDetail index15(String id, String ressourceTenant) throws ApiException {
-    return this.index15(id, ressourceTenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a binding
-   * 
-   * @param id The binding id (required)
-   * @param ressourceTenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return AbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public AbstractBindingControllerBindingDetail index15(String id, String ressourceTenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index15");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling index15");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/{ressourceTenant}/bindings/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<AbstractBindingControllerBindingDetail> localVarReturnType = new TypeReference<AbstractBindingControllerBindingDetail>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get a binding
-   * 
-   * @param id The binding id (required)
-   * @param tenant  (required)
-   * @return AbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public AbstractBindingControllerBindingDetail index22(String id, String tenant) throws ApiException {
-    return this.index22(id, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a binding
-   * 
-   * @param id The binding id (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return AbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public AbstractBindingControllerBindingDetail index22(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index22");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling index22");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/bindings/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<AbstractBindingControllerBindingDetail> localVarReturnType = new TypeReference<AbstractBindingControllerBindingDetail>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get a binding
-   * 
-   * @param id The binding id (required)
-   * @param tenant  (required)
-   * @return AbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public AbstractBindingControllerBindingDetail index31(String id, String tenant) throws ApiException {
-    return this.index31(id, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a binding
-   * 
-   * @param id The binding id (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return AbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public AbstractBindingControllerBindingDetail index31(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index31");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling index31");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/bindings/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<AbstractBindingControllerBindingDetail> localVarReturnType = new TypeReference<AbstractBindingControllerBindingDetail>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get a binding
-   * 
-   * @param id The binding id (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @return AbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public AbstractBindingControllerBindingDetail index36(String id, String ressourceTenant, String tenant) throws ApiException {
-    return this.index36(id, ressourceTenant, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a binding
-   * 
-   * @param id The binding id (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return AbstractBindingControllerBindingDetail
-   * @throws ApiException if fails to make API call
-   */
-  public AbstractBindingControllerBindingDetail index36(String id, String ressourceTenant, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index36");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling index36");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling index36");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{ressourceTenant}/bindings/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<AbstractBindingControllerBindingDetail> localVarReturnType = new TypeReference<AbstractBindingControllerBindingDetail>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -2624,7 +932,7 @@ public class BindingsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

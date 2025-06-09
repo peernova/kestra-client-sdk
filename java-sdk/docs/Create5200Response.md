@@ -13,6 +13,7 @@
 |**inputs** | [**List&lt;InputObject&gt;**](InputObject.md) |  |  [optional] |
 |**disabled** | **Boolean** |  |  |
 |**deleted** | **Boolean** |  |  |
+|**_finally** | [**List&lt;Task&gt;**](Task.md) |  |  [optional] |
 |**taskDefaults** | [**List&lt;PluginDefault&gt;**](PluginDefault.md) |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**labels** | **Object** |  |  [optional] |
@@ -20,6 +21,7 @@
 |**tasks** | [**List&lt;Task&gt;**](Task.md) |  |  |
 |**errors** | [**List&lt;Task&gt;**](Task.md) |  |  [optional] |
 |**listeners** | [**List&lt;Listener&gt;**](Listener.md) |  |  [optional] |
+|**afterExecution** | [**List&lt;Task&gt;**](Task.md) |  |  [optional] |
 |**triggers** | [**List&lt;AbstractTrigger&gt;**](AbstractTrigger.md) |  |  [optional] |
 |**pluginDefaults** | [**List&lt;PluginDefault&gt;**](PluginDefault.md) |  |  [optional] |
 |**concurrency** | [**Concurrency**](Concurrency.md) |  |  [optional] |

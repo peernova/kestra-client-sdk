@@ -36,7 +36,7 @@ import java.util.StringJoiner;
   KVControllerApiDeleteBulkRequest.JSON_PROPERTY_KEYS
 })
 @JsonTypeName("KVController.ApiDeleteBulkRequest")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class KVControllerApiDeleteBulkRequest {
   public static final String JSON_PROPERTY_KEYS = "keys";
   @javax.annotation.Nonnull

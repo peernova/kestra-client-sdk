@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -39,10 +40,12 @@ import java.util.StringJoiner;
   AppsControllerApiApp.JSON_PROPERTY_TYPE,
   AppsControllerApiApp.JSON_PROPERTY_NAMESPACE,
   AppsControllerApiApp.JSON_PROPERTY_TAGS,
-  AppsControllerApiApp.JSON_PROPERTY_ENABLED
+  AppsControllerApiApp.JSON_PROPERTY_ENABLED,
+  AppsControllerApiApp.JSON_PROPERTY_CREATED,
+  AppsControllerApiApp.JSON_PROPERTY_UPDATED
 })
 @JsonTypeName("AppsController.ApiApp")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class AppsControllerApiApp {
   public static final String JSON_PROPERTY_UID = "uid";
   @javax.annotation.Nonnull
@@ -71,6 +74,14 @@ public class AppsControllerApiApp {
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   @javax.annotation.Nonnull
   private Boolean enabled;
+
+  public static final String JSON_PROPERTY_CREATED = "created";
+  @javax.annotation.Nonnull
+  private OffsetDateTime created;
+
+  public static final String JSON_PROPERTY_UPDATED = "updated";
+  @javax.annotation.Nonnull
+  private OffsetDateTime updated;
 
   public AppsControllerApiApp() {
   }
@@ -258,6 +269,56 @@ public class AppsControllerApiApp {
     this.enabled = enabled;
   }
 
+  public AppsControllerApiApp created(@javax.annotation.Nonnull OffsetDateTime created) {
+    
+    this.created = created;
+    return this;
+  }
+
+  /**
+   * Get created
+   * @return created
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public OffsetDateTime getCreated() {
+    return created;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CREATED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
+    this.created = created;
+  }
+
+  public AppsControllerApiApp updated(@javax.annotation.Nonnull OffsetDateTime updated) {
+    
+    this.updated = updated;
+    return this;
+  }
+
+  /**
+   * Get updated
+   * @return updated
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_UPDATED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public OffsetDateTime getUpdated() {
+    return updated;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_UPDATED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setUpdated(@javax.annotation.Nonnull OffsetDateTime updated) {
+    this.updated = updated;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -273,12 +334,14 @@ public class AppsControllerApiApp {
         Objects.equals(this.type, appsControllerApiApp.type) &&
         Objects.equals(this.namespace, appsControllerApiApp.namespace) &&
         Objects.equals(this.tags, appsControllerApiApp.tags) &&
-        Objects.equals(this.enabled, appsControllerApiApp.enabled);
+        Objects.equals(this.enabled, appsControllerApiApp.enabled) &&
+        Objects.equals(this.created, appsControllerApiApp.created) &&
+        Objects.equals(this.updated, appsControllerApiApp.updated);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uid, id, name, type, namespace, tags, enabled);
+    return Objects.hash(uid, id, name, type, namespace, tags, enabled, created, updated);
   }
 
   @Override
@@ -292,6 +355,8 @@ public class AppsControllerApiApp {
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    created: ").append(toIndentedString(created)).append("\n");
+    sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -407,6 +472,26 @@ public class AppsControllerApiApp {
     if (getEnabled() != null) {
       try {
         joiner.add(String.format("%senabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEnabled()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `created` to the URL query string
+    if (getCreated() != null) {
+      try {
+        joiner.add(String.format("%screated%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreated()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `updated` to the URL query string
+    if (getUpdated() != null) {
+      try {
+        joiner.add(String.format("%supdated%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdated()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

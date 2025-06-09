@@ -63,13 +63,17 @@ public enum Permission {
   
   APPEXECUTION("APPEXECUTION"),
   
+  TEST("TEST"),
+  
   ME("ME"),
   
   APITOKEN("APITOKEN"),
   
   DASHBOARD("DASHBOARD"),
   
-  TENANT("TENANT");
+  TENANT("TENANT"),
+  
+  UNKNOWN("UNKNOWN");
 
   private String value;
 

@@ -38,7 +38,7 @@ import java.util.StringJoiner;
   PagedResultsTemplate.JSON_PROPERTY_TOTAL
 })
 @JsonTypeName("PagedResults_Template_")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-09T14:00:04.441521653Z[Etc/UTC]", comments = "Generator version: 7.13.0-SNAPSHOT")
 public class PagedResultsTemplate {
   public static final String JSON_PROPERTY_RESULTS = "results";
   @javax.annotation.Nonnull

@@ -36,7 +36,7 @@ import java.util.StringJoiner;
   PluginDefault.JSON_PROPERTY_FORCED,
   PluginDefault.JSON_PROPERTY_VALUES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class PluginDefault {
   public static final String JSON_PROPERTY_TYPE = "type";
   @javax.annotation.Nonnull

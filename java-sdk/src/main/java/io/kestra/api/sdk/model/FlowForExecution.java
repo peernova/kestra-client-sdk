@@ -22,10 +22,13 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kestra.api.sdk.model.AbstractTriggerForExecution;
 import io.kestra.api.sdk.model.InputObject;
+import io.kestra.api.sdk.model.Output;
 import io.kestra.api.sdk.model.TaskForExecution;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -40,12 +43,18 @@ import java.util.StringJoiner;
   FlowForExecution.JSON_PROPERTY_NAMESPACE,
   FlowForExecution.JSON_PROPERTY_REVISION,
   FlowForExecution.JSON_PROPERTY_INPUTS,
+  FlowForExecution.JSON_PROPERTY_OUTPUTS,
   FlowForExecution.JSON_PROPERTY_DISABLED,
+  FlowForExecution.JSON_PROPERTY_LABELS,
+  FlowForExecution.JSON_PROPERTY_VARIABLES,
   FlowForExecution.JSON_PROPERTY_DELETED,
   FlowForExecution.JSON_PROPERTY_TASKS,
+  FlowForExecution.JSON_PROPERTY_ERRORS,
+  FlowForExecution.JSON_PROPERTY_FINALLY,
+  FlowForExecution.JSON_PROPERTY_AFTER_EXECUTION,
   FlowForExecution.JSON_PROPERTY_TRIGGERS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class FlowForExecution {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nonnull
@@ -63,9 +72,21 @@ public class FlowForExecution {
   @javax.annotation.Nullable
   private List<InputObject> inputs = new ArrayList<>();
 
+  public static final String JSON_PROPERTY_OUTPUTS = "outputs";
+  @javax.annotation.Nullable
+  private List<Output> outputs = new ArrayList<>();
+
   public static final String JSON_PROPERTY_DISABLED = "disabled";
   @javax.annotation.Nonnull
   private Boolean disabled;
+
+  public static final String JSON_PROPERTY_LABELS = "labels";
+  @javax.annotation.Nullable
+  private Object labels;
+
+  public static final String JSON_PROPERTY_VARIABLES = "variables";
+  @javax.annotation.Nullable
+  private Map<String, Object> variables = new HashMap<>();
 
   public static final String JSON_PROPERTY_DELETED = "deleted";
   @javax.annotation.Nonnull
@@ -74,6 +95,18 @@ public class FlowForExecution {
   public static final String JSON_PROPERTY_TASKS = "tasks";
   @javax.annotation.Nonnull
   private List<TaskForExecution> tasks = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_ERRORS = "errors";
+  @javax.annotation.Nullable
+  private List<TaskForExecution> errors = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_FINALLY = "finally";
+  @javax.annotation.Nullable
+  private List<TaskForExecution> _finally = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_AFTER_EXECUTION = "afterExecution";
+  @javax.annotation.Nullable
+  private List<TaskForExecution> afterExecution = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TRIGGERS = "triggers";
   @javax.annotation.Nullable
@@ -191,6 +224,39 @@ public class FlowForExecution {
     this.inputs = inputs;
   }
 
+  public FlowForExecution outputs(@javax.annotation.Nullable List<Output> outputs) {
+    
+    this.outputs = outputs;
+    return this;
+  }
+
+  public FlowForExecution addOutputsItem(Output outputsItem) {
+    if (this.outputs == null) {
+      this.outputs = new ArrayList<>();
+    }
+    this.outputs.add(outputsItem);
+    return this;
+  }
+
+  /**
+   * Get outputs
+   * @return outputs
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OUTPUTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<Output> getOutputs() {
+    return outputs;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_OUTPUTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOutputs(@javax.annotation.Nullable List<Output> outputs) {
+    this.outputs = outputs;
+  }
+
   public FlowForExecution disabled(@javax.annotation.Nonnull Boolean disabled) {
     
     this.disabled = disabled;
@@ -214,6 +280,64 @@ public class FlowForExecution {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDisabled(@javax.annotation.Nonnull Boolean disabled) {
     this.disabled = disabled;
+  }
+
+  public FlowForExecution labels(@javax.annotation.Nullable Object labels) {
+    
+    this.labels = labels;
+    return this;
+  }
+
+  /**
+   * Get labels
+   * @return labels
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LABELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Object getLabels() {
+    return labels;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LABELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLabels(@javax.annotation.Nullable Object labels) {
+    this.labels = labels;
+  }
+
+  public FlowForExecution variables(@javax.annotation.Nullable Map<String, Object> variables) {
+    
+    this.variables = variables;
+    return this;
+  }
+
+  public FlowForExecution putVariablesItem(String key, Object variablesItem) {
+    if (this.variables == null) {
+      this.variables = new HashMap<>();
+    }
+    this.variables.put(key, variablesItem);
+    return this;
+  }
+
+  /**
+   * Get variables
+   * @return variables
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VARIABLES)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, Object> getVariables() {
+    return variables;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VARIABLES)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVariables(@javax.annotation.Nullable Map<String, Object> variables) {
+    this.variables = variables;
   }
 
   public FlowForExecution deleted(@javax.annotation.Nonnull Boolean deleted) {
@@ -274,6 +398,105 @@ public class FlowForExecution {
     this.tasks = tasks;
   }
 
+  public FlowForExecution errors(@javax.annotation.Nullable List<TaskForExecution> errors) {
+    
+    this.errors = errors;
+    return this;
+  }
+
+  public FlowForExecution addErrorsItem(TaskForExecution errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<>();
+    }
+    this.errors.add(errorsItem);
+    return this;
+  }
+
+  /**
+   * Get errors
+   * @return errors
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<TaskForExecution> getErrors() {
+    return errors;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setErrors(@javax.annotation.Nullable List<TaskForExecution> errors) {
+    this.errors = errors;
+  }
+
+  public FlowForExecution _finally(@javax.annotation.Nullable List<TaskForExecution> _finally) {
+    
+    this._finally = _finally;
+    return this;
+  }
+
+  public FlowForExecution addFinallyItem(TaskForExecution _finallyItem) {
+    if (this._finally == null) {
+      this._finally = new ArrayList<>();
+    }
+    this._finally.add(_finallyItem);
+    return this;
+  }
+
+  /**
+   * Get _finally
+   * @return _finally
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FINALLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<TaskForExecution> getFinally() {
+    return _finally;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FINALLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFinally(@javax.annotation.Nullable List<TaskForExecution> _finally) {
+    this._finally = _finally;
+  }
+
+  public FlowForExecution afterExecution(@javax.annotation.Nullable List<TaskForExecution> afterExecution) {
+    
+    this.afterExecution = afterExecution;
+    return this;
+  }
+
+  public FlowForExecution addAfterExecutionItem(TaskForExecution afterExecutionItem) {
+    if (this.afterExecution == null) {
+      this.afterExecution = new ArrayList<>();
+    }
+    this.afterExecution.add(afterExecutionItem);
+    return this;
+  }
+
+  /**
+   * Get afterExecution
+   * @return afterExecution
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AFTER_EXECUTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<TaskForExecution> getAfterExecution() {
+    return afterExecution;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_AFTER_EXECUTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAfterExecution(@javax.annotation.Nullable List<TaskForExecution> afterExecution) {
+    this.afterExecution = afterExecution;
+  }
+
   public FlowForExecution triggers(@javax.annotation.Nullable List<AbstractTriggerForExecution> triggers) {
     
     this.triggers = triggers;
@@ -320,15 +543,21 @@ public class FlowForExecution {
         Objects.equals(this.namespace, flowForExecution.namespace) &&
         Objects.equals(this.revision, flowForExecution.revision) &&
         Objects.equals(this.inputs, flowForExecution.inputs) &&
+        Objects.equals(this.outputs, flowForExecution.outputs) &&
         Objects.equals(this.disabled, flowForExecution.disabled) &&
+        Objects.equals(this.labels, flowForExecution.labels) &&
+        Objects.equals(this.variables, flowForExecution.variables) &&
         Objects.equals(this.deleted, flowForExecution.deleted) &&
         Objects.equals(this.tasks, flowForExecution.tasks) &&
+        Objects.equals(this.errors, flowForExecution.errors) &&
+        Objects.equals(this._finally, flowForExecution._finally) &&
+        Objects.equals(this.afterExecution, flowForExecution.afterExecution) &&
         Objects.equals(this.triggers, flowForExecution.triggers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, namespace, revision, inputs, disabled, deleted, tasks, triggers);
+    return Objects.hash(id, namespace, revision, inputs, outputs, disabled, labels, variables, deleted, tasks, errors, _finally, afterExecution, triggers);
   }
 
   @Override
@@ -339,9 +568,15 @@ public class FlowForExecution {
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
+    sb.append("    outputs: ").append(toIndentedString(outputs)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
+    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    tasks: ").append(toIndentedString(tasks)).append("\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("    _finally: ").append(toIndentedString(_finally)).append("\n");
+    sb.append("    afterExecution: ").append(toIndentedString(afterExecution)).append("\n");
     sb.append("    triggers: ").append(toIndentedString(triggers)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -430,6 +665,16 @@ public class FlowForExecution {
       }
     }
 
+    // add `outputs` to the URL query string
+    if (getOutputs() != null) {
+      for (int i = 0; i < getOutputs().size(); i++) {
+        if (getOutputs().get(i) != null) {
+          joiner.add(getOutputs().get(i).toUrlQueryString(String.format("%soutputs%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
     // add `disabled` to the URL query string
     if (getDisabled() != null) {
       try {
@@ -437,6 +682,30 @@ public class FlowForExecution {
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
+      }
+    }
+
+    // add `labels` to the URL query string
+    if (getLabels() != null) {
+      try {
+        joiner.add(String.format("%slabels%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLabels()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `variables` to the URL query string
+    if (getVariables() != null) {
+      for (String _key : getVariables().keySet()) {
+        try {
+          joiner.add(String.format("%svariables%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+              getVariables().get(_key), URLEncoder.encode(String.valueOf(getVariables().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
       }
     }
 
@@ -455,6 +724,36 @@ public class FlowForExecution {
       for (int i = 0; i < getTasks().size(); i++) {
         if (getTasks().get(i) != null) {
           joiner.add(getTasks().get(i).toUrlQueryString(String.format("%stasks%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `errors` to the URL query string
+    if (getErrors() != null) {
+      for (int i = 0; i < getErrors().size(); i++) {
+        if (getErrors().get(i) != null) {
+          joiner.add(getErrors().get(i).toUrlQueryString(String.format("%serrors%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `finally` to the URL query string
+    if (getFinally() != null) {
+      for (int i = 0; i < getFinally().size(); i++) {
+        if (getFinally().get(i) != null) {
+          joiner.add(getFinally().get(i).toUrlQueryString(String.format("%sfinally%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `afterExecution` to the URL query string
+    if (getAfterExecution() != null) {
+      for (int i = 0; i < getAfterExecution().size(); i++) {
+        if (getAfterExecution().get(i) != null) {
+          joiner.add(getAfterExecution().get(i).toUrlQueryString(String.format("%safterExecution%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }

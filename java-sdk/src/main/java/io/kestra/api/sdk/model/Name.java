@@ -33,7 +33,7 @@ import java.util.StringJoiner;
   Name.JSON_PROPERTY_FAMILY_NAME,
   Name.JSON_PROPERTY_GIVEN_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class Name {
   public static final String JSON_PROPERTY_FAMILY_NAME = "familyName";
   @javax.annotation.Nullable

@@ -20,8 +20,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.kestra.api.sdk.model.ExecutionKind;
 import io.kestra.api.sdk.model.Level;
 import java.time.OffsetDateTime;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -43,9 +48,10 @@ import java.util.StringJoiner;
   LogEntry.JSON_PROPERTY_LEVEL,
   LogEntry.JSON_PROPERTY_THREAD,
   LogEntry.JSON_PROPERTY_MESSAGE,
-  LogEntry.JSON_PROPERTY_DELETED
+  LogEntry.JSON_PROPERTY_DELETED,
+  LogEntry.JSON_PROPERTY_EXECUTION_KIND
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class LogEntry {
   public static final String JSON_PROPERTY_NAMESPACE = "namespace";
   @javax.annotation.Nonnull
@@ -57,23 +63,23 @@ public class LogEntry {
 
   public static final String JSON_PROPERTY_TASK_ID = "taskId";
   @javax.annotation.Nullable
-  private String taskId;
+  private JsonNullable<String> taskId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_EXECUTION_ID = "executionId";
   @javax.annotation.Nullable
-  private String executionId;
+  private JsonNullable<String> executionId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TASK_RUN_ID = "taskRunId";
   @javax.annotation.Nullable
-  private String taskRunId;
+  private JsonNullable<String> taskRunId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ATTEMPT_NUMBER = "attemptNumber";
   @javax.annotation.Nullable
-  private Integer attemptNumber;
+  private JsonNullable<Integer> attemptNumber = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_TRIGGER_ID = "triggerId";
   @javax.annotation.Nullable
-  private String triggerId;
+  private JsonNullable<String> triggerId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
   @javax.annotation.Nonnull
@@ -94,6 +100,10 @@ public class LogEntry {
   public static final String JSON_PROPERTY_DELETED = "deleted";
   @javax.annotation.Nonnull
   private Boolean deleted;
+
+  public static final String JSON_PROPERTY_EXECUTION_KIND = "executionKind";
+  @javax.annotation.Nullable
+  private JsonNullable<ExecutionKind> executionKind = JsonNullable.<ExecutionKind>undefined();
 
   public LogEntry() {
   }
@@ -149,8 +159,8 @@ public class LogEntry {
   }
 
   public LogEntry taskId(@javax.annotation.Nullable String taskId) {
+    this.taskId = JsonNullable.<String>of(taskId);
     
-    this.taskId = taskId;
     return this;
   }
 
@@ -159,23 +169,31 @@ public class LogEntry {
    * @return taskId
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TASK_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonIgnore
 
   public String getTaskId() {
-    return taskId;
+        return taskId.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_TASK_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTaskId(@javax.annotation.Nullable String taskId) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getTaskId_JsonNullable() {
+    return taskId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TASK_ID)
+  public void setTaskId_JsonNullable(JsonNullable<String> taskId) {
     this.taskId = taskId;
   }
 
+  public void setTaskId(@javax.annotation.Nullable String taskId) {
+    this.taskId = JsonNullable.<String>of(taskId);
+  }
+
   public LogEntry executionId(@javax.annotation.Nullable String executionId) {
+    this.executionId = JsonNullable.<String>of(executionId);
     
-    this.executionId = executionId;
     return this;
   }
 
@@ -184,23 +202,31 @@ public class LogEntry {
    * @return executionId
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXECUTION_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonIgnore
 
   public String getExecutionId() {
-    return executionId;
+        return executionId.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_EXECUTION_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExecutionId(@javax.annotation.Nullable String executionId) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getExecutionId_JsonNullable() {
+    return executionId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXECUTION_ID)
+  public void setExecutionId_JsonNullable(JsonNullable<String> executionId) {
     this.executionId = executionId;
   }
 
+  public void setExecutionId(@javax.annotation.Nullable String executionId) {
+    this.executionId = JsonNullable.<String>of(executionId);
+  }
+
   public LogEntry taskRunId(@javax.annotation.Nullable String taskRunId) {
+    this.taskRunId = JsonNullable.<String>of(taskRunId);
     
-    this.taskRunId = taskRunId;
     return this;
   }
 
@@ -209,23 +235,31 @@ public class LogEntry {
    * @return taskRunId
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TASK_RUN_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonIgnore
 
   public String getTaskRunId() {
-    return taskRunId;
+        return taskRunId.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_TASK_RUN_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTaskRunId(@javax.annotation.Nullable String taskRunId) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getTaskRunId_JsonNullable() {
+    return taskRunId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TASK_RUN_ID)
+  public void setTaskRunId_JsonNullable(JsonNullable<String> taskRunId) {
     this.taskRunId = taskRunId;
   }
 
+  public void setTaskRunId(@javax.annotation.Nullable String taskRunId) {
+    this.taskRunId = JsonNullable.<String>of(taskRunId);
+  }
+
   public LogEntry attemptNumber(@javax.annotation.Nullable Integer attemptNumber) {
+    this.attemptNumber = JsonNullable.<Integer>of(attemptNumber);
     
-    this.attemptNumber = attemptNumber;
     return this;
   }
 
@@ -234,23 +268,31 @@ public class LogEntry {
    * @return attemptNumber
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTEMPT_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonIgnore
 
   public Integer getAttemptNumber() {
-    return attemptNumber;
+        return attemptNumber.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_ATTEMPT_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAttemptNumber(@javax.annotation.Nullable Integer attemptNumber) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Integer> getAttemptNumber_JsonNullable() {
+    return attemptNumber;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ATTEMPT_NUMBER)
+  public void setAttemptNumber_JsonNullable(JsonNullable<Integer> attemptNumber) {
     this.attemptNumber = attemptNumber;
   }
 
+  public void setAttemptNumber(@javax.annotation.Nullable Integer attemptNumber) {
+    this.attemptNumber = JsonNullable.<Integer>of(attemptNumber);
+  }
+
   public LogEntry triggerId(@javax.annotation.Nullable String triggerId) {
+    this.triggerId = JsonNullable.<String>of(triggerId);
     
-    this.triggerId = triggerId;
     return this;
   }
 
@@ -259,18 +301,26 @@ public class LogEntry {
    * @return triggerId
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRIGGER_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonIgnore
 
   public String getTriggerId() {
-    return triggerId;
+        return triggerId.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_TRIGGER_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTriggerId(@javax.annotation.Nullable String triggerId) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getTriggerId_JsonNullable() {
+    return triggerId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TRIGGER_ID)
+  public void setTriggerId_JsonNullable(JsonNullable<String> triggerId) {
     this.triggerId = triggerId;
+  }
+
+  public void setTriggerId(@javax.annotation.Nullable String triggerId) {
+    this.triggerId = JsonNullable.<String>of(triggerId);
   }
 
   public LogEntry timestamp(@javax.annotation.Nonnull OffsetDateTime timestamp) {
@@ -398,6 +448,39 @@ public class LogEntry {
     this.deleted = deleted;
   }
 
+  public LogEntry executionKind(@javax.annotation.Nullable ExecutionKind executionKind) {
+    this.executionKind = JsonNullable.<ExecutionKind>of(executionKind);
+    
+    return this;
+  }
+
+  /**
+   * Get executionKind
+   * @return executionKind
+   */
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public ExecutionKind getExecutionKind() {
+        return executionKind.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_EXECUTION_KIND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<ExecutionKind> getExecutionKind_JsonNullable() {
+    return executionKind;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXECUTION_KIND)
+  public void setExecutionKind_JsonNullable(JsonNullable<ExecutionKind> executionKind) {
+    this.executionKind = executionKind;
+  }
+
+  public void setExecutionKind(@javax.annotation.Nullable ExecutionKind executionKind) {
+    this.executionKind = JsonNullable.<ExecutionKind>of(executionKind);
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -409,21 +492,33 @@ public class LogEntry {
     LogEntry logEntry = (LogEntry) o;
     return Objects.equals(this.namespace, logEntry.namespace) &&
         Objects.equals(this.flowId, logEntry.flowId) &&
-        Objects.equals(this.taskId, logEntry.taskId) &&
-        Objects.equals(this.executionId, logEntry.executionId) &&
-        Objects.equals(this.taskRunId, logEntry.taskRunId) &&
-        Objects.equals(this.attemptNumber, logEntry.attemptNumber) &&
-        Objects.equals(this.triggerId, logEntry.triggerId) &&
+        equalsNullable(this.taskId, logEntry.taskId) &&
+        equalsNullable(this.executionId, logEntry.executionId) &&
+        equalsNullable(this.taskRunId, logEntry.taskRunId) &&
+        equalsNullable(this.attemptNumber, logEntry.attemptNumber) &&
+        equalsNullable(this.triggerId, logEntry.triggerId) &&
         Objects.equals(this.timestamp, logEntry.timestamp) &&
         Objects.equals(this.level, logEntry.level) &&
         Objects.equals(this.thread, logEntry.thread) &&
         Objects.equals(this.message, logEntry.message) &&
-        Objects.equals(this.deleted, logEntry.deleted);
+        Objects.equals(this.deleted, logEntry.deleted) &&
+        equalsNullable(this.executionKind, logEntry.executionKind);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespace, flowId, taskId, executionId, taskRunId, attemptNumber, triggerId, timestamp, level, thread, message, deleted);
+    return Objects.hash(namespace, flowId, hashCodeNullable(taskId), hashCodeNullable(executionId), hashCodeNullable(taskRunId), hashCodeNullable(attemptNumber), hashCodeNullable(triggerId), timestamp, level, thread, message, deleted, hashCodeNullable(executionKind));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -442,6 +537,7 @@ public class LogEntry {
     sb.append("    thread: ").append(toIndentedString(thread)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
+    sb.append("    executionKind: ").append(toIndentedString(executionKind)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -603,6 +699,16 @@ public class LogEntry {
     if (getDeleted() != null) {
       try {
         joiner.add(String.format("%sdeleted%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDeleted()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `executionKind` to the URL query string
+    if (getExecutionKind() != null) {
+      try {
+        joiner.add(String.format("%sexecutionKind%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExecutionKind()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

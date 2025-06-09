@@ -35,6 +35,10 @@ public enum RelationType {
   
   ERROR("ERROR"),
   
+  FINALLY("FINALLY"),
+  
+  AFTER_EXECUTION("AFTER_EXECUTION"),
+  
   PARALLEL("PARALLEL"),
   
   DYNAMIC("DYNAMIC");

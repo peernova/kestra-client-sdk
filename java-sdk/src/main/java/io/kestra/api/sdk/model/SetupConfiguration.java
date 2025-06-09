@@ -31,27 +31,17 @@ import java.util.StringJoiner;
  */
 @JsonPropertyOrder({
   SetupConfiguration.JSON_PROPERTY_DONE,
-  SetupConfiguration.JSON_PROPERTY_MULTI_TENANCY_ENABLED,
-  SetupConfiguration.JSON_PROPERTY_DEFAULT_TENANT_ENABLED,
   SetupConfiguration.JSON_PROPERTY_REPOSITORY_TYPE,
   SetupConfiguration.JSON_PROPERTY_QUEUE_TYPE,
   SetupConfiguration.JSON_PROPERTY_STORAGE_TYPE,
   SetupConfiguration.JSON_PROPERTY_SECRET_TYPE,
   SetupConfiguration.JSON_PROPERTY_PASSWORD_REGEXP
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class SetupConfiguration {
   public static final String JSON_PROPERTY_DONE = "done";
   @javax.annotation.Nonnull
   private Boolean done;
-
-  public static final String JSON_PROPERTY_MULTI_TENANCY_ENABLED = "multiTenancyEnabled";
-  @javax.annotation.Nullable
-  private Boolean multiTenancyEnabled;
-
-  public static final String JSON_PROPERTY_DEFAULT_TENANT_ENABLED = "defaultTenantEnabled";
-  @javax.annotation.Nullable
-  private Boolean defaultTenantEnabled;
 
   public static final String JSON_PROPERTY_REPOSITORY_TYPE = "repositoryType";
   @javax.annotation.Nullable
@@ -99,56 +89,6 @@ public class SetupConfiguration {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDone(@javax.annotation.Nonnull Boolean done) {
     this.done = done;
-  }
-
-  public SetupConfiguration multiTenancyEnabled(@javax.annotation.Nullable Boolean multiTenancyEnabled) {
-    
-    this.multiTenancyEnabled = multiTenancyEnabled;
-    return this;
-  }
-
-  /**
-   * Get multiTenancyEnabled
-   * @return multiTenancyEnabled
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MULTI_TENANCY_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getMultiTenancyEnabled() {
-    return multiTenancyEnabled;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_MULTI_TENANCY_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMultiTenancyEnabled(@javax.annotation.Nullable Boolean multiTenancyEnabled) {
-    this.multiTenancyEnabled = multiTenancyEnabled;
-  }
-
-  public SetupConfiguration defaultTenantEnabled(@javax.annotation.Nullable Boolean defaultTenantEnabled) {
-    
-    this.defaultTenantEnabled = defaultTenantEnabled;
-    return this;
-  }
-
-  /**
-   * Get defaultTenantEnabled
-   * @return defaultTenantEnabled
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DEFAULT_TENANT_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getDefaultTenantEnabled() {
-    return defaultTenantEnabled;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_DEFAULT_TENANT_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDefaultTenantEnabled(@javax.annotation.Nullable Boolean defaultTenantEnabled) {
-    this.defaultTenantEnabled = defaultTenantEnabled;
   }
 
   public SetupConfiguration repositoryType(@javax.annotation.Nullable String repositoryType) {
@@ -286,8 +226,6 @@ public class SetupConfiguration {
     }
     SetupConfiguration setupConfiguration = (SetupConfiguration) o;
     return Objects.equals(this.done, setupConfiguration.done) &&
-        Objects.equals(this.multiTenancyEnabled, setupConfiguration.multiTenancyEnabled) &&
-        Objects.equals(this.defaultTenantEnabled, setupConfiguration.defaultTenantEnabled) &&
         Objects.equals(this.repositoryType, setupConfiguration.repositoryType) &&
         Objects.equals(this.queueType, setupConfiguration.queueType) &&
         Objects.equals(this.storageType, setupConfiguration.storageType) &&
@@ -297,7 +235,7 @@ public class SetupConfiguration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(done, multiTenancyEnabled, defaultTenantEnabled, repositoryType, queueType, storageType, secretType, passwordRegexp);
+    return Objects.hash(done, repositoryType, queueType, storageType, secretType, passwordRegexp);
   }
 
   @Override
@@ -305,8 +243,6 @@ public class SetupConfiguration {
     StringBuilder sb = new StringBuilder();
     sb.append("class SetupConfiguration {\n");
     sb.append("    done: ").append(toIndentedString(done)).append("\n");
-    sb.append("    multiTenancyEnabled: ").append(toIndentedString(multiTenancyEnabled)).append("\n");
-    sb.append("    defaultTenantEnabled: ").append(toIndentedString(defaultTenantEnabled)).append("\n");
     sb.append("    repositoryType: ").append(toIndentedString(repositoryType)).append("\n");
     sb.append("    queueType: ").append(toIndentedString(queueType)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
@@ -363,26 +299,6 @@ public class SetupConfiguration {
     if (getDone() != null) {
       try {
         joiner.add(String.format("%sdone%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDone()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `multiTenancyEnabled` to the URL query string
-    if (getMultiTenancyEnabled() != null) {
-      try {
-        joiner.add(String.format("%smultiTenancyEnabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMultiTenancyEnabled()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `defaultTenantEnabled` to the URL query string
-    if (getDefaultTenantEnabled() != null) {
-      try {
-        joiner.add(String.format("%sdefaultTenantEnabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDefaultTenantEnabled()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.kestra.api.sdk.model.Isolation;
 import io.kestra.api.sdk.model.NamespaceAllowedNamespace;
 import io.kestra.api.sdk.model.NamespaceAllowedTrigger;
 import io.kestra.api.sdk.model.PluginDefault;
@@ -36,12 +37,14 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * Namespace
+ * A namespace is a logical grouping of flows and tasks. It is used to organize and manage flows and tasks within Kestra.
  */
 @JsonPropertyOrder({
   Namespace.JSON_PROPERTY_ID,
   Namespace.JSON_PROPERTY_DELETED,
   Namespace.JSON_PROPERTY_ALLOWED_TRIGGERS,
+  Namespace.JSON_PROPERTY_STORAGE_ISOLATION,
+  Namespace.JSON_PROPERTY_SECRET_ISOLATION,
   Namespace.JSON_PROPERTY_DESCRIPTION,
   Namespace.JSON_PROPERTY_VARIABLES,
   Namespace.JSON_PROPERTY_PLUGIN_DEFAULTS,
@@ -50,9 +53,11 @@ import java.util.StringJoiner;
   Namespace.JSON_PROPERTY_STORAGE_TYPE,
   Namespace.JSON_PROPERTY_STORAGE_CONFIGURATION,
   Namespace.JSON_PROPERTY_SECRET_TYPE,
-  Namespace.JSON_PROPERTY_SECRET_CONFIGURATION
+  Namespace.JSON_PROPERTY_SECRET_READ_ONLY,
+  Namespace.JSON_PROPERTY_SECRET_CONFIGURATION,
+  Namespace.JSON_PROPERTY_OUTPUTS_IN_INTERNAL_STORAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class Namespace {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nonnull
@@ -65,6 +70,14 @@ public class Namespace {
   public static final String JSON_PROPERTY_ALLOWED_TRIGGERS = "allowedTriggers";
   @javax.annotation.Nullable
   private List<NamespaceAllowedTrigger> allowedTriggers = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_STORAGE_ISOLATION = "storageIsolation";
+  @javax.annotation.Nullable
+  private Isolation storageIsolation;
+
+  public static final String JSON_PROPERTY_SECRET_ISOLATION = "secretIsolation";
+  @javax.annotation.Nullable
+  private Isolation secretIsolation;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   @javax.annotation.Nonnull
@@ -98,9 +111,17 @@ public class Namespace {
   @javax.annotation.Nullable
   private String secretType;
 
+  public static final String JSON_PROPERTY_SECRET_READ_ONLY = "secretReadOnly";
+  @javax.annotation.Nullable
+  private Boolean secretReadOnly;
+
   public static final String JSON_PROPERTY_SECRET_CONFIGURATION = "secretConfiguration";
   @javax.annotation.Nullable
   private Map<String, Object> secretConfiguration = new HashMap<>();
+
+  public static final String JSON_PROPERTY_OUTPUTS_IN_INTERNAL_STORAGE = "outputsInInternalStorage";
+  @javax.annotation.Nullable
+  private Boolean outputsInInternalStorage;
 
   public Namespace() {
   }
@@ -188,6 +209,56 @@ public class Namespace {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedTriggers(@javax.annotation.Nullable List<NamespaceAllowedTrigger> allowedTriggers) {
     this.allowedTriggers = allowedTriggers;
+  }
+
+  public Namespace storageIsolation(@javax.annotation.Nullable Isolation storageIsolation) {
+    
+    this.storageIsolation = storageIsolation;
+    return this;
+  }
+
+  /**
+   * Get storageIsolation
+   * @return storageIsolation
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STORAGE_ISOLATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Isolation getStorageIsolation() {
+    return storageIsolation;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STORAGE_ISOLATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStorageIsolation(@javax.annotation.Nullable Isolation storageIsolation) {
+    this.storageIsolation = storageIsolation;
+  }
+
+  public Namespace secretIsolation(@javax.annotation.Nullable Isolation secretIsolation) {
+    
+    this.secretIsolation = secretIsolation;
+    return this;
+  }
+
+  /**
+   * Get secretIsolation
+   * @return secretIsolation
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SECRET_ISOLATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Isolation getSecretIsolation() {
+    return secretIsolation;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SECRET_ISOLATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSecretIsolation(@javax.annotation.Nullable Isolation secretIsolation) {
+    this.secretIsolation = secretIsolation;
   }
 
   public Namespace description(@javax.annotation.Nonnull String description) {
@@ -419,6 +490,31 @@ public class Namespace {
     this.secretType = secretType;
   }
 
+  public Namespace secretReadOnly(@javax.annotation.Nullable Boolean secretReadOnly) {
+    
+    this.secretReadOnly = secretReadOnly;
+    return this;
+  }
+
+  /**
+   * Get secretReadOnly
+   * @return secretReadOnly
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SECRET_READ_ONLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getSecretReadOnly() {
+    return secretReadOnly;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SECRET_READ_ONLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSecretReadOnly(@javax.annotation.Nullable Boolean secretReadOnly) {
+    this.secretReadOnly = secretReadOnly;
+  }
+
   public Namespace secretConfiguration(@javax.annotation.Nullable Map<String, Object> secretConfiguration) {
     
     this.secretConfiguration = secretConfiguration;
@@ -452,6 +548,31 @@ public class Namespace {
     this.secretConfiguration = secretConfiguration;
   }
 
+  public Namespace outputsInInternalStorage(@javax.annotation.Nullable Boolean outputsInInternalStorage) {
+    
+    this.outputsInInternalStorage = outputsInInternalStorage;
+    return this;
+  }
+
+  /**
+   * Get outputsInInternalStorage
+   * @return outputsInInternalStorage
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OUTPUTS_IN_INTERNAL_STORAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getOutputsInInternalStorage() {
+    return outputsInInternalStorage;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_OUTPUTS_IN_INTERNAL_STORAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOutputsInInternalStorage(@javax.annotation.Nullable Boolean outputsInInternalStorage) {
+    this.outputsInInternalStorage = outputsInInternalStorage;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -464,6 +585,8 @@ public class Namespace {
     return Objects.equals(this.id, namespace.id) &&
         Objects.equals(this.deleted, namespace.deleted) &&
         Objects.equals(this.allowedTriggers, namespace.allowedTriggers) &&
+        Objects.equals(this.storageIsolation, namespace.storageIsolation) &&
+        Objects.equals(this.secretIsolation, namespace.secretIsolation) &&
         Objects.equals(this.description, namespace.description) &&
         Objects.equals(this.variables, namespace.variables) &&
         Objects.equals(this.pluginDefaults, namespace.pluginDefaults) &&
@@ -472,12 +595,14 @@ public class Namespace {
         Objects.equals(this.storageType, namespace.storageType) &&
         Objects.equals(this.storageConfiguration, namespace.storageConfiguration) &&
         Objects.equals(this.secretType, namespace.secretType) &&
-        Objects.equals(this.secretConfiguration, namespace.secretConfiguration);
+        Objects.equals(this.secretReadOnly, namespace.secretReadOnly) &&
+        Objects.equals(this.secretConfiguration, namespace.secretConfiguration) &&
+        Objects.equals(this.outputsInInternalStorage, namespace.outputsInInternalStorage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, deleted, allowedTriggers, description, variables, pluginDefaults, allowedNamespaces, workerGroup, storageType, storageConfiguration, secretType, secretConfiguration);
+    return Objects.hash(id, deleted, allowedTriggers, storageIsolation, secretIsolation, description, variables, pluginDefaults, allowedNamespaces, workerGroup, storageType, storageConfiguration, secretType, secretReadOnly, secretConfiguration, outputsInInternalStorage);
   }
 
   @Override
@@ -487,6 +612,8 @@ public class Namespace {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    allowedTriggers: ").append(toIndentedString(allowedTriggers)).append("\n");
+    sb.append("    storageIsolation: ").append(toIndentedString(storageIsolation)).append("\n");
+    sb.append("    secretIsolation: ").append(toIndentedString(secretIsolation)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
     sb.append("    pluginDefaults: ").append(toIndentedString(pluginDefaults)).append("\n");
@@ -495,7 +622,9 @@ public class Namespace {
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    storageConfiguration: ").append(toIndentedString(storageConfiguration)).append("\n");
     sb.append("    secretType: ").append(toIndentedString(secretType)).append("\n");
+    sb.append("    secretReadOnly: ").append(toIndentedString(secretReadOnly)).append("\n");
     sb.append("    secretConfiguration: ").append(toIndentedString(secretConfiguration)).append("\n");
+    sb.append("    outputsInInternalStorage: ").append(toIndentedString(outputsInInternalStorage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -560,113 +689,6 @@ public class Namespace {
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
-      }
-    }
-
-    // add `allowedTriggers` to the URL query string
-    if (getAllowedTriggers() != null) {
-      for (int i = 0; i < getAllowedTriggers().size(); i++) {
-        if (getAllowedTriggers().get(i) != null) {
-          joiner.add(getAllowedTriggers().get(i).toUrlQueryString(String.format("%sallowedTriggers%s%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
-        }
-      }
-    }
-
-    // add `description` to the URL query string
-    if (getDescription() != null) {
-      try {
-        joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `variables` to the URL query string
-    if (getVariables() != null) {
-      for (String _key : getVariables().keySet()) {
-        try {
-          joiner.add(String.format("%svariables%s%s=%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-              getVariables().get(_key), URLEncoder.encode(String.valueOf(getVariables().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
-        } catch (UnsupportedEncodingException e) {
-          // Should never happen, UTF-8 is always supported
-          throw new RuntimeException(e);
-        }
-      }
-    }
-
-    // add `pluginDefaults` to the URL query string
-    if (getPluginDefaults() != null) {
-      for (int i = 0; i < getPluginDefaults().size(); i++) {
-        if (getPluginDefaults().get(i) != null) {
-          joiner.add(getPluginDefaults().get(i).toUrlQueryString(String.format("%spluginDefaults%s%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
-        }
-      }
-    }
-
-    // add `allowedNamespaces` to the URL query string
-    if (getAllowedNamespaces() != null) {
-      for (int i = 0; i < getAllowedNamespaces().size(); i++) {
-        if (getAllowedNamespaces().get(i) != null) {
-          joiner.add(getAllowedNamespaces().get(i).toUrlQueryString(String.format("%sallowedNamespaces%s%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
-        }
-      }
-    }
-
-    // add `workerGroup` to the URL query string
-    if (getWorkerGroup() != null) {
-      joiner.add(getWorkerGroup().toUrlQueryString(prefix + "workerGroup" + suffix));
-    }
-
-    // add `storageType` to the URL query string
-    if (getStorageType() != null) {
-      try {
-        joiner.add(String.format("%sstorageType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStorageType()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `storageConfiguration` to the URL query string
-    if (getStorageConfiguration() != null) {
-      for (String _key : getStorageConfiguration().keySet()) {
-        try {
-          joiner.add(String.format("%sstorageConfiguration%s%s=%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-              getStorageConfiguration().get(_key), URLEncoder.encode(String.valueOf(getStorageConfiguration().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
-        } catch (UnsupportedEncodingException e) {
-          // Should never happen, UTF-8 is always supported
-          throw new RuntimeException(e);
-        }
-      }
-    }
-
-    // add `secretType` to the URL query string
-    if (getSecretType() != null) {
-      try {
-        joiner.add(String.format("%ssecretType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSecretType()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `secretConfiguration` to the URL query string
-    if (getSecretConfiguration() != null) {
-      for (String _key : getSecretConfiguration().keySet()) {
-        try {
-          joiner.add(String.format("%ssecretConfiguration%s%s=%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-              getSecretConfiguration().get(_key), URLEncoder.encode(String.valueOf(getSecretConfiguration().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
-        } catch (UnsupportedEncodingException e) {
-          // Should never happen, UTF-8 is always supported
-          throw new RuntimeException(e);
-        }
       }
     }
 

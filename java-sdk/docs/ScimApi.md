@@ -4,40 +4,26 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**create32**](ScimApi.md#create32) | **POST** /api/v1/{tenant}/integrations/{integration}/scim/v2/Groups | {@inheritDoc} |
-| [**create33**](ScimApi.md#create33) | **POST** /api/v1/{tenant}/integrations/{integration}/scim/v2/Users | {@inheritDoc} |
-| [**create7**](ScimApi.md#create7) | **POST** /api/v1/integrations/{integration}/scim/v2/Groups | {@inheritDoc} |
-| [**create8**](ScimApi.md#create8) | **POST** /api/v1/integrations/{integration}/scim/v2/Users | {@inheritDoc} |
-| [**delete35**](ScimApi.md#delete35) | **DELETE** /api/v1/{tenant}/integrations/{integration}/scim/v2/Groups/{id} | {@inheritDoc} |
-| [**delete36**](ScimApi.md#delete36) | **DELETE** /api/v1/{tenant}/integrations/{integration}/scim/v2/Users/{id} | {@inheritDoc} |
-| [**delete7**](ScimApi.md#delete7) | **DELETE** /api/v1/integrations/{integration}/scim/v2/Groups/{id} | {@inheritDoc} |
-| [**delete8**](ScimApi.md#delete8) | **DELETE** /api/v1/integrations/{integration}/scim/v2/Users/{id} | {@inheritDoc} |
-| [**find33**](ScimApi.md#find33) | **POST** /api/v1/{tenant}/integrations/{integration}/scim/v2/Groups/.search | {@inheritDoc} |
-| [**find34**](ScimApi.md#find34) | **POST** /api/v1/{tenant}/integrations/{integration}/scim/v2/Users/.search | {@inheritDoc} |
-| [**find7**](ScimApi.md#find7) | **POST** /api/v1/integrations/{integration}/scim/v2/Groups/.search | {@inheritDoc} |
-| [**find8**](ScimApi.md#find8) | **POST** /api/v1/integrations/{integration}/scim/v2/Users/.search | {@inheritDoc} |
-| [**getById**](ScimApi.md#getById) | **GET** /api/v1/integrations/{integration}/scim/v2/Groups/{id} | {@inheritDoc} |
-| [**getById1**](ScimApi.md#getById1) | **GET** /api/v1/integrations/{integration}/scim/v2/Users/{id} | {@inheritDoc} |
-| [**getById2**](ScimApi.md#getById2) | **GET** /api/v1/{tenant}/integrations/{integration}/scim/v2/Groups/{id} | {@inheritDoc} |
-| [**getById3**](ScimApi.md#getById3) | **GET** /api/v1/{tenant}/integrations/{integration}/scim/v2/Users/{id} | {@inheritDoc} |
-| [**patch**](ScimApi.md#patch) | **PATCH** /api/v1/integrations/{integration}/scim/v2/Groups/{id} | {@inheritDoc} |
-| [**patch1**](ScimApi.md#patch1) | **PATCH** /api/v1/integrations/{integration}/scim/v2/Users/{id} | {@inheritDoc} |
-| [**patch3**](ScimApi.md#patch3) | **PATCH** /api/v1/{tenant}/integrations/{integration}/scim/v2/Groups/{id} | {@inheritDoc} |
-| [**patch4**](ScimApi.md#patch4) | **PATCH** /api/v1/{tenant}/integrations/{integration}/scim/v2/Users/{id} | {@inheritDoc} |
-| [**query**](ScimApi.md#query) | **GET** /api/v1/integrations/{integration}/scim/v2/Groups | {@inheritDoc} |
-| [**query1**](ScimApi.md#query1) | **GET** /api/v1/integrations/{integration}/scim/v2/Users | {@inheritDoc} |
-| [**query2**](ScimApi.md#query2) | **GET** /api/v1/{tenant}/integrations/{integration}/scim/v2/Groups | {@inheritDoc} |
-| [**query3**](ScimApi.md#query3) | **GET** /api/v1/{tenant}/integrations/{integration}/scim/v2/Users | {@inheritDoc} |
-| [**update23**](ScimApi.md#update23) | **PUT** /api/v1/{tenant}/integrations/{integration}/scim/v2/Groups/{id} | {@inheritDoc} |
-| [**update24**](ScimApi.md#update24) | **PUT** /api/v1/{tenant}/integrations/{integration}/scim/v2/Users/{id} | {@inheritDoc} |
-| [**update5**](ScimApi.md#update5) | **PUT** /api/v1/integrations/{integration}/scim/v2/Groups/{id} | {@inheritDoc} |
-| [**update6**](ScimApi.md#update6) | **PUT** /api/v1/integrations/{integration}/scim/v2/Users/{id} | {@inheritDoc} |
+| [**createSCIMResourceByIdGroups**](ScimApi.md#createSCIMResourceByIdGroups) | **POST** /api/v1/{tenant}/integrations/{integration}/scim/v2/Groups | {@inheritDoc} |
+| [**createSCIMResourceByIdUsers**](ScimApi.md#createSCIMResourceByIdUsers) | **POST** /api/v1/{tenant}/integrations/{integration}/scim/v2/Users | {@inheritDoc} |
+| [**deleteGroups**](ScimApi.md#deleteGroups) | **DELETE** /api/v1/{tenant}/integrations/{integration}/scim/v2/Groups/{id} | {@inheritDoc} |
+| [**deleteUsers**](ScimApi.md#deleteUsers) | **DELETE** /api/v1/{tenant}/integrations/{integration}/scim/v2/Users/{id} | {@inheritDoc} |
+| [**findGroups**](ScimApi.md#findGroups) | **POST** /api/v1/{tenant}/integrations/{integration}/scim/v2/Groups/.search | {@inheritDoc} |
+| [**findUsers**](ScimApi.md#findUsers) | **POST** /api/v1/{tenant}/integrations/{integration}/scim/v2/Users/.search | {@inheritDoc} |
+| [**getSCIMResourceByIdGroups**](ScimApi.md#getSCIMResourceByIdGroups) | **GET** /api/v1/{tenant}/integrations/{integration}/scim/v2/Groups/{id} | {@inheritDoc} |
+| [**getSCIMResourceByIdUsers**](ScimApi.md#getSCIMResourceByIdUsers) | **GET** /api/v1/{tenant}/integrations/{integration}/scim/v2/Users/{id} | {@inheritDoc} |
+| [**patchGroups**](ScimApi.md#patchGroups) | **PATCH** /api/v1/{tenant}/integrations/{integration}/scim/v2/Groups/{id} | {@inheritDoc} |
+| [**patchUsers**](ScimApi.md#patchUsers) | **PATCH** /api/v1/{tenant}/integrations/{integration}/scim/v2/Users/{id} | {@inheritDoc} |
+| [**queryGroups**](ScimApi.md#queryGroups) | **GET** /api/v1/{tenant}/integrations/{integration}/scim/v2/Groups | {@inheritDoc} |
+| [**queryUsers**](ScimApi.md#queryUsers) | **GET** /api/v1/{tenant}/integrations/{integration}/scim/v2/Users | {@inheritDoc} |
+| [**updateGroups**](ScimApi.md#updateGroups) | **PUT** /api/v1/{tenant}/integrations/{integration}/scim/v2/Groups/{id} | {@inheritDoc} |
+| [**updateUsers**](ScimApi.md#updateUsers) | **PUT** /api/v1/{tenant}/integrations/{integration}/scim/v2/Users/{id} | {@inheritDoc} |
 
 
 
-## create32
+## createSCIMResourceByIdGroups
 
-> Object create32(integration, tenant, scimUser, attributes, excludedAttributes)
+> Object createSCIMResourceByIdGroups(integration, tenant, scimUser, attributes, excludedAttributes)
 
 {@inheritDoc}
 
@@ -65,10 +51,10 @@ public class Example {
         String attributes = "attributes_example"; // String | 
         String excludedAttributes = "excludedAttributes_example"; // String | 
         try {
-            Object result = apiInstance.create32(integration, tenant, scimUser, attributes, excludedAttributes);
+            Object result = apiInstance.createSCIMResourceByIdGroups(integration, tenant, scimUser, attributes, excludedAttributes);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#create32");
+            System.err.println("Exception when calling ScimApi#createSCIMResourceByIdGroups");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -99,7 +85,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/scim+json, application/json
+- **Content-Type**: application/scim+json
 - **Accept**: application/scim+json, application/json
 
 
@@ -111,12 +97,12 @@ No authorization required
 | **409** | Conflict |  -  |
 | **500** | Internal Server Error |  -  |
 | **501** | Not Implemented |  -  |
-| **200** | create_32 200 response |  -  |
+| **200** | createSCIMResourceByIdGroups 200 response |  -  |
 
 
-## create33
+## createSCIMResourceByIdUsers
 
-> Object create33(integration, tenant, scimUser, attributes, excludedAttributes)
+> Object createSCIMResourceByIdUsers(integration, tenant, scimUser, attributes, excludedAttributes)
 
 {@inheritDoc}
 
@@ -144,10 +130,10 @@ public class Example {
         String attributes = "attributes_example"; // String | 
         String excludedAttributes = "excludedAttributes_example"; // String | 
         try {
-            Object result = apiInstance.create33(integration, tenant, scimUser, attributes, excludedAttributes);
+            Object result = apiInstance.createSCIMResourceByIdUsers(integration, tenant, scimUser, attributes, excludedAttributes);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#create33");
+            System.err.println("Exception when calling ScimApi#createSCIMResourceByIdUsers");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -178,7 +164,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/scim+json, application/json
+- **Content-Type**: application/scim+json
 - **Accept**: application/scim+json, application/json
 
 
@@ -190,166 +176,12 @@ No authorization required
 | **409** | Conflict |  -  |
 | **500** | Internal Server Error |  -  |
 | **501** | Not Implemented |  -  |
-| **200** | create_33 200 response |  -  |
+| **200** | createSCIMResourceByIdUsers 200 response |  -  |
 
 
-## create7
+## deleteGroups
 
-> Object create7(integration, scimUser, attributes, excludedAttributes)
-
-{@inheritDoc}
-
-Create
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        ScimApi apiInstance = new ScimApi(defaultClient);
-        String integration = "integration_example"; // String | 
-        ScimUser scimUser = new ScimUser(); // ScimUser | 
-        String attributes = "attributes_example"; // String | 
-        String excludedAttributes = "excludedAttributes_example"; // String | 
-        try {
-            Object result = apiInstance.create7(integration, scimUser, attributes, excludedAttributes);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#create7");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **integration** | **String**|  | |
-| **scimUser** | [**ScimUser**](ScimUser.md)|  | |
-| **attributes** | **String**|  | [optional] |
-| **excludedAttributes** | **String**|  | [optional] |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/scim+json, application/json
-- **Accept**: application/scim+json, application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Created |  -  |
-| **400** | Bad Request |  -  |
-| **409** | Conflict |  -  |
-| **500** | Internal Server Error |  -  |
-| **501** | Not Implemented |  -  |
-| **200** | create_7 200 response |  -  |
-
-
-## create8
-
-> Object create8(integration, scimUser, attributes, excludedAttributes)
-
-{@inheritDoc}
-
-Create
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        ScimApi apiInstance = new ScimApi(defaultClient);
-        String integration = "integration_example"; // String | 
-        ScimUser scimUser = new ScimUser(); // ScimUser | 
-        String attributes = "attributes_example"; // String | 
-        String excludedAttributes = "excludedAttributes_example"; // String | 
-        try {
-            Object result = apiInstance.create8(integration, scimUser, attributes, excludedAttributes);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#create8");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **integration** | **String**|  | |
-| **scimUser** | [**ScimUser**](ScimUser.md)|  | |
-| **attributes** | **String**|  | [optional] |
-| **excludedAttributes** | **String**|  | [optional] |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/scim+json, application/json
-- **Accept**: application/scim+json, application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Created |  -  |
-| **400** | Bad Request |  -  |
-| **409** | Conflict |  -  |
-| **500** | Internal Server Error |  -  |
-| **501** | Not Implemented |  -  |
-| **200** | create_8 200 response |  -  |
-
-
-## delete35
-
-> Object delete35(id, integration, tenant)
+> Object deleteGroups(id, integration, tenant)
 
 {@inheritDoc}
 
@@ -375,10 +207,10 @@ public class Example {
         String integration = "integration_example"; // String | 
         String tenant = "tenant_example"; // String | 
         try {
-            Object result = apiInstance.delete35(id, integration, tenant);
+            Object result = apiInstance.deleteGroups(id, integration, tenant);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#delete35");
+            System.err.println("Exception when calling ScimApi#deleteGroups");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -419,12 +251,12 @@ No authorization required
 | **404** | Not found |  -  |
 | **500** | Internal Server Error |  -  |
 | **501** | Not Implemented |  -  |
-| **200** | delete_35 200 response |  -  |
+| **200** | deleteGroups 200 response |  -  |
 
 
-## delete36
+## deleteUsers
 
-> Object delete36(id, integration, tenant)
+> Object deleteUsers(id, integration, tenant)
 
 {@inheritDoc}
 
@@ -450,10 +282,10 @@ public class Example {
         String integration = "integration_example"; // String | 
         String tenant = "tenant_example"; // String | 
         try {
-            Object result = apiInstance.delete36(id, integration, tenant);
+            Object result = apiInstance.deleteUsers(id, integration, tenant);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#delete36");
+            System.err.println("Exception when calling ScimApi#deleteUsers");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -494,158 +326,12 @@ No authorization required
 | **404** | Not found |  -  |
 | **500** | Internal Server Error |  -  |
 | **501** | Not Implemented |  -  |
-| **200** | delete_36 200 response |  -  |
+| **200** | deleteUsers 200 response |  -  |
 
 
-## delete7
+## findGroups
 
-> Object delete7(id, integration)
-
-{@inheritDoc}
-
-Delete from the backing store
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        ScimApi apiInstance = new ScimApi(defaultClient);
-        String id = "id_example"; // String | 
-        String integration = "integration_example"; // String | 
-        try {
-            Object result = apiInstance.delete7(id, integration);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#delete7");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**|  | |
-| **integration** | **String**|  | |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/scim+json, application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | No Content |  -  |
-| **400** | Bad Request |  -  |
-| **404** | Not found |  -  |
-| **500** | Internal Server Error |  -  |
-| **501** | Not Implemented |  -  |
-| **200** | delete_7 200 response |  -  |
-
-
-## delete8
-
-> Object delete8(id, integration)
-
-{@inheritDoc}
-
-Delete from the backing store
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        ScimApi apiInstance = new ScimApi(defaultClient);
-        String id = "id_example"; // String | 
-        String integration = "integration_example"; // String | 
-        try {
-            Object result = apiInstance.delete8(id, integration);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#delete8");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**|  | |
-| **integration** | **String**|  | |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/scim+json, application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | No Content |  -  |
-| **400** | Bad Request |  -  |
-| **404** | Not found |  -  |
-| **500** | Internal Server Error |  -  |
-| **501** | Not Implemented |  -  |
-| **200** | delete_8 200 response |  -  |
-
-
-## find33
-
-> ScimResource find33(integration, tenant, searchRequest)
+> ScimResource findGroups(integration, tenant, searchRequest)
 
 {@inheritDoc}
 
@@ -671,10 +357,10 @@ public class Example {
         String tenant = "tenant_example"; // String | 
         SearchRequest searchRequest = new SearchRequest(); // SearchRequest | 
         try {
-            ScimResource result = apiInstance.find33(integration, tenant, searchRequest);
+            ScimResource result = apiInstance.findGroups(integration, tenant, searchRequest);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#find33");
+            System.err.println("Exception when calling ScimApi#findGroups");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -703,7 +389,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/scim+json, application/json
+- **Content-Type**: application/scim+json
 - **Accept**: application/scim+json
 
 
@@ -716,9 +402,9 @@ No authorization required
 | **200** | OK response |  -  |
 
 
-## find34
+## findUsers
 
-> ScimResource find34(integration, tenant, searchRequest)
+> ScimResource findUsers(integration, tenant, searchRequest)
 
 {@inheritDoc}
 
@@ -744,10 +430,10 @@ public class Example {
         String tenant = "tenant_example"; // String | 
         SearchRequest searchRequest = new SearchRequest(); // SearchRequest | 
         try {
-            ScimResource result = apiInstance.find34(integration, tenant, searchRequest);
+            ScimResource result = apiInstance.findUsers(integration, tenant, searchRequest);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#find34");
+            System.err.println("Exception when calling ScimApi#findUsers");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -776,7 +462,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/scim+json, application/json
+- **Content-Type**: application/scim+json
 - **Accept**: application/scim+json
 
 
@@ -789,303 +475,9 @@ No authorization required
 | **200** | OK response |  -  |
 
 
-## find7
+## getSCIMResourceByIdGroups
 
-> ScimResource find7(integration, searchRequest)
-
-{@inheritDoc}
-
-Search
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        ScimApi apiInstance = new ScimApi(defaultClient);
-        String integration = "integration_example"; // String | 
-        SearchRequest searchRequest = new SearchRequest(); // SearchRequest | 
-        try {
-            ScimResource result = apiInstance.find7(integration, searchRequest);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#find7");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **integration** | **String**|  | |
-| **searchRequest** | [**SearchRequest**](SearchRequest.md)|  | |
-
-### Return type
-
-[**ScimResource**](ScimResource.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/scim+json, application/json
-- **Accept**: application/scim+json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
-| **500** | Internal Server Error |  -  |
-| **501** | Not Implemented |  -  |
-| **200** | OK response |  -  |
-
-
-## find8
-
-> ScimResource find8(integration, searchRequest)
-
-{@inheritDoc}
-
-Search
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        ScimApi apiInstance = new ScimApi(defaultClient);
-        String integration = "integration_example"; // String | 
-        SearchRequest searchRequest = new SearchRequest(); // SearchRequest | 
-        try {
-            ScimResource result = apiInstance.find8(integration, searchRequest);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#find8");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **integration** | **String**|  | |
-| **searchRequest** | [**SearchRequest**](SearchRequest.md)|  | |
-
-### Return type
-
-[**ScimResource**](ScimResource.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/scim+json, application/json
-- **Accept**: application/scim+json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
-| **500** | Internal Server Error |  -  |
-| **501** | Not Implemented |  -  |
-| **200** | OK response |  -  |
-
-
-## getById
-
-> ScimResource getById(id, integration, attributes, excludedAttributes)
-
-{@inheritDoc}
-
-Find by id
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        ScimApi apiInstance = new ScimApi(defaultClient);
-        String id = "id_example"; // String | 
-        String integration = "integration_example"; // String | 
-        String attributes = "attributes_example"; // String | 
-        String excludedAttributes = "excludedAttributes_example"; // String | 
-        try {
-            ScimResource result = apiInstance.getById(id, integration, attributes, excludedAttributes);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#getById");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**|  | |
-| **integration** | **String**|  | |
-| **attributes** | **String**|  | [optional] |
-| **excludedAttributes** | **String**|  | [optional] |
-
-### Return type
-
-[**ScimResource**](ScimResource.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/scim+json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
-| **404** | Not found |  -  |
-| **500** | Internal Server Error |  -  |
-| **501** | Not Implemented |  -  |
-| **200** | OK response |  -  |
-
-
-## getById1
-
-> ScimResource getById1(id, integration, attributes, excludedAttributes)
-
-{@inheritDoc}
-
-Find by id
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        ScimApi apiInstance = new ScimApi(defaultClient);
-        String id = "id_example"; // String | 
-        String integration = "integration_example"; // String | 
-        String attributes = "attributes_example"; // String | 
-        String excludedAttributes = "excludedAttributes_example"; // String | 
-        try {
-            ScimResource result = apiInstance.getById1(id, integration, attributes, excludedAttributes);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#getById1");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**|  | |
-| **integration** | **String**|  | |
-| **attributes** | **String**|  | [optional] |
-| **excludedAttributes** | **String**|  | [optional] |
-
-### Return type
-
-[**ScimResource**](ScimResource.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/scim+json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
-| **404** | Not found |  -  |
-| **500** | Internal Server Error |  -  |
-| **501** | Not Implemented |  -  |
-| **200** | OK response |  -  |
-
-
-## getById2
-
-> ScimResource getById2(id, integration, tenant, attributes, excludedAttributes)
+> ScimResource getSCIMResourceByIdGroups(id, integration, tenant, attributes, excludedAttributes)
 
 {@inheritDoc}
 
@@ -1113,10 +505,10 @@ public class Example {
         String attributes = "attributes_example"; // String | 
         String excludedAttributes = "excludedAttributes_example"; // String | 
         try {
-            ScimResource result = apiInstance.getById2(id, integration, tenant, attributes, excludedAttributes);
+            ScimResource result = apiInstance.getSCIMResourceByIdGroups(id, integration, tenant, attributes, excludedAttributes);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#getById2");
+            System.err.println("Exception when calling ScimApi#getSCIMResourceByIdGroups");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1161,9 +553,9 @@ No authorization required
 | **200** | OK response |  -  |
 
 
-## getById3
+## getSCIMResourceByIdUsers
 
-> ScimResource getById3(id, integration, tenant, attributes, excludedAttributes)
+> ScimResource getSCIMResourceByIdUsers(id, integration, tenant, attributes, excludedAttributes)
 
 {@inheritDoc}
 
@@ -1191,10 +583,10 @@ public class Example {
         String attributes = "attributes_example"; // String | 
         String excludedAttributes = "excludedAttributes_example"; // String | 
         try {
-            ScimResource result = apiInstance.getById3(id, integration, tenant, attributes, excludedAttributes);
+            ScimResource result = apiInstance.getSCIMResourceByIdUsers(id, integration, tenant, attributes, excludedAttributes);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#getById3");
+            System.err.println("Exception when calling ScimApi#getSCIMResourceByIdUsers");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1239,167 +631,9 @@ No authorization required
 | **200** | OK response |  -  |
 
 
-## patch
+## patchGroups
 
-> Object patch(id, integration, patchRequest, attributes, excludedAttributes)
-
-{@inheritDoc}
-
-Patch a portion of the backing store
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        ScimApi apiInstance = new ScimApi(defaultClient);
-        String id = "id_example"; // String | 
-        String integration = "integration_example"; // String | 
-        PatchRequest patchRequest = new PatchRequest(); // PatchRequest | 
-        String attributes = "attributes_example"; // String | 
-        String excludedAttributes = "excludedAttributes_example"; // String | 
-        try {
-            Object result = apiInstance.patch(id, integration, patchRequest, attributes, excludedAttributes);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#patch");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**|  | |
-| **integration** | **String**|  | |
-| **patchRequest** | [**PatchRequest**](PatchRequest.md)|  | |
-| **attributes** | **String**|  | [optional] |
-| **excludedAttributes** | **String**|  | [optional] |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/scim+json, application/json
-- **Accept**: application/scim+json, application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | No Content |  -  |
-| **400** | Bad Request |  -  |
-| **404** | Not found |  -  |
-| **500** | Internal Server Error |  -  |
-| **501** | Not Implemented |  -  |
-| **200** | patch 200 response |  -  |
-
-
-## patch1
-
-> Object patch1(id, integration, patchRequest, attributes, excludedAttributes)
-
-{@inheritDoc}
-
-Patch a portion of the backing store
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        ScimApi apiInstance = new ScimApi(defaultClient);
-        String id = "id_example"; // String | 
-        String integration = "integration_example"; // String | 
-        PatchRequest patchRequest = new PatchRequest(); // PatchRequest | 
-        String attributes = "attributes_example"; // String | 
-        String excludedAttributes = "excludedAttributes_example"; // String | 
-        try {
-            Object result = apiInstance.patch1(id, integration, patchRequest, attributes, excludedAttributes);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#patch1");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**|  | |
-| **integration** | **String**|  | |
-| **patchRequest** | [**PatchRequest**](PatchRequest.md)|  | |
-| **attributes** | **String**|  | [optional] |
-| **excludedAttributes** | **String**|  | [optional] |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/scim+json, application/json
-- **Accept**: application/scim+json, application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | No Content |  -  |
-| **400** | Bad Request |  -  |
-| **404** | Not found |  -  |
-| **500** | Internal Server Error |  -  |
-| **501** | Not Implemented |  -  |
-| **200** | patch_1 200 response |  -  |
-
-
-## patch3
-
-> Object patch3(id, integration, tenant, patchRequest, attributes, excludedAttributes)
+> Object patchGroups(id, integration, tenant, patchRequest, attributes, excludedAttributes)
 
 {@inheritDoc}
 
@@ -1428,10 +662,10 @@ public class Example {
         String attributes = "attributes_example"; // String | 
         String excludedAttributes = "excludedAttributes_example"; // String | 
         try {
-            Object result = apiInstance.patch3(id, integration, tenant, patchRequest, attributes, excludedAttributes);
+            Object result = apiInstance.patchGroups(id, integration, tenant, patchRequest, attributes, excludedAttributes);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#patch3");
+            System.err.println("Exception when calling ScimApi#patchGroups");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1463,7 +697,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/scim+json, application/json
+- **Content-Type**: application/scim+json
 - **Accept**: application/scim+json, application/json
 
 
@@ -1475,12 +709,12 @@ No authorization required
 | **404** | Not found |  -  |
 | **500** | Internal Server Error |  -  |
 | **501** | Not Implemented |  -  |
-| **200** | patch_3 200 response |  -  |
+| **200** | patchGroups 200 response |  -  |
 
 
-## patch4
+## patchUsers
 
-> Object patch4(id, integration, tenant, patchRequest, attributes, excludedAttributes)
+> Object patchUsers(id, integration, tenant, patchRequest, attributes, excludedAttributes)
 
 {@inheritDoc}
 
@@ -1509,10 +743,10 @@ public class Example {
         String attributes = "attributes_example"; // String | 
         String excludedAttributes = "excludedAttributes_example"; // String | 
         try {
-            Object result = apiInstance.patch4(id, integration, tenant, patchRequest, attributes, excludedAttributes);
+            Object result = apiInstance.patchUsers(id, integration, tenant, patchRequest, attributes, excludedAttributes);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#patch4");
+            System.err.println("Exception when calling ScimApi#patchUsers");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1544,7 +778,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/scim+json, application/json
+- **Content-Type**: application/scim+json
 - **Accept**: application/scim+json, application/json
 
 
@@ -1556,180 +790,12 @@ No authorization required
 | **404** | Not found |  -  |
 | **500** | Internal Server Error |  -  |
 | **501** | Not Implemented |  -  |
-| **200** | patch_4 200 response |  -  |
+| **200** | patchUsers 200 response |  -  |
 
 
-## query
+## queryGroups
 
-> ScimResource query(integration, attributes, excludedAttributes, filter, sortBy, sortOrder, startIndex, count)
-
-{@inheritDoc}
-
-Find by a combination of query parameters
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        ScimApi apiInstance = new ScimApi(defaultClient);
-        String integration = "integration_example"; // String | 
-        String attributes = "attributes_example"; // String | 
-        String excludedAttributes = "excludedAttributes_example"; // String | 
-        String filter = "filter_example"; // String | 
-        String sortBy = "sortBy_example"; // String | 
-        SortOrder sortOrder = SortOrder.fromValue("ASCENDING"); // SortOrder | 
-        Integer startIndex = 56; // Integer | 
-        Integer count = 56; // Integer | 
-        try {
-            ScimResource result = apiInstance.query(integration, attributes, excludedAttributes, filter, sortBy, sortOrder, startIndex, count);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#query");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **integration** | **String**|  | |
-| **attributes** | **String**|  | [optional] |
-| **excludedAttributes** | **String**|  | [optional] |
-| **filter** | **String**|  | [optional] |
-| **sortBy** | **String**|  | [optional] |
-| **sortOrder** | [**SortOrder**](.md)|  | [optional] [enum: ASCENDING, DESCENDING] |
-| **startIndex** | **Integer**|  | [optional] |
-| **count** | **Integer**|  | [optional] |
-
-### Return type
-
-[**ScimResource**](ScimResource.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/scim+json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
-| **404** | Not found |  -  |
-| **500** | Internal Server Error |  -  |
-| **501** | Not Implemented |  -  |
-| **200** | OK response |  -  |
-
-
-## query1
-
-> ScimResource query1(integration, attributes, excludedAttributes, filter, sortBy, sortOrder, startIndex, count)
-
-{@inheritDoc}
-
-Find by a combination of query parameters
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        ScimApi apiInstance = new ScimApi(defaultClient);
-        String integration = "integration_example"; // String | 
-        String attributes = "attributes_example"; // String | 
-        String excludedAttributes = "excludedAttributes_example"; // String | 
-        String filter = "filter_example"; // String | 
-        String sortBy = "sortBy_example"; // String | 
-        SortOrder sortOrder = SortOrder.fromValue("ASCENDING"); // SortOrder | 
-        Integer startIndex = 56; // Integer | 
-        Integer count = 56; // Integer | 
-        try {
-            ScimResource result = apiInstance.query1(integration, attributes, excludedAttributes, filter, sortBy, sortOrder, startIndex, count);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#query1");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **integration** | **String**|  | |
-| **attributes** | **String**|  | [optional] |
-| **excludedAttributes** | **String**|  | [optional] |
-| **filter** | **String**|  | [optional] |
-| **sortBy** | **String**|  | [optional] |
-| **sortOrder** | [**SortOrder**](.md)|  | [optional] [enum: ASCENDING, DESCENDING] |
-| **startIndex** | **Integer**|  | [optional] |
-| **count** | **Integer**|  | [optional] |
-
-### Return type
-
-[**ScimResource**](ScimResource.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/scim+json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
-| **404** | Not found |  -  |
-| **500** | Internal Server Error |  -  |
-| **501** | Not Implemented |  -  |
-| **200** | OK response |  -  |
-
-
-## query2
-
-> ScimResource query2(integration, tenant, attributes, excludedAttributes, filter, sortBy, sortOrder, startIndex, count)
+> ScimResource queryGroups(integration, tenant, attributes, excludedAttributes, filter, sortBy, sortOrder, startIndex, count)
 
 {@inheritDoc}
 
@@ -1761,10 +827,10 @@ public class Example {
         Integer startIndex = 56; // Integer | 
         Integer count = 56; // Integer | 
         try {
-            ScimResource result = apiInstance.query2(integration, tenant, attributes, excludedAttributes, filter, sortBy, sortOrder, startIndex, count);
+            ScimResource result = apiInstance.queryGroups(integration, tenant, attributes, excludedAttributes, filter, sortBy, sortOrder, startIndex, count);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#query2");
+            System.err.println("Exception when calling ScimApi#queryGroups");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1813,9 +879,9 @@ No authorization required
 | **200** | OK response |  -  |
 
 
-## query3
+## queryUsers
 
-> ScimResource query3(integration, tenant, attributes, excludedAttributes, filter, sortBy, sortOrder, startIndex, count)
+> ScimResource queryUsers(integration, tenant, attributes, excludedAttributes, filter, sortBy, sortOrder, startIndex, count)
 
 {@inheritDoc}
 
@@ -1847,10 +913,10 @@ public class Example {
         Integer startIndex = 56; // Integer | 
         Integer count = 56; // Integer | 
         try {
-            ScimResource result = apiInstance.query3(integration, tenant, attributes, excludedAttributes, filter, sortBy, sortOrder, startIndex, count);
+            ScimResource result = apiInstance.queryUsers(integration, tenant, attributes, excludedAttributes, filter, sortBy, sortOrder, startIndex, count);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#query3");
+            System.err.println("Exception when calling ScimApi#queryUsers");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1899,9 +965,9 @@ No authorization required
 | **200** | OK response |  -  |
 
 
-## update23
+## updateGroups
 
-> ScimResource update23(id, integration, tenant, scimResource, attributes, excludedAttributes)
+> ScimResource updateGroups(id, integration, tenant, scimResource, attributes, excludedAttributes)
 
 {@inheritDoc}
 
@@ -1930,10 +996,10 @@ public class Example {
         String attributes = "attributes_example"; // String | 
         String excludedAttributes = "excludedAttributes_example"; // String | 
         try {
-            ScimResource result = apiInstance.update23(id, integration, tenant, scimResource, attributes, excludedAttributes);
+            ScimResource result = apiInstance.updateGroups(id, integration, tenant, scimResource, attributes, excludedAttributes);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#update23");
+            System.err.println("Exception when calling ScimApi#updateGroups");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1965,7 +1031,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/scim+json, application/json
+- **Content-Type**: application/scim+json
 - **Accept**: application/scim+json
 
 
@@ -1978,9 +1044,9 @@ No authorization required
 | **200** | OK response |  -  |
 
 
-## update24
+## updateUsers
 
-> ScimResource update24(id, integration, tenant, scimResource, attributes, excludedAttributes)
+> ScimResource updateUsers(id, integration, tenant, scimResource, attributes, excludedAttributes)
 
 {@inheritDoc}
 
@@ -2009,10 +1075,10 @@ public class Example {
         String attributes = "attributes_example"; // String | 
         String excludedAttributes = "excludedAttributes_example"; // String | 
         try {
-            ScimResource result = apiInstance.update24(id, integration, tenant, scimResource, attributes, excludedAttributes);
+            ScimResource result = apiInstance.updateUsers(id, integration, tenant, scimResource, attributes, excludedAttributes);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#update24");
+            System.err.println("Exception when calling ScimApi#updateUsers");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2044,161 +1110,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/scim+json, application/json
-- **Accept**: application/scim+json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
-| **500** | Internal Server Error |  -  |
-| **501** | Not Implemented |  -  |
-| **200** | OK response |  -  |
-
-
-## update5
-
-> ScimResource update5(id, integration, scimResource, attributes, excludedAttributes)
-
-{@inheritDoc}
-
-Update
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        ScimApi apiInstance = new ScimApi(defaultClient);
-        String id = "id_example"; // String | 
-        String integration = "integration_example"; // String | 
-        ScimResource scimResource = new ScimResource(); // ScimResource | 
-        String attributes = "attributes_example"; // String | 
-        String excludedAttributes = "excludedAttributes_example"; // String | 
-        try {
-            ScimResource result = apiInstance.update5(id, integration, scimResource, attributes, excludedAttributes);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#update5");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**|  | |
-| **integration** | **String**|  | |
-| **scimResource** | [**ScimResource**](ScimResource.md)|  | |
-| **attributes** | **String**|  | [optional] |
-| **excludedAttributes** | **String**|  | [optional] |
-
-### Return type
-
-[**ScimResource**](ScimResource.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/scim+json, application/json
-- **Accept**: application/scim+json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **400** | Bad Request |  -  |
-| **500** | Internal Server Error |  -  |
-| **501** | Not Implemented |  -  |
-| **200** | OK response |  -  |
-
-
-## update6
-
-> ScimResource update6(id, integration, scimResource, attributes, excludedAttributes)
-
-{@inheritDoc}
-
-Update
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        ScimApi apiInstance = new ScimApi(defaultClient);
-        String id = "id_example"; // String | 
-        String integration = "integration_example"; // String | 
-        ScimResource scimResource = new ScimResource(); // ScimResource | 
-        String attributes = "attributes_example"; // String | 
-        String excludedAttributes = "excludedAttributes_example"; // String | 
-        try {
-            ScimResource result = apiInstance.update6(id, integration, scimResource, attributes, excludedAttributes);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ScimApi#update6");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**|  | |
-| **integration** | **String**|  | |
-| **scimResource** | [**ScimResource**](ScimResource.md)|  | |
-| **attributes** | **String**|  | [optional] |
-| **excludedAttributes** | **String**|  | [optional] |
-
-### Return type
-
-[**ScimResource**](ScimResource.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/scim+json, application/json
+- **Content-Type**: application/scim+json
 - **Accept**: application/scim+json
 
 

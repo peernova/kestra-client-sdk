@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class InvitationsApi extends BaseApi {
 
   public InvitationsApi() {
@@ -46,169 +46,13 @@ public class InvitationsApi extends BaseApi {
   /**
    * Create an invitation
    * 
-   * @param invitation  (required)
-   * @return Invitation
-   * @throws ApiException if fails to make API call
-   */
-  public Invitation create17(Invitation invitation) throws ApiException {
-    return this.create17(invitation, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create an invitation
-   * 
-   * @param invitation  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Invitation
-   * @throws ApiException if fails to make API call
-   */
-  public Invitation create17(Invitation invitation, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = invitation;
-    
-    // verify the required parameter 'invitation' is set
-    if (invitation == null) {
-      throw new ApiException(400, "Missing the required parameter 'invitation' when calling create17");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/invitations";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Invitation> localVarReturnType = new TypeReference<Invitation>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Create an invitation
-   * 
-   * @param ressourceTenant  (required)
-   * @param invitation  (required)
-   * @return Invitation
-   * @throws ApiException if fails to make API call
-   */
-  public Invitation create22(String ressourceTenant, Invitation invitation) throws ApiException {
-    return this.create22(ressourceTenant, invitation, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create an invitation
-   * 
-   * @param ressourceTenant  (required)
-   * @param invitation  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Invitation
-   * @throws ApiException if fails to make API call
-   */
-  public Invitation create22(String ressourceTenant, Invitation invitation, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = invitation;
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling create22");
-    }
-    
-    // verify the required parameter 'invitation' is set
-    if (invitation == null) {
-      throw new ApiException(400, "Missing the required parameter 'invitation' when calling create22");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/{ressourceTenant}/invitations"
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Invitation> localVarReturnType = new TypeReference<Invitation>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Create an invitation
-   * 
    * @param tenant  (required)
-   * @param invitation  (required)
+   * @param invitation Create a new invitation, send an email if the server-mail is enabled (required)
    * @return Invitation
    * @throws ApiException if fails to make API call
    */
-  public Invitation create34(String tenant, Invitation invitation) throws ApiException {
-    return this.create34(tenant, invitation, Collections.emptyMap());
+  public Invitation createInvitation(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Invitation invitation) throws ApiException {
+    return this.createInvitation(tenant, invitation, Collections.emptyMap());
   }
 
 
@@ -216,22 +60,22 @@ public class InvitationsApi extends BaseApi {
    * Create an invitation
    * 
    * @param tenant  (required)
-   * @param invitation  (required)
+   * @param invitation Create a new invitation, send an email if the server-mail is enabled (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Invitation
    * @throws ApiException if fails to make API call
    */
-  public Invitation create34(String tenant, Invitation invitation, Map<String, String> additionalHeaders) throws ApiException {
+  public Invitation createInvitation(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Invitation invitation, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = invitation;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling create34");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling createInvitation");
     }
     
     // verify the required parameter 'invitation' is set
     if (invitation == null) {
-      throw new ApiException(400, "Missing the required parameter 'invitation' when calling create34");
+      throw new ApiException(400, "Missing the required parameter 'invitation' when calling createInvitation");
     }
     
     // create path and map variables
@@ -261,7 +105,7 @@ public class InvitationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Invitation> localVarReturnType = new TypeReference<Invitation>() {};
     return apiClient.invokeAPI(
@@ -284,41 +128,41 @@ public class InvitationsApi extends BaseApi {
   /**
    * Create an invitation
    * 
-   * @param tenant  (required)
-   * @param invitation  (required)
+   * @param resourceTenant  (required)
+   * @param invitation Create a new invitation, send an email if the server-mail is enabled (required)
    * @return Invitation
    * @throws ApiException if fails to make API call
    */
-  public Invitation create42(String tenant, Invitation invitation) throws ApiException {
-    return this.create42(tenant, invitation, Collections.emptyMap());
+  public Invitation createInvitationWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nonnull Invitation invitation) throws ApiException {
+    return this.createInvitationWithResourceTenantasSuperAdmin(resourceTenant, invitation, Collections.emptyMap());
   }
 
 
   /**
    * Create an invitation
    * 
-   * @param tenant  (required)
-   * @param invitation  (required)
+   * @param resourceTenant  (required)
+   * @param invitation Create a new invitation, send an email if the server-mail is enabled (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Invitation
    * @throws ApiException if fails to make API call
    */
-  public Invitation create42(String tenant, Invitation invitation, Map<String, String> additionalHeaders) throws ApiException {
+  public Invitation createInvitationWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nonnull Invitation invitation, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = invitation;
     
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling create42");
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling createInvitationWithResourceTenantasSuperAdmin");
     }
     
     // verify the required parameter 'invitation' is set
     if (invitation == null) {
-      throw new ApiException(400, "Missing the required parameter 'invitation' when calling create42");
+      throw new ApiException(400, "Missing the required parameter 'invitation' when calling createInvitationWithResourceTenantasSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/invitations"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/invitations"
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -343,7 +187,7 @@ public class InvitationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Invitation> localVarReturnType = new TypeReference<Invitation>() {};
     return apiClient.invokeAPI(
@@ -366,123 +210,33 @@ public class InvitationsApi extends BaseApi {
   /**
    * Create an invitation
    * 
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param invitation  (required)
+   * @param invitation Create a new invitation, send an email if the server-mail is enabled (required)
    * @return Invitation
    * @throws ApiException if fails to make API call
    */
-  public Invitation create47(String ressourceTenant, String tenant, Invitation invitation) throws ApiException {
-    return this.create47(ressourceTenant, tenant, invitation, Collections.emptyMap());
+  public Invitation createInvitationasSuperAdmin(@javax.annotation.Nonnull Invitation invitation) throws ApiException {
+    return this.createInvitationasSuperAdmin(invitation, Collections.emptyMap());
   }
 
 
   /**
    * Create an invitation
    * 
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param invitation  (required)
+   * @param invitation Create a new invitation, send an email if the server-mail is enabled (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Invitation
    * @throws ApiException if fails to make API call
    */
-  public Invitation create47(String ressourceTenant, String tenant, Invitation invitation, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = invitation;
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling create47");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling create47");
-    }
-    
-    // verify the required parameter 'invitation' is set
-    if (invitation == null) {
-      throw new ApiException(400, "Missing the required parameter 'invitation' when calling create47");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{ressourceTenant}/invitations"
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Invitation> localVarReturnType = new TypeReference<Invitation>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Create an invitation
-   * 
-   * @param invitation  (required)
-   * @return Invitation
-   * @throws ApiException if fails to make API call
-   */
-  public Invitation create9(Invitation invitation) throws ApiException {
-    return this.create9(invitation, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create an invitation
-   * 
-   * @param invitation  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Invitation
-   * @throws ApiException if fails to make API call
-   */
-  public Invitation create9(Invitation invitation, Map<String, String> additionalHeaders) throws ApiException {
+  public Invitation createInvitationasSuperAdmin(@javax.annotation.Nonnull Invitation invitation, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = invitation;
     
     // verify the required parameter 'invitation' is set
     if (invitation == null) {
-      throw new ApiException(400, "Missing the required parameter 'invitation' when calling create9");
+      throw new ApiException(400, "Missing the required parameter 'invitation' when calling createInvitationasSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/invitations";
+    String localVarPath = "/api/v1/tenants/invitations";
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -507,7 +261,7 @@ public class InvitationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Invitation> localVarReturnType = new TypeReference<Invitation>() {};
     return apiClient.invokeAPI(
@@ -531,163 +285,11 @@ public class InvitationsApi extends BaseApi {
    * Delete an invitation
    * 
    * @param id The id of the invitation (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void delete19(String id) throws ApiException {
-    this.delete19(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete an invitation
-   * 
-   * @param id The id of the invitation (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void delete19(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete19");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/invitations/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Delete an invitation
-   * 
-   * @param id The id of the invitation (required)
-   * @param ressourceTenant  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void delete25(String id, String ressourceTenant) throws ApiException {
-    this.delete25(id, ressourceTenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete an invitation
-   * 
-   * @param id The id of the invitation (required)
-   * @param ressourceTenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void delete25(String id, String ressourceTenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete25");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling delete25");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/{ressourceTenant}/invitations/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Delete an invitation
-   * 
-   * @param id The id of the invitation (required)
    * @param tenant  (required)
    * @throws ApiException if fails to make API call
    */
-  public void delete37(String id, String tenant) throws ApiException {
-    this.delete37(id, tenant, Collections.emptyMap());
+  public void deleteInvitation(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    this.deleteInvitation(id, tenant, Collections.emptyMap());
   }
 
 
@@ -699,17 +301,17 @@ public class InvitationsApi extends BaseApi {
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void delete37(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteInvitation(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete37");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteInvitation");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling delete37");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteInvitation");
     }
     
     // create path and map variables
@@ -740,7 +342,7 @@ public class InvitationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -763,11 +365,11 @@ public class InvitationsApi extends BaseApi {
    * Delete an invitation
    * 
    * @param id The id of the invitation (required)
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
    * @throws ApiException if fails to make API call
    */
-  public void delete47(String id, String tenant) throws ApiException {
-    this.delete47(id, tenant, Collections.emptyMap());
+  public void deleteInvitationWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String resourceTenant) throws ApiException {
+    this.deleteInvitationWithResourceTenantasSuperAdmin(id, resourceTenant, Collections.emptyMap());
   }
 
 
@@ -775,27 +377,27 @@ public class InvitationsApi extends BaseApi {
    * Delete an invitation
    * 
    * @param id The id of the invitation (required)
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void delete47(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteInvitationWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String resourceTenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete47");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteInvitationWithResourceTenantasSuperAdmin");
     }
     
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling delete47");
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling deleteInvitationWithResourceTenantasSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/invitations/{id}"
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/invitations/{id}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -820,95 +422,7 @@ public class InvitationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Delete an invitation
-   * 
-   * @param id The id of the invitation (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void delete53(String id, String ressourceTenant, String tenant) throws ApiException {
-    this.delete53(id, ressourceTenant, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete an invitation
-   * 
-   * @param id The id of the invitation (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void delete53(String id, String ressourceTenant, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete53");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling delete53");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling delete53");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{ressourceTenant}/invitations/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -933,8 +447,8 @@ public class InvitationsApi extends BaseApi {
    * @param id The id of the invitation (required)
    * @throws ApiException if fails to make API call
    */
-  public void delete9(String id) throws ApiException {
-    this.delete9(id, Collections.emptyMap());
+  public void deleteInvitationasSuperAdmin(@javax.annotation.Nonnull String id) throws ApiException {
+    this.deleteInvitationasSuperAdmin(id, Collections.emptyMap());
   }
 
 
@@ -945,16 +459,16 @@ public class InvitationsApi extends BaseApi {
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void delete9(String id, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteInvitationasSuperAdmin(@javax.annotation.Nonnull String id, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete9");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteInvitationasSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/invitations/{id}"
+    String localVarPath = "/api/v1/tenants/invitations/{id}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
@@ -980,7 +494,7 @@ public class InvitationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -1000,48 +514,36 @@ public class InvitationsApi extends BaseApi {
   }
 
   /**
-   * Search for invitations
+   * Get all invitations for a given email
    * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param email The email address of the invited (optional)
-   * @param status The current status of the invitations (optional)
-   * @param sort The sort of current page (optional)
-   * @return PagedResultsInvitation
+   * @param tenant  (required)
+   * @return List&lt;Invitation&gt;
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsInvitation find16(Integer page, Integer size, String email, InvitationInvitationStatus status, List<String> sort) throws ApiException {
-    return this.find16(page, size, email, status, sort, Collections.emptyMap());
+  public List<Invitation> findAllInvitationsForCurrentUser(@javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.findAllInvitationsForCurrentUser(tenant, Collections.emptyMap());
   }
 
 
   /**
-   * Search for invitations
+   * Get all invitations for a given email
    * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param email The email address of the invited (optional)
-   * @param status The current status of the invitations (optional)
-   * @param sort The sort of current page (optional)
+   * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsInvitation
+   * @return List&lt;Invitation&gt;
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsInvitation find16(Integer page, Integer size, String email, InvitationInvitationStatus status, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
+  public List<Invitation> findAllInvitationsForCurrentUser(@javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find16");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find16");
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling findAllInvitationsForCurrentUser");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/tenants/invitations/search";
+    String localVarPath = "/api/v1/{tenant}/me/invitations"
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1051,11 +553,6 @@ public class InvitationsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("email", email));
-    localVarQueryParams.addAll(apiClient.parameterToPair("status", status));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
     
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -1071,9 +568,9 @@ public class InvitationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<PagedResultsInvitation> localVarReturnType = new TypeReference<PagedResultsInvitation>() {};
+    TypeReference<List<Invitation>> localVarReturnType = new TypeReference<List<Invitation>>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -1092,151 +589,533 @@ public class InvitationsApi extends BaseApi {
   }
 
   /**
-   * Search for invitations
+   * Get an invitation
    * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param ressourceTenant  (required)
-   * @param email The email address of the invited (optional)
-   * @param status The current status of the invitations (optional)
-   * @param sort The sort of current page (optional)
-   * @return PagedResultsInvitation
+   * @param id The id of the invitation (required)
+   * @param tenant  (required)
+   * @return Invitation
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsInvitation find22(Integer page, Integer size, String ressourceTenant, String email, InvitationInvitationStatus status, List<String> sort) throws ApiException {
-    return this.find22(page, size, ressourceTenant, email, status, sort, Collections.emptyMap());
+  public Invitation getInvitation(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getInvitation(id, tenant, Collections.emptyMap());
   }
 
 
   /**
-   * Search for invitations
+   * Get an invitation
    * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param ressourceTenant  (required)
-   * @param email The email address of the invited (optional)
-   * @param status The current status of the invitations (optional)
-   * @param sort The sort of current page (optional)
+   * @param id The id of the invitation (required)
+   * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsInvitation
+   * @return Invitation
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsInvitation find22(Integer page, Integer size, String ressourceTenant, String email, InvitationInvitationStatus status, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
+  public Invitation getInvitation(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find22");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find22");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling find22");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/{ressourceTenant}/invitations/search"
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("email", email));
-    localVarQueryParams.addAll(apiClient.parameterToPair("status", status));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsInvitation> localVarReturnType = new TypeReference<PagedResultsInvitation>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Search for invitations
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param tenant  (required)
-   * @param email The email address of the invited (optional)
-   * @param status The current status of the invitations (optional)
-   * @param sort The sort of current page (optional)
-   * @return PagedResultsInvitation
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsInvitation find35(Integer page, Integer size, String tenant, String email, InvitationInvitationStatus status, List<String> sort) throws ApiException {
-    return this.find35(page, size, tenant, email, status, sort, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for invitations
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param tenant  (required)
-   * @param email The email address of the invited (optional)
-   * @param status The current status of the invitations (optional)
-   * @param sort The sort of current page (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsInvitation
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsInvitation find35(Integer page, Integer size, String tenant, String email, InvitationInvitationStatus status, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find35");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find35");
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getInvitation");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling find35");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getInvitation");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/invitations/{id}"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<Invitation> localVarReturnType = new TypeReference<Invitation>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get an invitation
+   * 
+   * @param id The id of the invitation (required)
+   * @param resourceTenant  (required)
+   * @return Invitation
+   * @throws ApiException if fails to make API call
+   */
+  public Invitation getInvitationWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String resourceTenant) throws ApiException {
+    return this.getInvitationWithResourceTenantasSuperAdmin(id, resourceTenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get an invitation
+   * 
+   * @param id The id of the invitation (required)
+   * @param resourceTenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return Invitation
+   * @throws ApiException if fails to make API call
+   */
+  public Invitation getInvitationWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String resourceTenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getInvitationWithResourceTenantasSuperAdmin");
+    }
+    
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling getInvitationWithResourceTenantasSuperAdmin");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/invitations/{id}"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<Invitation> localVarReturnType = new TypeReference<Invitation>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get an invitation
+   * 
+   * @param id The id of the invitation (required)
+   * @return Invitation
+   * @throws ApiException if fails to make API call
+   */
+  public Invitation getInvitationasSuperAdmin(@javax.annotation.Nonnull String id) throws ApiException {
+    return this.getInvitationasSuperAdmin(id, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get an invitation
+   * 
+   * @param id The id of the invitation (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return Invitation
+   * @throws ApiException if fails to make API call
+   */
+  public Invitation getInvitationasSuperAdmin(@javax.annotation.Nonnull String id, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getInvitationasSuperAdmin");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/tenants/invitations/{id}"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<Invitation> localVarReturnType = new TypeReference<Invitation>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get all invitations for a given email
+   * 
+   * @param email The email address of the invited (required)
+   * @param tenant  (required)
+   * @return List&lt;Invitation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<Invitation> listByEmail(@javax.annotation.Nonnull String email, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.listByEmail(email, tenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get all invitations for a given email
+   * 
+   * @param email The email address of the invited (required)
+   * @param tenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return List&lt;Invitation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<Invitation> listByEmail(@javax.annotation.Nonnull String email, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'email' is set
+    if (email == null) {
+      throw new ApiException(400, "Missing the required parameter 'email' when calling listByEmail");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listByEmail");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/invitations/email/{email}"
+      .replaceAll("\\{" + "email" + "\\}", apiClient.escapeString(apiClient.parameterToString(email)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<List<Invitation>> localVarReturnType = new TypeReference<List<Invitation>>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get all invitations for a given email
+   * 
+   * @param email The email address of the invited (required)
+   * @param resourceTenant  (required)
+   * @return List&lt;Invitation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<Invitation> listByEmailWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String email, @javax.annotation.Nonnull String resourceTenant) throws ApiException {
+    return this.listByEmailWithResourceTenantasSuperAdmin(email, resourceTenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get all invitations for a given email
+   * 
+   * @param email The email address of the invited (required)
+   * @param resourceTenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return List&lt;Invitation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<Invitation> listByEmailWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String email, @javax.annotation.Nonnull String resourceTenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'email' is set
+    if (email == null) {
+      throw new ApiException(400, "Missing the required parameter 'email' when calling listByEmailWithResourceTenantasSuperAdmin");
+    }
+    
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling listByEmailWithResourceTenantasSuperAdmin");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/invitations/email/{email}"
+      .replaceAll("\\{" + "email" + "\\}", apiClient.escapeString(apiClient.parameterToString(email)))
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<List<Invitation>> localVarReturnType = new TypeReference<List<Invitation>>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get all invitations for a given email
+   * 
+   * @param email The email address of the invited (required)
+   * @return List&lt;Invitation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<Invitation> listByEmailasSuperAdmin(@javax.annotation.Nonnull String email) throws ApiException {
+    return this.listByEmailasSuperAdmin(email, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get all invitations for a given email
+   * 
+   * @param email The email address of the invited (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return List&lt;Invitation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<Invitation> listByEmailasSuperAdmin(@javax.annotation.Nonnull String email, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'email' is set
+    if (email == null) {
+      throw new ApiException(400, "Missing the required parameter 'email' when calling listByEmailasSuperAdmin");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/tenants/invitations/email/{email}"
+      .replaceAll("\\{" + "email" + "\\}", apiClient.escapeString(apiClient.parameterToString(email)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<List<Invitation>> localVarReturnType = new TypeReference<List<Invitation>>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Search for invitations
+   * 
+   * @param page The current page (required)
+   * @param size The current page size (required)
+   * @param tenant  (required)
+   * @param email The email address of the invited (optional)
+   * @param status The current status of the invitations (optional)
+   * @param sort The sort of current page (optional)
+   * @return PagedResultsInvitation
+   * @throws ApiException if fails to make API call
+   */
+  public PagedResultsInvitation searchInvitations(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String email, @javax.annotation.Nullable InvitationInvitationStatus status, @javax.annotation.Nullable List<String> sort) throws ApiException {
+    return this.searchInvitations(page, size, tenant, email, status, sort, Collections.emptyMap());
+  }
+
+
+  /**
+   * Search for invitations
+   * 
+   * @param page The current page (required)
+   * @param size The current page size (required)
+   * @param tenant  (required)
+   * @param email The email address of the invited (optional)
+   * @param status The current status of the invitations (optional)
+   * @param sort The sort of current page (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return PagedResultsInvitation
+   * @throws ApiException if fails to make API call
+   */
+  public PagedResultsInvitation searchInvitations(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String email, @javax.annotation.Nullable InvitationInvitationStatus status, @javax.annotation.Nullable List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'page' is set
+    if (page == null) {
+      throw new ApiException(400, "Missing the required parameter 'page' when calling searchInvitations");
+    }
+    
+    // verify the required parameter 'size' is set
+    if (size == null) {
+      throw new ApiException(400, "Missing the required parameter 'size' when calling searchInvitations");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling searchInvitations");
     }
     
     // create path and map variables
@@ -1271,7 +1150,7 @@ public class InvitationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<PagedResultsInvitation> localVarReturnType = new TypeReference<PagedResultsInvitation>() {};
     return apiClient.invokeAPI(
@@ -1296,15 +1175,15 @@ public class InvitationsApi extends BaseApi {
    * 
    * @param page The current page (required)
    * @param size The current page size (required)
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
    * @param email The email address of the invited (optional)
    * @param status The current status of the invitations (optional)
    * @param sort The sort of current page (optional)
    * @return PagedResultsInvitation
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsInvitation find42(Integer page, Integer size, String tenant, String email, InvitationInvitationStatus status, List<String> sort) throws ApiException {
-    return this.find42(page, size, tenant, email, status, sort, Collections.emptyMap());
+  public PagedResultsInvitation searchInvitationsWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nullable String email, @javax.annotation.Nullable InvitationInvitationStatus status, @javax.annotation.Nullable List<String> sort) throws ApiException {
+    return this.searchInvitationsWithResourceTenantasSuperAdmin(page, size, resourceTenant, email, status, sort, Collections.emptyMap());
   }
 
 
@@ -1313,7 +1192,7 @@ public class InvitationsApi extends BaseApi {
    * 
    * @param page The current page (required)
    * @param size The current page size (required)
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
    * @param email The email address of the invited (optional)
    * @param status The current status of the invitations (optional)
    * @param sort The sort of current page (optional)
@@ -1321,27 +1200,27 @@ public class InvitationsApi extends BaseApi {
    * @return PagedResultsInvitation
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsInvitation find42(Integer page, Integer size, String tenant, String email, InvitationInvitationStatus status, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
+  public PagedResultsInvitation searchInvitationsWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nullable String email, @javax.annotation.Nullable InvitationInvitationStatus status, @javax.annotation.Nullable List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'page' is set
     if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find42");
+      throw new ApiException(400, "Missing the required parameter 'page' when calling searchInvitationsWithResourceTenantasSuperAdmin");
     }
     
     // verify the required parameter 'size' is set
     if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find42");
+      throw new ApiException(400, "Missing the required parameter 'size' when calling searchInvitationsWithResourceTenantasSuperAdmin");
     }
     
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling find42");
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling searchInvitationsWithResourceTenantasSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/invitations/search"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/invitations/search"
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1371,7 +1250,7 @@ public class InvitationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<PagedResultsInvitation> localVarReturnType = new TypeReference<PagedResultsInvitation>() {};
     return apiClient.invokeAPI(
@@ -1396,16 +1275,14 @@ public class InvitationsApi extends BaseApi {
    * 
    * @param page The current page (required)
    * @param size The current page size (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
    * @param email The email address of the invited (optional)
    * @param status The current status of the invitations (optional)
    * @param sort The sort of current page (optional)
    * @return PagedResultsInvitation
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsInvitation find48(Integer page, Integer size, String ressourceTenant, String tenant, String email, InvitationInvitationStatus status, List<String> sort) throws ApiException {
-    return this.find48(page, size, ressourceTenant, tenant, email, status, sort, Collections.emptyMap());
+  public PagedResultsInvitation searchInvitationsasSuperAdmin(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nullable String email, @javax.annotation.Nullable InvitationInvitationStatus status, @javax.annotation.Nullable List<String> sort) throws ApiException {
+    return this.searchInvitationsasSuperAdmin(page, size, email, status, sort, Collections.emptyMap());
   }
 
 
@@ -1414,8 +1291,6 @@ public class InvitationsApi extends BaseApi {
    * 
    * @param page The current page (required)
    * @param size The current page size (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
    * @param email The email address of the invited (optional)
    * @param status The current status of the invitations (optional)
    * @param sort The sort of current page (optional)
@@ -1423,33 +1298,21 @@ public class InvitationsApi extends BaseApi {
    * @return PagedResultsInvitation
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsInvitation find48(Integer page, Integer size, String ressourceTenant, String tenant, String email, InvitationInvitationStatus status, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
+  public PagedResultsInvitation searchInvitationsasSuperAdmin(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nullable String email, @javax.annotation.Nullable InvitationInvitationStatus status, @javax.annotation.Nullable List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'page' is set
     if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find48");
+      throw new ApiException(400, "Missing the required parameter 'page' when calling searchInvitationsasSuperAdmin");
     }
     
     // verify the required parameter 'size' is set
     if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find48");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling find48");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling find48");
+      throw new ApiException(400, "Missing the required parameter 'size' when calling searchInvitationsasSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{ressourceTenant}/invitations/search"
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+    String localVarPath = "/api/v1/tenants/invitations/search";
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1479,1223 +1342,9 @@ public class InvitationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<PagedResultsInvitation> localVarReturnType = new TypeReference<PagedResultsInvitation>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Search for invitations
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param email The email address of the invited (optional)
-   * @param status The current status of the invitations (optional)
-   * @param sort The sort of current page (optional)
-   * @return PagedResultsInvitation
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsInvitation find9(Integer page, Integer size, String email, InvitationInvitationStatus status, List<String> sort) throws ApiException {
-    return this.find9(page, size, email, status, sort, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for invitations
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param email The email address of the invited (optional)
-   * @param status The current status of the invitations (optional)
-   * @param sort The sort of current page (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsInvitation
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsInvitation find9(Integer page, Integer size, String email, InvitationInvitationStatus status, List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find9");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find9");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/invitations/search";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("email", email));
-    localVarQueryParams.addAll(apiClient.parameterToPair("status", status));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsInvitation> localVarReturnType = new TypeReference<PagedResultsInvitation>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get all invitations for a given email
-   * 
-   * @param email The email address of the invited (required)
-   * @return List&lt;Invitation&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Invitation> findByEmail(String email) throws ApiException {
-    return this.findByEmail(email, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get all invitations for a given email
-   * 
-   * @param email The email address of the invited (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Invitation&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Invitation> findByEmail(String email, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'email' is set
-    if (email == null) {
-      throw new ApiException(400, "Missing the required parameter 'email' when calling findByEmail");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/invitations/email/{email}"
-      .replaceAll("\\{" + "email" + "\\}", apiClient.escapeString(apiClient.parameterToString(email)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<Invitation>> localVarReturnType = new TypeReference<List<Invitation>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get all invitations for a given email
-   * 
-   * @param email The email address of the invited (required)
-   * @return List&lt;Invitation&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Invitation> findByEmail1(String email) throws ApiException {
-    return this.findByEmail1(email, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get all invitations for a given email
-   * 
-   * @param email The email address of the invited (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Invitation&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Invitation> findByEmail1(String email, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'email' is set
-    if (email == null) {
-      throw new ApiException(400, "Missing the required parameter 'email' when calling findByEmail1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/invitations/email/{email}"
-      .replaceAll("\\{" + "email" + "\\}", apiClient.escapeString(apiClient.parameterToString(email)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<Invitation>> localVarReturnType = new TypeReference<List<Invitation>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get all invitations for a given email
-   * 
-   * @param email The email address of the invited (required)
-   * @param ressourceTenant  (required)
-   * @return List&lt;Invitation&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Invitation> findByEmail2(String email, String ressourceTenant) throws ApiException {
-    return this.findByEmail2(email, ressourceTenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get all invitations for a given email
-   * 
-   * @param email The email address of the invited (required)
-   * @param ressourceTenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Invitation&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Invitation> findByEmail2(String email, String ressourceTenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'email' is set
-    if (email == null) {
-      throw new ApiException(400, "Missing the required parameter 'email' when calling findByEmail2");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling findByEmail2");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/{ressourceTenant}/invitations/email/{email}"
-      .replaceAll("\\{" + "email" + "\\}", apiClient.escapeString(apiClient.parameterToString(email)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<Invitation>> localVarReturnType = new TypeReference<List<Invitation>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get all invitations for a given email
-   * 
-   * @param email The email address of the invited (required)
-   * @param tenant  (required)
-   * @return List&lt;Invitation&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Invitation> findByEmail3(String email, String tenant) throws ApiException {
-    return this.findByEmail3(email, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get all invitations for a given email
-   * 
-   * @param email The email address of the invited (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Invitation&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Invitation> findByEmail3(String email, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'email' is set
-    if (email == null) {
-      throw new ApiException(400, "Missing the required parameter 'email' when calling findByEmail3");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling findByEmail3");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/invitations/email/{email}"
-      .replaceAll("\\{" + "email" + "\\}", apiClient.escapeString(apiClient.parameterToString(email)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<Invitation>> localVarReturnType = new TypeReference<List<Invitation>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get all invitations for a given email
-   * 
-   * @param email The email address of the invited (required)
-   * @param tenant  (required)
-   * @return List&lt;Invitation&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Invitation> findByEmail4(String email, String tenant) throws ApiException {
-    return this.findByEmail4(email, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get all invitations for a given email
-   * 
-   * @param email The email address of the invited (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Invitation&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Invitation> findByEmail4(String email, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'email' is set
-    if (email == null) {
-      throw new ApiException(400, "Missing the required parameter 'email' when calling findByEmail4");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling findByEmail4");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/invitations/email/{email}"
-      .replaceAll("\\{" + "email" + "\\}", apiClient.escapeString(apiClient.parameterToString(email)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<Invitation>> localVarReturnType = new TypeReference<List<Invitation>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get all invitations for a given email
-   * 
-   * @param email The email address of the invited (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @return List&lt;Invitation&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Invitation> findByEmail5(String email, String ressourceTenant, String tenant) throws ApiException {
-    return this.findByEmail5(email, ressourceTenant, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get all invitations for a given email
-   * 
-   * @param email The email address of the invited (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Invitation&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Invitation> findByEmail5(String email, String ressourceTenant, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'email' is set
-    if (email == null) {
-      throw new ApiException(400, "Missing the required parameter 'email' when calling findByEmail5");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling findByEmail5");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling findByEmail5");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{ressourceTenant}/invitations/email/{email}"
-      .replaceAll("\\{" + "email" + "\\}", apiClient.escapeString(apiClient.parameterToString(email)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<Invitation>> localVarReturnType = new TypeReference<List<Invitation>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get all invitations for a given email
-   * 
-   * @return List&lt;Invitation&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Invitation> findByEmailAllTenant() throws ApiException {
-    return this.findByEmailAllTenant(Collections.emptyMap());
-  }
-
-
-  /**
-   * Get all invitations for a given email
-   * 
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Invitation&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Invitation> findByEmailAllTenant(Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/me/invitations";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<Invitation>> localVarReturnType = new TypeReference<List<Invitation>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get all invitations for a given email
-   * 
-   * @param tenant  (required)
-   * @return List&lt;Invitation&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Invitation> findByEmailAllTenant1(String tenant) throws ApiException {
-    return this.findByEmailAllTenant1(tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get all invitations for a given email
-   * 
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Invitation&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Invitation> findByEmailAllTenant1(String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling findByEmailAllTenant1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/me/invitations"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<Invitation>> localVarReturnType = new TypeReference<List<Invitation>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete an invitation
-   * 
-   * @param id The id of the invitation (required)
-   * @param tenant  (required)
-   * @return Invitation
-   * @throws ApiException if fails to make API call
-   */
-  public Invitation get11(String id, String tenant) throws ApiException {
-    return this.get11(id, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete an invitation
-   * 
-   * @param id The id of the invitation (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Invitation
-   * @throws ApiException if fails to make API call
-   */
-  public Invitation get11(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling get11");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling get11");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/invitations/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Invitation> localVarReturnType = new TypeReference<Invitation>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete an invitation
-   * 
-   * @param id The id of the invitation (required)
-   * @param tenant  (required)
-   * @return Invitation
-   * @throws ApiException if fails to make API call
-   */
-  public Invitation get13(String id, String tenant) throws ApiException {
-    return this.get13(id, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete an invitation
-   * 
-   * @param id The id of the invitation (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Invitation
-   * @throws ApiException if fails to make API call
-   */
-  public Invitation get13(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling get13");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling get13");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/invitations/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Invitation> localVarReturnType = new TypeReference<Invitation>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete an invitation
-   * 
-   * @param id The id of the invitation (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @return Invitation
-   * @throws ApiException if fails to make API call
-   */
-  public Invitation get15(String id, String ressourceTenant, String tenant) throws ApiException {
-    return this.get15(id, ressourceTenant, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete an invitation
-   * 
-   * @param id The id of the invitation (required)
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Invitation
-   * @throws ApiException if fails to make API call
-   */
-  public Invitation get15(String id, String ressourceTenant, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling get15");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling get15");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling get15");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{ressourceTenant}/invitations/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Invitation> localVarReturnType = new TypeReference<Invitation>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete an invitation
-   * 
-   * @param id The id of the invitation (required)
-   * @return Invitation
-   * @throws ApiException if fails to make API call
-   */
-  public Invitation get3(String id) throws ApiException {
-    return this.get3(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete an invitation
-   * 
-   * @param id The id of the invitation (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Invitation
-   * @throws ApiException if fails to make API call
-   */
-  public Invitation get3(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling get3");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/invitations/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Invitation> localVarReturnType = new TypeReference<Invitation>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete an invitation
-   * 
-   * @param id The id of the invitation (required)
-   * @return Invitation
-   * @throws ApiException if fails to make API call
-   */
-  public Invitation get5(String id) throws ApiException {
-    return this.get5(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete an invitation
-   * 
-   * @param id The id of the invitation (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Invitation
-   * @throws ApiException if fails to make API call
-   */
-  public Invitation get5(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling get5");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/invitations/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Invitation> localVarReturnType = new TypeReference<Invitation>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete an invitation
-   * 
-   * @param id The id of the invitation (required)
-   * @param ressourceTenant  (required)
-   * @return Invitation
-   * @throws ApiException if fails to make API call
-   */
-  public Invitation get7(String id, String ressourceTenant) throws ApiException {
-    return this.get7(id, ressourceTenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete an invitation
-   * 
-   * @param id The id of the invitation (required)
-   * @param ressourceTenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Invitation
-   * @throws ApiException if fails to make API call
-   */
-  public Invitation get7(String id, String ressourceTenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling get7");
-    }
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling get7");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/{ressourceTenant}/invitations/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Invitation> localVarReturnType = new TypeReference<Invitation>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -2735,7 +1384,7 @@ public class InvitationsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

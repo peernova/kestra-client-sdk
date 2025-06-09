@@ -31,7 +31,9 @@ public enum InvitationInvitationStatus {
   
   PENDING("PENDING"),
   
-  ACCEPTED("ACCEPTED");
+  ACCEPTED("ACCEPTED"),
+  
+  EXPIRED("EXPIRED");
 
   private String value;
 

@@ -26,6 +26,10 @@
 |**aliases** | **List&lt;String&gt;** |  |  [optional] |
 |**apps** | **List&lt;String&gt;** |  |  [optional] |
 |**appBlocks** | **List&lt;String&gt;** |  |  [optional] |
+|**charts** | **List&lt;String&gt;** |  |  [optional] |
+|**dataFilters** | **List&lt;String&gt;** |  |  [optional] |
+|**logExporters** | **List&lt;String&gt;** |  |  [optional] |
+|**additionalPlugins** | **List&lt;String&gt;** |  |  [optional] |
 |**categories** | **List&lt;PluginSubGroupPluginCategory&gt;** |  |  [optional] |
 |**subGroup** | **String** |  |  [optional] |
 

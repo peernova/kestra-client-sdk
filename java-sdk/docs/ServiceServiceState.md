@@ -23,5 +23,7 @@
 
 * `EMPTY` (value: `"EMPTY"`)
 
+* `MAINTENANCE` (value: `"MAINTENANCE"`)
+
 
 

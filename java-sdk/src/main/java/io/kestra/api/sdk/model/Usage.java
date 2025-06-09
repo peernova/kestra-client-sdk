@@ -24,6 +24,7 @@ import io.kestra.api.sdk.model.ConfigurationUsage;
 import io.kestra.api.sdk.model.ExecutionUsage;
 import io.kestra.api.sdk.model.FlowUsage;
 import io.kestra.api.sdk.model.HostUsage;
+import io.kestra.api.sdk.model.PluginMetric;
 import io.kestra.api.sdk.model.PluginUsage;
 import io.kestra.api.sdk.model.ServerType;
 import io.kestra.api.sdk.model.ServiceUsage;
@@ -31,6 +32,10 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -55,9 +60,10 @@ import java.util.StringJoiner;
   Usage.JSON_PROPERTY_PLUGINS,
   Usage.JSON_PROPERTY_FLOWS,
   Usage.JSON_PROPERTY_EXECUTIONS,
-  Usage.JSON_PROPERTY_SERVICES
+  Usage.JSON_PROPERTY_SERVICES,
+  Usage.JSON_PROPERTY_PLUGIN_METRICS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class Usage {
   public static final String JSON_PROPERTY_UUID = "uuid";
   @javax.annotation.Nonnull
@@ -85,11 +91,11 @@ public class Usage {
 
   public static final String JSON_PROPERTY_URI = "uri";
   @javax.annotation.Nullable
-  private String uri;
+  private JsonNullable<String> uri = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ENVIRONMENTS = "environments";
   @javax.annotation.Nullable
-  private List<String> environments;
+  private JsonNullable<List<String>> environments = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_START_TIME = "startTime";
   @javax.annotation.Nonnull
@@ -117,7 +123,11 @@ public class Usage {
 
   public static final String JSON_PROPERTY_SERVICES = "services";
   @javax.annotation.Nullable
-  private ServiceUsage services;
+  private JsonNullable<ServiceUsage> services = JsonNullable.<ServiceUsage>undefined();
+
+  public static final String JSON_PROPERTY_PLUGIN_METRICS = "pluginMetrics";
+  @javax.annotation.Nullable
+  private JsonNullable<List<PluginMetric>> pluginMetrics = JsonNullable.<List<PluginMetric>>undefined();
 
   public Usage() {
   }
@@ -273,8 +283,8 @@ public class Usage {
   }
 
   public Usage uri(@javax.annotation.Nullable String uri) {
+    this.uri = JsonNullable.<String>of(uri);
     
-    this.uri = uri;
     return this;
   }
 
@@ -283,31 +293,43 @@ public class Usage {
    * @return uri
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_URI)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonIgnore
 
   public String getUri() {
-    return uri;
+        return uri.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_URI)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUri(@javax.annotation.Nullable String uri) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getUri_JsonNullable() {
+    return uri;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_URI)
+  public void setUri_JsonNullable(JsonNullable<String> uri) {
     this.uri = uri;
   }
 
+  public void setUri(@javax.annotation.Nullable String uri) {
+    this.uri = JsonNullable.<String>of(uri);
+  }
+
   public Usage environments(@javax.annotation.Nullable List<String> environments) {
+    this.environments = JsonNullable.<List<String>>of(environments);
     
-    this.environments = environments;
     return this;
   }
 
   public Usage addEnvironmentsItem(String environmentsItem) {
-    if (this.environments == null) {
-      this.environments = new ArrayList<>();
+    if (this.environments == null || !this.environments.isPresent()) {
+      this.environments = JsonNullable.<List<String>>of(new ArrayList<>());
     }
-    this.environments.add(environmentsItem);
+    try {
+      this.environments.get().add(environmentsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -316,18 +338,26 @@ public class Usage {
    * @return environments
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENVIRONMENTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonIgnore
 
   public List<String> getEnvironments() {
-    return environments;
+        return environments.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_ENVIRONMENTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEnvironments(@javax.annotation.Nullable List<String> environments) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<String>> getEnvironments_JsonNullable() {
+    return environments;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ENVIRONMENTS)
+  public void setEnvironments_JsonNullable(JsonNullable<List<String>> environments) {
     this.environments = environments;
+  }
+
+  public void setEnvironments(@javax.annotation.Nullable List<String> environments) {
+    this.environments = JsonNullable.<List<String>>of(environments);
   }
 
   public Usage startTime(@javax.annotation.Nonnull OffsetDateTime startTime) {
@@ -489,8 +519,8 @@ public class Usage {
   }
 
   public Usage services(@javax.annotation.Nullable ServiceUsage services) {
+    this.services = JsonNullable.<ServiceUsage>of(services);
     
-    this.services = services;
     return this;
   }
 
@@ -499,18 +529,71 @@ public class Usage {
    * @return services
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVICES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonIgnore
 
   public ServiceUsage getServices() {
-    return services;
+        return services.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_SERVICES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setServices(@javax.annotation.Nullable ServiceUsage services) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<ServiceUsage> getServices_JsonNullable() {
+    return services;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SERVICES)
+  public void setServices_JsonNullable(JsonNullable<ServiceUsage> services) {
     this.services = services;
+  }
+
+  public void setServices(@javax.annotation.Nullable ServiceUsage services) {
+    this.services = JsonNullable.<ServiceUsage>of(services);
+  }
+
+  public Usage pluginMetrics(@javax.annotation.Nullable List<PluginMetric> pluginMetrics) {
+    this.pluginMetrics = JsonNullable.<List<PluginMetric>>of(pluginMetrics);
+    
+    return this;
+  }
+
+  public Usage addPluginMetricsItem(PluginMetric pluginMetricsItem) {
+    if (this.pluginMetrics == null || !this.pluginMetrics.isPresent()) {
+      this.pluginMetrics = JsonNullable.<List<PluginMetric>>of(new ArrayList<>());
+    }
+    try {
+      this.pluginMetrics.get().add(pluginMetricsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Get pluginMetrics
+   * @return pluginMetrics
+   */
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public List<PluginMetric> getPluginMetrics() {
+        return pluginMetrics.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PLUGIN_METRICS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<PluginMetric>> getPluginMetrics_JsonNullable() {
+    return pluginMetrics;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PLUGIN_METRICS)
+  public void setPluginMetrics_JsonNullable(JsonNullable<List<PluginMetric>> pluginMetrics) {
+    this.pluginMetrics = pluginMetrics;
+  }
+
+  public void setPluginMetrics(@javax.annotation.Nullable List<PluginMetric> pluginMetrics) {
+    this.pluginMetrics = JsonNullable.<List<PluginMetric>>of(pluginMetrics);
   }
 
   @Override
@@ -528,20 +611,32 @@ public class Usage {
         Objects.equals(this.serverType, usage.serverType) &&
         Objects.equals(this.version, usage.version) &&
         Objects.equals(this.zoneId, usage.zoneId) &&
-        Objects.equals(this.uri, usage.uri) &&
-        Objects.equals(this.environments, usage.environments) &&
+        equalsNullable(this.uri, usage.uri) &&
+        equalsNullable(this.environments, usage.environments) &&
         Objects.equals(this.startTime, usage.startTime) &&
         Objects.equals(this.host, usage.host) &&
         Objects.equals(this.configurations, usage.configurations) &&
         Objects.equals(this.plugins, usage.plugins) &&
         Objects.equals(this.flows, usage.flows) &&
         Objects.equals(this.executions, usage.executions) &&
-        Objects.equals(this.services, usage.services);
+        equalsNullable(this.services, usage.services) &&
+        equalsNullable(this.pluginMetrics, usage.pluginMetrics);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, startUuid, instanceUuid, serverType, version, zoneId, uri, environments, startTime, host, configurations, plugins, flows, executions, services);
+    return Objects.hash(uuid, startUuid, instanceUuid, serverType, version, zoneId, hashCodeNullable(uri), hashCodeNullable(environments), startTime, host, configurations, plugins, flows, executions, hashCodeNullable(services), hashCodeNullable(pluginMetrics));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -563,6 +658,7 @@ public class Usage {
     sb.append("    flows: ").append(toIndentedString(flows)).append("\n");
     sb.append("    executions: ").append(toIndentedString(executions)).append("\n");
     sb.append("    services: ").append(toIndentedString(services)).append("\n");
+    sb.append("    pluginMetrics: ").append(toIndentedString(pluginMetrics)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -737,6 +833,16 @@ public class Usage {
     // add `services` to the URL query string
     if (getServices() != null) {
       joiner.add(getServices().toUrlQueryString(prefix + "services" + suffix));
+    }
+
+    // add `pluginMetrics` to the URL query string
+    if (getPluginMetrics() != null) {
+      for (int i = 0; i < getPluginMetrics().size(); i++) {
+        if (getPluginMetrics().get(i) != null) {
+          joiner.add(getPluginMetrics().get(i).toUrlQueryString(String.format("%spluginMetrics%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
     }
 
     return joiner.toString();

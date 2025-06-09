@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  |
 |**type** | **String** |  |  |
+|**version** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**retry** | **Object** |  |  [optional] |
 |**timeout** | [**PropertyDuration**](PropertyDuration.md) |  |  [optional] |

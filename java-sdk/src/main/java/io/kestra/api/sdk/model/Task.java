@@ -35,6 +35,7 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   Task.JSON_PROPERTY_ID,
   Task.JSON_PROPERTY_TYPE,
+  Task.JSON_PROPERTY_VERSION,
   Task.JSON_PROPERTY_DESCRIPTION,
   Task.JSON_PROPERTY_RETRY,
   Task.JSON_PROPERTY_TIMEOUT,
@@ -46,7 +47,7 @@ import java.util.StringJoiner;
   Task.JSON_PROPERTY_RUN_IF,
   Task.JSON_PROPERTY_ALLOW_WARNING
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class Task {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nonnull
@@ -55,6 +56,10 @@ public class Task {
   public static final String JSON_PROPERTY_TYPE = "type";
   @javax.annotation.Nonnull
   private String type;
+
+  public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
+  private String version;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   @javax.annotation.Nullable
@@ -147,6 +152,31 @@ public class Task {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(@javax.annotation.Nonnull String type) {
     this.type = type;
+  }
+
+  public Task version(@javax.annotation.Nullable String version) {
+    
+    this.version = version;
+    return this;
+  }
+
+  /**
+   * Get version
+   * @return version
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getVersion() {
+    return version;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVersion(@javax.annotation.Nullable String version) {
+    this.version = version;
   }
 
   public Task description(@javax.annotation.Nullable String description) {
@@ -410,6 +440,7 @@ public class Task {
     Task task = (Task) o;
     return Objects.equals(this.id, task.id) &&
         Objects.equals(this.type, task.type) &&
+        Objects.equals(this.version, task.version) &&
         Objects.equals(this.description, task.description) &&
         Objects.equals(this.retry, task.retry) &&
         Objects.equals(this.timeout, task.timeout) &&
@@ -424,7 +455,7 @@ public class Task {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, description, retry, timeout, disabled, workerGroup, logLevel, allowFailure, logToFile, runIf, allowWarning);
+    return Objects.hash(id, type, version, description, retry, timeout, disabled, workerGroup, logLevel, allowFailure, logToFile, runIf, allowWarning);
   }
 
   @Override
@@ -433,6 +464,7 @@ public class Task {
     sb.append("class Task {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    retry: ").append(toIndentedString(retry)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
@@ -504,6 +536,16 @@ public class Task {
     if (getType() != null) {
       try {
         joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `version` to the URL query string
+    if (getVersion() != null) {
+      try {
+        joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

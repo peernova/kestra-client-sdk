@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.kestra.api.sdk.model.AbstractGraphBranchType;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -32,9 +33,9 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   AbstractGraph.JSON_PROPERTY_UID,
   AbstractGraph.JSON_PROPERTY_TYPE,
-  AbstractGraph.JSON_PROPERTY_ERROR
+  AbstractGraph.JSON_PROPERTY_BRANCH_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class AbstractGraph {
   public static final String JSON_PROPERTY_UID = "uid";
   @javax.annotation.Nullable
@@ -44,9 +45,9 @@ public class AbstractGraph {
   @javax.annotation.Nullable
   private String type;
 
-  public static final String JSON_PROPERTY_ERROR = "error";
+  public static final String JSON_PROPERTY_BRANCH_TYPE = "branchType";
   @javax.annotation.Nullable
-  private Boolean error;
+  private AbstractGraphBranchType branchType;
 
   public AbstractGraph() {
   }
@@ -101,29 +102,29 @@ public class AbstractGraph {
     this.type = type;
   }
 
-  public AbstractGraph error(@javax.annotation.Nullable Boolean error) {
+  public AbstractGraph branchType(@javax.annotation.Nullable AbstractGraphBranchType branchType) {
     
-    this.error = error;
+    this.branchType = branchType;
     return this;
   }
 
   /**
-   * Get error
-   * @return error
+   * Get branchType
+   * @return branchType
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonProperty(JSON_PROPERTY_BRANCH_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Boolean getError() {
-    return error;
+  public AbstractGraphBranchType getBranchType() {
+    return branchType;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonProperty(JSON_PROPERTY_BRANCH_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setError(@javax.annotation.Nullable Boolean error) {
-    this.error = error;
+  public void setBranchType(@javax.annotation.Nullable AbstractGraphBranchType branchType) {
+    this.branchType = branchType;
   }
 
   @Override
@@ -137,12 +138,12 @@ public class AbstractGraph {
     AbstractGraph abstractGraph = (AbstractGraph) o;
     return Objects.equals(this.uid, abstractGraph.uid) &&
         Objects.equals(this.type, abstractGraph.type) &&
-        Objects.equals(this.error, abstractGraph.error);
+        Objects.equals(this.branchType, abstractGraph.branchType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uid, type, error);
+    return Objects.hash(uid, type, branchType);
   }
 
   @Override
@@ -151,7 +152,7 @@ public class AbstractGraph {
     sb.append("class AbstractGraph {\n");
     sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    branchType: ").append(toIndentedString(branchType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -219,10 +220,10 @@ public class AbstractGraph {
       }
     }
 
-    // add `error` to the URL query string
-    if (getError() != null) {
+    // add `branchType` to the URL query string
+    if (getBranchType() != null) {
       try {
-        joiner.add(String.format("%serror%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getError()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%sbranchType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBranchType()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

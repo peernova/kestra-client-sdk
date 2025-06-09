@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kestra.api.sdk.model.MiscControllerEnvironment;
 import io.kestra.api.sdk.model.MiscControllerPreview;
+import io.kestra.api.sdk.model.QueryFilterResourceField;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,13 +46,15 @@ import java.util.StringJoiner;
   MiscControllerConfiguration.JSON_PROPERTY_IS_ANONYMOUS_USAGE_ENABLED,
   MiscControllerConfiguration.JSON_PROPERTY_IS_TEMPLATE_ENABLED,
   MiscControllerConfiguration.JSON_PROPERTY_ENVIRONMENT,
+  MiscControllerConfiguration.JSON_PROPERTY_URL,
   MiscControllerConfiguration.JSON_PROPERTY_PREVIEW,
   MiscControllerConfiguration.JSON_PROPERTY_IS_BASIC_AUTH_ENABLED,
   MiscControllerConfiguration.JSON_PROPERTY_SYSTEM_NAMESPACE,
-  MiscControllerConfiguration.JSON_PROPERTY_HIDDEN_LABELS_PREFIXES
+  MiscControllerConfiguration.JSON_PROPERTY_HIDDEN_LABELS_PREFIXES,
+  MiscControllerConfiguration.JSON_PROPERTY_RESOURCE_TO_FILTERS
 })
 @JsonTypeName("MiscController.Configuration")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class MiscControllerConfiguration {
   public static final String JSON_PROPERTY_UUID = "uuid";
   @javax.annotation.Nullable
@@ -89,6 +92,10 @@ public class MiscControllerConfiguration {
   @javax.annotation.Nullable
   private MiscControllerEnvironment environment;
 
+  public static final String JSON_PROPERTY_URL = "url";
+  @javax.annotation.Nullable
+  private String url;
+
   public static final String JSON_PROPERTY_PREVIEW = "preview";
   @javax.annotation.Nullable
   private MiscControllerPreview preview;
@@ -104,6 +111,10 @@ public class MiscControllerConfiguration {
   public static final String JSON_PROPERTY_HIDDEN_LABELS_PREFIXES = "hiddenLabelsPrefixes";
   @javax.annotation.Nullable
   private List<String> hiddenLabelsPrefixes = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_RESOURCE_TO_FILTERS = "resourceToFilters";
+  @javax.annotation.Nullable
+  private List<QueryFilterResourceField> resourceToFilters = new ArrayList<>();
 
   public MiscControllerConfiguration() {
   }
@@ -333,6 +344,31 @@ public class MiscControllerConfiguration {
     this.environment = environment;
   }
 
+  public MiscControllerConfiguration url(@javax.annotation.Nullable String url) {
+    
+    this.url = url;
+    return this;
+  }
+
+  /**
+   * Get url
+   * @return url
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getUrl() {
+    return url;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUrl(@javax.annotation.Nullable String url) {
+    this.url = url;
+  }
+
   public MiscControllerConfiguration preview(@javax.annotation.Nullable MiscControllerPreview preview) {
     
     this.preview = preview;
@@ -441,6 +477,39 @@ public class MiscControllerConfiguration {
     this.hiddenLabelsPrefixes = hiddenLabelsPrefixes;
   }
 
+  public MiscControllerConfiguration resourceToFilters(@javax.annotation.Nullable List<QueryFilterResourceField> resourceToFilters) {
+    
+    this.resourceToFilters = resourceToFilters;
+    return this;
+  }
+
+  public MiscControllerConfiguration addResourceToFiltersItem(QueryFilterResourceField resourceToFiltersItem) {
+    if (this.resourceToFilters == null) {
+      this.resourceToFilters = new ArrayList<>();
+    }
+    this.resourceToFilters.add(resourceToFiltersItem);
+    return this;
+  }
+
+  /**
+   * Get resourceToFilters
+   * @return resourceToFilters
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESOURCE_TO_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<QueryFilterResourceField> getResourceToFilters() {
+    return resourceToFilters;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_RESOURCE_TO_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setResourceToFilters(@javax.annotation.Nullable List<QueryFilterResourceField> resourceToFilters) {
+    this.resourceToFilters = resourceToFilters;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -459,15 +528,17 @@ public class MiscControllerConfiguration {
         Objects.equals(this.isAnonymousUsageEnabled, miscControllerConfiguration.isAnonymousUsageEnabled) &&
         Objects.equals(this.isTemplateEnabled, miscControllerConfiguration.isTemplateEnabled) &&
         Objects.equals(this.environment, miscControllerConfiguration.environment) &&
+        Objects.equals(this.url, miscControllerConfiguration.url) &&
         Objects.equals(this.preview, miscControllerConfiguration.preview) &&
         Objects.equals(this.isBasicAuthEnabled, miscControllerConfiguration.isBasicAuthEnabled) &&
         Objects.equals(this.systemNamespace, miscControllerConfiguration.systemNamespace) &&
-        Objects.equals(this.hiddenLabelsPrefixes, miscControllerConfiguration.hiddenLabelsPrefixes);
+        Objects.equals(this.hiddenLabelsPrefixes, miscControllerConfiguration.hiddenLabelsPrefixes) &&
+        Objects.equals(this.resourceToFilters, miscControllerConfiguration.resourceToFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, version, commitId, commitDate, isCustomDashboardsEnabled, isTaskRunEnabled, isAnonymousUsageEnabled, isTemplateEnabled, environment, preview, isBasicAuthEnabled, systemNamespace, hiddenLabelsPrefixes);
+    return Objects.hash(uuid, version, commitId, commitDate, isCustomDashboardsEnabled, isTaskRunEnabled, isAnonymousUsageEnabled, isTemplateEnabled, environment, url, preview, isBasicAuthEnabled, systemNamespace, hiddenLabelsPrefixes, resourceToFilters);
   }
 
   @Override
@@ -483,10 +554,12 @@ public class MiscControllerConfiguration {
     sb.append("    isAnonymousUsageEnabled: ").append(toIndentedString(isAnonymousUsageEnabled)).append("\n");
     sb.append("    isTemplateEnabled: ").append(toIndentedString(isTemplateEnabled)).append("\n");
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    preview: ").append(toIndentedString(preview)).append("\n");
     sb.append("    isBasicAuthEnabled: ").append(toIndentedString(isBasicAuthEnabled)).append("\n");
     sb.append("    systemNamespace: ").append(toIndentedString(systemNamespace)).append("\n");
     sb.append("    hiddenLabelsPrefixes: ").append(toIndentedString(hiddenLabelsPrefixes)).append("\n");
+    sb.append("    resourceToFilters: ").append(toIndentedString(resourceToFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -619,6 +692,16 @@ public class MiscControllerConfiguration {
       joiner.add(getEnvironment().toUrlQueryString(prefix + "environment" + suffix));
     }
 
+    // add `url` to the URL query string
+    if (getUrl() != null) {
+      try {
+        joiner.add(String.format("%surl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUrl()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
     // add `preview` to the URL query string
     if (getPreview() != null) {
       joiner.add(getPreview().toUrlQueryString(prefix + "preview" + suffix));
@@ -654,6 +737,16 @@ public class MiscControllerConfiguration {
         } catch (UnsupportedEncodingException e) {
           // Should never happen, UTF-8 is always supported
           throw new RuntimeException(e);
+        }
+      }
+    }
+
+    // add `resourceToFilters` to the URL query string
+    if (getResourceToFilters() != null) {
+      for (int i = 0; i < getResourceToFilters().size(); i++) {
+        if (getResourceToFilters().get(i) != null) {
+          joiner.add(getResourceToFilters().get(i).toUrlQueryString(String.format("%sresourceToFilters%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
     }

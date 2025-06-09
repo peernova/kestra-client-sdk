@@ -20,7 +20,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.kestra.api.sdk.model.ListAction;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -48,104 +50,122 @@ import java.util.StringJoiner;
   RolePermissions.JSON_PROPERTY_I_N_F_R_A_S_T_R_U_C_T_U_R_E,
   RolePermissions.JSON_PROPERTY_A_P_P,
   RolePermissions.JSON_PROPERTY_A_P_P_E_X_E_C_U_T_I_O_N,
+  RolePermissions.JSON_PROPERTY_T_E_S_T,
   RolePermissions.JSON_PROPERTY_M_E,
   RolePermissions.JSON_PROPERTY_A_P_I_T_O_K_E_N,
   RolePermissions.JSON_PROPERTY_D_A_S_H_B_O_A_R_D,
-  RolePermissions.JSON_PROPERTY_T_E_N_A_N_T
+  RolePermissions.JSON_PROPERTY_T_E_N_A_N_T,
+  RolePermissions.JSON_PROPERTY_U_N_K_N_O_W_N
 })
 @JsonTypeName("Role_permissions")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class RolePermissions {
   public static final String JSON_PROPERTY_F_L_O_W = "FLOW";
   @javax.annotation.Nullable
-  private ListAction FLOW;
+  private List<String> FLOW = new ArrayList<>();
 
   public static final String JSON_PROPERTY_B_L_U_E_P_R_I_N_T = "BLUEPRINT";
   @javax.annotation.Nullable
-  private ListAction BLUEPRINT;
+  private List<String> BLUEPRINT = new ArrayList<>();
 
   public static final String JSON_PROPERTY_T_E_M_P_L_A_T_E = "TEMPLATE";
   @javax.annotation.Nullable
-  private ListAction TEMPLATE;
+  private List<String> TEMPLATE = new ArrayList<>();
 
   public static final String JSON_PROPERTY_N_A_M_E_S_P_A_C_E = "NAMESPACE";
   @javax.annotation.Nullable
-  private ListAction NAMESPACE;
+  private List<String> NAMESPACE = new ArrayList<>();
 
   public static final String JSON_PROPERTY_E_X_E_C_U_T_I_O_N = "EXECUTION";
   @javax.annotation.Nullable
-  private ListAction EXECUTION;
+  private List<String> EXECUTION = new ArrayList<>();
 
   public static final String JSON_PROPERTY_U_S_E_R = "USER";
   @javax.annotation.Nullable
-  private ListAction USER;
+  private List<String> USER = new ArrayList<>();
 
   public static final String JSON_PROPERTY_G_R_O_U_P = "GROUP";
   @javax.annotation.Nullable
-  private ListAction GROUP;
+  private List<String> GROUP = new ArrayList<>();
 
   public static final String JSON_PROPERTY_R_O_L_E = "ROLE";
   @javax.annotation.Nullable
-  private ListAction ROLE;
+  private List<String> ROLE = new ArrayList<>();
 
   public static final String JSON_PROPERTY_B_I_N_D_I_N_G = "BINDING";
   @javax.annotation.Nullable
-  private ListAction BINDING;
+  private List<String> BINDING = new ArrayList<>();
 
   public static final String JSON_PROPERTY_A_U_D_I_T_L_O_G = "AUDITLOG";
   @javax.annotation.Nullable
-  private ListAction AUDITLOG;
+  private List<String> AUDITLOG = new ArrayList<>();
 
   public static final String JSON_PROPERTY_S_E_C_R_E_T = "SECRET";
   @javax.annotation.Nullable
-  private ListAction SECRET;
+  private List<String> SECRET = new ArrayList<>();
 
   public static final String JSON_PROPERTY_K_V_S_T_O_R_E = "KVSTORE";
   @javax.annotation.Nullable
-  private ListAction KVSTORE;
+  private List<String> KVSTORE = new ArrayList<>();
 
   public static final String JSON_PROPERTY_I_M_P_E_R_S_O_N_A_T_E = "IMPERSONATE";
   @javax.annotation.Nullable
-  private ListAction IMPERSONATE;
+  private List<String> IMPERSONATE = new ArrayList<>();
 
   public static final String JSON_PROPERTY_S_E_T_T_I_N_G = "SETTING";
   @javax.annotation.Nullable
-  private ListAction SETTING;
+  private List<String> SETTING = new ArrayList<>();
 
   public static final String JSON_PROPERTY_I_N_F_R_A_S_T_R_U_C_T_U_R_E = "INFRASTRUCTURE";
   @javax.annotation.Nullable
-  private ListAction INFRASTRUCTURE;
+  private List<String> INFRASTRUCTURE = new ArrayList<>();
 
   public static final String JSON_PROPERTY_A_P_P = "APP";
   @javax.annotation.Nullable
-  private ListAction APP;
+  private List<String> APP = new ArrayList<>();
 
   public static final String JSON_PROPERTY_A_P_P_E_X_E_C_U_T_I_O_N = "APPEXECUTION";
   @javax.annotation.Nullable
-  private ListAction APPEXECUTION;
+  private List<String> APPEXECUTION = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_T_E_S_T = "TEST";
+  @javax.annotation.Nullable
+  private List<String> TEST = new ArrayList<>();
 
   public static final String JSON_PROPERTY_M_E = "ME";
   @javax.annotation.Nullable
-  private ListAction ME;
+  private List<String> ME = new ArrayList<>();
 
   public static final String JSON_PROPERTY_A_P_I_T_O_K_E_N = "APITOKEN";
   @javax.annotation.Nullable
-  private ListAction APITOKEN;
+  private List<String> APITOKEN = new ArrayList<>();
 
   public static final String JSON_PROPERTY_D_A_S_H_B_O_A_R_D = "DASHBOARD";
   @javax.annotation.Nullable
-  private ListAction DASHBOARD;
+  private List<String> DASHBOARD = new ArrayList<>();
 
   public static final String JSON_PROPERTY_T_E_N_A_N_T = "TENANT";
   @javax.annotation.Nullable
-  private ListAction TENANT;
+  private List<String> TENANT = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_U_N_K_N_O_W_N = "UNKNOWN";
+  @javax.annotation.Nullable
+  private List<String> UNKNOWN = new ArrayList<>();
 
   public RolePermissions() {
   }
 
-  public RolePermissions FLOW(@javax.annotation.Nullable ListAction FLOW) {
+  public RolePermissions FLOW(@javax.annotation.Nullable List<String> FLOW) {
     
     this.FLOW = FLOW;
+    return this;
+  }
+
+  public RolePermissions addFLOWItem(String FLOWItem) {
+    if (this.FLOW == null) {
+      this.FLOW = new ArrayList<>();
+    }
+    this.FLOW.add(FLOWItem);
     return this;
   }
 
@@ -157,20 +177,28 @@ public class RolePermissions {
   @JsonProperty(JSON_PROPERTY_F_L_O_W)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ListAction getFLOW() {
+  public List<String> getFLOW() {
     return FLOW;
   }
 
 
   @JsonProperty(JSON_PROPERTY_F_L_O_W)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFLOW(@javax.annotation.Nullable ListAction FLOW) {
+  public void setFLOW(@javax.annotation.Nullable List<String> FLOW) {
     this.FLOW = FLOW;
   }
 
-  public RolePermissions BLUEPRINT(@javax.annotation.Nullable ListAction BLUEPRINT) {
+  public RolePermissions BLUEPRINT(@javax.annotation.Nullable List<String> BLUEPRINT) {
     
     this.BLUEPRINT = BLUEPRINT;
+    return this;
+  }
+
+  public RolePermissions addBLUEPRINTItem(String BLUEPRINTItem) {
+    if (this.BLUEPRINT == null) {
+      this.BLUEPRINT = new ArrayList<>();
+    }
+    this.BLUEPRINT.add(BLUEPRINTItem);
     return this;
   }
 
@@ -182,20 +210,28 @@ public class RolePermissions {
   @JsonProperty(JSON_PROPERTY_B_L_U_E_P_R_I_N_T)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ListAction getBLUEPRINT() {
+  public List<String> getBLUEPRINT() {
     return BLUEPRINT;
   }
 
 
   @JsonProperty(JSON_PROPERTY_B_L_U_E_P_R_I_N_T)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBLUEPRINT(@javax.annotation.Nullable ListAction BLUEPRINT) {
+  public void setBLUEPRINT(@javax.annotation.Nullable List<String> BLUEPRINT) {
     this.BLUEPRINT = BLUEPRINT;
   }
 
-  public RolePermissions TEMPLATE(@javax.annotation.Nullable ListAction TEMPLATE) {
+  public RolePermissions TEMPLATE(@javax.annotation.Nullable List<String> TEMPLATE) {
     
     this.TEMPLATE = TEMPLATE;
+    return this;
+  }
+
+  public RolePermissions addTEMPLATEItem(String TEMPLATEItem) {
+    if (this.TEMPLATE == null) {
+      this.TEMPLATE = new ArrayList<>();
+    }
+    this.TEMPLATE.add(TEMPLATEItem);
     return this;
   }
 
@@ -207,20 +243,28 @@ public class RolePermissions {
   @JsonProperty(JSON_PROPERTY_T_E_M_P_L_A_T_E)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ListAction getTEMPLATE() {
+  public List<String> getTEMPLATE() {
     return TEMPLATE;
   }
 
 
   @JsonProperty(JSON_PROPERTY_T_E_M_P_L_A_T_E)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTEMPLATE(@javax.annotation.Nullable ListAction TEMPLATE) {
+  public void setTEMPLATE(@javax.annotation.Nullable List<String> TEMPLATE) {
     this.TEMPLATE = TEMPLATE;
   }
 
-  public RolePermissions NAMESPACE(@javax.annotation.Nullable ListAction NAMESPACE) {
+  public RolePermissions NAMESPACE(@javax.annotation.Nullable List<String> NAMESPACE) {
     
     this.NAMESPACE = NAMESPACE;
+    return this;
+  }
+
+  public RolePermissions addNAMESPACEItem(String NAMESPACEItem) {
+    if (this.NAMESPACE == null) {
+      this.NAMESPACE = new ArrayList<>();
+    }
+    this.NAMESPACE.add(NAMESPACEItem);
     return this;
   }
 
@@ -232,20 +276,28 @@ public class RolePermissions {
   @JsonProperty(JSON_PROPERTY_N_A_M_E_S_P_A_C_E)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ListAction getNAMESPACE() {
+  public List<String> getNAMESPACE() {
     return NAMESPACE;
   }
 
 
   @JsonProperty(JSON_PROPERTY_N_A_M_E_S_P_A_C_E)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNAMESPACE(@javax.annotation.Nullable ListAction NAMESPACE) {
+  public void setNAMESPACE(@javax.annotation.Nullable List<String> NAMESPACE) {
     this.NAMESPACE = NAMESPACE;
   }
 
-  public RolePermissions EXECUTION(@javax.annotation.Nullable ListAction EXECUTION) {
+  public RolePermissions EXECUTION(@javax.annotation.Nullable List<String> EXECUTION) {
     
     this.EXECUTION = EXECUTION;
+    return this;
+  }
+
+  public RolePermissions addEXECUTIONItem(String EXECUTIONItem) {
+    if (this.EXECUTION == null) {
+      this.EXECUTION = new ArrayList<>();
+    }
+    this.EXECUTION.add(EXECUTIONItem);
     return this;
   }
 
@@ -257,20 +309,28 @@ public class RolePermissions {
   @JsonProperty(JSON_PROPERTY_E_X_E_C_U_T_I_O_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ListAction getEXECUTION() {
+  public List<String> getEXECUTION() {
     return EXECUTION;
   }
 
 
   @JsonProperty(JSON_PROPERTY_E_X_E_C_U_T_I_O_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEXECUTION(@javax.annotation.Nullable ListAction EXECUTION) {
+  public void setEXECUTION(@javax.annotation.Nullable List<String> EXECUTION) {
     this.EXECUTION = EXECUTION;
   }
 
-  public RolePermissions USER(@javax.annotation.Nullable ListAction USER) {
+  public RolePermissions USER(@javax.annotation.Nullable List<String> USER) {
     
     this.USER = USER;
+    return this;
+  }
+
+  public RolePermissions addUSERItem(String USERItem) {
+    if (this.USER == null) {
+      this.USER = new ArrayList<>();
+    }
+    this.USER.add(USERItem);
     return this;
   }
 
@@ -282,20 +342,28 @@ public class RolePermissions {
   @JsonProperty(JSON_PROPERTY_U_S_E_R)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ListAction getUSER() {
+  public List<String> getUSER() {
     return USER;
   }
 
 
   @JsonProperty(JSON_PROPERTY_U_S_E_R)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUSER(@javax.annotation.Nullable ListAction USER) {
+  public void setUSER(@javax.annotation.Nullable List<String> USER) {
     this.USER = USER;
   }
 
-  public RolePermissions GROUP(@javax.annotation.Nullable ListAction GROUP) {
+  public RolePermissions GROUP(@javax.annotation.Nullable List<String> GROUP) {
     
     this.GROUP = GROUP;
+    return this;
+  }
+
+  public RolePermissions addGROUPItem(String GROUPItem) {
+    if (this.GROUP == null) {
+      this.GROUP = new ArrayList<>();
+    }
+    this.GROUP.add(GROUPItem);
     return this;
   }
 
@@ -307,20 +375,28 @@ public class RolePermissions {
   @JsonProperty(JSON_PROPERTY_G_R_O_U_P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ListAction getGROUP() {
+  public List<String> getGROUP() {
     return GROUP;
   }
 
 
   @JsonProperty(JSON_PROPERTY_G_R_O_U_P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGROUP(@javax.annotation.Nullable ListAction GROUP) {
+  public void setGROUP(@javax.annotation.Nullable List<String> GROUP) {
     this.GROUP = GROUP;
   }
 
-  public RolePermissions ROLE(@javax.annotation.Nullable ListAction ROLE) {
+  public RolePermissions ROLE(@javax.annotation.Nullable List<String> ROLE) {
     
     this.ROLE = ROLE;
+    return this;
+  }
+
+  public RolePermissions addROLEItem(String ROLEItem) {
+    if (this.ROLE == null) {
+      this.ROLE = new ArrayList<>();
+    }
+    this.ROLE.add(ROLEItem);
     return this;
   }
 
@@ -332,20 +408,28 @@ public class RolePermissions {
   @JsonProperty(JSON_PROPERTY_R_O_L_E)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ListAction getROLE() {
+  public List<String> getROLE() {
     return ROLE;
   }
 
 
   @JsonProperty(JSON_PROPERTY_R_O_L_E)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setROLE(@javax.annotation.Nullable ListAction ROLE) {
+  public void setROLE(@javax.annotation.Nullable List<String> ROLE) {
     this.ROLE = ROLE;
   }
 
-  public RolePermissions BINDING(@javax.annotation.Nullable ListAction BINDING) {
+  public RolePermissions BINDING(@javax.annotation.Nullable List<String> BINDING) {
     
     this.BINDING = BINDING;
+    return this;
+  }
+
+  public RolePermissions addBINDINGItem(String BINDINGItem) {
+    if (this.BINDING == null) {
+      this.BINDING = new ArrayList<>();
+    }
+    this.BINDING.add(BINDINGItem);
     return this;
   }
 
@@ -357,20 +441,28 @@ public class RolePermissions {
   @JsonProperty(JSON_PROPERTY_B_I_N_D_I_N_G)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ListAction getBINDING() {
+  public List<String> getBINDING() {
     return BINDING;
   }
 
 
   @JsonProperty(JSON_PROPERTY_B_I_N_D_I_N_G)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBINDING(@javax.annotation.Nullable ListAction BINDING) {
+  public void setBINDING(@javax.annotation.Nullable List<String> BINDING) {
     this.BINDING = BINDING;
   }
 
-  public RolePermissions AUDITLOG(@javax.annotation.Nullable ListAction AUDITLOG) {
+  public RolePermissions AUDITLOG(@javax.annotation.Nullable List<String> AUDITLOG) {
     
     this.AUDITLOG = AUDITLOG;
+    return this;
+  }
+
+  public RolePermissions addAUDITLOGItem(String AUDITLOGItem) {
+    if (this.AUDITLOG == null) {
+      this.AUDITLOG = new ArrayList<>();
+    }
+    this.AUDITLOG.add(AUDITLOGItem);
     return this;
   }
 
@@ -382,20 +474,28 @@ public class RolePermissions {
   @JsonProperty(JSON_PROPERTY_A_U_D_I_T_L_O_G)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ListAction getAUDITLOG() {
+  public List<String> getAUDITLOG() {
     return AUDITLOG;
   }
 
 
   @JsonProperty(JSON_PROPERTY_A_U_D_I_T_L_O_G)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAUDITLOG(@javax.annotation.Nullable ListAction AUDITLOG) {
+  public void setAUDITLOG(@javax.annotation.Nullable List<String> AUDITLOG) {
     this.AUDITLOG = AUDITLOG;
   }
 
-  public RolePermissions SECRET(@javax.annotation.Nullable ListAction SECRET) {
+  public RolePermissions SECRET(@javax.annotation.Nullable List<String> SECRET) {
     
     this.SECRET = SECRET;
+    return this;
+  }
+
+  public RolePermissions addSECRETItem(String SECRETItem) {
+    if (this.SECRET == null) {
+      this.SECRET = new ArrayList<>();
+    }
+    this.SECRET.add(SECRETItem);
     return this;
   }
 
@@ -407,20 +507,28 @@ public class RolePermissions {
   @JsonProperty(JSON_PROPERTY_S_E_C_R_E_T)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ListAction getSECRET() {
+  public List<String> getSECRET() {
     return SECRET;
   }
 
 
   @JsonProperty(JSON_PROPERTY_S_E_C_R_E_T)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSECRET(@javax.annotation.Nullable ListAction SECRET) {
+  public void setSECRET(@javax.annotation.Nullable List<String> SECRET) {
     this.SECRET = SECRET;
   }
 
-  public RolePermissions KVSTORE(@javax.annotation.Nullable ListAction KVSTORE) {
+  public RolePermissions KVSTORE(@javax.annotation.Nullable List<String> KVSTORE) {
     
     this.KVSTORE = KVSTORE;
+    return this;
+  }
+
+  public RolePermissions addKVSTOREItem(String KVSTOREItem) {
+    if (this.KVSTORE == null) {
+      this.KVSTORE = new ArrayList<>();
+    }
+    this.KVSTORE.add(KVSTOREItem);
     return this;
   }
 
@@ -432,20 +540,28 @@ public class RolePermissions {
   @JsonProperty(JSON_PROPERTY_K_V_S_T_O_R_E)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ListAction getKVSTORE() {
+  public List<String> getKVSTORE() {
     return KVSTORE;
   }
 
 
   @JsonProperty(JSON_PROPERTY_K_V_S_T_O_R_E)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setKVSTORE(@javax.annotation.Nullable ListAction KVSTORE) {
+  public void setKVSTORE(@javax.annotation.Nullable List<String> KVSTORE) {
     this.KVSTORE = KVSTORE;
   }
 
-  public RolePermissions IMPERSONATE(@javax.annotation.Nullable ListAction IMPERSONATE) {
+  public RolePermissions IMPERSONATE(@javax.annotation.Nullable List<String> IMPERSONATE) {
     
     this.IMPERSONATE = IMPERSONATE;
+    return this;
+  }
+
+  public RolePermissions addIMPERSONATEItem(String IMPERSONATEItem) {
+    if (this.IMPERSONATE == null) {
+      this.IMPERSONATE = new ArrayList<>();
+    }
+    this.IMPERSONATE.add(IMPERSONATEItem);
     return this;
   }
 
@@ -457,20 +573,28 @@ public class RolePermissions {
   @JsonProperty(JSON_PROPERTY_I_M_P_E_R_S_O_N_A_T_E)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ListAction getIMPERSONATE() {
+  public List<String> getIMPERSONATE() {
     return IMPERSONATE;
   }
 
 
   @JsonProperty(JSON_PROPERTY_I_M_P_E_R_S_O_N_A_T_E)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIMPERSONATE(@javax.annotation.Nullable ListAction IMPERSONATE) {
+  public void setIMPERSONATE(@javax.annotation.Nullable List<String> IMPERSONATE) {
     this.IMPERSONATE = IMPERSONATE;
   }
 
-  public RolePermissions SETTING(@javax.annotation.Nullable ListAction SETTING) {
+  public RolePermissions SETTING(@javax.annotation.Nullable List<String> SETTING) {
     
     this.SETTING = SETTING;
+    return this;
+  }
+
+  public RolePermissions addSETTINGItem(String SETTINGItem) {
+    if (this.SETTING == null) {
+      this.SETTING = new ArrayList<>();
+    }
+    this.SETTING.add(SETTINGItem);
     return this;
   }
 
@@ -482,20 +606,28 @@ public class RolePermissions {
   @JsonProperty(JSON_PROPERTY_S_E_T_T_I_N_G)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ListAction getSETTING() {
+  public List<String> getSETTING() {
     return SETTING;
   }
 
 
   @JsonProperty(JSON_PROPERTY_S_E_T_T_I_N_G)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSETTING(@javax.annotation.Nullable ListAction SETTING) {
+  public void setSETTING(@javax.annotation.Nullable List<String> SETTING) {
     this.SETTING = SETTING;
   }
 
-  public RolePermissions INFRASTRUCTURE(@javax.annotation.Nullable ListAction INFRASTRUCTURE) {
+  public RolePermissions INFRASTRUCTURE(@javax.annotation.Nullable List<String> INFRASTRUCTURE) {
     
     this.INFRASTRUCTURE = INFRASTRUCTURE;
+    return this;
+  }
+
+  public RolePermissions addINFRASTRUCTUREItem(String INFRASTRUCTUREItem) {
+    if (this.INFRASTRUCTURE == null) {
+      this.INFRASTRUCTURE = new ArrayList<>();
+    }
+    this.INFRASTRUCTURE.add(INFRASTRUCTUREItem);
     return this;
   }
 
@@ -507,20 +639,28 @@ public class RolePermissions {
   @JsonProperty(JSON_PROPERTY_I_N_F_R_A_S_T_R_U_C_T_U_R_E)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ListAction getINFRASTRUCTURE() {
+  public List<String> getINFRASTRUCTURE() {
     return INFRASTRUCTURE;
   }
 
 
   @JsonProperty(JSON_PROPERTY_I_N_F_R_A_S_T_R_U_C_T_U_R_E)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setINFRASTRUCTURE(@javax.annotation.Nullable ListAction INFRASTRUCTURE) {
+  public void setINFRASTRUCTURE(@javax.annotation.Nullable List<String> INFRASTRUCTURE) {
     this.INFRASTRUCTURE = INFRASTRUCTURE;
   }
 
-  public RolePermissions APP(@javax.annotation.Nullable ListAction APP) {
+  public RolePermissions APP(@javax.annotation.Nullable List<String> APP) {
     
     this.APP = APP;
+    return this;
+  }
+
+  public RolePermissions addAPPItem(String APPItem) {
+    if (this.APP == null) {
+      this.APP = new ArrayList<>();
+    }
+    this.APP.add(APPItem);
     return this;
   }
 
@@ -532,20 +672,28 @@ public class RolePermissions {
   @JsonProperty(JSON_PROPERTY_A_P_P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ListAction getAPP() {
+  public List<String> getAPP() {
     return APP;
   }
 
 
   @JsonProperty(JSON_PROPERTY_A_P_P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAPP(@javax.annotation.Nullable ListAction APP) {
+  public void setAPP(@javax.annotation.Nullable List<String> APP) {
     this.APP = APP;
   }
 
-  public RolePermissions APPEXECUTION(@javax.annotation.Nullable ListAction APPEXECUTION) {
+  public RolePermissions APPEXECUTION(@javax.annotation.Nullable List<String> APPEXECUTION) {
     
     this.APPEXECUTION = APPEXECUTION;
+    return this;
+  }
+
+  public RolePermissions addAPPEXECUTIONItem(String APPEXECUTIONItem) {
+    if (this.APPEXECUTION == null) {
+      this.APPEXECUTION = new ArrayList<>();
+    }
+    this.APPEXECUTION.add(APPEXECUTIONItem);
     return this;
   }
 
@@ -557,20 +705,61 @@ public class RolePermissions {
   @JsonProperty(JSON_PROPERTY_A_P_P_E_X_E_C_U_T_I_O_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ListAction getAPPEXECUTION() {
+  public List<String> getAPPEXECUTION() {
     return APPEXECUTION;
   }
 
 
   @JsonProperty(JSON_PROPERTY_A_P_P_E_X_E_C_U_T_I_O_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAPPEXECUTION(@javax.annotation.Nullable ListAction APPEXECUTION) {
+  public void setAPPEXECUTION(@javax.annotation.Nullable List<String> APPEXECUTION) {
     this.APPEXECUTION = APPEXECUTION;
   }
 
-  public RolePermissions ME(@javax.annotation.Nullable ListAction ME) {
+  public RolePermissions TEST(@javax.annotation.Nullable List<String> TEST) {
+    
+    this.TEST = TEST;
+    return this;
+  }
+
+  public RolePermissions addTESTItem(String TESTItem) {
+    if (this.TEST == null) {
+      this.TEST = new ArrayList<>();
+    }
+    this.TEST.add(TESTItem);
+    return this;
+  }
+
+  /**
+   * Get TEST
+   * @return TEST
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_T_E_S_T)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getTEST() {
+    return TEST;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_T_E_S_T)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTEST(@javax.annotation.Nullable List<String> TEST) {
+    this.TEST = TEST;
+  }
+
+  public RolePermissions ME(@javax.annotation.Nullable List<String> ME) {
     
     this.ME = ME;
+    return this;
+  }
+
+  public RolePermissions addMEItem(String MEItem) {
+    if (this.ME == null) {
+      this.ME = new ArrayList<>();
+    }
+    this.ME.add(MEItem);
     return this;
   }
 
@@ -582,20 +771,28 @@ public class RolePermissions {
   @JsonProperty(JSON_PROPERTY_M_E)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ListAction getME() {
+  public List<String> getME() {
     return ME;
   }
 
 
   @JsonProperty(JSON_PROPERTY_M_E)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setME(@javax.annotation.Nullable ListAction ME) {
+  public void setME(@javax.annotation.Nullable List<String> ME) {
     this.ME = ME;
   }
 
-  public RolePermissions APITOKEN(@javax.annotation.Nullable ListAction APITOKEN) {
+  public RolePermissions APITOKEN(@javax.annotation.Nullable List<String> APITOKEN) {
     
     this.APITOKEN = APITOKEN;
+    return this;
+  }
+
+  public RolePermissions addAPITOKENItem(String APITOKENItem) {
+    if (this.APITOKEN == null) {
+      this.APITOKEN = new ArrayList<>();
+    }
+    this.APITOKEN.add(APITOKENItem);
     return this;
   }
 
@@ -607,20 +804,28 @@ public class RolePermissions {
   @JsonProperty(JSON_PROPERTY_A_P_I_T_O_K_E_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ListAction getAPITOKEN() {
+  public List<String> getAPITOKEN() {
     return APITOKEN;
   }
 
 
   @JsonProperty(JSON_PROPERTY_A_P_I_T_O_K_E_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAPITOKEN(@javax.annotation.Nullable ListAction APITOKEN) {
+  public void setAPITOKEN(@javax.annotation.Nullable List<String> APITOKEN) {
     this.APITOKEN = APITOKEN;
   }
 
-  public RolePermissions DASHBOARD(@javax.annotation.Nullable ListAction DASHBOARD) {
+  public RolePermissions DASHBOARD(@javax.annotation.Nullable List<String> DASHBOARD) {
     
     this.DASHBOARD = DASHBOARD;
+    return this;
+  }
+
+  public RolePermissions addDASHBOARDItem(String DASHBOARDItem) {
+    if (this.DASHBOARD == null) {
+      this.DASHBOARD = new ArrayList<>();
+    }
+    this.DASHBOARD.add(DASHBOARDItem);
     return this;
   }
 
@@ -632,20 +837,28 @@ public class RolePermissions {
   @JsonProperty(JSON_PROPERTY_D_A_S_H_B_O_A_R_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ListAction getDASHBOARD() {
+  public List<String> getDASHBOARD() {
     return DASHBOARD;
   }
 
 
   @JsonProperty(JSON_PROPERTY_D_A_S_H_B_O_A_R_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDASHBOARD(@javax.annotation.Nullable ListAction DASHBOARD) {
+  public void setDASHBOARD(@javax.annotation.Nullable List<String> DASHBOARD) {
     this.DASHBOARD = DASHBOARD;
   }
 
-  public RolePermissions TENANT(@javax.annotation.Nullable ListAction TENANT) {
+  public RolePermissions TENANT(@javax.annotation.Nullable List<String> TENANT) {
     
     this.TENANT = TENANT;
+    return this;
+  }
+
+  public RolePermissions addTENANTItem(String TENANTItem) {
+    if (this.TENANT == null) {
+      this.TENANT = new ArrayList<>();
+    }
+    this.TENANT.add(TENANTItem);
     return this;
   }
 
@@ -657,15 +870,48 @@ public class RolePermissions {
   @JsonProperty(JSON_PROPERTY_T_E_N_A_N_T)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ListAction getTENANT() {
+  public List<String> getTENANT() {
     return TENANT;
   }
 
 
   @JsonProperty(JSON_PROPERTY_T_E_N_A_N_T)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTENANT(@javax.annotation.Nullable ListAction TENANT) {
+  public void setTENANT(@javax.annotation.Nullable List<String> TENANT) {
     this.TENANT = TENANT;
+  }
+
+  public RolePermissions UNKNOWN(@javax.annotation.Nullable List<String> UNKNOWN) {
+    
+    this.UNKNOWN = UNKNOWN;
+    return this;
+  }
+
+  public RolePermissions addUNKNOWNItem(String UNKNOWNItem) {
+    if (this.UNKNOWN == null) {
+      this.UNKNOWN = new ArrayList<>();
+    }
+    this.UNKNOWN.add(UNKNOWNItem);
+    return this;
+  }
+
+  /**
+   * Get UNKNOWN
+   * @return UNKNOWN
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_U_N_K_N_O_W_N)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getUNKNOWN() {
+    return UNKNOWN;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_U_N_K_N_O_W_N)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUNKNOWN(@javax.annotation.Nullable List<String> UNKNOWN) {
+    this.UNKNOWN = UNKNOWN;
   }
 
   @Override
@@ -694,15 +940,17 @@ public class RolePermissions {
         Objects.equals(this.INFRASTRUCTURE, rolePermissions.INFRASTRUCTURE) &&
         Objects.equals(this.APP, rolePermissions.APP) &&
         Objects.equals(this.APPEXECUTION, rolePermissions.APPEXECUTION) &&
+        Objects.equals(this.TEST, rolePermissions.TEST) &&
         Objects.equals(this.ME, rolePermissions.ME) &&
         Objects.equals(this.APITOKEN, rolePermissions.APITOKEN) &&
         Objects.equals(this.DASHBOARD, rolePermissions.DASHBOARD) &&
-        Objects.equals(this.TENANT, rolePermissions.TENANT);
+        Objects.equals(this.TENANT, rolePermissions.TENANT) &&
+        Objects.equals(this.UNKNOWN, rolePermissions.UNKNOWN);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(FLOW, BLUEPRINT, TEMPLATE, NAMESPACE, EXECUTION, USER, GROUP, ROLE, BINDING, AUDITLOG, SECRET, KVSTORE, IMPERSONATE, SETTING, INFRASTRUCTURE, APP, APPEXECUTION, ME, APITOKEN, DASHBOARD, TENANT);
+    return Objects.hash(FLOW, BLUEPRINT, TEMPLATE, NAMESPACE, EXECUTION, USER, GROUP, ROLE, BINDING, AUDITLOG, SECRET, KVSTORE, IMPERSONATE, SETTING, INFRASTRUCTURE, APP, APPEXECUTION, TEST, ME, APITOKEN, DASHBOARD, TENANT, UNKNOWN);
   }
 
   @Override
@@ -726,10 +974,12 @@ public class RolePermissions {
     sb.append("    INFRASTRUCTURE: ").append(toIndentedString(INFRASTRUCTURE)).append("\n");
     sb.append("    APP: ").append(toIndentedString(APP)).append("\n");
     sb.append("    APPEXECUTION: ").append(toIndentedString(APPEXECUTION)).append("\n");
+    sb.append("    TEST: ").append(toIndentedString(TEST)).append("\n");
     sb.append("    ME: ").append(toIndentedString(ME)).append("\n");
     sb.append("    APITOKEN: ").append(toIndentedString(APITOKEN)).append("\n");
     sb.append("    DASHBOARD: ").append(toIndentedString(DASHBOARD)).append("\n");
     sb.append("    TENANT: ").append(toIndentedString(TENANT)).append("\n");
+    sb.append("    UNKNOWN: ").append(toIndentedString(UNKNOWN)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -779,107 +1029,324 @@ public class RolePermissions {
 
     // add `FLOW` to the URL query string
     if (getFLOW() != null) {
-      joiner.add(getFLOW().toUrlQueryString(prefix + "FLOW" + suffix));
+      for (int i = 0; i < getFLOW().size(); i++) {
+        try {
+          joiner.add(String.format("%sFLOW%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getFLOW().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
     }
 
     // add `BLUEPRINT` to the URL query string
     if (getBLUEPRINT() != null) {
-      joiner.add(getBLUEPRINT().toUrlQueryString(prefix + "BLUEPRINT" + suffix));
+      for (int i = 0; i < getBLUEPRINT().size(); i++) {
+        try {
+          joiner.add(String.format("%sBLUEPRINT%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getBLUEPRINT().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
     }
 
     // add `TEMPLATE` to the URL query string
     if (getTEMPLATE() != null) {
-      joiner.add(getTEMPLATE().toUrlQueryString(prefix + "TEMPLATE" + suffix));
+      for (int i = 0; i < getTEMPLATE().size(); i++) {
+        try {
+          joiner.add(String.format("%sTEMPLATE%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getTEMPLATE().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
     }
 
     // add `NAMESPACE` to the URL query string
     if (getNAMESPACE() != null) {
-      joiner.add(getNAMESPACE().toUrlQueryString(prefix + "NAMESPACE" + suffix));
+      for (int i = 0; i < getNAMESPACE().size(); i++) {
+        try {
+          joiner.add(String.format("%sNAMESPACE%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getNAMESPACE().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
     }
 
     // add `EXECUTION` to the URL query string
     if (getEXECUTION() != null) {
-      joiner.add(getEXECUTION().toUrlQueryString(prefix + "EXECUTION" + suffix));
+      for (int i = 0; i < getEXECUTION().size(); i++) {
+        try {
+          joiner.add(String.format("%sEXECUTION%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getEXECUTION().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
     }
 
     // add `USER` to the URL query string
     if (getUSER() != null) {
-      joiner.add(getUSER().toUrlQueryString(prefix + "USER" + suffix));
+      for (int i = 0; i < getUSER().size(); i++) {
+        try {
+          joiner.add(String.format("%sUSER%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getUSER().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
     }
 
     // add `GROUP` to the URL query string
     if (getGROUP() != null) {
-      joiner.add(getGROUP().toUrlQueryString(prefix + "GROUP" + suffix));
+      for (int i = 0; i < getGROUP().size(); i++) {
+        try {
+          joiner.add(String.format("%sGROUP%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getGROUP().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
     }
 
     // add `ROLE` to the URL query string
     if (getROLE() != null) {
-      joiner.add(getROLE().toUrlQueryString(prefix + "ROLE" + suffix));
+      for (int i = 0; i < getROLE().size(); i++) {
+        try {
+          joiner.add(String.format("%sROLE%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getROLE().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
     }
 
     // add `BINDING` to the URL query string
     if (getBINDING() != null) {
-      joiner.add(getBINDING().toUrlQueryString(prefix + "BINDING" + suffix));
+      for (int i = 0; i < getBINDING().size(); i++) {
+        try {
+          joiner.add(String.format("%sBINDING%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getBINDING().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
     }
 
     // add `AUDITLOG` to the URL query string
     if (getAUDITLOG() != null) {
-      joiner.add(getAUDITLOG().toUrlQueryString(prefix + "AUDITLOG" + suffix));
+      for (int i = 0; i < getAUDITLOG().size(); i++) {
+        try {
+          joiner.add(String.format("%sAUDITLOG%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getAUDITLOG().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
     }
 
     // add `SECRET` to the URL query string
     if (getSECRET() != null) {
-      joiner.add(getSECRET().toUrlQueryString(prefix + "SECRET" + suffix));
+      for (int i = 0; i < getSECRET().size(); i++) {
+        try {
+          joiner.add(String.format("%sSECRET%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getSECRET().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
     }
 
     // add `KVSTORE` to the URL query string
     if (getKVSTORE() != null) {
-      joiner.add(getKVSTORE().toUrlQueryString(prefix + "KVSTORE" + suffix));
+      for (int i = 0; i < getKVSTORE().size(); i++) {
+        try {
+          joiner.add(String.format("%sKVSTORE%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getKVSTORE().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
     }
 
     // add `IMPERSONATE` to the URL query string
     if (getIMPERSONATE() != null) {
-      joiner.add(getIMPERSONATE().toUrlQueryString(prefix + "IMPERSONATE" + suffix));
+      for (int i = 0; i < getIMPERSONATE().size(); i++) {
+        try {
+          joiner.add(String.format("%sIMPERSONATE%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getIMPERSONATE().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
     }
 
     // add `SETTING` to the URL query string
     if (getSETTING() != null) {
-      joiner.add(getSETTING().toUrlQueryString(prefix + "SETTING" + suffix));
+      for (int i = 0; i < getSETTING().size(); i++) {
+        try {
+          joiner.add(String.format("%sSETTING%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getSETTING().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
     }
 
     // add `INFRASTRUCTURE` to the URL query string
     if (getINFRASTRUCTURE() != null) {
-      joiner.add(getINFRASTRUCTURE().toUrlQueryString(prefix + "INFRASTRUCTURE" + suffix));
+      for (int i = 0; i < getINFRASTRUCTURE().size(); i++) {
+        try {
+          joiner.add(String.format("%sINFRASTRUCTURE%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getINFRASTRUCTURE().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
     }
 
     // add `APP` to the URL query string
     if (getAPP() != null) {
-      joiner.add(getAPP().toUrlQueryString(prefix + "APP" + suffix));
+      for (int i = 0; i < getAPP().size(); i++) {
+        try {
+          joiner.add(String.format("%sAPP%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getAPP().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
     }
 
     // add `APPEXECUTION` to the URL query string
     if (getAPPEXECUTION() != null) {
-      joiner.add(getAPPEXECUTION().toUrlQueryString(prefix + "APPEXECUTION" + suffix));
+      for (int i = 0; i < getAPPEXECUTION().size(); i++) {
+        try {
+          joiner.add(String.format("%sAPPEXECUTION%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getAPPEXECUTION().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
+    // add `TEST` to the URL query string
+    if (getTEST() != null) {
+      for (int i = 0; i < getTEST().size(); i++) {
+        try {
+          joiner.add(String.format("%sTEST%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getTEST().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
     }
 
     // add `ME` to the URL query string
     if (getME() != null) {
-      joiner.add(getME().toUrlQueryString(prefix + "ME" + suffix));
+      for (int i = 0; i < getME().size(); i++) {
+        try {
+          joiner.add(String.format("%sME%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getME().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
     }
 
     // add `APITOKEN` to the URL query string
     if (getAPITOKEN() != null) {
-      joiner.add(getAPITOKEN().toUrlQueryString(prefix + "APITOKEN" + suffix));
+      for (int i = 0; i < getAPITOKEN().size(); i++) {
+        try {
+          joiner.add(String.format("%sAPITOKEN%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getAPITOKEN().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
     }
 
     // add `DASHBOARD` to the URL query string
     if (getDASHBOARD() != null) {
-      joiner.add(getDASHBOARD().toUrlQueryString(prefix + "DASHBOARD" + suffix));
+      for (int i = 0; i < getDASHBOARD().size(); i++) {
+        try {
+          joiner.add(String.format("%sDASHBOARD%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getDASHBOARD().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
     }
 
     // add `TENANT` to the URL query string
     if (getTENANT() != null) {
-      joiner.add(getTENANT().toUrlQueryString(prefix + "TENANT" + suffix));
+      for (int i = 0; i < getTENANT().size(); i++) {
+        try {
+          joiner.add(String.format("%sTENANT%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getTENANT().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
+    // add `UNKNOWN` to the URL query string
+    if (getUNKNOWN() != null) {
+      for (int i = 0; i < getUNKNOWN().size(); i++) {
+        try {
+          joiner.add(String.format("%sUNKNOWN%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getUNKNOWN().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
     }
 
     return joiner.toString();

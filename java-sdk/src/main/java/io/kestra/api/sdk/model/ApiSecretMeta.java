@@ -20,10 +20,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.kestra.api.sdk.model.ApiSecretTag;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -34,23 +30,13 @@ import java.util.StringJoiner;
  * ApiSecretMeta
  */
 @JsonPropertyOrder({
-  ApiSecretMeta.JSON_PROPERTY_KEY,
-  ApiSecretMeta.JSON_PROPERTY_DESCRIPTION,
-  ApiSecretMeta.JSON_PROPERTY_TAGS
+  ApiSecretMeta.JSON_PROPERTY_KEY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class ApiSecretMeta {
   public static final String JSON_PROPERTY_KEY = "key";
   @javax.annotation.Nonnull
   private String key;
-
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  @javax.annotation.Nonnull
-  private String description;
-
-  public static final String JSON_PROPERTY_TAGS = "tags";
-  @javax.annotation.Nonnull
-  private List<ApiSecretTag> tags = new ArrayList<>();
 
   public ApiSecretMeta() {
   }
@@ -80,64 +66,6 @@ public class ApiSecretMeta {
     this.key = key;
   }
 
-  public ApiSecretMeta description(@javax.annotation.Nonnull String description) {
-    
-    this.description = description;
-    return this;
-  }
-
-  /**
-   * Get description
-   * @return description
-   */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getDescription() {
-    return description;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDescription(@javax.annotation.Nonnull String description) {
-    this.description = description;
-  }
-
-  public ApiSecretMeta tags(@javax.annotation.Nonnull List<ApiSecretTag> tags) {
-    
-    this.tags = tags;
-    return this;
-  }
-
-  public ApiSecretMeta addTagsItem(ApiSecretTag tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-  /**
-   * Get tags
-   * @return tags
-   */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public List<ApiSecretTag> getTags() {
-    return tags;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTags(@javax.annotation.Nonnull List<ApiSecretTag> tags) {
-    this.tags = tags;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -147,14 +75,12 @@ public class ApiSecretMeta {
       return false;
     }
     ApiSecretMeta apiSecretMeta = (ApiSecretMeta) o;
-    return Objects.equals(this.key, apiSecretMeta.key) &&
-        Objects.equals(this.description, apiSecretMeta.description) &&
-        Objects.equals(this.tags, apiSecretMeta.tags);
+    return Objects.equals(this.key, apiSecretMeta.key);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, description, tags);
+    return Objects.hash(key);
   }
 
   @Override
@@ -162,8 +88,6 @@ public class ApiSecretMeta {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApiSecretMeta {\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -218,26 +142,6 @@ public class ApiSecretMeta {
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
-      }
-    }
-
-    // add `description` to the URL query string
-    if (getDescription() != null) {
-      try {
-        joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `tags` to the URL query string
-    if (getTags() != null) {
-      for (int i = 0; i < getTags().size(); i++) {
-        if (getTags().get(i) != null) {
-          joiner.add(getTags().get(i).toUrlQueryString(String.format("%stags%s%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
-        }
       }
     }
 

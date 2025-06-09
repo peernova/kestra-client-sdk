@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  |
-|**type** | **ServiceServiceType** |  |  |
+|**type** | **ServiceType** |  |  |
 |**state** | **ServiceServiceState** |  |  |
 |**server** | [**ClusterControllerApiServerInstance**](ClusterControllerApiServerInstance.md) |  |  |
 |**createdAt** | **OffsetDateTime** |  |  |

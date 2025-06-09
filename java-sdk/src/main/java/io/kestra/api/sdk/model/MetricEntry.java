@@ -20,9 +20,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.kestra.api.sdk.model.ExecutionKind;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -43,9 +48,10 @@ import java.util.StringJoiner;
   MetricEntry.JSON_PROPERTY_VALUE,
   MetricEntry.JSON_PROPERTY_TIMESTAMP,
   MetricEntry.JSON_PROPERTY_TAGS,
-  MetricEntry.JSON_PROPERTY_DELETED
+  MetricEntry.JSON_PROPERTY_DELETED,
+  MetricEntry.JSON_PROPERTY_EXECUTION_KIND
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class MetricEntry {
   public static final String JSON_PROPERTY_NAMESPACE = "namespace";
   @javax.annotation.Nonnull
@@ -57,15 +63,15 @@ public class MetricEntry {
 
   public static final String JSON_PROPERTY_TASK_ID = "taskId";
   @javax.annotation.Nullable
-  private String taskId;
+  private JsonNullable<String> taskId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_EXECUTION_ID = "executionId";
   @javax.annotation.Nullable
-  private String executionId;
+  private JsonNullable<String> executionId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TASK_RUN_ID = "taskRunId";
   @javax.annotation.Nullable
-  private String taskRunId;
+  private JsonNullable<String> taskRunId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TYPE = "type";
   @javax.annotation.Nonnull
@@ -85,11 +91,15 @@ public class MetricEntry {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   @javax.annotation.Nullable
-  private Map<String, String> tags;
+  private JsonNullable<Map<String, String>> tags = JsonNullable.<Map<String, String>>undefined();
 
   public static final String JSON_PROPERTY_DELETED = "deleted";
   @javax.annotation.Nonnull
   private Boolean deleted;
+
+  public static final String JSON_PROPERTY_EXECUTION_KIND = "executionKind";
+  @javax.annotation.Nullable
+  private JsonNullable<ExecutionKind> executionKind = JsonNullable.<ExecutionKind>undefined();
 
   public MetricEntry() {
   }
@@ -145,8 +155,8 @@ public class MetricEntry {
   }
 
   public MetricEntry taskId(@javax.annotation.Nullable String taskId) {
+    this.taskId = JsonNullable.<String>of(taskId);
     
-    this.taskId = taskId;
     return this;
   }
 
@@ -155,23 +165,31 @@ public class MetricEntry {
    * @return taskId
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TASK_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonIgnore
 
   public String getTaskId() {
-    return taskId;
+        return taskId.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_TASK_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTaskId(@javax.annotation.Nullable String taskId) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getTaskId_JsonNullable() {
+    return taskId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TASK_ID)
+  public void setTaskId_JsonNullable(JsonNullable<String> taskId) {
     this.taskId = taskId;
   }
 
+  public void setTaskId(@javax.annotation.Nullable String taskId) {
+    this.taskId = JsonNullable.<String>of(taskId);
+  }
+
   public MetricEntry executionId(@javax.annotation.Nullable String executionId) {
+    this.executionId = JsonNullable.<String>of(executionId);
     
-    this.executionId = executionId;
     return this;
   }
 
@@ -180,23 +198,31 @@ public class MetricEntry {
    * @return executionId
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXECUTION_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonIgnore
 
   public String getExecutionId() {
-    return executionId;
+        return executionId.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_EXECUTION_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExecutionId(@javax.annotation.Nullable String executionId) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getExecutionId_JsonNullable() {
+    return executionId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXECUTION_ID)
+  public void setExecutionId_JsonNullable(JsonNullable<String> executionId) {
     this.executionId = executionId;
   }
 
+  public void setExecutionId(@javax.annotation.Nullable String executionId) {
+    this.executionId = JsonNullable.<String>of(executionId);
+  }
+
   public MetricEntry taskRunId(@javax.annotation.Nullable String taskRunId) {
+    this.taskRunId = JsonNullable.<String>of(taskRunId);
     
-    this.taskRunId = taskRunId;
     return this;
   }
 
@@ -205,18 +231,26 @@ public class MetricEntry {
    * @return taskRunId
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TASK_RUN_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonIgnore
 
   public String getTaskRunId() {
-    return taskRunId;
+        return taskRunId.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_TASK_RUN_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTaskRunId(@javax.annotation.Nullable String taskRunId) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getTaskRunId_JsonNullable() {
+    return taskRunId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TASK_RUN_ID)
+  public void setTaskRunId_JsonNullable(JsonNullable<String> taskRunId) {
     this.taskRunId = taskRunId;
+  }
+
+  public void setTaskRunId(@javax.annotation.Nullable String taskRunId) {
+    this.taskRunId = JsonNullable.<String>of(taskRunId);
   }
 
   public MetricEntry type(@javax.annotation.Nonnull String type) {
@@ -320,13 +354,20 @@ public class MetricEntry {
   }
 
   public MetricEntry tags(@javax.annotation.Nullable Map<String, String> tags) {
+    this.tags = JsonNullable.<Map<String, String>>of(tags);
     
-    this.tags = tags;
     return this;
   }
 
   public MetricEntry putTagsItem(String key, String tagsItem) {
-    this.tags.put(key, tagsItem);
+    if (this.tags == null || !this.tags.isPresent()) {
+      this.tags = JsonNullable.<Map<String, String>>of(new HashMap<>());
+    }
+    try {
+      this.tags.get().put(key, tagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -335,18 +376,26 @@ public class MetricEntry {
    * @return tags
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonIgnore
 
   public Map<String, String> getTags() {
-    return tags;
+        return tags.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTags(@javax.annotation.Nullable Map<String, String> tags) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Map<String, String>> getTags_JsonNullable() {
+    return tags;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  public void setTags_JsonNullable(JsonNullable<Map<String, String>> tags) {
     this.tags = tags;
+  }
+
+  public void setTags(@javax.annotation.Nullable Map<String, String> tags) {
+    this.tags = JsonNullable.<Map<String, String>>of(tags);
   }
 
   public MetricEntry deleted(@javax.annotation.Nonnull Boolean deleted) {
@@ -374,6 +423,39 @@ public class MetricEntry {
     this.deleted = deleted;
   }
 
+  public MetricEntry executionKind(@javax.annotation.Nullable ExecutionKind executionKind) {
+    this.executionKind = JsonNullable.<ExecutionKind>of(executionKind);
+    
+    return this;
+  }
+
+  /**
+   * Get executionKind
+   * @return executionKind
+   */
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public ExecutionKind getExecutionKind() {
+        return executionKind.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_EXECUTION_KIND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<ExecutionKind> getExecutionKind_JsonNullable() {
+    return executionKind;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXECUTION_KIND)
+  public void setExecutionKind_JsonNullable(JsonNullable<ExecutionKind> executionKind) {
+    this.executionKind = executionKind;
+  }
+
+  public void setExecutionKind(@javax.annotation.Nullable ExecutionKind executionKind) {
+    this.executionKind = JsonNullable.<ExecutionKind>of(executionKind);
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -385,20 +467,32 @@ public class MetricEntry {
     MetricEntry metricEntry = (MetricEntry) o;
     return Objects.equals(this.namespace, metricEntry.namespace) &&
         Objects.equals(this.flowId, metricEntry.flowId) &&
-        Objects.equals(this.taskId, metricEntry.taskId) &&
-        Objects.equals(this.executionId, metricEntry.executionId) &&
-        Objects.equals(this.taskRunId, metricEntry.taskRunId) &&
+        equalsNullable(this.taskId, metricEntry.taskId) &&
+        equalsNullable(this.executionId, metricEntry.executionId) &&
+        equalsNullable(this.taskRunId, metricEntry.taskRunId) &&
         Objects.equals(this.type, metricEntry.type) &&
         Objects.equals(this.name, metricEntry.name) &&
         Objects.equals(this.value, metricEntry.value) &&
         Objects.equals(this.timestamp, metricEntry.timestamp) &&
-        Objects.equals(this.tags, metricEntry.tags) &&
-        Objects.equals(this.deleted, metricEntry.deleted);
+        equalsNullable(this.tags, metricEntry.tags) &&
+        Objects.equals(this.deleted, metricEntry.deleted) &&
+        equalsNullable(this.executionKind, metricEntry.executionKind);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespace, flowId, taskId, executionId, taskRunId, type, name, value, timestamp, tags, deleted);
+    return Objects.hash(namespace, flowId, hashCodeNullable(taskId), hashCodeNullable(executionId), hashCodeNullable(taskRunId), type, name, value, timestamp, hashCodeNullable(tags), deleted, hashCodeNullable(executionKind));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -416,6 +510,7 @@ public class MetricEntry {
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
+    sb.append("    executionKind: ").append(toIndentedString(executionKind)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -571,6 +666,16 @@ public class MetricEntry {
     if (getDeleted() != null) {
       try {
         joiner.add(String.format("%sdeleted%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDeleted()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `executionKind` to the URL query string
+    if (getExecutionKind() != null) {
+      try {
+        joiner.add(String.format("%sexecutionKind%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExecutionKind()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

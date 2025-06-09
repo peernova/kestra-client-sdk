@@ -26,6 +26,7 @@ import io.kestra.api.sdk.model.Level;
 import io.kestra.api.sdk.model.LogEntry;
 import java.time.OffsetDateTime;
 import io.kestra.api.sdk.model.PagedResultsLogEntry;
+import io.kestra.api.sdk.model.QueryFilter;
 
 
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class LogsApi extends BaseApi {
 
   public LogsApi() {
@@ -50,90 +51,6 @@ public class LogsApi extends BaseApi {
    * Delete logs for a specific execution, taskrun or task
    * 
    * @param executionId The execution id (required)
-   * @param minLevel The min log level filter (optional)
-   * @param taskRunId The taskrun id (optional)
-   * @param taskId The task id (optional)
-   * @param attempt The attempt number (optional)
-   * @throws ApiException if fails to make API call
-   */
-  public void delete10(String executionId, Level minLevel, String taskRunId, String taskId, Integer attempt) throws ApiException {
-    this.delete10(executionId, minLevel, taskRunId, taskId, attempt, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete logs for a specific execution, taskrun or task
-   * 
-   * @param executionId The execution id (required)
-   * @param minLevel The min log level filter (optional)
-   * @param taskRunId The taskrun id (optional)
-   * @param taskId The task id (optional)
-   * @param attempt The attempt number (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void delete10(String executionId, Level minLevel, String taskRunId, String taskId, Integer attempt, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'executionId' is set
-    if (executionId == null) {
-      throw new ApiException(400, "Missing the required parameter 'executionId' when calling delete10");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/logs/{executionId}"
-      .replaceAll("\\{" + "executionId" + "\\}", apiClient.escapeString(apiClient.parameterToString(executionId)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("minLevel", minLevel));
-    localVarQueryParams.addAll(apiClient.parameterToPair("taskRunId", taskRunId));
-    localVarQueryParams.addAll(apiClient.parameterToPair("taskId", taskId));
-    localVarQueryParams.addAll(apiClient.parameterToPair("attempt", attempt));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Delete logs for a specific execution, taskrun or task
-   * 
-   * @param executionId The execution id (required)
    * @param tenant  (required)
    * @param minLevel The min log level filter (optional)
    * @param taskRunId The taskrun id (optional)
@@ -141,8 +58,8 @@ public class LogsApi extends BaseApi {
    * @param attempt The attempt number (optional)
    * @throws ApiException if fails to make API call
    */
-  public void delete38(String executionId, String tenant, Level minLevel, String taskRunId, String taskId, Integer attempt) throws ApiException {
-    this.delete38(executionId, tenant, minLevel, taskRunId, taskId, attempt, Collections.emptyMap());
+  public void deleteLogsFromExecution(@javax.annotation.Nonnull String executionId, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable Level minLevel, @javax.annotation.Nullable String taskRunId, @javax.annotation.Nullable String taskId, @javax.annotation.Nullable Integer attempt) throws ApiException {
+    this.deleteLogsFromExecution(executionId, tenant, minLevel, taskRunId, taskId, attempt, Collections.emptyMap());
   }
 
 
@@ -158,17 +75,17 @@ public class LogsApi extends BaseApi {
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void delete38(String executionId, String tenant, Level minLevel, String taskRunId, String taskId, Integer attempt, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteLogsFromExecution(@javax.annotation.Nonnull String executionId, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable Level minLevel, @javax.annotation.Nullable String taskRunId, @javax.annotation.Nullable String taskId, @javax.annotation.Nullable Integer attempt, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'executionId' is set
     if (executionId == null) {
-      throw new ApiException(400, "Missing the required parameter 'executionId' when calling delete38");
+      throw new ApiException(400, "Missing the required parameter 'executionId' when calling deleteLogsFromExecution");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling delete38");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteLogsFromExecution");
     }
     
     // create path and map variables
@@ -203,95 +120,7 @@ public class LogsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Delete logs for a specific execution, taskrun or task
-   * 
-   * @param namespace The namespace (required)
-   * @param flowId The flow identifier (required)
-   * @param triggerId The trigger id (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void deleteFromFlow(String namespace, String flowId, String triggerId) throws ApiException {
-    this.deleteFromFlow(namespace, flowId, triggerId, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete logs for a specific execution, taskrun or task
-   * 
-   * @param namespace The namespace (required)
-   * @param flowId The flow identifier (required)
-   * @param triggerId The trigger id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void deleteFromFlow(String namespace, String flowId, String triggerId, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling deleteFromFlow");
-    }
-    
-    // verify the required parameter 'flowId' is set
-    if (flowId == null) {
-      throw new ApiException(400, "Missing the required parameter 'flowId' when calling deleteFromFlow");
-    }
-    
-    // verify the required parameter 'triggerId' is set
-    if (triggerId == null) {
-      throw new ApiException(400, "Missing the required parameter 'triggerId' when calling deleteFromFlow");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/logs/{namespace}/{flowId}"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "flowId" + "\\}", apiClient.escapeString(apiClient.parameterToString(flowId)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("triggerId", triggerId));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -319,8 +148,8 @@ public class LogsApi extends BaseApi {
    * @param tenant  (required)
    * @throws ApiException if fails to make API call
    */
-  public void deleteFromFlow1(String namespace, String flowId, String triggerId, String tenant) throws ApiException {
-    this.deleteFromFlow1(namespace, flowId, triggerId, tenant, Collections.emptyMap());
+  public void deleteLogsFromFlow(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String flowId, @javax.annotation.Nonnull String triggerId, @javax.annotation.Nonnull String tenant) throws ApiException {
+    this.deleteLogsFromFlow(namespace, flowId, triggerId, tenant, Collections.emptyMap());
   }
 
 
@@ -334,27 +163,27 @@ public class LogsApi extends BaseApi {
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void deleteFromFlow1(String namespace, String flowId, String triggerId, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteLogsFromFlow(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String flowId, @javax.annotation.Nonnull String triggerId, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling deleteFromFlow1");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling deleteLogsFromFlow");
     }
     
     // verify the required parameter 'flowId' is set
     if (flowId == null) {
-      throw new ApiException(400, "Missing the required parameter 'flowId' when calling deleteFromFlow1");
+      throw new ApiException(400, "Missing the required parameter 'flowId' when calling deleteLogsFromFlow");
     }
     
     // verify the required parameter 'triggerId' is set
     if (triggerId == null) {
-      throw new ApiException(400, "Missing the required parameter 'triggerId' when calling deleteFromFlow1");
+      throw new ApiException(400, "Missing the required parameter 'triggerId' when calling deleteLogsFromFlow");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteFromFlow1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteLogsFromFlow");
     }
     
     // create path and map variables
@@ -387,7 +216,7 @@ public class LogsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -410,93 +239,6 @@ public class LogsApi extends BaseApi {
    * Download logs for a specific execution, taskrun or task
    * 
    * @param executionId The execution id (required)
-   * @param minLevel The min log level filter (optional)
-   * @param taskRunId The taskrun id (optional)
-   * @param taskId The task id (optional)
-   * @param attempt The attempt number (optional)
-   * @return File
-   * @throws ApiException if fails to make API call
-   */
-  public File download1(String executionId, Level minLevel, String taskRunId, String taskId, Integer attempt) throws ApiException {
-    return this.download1(executionId, minLevel, taskRunId, taskId, attempt, Collections.emptyMap());
-  }
-
-
-  /**
-   * Download logs for a specific execution, taskrun or task
-   * 
-   * @param executionId The execution id (required)
-   * @param minLevel The min log level filter (optional)
-   * @param taskRunId The taskrun id (optional)
-   * @param taskId The task id (optional)
-   * @param attempt The attempt number (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return File
-   * @throws ApiException if fails to make API call
-   */
-  public File download1(String executionId, Level minLevel, String taskRunId, String taskId, Integer attempt, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'executionId' is set
-    if (executionId == null) {
-      throw new ApiException(400, "Missing the required parameter 'executionId' when calling download1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/logs/{executionId}/download"
-      .replaceAll("\\{" + "executionId" + "\\}", apiClient.escapeString(apiClient.parameterToString(executionId)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("minLevel", minLevel));
-    localVarQueryParams.addAll(apiClient.parameterToPair("taskRunId", taskRunId));
-    localVarQueryParams.addAll(apiClient.parameterToPair("taskId", taskId));
-    localVarQueryParams.addAll(apiClient.parameterToPair("attempt", attempt));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "text/plain"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<File> localVarReturnType = new TypeReference<File>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Download logs for a specific execution, taskrun or task
-   * 
-   * @param executionId The execution id (required)
    * @param tenant  (required)
    * @param minLevel The min log level filter (optional)
    * @param taskRunId The taskrun id (optional)
@@ -505,8 +247,8 @@ public class LogsApi extends BaseApi {
    * @return File
    * @throws ApiException if fails to make API call
    */
-  public File download3(String executionId, String tenant, Level minLevel, String taskRunId, String taskId, Integer attempt) throws ApiException {
-    return this.download3(executionId, tenant, minLevel, taskRunId, taskId, attempt, Collections.emptyMap());
+  public File downloadLogsFromExecution(@javax.annotation.Nonnull String executionId, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable Level minLevel, @javax.annotation.Nullable String taskRunId, @javax.annotation.Nullable String taskId, @javax.annotation.Nullable Integer attempt) throws ApiException {
+    return this.downloadLogsFromExecution(executionId, tenant, minLevel, taskRunId, taskId, attempt, Collections.emptyMap());
   }
 
 
@@ -523,17 +265,17 @@ public class LogsApi extends BaseApi {
    * @return File
    * @throws ApiException if fails to make API call
    */
-  public File download3(String executionId, String tenant, Level minLevel, String taskRunId, String taskId, Integer attempt, Map<String, String> additionalHeaders) throws ApiException {
+  public File downloadLogsFromExecution(@javax.annotation.Nonnull String executionId, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable Level minLevel, @javax.annotation.Nullable String taskRunId, @javax.annotation.Nullable String taskId, @javax.annotation.Nullable Integer attempt, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'executionId' is set
     if (executionId == null) {
-      throw new ApiException(400, "Missing the required parameter 'executionId' when calling download3");
+      throw new ApiException(400, "Missing the required parameter 'executionId' when calling downloadLogsFromExecution");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling download3");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling downloadLogsFromExecution");
     }
     
     // create path and map variables
@@ -568,7 +310,7 @@ public class LogsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<File> localVarReturnType = new TypeReference<File>() {};
     return apiClient.invokeAPI(
@@ -589,172 +331,45 @@ public class LogsApi extends BaseApi {
   }
 
   /**
-   * Search for logs
+   * Follow logs for a specific execution
    * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param flowId A flow id filter (optional)
-   * @param triggerId A trigger id filter (optional)
+   * @param executionId The execution id (required)
+   * @param tenant  (required)
    * @param minLevel The min log level filter (optional)
-   * @param startDate The start datetime (optional)
-   * @param endDate The end datetime (optional)
-   * @return PagedResultsLogEntry
+   * @return EventLogEntry
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsLogEntry find10(Integer page, Integer size, String q, List<String> sort, String namespace, String flowId, String triggerId, Level minLevel, OffsetDateTime startDate, OffsetDateTime endDate) throws ApiException {
-    return this.find10(page, size, q, sort, namespace, flowId, triggerId, minLevel, startDate, endDate, Collections.emptyMap());
+  public EventLogEntry followLogsFromExecution(@javax.annotation.Nonnull String executionId, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable Level minLevel) throws ApiException {
+    return this.followLogsFromExecution(executionId, tenant, minLevel, Collections.emptyMap());
   }
 
 
   /**
-   * Search for logs
+   * Follow logs for a specific execution
    * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param flowId A flow id filter (optional)
-   * @param triggerId A trigger id filter (optional)
+   * @param executionId The execution id (required)
+   * @param tenant  (required)
    * @param minLevel The min log level filter (optional)
-   * @param startDate The start datetime (optional)
-   * @param endDate The end datetime (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsLogEntry
+   * @return EventLogEntry
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsLogEntry find10(Integer page, Integer size, String q, List<String> sort, String namespace, String flowId, String triggerId, Level minLevel, OffsetDateTime startDate, OffsetDateTime endDate, Map<String, String> additionalHeaders) throws ApiException {
+  public EventLogEntry followLogsFromExecution(@javax.annotation.Nonnull String executionId, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable Level minLevel, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find10");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find10");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/logs/search";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
-    localVarQueryParams.addAll(apiClient.parameterToPair("flowId", flowId));
-    localVarQueryParams.addAll(apiClient.parameterToPair("triggerId", triggerId));
-    localVarQueryParams.addAll(apiClient.parameterToPair("minLevel", minLevel));
-    localVarQueryParams.addAll(apiClient.parameterToPair("startDate", startDate));
-    localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsLogEntry> localVarReturnType = new TypeReference<PagedResultsLogEntry>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Search for logs
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param flowId A flow id filter (optional)
-   * @param triggerId A trigger id filter (optional)
-   * @param minLevel The min log level filter (optional)
-   * @param startDate The start datetime (optional)
-   * @param endDate The end datetime (optional)
-   * @return PagedResultsLogEntry
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsLogEntry find36(Integer page, Integer size, String tenant, String q, List<String> sort, String namespace, String flowId, String triggerId, Level minLevel, OffsetDateTime startDate, OffsetDateTime endDate) throws ApiException {
-    return this.find36(page, size, tenant, q, sort, namespace, flowId, triggerId, minLevel, startDate, endDate, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for logs
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param flowId A flow id filter (optional)
-   * @param triggerId A trigger id filter (optional)
-   * @param minLevel The min log level filter (optional)
-   * @param startDate The start datetime (optional)
-   * @param endDate The end datetime (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsLogEntry
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsLogEntry find36(Integer page, Integer size, String tenant, String q, List<String> sort, String namespace, String flowId, String triggerId, Level minLevel, OffsetDateTime startDate, OffsetDateTime endDate, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find36");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find36");
+    // verify the required parameter 'executionId' is set
+    if (executionId == null) {
+      throw new ApiException(400, "Missing the required parameter 'executionId' when calling followLogsFromExecution");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling find36");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling followLogsFromExecution");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/logs/search"
+    String localVarPath = "/api/v1/{tenant}/logs/{executionId}/follow"
+      .replaceAll("\\{" + "executionId" + "\\}", apiClient.escapeString(apiClient.parameterToString(executionId)))
       .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
@@ -765,23 +380,14 @@ public class LogsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
-    localVarQueryParams.addAll(apiClient.parameterToPair("flowId", flowId));
-    localVarQueryParams.addAll(apiClient.parameterToPair("triggerId", triggerId));
     localVarQueryParams.addAll(apiClient.parameterToPair("minLevel", minLevel));
-    localVarQueryParams.addAll(apiClient.parameterToPair("startDate", startDate));
-    localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
     
     localVarHeaderParams.putAll(additionalHeaders);
 
     
     
     final String[] localVarAccepts = {
-      "application/json"
+      "text/event-stream"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -790,96 +396,9 @@ public class LogsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<PagedResultsLogEntry> localVarReturnType = new TypeReference<PagedResultsLogEntry>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get logs for a specific execution, taskrun or task
-   * 
-   * @param executionId The execution id (required)
-   * @param minLevel The min log level filter (optional)
-   * @param taskRunId The taskrun id (optional)
-   * @param taskId The task id (optional)
-   * @param attempt The attempt number (optional)
-   * @return List&lt;LogEntry&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<LogEntry> findByExecution(String executionId, Level minLevel, String taskRunId, String taskId, Integer attempt) throws ApiException {
-    return this.findByExecution(executionId, minLevel, taskRunId, taskId, attempt, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get logs for a specific execution, taskrun or task
-   * 
-   * @param executionId The execution id (required)
-   * @param minLevel The min log level filter (optional)
-   * @param taskRunId The taskrun id (optional)
-   * @param taskId The task id (optional)
-   * @param attempt The attempt number (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;LogEntry&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<LogEntry> findByExecution(String executionId, Level minLevel, String taskRunId, String taskId, Integer attempt, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'executionId' is set
-    if (executionId == null) {
-      throw new ApiException(400, "Missing the required parameter 'executionId' when calling findByExecution");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/logs/{executionId}"
-      .replaceAll("\\{" + "executionId" + "\\}", apiClient.escapeString(apiClient.parameterToString(executionId)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("minLevel", minLevel));
-    localVarQueryParams.addAll(apiClient.parameterToPair("taskRunId", taskRunId));
-    localVarQueryParams.addAll(apiClient.parameterToPair("taskId", taskId));
-    localVarQueryParams.addAll(apiClient.parameterToPair("attempt", attempt));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<LogEntry>> localVarReturnType = new TypeReference<List<LogEntry>>() {};
+    TypeReference<EventLogEntry> localVarReturnType = new TypeReference<EventLogEntry>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -909,8 +428,8 @@ public class LogsApi extends BaseApi {
    * @return List&lt;LogEntry&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<LogEntry> findByExecution2(String executionId, String tenant, Level minLevel, String taskRunId, String taskId, Integer attempt) throws ApiException {
-    return this.findByExecution2(executionId, tenant, minLevel, taskRunId, taskId, attempt, Collections.emptyMap());
+  public List<LogEntry> listLogsFromExecution(@javax.annotation.Nonnull String executionId, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable Level minLevel, @javax.annotation.Nullable String taskRunId, @javax.annotation.Nullable String taskId, @javax.annotation.Nullable Integer attempt) throws ApiException {
+    return this.listLogsFromExecution(executionId, tenant, minLevel, taskRunId, taskId, attempt, Collections.emptyMap());
   }
 
 
@@ -927,17 +446,17 @@ public class LogsApi extends BaseApi {
    * @return List&lt;LogEntry&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<LogEntry> findByExecution2(String executionId, String tenant, Level minLevel, String taskRunId, String taskId, Integer attempt, Map<String, String> additionalHeaders) throws ApiException {
+  public List<LogEntry> listLogsFromExecution(@javax.annotation.Nonnull String executionId, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable Level minLevel, @javax.annotation.Nullable String taskRunId, @javax.annotation.Nullable String taskId, @javax.annotation.Nullable Integer attempt, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'executionId' is set
     if (executionId == null) {
-      throw new ApiException(400, "Missing the required parameter 'executionId' when calling findByExecution2");
+      throw new ApiException(400, "Missing the required parameter 'executionId' when calling listLogsFromExecution");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling findByExecution2");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listLogsFromExecution");
     }
     
     // create path and map variables
@@ -972,7 +491,7 @@ public class LogsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<List<LogEntry>> localVarReturnType = new TypeReference<List<LogEntry>>() {};
     return apiClient.invokeAPI(
@@ -993,123 +512,67 @@ public class LogsApi extends BaseApi {
   }
 
   /**
-   * Follow logs for a specific execution
+   * Search for logs
    * 
-   * @param executionId The execution id (required)
+   * @param page The current page (required)
+   * @param size The current page size (required)
+   * @param tenant  (required)
+   * @param sort The sort of current page (optional)
+   * @param filters Filters (optional)
+   * @param q A string filter (optional)
+   * @param namespace A namespace filter prefix (optional)
+   * @param flowId A flow id filter (optional)
+   * @param triggerId A trigger id filter (optional)
    * @param minLevel The min log level filter (optional)
-   * @return EventLogEntry
+   * @param startDate The start datetime (optional)
+   * @param endDate The end datetime (optional)
+   * @return PagedResultsLogEntry
    * @throws ApiException if fails to make API call
    */
-  public EventLogEntry follow1(String executionId, Level minLevel) throws ApiException {
-    return this.follow1(executionId, minLevel, Collections.emptyMap());
+  public PagedResultsLogEntry searchLogs(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable List<QueryFilter> filters, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace, @javax.annotation.Nullable String flowId, @javax.annotation.Nullable String triggerId, @javax.annotation.Nullable Level minLevel, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate) throws ApiException {
+    return this.searchLogs(page, size, tenant, sort, filters, q, namespace, flowId, triggerId, minLevel, startDate, endDate, Collections.emptyMap());
   }
 
 
   /**
-   * Follow logs for a specific execution
+   * Search for logs
    * 
-   * @param executionId The execution id (required)
+   * @param page The current page (required)
+   * @param size The current page size (required)
+   * @param tenant  (required)
+   * @param sort The sort of current page (optional)
+   * @param filters Filters (optional)
+   * @param q A string filter (optional)
+   * @param namespace A namespace filter prefix (optional)
+   * @param flowId A flow id filter (optional)
+   * @param triggerId A trigger id filter (optional)
    * @param minLevel The min log level filter (optional)
+   * @param startDate The start datetime (optional)
+   * @param endDate The end datetime (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return EventLogEntry
+   * @return PagedResultsLogEntry
    * @throws ApiException if fails to make API call
    */
-  public EventLogEntry follow1(String executionId, Level minLevel, Map<String, String> additionalHeaders) throws ApiException {
+  public PagedResultsLogEntry searchLogs(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable List<QueryFilter> filters, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace, @javax.annotation.Nullable String flowId, @javax.annotation.Nullable String triggerId, @javax.annotation.Nullable Level minLevel, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable OffsetDateTime endDate, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'executionId' is set
-    if (executionId == null) {
-      throw new ApiException(400, "Missing the required parameter 'executionId' when calling follow1");
+    // verify the required parameter 'page' is set
+    if (page == null) {
+      throw new ApiException(400, "Missing the required parameter 'page' when calling searchLogs");
     }
     
-    // create path and map variables
-    String localVarPath = "/api/v1/logs/{executionId}/follow"
-      .replaceAll("\\{" + "executionId" + "\\}", apiClient.escapeString(apiClient.parameterToString(executionId)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("minLevel", minLevel));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "text/event-stream"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<EventLogEntry> localVarReturnType = new TypeReference<EventLogEntry>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Follow logs for a specific execution
-   * 
-   * @param executionId The execution id (required)
-   * @param tenant  (required)
-   * @param minLevel The min log level filter (optional)
-   * @return EventLogEntry
-   * @throws ApiException if fails to make API call
-   */
-  public EventLogEntry follow3(String executionId, String tenant, Level minLevel) throws ApiException {
-    return this.follow3(executionId, tenant, minLevel, Collections.emptyMap());
-  }
-
-
-  /**
-   * Follow logs for a specific execution
-   * 
-   * @param executionId The execution id (required)
-   * @param tenant  (required)
-   * @param minLevel The min log level filter (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return EventLogEntry
-   * @throws ApiException if fails to make API call
-   */
-  public EventLogEntry follow3(String executionId, String tenant, Level minLevel, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'executionId' is set
-    if (executionId == null) {
-      throw new ApiException(400, "Missing the required parameter 'executionId' when calling follow3");
+    // verify the required parameter 'size' is set
+    if (size == null) {
+      throw new ApiException(400, "Missing the required parameter 'size' when calling searchLogs");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling follow3");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling searchLogs");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/logs/{executionId}/follow"
-      .replaceAll("\\{" + "executionId" + "\\}", apiClient.escapeString(apiClient.parameterToString(executionId)))
+    String localVarPath = "/api/v1/{tenant}/logs/search"
       .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
@@ -1120,14 +583,24 @@ public class LogsApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "filters", filters));
+    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
+    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
+    localVarQueryParams.addAll(apiClient.parameterToPair("flowId", flowId));
+    localVarQueryParams.addAll(apiClient.parameterToPair("triggerId", triggerId));
     localVarQueryParams.addAll(apiClient.parameterToPair("minLevel", minLevel));
+    localVarQueryParams.addAll(apiClient.parameterToPair("startDate", startDate));
+    localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
     
     localVarHeaderParams.putAll(additionalHeaders);
 
     
     
     final String[] localVarAccepts = {
-      "text/event-stream"
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -1136,9 +609,9 @@ public class LogsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<EventLogEntry> localVarReturnType = new TypeReference<EventLogEntry>() {};
+    TypeReference<PagedResultsLogEntry> localVarReturnType = new TypeReference<PagedResultsLogEntry>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -1169,7 +642,7 @@ public class LogsApi extends BaseApi {
     localVarHeaderParams.putAll(additionalHeaders);
 
     final String[] localVarAccepts = {
-      "text/event-stream"
+      "application/json"
     };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
@@ -1178,7 +651,7 @@ public class LogsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

@@ -21,11 +21,14 @@ import io.kestra.api.sdk.internal.Configuration;
 import io.kestra.api.sdk.internal.Pair;
 
 import io.kestra.api.sdk.model.ApiIds;
+import io.kestra.api.sdk.model.ApiSecretListResponse;
 import io.kestra.api.sdk.model.ApiSecretMeta;
+import io.kestra.api.sdk.model.ApiSecretMetaEE;
 import io.kestra.api.sdk.model.ApiSecretValue;
 import io.kestra.api.sdk.model.Namespace;
 import io.kestra.api.sdk.model.PagedResultsNamespaceWithDisabled;
 import io.kestra.api.sdk.model.PluginDefault;
+import io.kestra.api.sdk.model.QueryFilter;
 
 
 import java.util.ArrayList;
@@ -35,7 +38,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class NamespacesApi extends BaseApi {
 
   public NamespacesApi() {
@@ -49,86 +52,14 @@ public class NamespacesApi extends BaseApi {
   /**
    * List namespaces for autocomplete
    * 
-   * @param q A string filter (optional)
-   * @param apiIds  (optional)
-   * @return List&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<String> autocomplete1(String q, ApiIds apiIds) throws ApiException {
-    return this.autocomplete1(q, apiIds, Collections.emptyMap());
-  }
-
-
-  /**
-   * List namespaces for autocomplete
-   * 
-   * @param q A string filter (optional)
-   * @param apiIds  (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<String> autocomplete1(String q, ApiIds apiIds, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = apiIds;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/autocomplete";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<String>> localVarReturnType = new TypeReference<List<String>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List namespaces for autocomplete
-   * 
    * @param tenant  (required)
    * @param q A string filter (optional)
    * @param apiIds  (optional)
    * @return List&lt;String&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<String> autocomplete13(String tenant, String q, ApiIds apiIds) throws ApiException {
-    return this.autocomplete13(tenant, q, apiIds, Collections.emptyMap());
+  public List<String> autocompleteNamespaces(@javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable ApiIds apiIds) throws ApiException {
+    return this.autocompleteNamespaces(tenant, q, apiIds, Collections.emptyMap());
   }
 
 
@@ -142,12 +73,12 @@ public class NamespacesApi extends BaseApi {
    * @return List&lt;String&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<String> autocomplete13(String tenant, String q, ApiIds apiIds, Map<String, String> additionalHeaders) throws ApiException {
+  public List<String> autocompleteNamespaces(@javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable ApiIds apiIds, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = apiIds;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling autocomplete13");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling autocompleteNamespaces");
     }
     
     // create path and map variables
@@ -178,7 +109,7 @@ public class NamespacesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<List<String>> localVarReturnType = new TypeReference<List<String>>() {};
     return apiClient.invokeAPI(
@@ -201,38 +132,38 @@ public class NamespacesApi extends BaseApi {
   /**
    * List namespaces for autocomplete
    * 
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
    * @param q A string filter (optional)
    * @param apiIds  (optional)
    * @return List&lt;String&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<String> autocomplete16(String tenant, String q, ApiIds apiIds) throws ApiException {
-    return this.autocomplete16(tenant, q, apiIds, Collections.emptyMap());
+  public List<String> autocompleteNamespacesWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable ApiIds apiIds) throws ApiException {
+    return this.autocompleteNamespacesWithResourceTenantasSuperAdmin(resourceTenant, q, apiIds, Collections.emptyMap());
   }
 
 
   /**
    * List namespaces for autocomplete
    * 
-   * @param tenant  (required)
+   * @param resourceTenant  (required)
    * @param q A string filter (optional)
    * @param apiIds  (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return List&lt;String&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<String> autocomplete16(String tenant, String q, ApiIds apiIds, Map<String, String> additionalHeaders) throws ApiException {
+  public List<String> autocompleteNamespacesWithResourceTenantasSuperAdmin(@javax.annotation.Nonnull String resourceTenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable ApiIds apiIds, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = apiIds;
     
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling autocomplete16");
+    // verify the required parameter 'resourceTenant' is set
+    if (resourceTenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'resourceTenant' when calling autocompleteNamespacesWithResourceTenantasSuperAdmin");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/namespaces/autocomplete"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+    String localVarPath = "/api/v1/tenants/{resourceTenant}/namespaces/autocomplete"
+      .replaceAll("\\{" + "resourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(resourceTenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -258,95 +189,7 @@ public class NamespacesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<String>> localVarReturnType = new TypeReference<List<String>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List namespaces for autocomplete
-   * 
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param apiIds  (optional)
-   * @return List&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<String> autocomplete20(String ressourceTenant, String tenant, String q, ApiIds apiIds) throws ApiException {
-    return this.autocomplete20(ressourceTenant, tenant, q, apiIds, Collections.emptyMap());
-  }
-
-
-  /**
-   * List namespaces for autocomplete
-   * 
-   * @param ressourceTenant  (required)
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param apiIds  (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<String> autocomplete20(String ressourceTenant, String tenant, String q, ApiIds apiIds, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = apiIds;
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling autocomplete20");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling autocomplete20");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/tenants/{ressourceTenant}/namespaces/autocomplete"
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<List<String>> localVarReturnType = new TypeReference<List<String>>() {};
     return apiClient.invokeAPI(
@@ -374,8 +217,8 @@ public class NamespacesApi extends BaseApi {
    * @return List&lt;String&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<String> autocomplete4(String q, ApiIds apiIds) throws ApiException {
-    return this.autocomplete4(q, apiIds, Collections.emptyMap());
+  public List<String> autocompleteNamespacesasSuperAdmin(@javax.annotation.Nullable String q, @javax.annotation.Nullable ApiIds apiIds) throws ApiException {
+    return this.autocompleteNamespacesasSuperAdmin(q, apiIds, Collections.emptyMap());
   }
 
 
@@ -388,7 +231,7 @@ public class NamespacesApi extends BaseApi {
    * @return List&lt;String&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<String> autocomplete4(String q, ApiIds apiIds, Map<String, String> additionalHeaders) throws ApiException {
+  public List<String> autocompleteNamespacesasSuperAdmin(@javax.annotation.Nullable String q, @javax.annotation.Nullable ApiIds apiIds, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = apiIds;
     
     // create path and map variables
@@ -418,87 +261,7 @@ public class NamespacesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<String>> localVarReturnType = new TypeReference<List<String>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List namespaces for autocomplete
-   * 
-   * @param ressourceTenant  (required)
-   * @param q A string filter (optional)
-   * @param apiIds  (optional)
-   * @return List&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<String> autocomplete8(String ressourceTenant, String q, ApiIds apiIds) throws ApiException {
-    return this.autocomplete8(ressourceTenant, q, apiIds, Collections.emptyMap());
-  }
-
-
-  /**
-   * List namespaces for autocomplete
-   * 
-   * @param ressourceTenant  (required)
-   * @param q A string filter (optional)
-   * @param apiIds  (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<String> autocomplete8(String ressourceTenant, String q, ApiIds apiIds, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = apiIds;
-    
-    // verify the required parameter 'ressourceTenant' is set
-    if (ressourceTenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'ressourceTenant' when calling autocomplete8");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/tenants/{ressourceTenant}/namespaces/autocomplete"
-      .replaceAll("\\{" + "ressourceTenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(ressourceTenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<List<String>> localVarReturnType = new TypeReference<List<String>>() {};
     return apiClient.invokeAPI(
@@ -521,87 +284,13 @@ public class NamespacesApi extends BaseApi {
   /**
    * Create a namespace
    * 
-   * @param namespace  (required)
-   * @return Namespace
-   * @throws ApiException if fails to make API call
-   */
-  public Namespace create10(Namespace namespace) throws ApiException {
-    return this.create10(namespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create a namespace
-   * 
-   * @param namespace  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Namespace
-   * @throws ApiException if fails to make API call
-   */
-  public Namespace create10(Namespace namespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = namespace;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling create10");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Namespace> localVarReturnType = new TypeReference<Namespace>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Create a namespace
-   * 
    * @param tenant  (required)
-   * @param namespace  (required)
+   * @param namespace The namespace (required)
    * @return Namespace
    * @throws ApiException if fails to make API call
    */
-  public Namespace create35(String tenant, Namespace namespace) throws ApiException {
-    return this.create35(tenant, namespace, Collections.emptyMap());
+  public Namespace createNamespace(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Namespace namespace) throws ApiException {
+    return this.createNamespace(tenant, namespace, Collections.emptyMap());
   }
 
 
@@ -609,22 +298,22 @@ public class NamespacesApi extends BaseApi {
    * Create a namespace
    * 
    * @param tenant  (required)
-   * @param namespace  (required)
+   * @param namespace The namespace (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Namespace
    * @throws ApiException if fails to make API call
    */
-  public Namespace create35(String tenant, Namespace namespace, Map<String, String> additionalHeaders) throws ApiException {
+  public Namespace createNamespace(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Namespace namespace, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = namespace;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling create35");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling createNamespace");
     }
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling create35");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling createNamespace");
     }
     
     // create path and map variables
@@ -654,7 +343,7 @@ public class NamespacesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Namespace> localVarReturnType = new TypeReference<Namespace>() {};
     return apiClient.invokeAPI(
@@ -678,83 +367,11 @@ public class NamespacesApi extends BaseApi {
    * Delete a flow
    * 
    * @param id The namespace id (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void delete11(String id) throws ApiException {
-    this.delete11(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete a flow
-   * 
-   * @param id The namespace id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void delete11(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete11");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Delete a flow
-   * 
-   * @param id The namespace id (required)
    * @param tenant  (required)
    * @throws ApiException if fails to make API call
    */
-  public void delete39(String id, String tenant) throws ApiException {
-    this.delete39(id, tenant, Collections.emptyMap());
+  public void deleteNamespace(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    this.deleteNamespace(id, tenant, Collections.emptyMap());
   }
 
 
@@ -766,17 +383,17 @@ public class NamespacesApi extends BaseApi {
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void delete39(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteNamespace(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete39");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteNamespace");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling delete39");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteNamespace");
     }
     
     // create path and map variables
@@ -807,7 +424,7 @@ public class NamespacesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -831,11 +448,12 @@ public class NamespacesApi extends BaseApi {
    * 
    * @param namespace The namespace id (required)
    * @param key The secret key (required)
+   * @param tenant  (required)
    * @return List&lt;String&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<String> deleteSecret(String namespace, String key) throws ApiException {
-    return this.deleteSecret(namespace, key, Collections.emptyMap());
+  public List<String> deleteSecret(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String key, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.deleteSecret(namespace, key, tenant, Collections.emptyMap());
   }
 
 
@@ -844,11 +462,12 @@ public class NamespacesApi extends BaseApi {
    * 
    * @param namespace The namespace id (required)
    * @param key The secret key (required)
+   * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return List&lt;String&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<String> deleteSecret(String namespace, String key, Map<String, String> additionalHeaders) throws ApiException {
+  public List<String> deleteSecret(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String key, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'namespace' is set
@@ -861,94 +480,9 @@ public class NamespacesApi extends BaseApi {
       throw new ApiException(400, "Missing the required parameter 'key' when calling deleteSecret");
     }
     
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{namespace}/secrets/{key}"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "key" + "\\}", apiClient.escapeString(apiClient.parameterToString(key)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<String>> localVarReturnType = new TypeReference<List<String>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete a secret for a namespace
-   * 
-   * @param namespace The namespace id (required)
-   * @param key The secret key (required)
-   * @param tenant  (required)
-   * @return List&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<String> deleteSecret1(String namespace, String key, String tenant) throws ApiException {
-    return this.deleteSecret1(namespace, key, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete a secret for a namespace
-   * 
-   * @param namespace The namespace id (required)
-   * @param key The secret key (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<String> deleteSecret1(String namespace, String key, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling deleteSecret1");
-    }
-    
-    // verify the required parameter 'key' is set
-    if (key == null) {
-      throw new ApiException(400, "Missing the required parameter 'key' when calling deleteSecret1");
-    }
-    
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteSecret1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteSecret");
     }
     
     // create path and map variables
@@ -980,7 +514,7 @@ public class NamespacesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<List<String>> localVarReturnType = new TypeReference<List<String>>() {};
     return apiClient.invokeAPI(
@@ -1001,48 +535,44 @@ public class NamespacesApi extends BaseApi {
   }
 
   /**
-   * Search for namespaces
+   * List inherited secrets
    * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param existing Return only existing namespace (optional, default to false)
-   * @return PagedResultsNamespaceWithDisabled
+   * @param namespace The namespace id (required)
+   * @param tenant  (required)
+   * @return Map&lt;String, List&lt;String&gt;&gt;
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsNamespaceWithDisabled find11(Integer page, Integer size, String q, List<String> sort, Boolean existing) throws ApiException {
-    return this.find11(page, size, q, sort, existing, Collections.emptyMap());
+  public Map<String, List<String>> getInheritedSecrets(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getInheritedSecrets(namespace, tenant, Collections.emptyMap());
   }
 
 
   /**
-   * Search for namespaces
+   * List inherited secrets
    * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param existing Return only existing namespace (optional, default to false)
+   * @param namespace The namespace id (required)
+   * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsNamespaceWithDisabled
+   * @return Map&lt;String, List&lt;String&gt;&gt;
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsNamespaceWithDisabled find11(Integer page, Integer size, String q, List<String> sort, Boolean existing, Map<String, String> additionalHeaders) throws ApiException {
+  public Map<String, List<String>> getInheritedSecrets(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find11");
+    // verify the required parameter 'namespace' is set
+    if (namespace == null) {
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling getInheritedSecrets");
     }
     
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find11");
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getInheritedSecrets");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/namespaces/search";
+    String localVarPath = "/api/v1/{tenant}/namespaces/{namespace}/inherited-secrets"
+      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1052,11 +582,6 @@ public class NamespacesApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPair("existing", existing));
     
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -1072,12 +597,559 @@ public class NamespacesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<PagedResultsNamespaceWithDisabled> localVarReturnType = new TypeReference<PagedResultsNamespaceWithDisabled>() {};
+    TypeReference<Map<String, List<String>>> localVarReturnType = new TypeReference<Map<String, List<String>>>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get a namespace
+   * 
+   * @param id The namespace id (required)
+   * @param tenant  (required)
+   * @return Namespace
+   * @throws ApiException if fails to make API call
+   */
+  public Namespace getNamespace(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getNamespace(id, tenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get a namespace
+   * 
+   * @param id The namespace id (required)
+   * @param tenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return Namespace
+   * @throws ApiException if fails to make API call
+   */
+  public Namespace getNamespace(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getNamespace");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getNamespace");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/namespaces/{id}"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<Namespace> localVarReturnType = new TypeReference<Namespace>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * List inherited plugin defaults
+   * 
+   * @param id The namespace id (required)
+   * @param tenant  (required)
+   * @return List&lt;PluginDefault&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<PluginDefault> inheritedPluginDefaults(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.inheritedPluginDefaults(id, tenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * List inherited plugin defaults
+   * 
+   * @param id The namespace id (required)
+   * @param tenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return List&lt;PluginDefault&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<PluginDefault> inheritedPluginDefaults(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling inheritedPluginDefaults");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling inheritedPluginDefaults");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/namespaces/{id}/inherited-plugindefaults"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<List<PluginDefault>> localVarReturnType = new TypeReference<List<PluginDefault>>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * List inherited variables
+   * 
+   * @param id The namespace id (required)
+   * @param tenant  (required)
+   * @return Map&lt;String, Object&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public Map<String, Object> inheritedVariables(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.inheritedVariables(id, tenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * List inherited variables
+   * 
+   * @param id The namespace id (required)
+   * @param tenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return Map&lt;String, Object&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public Map<String, Object> inheritedVariables(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling inheritedVariables");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling inheritedVariables");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/namespaces/{id}/inherited-variables"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<Map<String, Object>> localVarReturnType = new TypeReference<Map<String, Object>>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get secrets for a namespace
+   * 
+   * @param namespace The namespace id (required)
+   * @param page The current page (required)
+   * @param size The current page size (required)
+   * @param filters Filters (required)
+   * @param tenant  (required)
+   * @param sort The sort of current page (optional)
+   * @return ApiSecretListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ApiSecretListResponse listNamespaceSecrets(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull List<QueryFilter> filters, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable List<String> sort) throws ApiException {
+    return this.listNamespaceSecrets(namespace, page, size, filters, tenant, sort, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get secrets for a namespace
+   * 
+   * @param namespace The namespace id (required)
+   * @param page The current page (required)
+   * @param size The current page size (required)
+   * @param filters Filters (required)
+   * @param tenant  (required)
+   * @param sort The sort of current page (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return ApiSecretListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ApiSecretListResponse listNamespaceSecrets(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull List<QueryFilter> filters, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable List<String> sort, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'namespace' is set
+    if (namespace == null) {
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling listNamespaceSecrets");
+    }
+    
+    // verify the required parameter 'page' is set
+    if (page == null) {
+      throw new ApiException(400, "Missing the required parameter 'page' when calling listNamespaceSecrets");
+    }
+    
+    // verify the required parameter 'size' is set
+    if (size == null) {
+      throw new ApiException(400, "Missing the required parameter 'size' when calling listNamespaceSecrets");
+    }
+    
+    // verify the required parameter 'filters' is set
+    if (filters == null) {
+      throw new ApiException(400, "Missing the required parameter 'filters' when calling listNamespaceSecrets");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listNamespaceSecrets");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/namespaces/{namespace}/secrets"
+      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "filters", filters));
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<ApiSecretListResponse> localVarReturnType = new TypeReference<ApiSecretListResponse>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Patch a secret metadata for a namespace
+   * 
+   * @param namespace The namespace id (required)
+   * @param tenant  (required)
+   * @param key  (required)
+   * @param apiSecretMetaEE  (required)
+   * @return List&lt;ApiSecretMeta&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<ApiSecretMeta> patchSecret(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String key, @javax.annotation.Nonnull ApiSecretMetaEE apiSecretMetaEE) throws ApiException {
+    return this.patchSecret(namespace, tenant, key, apiSecretMetaEE, Collections.emptyMap());
+  }
+
+
+  /**
+   * Patch a secret metadata for a namespace
+   * 
+   * @param namespace The namespace id (required)
+   * @param tenant  (required)
+   * @param key  (required)
+   * @param apiSecretMetaEE  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return List&lt;ApiSecretMeta&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<ApiSecretMeta> patchSecret(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String key, @javax.annotation.Nonnull ApiSecretMetaEE apiSecretMetaEE, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = apiSecretMetaEE;
+    
+    // verify the required parameter 'namespace' is set
+    if (namespace == null) {
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling patchSecret");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling patchSecret");
+    }
+    
+    // verify the required parameter 'key' is set
+    if (key == null) {
+      throw new ApiException(400, "Missing the required parameter 'key' when calling patchSecret");
+    }
+    
+    // verify the required parameter 'apiSecretMetaEE' is set
+    if (apiSecretMetaEE == null) {
+      throw new ApiException(400, "Missing the required parameter 'apiSecretMetaEE' when calling patchSecret");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/namespaces/{namespace}/secrets/{key}"
+      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)))
+      .replaceAll("\\{" + "key" + "\\}", apiClient.escapeString(apiClient.parameterToString(key)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<List<ApiSecretMeta>> localVarReturnType = new TypeReference<List<ApiSecretMeta>>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "PATCH",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Update secrets for a namespace
+   * 
+   * @param namespace The namespace id (required)
+   * @param tenant  (required)
+   * @param apiSecretValue  (required)
+   * @return List&lt;ApiSecretMeta&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<ApiSecretMeta> putSecrets(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ApiSecretValue apiSecretValue) throws ApiException {
+    return this.putSecrets(namespace, tenant, apiSecretValue, Collections.emptyMap());
+  }
+
+
+  /**
+   * Update secrets for a namespace
+   * 
+   * @param namespace The namespace id (required)
+   * @param tenant  (required)
+   * @param apiSecretValue  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return List&lt;ApiSecretMeta&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<ApiSecretMeta> putSecrets(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ApiSecretValue apiSecretValue, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = apiSecretValue;
+    
+    // verify the required parameter 'namespace' is set
+    if (namespace == null) {
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling putSecrets");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling putSecrets");
+    }
+    
+    // verify the required parameter 'apiSecretValue' is set
+    if (apiSecretValue == null) {
+      throw new ApiException(400, "Missing the required parameter 'apiSecretValue' when calling putSecrets");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/namespaces/{namespace}/secrets"
+      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<List<ApiSecretMeta>> localVarReturnType = new TypeReference<List<ApiSecretMeta>>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "PUT",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),
@@ -1104,8 +1176,8 @@ public class NamespacesApi extends BaseApi {
    * @return PagedResultsNamespaceWithDisabled
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsNamespaceWithDisabled find37(Integer page, Integer size, String tenant, String q, List<String> sort, Boolean existing) throws ApiException {
-    return this.find37(page, size, tenant, q, sort, existing, Collections.emptyMap());
+  public PagedResultsNamespaceWithDisabled searchNamespaces(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable Boolean existing) throws ApiException {
+    return this.searchNamespaces(page, size, tenant, q, sort, existing, Collections.emptyMap());
   }
 
 
@@ -1122,22 +1194,22 @@ public class NamespacesApi extends BaseApi {
    * @return PagedResultsNamespaceWithDisabled
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsNamespaceWithDisabled find37(Integer page, Integer size, String tenant, String q, List<String> sort, Boolean existing, Map<String, String> additionalHeaders) throws ApiException {
+  public PagedResultsNamespaceWithDisabled searchNamespaces(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable Boolean existing, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'page' is set
     if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find37");
+      throw new ApiException(400, "Missing the required parameter 'page' when calling searchNamespaces");
     }
     
     // verify the required parameter 'size' is set
     if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find37");
+      throw new ApiException(400, "Missing the required parameter 'size' when calling searchNamespaces");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling find37");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling searchNamespaces");
     }
     
     // create path and map variables
@@ -1172,7 +1244,7 @@ public class NamespacesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<PagedResultsNamespaceWithDisabled> localVarReturnType = new TypeReference<PagedResultsNamespaceWithDisabled>() {};
     return apiClient.invokeAPI(
@@ -1193,1166 +1265,16 @@ public class NamespacesApi extends BaseApi {
   }
 
   /**
-   * Get a namespace
-   * 
-   * @param id The namespace id (required)
-   * @param tenant  (required)
-   * @return Namespace
-   * @throws ApiException if fails to make API call
-   */
-  public Namespace index27(String id, String tenant) throws ApiException {
-    return this.index27(id, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a namespace
-   * 
-   * @param id The namespace id (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Namespace
-   * @throws ApiException if fails to make API call
-   */
-  public Namespace index27(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index27");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling index27");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/namespaces/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Namespace> localVarReturnType = new TypeReference<Namespace>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get a namespace
-   * 
-   * @param id The namespace id (required)
-   * @return Namespace
-   * @throws ApiException if fails to make API call
-   */
-  public Namespace index6(String id) throws ApiException {
-    return this.index6(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a namespace
-   * 
-   * @param id The namespace id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Namespace
-   * @throws ApiException if fails to make API call
-   */
-  public Namespace index6(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index6");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Namespace> localVarReturnType = new TypeReference<Namespace>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List inherited plugin defaults
-   * 
-   * @param id The namespace id (required)
-   * @return List&lt;PluginDefault&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<PluginDefault> inheritedPluginDefaults(String id) throws ApiException {
-    return this.inheritedPluginDefaults(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * List inherited plugin defaults
-   * 
-   * @param id The namespace id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;PluginDefault&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<PluginDefault> inheritedPluginDefaults(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling inheritedPluginDefaults");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{id}/inherited-plugindefaults"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<PluginDefault>> localVarReturnType = new TypeReference<List<PluginDefault>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List inherited plugin defaults
-   * 
-   * @param id The namespace id (required)
-   * @param tenant  (required)
-   * @return List&lt;PluginDefault&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<PluginDefault> inheritedPluginDefaults1(String id, String tenant) throws ApiException {
-    return this.inheritedPluginDefaults1(id, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * List inherited plugin defaults
-   * 
-   * @param id The namespace id (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;PluginDefault&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<PluginDefault> inheritedPluginDefaults1(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling inheritedPluginDefaults1");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling inheritedPluginDefaults1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/namespaces/{id}/inherited-plugindefaults"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<PluginDefault>> localVarReturnType = new TypeReference<List<PluginDefault>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List inherited secrets
-   * 
-   * @param namespace The namespace id (required)
-   * @return Map&lt;String, List&lt;String&gt;&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public Map<String, List<String>> inheritedSecrets(String namespace) throws ApiException {
-    return this.inheritedSecrets(namespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * List inherited secrets
-   * 
-   * @param namespace The namespace id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Map&lt;String, List&lt;String&gt;&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public Map<String, List<String>> inheritedSecrets(String namespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling inheritedSecrets");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{namespace}/inherited-secrets"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Map<String, List<String>>> localVarReturnType = new TypeReference<Map<String, List<String>>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List inherited secrets
-   * 
-   * @param namespace The namespace id (required)
-   * @param tenant  (required)
-   * @return Map&lt;String, List&lt;String&gt;&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public Map<String, List<String>> inheritedSecrets1(String namespace, String tenant) throws ApiException {
-    return this.inheritedSecrets1(namespace, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * List inherited secrets
-   * 
-   * @param namespace The namespace id (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Map&lt;String, List&lt;String&gt;&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public Map<String, List<String>> inheritedSecrets1(String namespace, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling inheritedSecrets1");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling inheritedSecrets1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/namespaces/{namespace}/inherited-secrets"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Map<String, List<String>>> localVarReturnType = new TypeReference<Map<String, List<String>>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List inherited variables
-   * 
-   * @param id The namespace id (required)
-   * @return Map&lt;String, Object&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public Map<String, Object> inheritedVariables(String id) throws ApiException {
-    return this.inheritedVariables(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * List inherited variables
-   * 
-   * @param id The namespace id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Map&lt;String, Object&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public Map<String, Object> inheritedVariables(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling inheritedVariables");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{id}/inherited-variables"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Map<String, Object>> localVarReturnType = new TypeReference<Map<String, Object>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List inherited variables
-   * 
-   * @param id The namespace id (required)
-   * @param tenant  (required)
-   * @return Map&lt;String, Object&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public Map<String, Object> inheritedVariables1(String id, String tenant) throws ApiException {
-    return this.inheritedVariables1(id, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * List inherited variables
-   * 
-   * @param id The namespace id (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Map&lt;String, Object&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public Map<String, Object> inheritedVariables1(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling inheritedVariables1");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling inheritedVariables1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/namespaces/{id}/inherited-variables"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Map<String, Object>> localVarReturnType = new TypeReference<Map<String, Object>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get secrets for a namespace
-   * 
-   * @param namespace The namespace id (required)
-   * @return List&lt;ApiSecretMeta&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<ApiSecretMeta> listSecret(String namespace) throws ApiException {
-    return this.listSecret(namespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get secrets for a namespace
-   * 
-   * @param namespace The namespace id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;ApiSecretMeta&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<ApiSecretMeta> listSecret(String namespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling listSecret");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{namespace}/secrets"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<ApiSecretMeta>> localVarReturnType = new TypeReference<List<ApiSecretMeta>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get secrets for a namespace
-   * 
-   * @param namespace The namespace id (required)
-   * @param tenant  (required)
-   * @return List&lt;ApiSecretMeta&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<ApiSecretMeta> listSecret1(String namespace, String tenant) throws ApiException {
-    return this.listSecret1(namespace, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get secrets for a namespace
-   * 
-   * @param namespace The namespace id (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;ApiSecretMeta&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<ApiSecretMeta> listSecret1(String namespace, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling listSecret1");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listSecret1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/namespaces/{namespace}/secrets"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<ApiSecretMeta>> localVarReturnType = new TypeReference<List<ApiSecretMeta>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Patch a secret metadata for a namespace
-   * 
-   * @param namespace The namespace id (required)
-   * @param key  (required)
-   * @param apiSecretMeta  (required)
-   * @return List&lt;ApiSecretMeta&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<ApiSecretMeta> patchSecret(String namespace, String key, ApiSecretMeta apiSecretMeta) throws ApiException {
-    return this.patchSecret(namespace, key, apiSecretMeta, Collections.emptyMap());
-  }
-
-
-  /**
-   * Patch a secret metadata for a namespace
-   * 
-   * @param namespace The namespace id (required)
-   * @param key  (required)
-   * @param apiSecretMeta  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;ApiSecretMeta&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<ApiSecretMeta> patchSecret(String namespace, String key, ApiSecretMeta apiSecretMeta, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = apiSecretMeta;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling patchSecret");
-    }
-    
-    // verify the required parameter 'key' is set
-    if (key == null) {
-      throw new ApiException(400, "Missing the required parameter 'key' when calling patchSecret");
-    }
-    
-    // verify the required parameter 'apiSecretMeta' is set
-    if (apiSecretMeta == null) {
-      throw new ApiException(400, "Missing the required parameter 'apiSecretMeta' when calling patchSecret");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{namespace}/secrets/{key}"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "key" + "\\}", apiClient.escapeString(apiClient.parameterToString(key)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<ApiSecretMeta>> localVarReturnType = new TypeReference<List<ApiSecretMeta>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PATCH",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Patch a secret metadata for a namespace
-   * 
-   * @param namespace The namespace id (required)
-   * @param tenant  (required)
-   * @param key  (required)
-   * @param apiSecretMeta  (required)
-   * @return List&lt;ApiSecretMeta&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<ApiSecretMeta> patchSecret1(String namespace, String tenant, String key, ApiSecretMeta apiSecretMeta) throws ApiException {
-    return this.patchSecret1(namespace, tenant, key, apiSecretMeta, Collections.emptyMap());
-  }
-
-
-  /**
-   * Patch a secret metadata for a namespace
-   * 
-   * @param namespace The namespace id (required)
-   * @param tenant  (required)
-   * @param key  (required)
-   * @param apiSecretMeta  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;ApiSecretMeta&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<ApiSecretMeta> patchSecret1(String namespace, String tenant, String key, ApiSecretMeta apiSecretMeta, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = apiSecretMeta;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling patchSecret1");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling patchSecret1");
-    }
-    
-    // verify the required parameter 'key' is set
-    if (key == null) {
-      throw new ApiException(400, "Missing the required parameter 'key' when calling patchSecret1");
-    }
-    
-    // verify the required parameter 'apiSecretMeta' is set
-    if (apiSecretMeta == null) {
-      throw new ApiException(400, "Missing the required parameter 'apiSecretMeta' when calling patchSecret1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/namespaces/{namespace}/secrets/{key}"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)))
-      .replaceAll("\\{" + "key" + "\\}", apiClient.escapeString(apiClient.parameterToString(key)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<ApiSecretMeta>> localVarReturnType = new TypeReference<List<ApiSecretMeta>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PATCH",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Update secrets for a namespace
-   * 
-   * @param namespace The namespace id (required)
-   * @param apiSecretValue  (required)
-   * @return List&lt;ApiSecretMeta&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<ApiSecretMeta> putSecrets(String namespace, ApiSecretValue apiSecretValue) throws ApiException {
-    return this.putSecrets(namespace, apiSecretValue, Collections.emptyMap());
-  }
-
-
-  /**
-   * Update secrets for a namespace
-   * 
-   * @param namespace The namespace id (required)
-   * @param apiSecretValue  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;ApiSecretMeta&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<ApiSecretMeta> putSecrets(String namespace, ApiSecretValue apiSecretValue, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = apiSecretValue;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling putSecrets");
-    }
-    
-    // verify the required parameter 'apiSecretValue' is set
-    if (apiSecretValue == null) {
-      throw new ApiException(400, "Missing the required parameter 'apiSecretValue' when calling putSecrets");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{namespace}/secrets"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<ApiSecretMeta>> localVarReturnType = new TypeReference<List<ApiSecretMeta>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Update secrets for a namespace
-   * 
-   * @param namespace The namespace id (required)
-   * @param tenant  (required)
-   * @param apiSecretValue  (required)
-   * @return List&lt;ApiSecretMeta&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<ApiSecretMeta> putSecrets1(String namespace, String tenant, ApiSecretValue apiSecretValue) throws ApiException {
-    return this.putSecrets1(namespace, tenant, apiSecretValue, Collections.emptyMap());
-  }
-
-
-  /**
-   * Update secrets for a namespace
-   * 
-   * @param namespace The namespace id (required)
-   * @param tenant  (required)
-   * @param apiSecretValue  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;ApiSecretMeta&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<ApiSecretMeta> putSecrets1(String namespace, String tenant, ApiSecretValue apiSecretValue, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = apiSecretValue;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling putSecrets1");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling putSecrets1");
-    }
-    
-    // verify the required parameter 'apiSecretValue' is set
-    if (apiSecretValue == null) {
-      throw new ApiException(400, "Missing the required parameter 'apiSecretValue' when calling putSecrets1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/namespaces/{namespace}/secrets"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<ApiSecretMeta>> localVarReturnType = new TypeReference<List<ApiSecretMeta>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
    * Update a namespace
    * 
    * @param id The namespace id (required)
    * @param tenant  (required)
-   * @param namespace  (required)
+   * @param namespace The namespace (required)
    * @return Namespace
    * @throws ApiException if fails to make API call
    */
-  public Namespace update25(String id, String tenant, Namespace namespace) throws ApiException {
-    return this.update25(id, tenant, namespace, Collections.emptyMap());
+  public Namespace updateNamespace(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Namespace namespace) throws ApiException {
+    return this.updateNamespace(id, tenant, namespace, Collections.emptyMap());
   }
 
 
@@ -2361,27 +1283,27 @@ public class NamespacesApi extends BaseApi {
    * 
    * @param id The namespace id (required)
    * @param tenant  (required)
-   * @param namespace  (required)
+   * @param namespace The namespace (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Namespace
    * @throws ApiException if fails to make API call
    */
-  public Namespace update25(String id, String tenant, Namespace namespace, Map<String, String> additionalHeaders) throws ApiException {
+  public Namespace updateNamespace(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Namespace namespace, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = namespace;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update25");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateNamespace");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling update25");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling updateNamespace");
     }
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling update25");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling updateNamespace");
     }
     
     // create path and map variables
@@ -2412,89 +1334,7 @@ public class NamespacesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Namespace> localVarReturnType = new TypeReference<Namespace>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Update a namespace
-   * 
-   * @param id The namespace id (required)
-   * @param namespace  (required)
-   * @return Namespace
-   * @throws ApiException if fails to make API call
-   */
-  public Namespace update7(String id, Namespace namespace) throws ApiException {
-    return this.update7(id, namespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * Update a namespace
-   * 
-   * @param id The namespace id (required)
-   * @param namespace  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Namespace
-   * @throws ApiException if fails to make API call
-   */
-  public Namespace update7(String id, Namespace namespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = namespace;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update7");
-    }
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling update7");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Namespace> localVarReturnType = new TypeReference<Namespace>() {};
     return apiClient.invokeAPI(
@@ -2536,7 +1376,7 @@ public class NamespacesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

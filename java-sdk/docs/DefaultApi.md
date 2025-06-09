@@ -6,16 +6,15 @@ All URIs are relative to *http://localhost*
 |------------- | ------------- | -------------|
 | [**acceptInvitation**](DefaultApi.md#acceptInvitation) | **POST** /api/v1/invitation/accept/{invitationId} |  |
 | [**createFromInvitation**](DefaultApi.md#createFromInvitation) | **POST** /api/v1/invitation/create/{invitationId} |  |
-| [**forgottenPassword**](DefaultApi.md#forgottenPassword) | **GET** /api/v1/forgotten-password | Send an email to reset a password. |
-| [**generate**](DefaultApi.md#generate) | **GET** /api/v1/stats/generate-reports |  |
-| [**generate1**](DefaultApi.md#generate1) | **GET** /api/v1/{tenant}/stats/generate-reports |  |
+| [**forgottenPassword**](DefaultApi.md#forgottenPassword) | **GET** /api/v1/forgotten-password | Sends an email to reset a password. |
+| [**login**](DefaultApi.md#login) | **POST** /login |  |
 | [**resetPassword**](DefaultApi.md#resetPassword) | **POST** /api/v1/reset-password | Change a password for given token. |
 
 
 
 ## acceptInvitation
 
-> Invitation acceptInvitation(invitationId)
+> Object acceptInvitation(invitationId)
 
 
 
@@ -37,7 +36,7 @@ public class Example {
         DefaultApi apiInstance = new DefaultApi(defaultClient);
         String invitationId = "invitationId_example"; // String | 
         try {
-            Invitation result = apiInstance.acceptInvitation(invitationId);
+            Object result = apiInstance.acceptInvitation(invitationId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#acceptInvitation");
@@ -59,7 +58,7 @@ public class Example {
 
 ### Return type
 
-[**Invitation**](Invitation.md)
+**Object**
 
 ### Authorization
 
@@ -100,7 +99,7 @@ public class Example {
 
         DefaultApi apiInstance = new DefaultApi(defaultClient);
         String invitationId = "invitationId_example"; // String | 
-        AuthControllerInvitationUserRequest authControllerInvitationUserRequest = new AuthControllerInvitationUserRequest(); // AuthControllerInvitationUserRequest | 
+        AuthControllerInvitationUserRequest authControllerInvitationUserRequest = new AuthControllerInvitationUserRequest(); // AuthControllerInvitationUserRequest | The basic information to create an account from an invitation
         try {
             Object result = apiInstance.createFromInvitation(invitationId, authControllerInvitationUserRequest);
             System.out.println(result);
@@ -121,7 +120,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **invitationId** | **String**|  | |
-| **authControllerInvitationUserRequest** | [**AuthControllerInvitationUserRequest**](AuthControllerInvitationUserRequest.md)|  | |
+| **authControllerInvitationUserRequest** | [**AuthControllerInvitationUserRequest**](AuthControllerInvitationUserRequest.md)| The basic information to create an account from an invitation | |
 
 ### Return type
 
@@ -145,11 +144,11 @@ No authorization required
 
 ## forgottenPassword
 
-> String forgottenPassword(username)
+> Object forgottenPassword(username)
 
-Send an email to reset a password.
+Sends an email to reset a password.
 
-Send an email to reset a password. Note that whatever the username is found or not, the response will always be 200 to avoid leaking information.
+Sends an email to reset a password. Note that whatever the username is found or not, the response will always be 200 to avoid leaking information.
 
 ### Example
 
@@ -169,7 +168,7 @@ public class Example {
         DefaultApi apiInstance = new DefaultApi(defaultClient);
         String username = "username_example"; // String | User that has forgotten his password
         try {
-            String result = apiInstance.forgottenPassword(username);
+            Object result = apiInstance.forgottenPassword(username);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#forgottenPassword");
@@ -191,7 +190,7 @@ public class Example {
 
 ### Return type
 
-**String**
+**Object**
 
 ### Authorization
 
@@ -209,73 +208,9 @@ No authorization required
 | **200** | forgottenPassword 200 response |  -  |
 
 
-## generate
+## login
 
-> List&lt;byte[]&gt; generate(from)
-
-
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.DefaultApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        DefaultApi apiInstance = new DefaultApi(defaultClient);
-        LocalDate from = LocalDate.now(); // LocalDate | The start date
-        try {
-            List<byte[]> result = apiInstance.generate(from);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#generate");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **from** | **LocalDate**| The start date | [optional] |
-
-### Return type
-
-**List&lt;byte[]&gt;**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/octet-stream
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | generate 200 response |  -  |
-
-
-## generate1
-
-> List&lt;byte[]&gt; generate1(tenant, from)
+> Object login(username, password, identity, secret)
 
 
 
@@ -295,13 +230,15 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         DefaultApi apiInstance = new DefaultApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        LocalDate from = LocalDate.now(); // LocalDate | The start date
+        String username = "username_example"; // String | 
+        String password = "password_example"; // String | 
+        String identity = "identity_example"; // String | 
+        String secret = "secret_example"; // String | 
         try {
-            List<byte[]> result = apiInstance.generate1(tenant, from);
+            Object result = apiInstance.login(username, password, identity, secret);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#generate1");
+            System.err.println("Exception when calling DefaultApi#login");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -316,12 +253,14 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
-| **from** | **LocalDate**| The start date | [optional] |
+| **username** | **String**|  | |
+| **password** | **String**|  | |
+| **identity** | **String**|  | [optional] |
+| **secret** | **String**|  | [optional] |
 
 ### Return type
 
-**List&lt;byte[]&gt;**
+**Object**
 
 ### Authorization
 
@@ -329,19 +268,19 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/octet-stream
+- **Content-Type**: application/x-www-form-urlencoded, application/json
+- **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | generate_1 200 response |  -  |
+| **200** | login 200 response |  -  |
 
 
 ## resetPassword
 
-> String resetPassword(authControllerResetPasswordRequest)
+> Object resetPassword(authControllerResetPasswordRequest)
 
 Change a password for given token.
 
@@ -363,9 +302,9 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         DefaultApi apiInstance = new DefaultApi(defaultClient);
-        AuthControllerResetPasswordRequest authControllerResetPasswordRequest = new AuthControllerResetPasswordRequest(); // AuthControllerResetPasswordRequest | An object containing the token and the new password.
+        AuthControllerResetPasswordRequest authControllerResetPasswordRequest = new AuthControllerResetPasswordRequest(); // AuthControllerResetPasswordRequest | The password
         try {
-            String result = apiInstance.resetPassword(authControllerResetPasswordRequest);
+            Object result = apiInstance.resetPassword(authControllerResetPasswordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#resetPassword");
@@ -383,11 +322,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **authControllerResetPasswordRequest** | [**AuthControllerResetPasswordRequest**](AuthControllerResetPasswordRequest.md)| An object containing the token and the new password. | |
+| **authControllerResetPasswordRequest** | [**AuthControllerResetPasswordRequest**](AuthControllerResetPasswordRequest.md)| The password | |
 
 ### Return type
 
-**String**
+**Object**
 
 ### Authorization
 

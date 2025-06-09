@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class BannersApi extends BaseApi {
 
   public BannersApi() {
@@ -44,29 +44,29 @@ public class BannersApi extends BaseApi {
   /**
    * Create a new banner
    * 
-   * @param banner  (required)
+   * @param banner The banner to create (required)
    * @return Banner
    * @throws ApiException if fails to make API call
    */
-  public Banner create1(Banner banner) throws ApiException {
-    return this.create1(banner, Collections.emptyMap());
+  public Banner createBanner(@javax.annotation.Nonnull Banner banner) throws ApiException {
+    return this.createBanner(banner, Collections.emptyMap());
   }
 
 
   /**
    * Create a new banner
    * 
-   * @param banner  (required)
+   * @param banner The banner to create (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Banner
    * @throws ApiException if fails to make API call
    */
-  public Banner create1(Banner banner, Map<String, String> additionalHeaders) throws ApiException {
+  public Banner createBanner(@javax.annotation.Nonnull Banner banner, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = banner;
     
     // verify the required parameter 'banner' is set
     if (banner == null) {
-      throw new ApiException(400, "Missing the required parameter 'banner' when calling create1");
+      throw new ApiException(400, "Missing the required parameter 'banner' when calling createBanner");
     }
     
     // create path and map variables
@@ -95,7 +95,7 @@ public class BannersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Banner> localVarReturnType = new TypeReference<Banner>() {};
     return apiClient.invokeAPI(
@@ -121,8 +121,8 @@ public class BannersApi extends BaseApi {
    * @param id The banner id (required)
    * @throws ApiException if fails to make API call
    */
-  public void delete1(String id) throws ApiException {
-    this.delete1(id, Collections.emptyMap());
+  public void deleteBanner(@javax.annotation.Nonnull String id) throws ApiException {
+    this.deleteBanner(id, Collections.emptyMap());
   }
 
 
@@ -133,12 +133,12 @@ public class BannersApi extends BaseApi {
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void delete1(String id, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteBanner(@javax.annotation.Nonnull String id, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete1");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteBanner");
     }
     
     // create path and map variables
@@ -168,7 +168,7 @@ public class BannersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -193,8 +193,8 @@ public class BannersApi extends BaseApi {
    * @return List&lt;Banner&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Banner> find1() throws ApiException {
-    return this.find1(Collections.emptyMap());
+  public List<Banner> searchBanners() throws ApiException {
+    return this.searchBanners(Collections.emptyMap());
   }
 
 
@@ -205,7 +205,7 @@ public class BannersApi extends BaseApi {
    * @return List&lt;Banner&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Banner> find1(Map<String, String> additionalHeaders) throws ApiException {
+  public List<Banner> searchBanners(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -234,7 +234,7 @@ public class BannersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<List<Banner>> localVarReturnType = new TypeReference<List<Banner>>() {};
     return apiClient.invokeAPI(
@@ -258,12 +258,12 @@ public class BannersApi extends BaseApi {
    * Update a banner
    * 
    * @param id The banner id (required)
-   * @param banner  (required)
+   * @param banner The banner to update (required)
    * @return Banner
    * @throws ApiException if fails to make API call
    */
-  public Banner update1(String id, Banner banner) throws ApiException {
-    return this.update1(id, banner, Collections.emptyMap());
+  public Banner updateBanner(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull Banner banner) throws ApiException {
+    return this.updateBanner(id, banner, Collections.emptyMap());
   }
 
 
@@ -271,22 +271,22 @@ public class BannersApi extends BaseApi {
    * Update a banner
    * 
    * @param id The banner id (required)
-   * @param banner  (required)
+   * @param banner The banner to update (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Banner
    * @throws ApiException if fails to make API call
    */
-  public Banner update1(String id, Banner banner, Map<String, String> additionalHeaders) throws ApiException {
+  public Banner updateBanner(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull Banner banner, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = banner;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update1");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateBanner");
     }
     
     // verify the required parameter 'banner' is set
     if (banner == null) {
-      throw new ApiException(400, "Missing the required parameter 'banner' when calling update1");
+      throw new ApiException(400, "Missing the required parameter 'banner' when calling updateBanner");
     }
     
     // create path and map variables
@@ -316,7 +316,7 @@ public class BannersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Banner> localVarReturnType = new TypeReference<Banner>() {};
     return apiClient.invokeAPI(
@@ -358,7 +358,7 @@ public class BannersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

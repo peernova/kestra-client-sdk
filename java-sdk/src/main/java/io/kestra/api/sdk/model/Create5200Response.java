@@ -51,6 +51,7 @@ import java.util.StringJoiner;
   Create5200Response.JSON_PROPERTY_INPUTS,
   Create5200Response.JSON_PROPERTY_DISABLED,
   Create5200Response.JSON_PROPERTY_DELETED,
+  Create5200Response.JSON_PROPERTY_FINALLY,
   Create5200Response.JSON_PROPERTY_TASK_DEFAULTS,
   Create5200Response.JSON_PROPERTY_DESCRIPTION,
   Create5200Response.JSON_PROPERTY_LABELS,
@@ -58,6 +59,7 @@ import java.util.StringJoiner;
   Create5200Response.JSON_PROPERTY_TASKS,
   Create5200Response.JSON_PROPERTY_ERRORS,
   Create5200Response.JSON_PROPERTY_LISTENERS,
+  Create5200Response.JSON_PROPERTY_AFTER_EXECUTION,
   Create5200Response.JSON_PROPERTY_TRIGGERS,
   Create5200Response.JSON_PROPERTY_PLUGIN_DEFAULTS,
   Create5200Response.JSON_PROPERTY_CONCURRENCY,
@@ -67,7 +69,7 @@ import java.util.StringJoiner;
   Create5200Response.JSON_PROPERTY_SOURCE
 })
 @JsonTypeName("create_5_200_response")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-04T08:59:39.449091531Z[Etc/UTC]", comments = "Generator version: 7.13.0-SNAPSHOT")
 public class Create5200Response {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nonnull
@@ -92,6 +94,10 @@ public class Create5200Response {
   public static final String JSON_PROPERTY_DELETED = "deleted";
   @javax.annotation.Nonnull
   private Boolean deleted;
+
+  public static final String JSON_PROPERTY_FINALLY = "finally";
+  @javax.annotation.Nullable
+  private List<Task> _finally = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TASK_DEFAULTS = "taskDefaults";
   @javax.annotation.Nullable
@@ -120,6 +126,10 @@ public class Create5200Response {
   public static final String JSON_PROPERTY_LISTENERS = "listeners";
   @javax.annotation.Nullable
   private List<Listener> listeners = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_AFTER_EXECUTION = "afterExecution";
+  @javax.annotation.Nullable
+  private List<Task> afterExecution = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TRIGGERS = "triggers";
   @javax.annotation.Nullable
@@ -309,6 +319,39 @@ public class Create5200Response {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDeleted(@javax.annotation.Nonnull Boolean deleted) {
     this.deleted = deleted;
+  }
+
+  public Create5200Response _finally(@javax.annotation.Nullable List<Task> _finally) {
+    
+    this._finally = _finally;
+    return this;
+  }
+
+  public Create5200Response addFinallyItem(Task _finallyItem) {
+    if (this._finally == null) {
+      this._finally = new ArrayList<>();
+    }
+    this._finally.add(_finallyItem);
+    return this;
+  }
+
+  /**
+   * Get _finally
+   * @return _finally
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FINALLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<Task> getFinally() {
+    return _finally;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FINALLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFinally(@javax.annotation.Nullable List<Task> _finally) {
+    this._finally = _finally;
   }
 
   public Create5200Response taskDefaults(@javax.annotation.Nullable List<PluginDefault> taskDefaults) {
@@ -528,6 +571,39 @@ public class Create5200Response {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setListeners(@javax.annotation.Nullable List<Listener> listeners) {
     this.listeners = listeners;
+  }
+
+  public Create5200Response afterExecution(@javax.annotation.Nullable List<Task> afterExecution) {
+    
+    this.afterExecution = afterExecution;
+    return this;
+  }
+
+  public Create5200Response addAfterExecutionItem(Task afterExecutionItem) {
+    if (this.afterExecution == null) {
+      this.afterExecution = new ArrayList<>();
+    }
+    this.afterExecution.add(afterExecutionItem);
+    return this;
+  }
+
+  /**
+   * Get afterExecution
+   * @return afterExecution
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AFTER_EXECUTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<Task> getAfterExecution() {
+    return afterExecution;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_AFTER_EXECUTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAfterExecution(@javax.annotation.Nullable List<Task> afterExecution) {
+    this.afterExecution = afterExecution;
   }
 
   public Create5200Response triggers(@javax.annotation.Nullable List<AbstractTrigger> triggers) {
@@ -752,6 +828,7 @@ public class Create5200Response {
         Objects.equals(this.inputs, create5200Response.inputs) &&
         Objects.equals(this.disabled, create5200Response.disabled) &&
         Objects.equals(this.deleted, create5200Response.deleted) &&
+        Objects.equals(this._finally, create5200Response._finally) &&
         Objects.equals(this.taskDefaults, create5200Response.taskDefaults) &&
         Objects.equals(this.description, create5200Response.description) &&
         Objects.equals(this.labels, create5200Response.labels) &&
@@ -759,6 +836,7 @@ public class Create5200Response {
         Objects.equals(this.tasks, create5200Response.tasks) &&
         Objects.equals(this.errors, create5200Response.errors) &&
         Objects.equals(this.listeners, create5200Response.listeners) &&
+        Objects.equals(this.afterExecution, create5200Response.afterExecution) &&
         Objects.equals(this.triggers, create5200Response.triggers) &&
         Objects.equals(this.pluginDefaults, create5200Response.pluginDefaults) &&
         Objects.equals(this.concurrency, create5200Response.concurrency) &&
@@ -770,7 +848,7 @@ public class Create5200Response {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, namespace, revision, inputs, disabled, deleted, taskDefaults, description, labels, variables, tasks, errors, listeners, triggers, pluginDefaults, concurrency, outputs, retry, sla, source);
+    return Objects.hash(id, namespace, revision, inputs, disabled, deleted, _finally, taskDefaults, description, labels, variables, tasks, errors, listeners, afterExecution, triggers, pluginDefaults, concurrency, outputs, retry, sla, source);
   }
 
   @Override
@@ -783,6 +861,7 @@ public class Create5200Response {
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
+    sb.append("    _finally: ").append(toIndentedString(_finally)).append("\n");
     sb.append("    taskDefaults: ").append(toIndentedString(taskDefaults)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
@@ -790,6 +869,7 @@ public class Create5200Response {
     sb.append("    tasks: ").append(toIndentedString(tasks)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
+    sb.append("    afterExecution: ").append(toIndentedString(afterExecution)).append("\n");
     sb.append("    triggers: ").append(toIndentedString(triggers)).append("\n");
     sb.append("    pluginDefaults: ").append(toIndentedString(pluginDefaults)).append("\n");
     sb.append("    concurrency: ").append(toIndentedString(concurrency)).append("\n");
@@ -904,6 +984,16 @@ public class Create5200Response {
       }
     }
 
+    // add `finally` to the URL query string
+    if (getFinally() != null) {
+      for (int i = 0; i < getFinally().size(); i++) {
+        if (getFinally().get(i) != null) {
+          joiner.add(getFinally().get(i).toUrlQueryString(String.format("%sfinally%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
     // add `taskDefaults` to the URL query string
     if (getTaskDefaults() != null) {
       for (int i = 0; i < getTaskDefaults().size(); i++) {
@@ -973,6 +1063,16 @@ public class Create5200Response {
       for (int i = 0; i < getListeners().size(); i++) {
         if (getListeners().get(i) != null) {
           joiner.add(getListeners().get(i).toUrlQueryString(String.format("%slisteners%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `afterExecution` to the URL query string
+    if (getAfterExecution() != null) {
+      for (int i = 0; i < getAfterExecution().size(); i++) {
+        if (getAfterExecution().get(i) != null) {
+          joiner.add(getAfterExecution().get(i).toUrlQueryString(String.format("%safterExecution%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }

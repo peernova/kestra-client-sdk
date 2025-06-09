@@ -20,8 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.kestra.api.sdk.model.AbstractFlowLabels;
 import io.kestra.api.sdk.model.SLABehavior;
-import io.kestra.api.sdk.model.SLALabels;
 import io.kestra.api.sdk.model.SLAType;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -38,7 +38,7 @@ import java.util.StringJoiner;
   SLA.JSON_PROPERTY_BEHAVIOR,
   SLA.JSON_PROPERTY_LABELS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class SLA {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nonnull
@@ -54,7 +54,7 @@ public class SLA {
 
   public static final String JSON_PROPERTY_LABELS = "labels";
   @javax.annotation.Nullable
-  private SLALabels labels;
+  private AbstractFlowLabels labels;
 
   public SLA() {
   }
@@ -134,7 +134,7 @@ public class SLA {
     this.behavior = behavior;
   }
 
-  public SLA labels(@javax.annotation.Nullable SLALabels labels) {
+  public SLA labels(@javax.annotation.Nullable AbstractFlowLabels labels) {
     
     this.labels = labels;
     return this;
@@ -148,14 +148,14 @@ public class SLA {
   @JsonProperty(JSON_PROPERTY_LABELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SLALabels getLabels() {
+  public AbstractFlowLabels getLabels() {
     return labels;
   }
 
 
   @JsonProperty(JSON_PROPERTY_LABELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLabels(@javax.annotation.Nullable SLALabels labels) {
+  public void setLabels(@javax.annotation.Nullable AbstractFlowLabels labels) {
     this.labels = labels;
   }
 

@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class KvApi extends BaseApi {
 
   public KvApi() {
@@ -49,95 +49,12 @@ public class KvApi extends BaseApi {
    * 
    * @param namespace The namespace id (required)
    * @param key The key (required)
-   * @return Boolean
-   * @throws ApiException if fails to make API call
-   */
-  public Boolean delete13(String namespace, String key) throws ApiException {
-    return this.delete13(namespace, key, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete a key-value pair
-   * 
-   * @param namespace The namespace id (required)
-   * @param key The key (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Boolean
-   * @throws ApiException if fails to make API call
-   */
-  public Boolean delete13(String namespace, String key, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling delete13");
-    }
-    
-    // verify the required parameter 'key' is set
-    if (key == null) {
-      throw new ApiException(400, "Missing the required parameter 'key' when calling delete13");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{namespace}/kv/{key}"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "key" + "\\}", apiClient.escapeString(apiClient.parameterToString(key)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Boolean> localVarReturnType = new TypeReference<Boolean>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete a key-value pair
-   * 
-   * @param namespace The namespace id (required)
-   * @param key The key (required)
    * @param tenant  (required)
    * @return Boolean
    * @throws ApiException if fails to make API call
    */
-  public Boolean delete41(String namespace, String key, String tenant) throws ApiException {
-    return this.delete41(namespace, key, tenant, Collections.emptyMap());
+  public Boolean deleteKeyValue(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String key, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.deleteKeyValue(namespace, key, tenant, Collections.emptyMap());
   }
 
 
@@ -151,22 +68,22 @@ public class KvApi extends BaseApi {
    * @return Boolean
    * @throws ApiException if fails to make API call
    */
-  public Boolean delete41(String namespace, String key, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public Boolean deleteKeyValue(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String key, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling delete41");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling deleteKeyValue");
     }
     
     // verify the required parameter 'key' is set
     if (key == null) {
-      throw new ApiException(400, "Missing the required parameter 'key' when calling delete41");
+      throw new ApiException(400, "Missing the required parameter 'key' when calling deleteKeyValue");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling delete41");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteKeyValue");
     }
     
     // create path and map variables
@@ -198,7 +115,7 @@ public class KvApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Boolean> localVarReturnType = new TypeReference<Boolean>() {};
     return apiClient.invokeAPI(
@@ -222,95 +139,13 @@ public class KvApi extends BaseApi {
    * Bulk-delete multiple key/value pairs from the given namespace.
    * 
    * @param namespace The namespace id (required)
-   * @param kvControllerApiDeleteBulkRequest  (required)
-   * @return KVControllerApiDeleteBulkResponse
-   * @throws ApiException if fails to make API call
-   */
-  public KVControllerApiDeleteBulkResponse deleteKeys(String namespace, KVControllerApiDeleteBulkRequest kvControllerApiDeleteBulkRequest) throws ApiException {
-    return this.deleteKeys(namespace, kvControllerApiDeleteBulkRequest, Collections.emptyMap());
-  }
-
-
-  /**
-   * Bulk-delete multiple key/value pairs from the given namespace.
-   * 
-   * @param namespace The namespace id (required)
-   * @param kvControllerApiDeleteBulkRequest  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return KVControllerApiDeleteBulkResponse
-   * @throws ApiException if fails to make API call
-   */
-  public KVControllerApiDeleteBulkResponse deleteKeys(String namespace, KVControllerApiDeleteBulkRequest kvControllerApiDeleteBulkRequest, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = kvControllerApiDeleteBulkRequest;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling deleteKeys");
-    }
-    
-    // verify the required parameter 'kvControllerApiDeleteBulkRequest' is set
-    if (kvControllerApiDeleteBulkRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'kvControllerApiDeleteBulkRequest' when calling deleteKeys");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{namespace}/kv"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<KVControllerApiDeleteBulkResponse> localVarReturnType = new TypeReference<KVControllerApiDeleteBulkResponse>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Bulk-delete multiple key/value pairs from the given namespace.
-   * 
-   * @param namespace The namespace id (required)
    * @param tenant  (required)
-   * @param kvControllerApiDeleteBulkRequest  (required)
+   * @param kvControllerApiDeleteBulkRequest The keys (required)
    * @return KVControllerApiDeleteBulkResponse
    * @throws ApiException if fails to make API call
    */
-  public KVControllerApiDeleteBulkResponse deleteKeys1(String namespace, String tenant, KVControllerApiDeleteBulkRequest kvControllerApiDeleteBulkRequest) throws ApiException {
-    return this.deleteKeys1(namespace, tenant, kvControllerApiDeleteBulkRequest, Collections.emptyMap());
+  public KVControllerApiDeleteBulkResponse deleteKeyValues(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull KVControllerApiDeleteBulkRequest kvControllerApiDeleteBulkRequest) throws ApiException {
+    return this.deleteKeyValues(namespace, tenant, kvControllerApiDeleteBulkRequest, Collections.emptyMap());
   }
 
 
@@ -319,27 +154,27 @@ public class KvApi extends BaseApi {
    * 
    * @param namespace The namespace id (required)
    * @param tenant  (required)
-   * @param kvControllerApiDeleteBulkRequest  (required)
+   * @param kvControllerApiDeleteBulkRequest The keys (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return KVControllerApiDeleteBulkResponse
    * @throws ApiException if fails to make API call
    */
-  public KVControllerApiDeleteBulkResponse deleteKeys1(String namespace, String tenant, KVControllerApiDeleteBulkRequest kvControllerApiDeleteBulkRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public KVControllerApiDeleteBulkResponse deleteKeyValues(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull KVControllerApiDeleteBulkRequest kvControllerApiDeleteBulkRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = kvControllerApiDeleteBulkRequest;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling deleteKeys1");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling deleteKeyValues");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteKeys1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteKeyValues");
     }
     
     // verify the required parameter 'kvControllerApiDeleteBulkRequest' is set
     if (kvControllerApiDeleteBulkRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'kvControllerApiDeleteBulkRequest' when calling deleteKeys1");
+      throw new ApiException(400, "Missing the required parameter 'kvControllerApiDeleteBulkRequest' when calling deleteKeyValues");
     }
     
     // create path and map variables
@@ -370,7 +205,7 @@ public class KvApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<KVControllerApiDeleteBulkResponse> localVarReturnType = new TypeReference<KVControllerApiDeleteBulkResponse>() {};
     return apiClient.invokeAPI(
@@ -399,8 +234,8 @@ public class KvApi extends BaseApi {
    * @return KVControllerTypedValue
    * @throws ApiException if fails to make API call
    */
-  public KVControllerTypedValue get12(String namespace, String key, String tenant) throws ApiException {
-    return this.get12(namespace, key, tenant, Collections.emptyMap());
+  public KVControllerTypedValue getKeyValue(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String key, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getKeyValue(namespace, key, tenant, Collections.emptyMap());
   }
 
 
@@ -414,22 +249,22 @@ public class KvApi extends BaseApi {
    * @return KVControllerTypedValue
    * @throws ApiException if fails to make API call
    */
-  public KVControllerTypedValue get12(String namespace, String key, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public KVControllerTypedValue getKeyValue(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String key, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling get12");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling getKeyValue");
     }
     
     // verify the required parameter 'key' is set
     if (key == null) {
-      throw new ApiException(400, "Missing the required parameter 'key' when calling get12");
+      throw new ApiException(400, "Missing the required parameter 'key' when calling getKeyValue");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling get12");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getKeyValue");
     }
     
     // create path and map variables
@@ -461,167 +296,9 @@ public class KvApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<KVControllerTypedValue> localVarReturnType = new TypeReference<KVControllerTypedValue>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get value for a key
-   * 
-   * @param namespace The namespace id (required)
-   * @param key The key (required)
-   * @return KVControllerTypedValue
-   * @throws ApiException if fails to make API call
-   */
-  public KVControllerTypedValue get4(String namespace, String key) throws ApiException {
-    return this.get4(namespace, key, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get value for a key
-   * 
-   * @param namespace The namespace id (required)
-   * @param key The key (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return KVControllerTypedValue
-   * @throws ApiException if fails to make API call
-   */
-  public KVControllerTypedValue get4(String namespace, String key, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling get4");
-    }
-    
-    // verify the required parameter 'key' is set
-    if (key == null) {
-      throw new ApiException(400, "Missing the required parameter 'key' when calling get4");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{namespace}/kv/{key}"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "key" + "\\}", apiClient.escapeString(apiClient.parameterToString(key)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<KVControllerTypedValue> localVarReturnType = new TypeReference<KVControllerTypedValue>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List all keys for a namespace
-   * 
-   * @param namespace The namespace id (required)
-   * @return List&lt;KVEntry&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<KVEntry> list2(String namespace) throws ApiException {
-    return this.list2(namespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * List all keys for a namespace
-   * 
-   * @param namespace The namespace id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;KVEntry&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<KVEntry> list2(String namespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling list2");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{namespace}/kv"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<KVEntry>> localVarReturnType = new TypeReference<List<KVEntry>>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -647,8 +324,8 @@ public class KvApi extends BaseApi {
    * @return List&lt;KVEntry&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<KVEntry> list6(String namespace, String tenant) throws ApiException {
-    return this.list6(namespace, tenant, Collections.emptyMap());
+  public List<KVEntry> listKeys(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.listKeys(namespace, tenant, Collections.emptyMap());
   }
 
 
@@ -661,17 +338,17 @@ public class KvApi extends BaseApi {
    * @return List&lt;KVEntry&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<KVEntry> list6(String namespace, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public List<KVEntry> listKeys(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling list6");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling listKeys");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling list6");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listKeys");
     }
     
     // create path and map variables
@@ -702,7 +379,7 @@ public class KvApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<List<KVEntry>> localVarReturnType = new TypeReference<List<KVEntry>>() {};
     return apiClient.invokeAPI(
@@ -727,99 +404,12 @@ public class KvApi extends BaseApi {
    * 
    * @param namespace The namespace id (required)
    * @param key The key (required)
-   * @param body  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void put(String namespace, String key, String body) throws ApiException {
-    this.put(namespace, key, body, Collections.emptyMap());
-  }
-
-
-  /**
-   * Puts a key-value pair in store
-   * 
-   * @param namespace The namespace id (required)
-   * @param key The key (required)
-   * @param body  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void put(String namespace, String key, String body, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling put");
-    }
-    
-    // verify the required parameter 'key' is set
-    if (key == null) {
-      throw new ApiException(400, "Missing the required parameter 'key' when calling put");
-    }
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling put");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/namespaces/{namespace}/kv/{key}"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "key" + "\\}", apiClient.escapeString(apiClient.parameterToString(key)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json", "text/plain"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Puts a key-value pair in store
-   * 
-   * @param namespace The namespace id (required)
-   * @param key The key (required)
    * @param tenant  (required)
-   * @param body  (required)
+   * @param body The value of the key (required)
    * @throws ApiException if fails to make API call
    */
-  public void put1(String namespace, String key, String tenant, String body) throws ApiException {
-    this.put1(namespace, key, tenant, body, Collections.emptyMap());
+  public void setKeyValue(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String key, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String body) throws ApiException {
+    this.setKeyValue(namespace, key, tenant, body, Collections.emptyMap());
   }
 
 
@@ -829,31 +419,31 @@ public class KvApi extends BaseApi {
    * @param namespace The namespace id (required)
    * @param key The key (required)
    * @param tenant  (required)
-   * @param body  (required)
+   * @param body The value of the key (required)
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void put1(String namespace, String key, String tenant, String body, Map<String, String> additionalHeaders) throws ApiException {
+  public void setKeyValue(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String key, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull String body, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling put1");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling setKeyValue");
     }
     
     // verify the required parameter 'key' is set
     if (key == null) {
-      throw new ApiException(400, "Missing the required parameter 'key' when calling put1");
+      throw new ApiException(400, "Missing the required parameter 'key' when calling setKeyValue");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling put1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling setKeyValue");
     }
     
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling put1");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling setKeyValue");
     }
     
     // create path and map variables
@@ -885,7 +475,7 @@ public class KvApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -926,7 +516,7 @@ public class KvApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

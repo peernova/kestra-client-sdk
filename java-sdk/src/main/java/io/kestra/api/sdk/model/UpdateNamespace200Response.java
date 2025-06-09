@@ -31,7 +31,7 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
 })
 @JsonTypeName("updateNamespace_200_response")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-04T08:59:39.449091531Z[Etc/UTC]", comments = "Generator version: 7.13.0-SNAPSHOT")
 public class UpdateNamespace200Response {
   public UpdateNamespace200Response() {
   }

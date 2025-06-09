@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.kestra.api.sdk.model.ServiceServiceType;
+import io.kestra.api.sdk.model.ServiceType;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -35,11 +35,11 @@ import java.util.StringJoiner;
   ClusterControllerApiActiveService.JSON_PROPERTY_TOTAL
 })
 @JsonTypeName("ClusterController.ApiActiveService")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class ClusterControllerApiActiveService {
   public static final String JSON_PROPERTY_TYPE = "type";
   @javax.annotation.Nonnull
-  private ServiceServiceType type;
+  private ServiceType type;
 
   public static final String JSON_PROPERTY_TOTAL = "total";
   @javax.annotation.Nonnull
@@ -48,7 +48,7 @@ public class ClusterControllerApiActiveService {
   public ClusterControllerApiActiveService() {
   }
 
-  public ClusterControllerApiActiveService type(@javax.annotation.Nonnull ServiceServiceType type) {
+  public ClusterControllerApiActiveService type(@javax.annotation.Nonnull ServiceType type) {
     
     this.type = type;
     return this;
@@ -62,14 +62,14 @@ public class ClusterControllerApiActiveService {
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public ServiceServiceType getType() {
+  public ServiceType getType() {
     return type;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(@javax.annotation.Nonnull ServiceServiceType type) {
+  public void setType(@javax.annotation.Nonnull ServiceType type) {
     this.type = type;
   }
 

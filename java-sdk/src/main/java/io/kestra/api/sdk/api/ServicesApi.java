@@ -24,7 +24,7 @@ import io.kestra.api.sdk.model.ClusterControllerApiActiveServiceList;
 import io.kestra.api.sdk.model.PagedResultsClusterControllerApiServiceInstance;
 import io.kestra.api.sdk.model.ServiceInstance;
 import io.kestra.api.sdk.model.ServiceServiceState;
-import io.kestra.api.sdk.model.ServiceServiceType;
+import io.kestra.api.sdk.model.ServiceType;
 
 
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class ServicesApi extends BaseApi {
 
   public ServicesApi() {
@@ -48,79 +48,12 @@ public class ServicesApi extends BaseApi {
   /**
    * Get details about active services
    * 
-   * @return ClusterControllerApiActiveServiceList
-   * @throws ApiException if fails to make API call
-   */
-  public ClusterControllerApiActiveServiceList active() throws ApiException {
-    return this.active(Collections.emptyMap());
-  }
-
-
-  /**
-   * Get details about active services
-   * 
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ClusterControllerApiActiveServiceList
-   * @throws ApiException if fails to make API call
-   */
-  public ClusterControllerApiActiveServiceList active(Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/cluster/services/active";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ClusterControllerApiActiveServiceList> localVarReturnType = new TypeReference<ClusterControllerApiActiveServiceList>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get details about active services
-   * 
    * @param tenant  (required)
    * @return ClusterControllerApiActiveServiceList
    * @throws ApiException if fails to make API call
    */
-  public ClusterControllerApiActiveServiceList active1(String tenant) throws ApiException {
-    return this.active1(tenant, Collections.emptyMap());
+  public ClusterControllerApiActiveServiceList getActiveServices(@javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getActiveServices(tenant, Collections.emptyMap());
   }
 
 
@@ -132,12 +65,12 @@ public class ServicesApi extends BaseApi {
    * @return ClusterControllerApiActiveServiceList
    * @throws ApiException if fails to make API call
    */
-  public ClusterControllerApiActiveServiceList active1(String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public ClusterControllerApiActiveServiceList getActiveServices(@javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling active1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getActiveServices");
     }
     
     // create path and map variables
@@ -167,9 +100,92 @@ public class ServicesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<ClusterControllerApiActiveServiceList> localVarReturnType = new TypeReference<ClusterControllerApiActiveServiceList>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get details about a service
+   * 
+   * @param id  (required)
+   * @param tenant  (required)
+   * @return ServiceInstance
+   * @throws ApiException if fails to make API call
+   */
+  public ServiceInstance getService(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getService(id, tenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get details about a service
+   * 
+   * @param id  (required)
+   * @param tenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return ServiceInstance
+   * @throws ApiException if fails to make API call
+   */
+  public ServiceInstance getService(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getService");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getService");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/cluster/services/{id}"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<ServiceInstance> localVarReturnType = new TypeReference<ServiceInstance>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -199,8 +215,8 @@ public class ServicesApi extends BaseApi {
    * @return PagedResultsClusterControllerApiServiceInstance
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsClusterControllerApiServiceInstance find29(Integer page, Integer size, String tenant, List<String> sort, List<ServiceServiceState> state, List<ServiceServiceType> type) throws ApiException {
-    return this.find29(page, size, tenant, sort, state, type, Collections.emptyMap());
+  public PagedResultsClusterControllerApiServiceInstance searchServices(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable List<ServiceServiceState> state, @javax.annotation.Nullable List<ServiceType> type) throws ApiException {
+    return this.searchServices(page, size, tenant, sort, state, type, Collections.emptyMap());
   }
 
 
@@ -217,22 +233,22 @@ public class ServicesApi extends BaseApi {
    * @return PagedResultsClusterControllerApiServiceInstance
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsClusterControllerApiServiceInstance find29(Integer page, Integer size, String tenant, List<String> sort, List<ServiceServiceState> state, List<ServiceServiceType> type, Map<String, String> additionalHeaders) throws ApiException {
+  public PagedResultsClusterControllerApiServiceInstance searchServices(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable List<ServiceServiceState> state, @javax.annotation.Nullable List<ServiceType> type, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'page' is set
     if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find29");
+      throw new ApiException(400, "Missing the required parameter 'page' when calling searchServices");
     }
     
     // verify the required parameter 'size' is set
     if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find29");
+      throw new ApiException(400, "Missing the required parameter 'size' when calling searchServices");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling find29");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling searchServices");
     }
     
     // create path and map variables
@@ -267,259 +283,9 @@ public class ServicesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<PagedResultsClusterControllerApiServiceInstance> localVarReturnType = new TypeReference<PagedResultsClusterControllerApiServiceInstance>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Search for service
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param sort The sort of current page (optional)
-   * @param state The state filter (optional)
-   * @param type The server type filter (optional)
-   * @return PagedResultsClusterControllerApiServiceInstance
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsClusterControllerApiServiceInstance find3(Integer page, Integer size, List<String> sort, List<ServiceServiceState> state, List<ServiceServiceType> type) throws ApiException {
-    return this.find3(page, size, sort, state, type, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for service
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param sort The sort of current page (optional)
-   * @param state The state filter (optional)
-   * @param type The server type filter (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsClusterControllerApiServiceInstance
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsClusterControllerApiServiceInstance find3(Integer page, Integer size, List<String> sort, List<ServiceServiceState> state, List<ServiceServiceType> type, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find3");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find3");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/cluster/services/search";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "state", state));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "type", type));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsClusterControllerApiServiceInstance> localVarReturnType = new TypeReference<PagedResultsClusterControllerApiServiceInstance>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get details about a service
-   * 
-   * @param id  (required)
-   * @return ServiceInstance
-   * @throws ApiException if fails to make API call
-   */
-  public ServiceInstance index2(String id) throws ApiException {
-    return this.index2(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get details about a service
-   * 
-   * @param id  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ServiceInstance
-   * @throws ApiException if fails to make API call
-   */
-  public ServiceInstance index2(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index2");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/cluster/services/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ServiceInstance> localVarReturnType = new TypeReference<ServiceInstance>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get details about a service
-   * 
-   * @param id  (required)
-   * @param tenant  (required)
-   * @return ServiceInstance
-   * @throws ApiException if fails to make API call
-   */
-  public ServiceInstance index23(String id, String tenant) throws ApiException {
-    return this.index23(id, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get details about a service
-   * 
-   * @param id  (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ServiceInstance
-   * @throws ApiException if fails to make API call
-   */
-  public ServiceInstance index23(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling index23");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling index23");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/cluster/services/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ServiceInstance> localVarReturnType = new TypeReference<ServiceInstance>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -559,7 +325,7 @@ public class ServicesApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

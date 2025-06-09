@@ -10,6 +10,8 @@
 |**id** | **String** |  |  |
 |**deleted** | **Boolean** |  |  |
 |**allowedTriggers** | [**List&lt;NamespaceAllowedTrigger&gt;**](NamespaceAllowedTrigger.md) |  |  [optional] |
+|**storageIsolation** | [**Isolation**](Isolation.md) |  |  [optional] |
+|**secretIsolation** | [**Isolation**](Isolation.md) |  |  [optional] |
 |**description** | **String** |  |  |
 |**variables** | **Map&lt;String, Object&gt;** |  |  |
 |**pluginDefaults** | [**List&lt;PluginDefault&gt;**](PluginDefault.md) |  |  |
@@ -18,7 +20,9 @@
 |**storageType** | **String** |  |  [optional] |
 |**storageConfiguration** | **Map&lt;String, Object&gt;** |  |  [optional] |
 |**secretType** | **String** |  |  [optional] |
+|**secretReadOnly** | **Boolean** |  |  [optional] |
 |**secretConfiguration** | **Map&lt;String, Object&gt;** |  |  [optional] |
+|**outputsInInternalStorage** | **Boolean** |  |  [optional] |
 |**disabled** | **Boolean** |  |  |
 
 

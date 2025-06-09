@@ -10,6 +10,7 @@
 |**tenantId** | **String** |  |  |
 |**groupId** | **String** |  |  |
 |**membership** | **AbstractUserGroupIdentifierMembership** |  |  |
+|**managedExternally** | **Boolean** |  |  |
 
 
 

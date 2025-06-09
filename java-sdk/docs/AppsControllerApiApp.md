@@ -14,6 +14,8 @@
 |**namespace** | **String** |  |  |
 |**tags** | **List&lt;String&gt;** |  |  |
 |**enabled** | **Boolean** |  |  |
+|**created** | **OffsetDateTime** |  |  |
+|**updated** | **OffsetDateTime** |  |  |
 
 
 

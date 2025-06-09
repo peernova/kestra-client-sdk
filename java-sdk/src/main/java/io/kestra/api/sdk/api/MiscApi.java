@@ -23,14 +23,13 @@ import io.kestra.api.sdk.internal.Pair;
 import io.kestra.api.sdk.model.Action;
 import io.kestra.api.sdk.model.ApiUser;
 import io.kestra.api.sdk.model.MiscControllerBasicAuthCredentials;
-import io.kestra.api.sdk.model.MiscControllerConfigurationEe;
+import io.kestra.api.sdk.model.MiscControllerEEConfiguration;
 import io.kestra.api.sdk.model.MiscControllerLicenseInfo;
 import io.kestra.api.sdk.model.Permission;
 import io.kestra.api.sdk.model.SetupConfiguration;
 import io.kestra.api.sdk.model.SetupConfigurationSetupData;
-import io.kestra.api.sdk.model.TenantUsage1200Response;
-import io.kestra.api.sdk.model.TenantUsage200Response;
 import io.kestra.api.sdk.model.Usage;
+import io.kestra.api.sdk.model.UsageEE;
 
 
 import java.util.ArrayList;
@@ -40,7 +39,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class MiscApi extends BaseApi {
 
   public MiscApi() {
@@ -52,175 +51,33 @@ public class MiscApi extends BaseApi {
   }
 
   /**
-   * Get list of actions
-   * 
-   * @return List&lt;Action&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Action> actions() throws ApiException {
-    return this.actions(Collections.emptyMap());
-  }
-
-
-  /**
-   * Get list of actions
-   * 
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Action&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Action> actions(Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/acls/actions";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<Action>> localVarReturnType = new TypeReference<List<Action>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get list of actions
-   * 
-   * @param tenant  (required)
-   * @return List&lt;Action&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Action> actions1(String tenant) throws ApiException {
-    return this.actions1(tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get list of actions
-   * 
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Action&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Action> actions1(String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling actions1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/acls/actions"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<Action>> localVarReturnType = new TypeReference<List<Action>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Add basic auth to current instance
+   * Create basic auth for the current instance
    * 
    * @param miscControllerBasicAuthCredentials  (required)
    * @throws ApiException if fails to make API call
    */
-  public void addBasicAuth(MiscControllerBasicAuthCredentials miscControllerBasicAuthCredentials) throws ApiException {
-    this.addBasicAuth(miscControllerBasicAuthCredentials, Collections.emptyMap());
+  public void createBasicAuth(@javax.annotation.Nonnull MiscControllerBasicAuthCredentials miscControllerBasicAuthCredentials) throws ApiException {
+    this.createBasicAuth(miscControllerBasicAuthCredentials, Collections.emptyMap());
   }
 
 
   /**
-   * Add basic auth to current instance
+   * Create basic auth for the current instance
    * 
    * @param miscControllerBasicAuthCredentials  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @throws ApiException if fails to make API call
    */
-  public void addBasicAuth(MiscControllerBasicAuthCredentials miscControllerBasicAuthCredentials, Map<String, String> additionalHeaders) throws ApiException {
+  public void createBasicAuth(@javax.annotation.Nonnull MiscControllerBasicAuthCredentials miscControllerBasicAuthCredentials, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = miscControllerBasicAuthCredentials;
     
     // verify the required parameter 'miscControllerBasicAuthCredentials' is set
     if (miscControllerBasicAuthCredentials == null) {
-      throw new ApiException(400, "Missing the required parameter 'miscControllerBasicAuthCredentials' when calling addBasicAuth");
+      throw new ApiException(400, "Missing the required parameter 'miscControllerBasicAuthCredentials' when calling createBasicAuth");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/basicAuth";
+    String localVarPath = "/api/v1/main/basicAuth";
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -245,86 +102,7 @@ public class MiscApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
-   * Add basic auth to current instance
-   * 
-   * @param tenant  (required)
-   * @param miscControllerBasicAuthCredentials  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void addBasicAuth1(String tenant, MiscControllerBasicAuthCredentials miscControllerBasicAuthCredentials) throws ApiException {
-    this.addBasicAuth1(tenant, miscControllerBasicAuthCredentials, Collections.emptyMap());
-  }
-
-
-  /**
-   * Add basic auth to current instance
-   * 
-   * @param tenant  (required)
-   * @param miscControllerBasicAuthCredentials  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void addBasicAuth1(String tenant, MiscControllerBasicAuthCredentials miscControllerBasicAuthCredentials, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = miscControllerBasicAuthCredentials;
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling addBasicAuth1");
-    }
-    
-    // verify the required parameter 'miscControllerBasicAuthCredentials' is set
-    if (miscControllerBasicAuthCredentials == null) {
-      throw new ApiException(400, "Missing the required parameter 'miscControllerBasicAuthCredentials' when calling addBasicAuth1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/basicAuth"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     apiClient.invokeAPI(
         localVarPath,
@@ -346,11 +124,11 @@ public class MiscApi extends BaseApi {
   /**
    * Get current configurations
    * 
-   * @return MiscControllerConfigurationEe
+   * @return MiscControllerEEConfiguration
    * @throws ApiException if fails to make API call
    */
-  public MiscControllerConfigurationEe callConfiguration() throws ApiException {
-    return this.callConfiguration(Collections.emptyMap());
+  public MiscControllerEEConfiguration getConfiguration() throws ApiException {
+    return this.getConfiguration(Collections.emptyMap());
   }
 
 
@@ -358,10 +136,10 @@ public class MiscApi extends BaseApi {
    * Get current configurations
    * 
    * @param additionalHeaders additionalHeaders for this call
-   * @return MiscControllerConfigurationEe
+   * @return MiscControllerEEConfiguration
    * @throws ApiException if fails to make API call
    */
-  public MiscControllerConfigurationEe callConfiguration(Map<String, String> additionalHeaders) throws ApiException {
+  public MiscControllerEEConfiguration getConfiguration(Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -390,9 +168,9 @@ public class MiscApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<MiscControllerConfigurationEe> localVarReturnType = new TypeReference<MiscControllerConfigurationEe>() {};
+    TypeReference<MiscControllerEEConfiguration> localVarReturnType = new TypeReference<MiscControllerEEConfiguration>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -411,35 +189,35 @@ public class MiscApi extends BaseApi {
   }
 
   /**
-   * Get current configurations
+   * Get instance usage information
    * 
    * @param tenant  (required)
-   * @return MiscControllerConfigurationEe
+   * @return Usage
    * @throws ApiException if fails to make API call
    */
-  public MiscControllerConfigurationEe configuration1(String tenant) throws ApiException {
-    return this.configuration1(tenant, Collections.emptyMap());
+  public Usage getUsages(@javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getUsages(tenant, Collections.emptyMap());
   }
 
 
   /**
-   * Get current configurations
+   * Get instance usage information
    * 
    * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return MiscControllerConfigurationEe
+   * @return Usage
    * @throws ApiException if fails to make API call
    */
-  public MiscControllerConfigurationEe configuration1(String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public Usage getUsages(@javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling configuration1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getUsages");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/configs"
+    String localVarPath = "/api/v1/{tenant}/usages/all"
       .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
@@ -465,9 +243,9 @@ public class MiscApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<MiscControllerConfigurationEe> localVarReturnType = new TypeReference<MiscControllerConfigurationEe>() {};
+    TypeReference<Usage> localVarReturnType = new TypeReference<Usage>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -532,7 +310,7 @@ public class MiscApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<MiscControllerLicenseInfo> localVarReturnType = new TypeReference<MiscControllerLicenseInfo>() {};
     return apiClient.invokeAPI(
@@ -553,28 +331,36 @@ public class MiscApi extends BaseApi {
   }
 
   /**
-   * Get list of permissions
+   * Get list of actions
    * 
-   * @return List&lt;Permission&gt;
+   * @param tenant  (required)
+   * @return List&lt;Action&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Permission> permissions() throws ApiException {
-    return this.permissions(Collections.emptyMap());
+  public List<Action> listActions(@javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.listActions(tenant, Collections.emptyMap());
   }
 
 
   /**
-   * Get list of permissions
+   * Get list of actions
    * 
+   * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;Permission&gt;
+   * @return List&lt;Action&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Permission> permissions(Map<String, String> additionalHeaders) throws ApiException {
+  public List<Action> listActions(@javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listActions");
+    }
+    
     // create path and map variables
-    String localVarPath = "/api/v1/acls/permissions";
+    String localVarPath = "/api/v1/{tenant}/acls/actions"
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -599,9 +385,9 @@ public class MiscApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<List<Permission>> localVarReturnType = new TypeReference<List<Permission>>() {};
+    TypeReference<List<Action>> localVarReturnType = new TypeReference<List<Action>>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -626,8 +412,8 @@ public class MiscApi extends BaseApi {
    * @return List&lt;Permission&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Permission> permissions1(String tenant) throws ApiException {
-    return this.permissions1(tenant, Collections.emptyMap());
+  public List<Permission> listPermissions(@javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.listPermissions(tenant, Collections.emptyMap());
   }
 
 
@@ -639,12 +425,12 @@ public class MiscApi extends BaseApi {
    * @return List&lt;Permission&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Permission> permissions1(String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public List<Permission> listPermissions(@javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling permissions1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listPermissions");
     }
     
     // create path and map variables
@@ -674,7 +460,7 @@ public class MiscApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<List<Permission>> localVarReturnType = new TypeReference<List<Permission>>() {};
     return apiClient.invokeAPI(
@@ -741,7 +527,7 @@ public class MiscApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<SetupConfiguration> localVarReturnType = new TypeReference<SetupConfiguration>() {};
     return apiClient.invokeAPI(
@@ -768,7 +554,7 @@ public class MiscApi extends BaseApi {
    * @return ApiUser
    * @throws ApiException if fails to make API call
    */
-  public ApiUser setupKestra(SetupConfigurationSetupData setupConfigurationSetupData) throws ApiException {
+  public ApiUser setupKestra(@javax.annotation.Nonnull SetupConfigurationSetupData setupConfigurationSetupData) throws ApiException {
     return this.setupKestra(setupConfigurationSetupData, Collections.emptyMap());
   }
 
@@ -781,7 +567,7 @@ public class MiscApi extends BaseApi {
    * @return ApiUser
    * @throws ApiException if fails to make API call
    */
-  public ApiUser setupKestra(SetupConfigurationSetupData setupConfigurationSetupData, Map<String, String> additionalHeaders) throws ApiException {
+  public ApiUser setupKestra(@javax.annotation.Nonnull SetupConfigurationSetupData setupConfigurationSetupData, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = setupConfigurationSetupData;
     
     // verify the required parameter 'setupConfigurationSetupData' is set
@@ -815,7 +601,7 @@ public class MiscApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<ApiUser> localVarReturnType = new TypeReference<ApiUser>() {};
     return apiClient.invokeAPI(
@@ -838,79 +624,12 @@ public class MiscApi extends BaseApi {
   /**
    * Get instance usage information for the current tenant
    * 
-   * @return TenantUsage200Response
-   * @throws ApiException if fails to make API call
-   */
-  public TenantUsage200Response tenantUsage() throws ApiException {
-    return this.tenantUsage(Collections.emptyMap());
-  }
-
-
-  /**
-   * Get instance usage information for the current tenant
-   * 
-   * @param additionalHeaders additionalHeaders for this call
-   * @return TenantUsage200Response
-   * @throws ApiException if fails to make API call
-   */
-  public TenantUsage200Response tenantUsage(Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/usages";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<TenantUsage200Response> localVarReturnType = new TypeReference<TenantUsage200Response>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get instance usage information for the current tenant
-   * 
    * @param tenant  (required)
-   * @return TenantUsage1200Response
+   * @return UsageEE
    * @throws ApiException if fails to make API call
    */
-  public TenantUsage1200Response tenantUsage1(String tenant) throws ApiException {
-    return this.tenantUsage1(tenant, Collections.emptyMap());
+  public UsageEE tenantUsage(@javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.tenantUsage(tenant, Collections.emptyMap());
   }
 
 
@@ -919,15 +638,15 @@ public class MiscApi extends BaseApi {
    * 
    * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return TenantUsage1200Response
+   * @return UsageEE
    * @throws ApiException if fails to make API call
    */
-  public TenantUsage1200Response tenantUsage1(String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public UsageEE tenantUsage(@javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling tenantUsage1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling tenantUsage");
     }
     
     // create path and map variables
@@ -957,151 +676,9 @@ public class MiscApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<TenantUsage1200Response> localVarReturnType = new TypeReference<TenantUsage1200Response>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get instance usage information
-   * 
-   * @return Usage
-   * @throws ApiException if fails to make API call
-   */
-  public Usage usages() throws ApiException {
-    return this.usages(Collections.emptyMap());
-  }
-
-
-  /**
-   * Get instance usage information
-   * 
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Usage
-   * @throws ApiException if fails to make API call
-   */
-  public Usage usages(Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/usages/all";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Usage> localVarReturnType = new TypeReference<Usage>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get instance usage information
-   * 
-   * @param tenant  (required)
-   * @return Usage
-   * @throws ApiException if fails to make API call
-   */
-  public Usage usages1(String tenant) throws ApiException {
-    return this.usages1(tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get instance usage information
-   * 
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Usage
-   * @throws ApiException if fails to make API call
-   */
-  public Usage usages1(String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling usages1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/usages/all"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Usage> localVarReturnType = new TypeReference<Usage>() {};
+    TypeReference<UsageEE> localVarReturnType = new TypeReference<UsageEE>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -1141,7 +718,7 @@ public class MiscApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

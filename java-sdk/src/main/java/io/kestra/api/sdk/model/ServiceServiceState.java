@@ -45,7 +45,9 @@ public enum ServiceServiceState {
   
   NOT_RUNNING("NOT_RUNNING"),
   
-  EMPTY("EMPTY");
+  EMPTY("EMPTY"),
+  
+  MAINTENANCE("MAINTENANCE");
 
   private String value;
 

@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -38,10 +39,12 @@ import java.util.StringJoiner;
   AppsControllerApiAppSource.JSON_PROPERTY_NAMESPACE,
   AppsControllerApiAppSource.JSON_PROPERTY_TAGS,
   AppsControllerApiAppSource.JSON_PROPERTY_DISABLED,
-  AppsControllerApiAppSource.JSON_PROPERTY_SOURCE
+  AppsControllerApiAppSource.JSON_PROPERTY_SOURCE,
+  AppsControllerApiAppSource.JSON_PROPERTY_CREATED,
+  AppsControllerApiAppSource.JSON_PROPERTY_UPDATED
 })
 @JsonTypeName("AppsController.ApiAppSource")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class AppsControllerApiAppSource {
   public static final String JSON_PROPERTY_UID = "uid";
   @javax.annotation.Nonnull
@@ -66,6 +69,14 @@ public class AppsControllerApiAppSource {
   public static final String JSON_PROPERTY_SOURCE = "source";
   @javax.annotation.Nonnull
   private String source;
+
+  public static final String JSON_PROPERTY_CREATED = "created";
+  @javax.annotation.Nonnull
+  private OffsetDateTime created;
+
+  public static final String JSON_PROPERTY_UPDATED = "updated";
+  @javax.annotation.Nonnull
+  private OffsetDateTime updated;
 
   public AppsControllerApiAppSource() {
   }
@@ -228,6 +239,56 @@ public class AppsControllerApiAppSource {
     this.source = source;
   }
 
+  public AppsControllerApiAppSource created(@javax.annotation.Nonnull OffsetDateTime created) {
+    
+    this.created = created;
+    return this;
+  }
+
+  /**
+   * Get created
+   * @return created
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public OffsetDateTime getCreated() {
+    return created;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CREATED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCreated(@javax.annotation.Nonnull OffsetDateTime created) {
+    this.created = created;
+  }
+
+  public AppsControllerApiAppSource updated(@javax.annotation.Nonnull OffsetDateTime updated) {
+    
+    this.updated = updated;
+    return this;
+  }
+
+  /**
+   * Get updated
+   * @return updated
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_UPDATED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public OffsetDateTime getUpdated() {
+    return updated;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_UPDATED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setUpdated(@javax.annotation.Nonnull OffsetDateTime updated) {
+    this.updated = updated;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -242,12 +303,14 @@ public class AppsControllerApiAppSource {
         Objects.equals(this.namespace, appsControllerApiAppSource.namespace) &&
         Objects.equals(this.tags, appsControllerApiAppSource.tags) &&
         Objects.equals(this.disabled, appsControllerApiAppSource.disabled) &&
-        Objects.equals(this.source, appsControllerApiAppSource.source);
+        Objects.equals(this.source, appsControllerApiAppSource.source) &&
+        Objects.equals(this.created, appsControllerApiAppSource.created) &&
+        Objects.equals(this.updated, appsControllerApiAppSource.updated);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uid, name, namespace, tags, disabled, source);
+    return Objects.hash(uid, name, namespace, tags, disabled, source, created, updated);
   }
 
   @Override
@@ -260,6 +323,8 @@ public class AppsControllerApiAppSource {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    created: ").append(toIndentedString(created)).append("\n");
+    sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -365,6 +430,26 @@ public class AppsControllerApiAppSource {
     if (getSource() != null) {
       try {
         joiner.add(String.format("%ssource%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSource()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `created` to the URL query string
+    if (getCreated() != null) {
+      try {
+        joiner.add(String.format("%screated%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreated()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `updated` to the URL query string
+    if (getUpdated() != null) {
+      try {
+        joiner.add(String.format("%supdated%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdated()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

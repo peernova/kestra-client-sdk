@@ -4,54 +4,33 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**autocomplete14**](RolesApi.md#autocomplete14) | **POST** /api/v1/{tenant}/roles/autocomplete | List roles for autocomplete |
-| [**autocomplete17**](RolesApi.md#autocomplete17) | **POST** /api/v1/{tenant}/tenants/roles/autocomplete | List roles for autocomplete |
-| [**autocomplete2**](RolesApi.md#autocomplete2) | **POST** /api/v1/roles/autocomplete | List roles for autocomplete |
-| [**autocomplete21**](RolesApi.md#autocomplete21) | **POST** /api/v1/{tenant}/tenants/{ressourceTenant}/roles/autocomplete | List roles for autocomplete |
-| [**autocomplete5**](RolesApi.md#autocomplete5) | **POST** /api/v1/tenants/roles/autocomplete | List roles for autocomplete |
-| [**autocomplete9**](RolesApi.md#autocomplete9) | **POST** /api/v1/tenants/{ressourceTenant}/roles/autocomplete | List roles for autocomplete |
-| [**create11**](RolesApi.md#create11) | **POST** /api/v1/roles | Create a role |
-| [**create18**](RolesApi.md#create18) | **POST** /api/v1/tenants/roles | Create a role |
-| [**create23**](RolesApi.md#create23) | **POST** /api/v1/tenants/{ressourceTenant}/roles | Create a role |
-| [**create36**](RolesApi.md#create36) | **POST** /api/v1/{tenant}/roles | Create a role |
-| [**create43**](RolesApi.md#create43) | **POST** /api/v1/{tenant}/tenants/roles | Create a role |
-| [**create48**](RolesApi.md#create48) | **POST** /api/v1/{tenant}/tenants/{ressourceTenant}/roles | Create a role |
-| [**delete14**](RolesApi.md#delete14) | **DELETE** /api/v1/roles/{id} | Delete a role |
-| [**delete20**](RolesApi.md#delete20) | **DELETE** /api/v1/tenants/roles/{id} | Delete a role |
-| [**delete26**](RolesApi.md#delete26) | **DELETE** /api/v1/tenants/{ressourceTenant}/roles/{id} | Delete a role |
-| [**delete42**](RolesApi.md#delete42) | **DELETE** /api/v1/{tenant}/roles/{id} | Delete a role |
-| [**delete48**](RolesApi.md#delete48) | **DELETE** /api/v1/{tenant}/tenants/roles/{id} | Delete a role |
-| [**delete54**](RolesApi.md#delete54) | **DELETE** /api/v1/{tenant}/tenants/{ressourceTenant}/roles/{id} | Delete a role |
-| [**find12**](RolesApi.md#find12) | **GET** /api/v1/roles/search | Search for roles |
-| [**find17**](RolesApi.md#find17) | **GET** /api/v1/tenants/roles/search | Search for roles |
-| [**find23**](RolesApi.md#find23) | **GET** /api/v1/tenants/{ressourceTenant}/roles/search | Search for roles |
-| [**find38**](RolesApi.md#find38) | **GET** /api/v1/{tenant}/roles/search | Search for roles |
-| [**find43**](RolesApi.md#find43) | **GET** /api/v1/{tenant}/tenants/roles/search | Search for roles |
-| [**find49**](RolesApi.md#find49) | **GET** /api/v1/{tenant}/tenants/{ressourceTenant}/roles/search | Search for roles |
-| [**ids1**](RolesApi.md#ids1) | **POST** /api/v1/roles/ids |  |
-| [**ids11**](RolesApi.md#ids11) | **POST** /api/v1/{tenant}/tenants/{ressourceTenant}/roles/ids |  |
-| [**ids3**](RolesApi.md#ids3) | **POST** /api/v1/tenants/roles/ids |  |
-| [**ids5**](RolesApi.md#ids5) | **POST** /api/v1/tenants/{ressourceTenant}/roles/ids |  |
-| [**ids7**](RolesApi.md#ids7) | **POST** /api/v1/{tenant}/roles/ids |  |
-| [**ids9**](RolesApi.md#ids9) | **POST** /api/v1/{tenant}/tenants/roles/ids |  |
-| [**index12**](RolesApi.md#index12) | **GET** /api/v1/tenants/roles/{id} | Get a role |
-| [**index17**](RolesApi.md#index17) | **GET** /api/v1/tenants/{ressourceTenant}/roles/{id} | Get a role |
-| [**index28**](RolesApi.md#index28) | **GET** /api/v1/{tenant}/roles/{id} | Get a role |
-| [**index33**](RolesApi.md#index33) | **GET** /api/v1/{tenant}/tenants/roles/{id} | Get a role |
-| [**index38**](RolesApi.md#index38) | **GET** /api/v1/{tenant}/tenants/{ressourceTenant}/roles/{id} | Get a role |
-| [**index7**](RolesApi.md#index7) | **GET** /api/v1/roles/{id} | Get a role |
-| [**update11**](RolesApi.md#update11) | **PUT** /api/v1/tenants/roles/{id} | Update a role |
-| [**update15**](RolesApi.md#update15) | **PUT** /api/v1/tenants/{ressourceTenant}/roles/{id} | Update a role |
-| [**update26**](RolesApi.md#update26) | **PUT** /api/v1/{tenant}/roles/{id} | Update a role |
-| [**update29**](RolesApi.md#update29) | **PUT** /api/v1/{tenant}/tenants/roles/{id} | Update a role |
-| [**update33**](RolesApi.md#update33) | **PUT** /api/v1/{tenant}/tenants/{ressourceTenant}/roles/{id} | Update a role |
-| [**update8**](RolesApi.md#update8) | **PUT** /api/v1/roles/{id} | Update a role |
+| [**autocompleteRoles**](RolesApi.md#autocompleteRoles) | **POST** /api/v1/{tenant}/roles/autocomplete | List roles for autocomplete |
+| [**autocompleteRolesWithResourceTenantasSuperAdmin**](RolesApi.md#autocompleteRolesWithResourceTenantasSuperAdmin) | **POST** /api/v1/tenants/{resourceTenant}/roles/autocomplete | List roles for autocomplete |
+| [**autocompleteRolesasSuperAdmin**](RolesApi.md#autocompleteRolesasSuperAdmin) | **POST** /api/v1/tenants/roles/autocomplete | List roles for autocomplete |
+| [**createRole**](RolesApi.md#createRole) | **POST** /api/v1/{tenant}/roles | Create a role |
+| [**createRoleWithResourceTenantasSuperAdmin**](RolesApi.md#createRoleWithResourceTenantasSuperAdmin) | **POST** /api/v1/tenants/{resourceTenant}/roles | Create a role |
+| [**createRoleasSuperAdmin**](RolesApi.md#createRoleasSuperAdmin) | **POST** /api/v1/tenants/roles | Create a role |
+| [**deleteRole**](RolesApi.md#deleteRole) | **DELETE** /api/v1/{tenant}/roles/{id} | Delete a role |
+| [**deleteRoleWithResourceTenantasSuperAdmin**](RolesApi.md#deleteRoleWithResourceTenantasSuperAdmin) | **DELETE** /api/v1/tenants/{resourceTenant}/roles/{id} | Delete a role |
+| [**deleteRoleasSuperAdmin**](RolesApi.md#deleteRoleasSuperAdmin) | **DELETE** /api/v1/tenants/roles/{id} | Delete a role |
+| [**getRole**](RolesApi.md#getRole) | **GET** /api/v1/{tenant}/roles/{id} | Get a role |
+| [**getRoleWithResourceTenantasSuperAdmin**](RolesApi.md#getRoleWithResourceTenantasSuperAdmin) | **GET** /api/v1/tenants/{resourceTenant}/roles/{id} | Get a role |
+| [**getRoleasSuperAdmin**](RolesApi.md#getRoleasSuperAdmin) | **GET** /api/v1/tenants/roles/{id} | Get a role |
+| [**listRolesFromGivenIds**](RolesApi.md#listRolesFromGivenIds) | **POST** /api/v1/{tenant}/roles/ids |  |
+| [**listRolesFromGivenIdsWithResourceTenantasSuperAdmin**](RolesApi.md#listRolesFromGivenIdsWithResourceTenantasSuperAdmin) | **POST** /api/v1/tenants/{resourceTenant}/roles/ids |  |
+| [**listRolesFromGivenIdsasSuperAdmin**](RolesApi.md#listRolesFromGivenIdsasSuperAdmin) | **POST** /api/v1/tenants/roles/ids |  |
+| [**searchRoles**](RolesApi.md#searchRoles) | **GET** /api/v1/{tenant}/roles/search | Search for roles |
+| [**searchRolesWithResourceTenantasSuperAdmin**](RolesApi.md#searchRolesWithResourceTenantasSuperAdmin) | **GET** /api/v1/tenants/{resourceTenant}/roles/search | Search for roles |
+| [**searchRolesasSuperAdmin**](RolesApi.md#searchRolesasSuperAdmin) | **GET** /api/v1/tenants/roles/search | Search for roles |
+| [**updateRole**](RolesApi.md#updateRole) | **PUT** /api/v1/{tenant}/roles/{id} | Update a role |
+| [**updateRoleWithResourceTenantasSuperAdmin**](RolesApi.md#updateRoleWithResourceTenantasSuperAdmin) | **PUT** /api/v1/tenants/{resourceTenant}/roles/{id} | Update a role |
+| [**updateRoleasSuperAdmin**](RolesApi.md#updateRoleasSuperAdmin) | **PUT** /api/v1/tenants/roles/{id} | Update a role |
 
 
 
-## autocomplete14
+## autocompleteRoles
 
-> List&lt;Role&gt; autocomplete14(tenant, apiAutocomplete)
+> List&lt;Role&gt; autocompleteRoles(tenant, apiAutocomplete)
 
 List roles for autocomplete
 
@@ -62,6 +41,7 @@ List roles for autocomplete
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.RolesApi;
 
@@ -69,15 +49,24 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         RolesApi apiInstance = new RolesApi(defaultClient);
         String tenant = "tenant_example"; // String | 
-        ApiAutocomplete apiAutocomplete = new ApiAutocomplete(); // ApiAutocomplete | 
+        ApiAutocomplete apiAutocomplete = new ApiAutocomplete(); // ApiAutocomplete | Autocomplete request
         try {
-            List<Role> result = apiInstance.autocomplete14(tenant, apiAutocomplete);
+            List<Role> result = apiInstance.autocompleteRoles(tenant, apiAutocomplete);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#autocomplete14");
+            System.err.println("Exception when calling RolesApi#autocompleteRoles");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -93,7 +82,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenant** | **String**|  | |
-| **apiAutocomplete** | [**ApiAutocomplete**](ApiAutocomplete.md)|  | |
+| **apiAutocomplete** | [**ApiAutocomplete**](ApiAutocomplete.md)| Autocomplete request | |
 
 ### Return type
 
@@ -101,7 +90,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -112,12 +101,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | autocomplete_14 200 response |  -  |
+| **200** | autocompleteRoles 200 response |  -  |
 
 
-## autocomplete17
+## autocompleteRolesWithResourceTenantasSuperAdmin
 
-> List&lt;Role&gt; autocomplete17(tenant, apiAutocomplete)
+> List&lt;Role&gt; autocompleteRolesWithResourceTenantasSuperAdmin(resourceTenant, apiAutocomplete)
 
 List roles for autocomplete
 
@@ -128,6 +117,7 @@ List roles for autocomplete
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.RolesApi;
 
@@ -135,15 +125,24 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         RolesApi apiInstance = new RolesApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        ApiAutocomplete apiAutocomplete = new ApiAutocomplete(); // ApiAutocomplete | 
+        String resourceTenant = "resourceTenant_example"; // String | 
+        ApiAutocomplete apiAutocomplete = new ApiAutocomplete(); // ApiAutocomplete | Autocomplete request
         try {
-            List<Role> result = apiInstance.autocomplete17(tenant, apiAutocomplete);
+            List<Role> result = apiInstance.autocompleteRolesWithResourceTenantasSuperAdmin(resourceTenant, apiAutocomplete);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#autocomplete17");
+            System.err.println("Exception when calling RolesApi#autocompleteRolesWithResourceTenantasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -158,8 +157,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
-| **apiAutocomplete** | [**ApiAutocomplete**](ApiAutocomplete.md)|  | |
+| **resourceTenant** | **String**|  | |
+| **apiAutocomplete** | [**ApiAutocomplete**](ApiAutocomplete.md)| Autocomplete request | |
 
 ### Return type
 
@@ -167,7 +166,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -178,12 +177,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | autocomplete_17 200 response |  -  |
+| **200** | autocompleteRolesWithResourceTenantasSuperAdmin 200 response |  -  |
 
 
-## autocomplete2
+## autocompleteRolesasSuperAdmin
 
-> List&lt;Role&gt; autocomplete2(apiAutocomplete)
+> List&lt;Role&gt; autocompleteRolesasSuperAdmin(apiAutocomplete)
 
 List roles for autocomplete
 
@@ -194,6 +193,7 @@ List roles for autocomplete
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.RolesApi;
 
@@ -201,14 +201,23 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         RolesApi apiInstance = new RolesApi(defaultClient);
-        ApiAutocomplete apiAutocomplete = new ApiAutocomplete(); // ApiAutocomplete | 
+        ApiAutocomplete apiAutocomplete = new ApiAutocomplete(); // ApiAutocomplete | Autocomplete request
         try {
-            List<Role> result = apiInstance.autocomplete2(apiAutocomplete);
+            List<Role> result = apiInstance.autocompleteRolesasSuperAdmin(apiAutocomplete);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#autocomplete2");
+            System.err.println("Exception when calling RolesApi#autocompleteRolesasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -223,7 +232,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiAutocomplete** | [**ApiAutocomplete**](ApiAutocomplete.md)|  | |
+| **apiAutocomplete** | [**ApiAutocomplete**](ApiAutocomplete.md)| Autocomplete request | |
 
 ### Return type
 
@@ -231,7 +240,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -242,210 +251,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | autocomplete_2 200 response |  -  |
+| **200** | autocompleteRolesasSuperAdmin 200 response |  -  |
 
 
-## autocomplete21
+## createRole
 
-> List&lt;Role&gt; autocomplete21(ressourceTenant, tenant, apiAutocomplete)
-
-List roles for autocomplete
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        ApiAutocomplete apiAutocomplete = new ApiAutocomplete(); // ApiAutocomplete | 
-        try {
-            List<Role> result = apiInstance.autocomplete21(ressourceTenant, tenant, apiAutocomplete);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#autocomplete21");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **ressourceTenant** | **String**|  | |
-| **tenant** | **String**|  | |
-| **apiAutocomplete** | [**ApiAutocomplete**](ApiAutocomplete.md)|  | |
-
-### Return type
-
-[**List&lt;Role&gt;**](Role.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | autocomplete_21 200 response |  -  |
-
-
-## autocomplete5
-
-> List&lt;Role&gt; autocomplete5(apiAutocomplete)
-
-List roles for autocomplete
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        ApiAutocomplete apiAutocomplete = new ApiAutocomplete(); // ApiAutocomplete | 
-        try {
-            List<Role> result = apiInstance.autocomplete5(apiAutocomplete);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#autocomplete5");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **apiAutocomplete** | [**ApiAutocomplete**](ApiAutocomplete.md)|  | |
-
-### Return type
-
-[**List&lt;Role&gt;**](Role.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | autocomplete_5 200 response |  -  |
-
-
-## autocomplete9
-
-> List&lt;Role&gt; autocomplete9(ressourceTenant, apiAutocomplete)
-
-List roles for autocomplete
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        ApiAutocomplete apiAutocomplete = new ApiAutocomplete(); // ApiAutocomplete | 
-        try {
-            List<Role> result = apiInstance.autocomplete9(ressourceTenant, apiAutocomplete);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#autocomplete9");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **ressourceTenant** | **String**|  | |
-| **apiAutocomplete** | [**ApiAutocomplete**](ApiAutocomplete.md)|  | |
-
-### Return type
-
-[**List&lt;Role&gt;**](Role.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | autocomplete_9 200 response |  -  |
-
-
-## create11
-
-> Role create11(role)
+> Role createRole(tenant, role)
 
 Create a role
 
@@ -456,6 +267,7 @@ Create a role
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.RolesApi;
 
@@ -463,209 +275,24 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        Role role = new Role(); // Role | 
-        try {
-            Role result = apiInstance.create11(role);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#create11");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **role** | [**Role**](Role.md)|  | |
-
-### Return type
-
-[**Role**](Role.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | create_11 200 response |  -  |
-
-
-## create18
-
-> Role create18(role)
-
-Create a role
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        Role role = new Role(); // Role | 
-        try {
-            Role result = apiInstance.create18(role);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#create18");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **role** | [**Role**](Role.md)|  | |
-
-### Return type
-
-[**Role**](Role.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | create_18 200 response |  -  |
-
-
-## create23
-
-> Role create23(ressourceTenant, role)
-
-Create a role
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        Role role = new Role(); // Role | 
-        try {
-            Role result = apiInstance.create23(ressourceTenant, role);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#create23");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **ressourceTenant** | **String**|  | |
-| **role** | [**Role**](Role.md)|  | |
-
-### Return type
-
-[**Role**](Role.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | create_23 200 response |  -  |
-
-
-## create36
-
-> Role create36(tenant, role)
-
-Create a role
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         RolesApi apiInstance = new RolesApi(defaultClient);
         String tenant = "tenant_example"; // String | 
         Role role = new Role(); // Role | 
         try {
-            Role result = apiInstance.create36(tenant, role);
+            Role result = apiInstance.createRole(tenant, role);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#create36");
+            System.err.println("Exception when calling RolesApi#createRole");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -689,7 +316,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -700,12 +327,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | create_36 200 response |  -  |
+| **200** | createRole 200 response |  -  |
 
 
-## create43
+## createRoleWithResourceTenantasSuperAdmin
 
-> Role create43(tenant, role)
+> Role createRoleWithResourceTenantasSuperAdmin(resourceTenant, role)
 
 Create a role
 
@@ -716,6 +343,7 @@ Create a role
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.RolesApi;
 
@@ -723,15 +351,24 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         RolesApi apiInstance = new RolesApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String | 
         Role role = new Role(); // Role | 
         try {
-            Role result = apiInstance.create43(tenant, role);
+            Role result = apiInstance.createRoleWithResourceTenantasSuperAdmin(resourceTenant, role);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#create43");
+            System.err.println("Exception when calling RolesApi#createRoleWithResourceTenantasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -746,7 +383,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
+| **resourceTenant** | **String**|  | |
 | **role** | [**Role**](Role.md)|  | |
 
 ### Return type
@@ -755,7 +392,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -766,12 +403,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | create_43 200 response |  -  |
+| **200** | createRoleWithResourceTenantasSuperAdmin 200 response |  -  |
 
 
-## create48
+## createRoleasSuperAdmin
 
-> Role create48(ressourceTenant, tenant, role)
+> Role createRoleasSuperAdmin(role)
 
 Create a role
 
@@ -782,6 +419,7 @@ Create a role
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.RolesApi;
 
@@ -789,16 +427,23 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         RolesApi apiInstance = new RolesApi(defaultClient);
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String tenant = "tenant_example"; // String | 
         Role role = new Role(); // Role | 
         try {
-            Role result = apiInstance.create48(ressourceTenant, tenant, role);
+            Role result = apiInstance.createRoleasSuperAdmin(role);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#create48");
+            System.err.println("Exception when calling RolesApi#createRoleasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -813,8 +458,6 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **ressourceTenant** | **String**|  | |
-| **tenant** | **String**|  | |
 | **role** | [**Role**](Role.md)|  | |
 
 ### Return type
@@ -823,7 +466,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -834,75 +477,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | create_48 200 response |  -  |
+| **200** | createRoleasSuperAdmin 200 response |  -  |
 
 
-## delete14
+## deleteRole
 
-> delete14(id)
-
-Delete a role
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        String id = "id_example"; // String | The role id
-        try {
-            apiInstance.delete14(id);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#delete14");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The role id | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | On success |  -  |
-
-
-## delete20
-
-> delete20(id)
+> deleteRole(id, tenant)
 
 Delete a role
 
@@ -913,6 +493,7 @@ Delete a role
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.RolesApi;
 
@@ -920,142 +501,23 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        String id = "id_example"; // String | The role id
-        try {
-            apiInstance.delete20(id);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#delete20");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The role id | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | On success |  -  |
-
-
-## delete26
-
-> delete26(id, ressourceTenant)
-
-Delete a role
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        String id = "id_example"; // String | The role id
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        try {
-            apiInstance.delete26(id, ressourceTenant);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#delete26");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The role id | |
-| **ressourceTenant** | **String**|  | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | On success |  -  |
-
-
-## delete42
-
-> delete42(id, tenant)
-
-Delete a role
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         RolesApi apiInstance = new RolesApi(defaultClient);
         String id = "id_example"; // String | The role id
         String tenant = "tenant_example"; // String | 
         try {
-            apiInstance.delete42(id, tenant);
+            apiInstance.deleteRole(id, tenant);
         } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#delete42");
+            System.err.println("Exception when calling RolesApi#deleteRole");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1079,7 +541,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1093,9 +555,9 @@ No authorization required
 | **204** | On success |  -  |
 
 
-## delete48
+## deleteRoleWithResourceTenantasSuperAdmin
 
-> delete48(id, tenant)
+> deleteRoleWithResourceTenantasSuperAdmin(id, resourceTenant)
 
 Delete a role
 
@@ -1106,6 +568,7 @@ Delete a role
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.RolesApi;
 
@@ -1113,14 +576,172 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        RolesApi apiInstance = new RolesApi(defaultClient);
+        String id = "id_example"; // String | The role id
+        String resourceTenant = "resourceTenant_example"; // String | 
+        try {
+            apiInstance.deleteRoleWithResourceTenantasSuperAdmin(id, resourceTenant);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling RolesApi#deleteRoleWithResourceTenantasSuperAdmin");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| The role id | |
+| **resourceTenant** | **String**|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | On success |  -  |
+
+
+## deleteRoleasSuperAdmin
+
+> deleteRoleasSuperAdmin(id)
+
+Delete a role
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.RolesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        RolesApi apiInstance = new RolesApi(defaultClient);
+        String id = "id_example"; // String | The role id
+        try {
+            apiInstance.deleteRoleasSuperAdmin(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling RolesApi#deleteRoleasSuperAdmin");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| The role id | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | On success |  -  |
+
+
+## getRole
+
+> Role getRole(id, tenant)
+
+Get a role
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.RolesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         RolesApi apiInstance = new RolesApi(defaultClient);
         String id = "id_example"; // String | The role id
         String tenant = "tenant_example"; // String | 
         try {
-            apiInstance.delete48(id, tenant);
+            Role result = apiInstance.getRole(id, tenant);
+            System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#delete48");
+            System.err.println("Exception when calling RolesApi#getRole");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1140,29 +761,29 @@ public class Example {
 
 ### Return type
 
-null (empty response body)
+[**Role**](Role.md)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | On success |  -  |
+| **200** | getRole 200 response |  -  |
 
 
-## delete54
+## getRoleWithResourceTenantasSuperAdmin
 
-> delete54(id, ressourceTenant, tenant)
+> Role getRoleWithResourceTenantasSuperAdmin(id, resourceTenant)
 
-Delete a role
+Get a role
 
 ### Example
 
@@ -1171,6 +792,7 @@ Delete a role
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.RolesApi;
 
@@ -1178,15 +800,24 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         RolesApi apiInstance = new RolesApi(defaultClient);
         String id = "id_example"; // String | The role id
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String tenant = "tenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String | 
         try {
-            apiInstance.delete54(id, ressourceTenant, tenant);
+            Role result = apiInstance.getRoleWithResourceTenantasSuperAdmin(id, resourceTenant);
+            System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#delete54");
+            System.err.println("Exception when calling RolesApi#getRoleWithResourceTenantasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1202,32 +833,337 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The role id | |
-| **ressourceTenant** | **String**|  | |
-| **tenant** | **String**|  | |
+| **resourceTenant** | **String**|  | |
 
 ### Return type
 
-null (empty response body)
+[**Role**](Role.md)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | On success |  -  |
+| **200** | getRoleWithResourceTenantasSuperAdmin 200 response |  -  |
 
 
-## find12
+## getRoleasSuperAdmin
 
-> PagedResultsRole find12(page, size, q, sort)
+> Role getRoleasSuperAdmin(id)
+
+Get a role
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.RolesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        RolesApi apiInstance = new RolesApi(defaultClient);
+        String id = "id_example"; // String | The role id
+        try {
+            Role result = apiInstance.getRoleasSuperAdmin(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling RolesApi#getRoleasSuperAdmin");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| The role id | |
+
+### Return type
+
+[**Role**](Role.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | getRoleasSuperAdmin 200 response |  -  |
+
+
+## listRolesFromGivenIds
+
+> List&lt;Role&gt; listRolesFromGivenIds(tenant, apiIds)
+
+
+
+List roles by ids
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.RolesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        RolesApi apiInstance = new RolesApi(defaultClient);
+        String tenant = "tenant_example"; // String | 
+        ApiIds apiIds = new ApiIds(); // ApiIds | The ids that must be present on results
+        try {
+            List<Role> result = apiInstance.listRolesFromGivenIds(tenant, apiIds);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling RolesApi#listRolesFromGivenIds");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenant** | **String**|  | |
+| **apiIds** | [**ApiIds**](ApiIds.md)| The ids that must be present on results | |
+
+### Return type
+
+[**List&lt;Role&gt;**](Role.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | listRolesFromGivenIds 200 response |  -  |
+
+
+## listRolesFromGivenIdsWithResourceTenantasSuperAdmin
+
+> List&lt;Role&gt; listRolesFromGivenIdsWithResourceTenantasSuperAdmin(resourceTenant, apiIds)
+
+
+
+List roles by ids
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.RolesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        RolesApi apiInstance = new RolesApi(defaultClient);
+        String resourceTenant = "resourceTenant_example"; // String | 
+        ApiIds apiIds = new ApiIds(); // ApiIds | The ids that must be present on results
+        try {
+            List<Role> result = apiInstance.listRolesFromGivenIdsWithResourceTenantasSuperAdmin(resourceTenant, apiIds);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling RolesApi#listRolesFromGivenIdsWithResourceTenantasSuperAdmin");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **resourceTenant** | **String**|  | |
+| **apiIds** | [**ApiIds**](ApiIds.md)| The ids that must be present on results | |
+
+### Return type
+
+[**List&lt;Role&gt;**](Role.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | listRolesFromGivenIdsWithResourceTenantasSuperAdmin 200 response |  -  |
+
+
+## listRolesFromGivenIdsasSuperAdmin
+
+> List&lt;Role&gt; listRolesFromGivenIdsasSuperAdmin(apiIds)
+
+
+
+List roles by ids
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.RolesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        RolesApi apiInstance = new RolesApi(defaultClient);
+        ApiIds apiIds = new ApiIds(); // ApiIds | The ids that must be present on results
+        try {
+            List<Role> result = apiInstance.listRolesFromGivenIdsasSuperAdmin(apiIds);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling RolesApi#listRolesFromGivenIdsasSuperAdmin");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **apiIds** | [**ApiIds**](ApiIds.md)| The ids that must be present on results | |
+
+### Return type
+
+[**List&lt;Role&gt;**](Role.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | listRolesFromGivenIdsasSuperAdmin 200 response |  -  |
+
+
+## searchRoles
+
+> PagedResultsRole searchRoles(page, size, tenant, q, sort)
 
 Search for roles
 
@@ -1238,6 +1174,7 @@ Search for roles
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.RolesApi;
 
@@ -1245,218 +1182,15 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        Integer page = 1; // Integer | The current page
-        Integer size = 10; // Integer | The current page size
-        String q = "q_example"; // String | A string filter
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        try {
-            PagedResultsRole result = apiInstance.find12(page, size, q, sort);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#find12");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | **Integer**| The current page | [default to 1] |
-| **size** | **Integer**| The current page size | [default to 10] |
-| **q** | **String**| A string filter | [optional] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-
-### Return type
-
-[**PagedResultsRole**](PagedResultsRole.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | find_12 200 response |  -  |
-
-
-## find17
-
-> PagedResultsRole find17(page, size, q, sort)
-
-Search for roles
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        Integer page = 1; // Integer | The current page
-        Integer size = 10; // Integer | The current page size
-        String q = "q_example"; // String | A string filter
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        try {
-            PagedResultsRole result = apiInstance.find17(page, size, q, sort);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#find17");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | **Integer**| The current page | [default to 1] |
-| **size** | **Integer**| The current page size | [default to 10] |
-| **q** | **String**| A string filter | [optional] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-
-### Return type
-
-[**PagedResultsRole**](PagedResultsRole.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | find_17 200 response |  -  |
-
-
-## find23
-
-> PagedResultsRole find23(page, size, ressourceTenant, q, sort)
-
-Search for roles
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        Integer page = 1; // Integer | The current page
-        Integer size = 10; // Integer | The current page size
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String q = "q_example"; // String | A string filter
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        try {
-            PagedResultsRole result = apiInstance.find23(page, size, ressourceTenant, q, sort);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#find23");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | **Integer**| The current page | [default to 1] |
-| **size** | **Integer**| The current page size | [default to 10] |
-| **ressourceTenant** | **String**|  | |
-| **q** | **String**| A string filter | [optional] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-
-### Return type
-
-[**PagedResultsRole**](PagedResultsRole.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | find_23 200 response |  -  |
-
-
-## find38
-
-> PagedResultsRole find38(page, size, tenant, q, sort)
-
-Search for roles
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         RolesApi apiInstance = new RolesApi(defaultClient);
         Integer page = 1; // Integer | The current page
@@ -1465,10 +1199,10 @@ public class Example {
         String q = "q_example"; // String | A string filter
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         try {
-            PagedResultsRole result = apiInstance.find38(page, size, tenant, q, sort);
+            PagedResultsRole result = apiInstance.searchRoles(page, size, tenant, q, sort);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#find38");
+            System.err.println("Exception when calling RolesApi#searchRoles");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1495,7 +1229,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1506,12 +1240,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | find_38 200 response |  -  |
+| **200** | searchRoles 200 response |  -  |
 
 
-## find43
+## searchRolesWithResourceTenantasSuperAdmin
 
-> PagedResultsRole find43(page, size, tenant, q, sort)
+> PagedResultsRole searchRolesWithResourceTenantasSuperAdmin(page, size, resourceTenant, q, sort)
 
 Search for roles
 
@@ -1522,6 +1256,7 @@ Search for roles
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.RolesApi;
 
@@ -1529,18 +1264,27 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         RolesApi apiInstance = new RolesApi(defaultClient);
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String | 
         String q = "q_example"; // String | A string filter
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         try {
-            PagedResultsRole result = apiInstance.find43(page, size, tenant, q, sort);
+            PagedResultsRole result = apiInstance.searchRolesWithResourceTenantasSuperAdmin(page, size, resourceTenant, q, sort);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#find43");
+            System.err.println("Exception when calling RolesApi#searchRolesWithResourceTenantasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1557,7 +1301,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **page** | **Integer**| The current page | [default to 1] |
 | **size** | **Integer**| The current page size | [default to 10] |
-| **tenant** | **String**|  | |
+| **resourceTenant** | **String**|  | |
 | **q** | **String**| A string filter | [optional] |
 | **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
 
@@ -1567,7 +1311,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1578,12 +1322,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | find_43 200 response |  -  |
+| **200** | searchRolesWithResourceTenantasSuperAdmin 200 response |  -  |
 
 
-## find49
+## searchRolesasSuperAdmin
 
-> PagedResultsRole find49(page, size, ressourceTenant, tenant, q, sort)
+> PagedResultsRole searchRolesasSuperAdmin(page, size, q, sort)
 
 Search for roles
 
@@ -1594,6 +1338,7 @@ Search for roles
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.RolesApi;
 
@@ -1601,19 +1346,26 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         RolesApi apiInstance = new RolesApi(defaultClient);
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String tenant = "tenant_example"; // String | 
         String q = "q_example"; // String | A string filter
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         try {
-            PagedResultsRole result = apiInstance.find49(page, size, ressourceTenant, tenant, q, sort);
+            PagedResultsRole result = apiInstance.searchRolesasSuperAdmin(page, size, q, sort);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#find49");
+            System.err.println("Exception when calling RolesApi#searchRolesasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1630,8 +1382,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **page** | **Integer**| The current page | [default to 1] |
 | **size** | **Integer**| The current page size | [default to 10] |
-| **ressourceTenant** | **String**|  | |
-| **tenant** | **String**|  | |
 | **q** | **String**| A string filter | [optional] |
 | **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
 
@@ -1641,7 +1391,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1652,812 +1402,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | find_49 200 response |  -  |
+| **200** | searchRolesasSuperAdmin 200 response |  -  |
 
 
-## ids1
+## updateRole
 
-> List&lt;Role&gt; ids1(apiIds)
-
-
-
-List roles by ids
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        ApiIds apiIds = new ApiIds(); // ApiIds | 
-        try {
-            List<Role> result = apiInstance.ids1(apiIds);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#ids1");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **apiIds** | [**ApiIds**](ApiIds.md)|  | |
-
-### Return type
-
-[**List&lt;Role&gt;**](Role.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | ids_1 200 response |  -  |
-
-
-## ids11
-
-> List&lt;Role&gt; ids11(ressourceTenant, tenant, apiIds)
-
-
-
-List roles by ids
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        ApiIds apiIds = new ApiIds(); // ApiIds | 
-        try {
-            List<Role> result = apiInstance.ids11(ressourceTenant, tenant, apiIds);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#ids11");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **ressourceTenant** | **String**|  | |
-| **tenant** | **String**|  | |
-| **apiIds** | [**ApiIds**](ApiIds.md)|  | |
-
-### Return type
-
-[**List&lt;Role&gt;**](Role.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | ids_11 200 response |  -  |
-
-
-## ids3
-
-> List&lt;Role&gt; ids3(apiIds)
-
-
-
-List roles by ids
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        ApiIds apiIds = new ApiIds(); // ApiIds | 
-        try {
-            List<Role> result = apiInstance.ids3(apiIds);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#ids3");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **apiIds** | [**ApiIds**](ApiIds.md)|  | |
-
-### Return type
-
-[**List&lt;Role&gt;**](Role.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | ids_3 200 response |  -  |
-
-
-## ids5
-
-> List&lt;Role&gt; ids5(ressourceTenant, apiIds)
-
-
-
-List roles by ids
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        ApiIds apiIds = new ApiIds(); // ApiIds | 
-        try {
-            List<Role> result = apiInstance.ids5(ressourceTenant, apiIds);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#ids5");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **ressourceTenant** | **String**|  | |
-| **apiIds** | [**ApiIds**](ApiIds.md)|  | |
-
-### Return type
-
-[**List&lt;Role&gt;**](Role.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | ids_5 200 response |  -  |
-
-
-## ids7
-
-> List&lt;Role&gt; ids7(tenant, apiIds)
-
-
-
-List roles by ids
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        ApiIds apiIds = new ApiIds(); // ApiIds | 
-        try {
-            List<Role> result = apiInstance.ids7(tenant, apiIds);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#ids7");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
-| **apiIds** | [**ApiIds**](ApiIds.md)|  | |
-
-### Return type
-
-[**List&lt;Role&gt;**](Role.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | ids_7 200 response |  -  |
-
-
-## ids9
-
-> List&lt;Role&gt; ids9(tenant, apiIds)
-
-
-
-List roles by ids
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        ApiIds apiIds = new ApiIds(); // ApiIds | 
-        try {
-            List<Role> result = apiInstance.ids9(tenant, apiIds);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#ids9");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
-| **apiIds** | [**ApiIds**](ApiIds.md)|  | |
-
-### Return type
-
-[**List&lt;Role&gt;**](Role.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | ids_9 200 response |  -  |
-
-
-## index12
-
-> Role index12(id)
-
-Get a role
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        String id = "id_example"; // String | The role id
-        try {
-            Role result = apiInstance.index12(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#index12");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The role id | |
-
-### Return type
-
-[**Role**](Role.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | index_12 200 response |  -  |
-
-
-## index17
-
-> Role index17(id, ressourceTenant)
-
-Get a role
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        String id = "id_example"; // String | The role id
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        try {
-            Role result = apiInstance.index17(id, ressourceTenant);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#index17");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The role id | |
-| **ressourceTenant** | **String**|  | |
-
-### Return type
-
-[**Role**](Role.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | index_17 200 response |  -  |
-
-
-## index28
-
-> Role index28(id, tenant)
-
-Get a role
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        String id = "id_example"; // String | The role id
-        String tenant = "tenant_example"; // String | 
-        try {
-            Role result = apiInstance.index28(id, tenant);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#index28");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The role id | |
-| **tenant** | **String**|  | |
-
-### Return type
-
-[**Role**](Role.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | index_28 200 response |  -  |
-
-
-## index33
-
-> Role index33(id, tenant)
-
-Get a role
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        String id = "id_example"; // String | The role id
-        String tenant = "tenant_example"; // String | 
-        try {
-            Role result = apiInstance.index33(id, tenant);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#index33");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The role id | |
-| **tenant** | **String**|  | |
-
-### Return type
-
-[**Role**](Role.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | index_33 200 response |  -  |
-
-
-## index38
-
-> Role index38(id, ressourceTenant, tenant)
-
-Get a role
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        String id = "id_example"; // String | The role id
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        try {
-            Role result = apiInstance.index38(id, ressourceTenant, tenant);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#index38");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The role id | |
-| **ressourceTenant** | **String**|  | |
-| **tenant** | **String**|  | |
-
-### Return type
-
-[**Role**](Role.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | index_38 200 response |  -  |
-
-
-## index7
-
-> Role index7(id)
-
-Get a role
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        String id = "id_example"; // String | The role id
-        try {
-            Role result = apiInstance.index7(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#index7");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The role id | |
-
-### Return type
-
-[**Role**](Role.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | index_7 200 response |  -  |
-
-
-## update11
-
-> Role update11(id, role)
+> Role updateRole(id, tenant, role)
 
 Update a role
 
@@ -2468,6 +1418,7 @@ Update a role
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.RolesApi;
 
@@ -2475,150 +1426,25 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        String id = "id_example"; // String | The role id
-        Role role = new Role(); // Role | 
-        try {
-            Role result = apiInstance.update11(id, role);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#update11");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The role id | |
-| **role** | [**Role**](Role.md)|  | |
-
-### Return type
-
-[**Role**](Role.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | update_11 200 response |  -  |
-
-
-## update15
-
-> Role update15(id, ressourceTenant, role)
-
-Update a role
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        String id = "id_example"; // String | The role id
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        Role role = new Role(); // Role | 
-        try {
-            Role result = apiInstance.update15(id, ressourceTenant, role);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#update15");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The role id | |
-| **ressourceTenant** | **String**|  | |
-| **role** | [**Role**](Role.md)|  | |
-
-### Return type
-
-[**Role**](Role.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | update_15 200 response |  -  |
-
-
-## update26
-
-> Role update26(id, tenant, role)
-
-Update a role
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         RolesApi apiInstance = new RolesApi(defaultClient);
         String id = "id_example"; // String | The role id
         String tenant = "tenant_example"; // String | 
         Role role = new Role(); // Role | 
         try {
-            Role result = apiInstance.update26(id, tenant, role);
+            Role result = apiInstance.updateRole(id, tenant, role);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#update26");
+            System.err.println("Exception when calling RolesApi#updateRole");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2643,7 +1469,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -2654,12 +1480,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | update_26 200 response |  -  |
+| **200** | updateRole 200 response |  -  |
 
 
-## update29
+## updateRoleWithResourceTenantasSuperAdmin
 
-> Role update29(id, tenant, role)
+> Role updateRoleWithResourceTenantasSuperAdmin(id, resourceTenant, role)
 
 Update a role
 
@@ -2670,6 +1496,7 @@ Update a role
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.RolesApi;
 
@@ -2677,16 +1504,25 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         RolesApi apiInstance = new RolesApi(defaultClient);
         String id = "id_example"; // String | The role id
-        String tenant = "tenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String | 
         Role role = new Role(); // Role | 
         try {
-            Role result = apiInstance.update29(id, tenant, role);
+            Role result = apiInstance.updateRoleWithResourceTenantasSuperAdmin(id, resourceTenant, role);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#update29");
+            System.err.println("Exception when calling RolesApi#updateRoleWithResourceTenantasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2702,7 +1538,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The role id | |
-| **tenant** | **String**|  | |
+| **resourceTenant** | **String**|  | |
 | **role** | [**Role**](Role.md)|  | |
 
 ### Return type
@@ -2711,7 +1547,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -2722,82 +1558,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | update_29 200 response |  -  |
+| **200** | updateRoleWithResourceTenantasSuperAdmin 200 response |  -  |
 
 
-## update33
+## updateRoleasSuperAdmin
 
-> Role update33(id, ressourceTenant, tenant, role)
-
-Update a role
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.RolesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        RolesApi apiInstance = new RolesApi(defaultClient);
-        String id = "id_example"; // String | The role id
-        String ressourceTenant = "ressourceTenant_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        Role role = new Role(); // Role | 
-        try {
-            Role result = apiInstance.update33(id, ressourceTenant, tenant, role);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#update33");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The role id | |
-| **ressourceTenant** | **String**|  | |
-| **tenant** | **String**|  | |
-| **role** | [**Role**](Role.md)|  | |
-
-### Return type
-
-[**Role**](Role.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | update_33 200 response |  -  |
-
-
-## update8
-
-> Role update8(id, role)
+> Role updateRoleasSuperAdmin(id, role)
 
 Update a role
 
@@ -2808,6 +1574,7 @@ Update a role
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.RolesApi;
 
@@ -2815,15 +1582,24 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         RolesApi apiInstance = new RolesApi(defaultClient);
         String id = "id_example"; // String | The role id
         Role role = new Role(); // Role | 
         try {
-            Role result = apiInstance.update8(id, role);
+            Role result = apiInstance.updateRoleasSuperAdmin(id, role);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling RolesApi#update8");
+            System.err.println("Exception when calling RolesApi#updateRoleasSuperAdmin");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2847,7 +1623,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -2858,5 +1634,5 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | update_8 200 response |  -  |
+| **200** | updateRoleasSuperAdmin 200 response |  -  |
 

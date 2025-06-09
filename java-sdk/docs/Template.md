@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**_finally** | [**List&lt;Task&gt;**](Task.md) |  |  [optional] |
 |**id** | **String** |  |  |
 |**namespace** | **String** |  |  |
 |**description** | **String** |  |  |

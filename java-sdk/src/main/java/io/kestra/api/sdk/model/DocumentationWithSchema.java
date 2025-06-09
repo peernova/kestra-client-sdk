@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.kestra.api.sdk.model.Schema1;
+import io.kestra.api.sdk.model.PluginSchema;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -34,7 +34,7 @@ import java.util.StringJoiner;
   DocumentationWithSchema.JSON_PROPERTY_MARKDOWN,
   DocumentationWithSchema.JSON_PROPERTY_SCHEMA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class DocumentationWithSchema {
   public static final String JSON_PROPERTY_MARKDOWN = "markdown";
   @javax.annotation.Nullable
@@ -42,7 +42,7 @@ public class DocumentationWithSchema {
 
   public static final String JSON_PROPERTY_SCHEMA = "schema";
   @javax.annotation.Nullable
-  private Schema1 schema;
+  private PluginSchema schema;
 
   public DocumentationWithSchema() {
   }
@@ -72,7 +72,7 @@ public class DocumentationWithSchema {
     this.markdown = markdown;
   }
 
-  public DocumentationWithSchema schema(@javax.annotation.Nullable Schema1 schema) {
+  public DocumentationWithSchema schema(@javax.annotation.Nullable PluginSchema schema) {
     
     this.schema = schema;
     return this;
@@ -86,14 +86,14 @@ public class DocumentationWithSchema {
   @JsonProperty(JSON_PROPERTY_SCHEMA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Schema1 getSchema() {
+  public PluginSchema getSchema() {
     return schema;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SCHEMA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSchema(@javax.annotation.Nullable Schema1 schema) {
+  public void setSchema(@javax.annotation.Nullable PluginSchema schema) {
     this.schema = schema;
   }
 

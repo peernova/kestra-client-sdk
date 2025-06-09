@@ -5,19 +5,19 @@ All URIs are relative to *http://localhost*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**dailyGroupByFlowStatistics**](StatsApi.md#dailyGroupByFlowStatistics) | **POST** /api/v1/stats/executions/daily/group-by-flow | Get daily statistics for executions group by namespaces and flows |
-| [**dailyGroupByFlowStatistics1**](StatsApi.md#dailyGroupByFlowStatistics1) | **POST** /api/v1/{tenant}/stats/executions/daily/group-by-flow | Get daily statistics for executions group by namespaces and flows |
+| [**dailyGroupByFlowStatisticsWithTenant**](StatsApi.md#dailyGroupByFlowStatisticsWithTenant) | **POST** /api/v1/{tenant}/stats/executions/daily/group-by-flow | Get daily statistics for executions group by namespaces and flows |
 | [**dailyStatistics**](StatsApi.md#dailyStatistics) | **POST** /api/v1/stats/executions/daily | Get daily statistics for executions |
-| [**dailyStatistics1**](StatsApi.md#dailyStatistics1) | **POST** /api/v1/{tenant}/stats/executions/daily | Get daily statistics for executions |
 | [**dailyStatisticsGroupByNamespace**](StatsApi.md#dailyStatisticsGroupByNamespace) | **POST** /api/v1/stats/executions/daily/group-by-namespace | Get daily statistics for executions grouped by namespace |
-| [**dailyStatisticsGroupByNamespace1**](StatsApi.md#dailyStatisticsGroupByNamespace1) | **POST** /api/v1/{tenant}/stats/executions/daily/group-by-namespace | Get daily statistics for executions grouped by namespace |
+| [**dailyStatisticsGroupByNamespaceWithTenant**](StatsApi.md#dailyStatisticsGroupByNamespaceWithTenant) | **POST** /api/v1/{tenant}/stats/executions/daily/group-by-namespace | Get daily statistics for executions grouped by namespace |
+| [**dailyStatisticsWithTenant**](StatsApi.md#dailyStatisticsWithTenant) | **POST** /api/v1/{tenant}/stats/executions/daily | Get daily statistics for executions |
 | [**lastExecutions**](StatsApi.md#lastExecutions) | **POST** /api/v1/stats/executions/latest/group-by-flow | Get latest execution by flows |
-| [**lastExecutions1**](StatsApi.md#lastExecutions1) | **POST** /api/v1/{tenant}/stats/executions/latest/group-by-flow | Get latest execution by flows |
+| [**lastExecutionsWithTenant**](StatsApi.md#lastExecutionsWithTenant) | **POST** /api/v1/{tenant}/stats/executions/latest/group-by-flow | Get latest execution by flows |
 | [**logsDailyStatistics**](StatsApi.md#logsDailyStatistics) | **POST** /api/v1/stats/logs/daily | Get daily statistics for logs |
-| [**logsDailyStatistics1**](StatsApi.md#logsDailyStatistics1) | **POST** /api/v1/{tenant}/stats/logs/daily | Get daily statistics for logs |
+| [**logsDailyStatisticsWithTenant**](StatsApi.md#logsDailyStatisticsWithTenant) | **POST** /api/v1/{tenant}/stats/logs/daily | Get daily statistics for logs |
 | [**summary**](StatsApi.md#summary) | **POST** /api/v1/stats/summary | Get summary statistics |
-| [**summary1**](StatsApi.md#summary1) | **POST** /api/v1/{tenant}/stats/summary | Get summary statistics |
+| [**summaryWithTenant**](StatsApi.md#summaryWithTenant) | **POST** /api/v1/{tenant}/stats/summary | Get summary statistics |
 | [**taskRunsDailyStatistics**](StatsApi.md#taskRunsDailyStatistics) | **POST** /api/v1/stats/taskruns/daily | Get daily statistics for taskRuns |
-| [**taskRunsDailyStatistics1**](StatsApi.md#taskRunsDailyStatistics1) | **POST** /api/v1/{tenant}/stats/taskruns/daily | Get daily statistics for taskRuns |
+| [**taskRunsDailyStatisticsWithTenant**](StatsApi.md#taskRunsDailyStatisticsWithTenant) | **POST** /api/v1/{tenant}/stats/taskruns/daily | Get daily statistics for taskRuns |
 
 
 
@@ -85,9 +85,9 @@ No authorization required
 | **200** | dailyGroupByFlowStatistics 200 response |  -  |
 
 
-## dailyGroupByFlowStatistics1
+## dailyGroupByFlowStatisticsWithTenant
 
-> Map&lt;String, Map&lt;String, List&lt;DailyExecutionStatistics&gt;&gt;&gt; dailyGroupByFlowStatistics1(tenant, statsControllerByFlowStatisticRequest)
+> Map&lt;String, Map&lt;String, List&lt;DailyExecutionStatistics&gt;&gt;&gt; dailyGroupByFlowStatisticsWithTenant(tenant, statsControllerByFlowStatisticRequest)
 
 Get daily statistics for executions group by namespaces and flows
 
@@ -110,10 +110,10 @@ public class Example {
         String tenant = "tenant_example"; // String | 
         StatsControllerByFlowStatisticRequest statsControllerByFlowStatisticRequest = new StatsControllerByFlowStatisticRequest(); // StatsControllerByFlowStatisticRequest | 
         try {
-            Map<String, Map<String, List<DailyExecutionStatistics>>> result = apiInstance.dailyGroupByFlowStatistics1(tenant, statsControllerByFlowStatisticRequest);
+            Map<String, Map<String, List<DailyExecutionStatistics>>> result = apiInstance.dailyGroupByFlowStatisticsWithTenant(tenant, statsControllerByFlowStatisticRequest);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling StatsApi#dailyGroupByFlowStatistics1");
+            System.err.println("Exception when calling StatsApi#dailyGroupByFlowStatisticsWithTenant");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -148,7 +148,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | dailyGroupByFlowStatistics_1 200 response |  -  |
+| **200** | dailyGroupByFlowStatisticsWithTenant 200 response |  -  |
 
 
 ## dailyStatistics
@@ -215,72 +215,6 @@ No authorization required
 | **200** | dailyStatistics 200 response |  -  |
 
 
-## dailyStatistics1
-
-> List&lt;DailyExecutionStatistics&gt; dailyStatistics1(tenant, statsControllerStatisticRequest)
-
-Get daily statistics for executions
-
-### Example
-
-```java
-// Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.StatsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        StatsApi apiInstance = new StatsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        StatsControllerStatisticRequest statsControllerStatisticRequest = new StatsControllerStatisticRequest(); // StatsControllerStatisticRequest | 
-        try {
-            List<DailyExecutionStatistics> result = apiInstance.dailyStatistics1(tenant, statsControllerStatisticRequest);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling StatsApi#dailyStatistics1");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
-| **statsControllerStatisticRequest** | [**StatsControllerStatisticRequest**](StatsControllerStatisticRequest.md)|  | |
-
-### Return type
-
-[**List&lt;DailyExecutionStatistics&gt;**](DailyExecutionStatistics.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | dailyStatistics_1 200 response |  -  |
-
-
 ## dailyStatisticsGroupByNamespace
 
 > Map&lt;String, ExecutionCountStatistics&gt; dailyStatisticsGroupByNamespace(statsControllerByNamespaceStatisticRequest)
@@ -345,9 +279,9 @@ No authorization required
 | **200** | dailyStatisticsGroupByNamespace 200 response |  -  |
 
 
-## dailyStatisticsGroupByNamespace1
+## dailyStatisticsGroupByNamespaceWithTenant
 
-> Map&lt;String, ExecutionCountStatistics&gt; dailyStatisticsGroupByNamespace1(tenant, statsControllerByNamespaceStatisticRequest)
+> Map&lt;String, ExecutionCountStatistics&gt; dailyStatisticsGroupByNamespaceWithTenant(tenant, statsControllerByNamespaceStatisticRequest)
 
 Get daily statistics for executions grouped by namespace
 
@@ -370,10 +304,10 @@ public class Example {
         String tenant = "tenant_example"; // String | 
         StatsControllerByNamespaceStatisticRequest statsControllerByNamespaceStatisticRequest = new StatsControllerByNamespaceStatisticRequest(); // StatsControllerByNamespaceStatisticRequest | 
         try {
-            Map<String, ExecutionCountStatistics> result = apiInstance.dailyStatisticsGroupByNamespace1(tenant, statsControllerByNamespaceStatisticRequest);
+            Map<String, ExecutionCountStatistics> result = apiInstance.dailyStatisticsGroupByNamespaceWithTenant(tenant, statsControllerByNamespaceStatisticRequest);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling StatsApi#dailyStatisticsGroupByNamespace1");
+            System.err.println("Exception when calling StatsApi#dailyStatisticsGroupByNamespaceWithTenant");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -408,7 +342,73 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | dailyStatisticsGroupByNamespace_1 200 response |  -  |
+| **200** | dailyStatisticsGroupByNamespaceWithTenant 200 response |  -  |
+
+
+## dailyStatisticsWithTenant
+
+> List&lt;DailyExecutionStatistics&gt; dailyStatisticsWithTenant(tenant, statsControllerStatisticRequest)
+
+Get daily statistics for executions
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.api.sdk.internal.ApiClient;
+import io.kestra.api.sdk.internal.ApiException;
+import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.models.*;
+import io.kestra.api.sdk.api.StatsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+
+        StatsApi apiInstance = new StatsApi(defaultClient);
+        String tenant = "tenant_example"; // String | 
+        StatsControllerStatisticRequest statsControllerStatisticRequest = new StatsControllerStatisticRequest(); // StatsControllerStatisticRequest | 
+        try {
+            List<DailyExecutionStatistics> result = apiInstance.dailyStatisticsWithTenant(tenant, statsControllerStatisticRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling StatsApi#dailyStatisticsWithTenant");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenant** | **String**|  | |
+| **statsControllerStatisticRequest** | [**StatsControllerStatisticRequest**](StatsControllerStatisticRequest.md)|  | |
+
+### Return type
+
+[**List&lt;DailyExecutionStatistics&gt;**](DailyExecutionStatistics.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | dailyStatisticsWithTenant 200 response |  -  |
 
 
 ## lastExecutions
@@ -475,9 +475,9 @@ No authorization required
 | **200** | lastExecutions 200 response |  -  |
 
 
-## lastExecutions1
+## lastExecutionsWithTenant
 
-> List&lt;Execution&gt; lastExecutions1(tenant, statsControllerLastExecutionsRequest)
+> List&lt;Execution&gt; lastExecutionsWithTenant(tenant, statsControllerLastExecutionsRequest)
 
 Get latest execution by flows
 
@@ -500,10 +500,10 @@ public class Example {
         String tenant = "tenant_example"; // String | 
         StatsControllerLastExecutionsRequest statsControllerLastExecutionsRequest = new StatsControllerLastExecutionsRequest(); // StatsControllerLastExecutionsRequest | 
         try {
-            List<Execution> result = apiInstance.lastExecutions1(tenant, statsControllerLastExecutionsRequest);
+            List<Execution> result = apiInstance.lastExecutionsWithTenant(tenant, statsControllerLastExecutionsRequest);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling StatsApi#lastExecutions1");
+            System.err.println("Exception when calling StatsApi#lastExecutionsWithTenant");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -538,7 +538,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | lastExecutions_1 200 response |  -  |
+| **200** | lastExecutionsWithTenant 200 response |  -  |
 
 
 ## logsDailyStatistics
@@ -605,9 +605,9 @@ No authorization required
 | **200** | logsDailyStatistics 200 response |  -  |
 
 
-## logsDailyStatistics1
+## logsDailyStatisticsWithTenant
 
-> List&lt;LogStatistics&gt; logsDailyStatistics1(tenant, statsControllerLogStatisticRequest)
+> List&lt;LogStatistics&gt; logsDailyStatisticsWithTenant(tenant, statsControllerLogStatisticRequest)
 
 Get daily statistics for logs
 
@@ -630,10 +630,10 @@ public class Example {
         String tenant = "tenant_example"; // String | 
         StatsControllerLogStatisticRequest statsControllerLogStatisticRequest = new StatsControllerLogStatisticRequest(); // StatsControllerLogStatisticRequest | 
         try {
-            List<LogStatistics> result = apiInstance.logsDailyStatistics1(tenant, statsControllerLogStatisticRequest);
+            List<LogStatistics> result = apiInstance.logsDailyStatisticsWithTenant(tenant, statsControllerLogStatisticRequest);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling StatsApi#logsDailyStatistics1");
+            System.err.println("Exception when calling StatsApi#logsDailyStatisticsWithTenant");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -668,7 +668,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | logsDailyStatistics_1 200 response |  -  |
+| **200** | logsDailyStatisticsWithTenant 200 response |  -  |
 
 
 ## summary
@@ -735,9 +735,9 @@ No authorization required
 | **200** | summary 200 response |  -  |
 
 
-## summary1
+## summaryWithTenant
 
-> SummaryStatistics summary1(tenant, statsControllerSummaryRequest)
+> SummaryStatistics summaryWithTenant(tenant, statsControllerSummaryRequest)
 
 Get summary statistics
 
@@ -760,10 +760,10 @@ public class Example {
         String tenant = "tenant_example"; // String | 
         StatsControllerSummaryRequest statsControllerSummaryRequest = new StatsControllerSummaryRequest(); // StatsControllerSummaryRequest | 
         try {
-            SummaryStatistics result = apiInstance.summary1(tenant, statsControllerSummaryRequest);
+            SummaryStatistics result = apiInstance.summaryWithTenant(tenant, statsControllerSummaryRequest);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling StatsApi#summary1");
+            System.err.println("Exception when calling StatsApi#summaryWithTenant");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -798,7 +798,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | summary_1 200 response |  -  |
+| **200** | summaryWithTenant 200 response |  -  |
 
 
 ## taskRunsDailyStatistics
@@ -865,9 +865,9 @@ No authorization required
 | **200** | taskRunsDailyStatistics 200 response |  -  |
 
 
-## taskRunsDailyStatistics1
+## taskRunsDailyStatisticsWithTenant
 
-> List&lt;DailyExecutionStatistics&gt; taskRunsDailyStatistics1(tenant, statsControllerStatisticRequest)
+> List&lt;DailyExecutionStatistics&gt; taskRunsDailyStatisticsWithTenant(tenant, statsControllerStatisticRequest)
 
 Get daily statistics for taskRuns
 
@@ -890,10 +890,10 @@ public class Example {
         String tenant = "tenant_example"; // String | 
         StatsControllerStatisticRequest statsControllerStatisticRequest = new StatsControllerStatisticRequest(); // StatsControllerStatisticRequest | 
         try {
-            List<DailyExecutionStatistics> result = apiInstance.taskRunsDailyStatistics1(tenant, statsControllerStatisticRequest);
+            List<DailyExecutionStatistics> result = apiInstance.taskRunsDailyStatisticsWithTenant(tenant, statsControllerStatisticRequest);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling StatsApi#taskRunsDailyStatistics1");
+            System.err.println("Exception when calling StatsApi#taskRunsDailyStatisticsWithTenant");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -928,5 +928,5 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | taskRunsDailyStatistics_1 200 response |  -  |
+| **200** | taskRunsDailyStatisticsWithTenant 200 response |  -  |
 

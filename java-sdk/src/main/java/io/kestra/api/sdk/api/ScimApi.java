@@ -21,7 +21,6 @@ import io.kestra.api.sdk.internal.Configuration;
 import io.kestra.api.sdk.internal.Pair;
 
 import io.kestra.api.sdk.model.PatchRequest;
-import io.kestra.api.sdk.model.ScimGroup;
 import io.kestra.api.sdk.model.ScimResource;
 import io.kestra.api.sdk.model.ScimUser;
 import io.kestra.api.sdk.model.SearchRequest;
@@ -35,7 +34,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class ScimApi extends BaseApi {
 
   public ScimApi() {
@@ -57,8 +56,8 @@ public class ScimApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object create32(String integration, String tenant, ScimUser scimUser, String attributes, String excludedAttributes) throws ApiException {
-    return this.create32(integration, tenant, scimUser, attributes, excludedAttributes, Collections.emptyMap());
+  public Object createSCIMResourceByIdGroups(@javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ScimUser scimUser, @javax.annotation.Nullable String attributes, @javax.annotation.Nullable String excludedAttributes) throws ApiException {
+    return this.createSCIMResourceByIdGroups(integration, tenant, scimUser, attributes, excludedAttributes, Collections.emptyMap());
   }
 
 
@@ -74,22 +73,22 @@ public class ScimApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object create32(String integration, String tenant, ScimUser scimUser, String attributes, String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
+  public Object createSCIMResourceByIdGroups(@javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ScimUser scimUser, @javax.annotation.Nullable String attributes, @javax.annotation.Nullable String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = scimUser;
     
     // verify the required parameter 'integration' is set
     if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling create32");
+      throw new ApiException(400, "Missing the required parameter 'integration' when calling createSCIMResourceByIdGroups");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling create32");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling createSCIMResourceByIdGroups");
     }
     
     // verify the required parameter 'scimUser' is set
     if (scimUser == null) {
-      throw new ApiException(400, "Missing the required parameter 'scimUser' when calling create32");
+      throw new ApiException(400, "Missing the required parameter 'scimUser' when calling createSCIMResourceByIdGroups");
     }
     
     // create path and map variables
@@ -118,7 +117,7 @@ public class ScimApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/scim+json", "application/json"
+      "application/scim+json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -153,8 +152,8 @@ public class ScimApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object create33(String integration, String tenant, ScimUser scimUser, String attributes, String excludedAttributes) throws ApiException {
-    return this.create33(integration, tenant, scimUser, attributes, excludedAttributes, Collections.emptyMap());
+  public Object createSCIMResourceByIdUsers(@javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ScimUser scimUser, @javax.annotation.Nullable String attributes, @javax.annotation.Nullable String excludedAttributes) throws ApiException {
+    return this.createSCIMResourceByIdUsers(integration, tenant, scimUser, attributes, excludedAttributes, Collections.emptyMap());
   }
 
 
@@ -170,22 +169,22 @@ public class ScimApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object create33(String integration, String tenant, ScimUser scimUser, String attributes, String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
+  public Object createSCIMResourceByIdUsers(@javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ScimUser scimUser, @javax.annotation.Nullable String attributes, @javax.annotation.Nullable String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = scimUser;
     
     // verify the required parameter 'integration' is set
     if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling create33");
+      throw new ApiException(400, "Missing the required parameter 'integration' when calling createSCIMResourceByIdUsers");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling create33");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling createSCIMResourceByIdUsers");
     }
     
     // verify the required parameter 'scimUser' is set
     if (scimUser == null) {
-      throw new ApiException(400, "Missing the required parameter 'scimUser' when calling create33");
+      throw new ApiException(400, "Missing the required parameter 'scimUser' when calling createSCIMResourceByIdUsers");
     }
     
     // create path and map variables
@@ -214,183 +213,7 @@ public class ScimApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/scim+json", "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * {@inheritDoc}
-   * Create
-   * @param integration  (required)
-   * @param scimUser  (required)
-   * @param attributes  (optional)
-   * @param excludedAttributes  (optional)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object create7(String integration, ScimUser scimUser, String attributes, String excludedAttributes) throws ApiException {
-    return this.create7(integration, scimUser, attributes, excludedAttributes, Collections.emptyMap());
-  }
-
-
-  /**
-   * {@inheritDoc}
-   * Create
-   * @param integration  (required)
-   * @param scimUser  (required)
-   * @param attributes  (optional)
-   * @param excludedAttributes  (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object create7(String integration, ScimUser scimUser, String attributes, String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = scimUser;
-    
-    // verify the required parameter 'integration' is set
-    if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling create7");
-    }
-    
-    // verify the required parameter 'scimUser' is set
-    if (scimUser == null) {
-      throw new ApiException(400, "Missing the required parameter 'scimUser' when calling create7");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/integrations/{integration}/scim/v2/Groups"
-      .replaceAll("\\{" + "integration" + "\\}", apiClient.escapeString(apiClient.parameterToString(integration)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("attributes", attributes));
-    localVarQueryParams.addAll(apiClient.parameterToPair("excludedAttributes", excludedAttributes));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/scim+json", "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/scim+json", "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * {@inheritDoc}
-   * Create
-   * @param integration  (required)
-   * @param scimUser  (required)
-   * @param attributes  (optional)
-   * @param excludedAttributes  (optional)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object create8(String integration, ScimUser scimUser, String attributes, String excludedAttributes) throws ApiException {
-    return this.create8(integration, scimUser, attributes, excludedAttributes, Collections.emptyMap());
-  }
-
-
-  /**
-   * {@inheritDoc}
-   * Create
-   * @param integration  (required)
-   * @param scimUser  (required)
-   * @param attributes  (optional)
-   * @param excludedAttributes  (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object create8(String integration, ScimUser scimUser, String attributes, String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = scimUser;
-    
-    // verify the required parameter 'integration' is set
-    if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling create8");
-    }
-    
-    // verify the required parameter 'scimUser' is set
-    if (scimUser == null) {
-      throw new ApiException(400, "Missing the required parameter 'scimUser' when calling create8");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/integrations/{integration}/scim/v2/Users"
-      .replaceAll("\\{" + "integration" + "\\}", apiClient.escapeString(apiClient.parameterToString(integration)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("attributes", attributes));
-    localVarQueryParams.addAll(apiClient.parameterToPair("excludedAttributes", excludedAttributes));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/scim+json", "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/scim+json", "application/json"
+      "application/scim+json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -423,8 +246,8 @@ public class ScimApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object delete35(String id, String integration, String tenant) throws ApiException {
-    return this.delete35(id, integration, tenant, Collections.emptyMap());
+  public Object deleteGroups(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.deleteGroups(id, integration, tenant, Collections.emptyMap());
   }
 
 
@@ -438,22 +261,22 @@ public class ScimApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object delete35(String id, String integration, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public Object deleteGroups(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete35");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteGroups");
     }
     
     // verify the required parameter 'integration' is set
     if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling delete35");
+      throw new ApiException(400, "Missing the required parameter 'integration' when calling deleteGroups");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling delete35");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteGroups");
     }
     
     // create path and map variables
@@ -514,8 +337,8 @@ public class ScimApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object delete36(String id, String integration, String tenant) throws ApiException {
-    return this.delete36(id, integration, tenant, Collections.emptyMap());
+  public Object deleteUsers(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.deleteUsers(id, integration, tenant, Collections.emptyMap());
   }
 
 
@@ -529,22 +352,22 @@ public class ScimApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object delete36(String id, String integration, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public Object deleteUsers(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete36");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteUsers");
     }
     
     // verify the required parameter 'integration' is set
     if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling delete36");
+      throw new ApiException(400, "Missing the required parameter 'integration' when calling deleteUsers");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling delete36");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteUsers");
     }
     
     // create path and map variables
@@ -598,172 +421,6 @@ public class ScimApi extends BaseApi {
 
   /**
    * {@inheritDoc}
-   * Delete from the backing store
-   * @param id  (required)
-   * @param integration  (required)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object delete7(String id, String integration) throws ApiException {
-    return this.delete7(id, integration, Collections.emptyMap());
-  }
-
-
-  /**
-   * {@inheritDoc}
-   * Delete from the backing store
-   * @param id  (required)
-   * @param integration  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object delete7(String id, String integration, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete7");
-    }
-    
-    // verify the required parameter 'integration' is set
-    if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling delete7");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/integrations/{integration}/scim/v2/Groups/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "integration" + "\\}", apiClient.escapeString(apiClient.parameterToString(integration)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/scim+json", "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * {@inheritDoc}
-   * Delete from the backing store
-   * @param id  (required)
-   * @param integration  (required)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object delete8(String id, String integration) throws ApiException {
-    return this.delete8(id, integration, Collections.emptyMap());
-  }
-
-
-  /**
-   * {@inheritDoc}
-   * Delete from the backing store
-   * @param id  (required)
-   * @param integration  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object delete8(String id, String integration, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete8");
-    }
-    
-    // verify the required parameter 'integration' is set
-    if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling delete8");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/integrations/{integration}/scim/v2/Users/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "integration" + "\\}", apiClient.escapeString(apiClient.parameterToString(integration)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/scim+json", "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * {@inheritDoc}
    * Search
    * @param integration  (required)
    * @param tenant  (required)
@@ -771,8 +428,8 @@ public class ScimApi extends BaseApi {
    * @return ScimResource
    * @throws ApiException if fails to make API call
    */
-  public ScimResource find33(String integration, String tenant, SearchRequest searchRequest) throws ApiException {
-    return this.find33(integration, tenant, searchRequest, Collections.emptyMap());
+  public ScimResource findGroups(@javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull SearchRequest searchRequest) throws ApiException {
+    return this.findGroups(integration, tenant, searchRequest, Collections.emptyMap());
   }
 
 
@@ -786,22 +443,22 @@ public class ScimApi extends BaseApi {
    * @return ScimResource
    * @throws ApiException if fails to make API call
    */
-  public ScimResource find33(String integration, String tenant, SearchRequest searchRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public ScimResource findGroups(@javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull SearchRequest searchRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = searchRequest;
     
     // verify the required parameter 'integration' is set
     if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling find33");
+      throw new ApiException(400, "Missing the required parameter 'integration' when calling findGroups");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling find33");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling findGroups");
     }
     
     // verify the required parameter 'searchRequest' is set
     if (searchRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'searchRequest' when calling find33");
+      throw new ApiException(400, "Missing the required parameter 'searchRequest' when calling findGroups");
     }
     
     // create path and map variables
@@ -828,7 +485,7 @@ public class ScimApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/scim+json", "application/json"
+      "application/scim+json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -861,8 +518,8 @@ public class ScimApi extends BaseApi {
    * @return ScimResource
    * @throws ApiException if fails to make API call
    */
-  public ScimResource find34(String integration, String tenant, SearchRequest searchRequest) throws ApiException {
-    return this.find34(integration, tenant, searchRequest, Collections.emptyMap());
+  public ScimResource findUsers(@javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull SearchRequest searchRequest) throws ApiException {
+    return this.findUsers(integration, tenant, searchRequest, Collections.emptyMap());
   }
 
 
@@ -876,22 +533,22 @@ public class ScimApi extends BaseApi {
    * @return ScimResource
    * @throws ApiException if fails to make API call
    */
-  public ScimResource find34(String integration, String tenant, SearchRequest searchRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public ScimResource findUsers(@javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull SearchRequest searchRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = searchRequest;
     
     // verify the required parameter 'integration' is set
     if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling find34");
+      throw new ApiException(400, "Missing the required parameter 'integration' when calling findUsers");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling find34");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling findUsers");
     }
     
     // verify the required parameter 'searchRequest' is set
     if (searchRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'searchRequest' when calling find34");
+      throw new ApiException(400, "Missing the required parameter 'searchRequest' when calling findUsers");
     }
     
     // create path and map variables
@@ -918,7 +575,7 @@ public class ScimApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/scim+json", "application/json"
+      "application/scim+json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -928,348 +585,6 @@ public class ScimApi extends BaseApi {
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * {@inheritDoc}
-   * Search
-   * @param integration  (required)
-   * @param searchRequest  (required)
-   * @return ScimResource
-   * @throws ApiException if fails to make API call
-   */
-  public ScimResource find7(String integration, SearchRequest searchRequest) throws ApiException {
-    return this.find7(integration, searchRequest, Collections.emptyMap());
-  }
-
-
-  /**
-   * {@inheritDoc}
-   * Search
-   * @param integration  (required)
-   * @param searchRequest  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ScimResource
-   * @throws ApiException if fails to make API call
-   */
-  public ScimResource find7(String integration, SearchRequest searchRequest, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = searchRequest;
-    
-    // verify the required parameter 'integration' is set
-    if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling find7");
-    }
-    
-    // verify the required parameter 'searchRequest' is set
-    if (searchRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'searchRequest' when calling find7");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/integrations/{integration}/scim/v2/Groups/.search"
-      .replaceAll("\\{" + "integration" + "\\}", apiClient.escapeString(apiClient.parameterToString(integration)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/scim+json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/scim+json", "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ScimResource> localVarReturnType = new TypeReference<ScimResource>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * {@inheritDoc}
-   * Search
-   * @param integration  (required)
-   * @param searchRequest  (required)
-   * @return ScimResource
-   * @throws ApiException if fails to make API call
-   */
-  public ScimResource find8(String integration, SearchRequest searchRequest) throws ApiException {
-    return this.find8(integration, searchRequest, Collections.emptyMap());
-  }
-
-
-  /**
-   * {@inheritDoc}
-   * Search
-   * @param integration  (required)
-   * @param searchRequest  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ScimResource
-   * @throws ApiException if fails to make API call
-   */
-  public ScimResource find8(String integration, SearchRequest searchRequest, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = searchRequest;
-    
-    // verify the required parameter 'integration' is set
-    if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling find8");
-    }
-    
-    // verify the required parameter 'searchRequest' is set
-    if (searchRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'searchRequest' when calling find8");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/integrations/{integration}/scim/v2/Users/.search"
-      .replaceAll("\\{" + "integration" + "\\}", apiClient.escapeString(apiClient.parameterToString(integration)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/scim+json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/scim+json", "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ScimResource> localVarReturnType = new TypeReference<ScimResource>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * {@inheritDoc}
-   * Find by id
-   * @param id  (required)
-   * @param integration  (required)
-   * @param attributes  (optional)
-   * @param excludedAttributes  (optional)
-   * @return ScimResource
-   * @throws ApiException if fails to make API call
-   */
-  public ScimResource getById(String id, String integration, String attributes, String excludedAttributes) throws ApiException {
-    return this.getById(id, integration, attributes, excludedAttributes, Collections.emptyMap());
-  }
-
-
-  /**
-   * {@inheritDoc}
-   * Find by id
-   * @param id  (required)
-   * @param integration  (required)
-   * @param attributes  (optional)
-   * @param excludedAttributes  (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ScimResource
-   * @throws ApiException if fails to make API call
-   */
-  public ScimResource getById(String id, String integration, String attributes, String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
-    }
-    
-    // verify the required parameter 'integration' is set
-    if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling getById");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/integrations/{integration}/scim/v2/Groups/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "integration" + "\\}", apiClient.escapeString(apiClient.parameterToString(integration)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("attributes", attributes));
-    localVarQueryParams.addAll(apiClient.parameterToPair("excludedAttributes", excludedAttributes));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/scim+json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ScimResource> localVarReturnType = new TypeReference<ScimResource>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * {@inheritDoc}
-   * Find by id
-   * @param id  (required)
-   * @param integration  (required)
-   * @param attributes  (optional)
-   * @param excludedAttributes  (optional)
-   * @return ScimResource
-   * @throws ApiException if fails to make API call
-   */
-  public ScimResource getById1(String id, String integration, String attributes, String excludedAttributes) throws ApiException {
-    return this.getById1(id, integration, attributes, excludedAttributes, Collections.emptyMap());
-  }
-
-
-  /**
-   * {@inheritDoc}
-   * Find by id
-   * @param id  (required)
-   * @param integration  (required)
-   * @param attributes  (optional)
-   * @param excludedAttributes  (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ScimResource
-   * @throws ApiException if fails to make API call
-   */
-  public ScimResource getById1(String id, String integration, String attributes, String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById1");
-    }
-    
-    // verify the required parameter 'integration' is set
-    if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling getById1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/integrations/{integration}/scim/v2/Users/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "integration" + "\\}", apiClient.escapeString(apiClient.parameterToString(integration)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("attributes", attributes));
-    localVarQueryParams.addAll(apiClient.parameterToPair("excludedAttributes", excludedAttributes));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/scim+json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ScimResource> localVarReturnType = new TypeReference<ScimResource>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
         localVarQueryParams,
         localVarCollectionQueryParams,
         localVarQueryStringJoiner.toString(),
@@ -1295,8 +610,8 @@ public class ScimApi extends BaseApi {
    * @return ScimResource
    * @throws ApiException if fails to make API call
    */
-  public ScimResource getById2(String id, String integration, String tenant, String attributes, String excludedAttributes) throws ApiException {
-    return this.getById2(id, integration, tenant, attributes, excludedAttributes, Collections.emptyMap());
+  public ScimResource getSCIMResourceByIdGroups(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String attributes, @javax.annotation.Nullable String excludedAttributes) throws ApiException {
+    return this.getSCIMResourceByIdGroups(id, integration, tenant, attributes, excludedAttributes, Collections.emptyMap());
   }
 
 
@@ -1312,22 +627,22 @@ public class ScimApi extends BaseApi {
    * @return ScimResource
    * @throws ApiException if fails to make API call
    */
-  public ScimResource getById2(String id, String integration, String tenant, String attributes, String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
+  public ScimResource getSCIMResourceByIdGroups(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String attributes, @javax.annotation.Nullable String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById2");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getSCIMResourceByIdGroups");
     }
     
     // verify the required parameter 'integration' is set
     if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling getById2");
+      throw new ApiException(400, "Missing the required parameter 'integration' when calling getSCIMResourceByIdGroups");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getById2");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getSCIMResourceByIdGroups");
     }
     
     // create path and map variables
@@ -1392,8 +707,8 @@ public class ScimApi extends BaseApi {
    * @return ScimResource
    * @throws ApiException if fails to make API call
    */
-  public ScimResource getById3(String id, String integration, String tenant, String attributes, String excludedAttributes) throws ApiException {
-    return this.getById3(id, integration, tenant, attributes, excludedAttributes, Collections.emptyMap());
+  public ScimResource getSCIMResourceByIdUsers(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String attributes, @javax.annotation.Nullable String excludedAttributes) throws ApiException {
+    return this.getSCIMResourceByIdUsers(id, integration, tenant, attributes, excludedAttributes, Collections.emptyMap());
   }
 
 
@@ -1409,22 +724,22 @@ public class ScimApi extends BaseApi {
    * @return ScimResource
    * @throws ApiException if fails to make API call
    */
-  public ScimResource getById3(String id, String integration, String tenant, String attributes, String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
+  public ScimResource getSCIMResourceByIdUsers(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String attributes, @javax.annotation.Nullable String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById3");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getSCIMResourceByIdUsers");
     }
     
     // verify the required parameter 'integration' is set
     if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling getById3");
+      throw new ApiException(400, "Missing the required parameter 'integration' when calling getSCIMResourceByIdUsers");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getById3");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getSCIMResourceByIdUsers");
     }
     
     // create path and map variables
@@ -1483,198 +798,6 @@ public class ScimApi extends BaseApi {
    * Patch a portion of the backing store
    * @param id  (required)
    * @param integration  (required)
-   * @param patchRequest  (required)
-   * @param attributes  (optional)
-   * @param excludedAttributes  (optional)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object patch(String id, String integration, PatchRequest patchRequest, String attributes, String excludedAttributes) throws ApiException {
-    return this.patch(id, integration, patchRequest, attributes, excludedAttributes, Collections.emptyMap());
-  }
-
-
-  /**
-   * {@inheritDoc}
-   * Patch a portion of the backing store
-   * @param id  (required)
-   * @param integration  (required)
-   * @param patchRequest  (required)
-   * @param attributes  (optional)
-   * @param excludedAttributes  (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object patch(String id, String integration, PatchRequest patchRequest, String attributes, String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = patchRequest;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling patch");
-    }
-    
-    // verify the required parameter 'integration' is set
-    if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling patch");
-    }
-    
-    // verify the required parameter 'patchRequest' is set
-    if (patchRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'patchRequest' when calling patch");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/integrations/{integration}/scim/v2/Groups/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "integration" + "\\}", apiClient.escapeString(apiClient.parameterToString(integration)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("attributes", attributes));
-    localVarQueryParams.addAll(apiClient.parameterToPair("excludedAttributes", excludedAttributes));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/scim+json", "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/scim+json", "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PATCH",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * {@inheritDoc}
-   * Patch a portion of the backing store
-   * @param id  (required)
-   * @param integration  (required)
-   * @param patchRequest  (required)
-   * @param attributes  (optional)
-   * @param excludedAttributes  (optional)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object patch1(String id, String integration, PatchRequest patchRequest, String attributes, String excludedAttributes) throws ApiException {
-    return this.patch1(id, integration, patchRequest, attributes, excludedAttributes, Collections.emptyMap());
-  }
-
-
-  /**
-   * {@inheritDoc}
-   * Patch a portion of the backing store
-   * @param id  (required)
-   * @param integration  (required)
-   * @param patchRequest  (required)
-   * @param attributes  (optional)
-   * @param excludedAttributes  (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object patch1(String id, String integration, PatchRequest patchRequest, String attributes, String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = patchRequest;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling patch1");
-    }
-    
-    // verify the required parameter 'integration' is set
-    if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling patch1");
-    }
-    
-    // verify the required parameter 'patchRequest' is set
-    if (patchRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'patchRequest' when calling patch1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/integrations/{integration}/scim/v2/Users/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "integration" + "\\}", apiClient.escapeString(apiClient.parameterToString(integration)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("attributes", attributes));
-    localVarQueryParams.addAll(apiClient.parameterToPair("excludedAttributes", excludedAttributes));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/scim+json", "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/scim+json", "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PATCH",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * {@inheritDoc}
-   * Patch a portion of the backing store
-   * @param id  (required)
-   * @param integration  (required)
    * @param tenant  (required)
    * @param patchRequest  (required)
    * @param attributes  (optional)
@@ -1682,8 +805,8 @@ public class ScimApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object patch3(String id, String integration, String tenant, PatchRequest patchRequest, String attributes, String excludedAttributes) throws ApiException {
-    return this.patch3(id, integration, tenant, patchRequest, attributes, excludedAttributes, Collections.emptyMap());
+  public Object patchGroups(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull PatchRequest patchRequest, @javax.annotation.Nullable String attributes, @javax.annotation.Nullable String excludedAttributes) throws ApiException {
+    return this.patchGroups(id, integration, tenant, patchRequest, attributes, excludedAttributes, Collections.emptyMap());
   }
 
 
@@ -1700,27 +823,27 @@ public class ScimApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object patch3(String id, String integration, String tenant, PatchRequest patchRequest, String attributes, String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
+  public Object patchGroups(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull PatchRequest patchRequest, @javax.annotation.Nullable String attributes, @javax.annotation.Nullable String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = patchRequest;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling patch3");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling patchGroups");
     }
     
     // verify the required parameter 'integration' is set
     if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling patch3");
+      throw new ApiException(400, "Missing the required parameter 'integration' when calling patchGroups");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling patch3");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling patchGroups");
     }
     
     // verify the required parameter 'patchRequest' is set
     if (patchRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'patchRequest' when calling patch3");
+      throw new ApiException(400, "Missing the required parameter 'patchRequest' when calling patchGroups");
     }
     
     // create path and map variables
@@ -1750,7 +873,7 @@ public class ScimApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/scim+json", "application/json"
+      "application/scim+json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -1786,8 +909,8 @@ public class ScimApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object patch4(String id, String integration, String tenant, PatchRequest patchRequest, String attributes, String excludedAttributes) throws ApiException {
-    return this.patch4(id, integration, tenant, patchRequest, attributes, excludedAttributes, Collections.emptyMap());
+  public Object patchUsers(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull PatchRequest patchRequest, @javax.annotation.Nullable String attributes, @javax.annotation.Nullable String excludedAttributes) throws ApiException {
+    return this.patchUsers(id, integration, tenant, patchRequest, attributes, excludedAttributes, Collections.emptyMap());
   }
 
 
@@ -1804,27 +927,27 @@ public class ScimApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object patch4(String id, String integration, String tenant, PatchRequest patchRequest, String attributes, String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
+  public Object patchUsers(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull PatchRequest patchRequest, @javax.annotation.Nullable String attributes, @javax.annotation.Nullable String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = patchRequest;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling patch4");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling patchUsers");
     }
     
     // verify the required parameter 'integration' is set
     if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling patch4");
+      throw new ApiException(400, "Missing the required parameter 'integration' when calling patchUsers");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling patch4");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling patchUsers");
     }
     
     // verify the required parameter 'patchRequest' is set
     if (patchRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'patchRequest' when calling patch4");
+      throw new ApiException(400, "Missing the required parameter 'patchRequest' when calling patchUsers");
     }
     
     // create path and map variables
@@ -1854,7 +977,7 @@ public class ScimApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/scim+json", "application/json"
+      "application/scim+json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -1882,198 +1005,6 @@ public class ScimApi extends BaseApi {
    * {@inheritDoc}
    * Find by a combination of query parameters
    * @param integration  (required)
-   * @param attributes  (optional)
-   * @param excludedAttributes  (optional)
-   * @param filter  (optional)
-   * @param sortBy  (optional)
-   * @param sortOrder  (optional)
-   * @param startIndex  (optional)
-   * @param count  (optional)
-   * @return ScimResource
-   * @throws ApiException if fails to make API call
-   */
-  public ScimResource query(String integration, String attributes, String excludedAttributes, String filter, String sortBy, SortOrder sortOrder, Integer startIndex, Integer count) throws ApiException {
-    return this.query(integration, attributes, excludedAttributes, filter, sortBy, sortOrder, startIndex, count, Collections.emptyMap());
-  }
-
-
-  /**
-   * {@inheritDoc}
-   * Find by a combination of query parameters
-   * @param integration  (required)
-   * @param attributes  (optional)
-   * @param excludedAttributes  (optional)
-   * @param filter  (optional)
-   * @param sortBy  (optional)
-   * @param sortOrder  (optional)
-   * @param startIndex  (optional)
-   * @param count  (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ScimResource
-   * @throws ApiException if fails to make API call
-   */
-  public ScimResource query(String integration, String attributes, String excludedAttributes, String filter, String sortBy, SortOrder sortOrder, Integer startIndex, Integer count, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'integration' is set
-    if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling query");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/integrations/{integration}/scim/v2/Groups"
-      .replaceAll("\\{" + "integration" + "\\}", apiClient.escapeString(apiClient.parameterToString(integration)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("attributes", attributes));
-    localVarQueryParams.addAll(apiClient.parameterToPair("excludedAttributes", excludedAttributes));
-    localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
-    localVarQueryParams.addAll(apiClient.parameterToPair("sortBy", sortBy));
-    localVarQueryParams.addAll(apiClient.parameterToPair("sortOrder", sortOrder));
-    localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
-    localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/scim+json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ScimResource> localVarReturnType = new TypeReference<ScimResource>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * {@inheritDoc}
-   * Find by a combination of query parameters
-   * @param integration  (required)
-   * @param attributes  (optional)
-   * @param excludedAttributes  (optional)
-   * @param filter  (optional)
-   * @param sortBy  (optional)
-   * @param sortOrder  (optional)
-   * @param startIndex  (optional)
-   * @param count  (optional)
-   * @return ScimResource
-   * @throws ApiException if fails to make API call
-   */
-  public ScimResource query1(String integration, String attributes, String excludedAttributes, String filter, String sortBy, SortOrder sortOrder, Integer startIndex, Integer count) throws ApiException {
-    return this.query1(integration, attributes, excludedAttributes, filter, sortBy, sortOrder, startIndex, count, Collections.emptyMap());
-  }
-
-
-  /**
-   * {@inheritDoc}
-   * Find by a combination of query parameters
-   * @param integration  (required)
-   * @param attributes  (optional)
-   * @param excludedAttributes  (optional)
-   * @param filter  (optional)
-   * @param sortBy  (optional)
-   * @param sortOrder  (optional)
-   * @param startIndex  (optional)
-   * @param count  (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ScimResource
-   * @throws ApiException if fails to make API call
-   */
-  public ScimResource query1(String integration, String attributes, String excludedAttributes, String filter, String sortBy, SortOrder sortOrder, Integer startIndex, Integer count, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'integration' is set
-    if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling query1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/integrations/{integration}/scim/v2/Users"
-      .replaceAll("\\{" + "integration" + "\\}", apiClient.escapeString(apiClient.parameterToString(integration)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("attributes", attributes));
-    localVarQueryParams.addAll(apiClient.parameterToPair("excludedAttributes", excludedAttributes));
-    localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
-    localVarQueryParams.addAll(apiClient.parameterToPair("sortBy", sortBy));
-    localVarQueryParams.addAll(apiClient.parameterToPair("sortOrder", sortOrder));
-    localVarQueryParams.addAll(apiClient.parameterToPair("startIndex", startIndex));
-    localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/scim+json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ScimResource> localVarReturnType = new TypeReference<ScimResource>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * {@inheritDoc}
-   * Find by a combination of query parameters
-   * @param integration  (required)
    * @param tenant  (required)
    * @param attributes  (optional)
    * @param excludedAttributes  (optional)
@@ -2085,8 +1016,8 @@ public class ScimApi extends BaseApi {
    * @return ScimResource
    * @throws ApiException if fails to make API call
    */
-  public ScimResource query2(String integration, String tenant, String attributes, String excludedAttributes, String filter, String sortBy, SortOrder sortOrder, Integer startIndex, Integer count) throws ApiException {
-    return this.query2(integration, tenant, attributes, excludedAttributes, filter, sortBy, sortOrder, startIndex, count, Collections.emptyMap());
+  public ScimResource queryGroups(@javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String attributes, @javax.annotation.Nullable String excludedAttributes, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable Integer count) throws ApiException {
+    return this.queryGroups(integration, tenant, attributes, excludedAttributes, filter, sortBy, sortOrder, startIndex, count, Collections.emptyMap());
   }
 
 
@@ -2106,17 +1037,17 @@ public class ScimApi extends BaseApi {
    * @return ScimResource
    * @throws ApiException if fails to make API call
    */
-  public ScimResource query2(String integration, String tenant, String attributes, String excludedAttributes, String filter, String sortBy, SortOrder sortOrder, Integer startIndex, Integer count, Map<String, String> additionalHeaders) throws ApiException {
+  public ScimResource queryGroups(@javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String attributes, @javax.annotation.Nullable String excludedAttributes, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable Integer count, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'integration' is set
     if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling query2");
+      throw new ApiException(400, "Missing the required parameter 'integration' when calling queryGroups");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling query2");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling queryGroups");
     }
     
     // create path and map variables
@@ -2189,8 +1120,8 @@ public class ScimApi extends BaseApi {
    * @return ScimResource
    * @throws ApiException if fails to make API call
    */
-  public ScimResource query3(String integration, String tenant, String attributes, String excludedAttributes, String filter, String sortBy, SortOrder sortOrder, Integer startIndex, Integer count) throws ApiException {
-    return this.query3(integration, tenant, attributes, excludedAttributes, filter, sortBy, sortOrder, startIndex, count, Collections.emptyMap());
+  public ScimResource queryUsers(@javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String attributes, @javax.annotation.Nullable String excludedAttributes, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable Integer count) throws ApiException {
+    return this.queryUsers(integration, tenant, attributes, excludedAttributes, filter, sortBy, sortOrder, startIndex, count, Collections.emptyMap());
   }
 
 
@@ -2210,17 +1141,17 @@ public class ScimApi extends BaseApi {
    * @return ScimResource
    * @throws ApiException if fails to make API call
    */
-  public ScimResource query3(String integration, String tenant, String attributes, String excludedAttributes, String filter, String sortBy, SortOrder sortOrder, Integer startIndex, Integer count, Map<String, String> additionalHeaders) throws ApiException {
+  public ScimResource queryUsers(@javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String attributes, @javax.annotation.Nullable String excludedAttributes, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String sortBy, @javax.annotation.Nullable SortOrder sortOrder, @javax.annotation.Nullable Integer startIndex, @javax.annotation.Nullable Integer count, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'integration' is set
     if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling query3");
+      throw new ApiException(400, "Missing the required parameter 'integration' when calling queryUsers");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling query3");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling queryUsers");
     }
     
     // create path and map variables
@@ -2290,8 +1221,8 @@ public class ScimApi extends BaseApi {
    * @return ScimResource
    * @throws ApiException if fails to make API call
    */
-  public ScimResource update23(String id, String integration, String tenant, ScimResource scimResource, String attributes, String excludedAttributes) throws ApiException {
-    return this.update23(id, integration, tenant, scimResource, attributes, excludedAttributes, Collections.emptyMap());
+  public ScimResource updateGroups(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ScimResource scimResource, @javax.annotation.Nullable String attributes, @javax.annotation.Nullable String excludedAttributes) throws ApiException {
+    return this.updateGroups(id, integration, tenant, scimResource, attributes, excludedAttributes, Collections.emptyMap());
   }
 
 
@@ -2308,27 +1239,27 @@ public class ScimApi extends BaseApi {
    * @return ScimResource
    * @throws ApiException if fails to make API call
    */
-  public ScimResource update23(String id, String integration, String tenant, ScimResource scimResource, String attributes, String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
+  public ScimResource updateGroups(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ScimResource scimResource, @javax.annotation.Nullable String attributes, @javax.annotation.Nullable String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = scimResource;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update23");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateGroups");
     }
     
     // verify the required parameter 'integration' is set
     if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling update23");
+      throw new ApiException(400, "Missing the required parameter 'integration' when calling updateGroups");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling update23");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling updateGroups");
     }
     
     // verify the required parameter 'scimResource' is set
     if (scimResource == null) {
-      throw new ApiException(400, "Missing the required parameter 'scimResource' when calling update23");
+      throw new ApiException(400, "Missing the required parameter 'scimResource' when calling updateGroups");
     }
     
     // create path and map variables
@@ -2358,7 +1289,7 @@ public class ScimApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/scim+json", "application/json"
+      "application/scim+json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -2394,8 +1325,8 @@ public class ScimApi extends BaseApi {
    * @return ScimResource
    * @throws ApiException if fails to make API call
    */
-  public ScimResource update24(String id, String integration, String tenant, ScimResource scimResource, String attributes, String excludedAttributes) throws ApiException {
-    return this.update24(id, integration, tenant, scimResource, attributes, excludedAttributes, Collections.emptyMap());
+  public ScimResource updateUsers(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ScimResource scimResource, @javax.annotation.Nullable String attributes, @javax.annotation.Nullable String excludedAttributes) throws ApiException {
+    return this.updateUsers(id, integration, tenant, scimResource, attributes, excludedAttributes, Collections.emptyMap());
   }
 
 
@@ -2412,27 +1343,27 @@ public class ScimApi extends BaseApi {
    * @return ScimResource
    * @throws ApiException if fails to make API call
    */
-  public ScimResource update24(String id, String integration, String tenant, ScimResource scimResource, String attributes, String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
+  public ScimResource updateUsers(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String integration, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ScimResource scimResource, @javax.annotation.Nullable String attributes, @javax.annotation.Nullable String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = scimResource;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update24");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateUsers");
     }
     
     // verify the required parameter 'integration' is set
     if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling update24");
+      throw new ApiException(400, "Missing the required parameter 'integration' when calling updateUsers");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling update24");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling updateUsers");
     }
     
     // verify the required parameter 'scimResource' is set
     if (scimResource == null) {
-      throw new ApiException(400, "Missing the required parameter 'scimResource' when calling update24");
+      throw new ApiException(400, "Missing the required parameter 'scimResource' when calling updateUsers");
     }
     
     // create path and map variables
@@ -2462,199 +1393,7 @@ public class ScimApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/scim+json", "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ScimResource> localVarReturnType = new TypeReference<ScimResource>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * {@inheritDoc}
-   * Update
-   * @param id  (required)
-   * @param integration  (required)
-   * @param scimResource  (required)
-   * @param attributes  (optional)
-   * @param excludedAttributes  (optional)
-   * @return ScimResource
-   * @throws ApiException if fails to make API call
-   */
-  public ScimResource update5(String id, String integration, ScimResource scimResource, String attributes, String excludedAttributes) throws ApiException {
-    return this.update5(id, integration, scimResource, attributes, excludedAttributes, Collections.emptyMap());
-  }
-
-
-  /**
-   * {@inheritDoc}
-   * Update
-   * @param id  (required)
-   * @param integration  (required)
-   * @param scimResource  (required)
-   * @param attributes  (optional)
-   * @param excludedAttributes  (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ScimResource
-   * @throws ApiException if fails to make API call
-   */
-  public ScimResource update5(String id, String integration, ScimResource scimResource, String attributes, String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = scimResource;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update5");
-    }
-    
-    // verify the required parameter 'integration' is set
-    if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling update5");
-    }
-    
-    // verify the required parameter 'scimResource' is set
-    if (scimResource == null) {
-      throw new ApiException(400, "Missing the required parameter 'scimResource' when calling update5");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/integrations/{integration}/scim/v2/Groups/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "integration" + "\\}", apiClient.escapeString(apiClient.parameterToString(integration)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("attributes", attributes));
-    localVarQueryParams.addAll(apiClient.parameterToPair("excludedAttributes", excludedAttributes));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
       "application/scim+json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/scim+json", "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ScimResource> localVarReturnType = new TypeReference<ScimResource>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * {@inheritDoc}
-   * Update
-   * @param id  (required)
-   * @param integration  (required)
-   * @param scimResource  (required)
-   * @param attributes  (optional)
-   * @param excludedAttributes  (optional)
-   * @return ScimResource
-   * @throws ApiException if fails to make API call
-   */
-  public ScimResource update6(String id, String integration, ScimResource scimResource, String attributes, String excludedAttributes) throws ApiException {
-    return this.update6(id, integration, scimResource, attributes, excludedAttributes, Collections.emptyMap());
-  }
-
-
-  /**
-   * {@inheritDoc}
-   * Update
-   * @param id  (required)
-   * @param integration  (required)
-   * @param scimResource  (required)
-   * @param attributes  (optional)
-   * @param excludedAttributes  (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ScimResource
-   * @throws ApiException if fails to make API call
-   */
-  public ScimResource update6(String id, String integration, ScimResource scimResource, String attributes, String excludedAttributes, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = scimResource;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update6");
-    }
-    
-    // verify the required parameter 'integration' is set
-    if (integration == null) {
-      throw new ApiException(400, "Missing the required parameter 'integration' when calling update6");
-    }
-    
-    // verify the required parameter 'scimResource' is set
-    if (scimResource == null) {
-      throw new ApiException(400, "Missing the required parameter 'scimResource' when calling update6");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/integrations/{integration}/scim/v2/Users/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "integration" + "\\}", apiClient.escapeString(apiClient.parameterToString(integration)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("attributes", attributes));
-    localVarQueryParams.addAll(apiClient.parameterToPair("excludedAttributes", excludedAttributes));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/scim+json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/scim+json", "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -2696,7 +1435,7 @@ public class ScimApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/scim+json", "application/json"
+      "application/scim+json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 

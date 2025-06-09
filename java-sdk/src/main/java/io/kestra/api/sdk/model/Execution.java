@@ -20,10 +20,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.kestra.api.sdk.model.ExecutionKind;
 import io.kestra.api.sdk.model.ExecutionMetadata;
 import io.kestra.api.sdk.model.ExecutionTrigger;
 import io.kestra.api.sdk.model.Label;
 import io.kestra.api.sdk.model.State;
+import io.kestra.api.sdk.model.TaskFixture;
 import io.kestra.api.sdk.model.TaskRun;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -31,6 +33,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -41,6 +47,7 @@ import java.util.StringJoiner;
  * Execution
  */
 @JsonPropertyOrder({
+  Execution.JSON_PROPERTY_LABELS,
   Execution.JSON_PROPERTY_ID,
   Execution.JSON_PROPERTY_NAMESPACE,
   Execution.JSON_PROPERTY_FLOW_ID,
@@ -48,7 +55,6 @@ import java.util.StringJoiner;
   Execution.JSON_PROPERTY_TASK_RUN_LIST,
   Execution.JSON_PROPERTY_INPUTS,
   Execution.JSON_PROPERTY_OUTPUTS,
-  Execution.JSON_PROPERTY_LABELS,
   Execution.JSON_PROPERTY_VARIABLES,
   Execution.JSON_PROPERTY_STATE,
   Execution.JSON_PROPERTY_PARENT_ID,
@@ -56,10 +62,17 @@ import java.util.StringJoiner;
   Execution.JSON_PROPERTY_TRIGGER,
   Execution.JSON_PROPERTY_DELETED,
   Execution.JSON_PROPERTY_METADATA,
-  Execution.JSON_PROPERTY_SCHEDULE_DATE
+  Execution.JSON_PROPERTY_SCHEDULE_DATE,
+  Execution.JSON_PROPERTY_TRACE_PARENT,
+  Execution.JSON_PROPERTY_FIXTURES,
+  Execution.JSON_PROPERTY_KIND
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class Execution {
+  public static final String JSON_PROPERTY_LABELS = "labels";
+  @javax.annotation.Nonnull
+  private List<Label> labels = new ArrayList<>();
+
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nonnull
   private String id;
@@ -87,10 +100,6 @@ public class Execution {
   public static final String JSON_PROPERTY_OUTPUTS = "outputs";
   @javax.annotation.Nonnull
   private Map<String, Object> outputs = new HashMap<>();
-
-  public static final String JSON_PROPERTY_LABELS = "labels";
-  @javax.annotation.Nonnull
-  private List<Label> labels = new ArrayList<>();
 
   public static final String JSON_PROPERTY_VARIABLES = "variables";
   @javax.annotation.Nonnull
@@ -122,9 +131,54 @@ public class Execution {
 
   public static final String JSON_PROPERTY_SCHEDULE_DATE = "scheduleDate";
   @javax.annotation.Nullable
-  private OffsetDateTime scheduleDate;
+  private JsonNullable<OffsetDateTime> scheduleDate = JsonNullable.<OffsetDateTime>undefined();
+
+  public static final String JSON_PROPERTY_TRACE_PARENT = "traceParent";
+  @javax.annotation.Nonnull
+  private String traceParent;
+
+  public static final String JSON_PROPERTY_FIXTURES = "fixtures";
+  @javax.annotation.Nullable
+  private JsonNullable<List<TaskFixture>> fixtures = JsonNullable.<List<TaskFixture>>undefined();
+
+  public static final String JSON_PROPERTY_KIND = "kind";
+  @javax.annotation.Nullable
+  private JsonNullable<ExecutionKind> kind = JsonNullable.<ExecutionKind>undefined();
 
   public Execution() {
+  }
+
+  public Execution labels(@javax.annotation.Nonnull List<Label> labels) {
+    
+    this.labels = labels;
+    return this;
+  }
+
+  public Execution addLabelsItem(Label labelsItem) {
+    if (this.labels == null) {
+      this.labels = new ArrayList<>();
+    }
+    this.labels.add(labelsItem);
+    return this;
+  }
+
+  /**
+   * Get labels
+   * @return labels
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_LABELS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<Label> getLabels() {
+    return labels;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LABELS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setLabels(@javax.annotation.Nonnull List<Label> labels) {
+    this.labels = labels;
   }
 
   public Execution id(@javax.annotation.Nonnull String id) {
@@ -320,39 +374,6 @@ public class Execution {
     this.outputs = outputs;
   }
 
-  public Execution labels(@javax.annotation.Nonnull List<Label> labels) {
-    
-    this.labels = labels;
-    return this;
-  }
-
-  public Execution addLabelsItem(Label labelsItem) {
-    if (this.labels == null) {
-      this.labels = new ArrayList<>();
-    }
-    this.labels.add(labelsItem);
-    return this;
-  }
-
-  /**
-   * Get labels
-   * @return labels
-   */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_LABELS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public List<Label> getLabels() {
-    return labels;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_LABELS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLabels(@javax.annotation.Nonnull List<Label> labels) {
-    this.labels = labels;
-  }
-
   public Execution variables(@javax.annotation.Nonnull Map<String, Object> variables) {
     
     this.variables = variables;
@@ -534,8 +555,8 @@ public class Execution {
   }
 
   public Execution scheduleDate(@javax.annotation.Nullable OffsetDateTime scheduleDate) {
+    this.scheduleDate = JsonNullable.<OffsetDateTime>of(scheduleDate);
     
-    this.scheduleDate = scheduleDate;
     return this;
   }
 
@@ -544,18 +565,129 @@ public class Execution {
    * @return scheduleDate
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCHEDULE_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonIgnore
 
   public OffsetDateTime getScheduleDate() {
+        return scheduleDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SCHEDULE_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<OffsetDateTime> getScheduleDate_JsonNullable() {
     return scheduleDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SCHEDULE_DATE)
+  public void setScheduleDate_JsonNullable(JsonNullable<OffsetDateTime> scheduleDate) {
+    this.scheduleDate = scheduleDate;
+  }
+
+  public void setScheduleDate(@javax.annotation.Nullable OffsetDateTime scheduleDate) {
+    this.scheduleDate = JsonNullable.<OffsetDateTime>of(scheduleDate);
+  }
+
+  public Execution traceParent(@javax.annotation.Nonnull String traceParent) {
+    
+    this.traceParent = traceParent;
+    return this;
+  }
+
+  /**
+   * Get traceParent
+   * @return traceParent
+   */
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TRACE_PARENT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getTraceParent() {
+    return traceParent;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SCHEDULE_DATE)
+  @JsonProperty(JSON_PROPERTY_TRACE_PARENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setScheduleDate(@javax.annotation.Nullable OffsetDateTime scheduleDate) {
-    this.scheduleDate = scheduleDate;
+  public void setTraceParent(@javax.annotation.Nonnull String traceParent) {
+    this.traceParent = traceParent;
+  }
+
+  public Execution fixtures(@javax.annotation.Nullable List<TaskFixture> fixtures) {
+    this.fixtures = JsonNullable.<List<TaskFixture>>of(fixtures);
+    
+    return this;
+  }
+
+  public Execution addFixturesItem(TaskFixture fixturesItem) {
+    if (this.fixtures == null || !this.fixtures.isPresent()) {
+      this.fixtures = JsonNullable.<List<TaskFixture>>of(new ArrayList<>());
+    }
+    try {
+      this.fixtures.get().add(fixturesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Get fixtures
+   * @return fixtures
+   */
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public List<TaskFixture> getFixtures() {
+        return fixtures.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_FIXTURES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<TaskFixture>> getFixtures_JsonNullable() {
+    return fixtures;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FIXTURES)
+  public void setFixtures_JsonNullable(JsonNullable<List<TaskFixture>> fixtures) {
+    this.fixtures = fixtures;
+  }
+
+  public void setFixtures(@javax.annotation.Nullable List<TaskFixture> fixtures) {
+    this.fixtures = JsonNullable.<List<TaskFixture>>of(fixtures);
+  }
+
+  public Execution kind(@javax.annotation.Nullable ExecutionKind kind) {
+    this.kind = JsonNullable.<ExecutionKind>of(kind);
+    
+    return this;
+  }
+
+  /**
+   * Get kind
+   * @return kind
+   */
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public ExecutionKind getKind() {
+        return kind.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_KIND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<ExecutionKind> getKind_JsonNullable() {
+    return kind;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_KIND)
+  public void setKind_JsonNullable(JsonNullable<ExecutionKind> kind) {
+    this.kind = kind;
+  }
+
+  public void setKind(@javax.annotation.Nullable ExecutionKind kind) {
+    this.kind = JsonNullable.<ExecutionKind>of(kind);
   }
 
   @Override
@@ -567,14 +699,14 @@ public class Execution {
       return false;
     }
     Execution execution = (Execution) o;
-    return Objects.equals(this.id, execution.id) &&
+    return Objects.equals(this.labels, execution.labels) &&
+        Objects.equals(this.id, execution.id) &&
         Objects.equals(this.namespace, execution.namespace) &&
         Objects.equals(this.flowId, execution.flowId) &&
         Objects.equals(this.flowRevision, execution.flowRevision) &&
         Objects.equals(this.taskRunList, execution.taskRunList) &&
         Objects.equals(this.inputs, execution.inputs) &&
         Objects.equals(this.outputs, execution.outputs) &&
-        Objects.equals(this.labels, execution.labels) &&
         Objects.equals(this.variables, execution.variables) &&
         Objects.equals(this.state, execution.state) &&
         Objects.equals(this.parentId, execution.parentId) &&
@@ -582,18 +714,33 @@ public class Execution {
         Objects.equals(this.trigger, execution.trigger) &&
         Objects.equals(this.deleted, execution.deleted) &&
         Objects.equals(this.metadata, execution.metadata) &&
-        Objects.equals(this.scheduleDate, execution.scheduleDate);
+        equalsNullable(this.scheduleDate, execution.scheduleDate) &&
+        Objects.equals(this.traceParent, execution.traceParent) &&
+        equalsNullable(this.fixtures, execution.fixtures) &&
+        equalsNullable(this.kind, execution.kind);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, namespace, flowId, flowRevision, taskRunList, inputs, outputs, labels, variables, state, parentId, originalId, trigger, deleted, metadata, scheduleDate);
+    return Objects.hash(labels, id, namespace, flowId, flowRevision, taskRunList, inputs, outputs, variables, state, parentId, originalId, trigger, deleted, metadata, hashCodeNullable(scheduleDate), traceParent, hashCodeNullable(fixtures), hashCodeNullable(kind));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Execution {\n");
+    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    flowId: ").append(toIndentedString(flowId)).append("\n");
@@ -601,7 +748,6 @@ public class Execution {
     sb.append("    taskRunList: ").append(toIndentedString(taskRunList)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    outputs: ").append(toIndentedString(outputs)).append("\n");
-    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
@@ -610,6 +756,9 @@ public class Execution {
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    scheduleDate: ").append(toIndentedString(scheduleDate)).append("\n");
+    sb.append("    traceParent: ").append(toIndentedString(traceParent)).append("\n");
+    sb.append("    fixtures: ").append(toIndentedString(fixtures)).append("\n");
+    sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -656,6 +805,16 @@ public class Execution {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `labels` to the URL query string
+    if (getLabels() != null) {
+      for (int i = 0; i < getLabels().size(); i++) {
+        if (getLabels().get(i) != null) {
+          joiner.add(getLabels().get(i).toUrlQueryString(String.format("%slabels%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
 
     // add `id` to the URL query string
     if (getId() != null) {
@@ -735,16 +894,6 @@ public class Execution {
       }
     }
 
-    // add `labels` to the URL query string
-    if (getLabels() != null) {
-      for (int i = 0; i < getLabels().size(); i++) {
-        if (getLabels().get(i) != null) {
-          joiner.add(getLabels().get(i).toUrlQueryString(String.format("%slabels%s%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
-        }
-      }
-    }
-
     // add `variables` to the URL query string
     if (getVariables() != null) {
       for (String _key : getVariables().keySet()) {
@@ -808,6 +957,36 @@ public class Execution {
     if (getScheduleDate() != null) {
       try {
         joiner.add(String.format("%sscheduleDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getScheduleDate()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `traceParent` to the URL query string
+    if (getTraceParent() != null) {
+      try {
+        joiner.add(String.format("%straceParent%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTraceParent()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `fixtures` to the URL query string
+    if (getFixtures() != null) {
+      for (int i = 0; i < getFixtures().size(); i++) {
+        if (getFixtures().get(i) != null) {
+          joiner.add(getFixtures().get(i).toUrlQueryString(String.format("%sfixtures%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `kind` to the URL query string
+    if (getKind() != null) {
+      try {
+        joiner.add(String.format("%skind%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKind()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

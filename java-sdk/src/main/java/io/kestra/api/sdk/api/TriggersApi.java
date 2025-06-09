@@ -20,8 +20,10 @@ import io.kestra.api.sdk.internal.BaseApi;
 import io.kestra.api.sdk.internal.Configuration;
 import io.kestra.api.sdk.internal.Pair;
 
+import io.kestra.api.sdk.model.DeleteExecutionsByQueryRequest;
 import io.kestra.api.sdk.model.PagedResultsTrigger;
 import io.kestra.api.sdk.model.PagedResultsTriggerControllerTriggers;
+import io.kestra.api.sdk.model.QueryFilter;
 import io.kestra.api.sdk.model.Trigger;
 import io.kestra.api.sdk.model.TriggerControllerSetDisabledRequest;
 
@@ -33,7 +35,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class TriggersApi extends BaseApi {
 
   public TriggersApi() {
@@ -47,87 +49,13 @@ public class TriggersApi extends BaseApi {
   /**
    * Delete a backfill
    * 
-   * @param trigger  (required)
-   * @return Trigger
-   * @throws ApiException if fails to make API call
-   */
-  public Trigger deleteBackfill(Trigger trigger) throws ApiException {
-    return this.deleteBackfill(trigger, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete a backfill
-   * 
-   * @param trigger  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Trigger
-   * @throws ApiException if fails to make API call
-   */
-  public Trigger deleteBackfill(Trigger trigger, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = trigger;
-    
-    // verify the required parameter 'trigger' is set
-    if (trigger == null) {
-      throw new ApiException(400, "Missing the required parameter 'trigger' when calling deleteBackfill");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/triggers/backfill/delete";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Trigger> localVarReturnType = new TypeReference<Trigger>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete a backfill
-   * 
    * @param tenant  (required)
    * @param trigger  (required)
    * @return Trigger
    * @throws ApiException if fails to make API call
    */
-  public Trigger deleteBackfill1(String tenant, Trigger trigger) throws ApiException {
-    return this.deleteBackfill1(tenant, trigger, Collections.emptyMap());
+  public Trigger deleteBackfill(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Trigger trigger) throws ApiException {
+    return this.deleteBackfill(tenant, trigger, Collections.emptyMap());
   }
 
 
@@ -140,17 +68,17 @@ public class TriggersApi extends BaseApi {
    * @return Trigger
    * @throws ApiException if fails to make API call
    */
-  public Trigger deleteBackfill1(String tenant, Trigger trigger, Map<String, String> additionalHeaders) throws ApiException {
+  public Trigger deleteBackfill(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Trigger trigger, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = trigger;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteBackfill1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteBackfill");
     }
     
     // verify the required parameter 'trigger' is set
     if (trigger == null) {
-      throw new ApiException(400, "Missing the required parameter 'trigger' when calling deleteBackfill1");
+      throw new ApiException(400, "Missing the required parameter 'trigger' when calling deleteBackfill");
     }
     
     // create path and map variables
@@ -180,7 +108,7 @@ public class TriggersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Trigger> localVarReturnType = new TypeReference<Trigger>() {};
     return apiClient.invokeAPI(
@@ -203,87 +131,13 @@ public class TriggersApi extends BaseApi {
   /**
    * Delete backfill for given triggers
    * 
-   * @param trigger  (required)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object deleteBackfillByIds(List<Trigger> trigger) throws ApiException {
-    return this.deleteBackfillByIds(trigger, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete backfill for given triggers
-   * 
-   * @param trigger  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object deleteBackfillByIds(List<Trigger> trigger, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = trigger;
-    
-    // verify the required parameter 'trigger' is set
-    if (trigger == null) {
-      throw new ApiException(400, "Missing the required parameter 'trigger' when calling deleteBackfillByIds");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/triggers/backfill/delete/by-triggers";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete backfill for given triggers
-   * 
    * @param tenant  (required)
    * @param trigger  (required)
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object deleteBackfillByIds1(String tenant, List<Trigger> trigger) throws ApiException {
-    return this.deleteBackfillByIds1(tenant, trigger, Collections.emptyMap());
+  public Object deleteBackfillByIds(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<Trigger> trigger) throws ApiException {
+    return this.deleteBackfillByIds(tenant, trigger, Collections.emptyMap());
   }
 
 
@@ -296,17 +150,17 @@ public class TriggersApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object deleteBackfillByIds1(String tenant, List<Trigger> trigger, Map<String, String> additionalHeaders) throws ApiException {
+  public Object deleteBackfillByIds(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<Trigger> trigger, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = trigger;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteBackfillByIds1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteBackfillByIds");
     }
     
     // verify the required parameter 'trigger' is set
     if (trigger == null) {
-      throw new ApiException(400, "Missing the required parameter 'trigger' when calling deleteBackfillByIds1");
+      throw new ApiException(400, "Missing the required parameter 'trigger' when calling deleteBackfillByIds");
     }
     
     // create path and map variables
@@ -336,80 +190,7 @@ public class TriggersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete backfill for given triggers
-   * 
-   * @param q A string filter (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object deleteBackfillByQuery(String q, String namespace) throws ApiException {
-    return this.deleteBackfillByQuery(q, namespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete backfill for given triggers
-   * 
-   * @param q A string filter (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object deleteBackfillByQuery(String q, String namespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/triggers/backfill/delete/by-query";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
@@ -433,13 +214,14 @@ public class TriggersApi extends BaseApi {
    * Delete backfill for given triggers
    * 
    * @param tenant  (required)
+   * @param deleteExecutionsByQueryRequest  (required)
    * @param q A string filter (optional)
    * @param namespace A namespace filter prefix (optional)
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object deleteBackfillByQuery1(String tenant, String q, String namespace) throws ApiException {
-    return this.deleteBackfillByQuery1(tenant, q, namespace, Collections.emptyMap());
+  public Object deleteBackfillByQuery(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace) throws ApiException {
+    return this.deleteBackfillByQuery(tenant, deleteExecutionsByQueryRequest, q, namespace, Collections.emptyMap());
   }
 
 
@@ -447,18 +229,24 @@ public class TriggersApi extends BaseApi {
    * Delete backfill for given triggers
    * 
    * @param tenant  (required)
+   * @param deleteExecutionsByQueryRequest  (required)
    * @param q A string filter (optional)
    * @param namespace A namespace filter prefix (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object deleteBackfillByQuery1(String tenant, String q, String namespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
+  public Object deleteBackfillByQuery(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = deleteExecutionsByQueryRequest;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteBackfillByQuery1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteBackfillByQuery");
+    }
+    
+    // verify the required parameter 'deleteExecutionsByQueryRequest' is set
+    if (deleteExecutionsByQueryRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'deleteExecutionsByQueryRequest' when calling deleteBackfillByQuery");
     }
     
     // create path and map variables
@@ -486,11 +274,11 @@ public class TriggersApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
@@ -511,62 +299,43 @@ public class TriggersApi extends BaseApi {
   }
 
   /**
-   * Get all triggers for a flow
+   * Disable/enable given triggers
    * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param namespace The namespace (required)
-   * @param flowId The flow id (required)
-   * @param sort The sort of current page (optional)
-   * @param q A string filter (optional)
-   * @return PagedResultsTrigger
+   * @param tenant  (required)
+   * @param triggerControllerSetDisabledRequest  (required)
+   * @return Object
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsTrigger find25(Integer page, Integer size, String namespace, String flowId, List<String> sort, String q) throws ApiException {
-    return this.find25(page, size, namespace, flowId, sort, q, Collections.emptyMap());
+  public Object disabledTriggersByIds(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull TriggerControllerSetDisabledRequest triggerControllerSetDisabledRequest) throws ApiException {
+    return this.disabledTriggersByIds(tenant, triggerControllerSetDisabledRequest, Collections.emptyMap());
   }
 
 
   /**
-   * Get all triggers for a flow
+   * Disable/enable given triggers
    * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param namespace The namespace (required)
-   * @param flowId The flow id (required)
-   * @param sort The sort of current page (optional)
-   * @param q A string filter (optional)
+   * @param tenant  (required)
+   * @param triggerControllerSetDisabledRequest  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsTrigger
+   * @return Object
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsTrigger find25(Integer page, Integer size, String namespace, String flowId, List<String> sort, String q, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
+  public Object disabledTriggersByIds(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull TriggerControllerSetDisabledRequest triggerControllerSetDisabledRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = triggerControllerSetDisabledRequest;
     
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find25");
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling disabledTriggersByIds");
     }
     
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find25");
-    }
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling find25");
-    }
-    
-    // verify the required parameter 'flowId' is set
-    if (flowId == null) {
-      throw new ApiException(400, "Missing the required parameter 'flowId' when calling find25");
+    // verify the required parameter 'triggerControllerSetDisabledRequest' is set
+    if (triggerControllerSetDisabledRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'triggerControllerSetDisabledRequest' when calling disabledTriggersByIds");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/triggers/{namespace}/{flowId}"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "flowId" + "\\}", apiClient.escapeString(apiClient.parameterToString(flowId)));
+    String localVarPath = "/api/v1/{tenant}/triggers/set-disabled/by-triggers"
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -576,10 +345,453 @@ public class TriggersApi extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Disable/enable triggers by query parameters
+   * 
+   * @param disabled The disabled state (required)
+   * @param tenant  (required)
+   * @param deleteExecutionsByQueryRequest  (required)
+   * @param q A string filter (optional)
+   * @param namespace A namespace filter prefix (optional)
+   * @return Object
+   * @throws ApiException if fails to make API call
+   */
+  public Object disabledTriggersByQuery(@javax.annotation.Nonnull Boolean disabled, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace) throws ApiException {
+    return this.disabledTriggersByQuery(disabled, tenant, deleteExecutionsByQueryRequest, q, namespace, Collections.emptyMap());
+  }
+
+
+  /**
+   * Disable/enable triggers by query parameters
+   * 
+   * @param disabled The disabled state (required)
+   * @param tenant  (required)
+   * @param deleteExecutionsByQueryRequest  (required)
+   * @param q A string filter (optional)
+   * @param namespace A namespace filter prefix (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return Object
+   * @throws ApiException if fails to make API call
+   */
+  public Object disabledTriggersByQuery(@javax.annotation.Nonnull Boolean disabled, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = deleteExecutionsByQueryRequest;
+    
+    // verify the required parameter 'disabled' is set
+    if (disabled == null) {
+      throw new ApiException(400, "Missing the required parameter 'disabled' when calling disabledTriggersByQuery");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling disabledTriggersByQuery");
+    }
+    
+    // verify the required parameter 'deleteExecutionsByQueryRequest' is set
+    if (deleteExecutionsByQueryRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'deleteExecutionsByQueryRequest' when calling disabledTriggersByQuery");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/triggers/set-disabled/by-query"
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
     localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
+    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
+    localVarQueryParams.addAll(apiClient.parameterToPair("disabled", disabled));
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Pause a backfill
+   * 
+   * @param tenant  (required)
+   * @param trigger  (required)
+   * @return Trigger
+   * @throws ApiException if fails to make API call
+   */
+  public Trigger pauseBackfill(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Trigger trigger) throws ApiException {
+    return this.pauseBackfill(tenant, trigger, Collections.emptyMap());
+  }
+
+
+  /**
+   * Pause a backfill
+   * 
+   * @param tenant  (required)
+   * @param trigger  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return Trigger
+   * @throws ApiException if fails to make API call
+   */
+  public Trigger pauseBackfill(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Trigger trigger, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = trigger;
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling pauseBackfill");
+    }
+    
+    // verify the required parameter 'trigger' is set
+    if (trigger == null) {
+      throw new ApiException(400, "Missing the required parameter 'trigger' when calling pauseBackfill");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/triggers/backfill/pause"
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<Trigger> localVarReturnType = new TypeReference<Trigger>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Pause backfill for given triggers
+   * 
+   * @param tenant  (required)
+   * @param trigger  (required)
+   * @return Object
+   * @throws ApiException if fails to make API call
+   */
+  public Object pauseBackfillByIds(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<Trigger> trigger) throws ApiException {
+    return this.pauseBackfillByIds(tenant, trigger, Collections.emptyMap());
+  }
+
+
+  /**
+   * Pause backfill for given triggers
+   * 
+   * @param tenant  (required)
+   * @param trigger  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return Object
+   * @throws ApiException if fails to make API call
+   */
+  public Object pauseBackfillByIds(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<Trigger> trigger, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = trigger;
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling pauseBackfillByIds");
+    }
+    
+    // verify the required parameter 'trigger' is set
+    if (trigger == null) {
+      throw new ApiException(400, "Missing the required parameter 'trigger' when calling pauseBackfillByIds");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/triggers/backfill/pause/by-triggers"
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Pause backfill for given triggers
+   * 
+   * @param tenant  (required)
+   * @param deleteExecutionsByQueryRequest  (required)
+   * @param q A string filter (optional)
+   * @param namespace A namespace filter prefix (optional)
+   * @return Object
+   * @throws ApiException if fails to make API call
+   */
+  public Object pauseBackfillByQuery(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace) throws ApiException {
+    return this.pauseBackfillByQuery(tenant, deleteExecutionsByQueryRequest, q, namespace, Collections.emptyMap());
+  }
+
+
+  /**
+   * Pause backfill for given triggers
+   * 
+   * @param tenant  (required)
+   * @param deleteExecutionsByQueryRequest  (required)
+   * @param q A string filter (optional)
+   * @param namespace A namespace filter prefix (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return Object
+   * @throws ApiException if fails to make API call
+   */
+  public Object pauseBackfillByQuery(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = deleteExecutionsByQueryRequest;
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling pauseBackfillByQuery");
+    }
+    
+    // verify the required parameter 'deleteExecutionsByQueryRequest' is set
+    if (deleteExecutionsByQueryRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'deleteExecutionsByQueryRequest' when calling pauseBackfillByQuery");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/triggers/backfill/pause/by-query"
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
+    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Restart a trigger
+   * 
+   * @param namespace The namespace (required)
+   * @param flowId The flow id (required)
+   * @param triggerId The trigger id (required)
+   * @param tenant  (required)
+   * @return Object
+   * @throws ApiException if fails to make API call
+   */
+  public Object restartTrigger(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String flowId, @javax.annotation.Nonnull String triggerId, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.restartTrigger(namespace, flowId, triggerId, tenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Restart a trigger
+   * 
+   * @param namespace The namespace (required)
+   * @param flowId The flow id (required)
+   * @param triggerId The trigger id (required)
+   * @param tenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return Object
+   * @throws ApiException if fails to make API call
+   */
+  public Object restartTrigger(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String flowId, @javax.annotation.Nonnull String triggerId, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'namespace' is set
+    if (namespace == null) {
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling restartTrigger");
+    }
+    
+    // verify the required parameter 'flowId' is set
+    if (flowId == null) {
+      throw new ApiException(400, "Missing the required parameter 'flowId' when calling restartTrigger");
+    }
+    
+    // verify the required parameter 'triggerId' is set
+    if (triggerId == null) {
+      throw new ApiException(400, "Missing the required parameter 'triggerId' when calling restartTrigger");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling restartTrigger");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/triggers/{namespace}/{flowId}/{triggerId}/restart"
+      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
+      .replaceAll("\\{" + "flowId" + "\\}", apiClient.escapeString(apiClient.parameterToString(flowId)))
+      .replaceAll("\\{" + "triggerId" + "\\}", apiClient.escapeString(apiClient.parameterToString(triggerId)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
     
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -595,9 +807,118 @@ public class TriggersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
-    TypeReference<PagedResultsTrigger> localVarReturnType = new TypeReference<PagedResultsTrigger>() {};
+    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Search for triggers
+   * 
+   * @param page The current page (required)
+   * @param size The current page size (required)
+   * @param tenant  (required)
+   * @param sort The sort of current page (optional)
+   * @param filters Filters (optional)
+   * @param q A string filter (optional)
+   * @param namespace A namespace filter prefix (optional)
+   * @param workerId The identifier of the worker currently evaluating the trigger (optional)
+   * @param flowId The flow identifier (optional)
+   * @return PagedResultsTriggerControllerTriggers
+   * @throws ApiException if fails to make API call
+   */
+  public PagedResultsTriggerControllerTriggers searchTriggers(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable List<QueryFilter> filters, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace, @javax.annotation.Nullable String workerId, @javax.annotation.Nullable String flowId) throws ApiException {
+    return this.searchTriggers(page, size, tenant, sort, filters, q, namespace, workerId, flowId, Collections.emptyMap());
+  }
+
+
+  /**
+   * Search for triggers
+   * 
+   * @param page The current page (required)
+   * @param size The current page size (required)
+   * @param tenant  (required)
+   * @param sort The sort of current page (optional)
+   * @param filters Filters (optional)
+   * @param q A string filter (optional)
+   * @param namespace A namespace filter prefix (optional)
+   * @param workerId The identifier of the worker currently evaluating the trigger (optional)
+   * @param flowId The flow identifier (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return PagedResultsTriggerControllerTriggers
+   * @throws ApiException if fails to make API call
+   */
+  public PagedResultsTriggerControllerTriggers searchTriggers(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable List<QueryFilter> filters, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace, @javax.annotation.Nullable String workerId, @javax.annotation.Nullable String flowId, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'page' is set
+    if (page == null) {
+      throw new ApiException(400, "Missing the required parameter 'page' when calling searchTriggers");
+    }
+    
+    // verify the required parameter 'size' is set
+    if (size == null) {
+      throw new ApiException(400, "Missing the required parameter 'size' when calling searchTriggers");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling searchTriggers");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/triggers/search"
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "filters", filters));
+    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
+    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
+    localVarQueryParams.addAll(apiClient.parameterToPair("workerId", workerId));
+    localVarQueryParams.addAll(apiClient.parameterToPair("flowId", flowId));
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
+
+    TypeReference<PagedResultsTriggerControllerTriggers> localVarReturnType = new TypeReference<PagedResultsTriggerControllerTriggers>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -628,8 +949,8 @@ public class TriggersApi extends BaseApi {
    * @return PagedResultsTrigger
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsTrigger find51(Integer page, Integer size, String namespace, String flowId, String tenant, List<String> sort, String q) throws ApiException {
-    return this.find51(page, size, namespace, flowId, tenant, sort, q, Collections.emptyMap());
+  public PagedResultsTrigger searchTriggersForFlow(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nullable String namespace, @javax.annotation.Nullable String flowId, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable String q) throws ApiException {
+    return this.searchTriggersForFlow(page, size, namespace, flowId, tenant, sort, q, Collections.emptyMap());
   }
 
 
@@ -647,32 +968,32 @@ public class TriggersApi extends BaseApi {
    * @return PagedResultsTrigger
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsTrigger find51(Integer page, Integer size, String namespace, String flowId, String tenant, List<String> sort, String q, Map<String, String> additionalHeaders) throws ApiException {
+  public PagedResultsTrigger searchTriggersForFlow(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nullable String namespace, @javax.annotation.Nullable String flowId, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable List<String> sort, @javax.annotation.Nullable String q, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'page' is set
     if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling find51");
+      throw new ApiException(400, "Missing the required parameter 'page' when calling searchTriggersForFlow");
     }
     
     // verify the required parameter 'size' is set
     if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling find51");
+      throw new ApiException(400, "Missing the required parameter 'size' when calling searchTriggersForFlow");
     }
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling find51");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling searchTriggersForFlow");
     }
     
     // verify the required parameter 'flowId' is set
     if (flowId == null) {
-      throw new ApiException(400, "Missing the required parameter 'flowId' when calling find51");
+      throw new ApiException(400, "Missing the required parameter 'flowId' when calling searchTriggersForFlow");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling find51");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling searchTriggersForFlow");
     }
     
     // create path and map variables
@@ -708,7 +1029,7 @@ public class TriggersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<PagedResultsTrigger> localVarReturnType = new TypeReference<PagedResultsTrigger>() {};
     return apiClient.invokeAPI(
@@ -729,1283 +1050,6 @@ public class TriggersApi extends BaseApi {
   }
 
   /**
-   * Pause a backfill
-   * 
-   * @param trigger  (required)
-   * @return Trigger
-   * @throws ApiException if fails to make API call
-   */
-  public Trigger pauseBackfill(Trigger trigger) throws ApiException {
-    return this.pauseBackfill(trigger, Collections.emptyMap());
-  }
-
-
-  /**
-   * Pause a backfill
-   * 
-   * @param trigger  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Trigger
-   * @throws ApiException if fails to make API call
-   */
-  public Trigger pauseBackfill(Trigger trigger, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = trigger;
-    
-    // verify the required parameter 'trigger' is set
-    if (trigger == null) {
-      throw new ApiException(400, "Missing the required parameter 'trigger' when calling pauseBackfill");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/triggers/backfill/pause";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Trigger> localVarReturnType = new TypeReference<Trigger>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Pause a backfill
-   * 
-   * @param tenant  (required)
-   * @param trigger  (required)
-   * @return Trigger
-   * @throws ApiException if fails to make API call
-   */
-  public Trigger pauseBackfill1(String tenant, Trigger trigger) throws ApiException {
-    return this.pauseBackfill1(tenant, trigger, Collections.emptyMap());
-  }
-
-
-  /**
-   * Pause a backfill
-   * 
-   * @param tenant  (required)
-   * @param trigger  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Trigger
-   * @throws ApiException if fails to make API call
-   */
-  public Trigger pauseBackfill1(String tenant, Trigger trigger, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = trigger;
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling pauseBackfill1");
-    }
-    
-    // verify the required parameter 'trigger' is set
-    if (trigger == null) {
-      throw new ApiException(400, "Missing the required parameter 'trigger' when calling pauseBackfill1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/triggers/backfill/pause"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Trigger> localVarReturnType = new TypeReference<Trigger>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Pause backfill for given triggers
-   * 
-   * @param trigger  (required)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object pauseBackfillByIds(List<Trigger> trigger) throws ApiException {
-    return this.pauseBackfillByIds(trigger, Collections.emptyMap());
-  }
-
-
-  /**
-   * Pause backfill for given triggers
-   * 
-   * @param trigger  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object pauseBackfillByIds(List<Trigger> trigger, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = trigger;
-    
-    // verify the required parameter 'trigger' is set
-    if (trigger == null) {
-      throw new ApiException(400, "Missing the required parameter 'trigger' when calling pauseBackfillByIds");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/triggers/backfill/pause/by-triggers";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Pause backfill for given triggers
-   * 
-   * @param tenant  (required)
-   * @param trigger  (required)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object pauseBackfillByIds1(String tenant, List<Trigger> trigger) throws ApiException {
-    return this.pauseBackfillByIds1(tenant, trigger, Collections.emptyMap());
-  }
-
-
-  /**
-   * Pause backfill for given triggers
-   * 
-   * @param tenant  (required)
-   * @param trigger  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object pauseBackfillByIds1(String tenant, List<Trigger> trigger, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = trigger;
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling pauseBackfillByIds1");
-    }
-    
-    // verify the required parameter 'trigger' is set
-    if (trigger == null) {
-      throw new ApiException(400, "Missing the required parameter 'trigger' when calling pauseBackfillByIds1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/triggers/backfill/pause/by-triggers"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Pause backfill for given triggers
-   * 
-   * @param q A string filter (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object pauseBackfillByQuery(String q, String namespace) throws ApiException {
-    return this.pauseBackfillByQuery(q, namespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * Pause backfill for given triggers
-   * 
-   * @param q A string filter (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object pauseBackfillByQuery(String q, String namespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/triggers/backfill/pause/by-query";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Pause backfill for given triggers
-   * 
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object pauseBackfillByQuery1(String tenant, String q, String namespace) throws ApiException {
-    return this.pauseBackfillByQuery1(tenant, q, namespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * Pause backfill for given triggers
-   * 
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object pauseBackfillByQuery1(String tenant, String q, String namespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling pauseBackfillByQuery1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/triggers/backfill/pause/by-query"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Restart a trigger
-   * 
-   * @param namespace The namespace (required)
-   * @param flowId The flow id (required)
-   * @param triggerId The trigger id (required)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object restart1(String namespace, String flowId, String triggerId) throws ApiException {
-    return this.restart1(namespace, flowId, triggerId, Collections.emptyMap());
-  }
-
-
-  /**
-   * Restart a trigger
-   * 
-   * @param namespace The namespace (required)
-   * @param flowId The flow id (required)
-   * @param triggerId The trigger id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object restart1(String namespace, String flowId, String triggerId, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling restart1");
-    }
-    
-    // verify the required parameter 'flowId' is set
-    if (flowId == null) {
-      throw new ApiException(400, "Missing the required parameter 'flowId' when calling restart1");
-    }
-    
-    // verify the required parameter 'triggerId' is set
-    if (triggerId == null) {
-      throw new ApiException(400, "Missing the required parameter 'triggerId' when calling restart1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/triggers/{namespace}/{flowId}/{triggerId}/restart"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "flowId" + "\\}", apiClient.escapeString(apiClient.parameterToString(flowId)))
-      .replaceAll("\\{" + "triggerId" + "\\}", apiClient.escapeString(apiClient.parameterToString(triggerId)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Restart a trigger
-   * 
-   * @param namespace The namespace (required)
-   * @param flowId The flow id (required)
-   * @param triggerId The trigger id (required)
-   * @param tenant  (required)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object restart3(String namespace, String flowId, String triggerId, String tenant) throws ApiException {
-    return this.restart3(namespace, flowId, triggerId, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Restart a trigger
-   * 
-   * @param namespace The namespace (required)
-   * @param flowId The flow id (required)
-   * @param triggerId The trigger id (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object restart3(String namespace, String flowId, String triggerId, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling restart3");
-    }
-    
-    // verify the required parameter 'flowId' is set
-    if (flowId == null) {
-      throw new ApiException(400, "Missing the required parameter 'flowId' when calling restart3");
-    }
-    
-    // verify the required parameter 'triggerId' is set
-    if (triggerId == null) {
-      throw new ApiException(400, "Missing the required parameter 'triggerId' when calling restart3");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling restart3");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/triggers/{namespace}/{flowId}/{triggerId}/restart"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "flowId" + "\\}", apiClient.escapeString(apiClient.parameterToString(flowId)))
-      .replaceAll("\\{" + "triggerId" + "\\}", apiClient.escapeString(apiClient.parameterToString(triggerId)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Search for triggers
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param sort The sort of current page (optional)
-   * @param q A string filter (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param workerId The identifier of the worker currently evaluating the trigger (optional)
-   * @param flowId The flow identifier (optional)
-   * @return PagedResultsTriggerControllerTriggers
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsTriggerControllerTriggers search4(Integer page, Integer size, List<String> sort, String q, String namespace, String workerId, String flowId) throws ApiException {
-    return this.search4(page, size, sort, q, namespace, workerId, flowId, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for triggers
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param sort The sort of current page (optional)
-   * @param q A string filter (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param workerId The identifier of the worker currently evaluating the trigger (optional)
-   * @param flowId The flow identifier (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsTriggerControllerTriggers
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsTriggerControllerTriggers search4(Integer page, Integer size, List<String> sort, String q, String namespace, String workerId, String flowId, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling search4");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling search4");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/triggers/search";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
-    localVarQueryParams.addAll(apiClient.parameterToPair("workerId", workerId));
-    localVarQueryParams.addAll(apiClient.parameterToPair("flowId", flowId));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsTriggerControllerTriggers> localVarReturnType = new TypeReference<PagedResultsTriggerControllerTriggers>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Search for triggers
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param tenant  (required)
-   * @param sort The sort of current page (optional)
-   * @param q A string filter (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param workerId The identifier of the worker currently evaluating the trigger (optional)
-   * @param flowId The flow identifier (optional)
-   * @return PagedResultsTriggerControllerTriggers
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsTriggerControllerTriggers search9(Integer page, Integer size, String tenant, List<String> sort, String q, String namespace, String workerId, String flowId) throws ApiException {
-    return this.search9(page, size, tenant, sort, q, namespace, workerId, flowId, Collections.emptyMap());
-  }
-
-
-  /**
-   * Search for triggers
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param tenant  (required)
-   * @param sort The sort of current page (optional)
-   * @param q A string filter (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param workerId The identifier of the worker currently evaluating the trigger (optional)
-   * @param flowId The flow identifier (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsTriggerControllerTriggers
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsTriggerControllerTriggers search9(Integer page, Integer size, String tenant, List<String> sort, String q, String namespace, String workerId, String flowId, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling search9");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling search9");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling search9");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/triggers/search"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
-    localVarQueryParams.addAll(apiClient.parameterToPair("workerId", workerId));
-    localVarQueryParams.addAll(apiClient.parameterToPair("flowId", flowId));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsTriggerControllerTriggers> localVarReturnType = new TypeReference<PagedResultsTriggerControllerTriggers>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete backfill for given triggers
-   * 
-   * @param triggerControllerSetDisabledRequest  (required)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object setDisabledByIds(TriggerControllerSetDisabledRequest triggerControllerSetDisabledRequest) throws ApiException {
-    return this.setDisabledByIds(triggerControllerSetDisabledRequest, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete backfill for given triggers
-   * 
-   * @param triggerControllerSetDisabledRequest  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object setDisabledByIds(TriggerControllerSetDisabledRequest triggerControllerSetDisabledRequest, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = triggerControllerSetDisabledRequest;
-    
-    // verify the required parameter 'triggerControllerSetDisabledRequest' is set
-    if (triggerControllerSetDisabledRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'triggerControllerSetDisabledRequest' when calling setDisabledByIds");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/triggers/set-disabled/by-triggers";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete backfill for given triggers
-   * 
-   * @param tenant  (required)
-   * @param triggerControllerSetDisabledRequest  (required)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object setDisabledByIds1(String tenant, TriggerControllerSetDisabledRequest triggerControllerSetDisabledRequest) throws ApiException {
-    return this.setDisabledByIds1(tenant, triggerControllerSetDisabledRequest, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete backfill for given triggers
-   * 
-   * @param tenant  (required)
-   * @param triggerControllerSetDisabledRequest  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object setDisabledByIds1(String tenant, TriggerControllerSetDisabledRequest triggerControllerSetDisabledRequest, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = triggerControllerSetDisabledRequest;
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling setDisabledByIds1");
-    }
-    
-    // verify the required parameter 'triggerControllerSetDisabledRequest' is set
-    if (triggerControllerSetDisabledRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'triggerControllerSetDisabledRequest' when calling setDisabledByIds1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/triggers/set-disabled/by-triggers"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete backfill for given triggers
-   * 
-   * @param disabled The disabled state (required)
-   * @param q A string filter (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object setDisabledByQuery(Boolean disabled, String q, String namespace) throws ApiException {
-    return this.setDisabledByQuery(disabled, q, namespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete backfill for given triggers
-   * 
-   * @param disabled The disabled state (required)
-   * @param q A string filter (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object setDisabledByQuery(Boolean disabled, String q, String namespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'disabled' is set
-    if (disabled == null) {
-      throw new ApiException(400, "Missing the required parameter 'disabled' when calling setDisabledByQuery");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/triggers/set-disabled/by-query";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
-    localVarQueryParams.addAll(apiClient.parameterToPair("disabled", disabled));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete backfill for given triggers
-   * 
-   * @param disabled The disabled state (required)
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object setDisabledByQuery1(Boolean disabled, String tenant, String q, String namespace) throws ApiException {
-    return this.setDisabledByQuery1(disabled, tenant, q, namespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete backfill for given triggers
-   * 
-   * @param disabled The disabled state (required)
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object setDisabledByQuery1(Boolean disabled, String tenant, String q, String namespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'disabled' is set
-    if (disabled == null) {
-      throw new ApiException(400, "Missing the required parameter 'disabled' when calling setDisabledByQuery1");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling setDisabledByQuery1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/triggers/set-disabled/by-query"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
-    localVarQueryParams.addAll(apiClient.parameterToPair("disabled", disabled));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Unlock a trigger
-   * 
-   * @param namespace The namespace (required)
-   * @param flowId The flow id (required)
-   * @param triggerId The trigger id (required)
-   * @return Trigger
-   * @throws ApiException if fails to make API call
-   */
-  public Trigger unlock(String namespace, String flowId, String triggerId) throws ApiException {
-    return this.unlock(namespace, flowId, triggerId, Collections.emptyMap());
-  }
-
-
-  /**
-   * Unlock a trigger
-   * 
-   * @param namespace The namespace (required)
-   * @param flowId The flow id (required)
-   * @param triggerId The trigger id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Trigger
-   * @throws ApiException if fails to make API call
-   */
-  public Trigger unlock(String namespace, String flowId, String triggerId, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'namespace' is set
-    if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling unlock");
-    }
-    
-    // verify the required parameter 'flowId' is set
-    if (flowId == null) {
-      throw new ApiException(400, "Missing the required parameter 'flowId' when calling unlock");
-    }
-    
-    // verify the required parameter 'triggerId' is set
-    if (triggerId == null) {
-      throw new ApiException(400, "Missing the required parameter 'triggerId' when calling unlock");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/triggers/{namespace}/{flowId}/{triggerId}/unlock"
-      .replaceAll("\\{" + "namespace" + "\\}", apiClient.escapeString(apiClient.parameterToString(namespace)))
-      .replaceAll("\\{" + "flowId" + "\\}", apiClient.escapeString(apiClient.parameterToString(flowId)))
-      .replaceAll("\\{" + "triggerId" + "\\}", apiClient.escapeString(apiClient.parameterToString(triggerId)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Trigger> localVarReturnType = new TypeReference<Trigger>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
    * Unlock a trigger
    * 
    * @param namespace The namespace (required)
@@ -2015,8 +1059,8 @@ public class TriggersApi extends BaseApi {
    * @return Trigger
    * @throws ApiException if fails to make API call
    */
-  public Trigger unlock1(String namespace, String flowId, String triggerId, String tenant) throws ApiException {
-    return this.unlock1(namespace, flowId, triggerId, tenant, Collections.emptyMap());
+  public Trigger unlockTrigger(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String flowId, @javax.annotation.Nonnull String triggerId, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.unlockTrigger(namespace, flowId, triggerId, tenant, Collections.emptyMap());
   }
 
 
@@ -2031,27 +1075,27 @@ public class TriggersApi extends BaseApi {
    * @return Trigger
    * @throws ApiException if fails to make API call
    */
-  public Trigger unlock1(String namespace, String flowId, String triggerId, String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public Trigger unlockTrigger(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String flowId, @javax.annotation.Nonnull String triggerId, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'namespace' is set
     if (namespace == null) {
-      throw new ApiException(400, "Missing the required parameter 'namespace' when calling unlock1");
+      throw new ApiException(400, "Missing the required parameter 'namespace' when calling unlockTrigger");
     }
     
     // verify the required parameter 'flowId' is set
     if (flowId == null) {
-      throw new ApiException(400, "Missing the required parameter 'flowId' when calling unlock1");
+      throw new ApiException(400, "Missing the required parameter 'flowId' when calling unlockTrigger");
     }
     
     // verify the required parameter 'triggerId' is set
     if (triggerId == null) {
-      throw new ApiException(400, "Missing the required parameter 'triggerId' when calling unlock1");
+      throw new ApiException(400, "Missing the required parameter 'triggerId' when calling unlockTrigger");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling unlock1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling unlockTrigger");
     }
     
     // create path and map variables
@@ -2084,7 +1128,7 @@ public class TriggersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Trigger> localVarReturnType = new TypeReference<Trigger>() {};
     return apiClient.invokeAPI(
@@ -2107,87 +1151,13 @@ public class TriggersApi extends BaseApi {
   /**
    * Unlock given triggers
    * 
-   * @param trigger  (required)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object unlockByIds(List<Trigger> trigger) throws ApiException {
-    return this.unlockByIds(trigger, Collections.emptyMap());
-  }
-
-
-  /**
-   * Unlock given triggers
-   * 
-   * @param trigger  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object unlockByIds(List<Trigger> trigger, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = trigger;
-    
-    // verify the required parameter 'trigger' is set
-    if (trigger == null) {
-      throw new ApiException(400, "Missing the required parameter 'trigger' when calling unlockByIds");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/triggers/unlock/by-triggers";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Unlock given triggers
-   * 
    * @param tenant  (required)
    * @param trigger  (required)
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object unlockByIds1(String tenant, List<Trigger> trigger) throws ApiException {
-    return this.unlockByIds1(tenant, trigger, Collections.emptyMap());
+  public Object unlockTriggersByIds(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<Trigger> trigger) throws ApiException {
+    return this.unlockTriggersByIds(tenant, trigger, Collections.emptyMap());
   }
 
 
@@ -2200,17 +1170,17 @@ public class TriggersApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object unlockByIds1(String tenant, List<Trigger> trigger, Map<String, String> additionalHeaders) throws ApiException {
+  public Object unlockTriggersByIds(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<Trigger> trigger, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = trigger;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling unlockByIds1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling unlockTriggersByIds");
     }
     
     // verify the required parameter 'trigger' is set
     if (trigger == null) {
-      throw new ApiException(400, "Missing the required parameter 'trigger' when calling unlockByIds1");
+      throw new ApiException(400, "Missing the required parameter 'trigger' when calling unlockTriggersByIds");
     }
     
     // create path and map variables
@@ -2240,80 +1210,7 @@ public class TriggersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Unlock triggers by query parameters
-   * 
-   * @param q A string filter (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object unlockByQuery(String q, String namespace) throws ApiException {
-    return this.unlockByQuery(q, namespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * Unlock triggers by query parameters
-   * 
-   * @param q A string filter (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object unlockByQuery(String q, String namespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/triggers/unlock/by-query";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
@@ -2337,13 +1234,14 @@ public class TriggersApi extends BaseApi {
    * Unlock triggers by query parameters
    * 
    * @param tenant  (required)
+   * @param deleteExecutionsByQueryRequest  (required)
    * @param q A string filter (optional)
    * @param namespace A namespace filter prefix (optional)
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object unlockByQuery1(String tenant, String q, String namespace) throws ApiException {
-    return this.unlockByQuery1(tenant, q, namespace, Collections.emptyMap());
+  public Object unlockTriggersByQuery(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace) throws ApiException {
+    return this.unlockTriggersByQuery(tenant, deleteExecutionsByQueryRequest, q, namespace, Collections.emptyMap());
   }
 
 
@@ -2351,18 +1249,24 @@ public class TriggersApi extends BaseApi {
    * Unlock triggers by query parameters
    * 
    * @param tenant  (required)
+   * @param deleteExecutionsByQueryRequest  (required)
    * @param q A string filter (optional)
    * @param namespace A namespace filter prefix (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object unlockByQuery1(String tenant, String q, String namespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
+  public Object unlockTriggersByQuery(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = deleteExecutionsByQueryRequest;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling unlockByQuery1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling unlockTriggersByQuery");
+    }
+    
+    // verify the required parameter 'deleteExecutionsByQueryRequest' is set
+    if (deleteExecutionsByQueryRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'deleteExecutionsByQueryRequest' when calling unlockTriggersByQuery");
     }
     
     // create path and map variables
@@ -2390,11 +1294,11 @@ public class TriggersApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
@@ -2417,87 +1321,13 @@ public class TriggersApi extends BaseApi {
   /**
    * Unpause a backfill
    * 
-   * @param trigger  (required)
-   * @return Trigger
-   * @throws ApiException if fails to make API call
-   */
-  public Trigger unpauseBackfill(Trigger trigger) throws ApiException {
-    return this.unpauseBackfill(trigger, Collections.emptyMap());
-  }
-
-
-  /**
-   * Unpause a backfill
-   * 
-   * @param trigger  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Trigger
-   * @throws ApiException if fails to make API call
-   */
-  public Trigger unpauseBackfill(Trigger trigger, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = trigger;
-    
-    // verify the required parameter 'trigger' is set
-    if (trigger == null) {
-      throw new ApiException(400, "Missing the required parameter 'trigger' when calling unpauseBackfill");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/triggers/backfill/unpause";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Trigger> localVarReturnType = new TypeReference<Trigger>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Unpause a backfill
-   * 
    * @param tenant  (required)
    * @param trigger  (required)
    * @return Trigger
    * @throws ApiException if fails to make API call
    */
-  public Trigger unpauseBackfill1(String tenant, Trigger trigger) throws ApiException {
-    return this.unpauseBackfill1(tenant, trigger, Collections.emptyMap());
+  public Trigger unpauseBackfill(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Trigger trigger) throws ApiException {
+    return this.unpauseBackfill(tenant, trigger, Collections.emptyMap());
   }
 
 
@@ -2510,17 +1340,17 @@ public class TriggersApi extends BaseApi {
    * @return Trigger
    * @throws ApiException if fails to make API call
    */
-  public Trigger unpauseBackfill1(String tenant, Trigger trigger, Map<String, String> additionalHeaders) throws ApiException {
+  public Trigger unpauseBackfill(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Trigger trigger, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = trigger;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling unpauseBackfill1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling unpauseBackfill");
     }
     
     // verify the required parameter 'trigger' is set
     if (trigger == null) {
-      throw new ApiException(400, "Missing the required parameter 'trigger' when calling unpauseBackfill1");
+      throw new ApiException(400, "Missing the required parameter 'trigger' when calling unpauseBackfill");
     }
     
     // create path and map variables
@@ -2550,7 +1380,7 @@ public class TriggersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Trigger> localVarReturnType = new TypeReference<Trigger>() {};
     return apiClient.invokeAPI(
@@ -2573,87 +1403,13 @@ public class TriggersApi extends BaseApi {
   /**
    * Unpause backfill for given triggers
    * 
-   * @param trigger  (required)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object unpauseBackfillByIds(List<Trigger> trigger) throws ApiException {
-    return this.unpauseBackfillByIds(trigger, Collections.emptyMap());
-  }
-
-
-  /**
-   * Unpause backfill for given triggers
-   * 
-   * @param trigger  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object unpauseBackfillByIds(List<Trigger> trigger, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = trigger;
-    
-    // verify the required parameter 'trigger' is set
-    if (trigger == null) {
-      throw new ApiException(400, "Missing the required parameter 'trigger' when calling unpauseBackfillByIds");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/triggers/backfill/unpause/by-triggers";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Unpause backfill for given triggers
-   * 
    * @param tenant  (required)
    * @param trigger  (required)
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object unpauseBackfillByIds1(String tenant, List<Trigger> trigger) throws ApiException {
-    return this.unpauseBackfillByIds1(tenant, trigger, Collections.emptyMap());
+  public Object unpauseBackfillByIds(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<Trigger> trigger) throws ApiException {
+    return this.unpauseBackfillByIds(tenant, trigger, Collections.emptyMap());
   }
 
 
@@ -2666,17 +1422,17 @@ public class TriggersApi extends BaseApi {
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object unpauseBackfillByIds1(String tenant, List<Trigger> trigger, Map<String, String> additionalHeaders) throws ApiException {
+  public Object unpauseBackfillByIds(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull List<Trigger> trigger, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = trigger;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling unpauseBackfillByIds1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling unpauseBackfillByIds");
     }
     
     // verify the required parameter 'trigger' is set
     if (trigger == null) {
-      throw new ApiException(400, "Missing the required parameter 'trigger' when calling unpauseBackfillByIds1");
+      throw new ApiException(400, "Missing the required parameter 'trigger' when calling unpauseBackfillByIds");
     }
     
     // create path and map variables
@@ -2706,80 +1462,7 @@ public class TriggersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Unpause backfill for given triggers
-   * 
-   * @param q A string filter (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object unpauseBackfillByQuery(String q, String namespace) throws ApiException {
-    return this.unpauseBackfillByQuery(q, namespace, Collections.emptyMap());
-  }
-
-
-  /**
-   * Unpause backfill for given triggers
-   * 
-   * @param q A string filter (optional)
-   * @param namespace A namespace filter prefix (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object unpauseBackfillByQuery(String q, String namespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/triggers/backfill/unpause/by-query";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("namespace", namespace));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
@@ -2803,13 +1486,14 @@ public class TriggersApi extends BaseApi {
    * Unpause backfill for given triggers
    * 
    * @param tenant  (required)
+   * @param deleteExecutionsByQueryRequest  (required)
    * @param q A string filter (optional)
    * @param namespace A namespace filter prefix (optional)
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object unpauseBackfillByQuery1(String tenant, String q, String namespace) throws ApiException {
-    return this.unpauseBackfillByQuery1(tenant, q, namespace, Collections.emptyMap());
+  public Object unpauseBackfillByQuery(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace) throws ApiException {
+    return this.unpauseBackfillByQuery(tenant, deleteExecutionsByQueryRequest, q, namespace, Collections.emptyMap());
   }
 
 
@@ -2817,18 +1501,24 @@ public class TriggersApi extends BaseApi {
    * Unpause backfill for given triggers
    * 
    * @param tenant  (required)
+   * @param deleteExecutionsByQueryRequest  (required)
    * @param q A string filter (optional)
    * @param namespace A namespace filter prefix (optional)
    * @param additionalHeaders additionalHeaders for this call
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object unpauseBackfillByQuery1(String tenant, String q, String namespace, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
+  public Object unpauseBackfillByQuery(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest, @javax.annotation.Nullable String q, @javax.annotation.Nullable String namespace, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = deleteExecutionsByQueryRequest;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling unpauseBackfillByQuery1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling unpauseBackfillByQuery");
+    }
+    
+    // verify the required parameter 'deleteExecutionsByQueryRequest' is set
+    if (deleteExecutionsByQueryRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'deleteExecutionsByQueryRequest' when calling unpauseBackfillByQuery");
     }
     
     // create path and map variables
@@ -2856,11 +1546,11 @@ public class TriggersApi extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
@@ -2883,87 +1573,13 @@ public class TriggersApi extends BaseApi {
   /**
    * Update a trigger
    * 
-   * @param trigger  (required)
-   * @return Trigger
-   * @throws ApiException if fails to make API call
-   */
-  public Trigger update17(Trigger trigger) throws ApiException {
-    return this.update17(trigger, Collections.emptyMap());
-  }
-
-
-  /**
-   * Update a trigger
-   * 
-   * @param trigger  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Trigger
-   * @throws ApiException if fails to make API call
-   */
-  public Trigger update17(Trigger trigger, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = trigger;
-    
-    // verify the required parameter 'trigger' is set
-    if (trigger == null) {
-      throw new ApiException(400, "Missing the required parameter 'trigger' when calling update17");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/triggers";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Trigger> localVarReturnType = new TypeReference<Trigger>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Update a trigger
-   * 
    * @param tenant  (required)
    * @param trigger  (required)
    * @return Trigger
    * @throws ApiException if fails to make API call
    */
-  public Trigger update35(String tenant, Trigger trigger) throws ApiException {
-    return this.update35(tenant, trigger, Collections.emptyMap());
+  public Trigger updateTrigger(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Trigger trigger) throws ApiException {
+    return this.updateTrigger(tenant, trigger, Collections.emptyMap());
   }
 
 
@@ -2976,17 +1592,17 @@ public class TriggersApi extends BaseApi {
    * @return Trigger
    * @throws ApiException if fails to make API call
    */
-  public Trigger update35(String tenant, Trigger trigger, Map<String, String> additionalHeaders) throws ApiException {
+  public Trigger updateTrigger(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull Trigger trigger, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = trigger;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling update35");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling updateTrigger");
     }
     
     // verify the required parameter 'trigger' is set
     if (trigger == null) {
-      throw new ApiException(400, "Missing the required parameter 'trigger' when calling update35");
+      throw new ApiException(400, "Missing the required parameter 'trigger' when calling updateTrigger");
     }
     
     // create path and map variables
@@ -3016,7 +1632,7 @@ public class TriggersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Trigger> localVarReturnType = new TypeReference<Trigger>() {};
     return apiClient.invokeAPI(
@@ -3058,7 +1674,7 @@ public class TriggersApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

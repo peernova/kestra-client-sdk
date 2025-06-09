@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class WorkerGroupsApi extends BaseApi {
 
   public WorkerGroupsApi() {
@@ -47,25 +47,32 @@ public class WorkerGroupsApi extends BaseApi {
   /**
    * Create a new worker group.
    * 
-   * @param clusterControllerApiCreateOrUpdateWorkerGroupRequest  (required)
+   * @param tenant  (required)
+   * @param clusterControllerApiCreateOrUpdateWorkerGroupRequest The worker group definition (required)
    * @return ClusterControllerApiWorkerGroup
    * @throws ApiException if fails to make API call
    */
-  public ClusterControllerApiWorkerGroup createWorkerGroup(ClusterControllerApiCreateOrUpdateWorkerGroupRequest clusterControllerApiCreateOrUpdateWorkerGroupRequest) throws ApiException {
-    return this.createWorkerGroup(clusterControllerApiCreateOrUpdateWorkerGroupRequest, Collections.emptyMap());
+  public ClusterControllerApiWorkerGroup createWorkerGroup(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ClusterControllerApiCreateOrUpdateWorkerGroupRequest clusterControllerApiCreateOrUpdateWorkerGroupRequest) throws ApiException {
+    return this.createWorkerGroup(tenant, clusterControllerApiCreateOrUpdateWorkerGroupRequest, Collections.emptyMap());
   }
 
 
   /**
    * Create a new worker group.
    * 
-   * @param clusterControllerApiCreateOrUpdateWorkerGroupRequest  (required)
+   * @param tenant  (required)
+   * @param clusterControllerApiCreateOrUpdateWorkerGroupRequest The worker group definition (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ClusterControllerApiWorkerGroup
    * @throws ApiException if fails to make API call
    */
-  public ClusterControllerApiWorkerGroup createWorkerGroup(ClusterControllerApiCreateOrUpdateWorkerGroupRequest clusterControllerApiCreateOrUpdateWorkerGroupRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public ClusterControllerApiWorkerGroup createWorkerGroup(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ClusterControllerApiCreateOrUpdateWorkerGroupRequest clusterControllerApiCreateOrUpdateWorkerGroupRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = clusterControllerApiCreateOrUpdateWorkerGroupRequest;
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling createWorkerGroup");
+    }
     
     // verify the required parameter 'clusterControllerApiCreateOrUpdateWorkerGroupRequest' is set
     if (clusterControllerApiCreateOrUpdateWorkerGroupRequest == null) {
@@ -73,87 +80,6 @@ public class WorkerGroupsApi extends BaseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/cluster/workergroups";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ClusterControllerApiWorkerGroup> localVarReturnType = new TypeReference<ClusterControllerApiWorkerGroup>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Create a new worker group.
-   * 
-   * @param tenant  (required)
-   * @param clusterControllerApiCreateOrUpdateWorkerGroupRequest  (required)
-   * @return ClusterControllerApiWorkerGroup
-   * @throws ApiException if fails to make API call
-   */
-  public ClusterControllerApiWorkerGroup createWorkerGroup1(String tenant, ClusterControllerApiCreateOrUpdateWorkerGroupRequest clusterControllerApiCreateOrUpdateWorkerGroupRequest) throws ApiException {
-    return this.createWorkerGroup1(tenant, clusterControllerApiCreateOrUpdateWorkerGroupRequest, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create a new worker group.
-   * 
-   * @param tenant  (required)
-   * @param clusterControllerApiCreateOrUpdateWorkerGroupRequest  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ClusterControllerApiWorkerGroup
-   * @throws ApiException if fails to make API call
-   */
-  public ClusterControllerApiWorkerGroup createWorkerGroup1(String tenant, ClusterControllerApiCreateOrUpdateWorkerGroupRequest clusterControllerApiCreateOrUpdateWorkerGroupRequest, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = clusterControllerApiCreateOrUpdateWorkerGroupRequest;
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling createWorkerGroup1");
-    }
-    
-    // verify the required parameter 'clusterControllerApiCreateOrUpdateWorkerGroupRequest' is set
-    if (clusterControllerApiCreateOrUpdateWorkerGroupRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'clusterControllerApiCreateOrUpdateWorkerGroupRequest' when calling createWorkerGroup1");
-    }
-    
-    // create path and map variables
     String localVarPath = "/api/v1/{tenant}/cluster/workergroups"
       .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
@@ -180,7 +106,7 @@ public class WorkerGroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<ClusterControllerApiWorkerGroup> localVarReturnType = new TypeReference<ClusterControllerApiWorkerGroup>() {};
     return apiClient.invokeAPI(
@@ -204,11 +130,12 @@ public class WorkerGroupsApi extends BaseApi {
    * Delete an existing worker group.
    * 
    * @param id  (required)
+   * @param tenant  (required)
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object deleteWorkerGroupById(String id) throws ApiException {
-    return this.deleteWorkerGroupById(id, Collections.emptyMap());
+  public Object deleteWorkerGroupById(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.deleteWorkerGroupById(id, tenant, Collections.emptyMap());
   }
 
 
@@ -216,11 +143,12 @@ public class WorkerGroupsApi extends BaseApi {
    * Delete an existing worker group.
    * 
    * @param id  (required)
+   * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object deleteWorkerGroupById(String id, Map<String, String> additionalHeaders) throws ApiException {
+  public Object deleteWorkerGroupById(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -228,86 +156,9 @@ public class WorkerGroupsApi extends BaseApi {
       throw new ApiException(400, "Missing the required parameter 'id' when calling deleteWorkerGroupById");
     }
     
-    // create path and map variables
-    String localVarPath = "/api/v1/cluster/workergroups/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Delete an existing worker group.
-   * 
-   * @param id  (required)
-   * @param tenant  (required)
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object deleteWorkerGroupById1(String id, String tenant) throws ApiException {
-    return this.deleteWorkerGroupById1(id, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete an existing worker group.
-   * 
-   * @param id  (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Object
-   * @throws ApiException if fails to make API call
-   */
-  public Object deleteWorkerGroupById1(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteWorkerGroupById1");
-    }
-    
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteWorkerGroupById1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteWorkerGroupById");
     }
     
     // create path and map variables
@@ -338,7 +189,7 @@ public class WorkerGroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<Object> localVarReturnType = new TypeReference<Object>() {};
     return apiClient.invokeAPI(
@@ -362,11 +213,12 @@ public class WorkerGroupsApi extends BaseApi {
    * Get details about a worker group.
    * 
    * @param id  (required)
+   * @param tenant  (required)
    * @return ClusterControllerApiWorkerGroupDetails
    * @throws ApiException if fails to make API call
    */
-  public ClusterControllerApiWorkerGroupDetails getWorkerGroupById(String id) throws ApiException {
-    return this.getWorkerGroupById(id, Collections.emptyMap());
+  public ClusterControllerApiWorkerGroupDetails getWorkerGroupById(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getWorkerGroupById(id, tenant, Collections.emptyMap());
   }
 
 
@@ -374,11 +226,12 @@ public class WorkerGroupsApi extends BaseApi {
    * Get details about a worker group.
    * 
    * @param id  (required)
+   * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ClusterControllerApiWorkerGroupDetails
    * @throws ApiException if fails to make API call
    */
-  public ClusterControllerApiWorkerGroupDetails getWorkerGroupById(String id, Map<String, String> additionalHeaders) throws ApiException {
+  public ClusterControllerApiWorkerGroupDetails getWorkerGroupById(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -386,86 +239,9 @@ public class WorkerGroupsApi extends BaseApi {
       throw new ApiException(400, "Missing the required parameter 'id' when calling getWorkerGroupById");
     }
     
-    // create path and map variables
-    String localVarPath = "/api/v1/cluster/workergroups/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ClusterControllerApiWorkerGroupDetails> localVarReturnType = new TypeReference<ClusterControllerApiWorkerGroupDetails>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get details about a worker group.
-   * 
-   * @param id  (required)
-   * @param tenant  (required)
-   * @return ClusterControllerApiWorkerGroupDetails
-   * @throws ApiException if fails to make API call
-   */
-  public ClusterControllerApiWorkerGroupDetails getWorkerGroupById1(String id, String tenant) throws ApiException {
-    return this.getWorkerGroupById1(id, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get details about a worker group.
-   * 
-   * @param id  (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ClusterControllerApiWorkerGroupDetails
-   * @throws ApiException if fails to make API call
-   */
-  public ClusterControllerApiWorkerGroupDetails getWorkerGroupById1(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getWorkerGroupById1");
-    }
-    
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getWorkerGroupById1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getWorkerGroupById");
     }
     
     // create path and map variables
@@ -496,7 +272,7 @@ public class WorkerGroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<ClusterControllerApiWorkerGroupDetails> localVarReturnType = new TypeReference<ClusterControllerApiWorkerGroupDetails>() {};
     return apiClient.invokeAPI(
@@ -519,79 +295,12 @@ public class WorkerGroupsApi extends BaseApi {
   /**
    * List all Worker Groups
    * 
-   * @return ClusterControllerApiWorkerGroupList
-   * @throws ApiException if fails to make API call
-   */
-  public ClusterControllerApiWorkerGroupList listWorkerGroups() throws ApiException {
-    return this.listWorkerGroups(Collections.emptyMap());
-  }
-
-
-  /**
-   * List all Worker Groups
-   * 
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ClusterControllerApiWorkerGroupList
-   * @throws ApiException if fails to make API call
-   */
-  public ClusterControllerApiWorkerGroupList listWorkerGroups(Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/cluster/workergroups";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ClusterControllerApiWorkerGroupList> localVarReturnType = new TypeReference<ClusterControllerApiWorkerGroupList>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List all Worker Groups
-   * 
    * @param tenant  (required)
    * @return ClusterControllerApiWorkerGroupList
    * @throws ApiException if fails to make API call
    */
-  public ClusterControllerApiWorkerGroupList listWorkerGroups1(String tenant) throws ApiException {
-    return this.listWorkerGroups1(tenant, Collections.emptyMap());
+  public ClusterControllerApiWorkerGroupList listWorkerGroups(@javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.listWorkerGroups(tenant, Collections.emptyMap());
   }
 
 
@@ -603,12 +312,12 @@ public class WorkerGroupsApi extends BaseApi {
    * @return ClusterControllerApiWorkerGroupList
    * @throws ApiException if fails to make API call
    */
-  public ClusterControllerApiWorkerGroupList listWorkerGroups1(String tenant, Map<String, String> additionalHeaders) throws ApiException {
+  public ClusterControllerApiWorkerGroupList listWorkerGroups(@javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listWorkerGroups1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listWorkerGroups");
     }
     
     // create path and map variables
@@ -638,7 +347,7 @@ public class WorkerGroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<ClusterControllerApiWorkerGroupList> localVarReturnType = new TypeReference<ClusterControllerApiWorkerGroupList>() {};
     return apiClient.invokeAPI(
@@ -662,12 +371,13 @@ public class WorkerGroupsApi extends BaseApi {
    * Update an existing worker group.
    * 
    * @param id  (required)
-   * @param clusterControllerApiCreateOrUpdateWorkerGroupRequest  (required)
+   * @param tenant  (required)
+   * @param clusterControllerApiCreateOrUpdateWorkerGroupRequest The worker group definition (required)
    * @return ClusterControllerApiWorkerGroup
    * @throws ApiException if fails to make API call
    */
-  public ClusterControllerApiWorkerGroup updateWorkerGroupById(String id, ClusterControllerApiCreateOrUpdateWorkerGroupRequest clusterControllerApiCreateOrUpdateWorkerGroupRequest) throws ApiException {
-    return this.updateWorkerGroupById(id, clusterControllerApiCreateOrUpdateWorkerGroupRequest, Collections.emptyMap());
+  public ClusterControllerApiWorkerGroup updateWorkerGroupById(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ClusterControllerApiCreateOrUpdateWorkerGroupRequest clusterControllerApiCreateOrUpdateWorkerGroupRequest) throws ApiException {
+    return this.updateWorkerGroupById(id, tenant, clusterControllerApiCreateOrUpdateWorkerGroupRequest, Collections.emptyMap());
   }
 
 
@@ -675,17 +385,23 @@ public class WorkerGroupsApi extends BaseApi {
    * Update an existing worker group.
    * 
    * @param id  (required)
-   * @param clusterControllerApiCreateOrUpdateWorkerGroupRequest  (required)
+   * @param tenant  (required)
+   * @param clusterControllerApiCreateOrUpdateWorkerGroupRequest The worker group definition (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return ClusterControllerApiWorkerGroup
    * @throws ApiException if fails to make API call
    */
-  public ClusterControllerApiWorkerGroup updateWorkerGroupById(String id, ClusterControllerApiCreateOrUpdateWorkerGroupRequest clusterControllerApiCreateOrUpdateWorkerGroupRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public ClusterControllerApiWorkerGroup updateWorkerGroupById(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull ClusterControllerApiCreateOrUpdateWorkerGroupRequest clusterControllerApiCreateOrUpdateWorkerGroupRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = clusterControllerApiCreateOrUpdateWorkerGroupRequest;
     
     // verify the required parameter 'id' is set
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling updateWorkerGroupById");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling updateWorkerGroupById");
     }
     
     // verify the required parameter 'clusterControllerApiCreateOrUpdateWorkerGroupRequest' is set
@@ -694,95 +410,6 @@ public class WorkerGroupsApi extends BaseApi {
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/cluster/workergroups/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<ClusterControllerApiWorkerGroup> localVarReturnType = new TypeReference<ClusterControllerApiWorkerGroup>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Update an existing worker group.
-   * 
-   * @param id  (required)
-   * @param tenant  (required)
-   * @param clusterControllerApiCreateOrUpdateWorkerGroupRequest  (required)
-   * @return ClusterControllerApiWorkerGroup
-   * @throws ApiException if fails to make API call
-   */
-  public ClusterControllerApiWorkerGroup updateWorkerGroupById1(String id, String tenant, ClusterControllerApiCreateOrUpdateWorkerGroupRequest clusterControllerApiCreateOrUpdateWorkerGroupRequest) throws ApiException {
-    return this.updateWorkerGroupById1(id, tenant, clusterControllerApiCreateOrUpdateWorkerGroupRequest, Collections.emptyMap());
-  }
-
-
-  /**
-   * Update an existing worker group.
-   * 
-   * @param id  (required)
-   * @param tenant  (required)
-   * @param clusterControllerApiCreateOrUpdateWorkerGroupRequest  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return ClusterControllerApiWorkerGroup
-   * @throws ApiException if fails to make API call
-   */
-  public ClusterControllerApiWorkerGroup updateWorkerGroupById1(String id, String tenant, ClusterControllerApiCreateOrUpdateWorkerGroupRequest clusterControllerApiCreateOrUpdateWorkerGroupRequest, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = clusterControllerApiCreateOrUpdateWorkerGroupRequest;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateWorkerGroupById1");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling updateWorkerGroupById1");
-    }
-    
-    // verify the required parameter 'clusterControllerApiCreateOrUpdateWorkerGroupRequest' is set
-    if (clusterControllerApiCreateOrUpdateWorkerGroupRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'clusterControllerApiCreateOrUpdateWorkerGroupRequest' when calling updateWorkerGroupById1");
-    }
-    
-    // create path and map variables
     String localVarPath = "/api/v1/{tenant}/cluster/workergroups/{id}"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
       .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
@@ -810,7 +437,7 @@ public class WorkerGroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     TypeReference<ClusterControllerApiWorkerGroup> localVarReturnType = new TypeReference<ClusterControllerApiWorkerGroup>() {};
     return apiClient.invokeAPI(
@@ -852,7 +479,7 @@ public class WorkerGroupsApi extends BaseApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "basicAuth", "bearerAuth" };
 
     return apiClient.invokeAPI(
       localVarPath,

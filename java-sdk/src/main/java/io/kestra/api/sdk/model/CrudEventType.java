@@ -41,7 +41,11 @@ public enum CrudEventType {
   
   LOGOUT("LOGOUT"),
   
-  IMPERSONATE("IMPERSONATE");
+  IMPERSONATE("IMPERSONATE"),
+  
+  LOGIN_FAILURE("LOGIN_FAILURE"),
+  
+  ACCOUNT_LOCKED("ACCOUNT_LOCKED");
 
   private String value;
 

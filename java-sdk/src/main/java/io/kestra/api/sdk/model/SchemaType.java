@@ -29,19 +29,21 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum SchemaType {
   
-  flow("flow"),
+  FLOW("FLOW"),
   
-  template("template"),
+  TEMPLATE("TEMPLATE"),
   
-  task("task"),
+  TASK("TASK"),
   
-  trigger("trigger"),
+  TRIGGER("TRIGGER"),
   
-  plugindefault("plugindefault"),
+  PLUGINDEFAULT("PLUGINDEFAULT"),
   
-  apps("apps"),
+  APPS("APPS"),
   
-  dashboard("dashboard");
+  TESTSUITES("TESTSUITES"),
+  
+  DASHBOARD("DASHBOARD");
 
   private String value;
 

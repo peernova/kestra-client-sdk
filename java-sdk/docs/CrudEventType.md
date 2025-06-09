@@ -19,5 +19,9 @@
 
 * `IMPERSONATE` (value: `"IMPERSONATE"`)
 
+* `LOGIN_FAILURE` (value: `"LOGIN_FAILURE"`)
+
+* `ACCOUNT_LOCKED` (value: `"ACCOUNT_LOCKED"`)
+
 
 

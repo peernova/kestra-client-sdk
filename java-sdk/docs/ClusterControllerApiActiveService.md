@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**type** | **ServiceServiceType** |  |  |
+|**type** | **ServiceType** |  |  |
 |**total** | **Long** |  |  |
 
 

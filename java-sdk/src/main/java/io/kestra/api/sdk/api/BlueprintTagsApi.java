@@ -20,7 +20,8 @@ import io.kestra.api.sdk.internal.BaseApi;
 import io.kestra.api.sdk.internal.Configuration;
 import io.kestra.api.sdk.internal.Pair;
 
-import io.kestra.api.sdk.model.BlueprintControllerBlueprintTagItem;
+import io.kestra.api.sdk.model.BlueprintControllerApiBlueprintTagItem;
+import io.kestra.api.sdk.model.BlueprintControllerKind;
 
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class BlueprintTagsApi extends BaseApi {
 
   public BlueprintTagsApi() {
@@ -42,251 +43,33 @@ public class BlueprintTagsApi extends BaseApi {
   }
 
   /**
-   * List blueprint tags matching the filter
-   * 
-   * @param q A string filter to get tags with matching blueprints only (optional)
-   * @return List&lt;BlueprintControllerBlueprintTagItem&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<BlueprintControllerBlueprintTagItem> blueprintTags(String q) throws ApiException {
-    return this.blueprintTags(q, Collections.emptyMap());
-  }
-
-
-  /**
-   * List blueprint tags matching the filter
-   * 
-   * @param q A string filter to get tags with matching blueprints only (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;BlueprintControllerBlueprintTagItem&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<BlueprintControllerBlueprintTagItem> blueprintTags(String q, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/blueprints/community/tags";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<BlueprintControllerBlueprintTagItem>> localVarReturnType = new TypeReference<List<BlueprintControllerBlueprintTagItem>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List blueprint tags matching the filter
+   * List all internal blueprint tags
    * 
    * @param tenant  (required)
    * @param q A string filter to get tags with matching blueprints only (optional)
-   * @return List&lt;BlueprintControllerBlueprintTagItem&gt;
+   * @return List&lt;String&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<BlueprintControllerBlueprintTagItem> blueprintTags1(String tenant, String q) throws ApiException {
-    return this.blueprintTags1(tenant, q, Collections.emptyMap());
+  public List<String> internalBlueprintTags(@javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q) throws ApiException {
+    return this.internalBlueprintTags(tenant, q, Collections.emptyMap());
   }
 
 
   /**
-   * List blueprint tags matching the filter
+   * List all internal blueprint tags
    * 
    * @param tenant  (required)
    * @param q A string filter to get tags with matching blueprints only (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;BlueprintControllerBlueprintTagItem&gt;
+   * @return List&lt;String&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<BlueprintControllerBlueprintTagItem> blueprintTags1(String tenant, String q, Map<String, String> additionalHeaders) throws ApiException {
+  public List<String> internalBlueprintTags(@javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling blueprintTags1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/blueprints/community/tags"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<BlueprintControllerBlueprintTagItem>> localVarReturnType = new TypeReference<List<BlueprintControllerBlueprintTagItem>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List all internal blueprint tags
-   * 
-   * @param q A string filter to get tags with matching blueprints only (optional)
-   * @return List&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<String> internalBlueprintTags(String q) throws ApiException {
-    return this.internalBlueprintTags(q, Collections.emptyMap());
-  }
-
-
-  /**
-   * List all internal blueprint tags
-   * 
-   * @param q A string filter to get tags with matching blueprints only (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<String> internalBlueprintTags(String q, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/blueprints/custom/tags";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<String>> localVarReturnType = new TypeReference<List<String>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List all internal blueprint tags
-   * 
-   * @param tenant  (required)
-   * @param q A string filter to get tags with matching blueprints only (optional)
-   * @return List&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<String> internalBlueprintTags1(String tenant, String q) throws ApiException {
-    return this.internalBlueprintTags1(tenant, q, Collections.emptyMap());
-  }
-
-
-  /**
-   * List all internal blueprint tags
-   * 
-   * @param tenant  (required)
-   * @param q A string filter to get tags with matching blueprints only (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;String&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<String> internalBlueprintTags1(String tenant, String q, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling internalBlueprintTags1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling internalBlueprintTags");
     }
     
     // create path and map variables
@@ -320,6 +103,92 @@ public class BlueprintTagsApi extends BaseApi {
     String[] localVarAuthNames = new String[] {  };
 
     TypeReference<List<String>> localVarReturnType = new TypeReference<List<String>>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * List blueprint tags matching the filter
+   * 
+   * @param kind The blueprint kind (required)
+   * @param tenant  (required)
+   * @param q A string filter to get tags with matching blueprints only (optional)
+   * @return List&lt;BlueprintControllerApiBlueprintTagItem&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<BlueprintControllerApiBlueprintTagItem> listBlueprintTags(@javax.annotation.Nonnull BlueprintControllerKind kind, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q) throws ApiException {
+    return this.listBlueprintTags(kind, tenant, q, Collections.emptyMap());
+  }
+
+
+  /**
+   * List blueprint tags matching the filter
+   * 
+   * @param kind The blueprint kind (required)
+   * @param tenant  (required)
+   * @param q A string filter to get tags with matching blueprints only (optional)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return List&lt;BlueprintControllerApiBlueprintTagItem&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<BlueprintControllerApiBlueprintTagItem> listBlueprintTags(@javax.annotation.Nonnull BlueprintControllerKind kind, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'kind' is set
+    if (kind == null) {
+      throw new ApiException(400, "Missing the required parameter 'kind' when calling listBlueprintTags");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling listBlueprintTags");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/blueprints/community/{kind}/tags"
+      .replaceAll("\\{" + "kind" + "\\}", apiClient.escapeString(apiClient.parameterToString(kind)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    TypeReference<List<BlueprintControllerApiBlueprintTagItem>> localVarReturnType = new TypeReference<List<BlueprintControllerApiBlueprintTagItem>>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",

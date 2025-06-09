@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.kestra.api.sdk.model.ClusterControllerApiServerInstance;
 import io.kestra.api.sdk.model.ServiceServiceState;
-import io.kestra.api.sdk.model.ServiceServiceType;
+import io.kestra.api.sdk.model.ServiceType;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -42,7 +42,7 @@ import java.util.StringJoiner;
   ClusterControllerApiServiceInstance.JSON_PROPERTY_UPDATED_AT
 })
 @JsonTypeName("ClusterController.ApiServiceInstance")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class ClusterControllerApiServiceInstance {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nonnull
@@ -50,7 +50,7 @@ public class ClusterControllerApiServiceInstance {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   @javax.annotation.Nonnull
-  private ServiceServiceType type;
+  private ServiceType type;
 
   public static final String JSON_PROPERTY_STATE = "state";
   @javax.annotation.Nonnull
@@ -96,7 +96,7 @@ public class ClusterControllerApiServiceInstance {
     this.id = id;
   }
 
-  public ClusterControllerApiServiceInstance type(@javax.annotation.Nonnull ServiceServiceType type) {
+  public ClusterControllerApiServiceInstance type(@javax.annotation.Nonnull ServiceType type) {
     
     this.type = type;
     return this;
@@ -110,14 +110,14 @@ public class ClusterControllerApiServiceInstance {
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public ServiceServiceType getType() {
+  public ServiceType getType() {
     return type;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(@javax.annotation.Nonnull ServiceServiceType type) {
+  public void setType(@javax.annotation.Nonnull ServiceType type) {
     this.type = type;
   }
 

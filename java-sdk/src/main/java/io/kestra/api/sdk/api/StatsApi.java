@@ -40,7 +40,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-09T14:00:04.441521653Z[Etc/UTC]", comments = "Generator version: 7.13.0-SNAPSHOT")
 public class StatsApi extends BaseApi {
 
   public StatsApi() {
@@ -58,7 +58,7 @@ public class StatsApi extends BaseApi {
    * @return Map&lt;String, Map&lt;String, List&lt;DailyExecutionStatistics&gt;&gt;&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, Map<String, List<DailyExecutionStatistics>>> dailyGroupByFlowStatistics(StatsControllerByFlowStatisticRequest statsControllerByFlowStatisticRequest) throws ApiException {
+  public Map<String, Map<String, List<DailyExecutionStatistics>>> dailyGroupByFlowStatistics(@javax.annotation.Nonnull StatsControllerByFlowStatisticRequest statsControllerByFlowStatisticRequest) throws ApiException {
     return this.dailyGroupByFlowStatistics(statsControllerByFlowStatisticRequest, Collections.emptyMap());
   }
 
@@ -71,7 +71,7 @@ public class StatsApi extends BaseApi {
    * @return Map&lt;String, Map&lt;String, List&lt;DailyExecutionStatistics&gt;&gt;&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, Map<String, List<DailyExecutionStatistics>>> dailyGroupByFlowStatistics(StatsControllerByFlowStatisticRequest statsControllerByFlowStatisticRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public Map<String, Map<String, List<DailyExecutionStatistics>>> dailyGroupByFlowStatistics(@javax.annotation.Nonnull StatsControllerByFlowStatisticRequest statsControllerByFlowStatisticRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = statsControllerByFlowStatisticRequest;
     
     // verify the required parameter 'statsControllerByFlowStatisticRequest' is set
@@ -133,8 +133,8 @@ public class StatsApi extends BaseApi {
    * @return Map&lt;String, Map&lt;String, List&lt;DailyExecutionStatistics&gt;&gt;&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, Map<String, List<DailyExecutionStatistics>>> dailyGroupByFlowStatistics1(String tenant, StatsControllerByFlowStatisticRequest statsControllerByFlowStatisticRequest) throws ApiException {
-    return this.dailyGroupByFlowStatistics1(tenant, statsControllerByFlowStatisticRequest, Collections.emptyMap());
+  public Map<String, Map<String, List<DailyExecutionStatistics>>> dailyGroupByFlowStatisticsWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull StatsControllerByFlowStatisticRequest statsControllerByFlowStatisticRequest) throws ApiException {
+    return this.dailyGroupByFlowStatisticsWithTenant(tenant, statsControllerByFlowStatisticRequest, Collections.emptyMap());
   }
 
 
@@ -147,17 +147,17 @@ public class StatsApi extends BaseApi {
    * @return Map&lt;String, Map&lt;String, List&lt;DailyExecutionStatistics&gt;&gt;&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, Map<String, List<DailyExecutionStatistics>>> dailyGroupByFlowStatistics1(String tenant, StatsControllerByFlowStatisticRequest statsControllerByFlowStatisticRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public Map<String, Map<String, List<DailyExecutionStatistics>>> dailyGroupByFlowStatisticsWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull StatsControllerByFlowStatisticRequest statsControllerByFlowStatisticRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = statsControllerByFlowStatisticRequest;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling dailyGroupByFlowStatistics1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling dailyGroupByFlowStatisticsWithTenant");
     }
     
     // verify the required parameter 'statsControllerByFlowStatisticRequest' is set
     if (statsControllerByFlowStatisticRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'statsControllerByFlowStatisticRequest' when calling dailyGroupByFlowStatistics1");
+      throw new ApiException(400, "Missing the required parameter 'statsControllerByFlowStatisticRequest' when calling dailyGroupByFlowStatisticsWithTenant");
     }
     
     // create path and map variables
@@ -214,7 +214,7 @@ public class StatsApi extends BaseApi {
    * @return List&lt;DailyExecutionStatistics&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<DailyExecutionStatistics> dailyStatistics(StatsControllerStatisticRequest statsControllerStatisticRequest) throws ApiException {
+  public List<DailyExecutionStatistics> dailyStatistics(@javax.annotation.Nonnull StatsControllerStatisticRequest statsControllerStatisticRequest) throws ApiException {
     return this.dailyStatistics(statsControllerStatisticRequest, Collections.emptyMap());
   }
 
@@ -227,7 +227,7 @@ public class StatsApi extends BaseApi {
    * @return List&lt;DailyExecutionStatistics&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<DailyExecutionStatistics> dailyStatistics(StatsControllerStatisticRequest statsControllerStatisticRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public List<DailyExecutionStatistics> dailyStatistics(@javax.annotation.Nonnull StatsControllerStatisticRequest statsControllerStatisticRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = statsControllerStatisticRequest;
     
     // verify the required parameter 'statsControllerStatisticRequest' is set
@@ -282,95 +282,13 @@ public class StatsApi extends BaseApi {
   }
 
   /**
-   * Get daily statistics for executions
-   * 
-   * @param tenant  (required)
-   * @param statsControllerStatisticRequest  (required)
-   * @return List&lt;DailyExecutionStatistics&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<DailyExecutionStatistics> dailyStatistics1(String tenant, StatsControllerStatisticRequest statsControllerStatisticRequest) throws ApiException {
-    return this.dailyStatistics1(tenant, statsControllerStatisticRequest, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get daily statistics for executions
-   * 
-   * @param tenant  (required)
-   * @param statsControllerStatisticRequest  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return List&lt;DailyExecutionStatistics&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<DailyExecutionStatistics> dailyStatistics1(String tenant, StatsControllerStatisticRequest statsControllerStatisticRequest, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = statsControllerStatisticRequest;
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling dailyStatistics1");
-    }
-    
-    // verify the required parameter 'statsControllerStatisticRequest' is set
-    if (statsControllerStatisticRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'statsControllerStatisticRequest' when calling dailyStatistics1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/stats/executions/daily"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<List<DailyExecutionStatistics>> localVarReturnType = new TypeReference<List<DailyExecutionStatistics>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
    * Get daily statistics for executions grouped by namespace
    * 
    * @param statsControllerByNamespaceStatisticRequest  (required)
    * @return Map&lt;String, ExecutionCountStatistics&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, ExecutionCountStatistics> dailyStatisticsGroupByNamespace(StatsControllerByNamespaceStatisticRequest statsControllerByNamespaceStatisticRequest) throws ApiException {
+  public Map<String, ExecutionCountStatistics> dailyStatisticsGroupByNamespace(@javax.annotation.Nonnull StatsControllerByNamespaceStatisticRequest statsControllerByNamespaceStatisticRequest) throws ApiException {
     return this.dailyStatisticsGroupByNamespace(statsControllerByNamespaceStatisticRequest, Collections.emptyMap());
   }
 
@@ -383,7 +301,7 @@ public class StatsApi extends BaseApi {
    * @return Map&lt;String, ExecutionCountStatistics&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, ExecutionCountStatistics> dailyStatisticsGroupByNamespace(StatsControllerByNamespaceStatisticRequest statsControllerByNamespaceStatisticRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public Map<String, ExecutionCountStatistics> dailyStatisticsGroupByNamespace(@javax.annotation.Nonnull StatsControllerByNamespaceStatisticRequest statsControllerByNamespaceStatisticRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = statsControllerByNamespaceStatisticRequest;
     
     // verify the required parameter 'statsControllerByNamespaceStatisticRequest' is set
@@ -445,8 +363,8 @@ public class StatsApi extends BaseApi {
    * @return Map&lt;String, ExecutionCountStatistics&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, ExecutionCountStatistics> dailyStatisticsGroupByNamespace1(String tenant, StatsControllerByNamespaceStatisticRequest statsControllerByNamespaceStatisticRequest) throws ApiException {
-    return this.dailyStatisticsGroupByNamespace1(tenant, statsControllerByNamespaceStatisticRequest, Collections.emptyMap());
+  public Map<String, ExecutionCountStatistics> dailyStatisticsGroupByNamespaceWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull StatsControllerByNamespaceStatisticRequest statsControllerByNamespaceStatisticRequest) throws ApiException {
+    return this.dailyStatisticsGroupByNamespaceWithTenant(tenant, statsControllerByNamespaceStatisticRequest, Collections.emptyMap());
   }
 
 
@@ -459,17 +377,17 @@ public class StatsApi extends BaseApi {
    * @return Map&lt;String, ExecutionCountStatistics&gt;
    * @throws ApiException if fails to make API call
    */
-  public Map<String, ExecutionCountStatistics> dailyStatisticsGroupByNamespace1(String tenant, StatsControllerByNamespaceStatisticRequest statsControllerByNamespaceStatisticRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public Map<String, ExecutionCountStatistics> dailyStatisticsGroupByNamespaceWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull StatsControllerByNamespaceStatisticRequest statsControllerByNamespaceStatisticRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = statsControllerByNamespaceStatisticRequest;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling dailyStatisticsGroupByNamespace1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling dailyStatisticsGroupByNamespaceWithTenant");
     }
     
     // verify the required parameter 'statsControllerByNamespaceStatisticRequest' is set
     if (statsControllerByNamespaceStatisticRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'statsControllerByNamespaceStatisticRequest' when calling dailyStatisticsGroupByNamespace1");
+      throw new ApiException(400, "Missing the required parameter 'statsControllerByNamespaceStatisticRequest' when calling dailyStatisticsGroupByNamespaceWithTenant");
     }
     
     // create path and map variables
@@ -520,13 +438,95 @@ public class StatsApi extends BaseApi {
   }
 
   /**
+   * Get daily statistics for executions
+   * 
+   * @param tenant  (required)
+   * @param statsControllerStatisticRequest  (required)
+   * @return List&lt;DailyExecutionStatistics&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<DailyExecutionStatistics> dailyStatisticsWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull StatsControllerStatisticRequest statsControllerStatisticRequest) throws ApiException {
+    return this.dailyStatisticsWithTenant(tenant, statsControllerStatisticRequest, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get daily statistics for executions
+   * 
+   * @param tenant  (required)
+   * @param statsControllerStatisticRequest  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return List&lt;DailyExecutionStatistics&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<DailyExecutionStatistics> dailyStatisticsWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull StatsControllerStatisticRequest statsControllerStatisticRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = statsControllerStatisticRequest;
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling dailyStatisticsWithTenant");
+    }
+    
+    // verify the required parameter 'statsControllerStatisticRequest' is set
+    if (statsControllerStatisticRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'statsControllerStatisticRequest' when calling dailyStatisticsWithTenant");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/stats/executions/daily"
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    TypeReference<List<DailyExecutionStatistics>> localVarReturnType = new TypeReference<List<DailyExecutionStatistics>>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Get latest execution by flows
    * 
    * @param statsControllerLastExecutionsRequest  (required)
    * @return List&lt;Execution&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Execution> lastExecutions(StatsControllerLastExecutionsRequest statsControllerLastExecutionsRequest) throws ApiException {
+  public List<Execution> lastExecutions(@javax.annotation.Nonnull StatsControllerLastExecutionsRequest statsControllerLastExecutionsRequest) throws ApiException {
     return this.lastExecutions(statsControllerLastExecutionsRequest, Collections.emptyMap());
   }
 
@@ -539,7 +539,7 @@ public class StatsApi extends BaseApi {
    * @return List&lt;Execution&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Execution> lastExecutions(StatsControllerLastExecutionsRequest statsControllerLastExecutionsRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public List<Execution> lastExecutions(@javax.annotation.Nonnull StatsControllerLastExecutionsRequest statsControllerLastExecutionsRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = statsControllerLastExecutionsRequest;
     
     // verify the required parameter 'statsControllerLastExecutionsRequest' is set
@@ -601,8 +601,8 @@ public class StatsApi extends BaseApi {
    * @return List&lt;Execution&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Execution> lastExecutions1(String tenant, StatsControllerLastExecutionsRequest statsControllerLastExecutionsRequest) throws ApiException {
-    return this.lastExecutions1(tenant, statsControllerLastExecutionsRequest, Collections.emptyMap());
+  public List<Execution> lastExecutionsWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull StatsControllerLastExecutionsRequest statsControllerLastExecutionsRequest) throws ApiException {
+    return this.lastExecutionsWithTenant(tenant, statsControllerLastExecutionsRequest, Collections.emptyMap());
   }
 
 
@@ -615,17 +615,17 @@ public class StatsApi extends BaseApi {
    * @return List&lt;Execution&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Execution> lastExecutions1(String tenant, StatsControllerLastExecutionsRequest statsControllerLastExecutionsRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public List<Execution> lastExecutionsWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull StatsControllerLastExecutionsRequest statsControllerLastExecutionsRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = statsControllerLastExecutionsRequest;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling lastExecutions1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling lastExecutionsWithTenant");
     }
     
     // verify the required parameter 'statsControllerLastExecutionsRequest' is set
     if (statsControllerLastExecutionsRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'statsControllerLastExecutionsRequest' when calling lastExecutions1");
+      throw new ApiException(400, "Missing the required parameter 'statsControllerLastExecutionsRequest' when calling lastExecutionsWithTenant");
     }
     
     // create path and map variables
@@ -682,7 +682,7 @@ public class StatsApi extends BaseApi {
    * @return List&lt;LogStatistics&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<LogStatistics> logsDailyStatistics(StatsControllerLogStatisticRequest statsControllerLogStatisticRequest) throws ApiException {
+  public List<LogStatistics> logsDailyStatistics(@javax.annotation.Nonnull StatsControllerLogStatisticRequest statsControllerLogStatisticRequest) throws ApiException {
     return this.logsDailyStatistics(statsControllerLogStatisticRequest, Collections.emptyMap());
   }
 
@@ -695,7 +695,7 @@ public class StatsApi extends BaseApi {
    * @return List&lt;LogStatistics&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<LogStatistics> logsDailyStatistics(StatsControllerLogStatisticRequest statsControllerLogStatisticRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public List<LogStatistics> logsDailyStatistics(@javax.annotation.Nonnull StatsControllerLogStatisticRequest statsControllerLogStatisticRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = statsControllerLogStatisticRequest;
     
     // verify the required parameter 'statsControllerLogStatisticRequest' is set
@@ -757,8 +757,8 @@ public class StatsApi extends BaseApi {
    * @return List&lt;LogStatistics&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<LogStatistics> logsDailyStatistics1(String tenant, StatsControllerLogStatisticRequest statsControllerLogStatisticRequest) throws ApiException {
-    return this.logsDailyStatistics1(tenant, statsControllerLogStatisticRequest, Collections.emptyMap());
+  public List<LogStatistics> logsDailyStatisticsWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull StatsControllerLogStatisticRequest statsControllerLogStatisticRequest) throws ApiException {
+    return this.logsDailyStatisticsWithTenant(tenant, statsControllerLogStatisticRequest, Collections.emptyMap());
   }
 
 
@@ -771,17 +771,17 @@ public class StatsApi extends BaseApi {
    * @return List&lt;LogStatistics&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<LogStatistics> logsDailyStatistics1(String tenant, StatsControllerLogStatisticRequest statsControllerLogStatisticRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public List<LogStatistics> logsDailyStatisticsWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull StatsControllerLogStatisticRequest statsControllerLogStatisticRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = statsControllerLogStatisticRequest;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling logsDailyStatistics1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling logsDailyStatisticsWithTenant");
     }
     
     // verify the required parameter 'statsControllerLogStatisticRequest' is set
     if (statsControllerLogStatisticRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'statsControllerLogStatisticRequest' when calling logsDailyStatistics1");
+      throw new ApiException(400, "Missing the required parameter 'statsControllerLogStatisticRequest' when calling logsDailyStatisticsWithTenant");
     }
     
     // create path and map variables
@@ -838,7 +838,7 @@ public class StatsApi extends BaseApi {
    * @return SummaryStatistics
    * @throws ApiException if fails to make API call
    */
-  public SummaryStatistics summary(StatsControllerSummaryRequest statsControllerSummaryRequest) throws ApiException {
+  public SummaryStatistics summary(@javax.annotation.Nonnull StatsControllerSummaryRequest statsControllerSummaryRequest) throws ApiException {
     return this.summary(statsControllerSummaryRequest, Collections.emptyMap());
   }
 
@@ -851,7 +851,7 @@ public class StatsApi extends BaseApi {
    * @return SummaryStatistics
    * @throws ApiException if fails to make API call
    */
-  public SummaryStatistics summary(StatsControllerSummaryRequest statsControllerSummaryRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public SummaryStatistics summary(@javax.annotation.Nonnull StatsControllerSummaryRequest statsControllerSummaryRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = statsControllerSummaryRequest;
     
     // verify the required parameter 'statsControllerSummaryRequest' is set
@@ -913,8 +913,8 @@ public class StatsApi extends BaseApi {
    * @return SummaryStatistics
    * @throws ApiException if fails to make API call
    */
-  public SummaryStatistics summary1(String tenant, StatsControllerSummaryRequest statsControllerSummaryRequest) throws ApiException {
-    return this.summary1(tenant, statsControllerSummaryRequest, Collections.emptyMap());
+  public SummaryStatistics summaryWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull StatsControllerSummaryRequest statsControllerSummaryRequest) throws ApiException {
+    return this.summaryWithTenant(tenant, statsControllerSummaryRequest, Collections.emptyMap());
   }
 
 
@@ -927,17 +927,17 @@ public class StatsApi extends BaseApi {
    * @return SummaryStatistics
    * @throws ApiException if fails to make API call
    */
-  public SummaryStatistics summary1(String tenant, StatsControllerSummaryRequest statsControllerSummaryRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public SummaryStatistics summaryWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull StatsControllerSummaryRequest statsControllerSummaryRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = statsControllerSummaryRequest;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling summary1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling summaryWithTenant");
     }
     
     // verify the required parameter 'statsControllerSummaryRequest' is set
     if (statsControllerSummaryRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'statsControllerSummaryRequest' when calling summary1");
+      throw new ApiException(400, "Missing the required parameter 'statsControllerSummaryRequest' when calling summaryWithTenant");
     }
     
     // create path and map variables
@@ -994,7 +994,7 @@ public class StatsApi extends BaseApi {
    * @return List&lt;DailyExecutionStatistics&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<DailyExecutionStatistics> taskRunsDailyStatistics(StatsControllerStatisticRequest statsControllerStatisticRequest) throws ApiException {
+  public List<DailyExecutionStatistics> taskRunsDailyStatistics(@javax.annotation.Nonnull StatsControllerStatisticRequest statsControllerStatisticRequest) throws ApiException {
     return this.taskRunsDailyStatistics(statsControllerStatisticRequest, Collections.emptyMap());
   }
 
@@ -1007,7 +1007,7 @@ public class StatsApi extends BaseApi {
    * @return List&lt;DailyExecutionStatistics&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<DailyExecutionStatistics> taskRunsDailyStatistics(StatsControllerStatisticRequest statsControllerStatisticRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public List<DailyExecutionStatistics> taskRunsDailyStatistics(@javax.annotation.Nonnull StatsControllerStatisticRequest statsControllerStatisticRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = statsControllerStatisticRequest;
     
     // verify the required parameter 'statsControllerStatisticRequest' is set
@@ -1069,8 +1069,8 @@ public class StatsApi extends BaseApi {
    * @return List&lt;DailyExecutionStatistics&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<DailyExecutionStatistics> taskRunsDailyStatistics1(String tenant, StatsControllerStatisticRequest statsControllerStatisticRequest) throws ApiException {
-    return this.taskRunsDailyStatistics1(tenant, statsControllerStatisticRequest, Collections.emptyMap());
+  public List<DailyExecutionStatistics> taskRunsDailyStatisticsWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull StatsControllerStatisticRequest statsControllerStatisticRequest) throws ApiException {
+    return this.taskRunsDailyStatisticsWithTenant(tenant, statsControllerStatisticRequest, Collections.emptyMap());
   }
 
 
@@ -1083,17 +1083,17 @@ public class StatsApi extends BaseApi {
    * @return List&lt;DailyExecutionStatistics&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<DailyExecutionStatistics> taskRunsDailyStatistics1(String tenant, StatsControllerStatisticRequest statsControllerStatisticRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public List<DailyExecutionStatistics> taskRunsDailyStatisticsWithTenant(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull StatsControllerStatisticRequest statsControllerStatisticRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = statsControllerStatisticRequest;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling taskRunsDailyStatistics1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling taskRunsDailyStatisticsWithTenant");
     }
     
     // verify the required parameter 'statsControllerStatisticRequest' is set
     if (statsControllerStatisticRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'statsControllerStatisticRequest' when calling taskRunsDailyStatistics1");
+      throw new ApiException(400, "Missing the required parameter 'statsControllerStatisticRequest' when calling taskRunsDailyStatisticsWithTenant");
     }
     
     // create path and map variables

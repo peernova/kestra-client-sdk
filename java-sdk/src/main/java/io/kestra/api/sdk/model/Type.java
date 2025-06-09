@@ -41,6 +41,8 @@ public enum Type {
   
   BOOLEAN("BOOLEAN"),
   
+  BOOL("BOOL"),
+  
   DATETIME("DATETIME"),
   
   DATE("DATE"),

@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**create1**](BannersApi.md#create1) | **POST** /api/v1/banners | Create a new banner |
-| [**delete1**](BannersApi.md#delete1) | **DELETE** /api/v1/banners/{id} | Delete a banner |
-| [**find1**](BannersApi.md#find1) | **GET** /api/v1/banners/search | Get banners |
-| [**update1**](BannersApi.md#update1) | **PUT** /api/v1/banners/{id} | Update a banner |
+| [**createBanner**](BannersApi.md#createBanner) | **POST** /api/v1/banners | Create a new banner |
+| [**deleteBanner**](BannersApi.md#deleteBanner) | **DELETE** /api/v1/banners/{id} | Delete a banner |
+| [**searchBanners**](BannersApi.md#searchBanners) | **GET** /api/v1/banners/search | Get banners |
+| [**updateBanner**](BannersApi.md#updateBanner) | **PUT** /api/v1/banners/{id} | Update a banner |
 
 
 
-## create1
+## createBanner
 
-> Banner create1(banner)
+> Banner createBanner(banner)
 
 Create a new banner
 
@@ -24,6 +24,7 @@ Create a new banner
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.BannersApi;
 
@@ -31,14 +32,23 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         BannersApi apiInstance = new BannersApi(defaultClient);
-        Banner banner = new Banner(); // Banner | 
+        Banner banner = new Banner(); // Banner | The banner to create
         try {
-            Banner result = apiInstance.create1(banner);
+            Banner result = apiInstance.createBanner(banner);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling BannersApi#create1");
+            System.err.println("Exception when calling BannersApi#createBanner");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -53,7 +63,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **banner** | [**Banner**](Banner.md)|  | |
+| **banner** | [**Banner**](Banner.md)| The banner to create | |
 
 ### Return type
 
@@ -61,7 +71,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -72,12 +82,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | create_1 200 response |  -  |
+| **200** | createBanner 200 response |  -  |
 
 
-## delete1
+## deleteBanner
 
-> delete1(id)
+> deleteBanner(id)
 
 Delete a banner
 
@@ -88,6 +98,7 @@ Delete a banner
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.BannersApi;
 
@@ -95,13 +106,22 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         BannersApi apiInstance = new BannersApi(defaultClient);
         String id = "id_example"; // String | The banner id
         try {
-            apiInstance.delete1(id);
+            apiInstance.deleteBanner(id);
         } catch (ApiException e) {
-            System.err.println("Exception when calling BannersApi#delete1");
+            System.err.println("Exception when calling BannersApi#deleteBanner");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -124,7 +144,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -135,12 +155,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | delete_1 200 response |  -  |
+| **200** | deleteBanner 200 response |  -  |
 
 
-## find1
+## searchBanners
 
-> List&lt;Banner&gt; find1()
+> List&lt;Banner&gt; searchBanners()
 
 Get banners
 
@@ -151,6 +171,7 @@ Get banners
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.BannersApi;
 
@@ -158,13 +179,22 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         BannersApi apiInstance = new BannersApi(defaultClient);
         try {
-            List<Banner> result = apiInstance.find1();
+            List<Banner> result = apiInstance.searchBanners();
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling BannersApi#find1");
+            System.err.println("Exception when calling BannersApi#searchBanners");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -184,7 +214,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -195,12 +225,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | find_1 200 response |  -  |
+| **200** | searchBanners 200 response |  -  |
 
 
-## update1
+## updateBanner
 
-> Banner update1(id, banner)
+> Banner updateBanner(id, banner)
 
 Update a banner
 
@@ -211,6 +241,7 @@ Update a banner
 import io.kestra.api.sdk.internal.ApiClient;
 import io.kestra.api.sdk.internal.ApiException;
 import io.kestra.api.sdk.internal.Configuration;
+import io.kestra.api.sdk.internal.auth.*;
 import io.kestra.api.sdk.internal.models.*;
 import io.kestra.api.sdk.api.BannersApi;
 
@@ -218,15 +249,24 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
 
         BannersApi apiInstance = new BannersApi(defaultClient);
         String id = "id_example"; // String | The banner id
-        Banner banner = new Banner(); // Banner | 
+        Banner banner = new Banner(); // Banner | The banner to update
         try {
-            Banner result = apiInstance.update1(id, banner);
+            Banner result = apiInstance.updateBanner(id, banner);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling BannersApi#update1");
+            System.err.println("Exception when calling BannersApi#updateBanner");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -242,7 +282,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The banner id | |
-| **banner** | [**Banner**](Banner.md)|  | |
+| **banner** | [**Banner**](Banner.md)| The banner to update | |
 
 ### Return type
 
@@ -250,7 +290,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -261,5 +301,5 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | update_1 200 response |  -  |
+| **200** | updateBanner 200 response |  -  |
 

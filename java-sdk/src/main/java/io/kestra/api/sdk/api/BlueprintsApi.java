@@ -20,10 +20,11 @@ import io.kestra.api.sdk.internal.BaseApi;
 import io.kestra.api.sdk.internal.Configuration;
 import io.kestra.api.sdk.internal.Pair;
 
-import io.kestra.api.sdk.model.BlueprintControllerBlueprintItemWithFlow;
+import io.kestra.api.sdk.model.BlueprintControllerApiBlueprintItemWithSource;
+import io.kestra.api.sdk.model.BlueprintControllerKind;
 import io.kestra.api.sdk.model.BlueprintWithFlow;
 import io.kestra.api.sdk.model.PagedResultsBlueprint;
-import io.kestra.api.sdk.model.PagedResultsBlueprintControllerBlueprintItem;
+import io.kestra.api.sdk.model.PagedResultsBlueprintControllerApiBlueprintItem;
 
 
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-12-31T15:48:45.246126227Z[Etc/UTC]", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class BlueprintsApi extends BaseApi {
 
   public BlueprintsApi() {
@@ -45,755 +46,15 @@ public class BlueprintsApi extends BaseApi {
   }
 
   /**
-   * Get a blueprint
-   * 
-   * @param id The blueprint id (required)
-   * @return BlueprintControllerBlueprintItemWithFlow
-   * @throws ApiException if fails to make API call
-   */
-  public BlueprintControllerBlueprintItemWithFlow blueprint(String id) throws ApiException {
-    return this.blueprint(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a blueprint
-   * 
-   * @param id The blueprint id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return BlueprintControllerBlueprintItemWithFlow
-   * @throws ApiException if fails to make API call
-   */
-  public BlueprintControllerBlueprintItemWithFlow blueprint(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling blueprint");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/blueprints/community/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<BlueprintControllerBlueprintItemWithFlow> localVarReturnType = new TypeReference<BlueprintControllerBlueprintItemWithFlow>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get a blueprint
-   * 
-   * @param id The blueprint id (required)
-   * @param tenant  (required)
-   * @return BlueprintControllerBlueprintItemWithFlow
-   * @throws ApiException if fails to make API call
-   */
-  public BlueprintControllerBlueprintItemWithFlow blueprint1(String id, String tenant) throws ApiException {
-    return this.blueprint1(id, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a blueprint
-   * 
-   * @param id The blueprint id (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return BlueprintControllerBlueprintItemWithFlow
-   * @throws ApiException if fails to make API call
-   */
-  public BlueprintControllerBlueprintItemWithFlow blueprint1(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling blueprint1");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling blueprint1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/blueprints/community/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<BlueprintControllerBlueprintItemWithFlow> localVarReturnType = new TypeReference<BlueprintControllerBlueprintItemWithFlow>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get a blueprint flow
-   * 
-   * @param id The blueprint id (required)
-   * @return String
-   * @throws ApiException if fails to make API call
-   */
-  public String blueprintFlow(String id) throws ApiException {
-    return this.blueprintFlow(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a blueprint flow
-   * 
-   * @param id The blueprint id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return String
-   * @throws ApiException if fails to make API call
-   */
-  public String blueprintFlow(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling blueprintFlow");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/blueprints/community/{id}/flow"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/yaml"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<String> localVarReturnType = new TypeReference<String>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get a blueprint flow
-   * 
-   * @param id The blueprint id (required)
-   * @param tenant  (required)
-   * @return String
-   * @throws ApiException if fails to make API call
-   */
-  public String blueprintFlow1(String id, String tenant) throws ApiException {
-    return this.blueprintFlow1(id, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a blueprint flow
-   * 
-   * @param id The blueprint id (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return String
-   * @throws ApiException if fails to make API call
-   */
-  public String blueprintFlow1(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling blueprintFlow1");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling blueprintFlow1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/blueprints/community/{id}/flow"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/yaml"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<String> localVarReturnType = new TypeReference<String>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get a blueprint graph
-   * 
-   * @param id The blueprint id (required)
-   * @return Map&lt;String, Object&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public Map<String, Object> blueprintGraph(String id) throws ApiException {
-    return this.blueprintGraph(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a blueprint graph
-   * 
-   * @param id The blueprint id (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Map&lt;String, Object&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public Map<String, Object> blueprintGraph(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling blueprintGraph");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/blueprints/community/{id}/graph"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Map<String, Object>> localVarReturnType = new TypeReference<Map<String, Object>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get a blueprint graph
-   * 
-   * @param id The blueprint id (required)
-   * @param tenant  (required)
-   * @return Map&lt;String, Object&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public Map<String, Object> blueprintGraph1(String id, String tenant) throws ApiException {
-    return this.blueprintGraph1(id, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get a blueprint graph
-   * 
-   * @param id The blueprint id (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return Map&lt;String, Object&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public Map<String, Object> blueprintGraph1(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling blueprintGraph1");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling blueprintGraph1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/blueprints/community/{id}/graph"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<Map<String, Object>> localVarReturnType = new TypeReference<Map<String, Object>>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List all blueprints
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param tags A tags filter (optional)
-   * @return PagedResultsBlueprintControllerBlueprintItem
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsBlueprintControllerBlueprintItem blueprints(Integer page, Integer size, String q, String sort, List<String> tags) throws ApiException {
-    return this.blueprints(page, size, q, sort, tags, Collections.emptyMap());
-  }
-
-
-  /**
-   * List all blueprints
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param tags A tags filter (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsBlueprintControllerBlueprintItem
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsBlueprintControllerBlueprintItem blueprints(Integer page, Integer size, String q, String sort, List<String> tags, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling blueprints");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling blueprints");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/blueprints/community";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "tags", tags));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsBlueprintControllerBlueprintItem> localVarReturnType = new TypeReference<PagedResultsBlueprintControllerBlueprintItem>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * List all blueprints
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param tags A tags filter (optional)
-   * @return PagedResultsBlueprintControllerBlueprintItem
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsBlueprintControllerBlueprintItem blueprints1(Integer page, Integer size, String tenant, String q, String sort, List<String> tags) throws ApiException {
-    return this.blueprints1(page, size, tenant, q, sort, tags, Collections.emptyMap());
-  }
-
-
-  /**
-   * List all blueprints
-   * 
-   * @param page The current page (required)
-   * @param size The current page size (required)
-   * @param tenant  (required)
-   * @param q A string filter (optional)
-   * @param sort The sort of current page (optional)
-   * @param tags A tags filter (optional)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsBlueprintControllerBlueprintItem
-   * @throws ApiException if fails to make API call
-   */
-  public PagedResultsBlueprintControllerBlueprintItem blueprints1(Integer page, Integer size, String tenant, String q, String sort, List<String> tags, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'page' is set
-    if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling blueprints1");
-    }
-    
-    // verify the required parameter 'size' is set
-    if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling blueprints1");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling blueprints1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/blueprints/community"
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
-    localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "tags", tags));
-    localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<PagedResultsBlueprintControllerBlueprintItem> localVarReturnType = new TypeReference<PagedResultsBlueprintControllerBlueprintItem>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Create a new internal blueprint
-   * 
-   * @param blueprintWithFlow  (required)
-   * @return BlueprintWithFlow
-   * @throws ApiException if fails to make API call
-   */
-  public BlueprintWithFlow createInternalBlueprints(BlueprintWithFlow blueprintWithFlow) throws ApiException {
-    return this.createInternalBlueprints(blueprintWithFlow, Collections.emptyMap());
-  }
-
-
-  /**
-   * Create a new internal blueprint
-   * 
-   * @param blueprintWithFlow  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return BlueprintWithFlow
-   * @throws ApiException if fails to make API call
-   */
-  public BlueprintWithFlow createInternalBlueprints(BlueprintWithFlow blueprintWithFlow, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = blueprintWithFlow;
-    
-    // verify the required parameter 'blueprintWithFlow' is set
-    if (blueprintWithFlow == null) {
-      throw new ApiException(400, "Missing the required parameter 'blueprintWithFlow' when calling createInternalBlueprints");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/blueprints/custom";
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<BlueprintWithFlow> localVarReturnType = new TypeReference<BlueprintWithFlow>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "POST",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
    * Create a new internal blueprint
    * 
    * @param tenant  (required)
-   * @param blueprintWithFlow  (required)
-   * @return BlueprintWithFlow
+   * @param blueprintControllerApiBlueprintItemWithSource The internal blueprint to create (required)
+   * @return BlueprintControllerApiBlueprintItemWithSource
    * @throws ApiException if fails to make API call
    */
-  public BlueprintWithFlow createInternalBlueprints1(String tenant, BlueprintWithFlow blueprintWithFlow) throws ApiException {
-    return this.createInternalBlueprints1(tenant, blueprintWithFlow, Collections.emptyMap());
+  public BlueprintControllerApiBlueprintItemWithSource createInternalBlueprints(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull BlueprintControllerApiBlueprintItemWithSource blueprintControllerApiBlueprintItemWithSource) throws ApiException {
+    return this.createInternalBlueprints(tenant, blueprintControllerApiBlueprintItemWithSource, Collections.emptyMap());
   }
 
 
@@ -801,22 +62,22 @@ public class BlueprintsApi extends BaseApi {
    * Create a new internal blueprint
    * 
    * @param tenant  (required)
-   * @param blueprintWithFlow  (required)
+   * @param blueprintControllerApiBlueprintItemWithSource The internal blueprint to create (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return BlueprintWithFlow
+   * @return BlueprintControllerApiBlueprintItemWithSource
    * @throws ApiException if fails to make API call
    */
-  public BlueprintWithFlow createInternalBlueprints1(String tenant, BlueprintWithFlow blueprintWithFlow, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = blueprintWithFlow;
+  public BlueprintControllerApiBlueprintItemWithSource createInternalBlueprints(@javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull BlueprintControllerApiBlueprintItemWithSource blueprintControllerApiBlueprintItemWithSource, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = blueprintControllerApiBlueprintItemWithSource;
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling createInternalBlueprints1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling createInternalBlueprints");
     }
     
-    // verify the required parameter 'blueprintWithFlow' is set
-    if (blueprintWithFlow == null) {
-      throw new ApiException(400, "Missing the required parameter 'blueprintWithFlow' when calling createInternalBlueprints1");
+    // verify the required parameter 'blueprintControllerApiBlueprintItemWithSource' is set
+    if (blueprintControllerApiBlueprintItemWithSource == null) {
+      throw new ApiException(400, "Missing the required parameter 'blueprintControllerApiBlueprintItemWithSource' when calling createInternalBlueprints");
     }
     
     // create path and map variables
@@ -848,7 +109,7 @@ public class BlueprintsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<BlueprintWithFlow> localVarReturnType = new TypeReference<BlueprintWithFlow>() {};
+    TypeReference<BlueprintControllerApiBlueprintItemWithSource> localVarReturnType = new TypeReference<BlueprintControllerApiBlueprintItemWithSource>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -867,14 +128,368 @@ public class BlueprintsApi extends BaseApi {
   }
 
   /**
+   * Delete an internal blueprint
+   * 
+   * @param id The internal blueprint id to delete (required)
+   * @param tenant  (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteInternalBlueprints(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    this.deleteInternalBlueprints(id, tenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Delete an internal blueprint
+   * 
+   * @param id The internal blueprint id to delete (required)
+   * @param tenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteInternalBlueprints(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteInternalBlueprints");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling deleteInternalBlueprints");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/blueprints/custom/{id}"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    apiClient.invokeAPI(
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null
+    );
+  }
+
+  /**
+   * Get a blueprint
+   * 
+   * @param id The blueprint id (required)
+   * @param kind The blueprint kind (required)
+   * @param tenant  (required)
+   * @return BlueprintControllerApiBlueprintItemWithSource
+   * @throws ApiException if fails to make API call
+   */
+  public BlueprintControllerApiBlueprintItemWithSource getBlueprint(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull BlueprintControllerKind kind, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getBlueprint(id, kind, tenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get a blueprint
+   * 
+   * @param id The blueprint id (required)
+   * @param kind The blueprint kind (required)
+   * @param tenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return BlueprintControllerApiBlueprintItemWithSource
+   * @throws ApiException if fails to make API call
+   */
+  public BlueprintControllerApiBlueprintItemWithSource getBlueprint(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull BlueprintControllerKind kind, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getBlueprint");
+    }
+    
+    // verify the required parameter 'kind' is set
+    if (kind == null) {
+      throw new ApiException(400, "Missing the required parameter 'kind' when calling getBlueprint");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getBlueprint");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/blueprints/community/{kind}/{id}"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "kind" + "\\}", apiClient.escapeString(apiClient.parameterToString(kind)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    TypeReference<BlueprintControllerApiBlueprintItemWithSource> localVarReturnType = new TypeReference<BlueprintControllerApiBlueprintItemWithSource>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get a blueprint graph
+   * 
+   * @param id The blueprint id (required)
+   * @param kind The blueprint kind (required)
+   * @param tenant  (required)
+   * @return Map&lt;String, Object&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public Map<String, Object> getBlueprintGraph(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull BlueprintControllerKind kind, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getBlueprintGraph(id, kind, tenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get a blueprint graph
+   * 
+   * @param id The blueprint id (required)
+   * @param kind The blueprint kind (required)
+   * @param tenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return Map&lt;String, Object&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public Map<String, Object> getBlueprintGraph(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull BlueprintControllerKind kind, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getBlueprintGraph");
+    }
+    
+    // verify the required parameter 'kind' is set
+    if (kind == null) {
+      throw new ApiException(400, "Missing the required parameter 'kind' when calling getBlueprintGraph");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getBlueprintGraph");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/blueprints/community/{kind}/{id}/graph"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "kind" + "\\}", apiClient.escapeString(apiClient.parameterToString(kind)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    TypeReference<Map<String, Object>> localVarReturnType = new TypeReference<Map<String, Object>>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Get a blueprint source code
+   * 
+   * @param id The blueprint id (required)
+   * @param kind The blueprint kind (required)
+   * @param tenant  (required)
+   * @return String
+   * @throws ApiException if fails to make API call
+   */
+  public String getBlueprintSource(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull BlueprintControllerKind kind, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.getBlueprintSource(id, kind, tenant, Collections.emptyMap());
+  }
+
+
+  /**
+   * Get a blueprint source code
+   * 
+   * @param id The blueprint id (required)
+   * @param kind The blueprint kind (required)
+   * @param tenant  (required)
+   * @param additionalHeaders additionalHeaders for this call
+   * @return String
+   * @throws ApiException if fails to make API call
+   */
+  public String getBlueprintSource(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull BlueprintControllerKind kind, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getBlueprintSource");
+    }
+    
+    // verify the required parameter 'kind' is set
+    if (kind == null) {
+      throw new ApiException(400, "Missing the required parameter 'kind' when calling getBlueprintSource");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling getBlueprintSource");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/api/v1/{tenant}/blueprints/community/{kind}/{id}/source"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "kind" + "\\}", apiClient.escapeString(apiClient.parameterToString(kind)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/yaml"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    TypeReference<String> localVarReturnType = new TypeReference<String>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Get an internal blueprint
    * 
    * @param id The blueprint id (required)
-   * @return BlueprintWithFlow
+   * @param tenant  (required)
+   * @return BlueprintControllerApiBlueprintItemWithSource
    * @throws ApiException if fails to make API call
    */
-  public BlueprintWithFlow internalBlueprint(String id) throws ApiException {
-    return this.internalBlueprint(id, Collections.emptyMap());
+  public BlueprintControllerApiBlueprintItemWithSource internalBlueprint(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.internalBlueprint(id, tenant, Collections.emptyMap());
   }
 
 
@@ -882,11 +497,12 @@ public class BlueprintsApi extends BaseApi {
    * Get an internal blueprint
    * 
    * @param id The blueprint id (required)
+   * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
-   * @return BlueprintWithFlow
+   * @return BlueprintControllerApiBlueprintItemWithSource
    * @throws ApiException if fails to make API call
    */
-  public BlueprintWithFlow internalBlueprint(String id, Map<String, String> additionalHeaders) throws ApiException {
+  public BlueprintControllerApiBlueprintItemWithSource internalBlueprint(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -894,86 +510,9 @@ public class BlueprintsApi extends BaseApi {
       throw new ApiException(400, "Missing the required parameter 'id' when calling internalBlueprint");
     }
     
-    // create path and map variables
-    String localVarPath = "/api/v1/blueprints/custom/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<BlueprintWithFlow> localVarReturnType = new TypeReference<BlueprintWithFlow>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get an internal blueprint
-   * 
-   * @param id The blueprint id (required)
-   * @param tenant  (required)
-   * @return BlueprintWithFlow
-   * @throws ApiException if fails to make API call
-   */
-  public BlueprintWithFlow internalBlueprint1(String id, String tenant) throws ApiException {
-    return this.internalBlueprint1(id, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get an internal blueprint
-   * 
-   * @param id The blueprint id (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return BlueprintWithFlow
-   * @throws ApiException if fails to make API call
-   */
-  public BlueprintWithFlow internalBlueprint1(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling internalBlueprint1");
-    }
-    
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling internalBlueprint1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling internalBlueprint");
     }
     
     // create path and map variables
@@ -1006,7 +545,7 @@ public class BlueprintsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<BlueprintWithFlow> localVarReturnType = new TypeReference<BlueprintWithFlow>() {};
+    TypeReference<BlueprintControllerApiBlueprintItemWithSource> localVarReturnType = new TypeReference<BlueprintControllerApiBlueprintItemWithSource>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -1025,26 +564,28 @@ public class BlueprintsApi extends BaseApi {
   }
 
   /**
-   * Get an internal blueprint flow
+   * Get an internal blueprint source code
    * 
    * @param id The blueprint id (required)
+   * @param tenant  (required)
    * @return String
    * @throws ApiException if fails to make API call
    */
-  public String internalBlueprintFlow(String id) throws ApiException {
-    return this.internalBlueprintFlow(id, Collections.emptyMap());
+  public String internalBlueprintFlow(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant) throws ApiException {
+    return this.internalBlueprintFlow(id, tenant, Collections.emptyMap());
   }
 
 
   /**
-   * Get an internal blueprint flow
+   * Get an internal blueprint source code
    * 
    * @param id The blueprint id (required)
+   * @param tenant  (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return String
    * @throws ApiException if fails to make API call
    */
-  public String internalBlueprintFlow(String id, Map<String, String> additionalHeaders) throws ApiException {
+  public String internalBlueprintFlow(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -1052,90 +593,13 @@ public class BlueprintsApi extends BaseApi {
       throw new ApiException(400, "Missing the required parameter 'id' when calling internalBlueprintFlow");
     }
     
-    // create path and map variables
-    String localVarPath = "/api/v1/blueprints/custom/{id}/flow"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/yaml"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<String> localVarReturnType = new TypeReference<String>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Get an internal blueprint flow
-   * 
-   * @param id The blueprint id (required)
-   * @param tenant  (required)
-   * @return String
-   * @throws ApiException if fails to make API call
-   */
-  public String internalBlueprintFlow1(String id, String tenant) throws ApiException {
-    return this.internalBlueprintFlow1(id, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Get an internal blueprint flow
-   * 
-   * @param id The blueprint id (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return String
-   * @throws ApiException if fails to make API call
-   */
-  public String internalBlueprintFlow1(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling internalBlueprintFlow1");
-    }
-    
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling internalBlueprintFlow1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling internalBlueprintFlow");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/blueprints/custom/{id}/flow"
+    String localVarPath = "/api/v1/{tenant}/blueprints/custom/{id}/source"
       .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
       .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
@@ -1183,48 +647,64 @@ public class BlueprintsApi extends BaseApi {
   }
 
   /**
-   * List all internal blueprints
+   * List all blueprints
    * 
    * @param page The current page (required)
    * @param size The current page size (required)
+   * @param kind The blueprint kind (required)
+   * @param tenant  (required)
    * @param q A string filter (optional)
    * @param sort The sort of current page (optional)
    * @param tags A tags filter (optional)
-   * @return PagedResultsBlueprint
+   * @return PagedResultsBlueprintControllerApiBlueprintItem
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsBlueprint internalBlueprints(Integer page, Integer size, String q, String sort, List<String> tags) throws ApiException {
-    return this.internalBlueprints(page, size, q, sort, tags, Collections.emptyMap());
+  public PagedResultsBlueprintControllerApiBlueprintItem searchBlueprints(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull BlueprintControllerKind kind, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable String sort, @javax.annotation.Nullable List<String> tags) throws ApiException {
+    return this.searchBlueprints(page, size, kind, tenant, q, sort, tags, Collections.emptyMap());
   }
 
 
   /**
-   * List all internal blueprints
+   * List all blueprints
    * 
    * @param page The current page (required)
    * @param size The current page size (required)
+   * @param kind The blueprint kind (required)
+   * @param tenant  (required)
    * @param q A string filter (optional)
    * @param sort The sort of current page (optional)
    * @param tags A tags filter (optional)
    * @param additionalHeaders additionalHeaders for this call
-   * @return PagedResultsBlueprint
+   * @return PagedResultsBlueprintControllerApiBlueprintItem
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsBlueprint internalBlueprints(Integer page, Integer size, String q, String sort, List<String> tags, Map<String, String> additionalHeaders) throws ApiException {
+  public PagedResultsBlueprintControllerApiBlueprintItem searchBlueprints(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull BlueprintControllerKind kind, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable String sort, @javax.annotation.Nullable List<String> tags, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'page' is set
     if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling internalBlueprints");
+      throw new ApiException(400, "Missing the required parameter 'page' when calling searchBlueprints");
     }
     
     // verify the required parameter 'size' is set
     if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling internalBlueprints");
+      throw new ApiException(400, "Missing the required parameter 'size' when calling searchBlueprints");
+    }
+    
+    // verify the required parameter 'kind' is set
+    if (kind == null) {
+      throw new ApiException(400, "Missing the required parameter 'kind' when calling searchBlueprints");
+    }
+    
+    // verify the required parameter 'tenant' is set
+    if (tenant == null) {
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling searchBlueprints");
     }
     
     // create path and map variables
-    String localVarPath = "/api/v1/blueprints/custom";
+    String localVarPath = "/api/v1/{tenant}/blueprints/community/{kind}"
+      .replaceAll("\\{" + "kind" + "\\}", apiClient.escapeString(apiClient.parameterToString(kind)))
+      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1256,7 +736,7 @@ public class BlueprintsApi extends BaseApi {
 
     String[] localVarAuthNames = new String[] {  };
 
-    TypeReference<PagedResultsBlueprint> localVarReturnType = new TypeReference<PagedResultsBlueprint>() {};
+    TypeReference<PagedResultsBlueprintControllerApiBlueprintItem> localVarReturnType = new TypeReference<PagedResultsBlueprintControllerApiBlueprintItem>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -1275,78 +755,6 @@ public class BlueprintsApi extends BaseApi {
   }
 
   /**
-   * Delete an internal blueprint
-   * 
-   * @param id The internal blueprint id to delete (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void internalBlueprints1(String id) throws ApiException {
-    this.internalBlueprints1(id, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete an internal blueprint
-   * 
-   * @param id The internal blueprint id to delete (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void internalBlueprints1(String id, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling internalBlueprints1");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/blueprints/custom/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
    * List all internal blueprints
    * 
    * @param page The current page (required)
@@ -1358,8 +766,8 @@ public class BlueprintsApi extends BaseApi {
    * @return PagedResultsBlueprint
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsBlueprint internalBlueprints2(Integer page, Integer size, String tenant, String q, String sort, List<String> tags) throws ApiException {
-    return this.internalBlueprints2(page, size, tenant, q, sort, tags, Collections.emptyMap());
+  public PagedResultsBlueprint searchInternalBlueprints(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable String sort, @javax.annotation.Nullable List<String> tags) throws ApiException {
+    return this.searchInternalBlueprints(page, size, tenant, q, sort, tags, Collections.emptyMap());
   }
 
 
@@ -1376,22 +784,22 @@ public class BlueprintsApi extends BaseApi {
    * @return PagedResultsBlueprint
    * @throws ApiException if fails to make API call
    */
-  public PagedResultsBlueprint internalBlueprints2(Integer page, Integer size, String tenant, String q, String sort, List<String> tags, Map<String, String> additionalHeaders) throws ApiException {
+  public PagedResultsBlueprint searchInternalBlueprints(@javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer size, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String q, @javax.annotation.Nullable String sort, @javax.annotation.Nullable List<String> tags, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'page' is set
     if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling internalBlueprints2");
+      throw new ApiException(400, "Missing the required parameter 'page' when calling searchInternalBlueprints");
     }
     
     // verify the required parameter 'size' is set
     if (size == null) {
-      throw new ApiException(400, "Missing the required parameter 'size' when calling internalBlueprints2");
+      throw new ApiException(400, "Missing the required parameter 'size' when calling searchInternalBlueprints");
     }
     
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling internalBlueprints2");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling searchInternalBlueprints");
     }
     
     // create path and map variables
@@ -1447,95 +855,16 @@ public class BlueprintsApi extends BaseApi {
   }
 
   /**
-   * Delete an internal blueprint
-   * 
-   * @param id The internal blueprint id to delete (required)
-   * @param tenant  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void internalBlueprints3(String id, String tenant) throws ApiException {
-    this.internalBlueprints3(id, tenant, Collections.emptyMap());
-  }
-
-
-  /**
-   * Delete an internal blueprint
-   * 
-   * @param id The internal blueprint id to delete (required)
-   * @param tenant  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @throws ApiException if fails to make API call
-   */
-  public void internalBlueprints3(String id, String tenant, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling internalBlueprints3");
-    }
-    
-    // verify the required parameter 'tenant' is set
-    if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling internalBlueprints3");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/{tenant}/blueprints/custom/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
-      .replaceAll("\\{" + "tenant" + "\\}", apiClient.escapeString(apiClient.parameterToString(tenant)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    apiClient.invokeAPI(
-        localVarPath,
-        "DELETE",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        null
-    );
-  }
-
-  /**
    * Update an internal blueprint
    * 
    * @param id The id of the internal blueprint to update (required)
-   * @param blueprintWithFlow  (required)
+   * @param tenant  (required)
+   * @param blueprintControllerApiBlueprintItemWithSource The new internal blueprint for update (required)
    * @return BlueprintWithFlow
    * @throws ApiException if fails to make API call
    */
-  public BlueprintWithFlow updateInternalBlueprints(String id, BlueprintWithFlow blueprintWithFlow) throws ApiException {
-    return this.updateInternalBlueprints(id, blueprintWithFlow, Collections.emptyMap());
+  public BlueprintWithFlow updateInternalBlueprints(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull BlueprintControllerApiBlueprintItemWithSource blueprintControllerApiBlueprintItemWithSource) throws ApiException {
+    return this.updateInternalBlueprints(id, tenant, blueprintControllerApiBlueprintItemWithSource, Collections.emptyMap());
   }
 
 
@@ -1543,111 +872,28 @@ public class BlueprintsApi extends BaseApi {
    * Update an internal blueprint
    * 
    * @param id The id of the internal blueprint to update (required)
-   * @param blueprintWithFlow  (required)
+   * @param tenant  (required)
+   * @param blueprintControllerApiBlueprintItemWithSource The new internal blueprint for update (required)
    * @param additionalHeaders additionalHeaders for this call
    * @return BlueprintWithFlow
    * @throws ApiException if fails to make API call
    */
-  public BlueprintWithFlow updateInternalBlueprints(String id, BlueprintWithFlow blueprintWithFlow, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = blueprintWithFlow;
+  public BlueprintWithFlow updateInternalBlueprints(@javax.annotation.Nonnull String id, @javax.annotation.Nonnull String tenant, @javax.annotation.Nonnull BlueprintControllerApiBlueprintItemWithSource blueprintControllerApiBlueprintItemWithSource, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = blueprintControllerApiBlueprintItemWithSource;
     
     // verify the required parameter 'id' is set
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling updateInternalBlueprints");
     }
     
-    // verify the required parameter 'blueprintWithFlow' is set
-    if (blueprintWithFlow == null) {
-      throw new ApiException(400, "Missing the required parameter 'blueprintWithFlow' when calling updateInternalBlueprints");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/api/v1/blueprints/custom/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
-
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarHeaderParams.putAll(additionalHeaders);
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    TypeReference<BlueprintWithFlow> localVarReturnType = new TypeReference<BlueprintWithFlow>() {};
-    return apiClient.invokeAPI(
-        localVarPath,
-        "PUT",
-        localVarQueryParams,
-        localVarCollectionQueryParams,
-        localVarQueryStringJoiner.toString(),
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType
-    );
-  }
-
-  /**
-   * Update an internal blueprint
-   * 
-   * @param id The id of the internal blueprint to update (required)
-   * @param tenant  (required)
-   * @param blueprintWithFlow  (required)
-   * @return BlueprintWithFlow
-   * @throws ApiException if fails to make API call
-   */
-  public BlueprintWithFlow updateInternalBlueprints1(String id, String tenant, BlueprintWithFlow blueprintWithFlow) throws ApiException {
-    return this.updateInternalBlueprints1(id, tenant, blueprintWithFlow, Collections.emptyMap());
-  }
-
-
-  /**
-   * Update an internal blueprint
-   * 
-   * @param id The id of the internal blueprint to update (required)
-   * @param tenant  (required)
-   * @param blueprintWithFlow  (required)
-   * @param additionalHeaders additionalHeaders for this call
-   * @return BlueprintWithFlow
-   * @throws ApiException if fails to make API call
-   */
-  public BlueprintWithFlow updateInternalBlueprints1(String id, String tenant, BlueprintWithFlow blueprintWithFlow, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = blueprintWithFlow;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateInternalBlueprints1");
-    }
-    
     // verify the required parameter 'tenant' is set
     if (tenant == null) {
-      throw new ApiException(400, "Missing the required parameter 'tenant' when calling updateInternalBlueprints1");
+      throw new ApiException(400, "Missing the required parameter 'tenant' when calling updateInternalBlueprints");
     }
     
-    // verify the required parameter 'blueprintWithFlow' is set
-    if (blueprintWithFlow == null) {
-      throw new ApiException(400, "Missing the required parameter 'blueprintWithFlow' when calling updateInternalBlueprints1");
+    // verify the required parameter 'blueprintControllerApiBlueprintItemWithSource' is set
+    if (blueprintControllerApiBlueprintItemWithSource == null) {
+      throw new ApiException(400, "Missing the required parameter 'blueprintControllerApiBlueprintItemWithSource' when calling updateInternalBlueprints");
     }
     
     // create path and map variables
