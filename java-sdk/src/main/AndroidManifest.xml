@@ -1,3 +1,3 @@
-<manifest package="io.kestra.api.sdk.internal" xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest package="io.kestra.sdk.internal" xmlns:android="http://schemas.android.com/apk/res/android">
     <application />
 </manifest>

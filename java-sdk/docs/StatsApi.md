@@ -31,11 +31,11 @@ Get daily statistics for executions group by namespaces and flows
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.StatsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.StatsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -43,7 +43,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         StatsApi apiInstance = new StatsApi(defaultClient);
-        StatsControllerByFlowStatisticRequest statsControllerByFlowStatisticRequest = new StatsControllerByFlowStatisticRequest(); // StatsControllerByFlowStatisticRequest | 
+        StatsControllerByFlowStatisticRequest statsControllerByFlowStatisticRequest = new StatsControllerByFlowStatisticRequest(); // StatsControllerByFlowStatisticRequest |
         try {
             Map<String, Map<String, List<DailyExecutionStatistics>>> result = apiInstance.dailyGroupByFlowStatistics(statsControllerByFlowStatisticRequest);
             System.out.println(result);
@@ -95,11 +95,11 @@ Get daily statistics for executions group by namespaces and flows
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.StatsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.StatsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -107,8 +107,8 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         StatsApi apiInstance = new StatsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        StatsControllerByFlowStatisticRequest statsControllerByFlowStatisticRequest = new StatsControllerByFlowStatisticRequest(); // StatsControllerByFlowStatisticRequest | 
+        String tenant = "tenant_example"; // String |
+        StatsControllerByFlowStatisticRequest statsControllerByFlowStatisticRequest = new StatsControllerByFlowStatisticRequest(); // StatsControllerByFlowStatisticRequest |
         try {
             Map<String, Map<String, List<DailyExecutionStatistics>>> result = apiInstance.dailyGroupByFlowStatisticsWithTenant(tenant, statsControllerByFlowStatisticRequest);
             System.out.println(result);
@@ -161,11 +161,11 @@ Get daily statistics for executions
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.StatsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.StatsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -173,7 +173,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         StatsApi apiInstance = new StatsApi(defaultClient);
-        StatsControllerStatisticRequest statsControllerStatisticRequest = new StatsControllerStatisticRequest(); // StatsControllerStatisticRequest | 
+        StatsControllerStatisticRequest statsControllerStatisticRequest = new StatsControllerStatisticRequest(); // StatsControllerStatisticRequest |
         try {
             List<DailyExecutionStatistics> result = apiInstance.dailyStatistics(statsControllerStatisticRequest);
             System.out.println(result);
@@ -225,11 +225,11 @@ Get daily statistics for executions grouped by namespace
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.StatsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.StatsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -237,7 +237,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         StatsApi apiInstance = new StatsApi(defaultClient);
-        StatsControllerByNamespaceStatisticRequest statsControllerByNamespaceStatisticRequest = new StatsControllerByNamespaceStatisticRequest(); // StatsControllerByNamespaceStatisticRequest | 
+        StatsControllerByNamespaceStatisticRequest statsControllerByNamespaceStatisticRequest = new StatsControllerByNamespaceStatisticRequest(); // StatsControllerByNamespaceStatisticRequest |
         try {
             Map<String, ExecutionCountStatistics> result = apiInstance.dailyStatisticsGroupByNamespace(statsControllerByNamespaceStatisticRequest);
             System.out.println(result);
@@ -289,11 +289,11 @@ Get daily statistics for executions grouped by namespace
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.StatsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.StatsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -301,8 +301,8 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         StatsApi apiInstance = new StatsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        StatsControllerByNamespaceStatisticRequest statsControllerByNamespaceStatisticRequest = new StatsControllerByNamespaceStatisticRequest(); // StatsControllerByNamespaceStatisticRequest | 
+        String tenant = "tenant_example"; // String |
+        StatsControllerByNamespaceStatisticRequest statsControllerByNamespaceStatisticRequest = new StatsControllerByNamespaceStatisticRequest(); // StatsControllerByNamespaceStatisticRequest |
         try {
             Map<String, ExecutionCountStatistics> result = apiInstance.dailyStatisticsGroupByNamespaceWithTenant(tenant, statsControllerByNamespaceStatisticRequest);
             System.out.println(result);
@@ -355,11 +355,11 @@ Get daily statistics for executions
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.StatsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.StatsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -367,8 +367,8 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         StatsApi apiInstance = new StatsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        StatsControllerStatisticRequest statsControllerStatisticRequest = new StatsControllerStatisticRequest(); // StatsControllerStatisticRequest | 
+        String tenant = "tenant_example"; // String |
+        StatsControllerStatisticRequest statsControllerStatisticRequest = new StatsControllerStatisticRequest(); // StatsControllerStatisticRequest |
         try {
             List<DailyExecutionStatistics> result = apiInstance.dailyStatisticsWithTenant(tenant, statsControllerStatisticRequest);
             System.out.println(result);
@@ -421,11 +421,11 @@ Get latest execution by flows
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.StatsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.StatsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -433,7 +433,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         StatsApi apiInstance = new StatsApi(defaultClient);
-        StatsControllerLastExecutionsRequest statsControllerLastExecutionsRequest = new StatsControllerLastExecutionsRequest(); // StatsControllerLastExecutionsRequest | 
+        StatsControllerLastExecutionsRequest statsControllerLastExecutionsRequest = new StatsControllerLastExecutionsRequest(); // StatsControllerLastExecutionsRequest |
         try {
             List<Execution> result = apiInstance.lastExecutions(statsControllerLastExecutionsRequest);
             System.out.println(result);
@@ -485,11 +485,11 @@ Get latest execution by flows
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.StatsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.StatsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -497,8 +497,8 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         StatsApi apiInstance = new StatsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        StatsControllerLastExecutionsRequest statsControllerLastExecutionsRequest = new StatsControllerLastExecutionsRequest(); // StatsControllerLastExecutionsRequest | 
+        String tenant = "tenant_example"; // String |
+        StatsControllerLastExecutionsRequest statsControllerLastExecutionsRequest = new StatsControllerLastExecutionsRequest(); // StatsControllerLastExecutionsRequest |
         try {
             List<Execution> result = apiInstance.lastExecutionsWithTenant(tenant, statsControllerLastExecutionsRequest);
             System.out.println(result);
@@ -551,11 +551,11 @@ Get daily statistics for logs
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.StatsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.StatsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -563,7 +563,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         StatsApi apiInstance = new StatsApi(defaultClient);
-        StatsControllerLogStatisticRequest statsControllerLogStatisticRequest = new StatsControllerLogStatisticRequest(); // StatsControllerLogStatisticRequest | 
+        StatsControllerLogStatisticRequest statsControllerLogStatisticRequest = new StatsControllerLogStatisticRequest(); // StatsControllerLogStatisticRequest |
         try {
             List<LogStatistics> result = apiInstance.logsDailyStatistics(statsControllerLogStatisticRequest);
             System.out.println(result);
@@ -615,11 +615,11 @@ Get daily statistics for logs
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.StatsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.StatsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -627,8 +627,8 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         StatsApi apiInstance = new StatsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        StatsControllerLogStatisticRequest statsControllerLogStatisticRequest = new StatsControllerLogStatisticRequest(); // StatsControllerLogStatisticRequest | 
+        String tenant = "tenant_example"; // String |
+        StatsControllerLogStatisticRequest statsControllerLogStatisticRequest = new StatsControllerLogStatisticRequest(); // StatsControllerLogStatisticRequest |
         try {
             List<LogStatistics> result = apiInstance.logsDailyStatisticsWithTenant(tenant, statsControllerLogStatisticRequest);
             System.out.println(result);
@@ -681,11 +681,11 @@ Get summary statistics
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.StatsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.StatsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -693,7 +693,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         StatsApi apiInstance = new StatsApi(defaultClient);
-        StatsControllerSummaryRequest statsControllerSummaryRequest = new StatsControllerSummaryRequest(); // StatsControllerSummaryRequest | 
+        StatsControllerSummaryRequest statsControllerSummaryRequest = new StatsControllerSummaryRequest(); // StatsControllerSummaryRequest |
         try {
             SummaryStatistics result = apiInstance.summary(statsControllerSummaryRequest);
             System.out.println(result);
@@ -745,11 +745,11 @@ Get summary statistics
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.StatsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.StatsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -757,8 +757,8 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         StatsApi apiInstance = new StatsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        StatsControllerSummaryRequest statsControllerSummaryRequest = new StatsControllerSummaryRequest(); // StatsControllerSummaryRequest | 
+        String tenant = "tenant_example"; // String |
+        StatsControllerSummaryRequest statsControllerSummaryRequest = new StatsControllerSummaryRequest(); // StatsControllerSummaryRequest |
         try {
             SummaryStatistics result = apiInstance.summaryWithTenant(tenant, statsControllerSummaryRequest);
             System.out.println(result);
@@ -811,11 +811,11 @@ Get daily statistics for taskRuns
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.StatsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.StatsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -823,7 +823,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         StatsApi apiInstance = new StatsApi(defaultClient);
-        StatsControllerStatisticRequest statsControllerStatisticRequest = new StatsControllerStatisticRequest(); // StatsControllerStatisticRequest | 
+        StatsControllerStatisticRequest statsControllerStatisticRequest = new StatsControllerStatisticRequest(); // StatsControllerStatisticRequest |
         try {
             List<DailyExecutionStatistics> result = apiInstance.taskRunsDailyStatistics(statsControllerStatisticRequest);
             System.out.println(result);
@@ -875,11 +875,11 @@ Get daily statistics for taskRuns
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.StatsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.StatsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -887,8 +887,8 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         StatsApi apiInstance = new StatsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        StatsControllerStatisticRequest statsControllerStatisticRequest = new StatsControllerStatisticRequest(); // StatsControllerStatisticRequest | 
+        String tenant = "tenant_example"; // String |
+        StatsControllerStatisticRequest statsControllerStatisticRequest = new StatsControllerStatisticRequest(); // StatsControllerStatisticRequest |
         try {
             List<DailyExecutionStatistics> result = apiInstance.taskRunsDailyStatisticsWithTenant(tenant, statsControllerStatisticRequest);
             System.out.println(result);

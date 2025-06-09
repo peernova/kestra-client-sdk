@@ -27,18 +27,17 @@ Create multiple bindings
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.BindingsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.BindingsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -49,7 +48,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         BindingsApi apiInstance = new BindingsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<Binding> binding = Arrays.asList(); // List<Binding> | The bindings
         try {
             List<AbstractBindingControllerBindingDetail> result = apiInstance.bulkCreateBinding(tenant, binding);
@@ -103,18 +102,17 @@ Create multiple bindings
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.BindingsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.BindingsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -125,7 +123,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         BindingsApi apiInstance = new BindingsApi(defaultClient);
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         List<Binding> binding = Arrays.asList(); // List<Binding> | The bindings
         try {
             List<AbstractBindingControllerBindingDetail> result = apiInstance.bulkCreateBindingapsSuperAdmin(resourceTenant, binding);
@@ -179,18 +177,17 @@ Create a binding
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.BindingsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.BindingsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -201,7 +198,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         BindingsApi apiInstance = new BindingsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         Binding binding = new Binding(); // Binding | The binding
         try {
             AbstractBindingControllerBindingDetail result = apiInstance.createBinding(tenant, binding);
@@ -255,18 +252,17 @@ Create a binding
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.BindingsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.BindingsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -277,7 +273,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         BindingsApi apiInstance = new BindingsApi(defaultClient);
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         Binding binding = new Binding(); // Binding | The binding
         try {
             AbstractBindingControllerBindingDetail result = apiInstance.createBindingapsSuperAdmin(resourceTenant, binding);
@@ -331,18 +327,17 @@ Delete a binding
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.BindingsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.BindingsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -354,7 +349,7 @@ public class Example {
 
         BindingsApi apiInstance = new BindingsApi(defaultClient);
         String id = "id_example"; // String | The binding id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             apiInstance.deleteBinding(id, tenant);
         } catch (ApiException e) {
@@ -406,18 +401,17 @@ Delete a binding
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.BindingsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.BindingsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -429,7 +423,7 @@ public class Example {
 
         BindingsApi apiInstance = new BindingsApi(defaultClient);
         String id = "id_example"; // String | The binding id
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         try {
             apiInstance.deleteBindingapsSuperAdmin(id, resourceTenant);
         } catch (ApiException e) {
@@ -481,18 +475,17 @@ Get a binding
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.BindingsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.BindingsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -504,7 +497,7 @@ public class Example {
 
         BindingsApi apiInstance = new BindingsApi(defaultClient);
         String id = "id_example"; // String | The binding id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             AbstractBindingControllerBindingDetail result = apiInstance.getBinding(id, tenant);
             System.out.println(result);
@@ -557,18 +550,17 @@ Get a binding
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.BindingsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.BindingsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -580,7 +572,7 @@ public class Example {
 
         BindingsApi apiInstance = new BindingsApi(defaultClient);
         String id = "id_example"; // String | The binding id
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         try {
             AbstractBindingControllerBindingDetail result = apiInstance.getBindingapsSuperAdmin(id, resourceTenant);
             System.out.println(result);
@@ -633,18 +625,17 @@ Search for bindings
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.BindingsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.BindingsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -657,7 +648,7 @@ public class Example {
         BindingsApi apiInstance = new BindingsApi(defaultClient);
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String q = "q_example"; // String | A string filter
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         BindingType type = BindingType.fromValue("USER"); // BindingType | Binding type filter
@@ -721,18 +712,17 @@ Search for bindings
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.BindingsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.BindingsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -745,7 +735,7 @@ public class Example {
         BindingsApi apiInstance = new BindingsApi(defaultClient);
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         String q = "q_example"; // String | A string filter
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         BindingType type = BindingType.fromValue("USER"); // BindingType | Binding type filter

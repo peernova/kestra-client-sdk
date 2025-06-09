@@ -23,11 +23,11 @@ Create a tenant
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TenantsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TenantsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -35,7 +35,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         TenantsApi apiInstance = new TenantsApi(defaultClient);
-        Tenant tenant = new Tenant(); // Tenant | 
+        Tenant tenant = new Tenant(); // Tenant |
         try {
             Tenant result = apiInstance.create(tenant);
             System.out.println(result);
@@ -87,11 +87,11 @@ Delete a tenant and all its resources (flows, namespaces, apps, ...
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TenantsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TenantsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -150,11 +150,11 @@ Search for tenants
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TenantsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TenantsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -220,11 +220,11 @@ Get a tenant
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TenantsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TenantsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -284,11 +284,11 @@ Set a tenant logo
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TenantsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TenantsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -350,11 +350,11 @@ Update a tenant
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TenantsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TenantsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -363,7 +363,7 @@ public class Example {
 
         TenantsApi apiInstance = new TenantsApi(defaultClient);
         String id = "id_example"; // String | The tenant id
-        Tenant tenant = new Tenant(); // Tenant | 
+        Tenant tenant = new Tenant(); // Tenant |
         try {
             Tenant result = apiInstance.update(id, tenant);
             System.out.println(result);

@@ -22,18 +22,17 @@ Create a new worker group.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.WorkerGroupsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.WorkerGroupsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -44,7 +43,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         WorkerGroupsApi apiInstance = new WorkerGroupsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         ClusterControllerApiCreateOrUpdateWorkerGroupRequest clusterControllerApiCreateOrUpdateWorkerGroupRequest = new ClusterControllerApiCreateOrUpdateWorkerGroupRequest(); // ClusterControllerApiCreateOrUpdateWorkerGroupRequest | The worker group definition
         try {
             ClusterControllerApiWorkerGroup result = apiInstance.createWorkerGroup(tenant, clusterControllerApiCreateOrUpdateWorkerGroupRequest);
@@ -98,18 +97,17 @@ Delete an existing worker group.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.WorkerGroupsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.WorkerGroupsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -120,8 +118,8 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         WorkerGroupsApi apiInstance = new WorkerGroupsApi(defaultClient);
-        String id = "id_example"; // String | 
-        String tenant = "tenant_example"; // String | 
+        String id = "id_example"; // String |
+        String tenant = "tenant_example"; // String |
         try {
             Object result = apiInstance.deleteWorkerGroupById(id, tenant);
             System.out.println(result);
@@ -174,18 +172,17 @@ Get details about a worker group.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.WorkerGroupsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.WorkerGroupsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -196,8 +193,8 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         WorkerGroupsApi apiInstance = new WorkerGroupsApi(defaultClient);
-        String id = "id_example"; // String | 
-        String tenant = "tenant_example"; // String | 
+        String id = "id_example"; // String |
+        String tenant = "tenant_example"; // String |
         try {
             ClusterControllerApiWorkerGroupDetails result = apiInstance.getWorkerGroupById(id, tenant);
             System.out.println(result);
@@ -250,18 +247,17 @@ List all Worker Groups
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.WorkerGroupsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.WorkerGroupsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -272,7 +268,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         WorkerGroupsApi apiInstance = new WorkerGroupsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             ClusterControllerApiWorkerGroupList result = apiInstance.listWorkerGroups(tenant);
             System.out.println(result);
@@ -324,18 +320,17 @@ Update an existing worker group.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.WorkerGroupsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.WorkerGroupsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -346,8 +341,8 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         WorkerGroupsApi apiInstance = new WorkerGroupsApi(defaultClient);
-        String id = "id_example"; // String | 
-        String tenant = "tenant_example"; // String | 
+        String id = "id_example"; // String |
+        String tenant = "tenant_example"; // String |
         ClusterControllerApiCreateOrUpdateWorkerGroupRequest clusterControllerApiCreateOrUpdateWorkerGroupRequest = new ClusterControllerApiCreateOrUpdateWorkerGroupRequest(); // ClusterControllerApiCreateOrUpdateWorkerGroupRequest | The worker group definition
         try {
             ClusterControllerApiWorkerGroup result = apiInstance.updateWorkerGroupById(id, tenant, clusterControllerApiCreateOrUpdateWorkerGroupRequest);

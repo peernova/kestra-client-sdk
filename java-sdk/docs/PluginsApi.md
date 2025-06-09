@@ -35,18 +35,17 @@ Get all types for an inputs
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.PluginsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.PluginsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -57,7 +56,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         PluginsApi apiInstance = new PluginsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             List<InputType> result = apiInstance.getAllInputTypes(tenant);
             System.out.println(result);
@@ -109,18 +108,17 @@ Get plugins group by subgroups
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.PluginsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.PluginsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -132,7 +130,7 @@ public class Example {
 
         PluginsApi apiInstance = new PluginsApi(defaultClient);
         Boolean includeDeprecated = true; // Boolean | Whether to include deprecated plugins
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             List<Plugin> result = apiInstance.getPluginBySubgroups(includeDeprecated, tenant);
             System.out.println(result);
@@ -185,18 +183,17 @@ Get plugin documentation
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.PluginsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.PluginsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -209,7 +206,7 @@ public class Example {
         PluginsApi apiInstance = new PluginsApi(defaultClient);
         String cls = "cls_example"; // String | The plugin full class name
         Boolean all = false; // Boolean | Include all the properties
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             DocumentationWithSchema result = apiInstance.getPluginDocumentation(cls, all, tenant);
             System.out.println(result);
@@ -263,18 +260,17 @@ Get plugin documentation
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.PluginsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.PluginsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -288,7 +284,7 @@ public class Example {
         String cls = "cls_example"; // String | The plugin type
         String version = "version_example"; // String | The plugin version
         Boolean all = false; // Boolean | Include all the properties
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             DocumentationWithSchema result = apiInstance.getPluginDocumentationFromVersion(cls, version, all, tenant);
             System.out.println(result);
@@ -343,18 +339,17 @@ Get plugins icons
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.PluginsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.PluginsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -365,7 +360,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         PluginsApi apiInstance = new PluginsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Map<String, PluginIcon> result = apiInstance.getPluginGroupIcons(tenant);
             System.out.println(result);
@@ -417,18 +412,17 @@ Get plugins icons
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.PluginsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.PluginsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -439,7 +433,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         PluginsApi apiInstance = new PluginsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Map<String, PluginIcon> result = apiInstance.getPluginIcons(tenant);
             System.out.println(result);
@@ -491,18 +485,17 @@ Get all versions for a plugin
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.PluginsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.PluginsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -514,7 +507,7 @@ public class Example {
 
         PluginsApi apiInstance = new PluginsApi(defaultClient);
         String cls = "cls_example"; // String | The plugin type
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             PluginControllerApiPluginVersions result = apiInstance.getPluginVersions(cls, tenant);
             System.out.println(result);
@@ -569,18 +562,17 @@ The schema will be output as [http://json-schema.org/draft-07/schema](Json Schem
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.PluginsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.PluginsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -592,7 +584,7 @@ public class Example {
 
         PluginsApi apiInstance = new PluginsApi(defaultClient);
         Type type = Type.fromValue("STRING"); // Type | The schema needed
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             DocumentationWithSchema result = apiInstance.getSchemaFromInputType(type, tenant);
             System.out.println(result);
@@ -647,18 +639,17 @@ The schema will be output as [http://json-schema.org/draft-07/schema](Json Schem
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.PluginsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.PluginsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -671,7 +662,7 @@ public class Example {
         PluginsApi apiInstance = new PluginsApi(defaultClient);
         SchemaType type = SchemaType.fromValue("FLOW"); // SchemaType | The schema needed
         Boolean arrayOf = false; // Boolean | If schema should be an array of requested type
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Map<String, Object> result = apiInstance.getSchemasFromType(type, arrayOf, tenant);
             System.out.println(result);
@@ -725,18 +716,17 @@ Get details about a Kestra&#39;s plugin artifact.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.PluginsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.PluginsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -747,9 +737,9 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         PluginsApi apiInstance = new PluginsApi(defaultClient);
-        String groupId = "groupId_example"; // String | 
-        String artifactId = "artifactId_example"; // String | 
-        String tenant = "tenant_example"; // String | 
+        String groupId = "groupId_example"; // String |
+        String artifactId = "artifactId_example"; // String |
+        String tenant = "tenant_example"; // String |
         try {
             ClusterControllerApiPluginVersions result = apiInstance.getVersionedPluginDetails(groupId, artifactId, tenant);
             System.out.println(result);
@@ -803,18 +793,17 @@ Get details about a specific Kestra&#39;s plugin artifact version.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.PluginsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.PluginsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -825,10 +814,10 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         PluginsApi apiInstance = new PluginsApi(defaultClient);
-        String groupId = "groupId_example"; // String | 
-        String artifactId = "artifactId_example"; // String | 
-        String version = "version_example"; // String | 
-        String tenant = "tenant_example"; // String | 
+        String groupId = "groupId_example"; // String |
+        String artifactId = "artifactId_example"; // String |
+        String version = "version_example"; // String |
+        String tenant = "tenant_example"; // String |
         try {
             ClusterControllerApiPluginVersionDetails result = apiInstance.getVersionedPluginDetailsFromVersion(groupId, artifactId, version, tenant);
             System.out.println(result);
@@ -883,18 +872,17 @@ Install a specific Kestra&#39;s plugin artifact
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.PluginsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.PluginsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -905,7 +893,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         PluginsApi apiInstance = new PluginsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         ClusterControllerApiPluginListRequest clusterControllerApiPluginListRequest = new ClusterControllerApiPluginListRequest(); // ClusterControllerApiPluginListRequest | List of plugins
         try {
             ClusterControllerApiPluginArtifactListPluginArtifact result = apiInstance.installVersionedPlugins(tenant, clusterControllerApiPluginListRequest);
@@ -959,18 +947,17 @@ Get the list of available Kestra&#39;s plugin artifact.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.PluginsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.PluginsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -981,7 +968,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         PluginsApi apiInstance = new PluginsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Object result = apiInstance.listAvailableVersionedPlugins(tenant);
             System.out.println(result);
@@ -1033,18 +1020,17 @@ Get list of plugins
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.PluginsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.PluginsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1055,7 +1041,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         PluginsApi apiInstance = new PluginsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             List<Plugin> result = apiInstance.listPlugins(tenant);
             System.out.println(result);
@@ -1107,18 +1093,17 @@ Get the list of installed Kestra&#39;s plugin artifact.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.PluginsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.PluginsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1131,7 +1116,7 @@ public class Example {
         PluginsApi apiInstance = new PluginsApi(defaultClient);
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         String q = "q_example"; // String | The query
         try {
@@ -1189,18 +1174,17 @@ Resolve a specific Kestra&#39;s plugin artifact
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.PluginsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.PluginsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1211,7 +1195,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         PluginsApi apiInstance = new PluginsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         ClusterControllerApiPluginListRequest clusterControllerApiPluginListRequest = new ClusterControllerApiPluginListRequest(); // ClusterControllerApiPluginListRequest | List of plugins
         try {
             ClusterControllerApiPluginArtifactListPluginResolutionResult result = apiInstance.resolveVersionedPlugins(tenant, clusterControllerApiPluginListRequest);
@@ -1265,18 +1249,17 @@ Uninstall Kestra&#39;s plugin artifacts
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.PluginsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.PluginsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1287,7 +1270,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         PluginsApi apiInstance = new PluginsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         ClusterControllerApiPluginListRequest clusterControllerApiPluginListRequest = new ClusterControllerApiPluginListRequest(); // ClusterControllerApiPluginListRequest | List of plugins
         try {
             ClusterControllerApiPluginArtifactListPluginArtifact result = apiInstance.uninstallVersionedPlugins(tenant, clusterControllerApiPluginListRequest);
@@ -1341,18 +1324,17 @@ Upload a Kestra&#39;s plugin artifact
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.PluginsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.PluginsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1363,8 +1345,8 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         PluginsApi apiInstance = new PluginsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        File _file = new File("/path/to/file"); // File | 
+        String tenant = "tenant_example"; // String |
+        File _file = new File("/path/to/file"); // File |
         try {
             PluginArtifact result = apiInstance.uploadVersionedPlugins(tenant, _file);
             System.out.println(result);

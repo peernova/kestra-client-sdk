@@ -66,18 +66,17 @@ List users for autocomplete
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -88,7 +87,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         AbstractUserControllerUserApiAutocomplete abstractUserControllerUserApiAutocomplete = new AbstractUserControllerUserApiAutocomplete(); // AbstractUserControllerUserApiAutocomplete | Autocomplete request
         try {
             List<ApiUser> result = apiInstance.autocompleteUsers(tenant, abstractUserControllerUserApiAutocomplete);
@@ -142,18 +141,17 @@ List users for autocomplete
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -164,7 +162,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         AbstractUserControllerUserApiAutocomplete abstractUserControllerUserApiAutocomplete = new AbstractUserControllerUserApiAutocomplete(); // AbstractUserControllerUserApiAutocomplete | Autocomplete request
         try {
             List<ApiUser> result = apiInstance.autocompleteUsersWithResourceTenantasSuperAdmin(resourceTenant, abstractUserControllerUserApiAutocomplete);
@@ -218,18 +216,17 @@ List users for autocomplete
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -292,18 +289,17 @@ Create new API Token for a specific user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -315,7 +311,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         CreateApiTokenRequest createApiTokenRequest = new CreateApiTokenRequest(); // CreateApiTokenRequest | The create api-token request
         try {
             Object result = apiInstance.createApiTokensForUser(id, tenant, createApiTokenRequest);
@@ -370,18 +366,17 @@ Create new API Token for a specific user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -393,7 +388,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         CreateApiTokenRequest createApiTokenRequest = new CreateApiTokenRequest(); // CreateApiTokenRequest | The create api-token request
         try {
             Object result = apiInstance.createApiTokensForUserWithResourceTenantasSuperAdmin(id, resourceTenant, createApiTokenRequest);
@@ -448,18 +443,17 @@ Create new API Token for a specific user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -524,18 +518,17 @@ Create a user service account
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -546,7 +539,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         ApiServiceAccount apiServiceAccount = new ApiServiceAccount(); // ApiServiceAccount | The service account
         try {
             ApiServiceAccount result = apiInstance.createServiceAccount(tenant, apiServiceAccount);
@@ -600,18 +593,17 @@ Create a user service account
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -622,7 +614,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         ApiServiceAccount apiServiceAccount = new ApiServiceAccount(); // ApiServiceAccount | The service account
         try {
             ApiServiceAccount result = apiInstance.createServiceAccountWithResourceTenantasSuperAdmin(resourceTenant, apiServiceAccount);
@@ -676,18 +668,17 @@ Create a user service account
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -750,18 +741,17 @@ Create a standard user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -772,7 +762,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         ApiUser apiUser = new ApiUser(); // ApiUser | The user
         try {
             ApiUser result = apiInstance.createUser(tenant, apiUser);
@@ -826,18 +816,17 @@ Create a basic auth password for a standard user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -849,7 +838,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         AbstractUserControllerPasswordRequest abstractUserControllerPasswordRequest = new AbstractUserControllerPasswordRequest(); // AbstractUserControllerPasswordRequest | The password
         try {
             ApiUser result = apiInstance.createUserBasicAuth(id, tenant, abstractUserControllerPasswordRequest);
@@ -904,18 +893,17 @@ Create a basic auth password for a standard user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -927,7 +915,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         AbstractUserControllerPasswordRequest abstractUserControllerPasswordRequest = new AbstractUserControllerPasswordRequest(); // AbstractUserControllerPasswordRequest | The password
         try {
             ApiUser result = apiInstance.createUserBasicAuthWithResourceTenantasSuperAdmin(id, resourceTenant, abstractUserControllerPasswordRequest);
@@ -982,18 +970,17 @@ Create a basic auth password for a standard user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1058,18 +1045,17 @@ Create a standard user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1080,7 +1066,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         ApiUser apiUser = new ApiUser(); // ApiUser | The user
         try {
             ApiUser result = apiInstance.createUserWithResourceTenantasSuperAdmin(resourceTenant, apiUser);
@@ -1134,18 +1120,17 @@ Create a standard user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1208,18 +1193,17 @@ Delete an API Token for specific user and token id
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1232,7 +1216,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
         String tokenId = "tokenId_example"; // String | The token id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Object result = apiInstance.deleteApiToken(id, tokenId, tenant);
             System.out.println(result);
@@ -1286,18 +1270,17 @@ Delete an API Token for specific user and token id
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1310,7 +1293,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
         String tokenId = "tokenId_example"; // String | The token id
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         try {
             Object result = apiInstance.deleteApiTokenWithResourceTenantasSuperAdmin(id, tokenId, resourceTenant);
             System.out.println(result);
@@ -1364,18 +1347,17 @@ Delete an API Token for specific user and token id
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1440,18 +1422,17 @@ Delete an Auth for a user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1464,7 +1445,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
         String uid = "uid_example"; // String | The auth id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             ApiUser result = apiInstance.deleteAuth(id, uid, tenant);
             System.out.println(result);
@@ -1519,18 +1500,17 @@ Delete an Auth for a user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1543,7 +1523,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
         String uid = "uid_example"; // String | The auth id
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         try {
             ApiUser result = apiInstance.deleteAuthWithResourceTenantasSuperAdmin(id, uid, resourceTenant);
             System.out.println(result);
@@ -1598,18 +1578,17 @@ Delete an Auth for a user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1675,18 +1654,17 @@ Delete a user refresh token
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1698,7 +1676,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             ApiUser result = apiInstance.deleteRefreshToken(id, tenant);
             System.out.println(result);
@@ -1751,18 +1729,17 @@ Delete a user refresh token
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1774,7 +1751,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         try {
             ApiUser result = apiInstance.deleteRefreshTokenWithResourceTenantasSuperAdmin(id, resourceTenant);
             System.out.println(result);
@@ -1827,18 +1804,17 @@ Delete a user refresh token
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1901,18 +1877,17 @@ Delete a user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1924,7 +1899,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             apiInstance.deleteUser(id, tenant);
         } catch (ApiException e) {
@@ -1977,18 +1952,17 @@ Delete a user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2000,7 +1974,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         try {
             apiInstance.deleteUserWithResourceTenantasSuperAdmin(id, resourceTenant);
         } catch (ApiException e) {
@@ -2053,18 +2027,17 @@ Delete a user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2127,18 +2100,17 @@ Get all users in the instance across all tenantd
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2209,18 +2181,17 @@ Get all users in the instance across all tenantd
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2232,7 +2203,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         Integer page = 1; // Integer | The current page
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         Integer size = 10; // Integer | The current page size
         String q = "q_example"; // String | A string filter
         UserType type = UserType.fromValue("STANDARD"); // UserType | The type of user
@@ -2293,18 +2264,17 @@ Get a user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2316,7 +2286,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             ApiUser result = apiInstance.getUser(id, tenant);
             System.out.println(result);
@@ -2370,18 +2340,17 @@ Get a user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2393,7 +2362,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         try {
             ApiUser result = apiInstance.getUserWithResourceTenantasSuperAdmin(id, resourceTenant);
             System.out.println(result);
@@ -2447,18 +2416,17 @@ Get a user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2522,18 +2490,17 @@ Impersonate a user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2596,18 +2563,17 @@ Impersonate a user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2618,7 +2584,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         String id = "id_example"; // String | The user id
         try {
             Object result = apiInstance.impersonateWithResourceTenant(resourceTenant, id);
@@ -2672,18 +2638,17 @@ List all API Tokens for specific user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2695,7 +2660,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Object result = apiInstance.listApiTokens(id, tenant);
             System.out.println(result);
@@ -2748,18 +2713,17 @@ List all API Tokens for specific user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2771,7 +2735,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         try {
             Object result = apiInstance.listApiTokensWithResourceTenantasSuperAdmin(id, resourceTenant);
             System.out.println(result);
@@ -2824,18 +2788,17 @@ List all API Tokens for specific user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2898,18 +2861,17 @@ Search for users
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2922,7 +2884,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String q = "q_example"; // String | A string filter
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         UserType type = UserType.fromValue("STANDARD"); // UserType | The type of user
@@ -2982,18 +2944,17 @@ Search for users
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3006,7 +2967,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         String q = "q_example"; // String | A string filter
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         UserType type = UserType.fromValue("STANDARD"); // UserType | The type of user
@@ -3066,18 +3027,17 @@ Search for users
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3148,18 +3108,17 @@ Update a user service account
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3171,7 +3130,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        Boolean body = true; // Boolean | 
+        Boolean body = true; // Boolean |
         try {
             ApiUser result = apiInstance.setSuperAdmin(id, body);
             System.out.println(result);
@@ -3225,18 +3184,17 @@ Update a user service account
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3247,9 +3205,9 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         String id = "id_example"; // String | The user id
-        Boolean body = true; // Boolean | 
+        Boolean body = true; // Boolean |
         try {
             ApiUser result = apiInstance.setSuperAdminWithResourceTenant(resourceTenant, id, body);
             System.out.println(result);
@@ -3304,18 +3262,17 @@ Update login password for the current user.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3326,8 +3283,8 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        MeControllerUpdatePasswordRequest meControllerUpdatePasswordRequest = new MeControllerUpdatePasswordRequest(); // MeControllerUpdatePasswordRequest | 
+        String tenant = "tenant_example"; // String |
+        MeControllerUpdatePasswordRequest meControllerUpdatePasswordRequest = new MeControllerUpdatePasswordRequest(); // MeControllerUpdatePasswordRequest |
         try {
             Object result = apiInstance.updateCurrentUserPassword(tenant, meControllerUpdatePasswordRequest);
             System.out.println(result);
@@ -3380,18 +3337,17 @@ Update a user service account
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3403,7 +3359,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         ApiServiceAccount apiServiceAccount = new ApiServiceAccount(); // ApiServiceAccount | The user
         try {
             ApiServiceAccount result = apiInstance.updateServiceAccount(id, tenant, apiServiceAccount);
@@ -3459,18 +3415,17 @@ Update a user service account
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3482,7 +3437,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         ApiServiceAccount apiServiceAccount = new ApiServiceAccount(); // ApiServiceAccount | The user
         try {
             ApiServiceAccount result = apiInstance.updateServiceAccountWithResourceTenantasSuperAdmin(id, resourceTenant, apiServiceAccount);
@@ -3538,18 +3493,17 @@ Update a user service account
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3615,18 +3569,17 @@ Update a standard user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3638,7 +3591,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         ApiUser apiUser = new ApiUser(); // ApiUser | The user
         try {
             ApiUser result = apiInstance.updateUser(id, tenant, apiUser);
@@ -3694,18 +3647,17 @@ Update a standard user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3717,7 +3669,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         ApiUser apiUser = new ApiUser(); // ApiUser | The user
         try {
             ApiUser result = apiInstance.updateUserWithResourceTenantasSuperAdmin(id, resourceTenant, apiUser);
@@ -3773,18 +3725,17 @@ Update a standard user
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.UsersApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");

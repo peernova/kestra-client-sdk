@@ -24,11 +24,11 @@ Create a TestSuite from yaml source
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TestSuitesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TestSuitesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -36,7 +36,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String body = "body_example"; // String | The TestSuite source code
         try {
             TestSuite result = apiInstance.createTestSuite(tenant, body);
@@ -90,11 +90,11 @@ No authorization required
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TestSuitesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TestSuitesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -104,7 +104,7 @@ public class Example {
         TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
         String namespace = "namespace_example"; // String | The TestSuite namespace
         String id = "id_example"; // String | The TestSuite ID
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Object result = apiInstance.deleteTestSuite(namespace, id, tenant);
             System.out.println(result);
@@ -158,11 +158,11 @@ No authorization required
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TestSuitesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TestSuitesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -172,7 +172,7 @@ public class Example {
         TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
         String namespace = "namespace_example"; // String | The TestSuite namespace
         String id = "id_example"; // String | The TestSuite ID
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             TestSuite result = apiInstance.getTestSuite(namespace, id, tenant);
             System.out.println(result);
@@ -226,11 +226,11 @@ Run a full TestSuite
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TestSuitesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TestSuitesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -240,7 +240,7 @@ public class Example {
         TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
         String namespace = "namespace_example"; // String | The TestSuite namespace
         String id = "id_example"; // String | The TestSuite ID
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             List<TestSuiteRunResult> result = apiInstance.runTestSuite(namespace, id, tenant);
             System.out.println(result);
@@ -294,11 +294,11 @@ No authorization required
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TestSuitesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TestSuitesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -308,7 +308,7 @@ public class Example {
         TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         String namespace = "namespace_example"; // String | The namespace to filter on
         String flowId = "flowId_example"; // String | The flow id to filter on
@@ -368,11 +368,11 @@ No authorization required
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TestSuitesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TestSuitesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -382,7 +382,7 @@ public class Example {
         TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
         String namespace = "namespace_example"; // String | The TestSuite namespace
         String id = "id_example"; // String | The TestSuite ID
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String body = "body_example"; // String | The TestSuite source code
         try {
             TestSuite result = apiInstance.updateTestSuite(namespace, id, tenant, body);
@@ -438,11 +438,11 @@ Run a full TestSuite
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TestSuitesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TestSuitesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -450,7 +450,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         TestSuitesApi apiInstance = new TestSuitesApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String body = "body_example"; // String | The TestSuite source code
         try {
             ValidateConstraintViolation result = apiInstance.validateTestSuite(tenant, body);

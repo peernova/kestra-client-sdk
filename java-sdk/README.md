@@ -77,40 +77,37 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ```java
 
-import io.kestra.api.sdk.internal.*;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.model.*;
-import io.kestra.api.sdk.api.AppsApi;
+import api.sdk.io.kestra.AppsApi;
 
 public class AppsApiExample {
 
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
 
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
 
-        AppsApi apiInstance = new AppsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        AppsControllerApiBulkOperationRequest appsControllerApiBulkOperationRequest = new AppsControllerApiBulkOperationRequest(); // AppsControllerApiBulkOperationRequest | The list of Apps UID
-        try {
-            Object result = apiInstance.bulkDeleteApps(tenant, appsControllerApiBulkOperationRequest);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AppsApi#bulkDeleteApps");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AppsApi apiInstance = new AppsApi(defaultClient);
+    String tenant = "tenant_example"; // String |
+    AppsControllerApiBulkOperationRequest appsControllerApiBulkOperationRequest = new AppsControllerApiBulkOperationRequest(); // AppsControllerApiBulkOperationRequest | The list of Apps UID
+    try {
+      Object result = apiInstance.bulkDeleteApps(tenant, appsControllerApiBulkOperationRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AppsApi#bulkDeleteApps");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 
 ```
@@ -189,10 +186,10 @@ Class | Method | HTTP request | Description
 *DashboardsApi* | [**updateDashboard**](docs/DashboardsApi.md#updateDashboard) | **PUT** /api/v1/{tenant}/dashboards/{id} | Update a dashboard
 *DashboardsApi* | [**validateChart**](docs/DashboardsApi.md#validateChart) | **POST** /api/v1/{tenant}/dashboards/validate/chart | Validate a chart from yaml source
 *DashboardsApi* | [**validateDashboard**](docs/DashboardsApi.md#validateDashboard) | **POST** /api/v1/{tenant}/dashboards/validate | Validate dashboard from yaml source
-*DefaultApi* | [**acceptInvitation**](docs/DefaultApi.md#acceptInvitation) | **POST** /api/v1/invitation/accept/{invitationId} | 
-*DefaultApi* | [**createFromInvitation**](docs/DefaultApi.md#createFromInvitation) | **POST** /api/v1/invitation/create/{invitationId} | 
+*DefaultApi* | [**acceptInvitation**](docs/DefaultApi.md#acceptInvitation) | **POST** /api/v1/invitation/accept/{invitationId} |
+*DefaultApi* | [**createFromInvitation**](docs/DefaultApi.md#createFromInvitation) | **POST** /api/v1/invitation/create/{invitationId} |
 *DefaultApi* | [**forgottenPassword**](docs/DefaultApi.md#forgottenPassword) | **GET** /api/v1/forgotten-password | Sends an email to reset a password.
-*DefaultApi* | [**login**](docs/DefaultApi.md#login) | **POST** /login | 
+*DefaultApi* | [**login**](docs/DefaultApi.md#login) | **POST** /login |
 *DefaultApi* | [**resetPassword**](docs/DefaultApi.md#resetPassword) | **POST** /api/v1/reset-password | Change a password for given token.
 *ExecutionsApi* | [**createExecution**](docs/ExecutionsApi.md#createExecution) | **POST** /api/v1/{tenant}/executions/{namespace}/{id} | Create a new execution for a flow
 *ExecutionsApi* | [**deleteExecution**](docs/ExecutionsApi.md#deleteExecution) | **DELETE** /api/v1/{tenant}/executions/{executionId} | Delete an execution
@@ -255,7 +252,7 @@ Class | Method | HTTP request | Description
 *FilesApi* | [**listNamespaceDirectoryFiles**](docs/FilesApi.md#listNamespaceDirectoryFiles) | **GET** /api/v1/{tenant}/namespaces/{namespace}/files/directory | List directory content
 *FilesApi* | [**moveFileDirectory**](docs/FilesApi.md#moveFileDirectory) | **PUT** /api/v1/{tenant}/namespaces/{namespace}/files | Move a file or directory
 *FilesApi* | [**searchNamespaceFiles**](docs/FilesApi.md#searchNamespaceFiles) | **GET** /api/v1/{tenant}/namespaces/{namespace}/files/search | Find files which path contain the given string in their URI
-*FlowsApi* | [**bulkImportApps**](docs/FlowsApi.md#bulkImportApps) | **POST** /api/v1/{tenant}/apps/import |     Import apps as a ZIP archive of yaml sources or a multi-objects YAML file.     When sending a Yaml that contains one or more apps, a list of index is returned.     When sending a ZIP archive, a list of files that couldn&#39;t be imported is returned. 
+*FlowsApi* | [**bulkImportApps**](docs/FlowsApi.md#bulkImportApps) | **POST** /api/v1/{tenant}/apps/import |     Import apps as a ZIP archive of yaml sources or a multi-objects YAML file.     When sending a Yaml that contains one or more apps, a list of index is returned.     When sending a ZIP archive, a list of files that couldn&#39;t be imported is returned.
 *FlowsApi* | [**bulkUpdateFlows**](docs/FlowsApi.md#bulkUpdateFlows) | **POST** /api/v1/{tenant}/flows/bulk | Update from multiples yaml sources
 *FlowsApi* | [**createFlow**](docs/FlowsApi.md#createFlow) | **POST** /api/v1/{tenant}/flows | Create a flow from yaml source
 *FlowsApi* | [**deleteFlow**](docs/FlowsApi.md#deleteFlow) | **DELETE** /api/v1/{tenant}/flows/{namespace}/{id} | Delete a flow
@@ -273,7 +270,7 @@ Class | Method | HTTP request | Description
 *FlowsApi* | [**getFlowDependencies**](docs/FlowsApi.md#getFlowDependencies) | **GET** /api/v1/{tenant}/flows/{namespace}/{id}/dependencies | Get flow dependencies
 *FlowsApi* | [**getFlowDependenciesFromNamespace**](docs/FlowsApi.md#getFlowDependenciesFromNamespace) | **GET** /api/v1/{tenant}/namespaces/{namespace}/dependencies | Get flow dependencies
 *FlowsApi* | [**getTaskFromFlow**](docs/FlowsApi.md#getTaskFromFlow) | **GET** /api/v1/{tenant}/flows/{namespace}/{id}/tasks/{taskId} | Get a flow task
-*FlowsApi* | [**importFlows**](docs/FlowsApi.md#importFlows) | **POST** /api/v1/{tenant}/flows/import |     Import flows as a ZIP archive of yaml sources or a multi-objects YAML file.     When sending a Yaml that contains one or more flows, a list of index is returned.     When sending a ZIP archive, a list of files that couldn&#39;t be imported is returned. 
+*FlowsApi* | [**importFlows**](docs/FlowsApi.md#importFlows) | **POST** /api/v1/{tenant}/flows/import |     Import flows as a ZIP archive of yaml sources or a multi-objects YAML file.     When sending a Yaml that contains one or more flows, a list of index is returned.     When sending a ZIP archive, a list of files that couldn&#39;t be imported is returned.
 *FlowsApi* | [**listDistinctNamespaces**](docs/FlowsApi.md#listDistinctNamespaces) | **GET** /api/v1/{tenant}/flows/distinct-namespaces | List all distinct namespaces
 *FlowsApi* | [**listFlowRevisions**](docs/FlowsApi.md#listFlowRevisions) | **GET** /api/v1/{tenant}/flows/{namespace}/{id}/revisions | Get revisions for a flow
 *FlowsApi* | [**listFlowsByNamespace**](docs/FlowsApi.md#listFlowsByNamespace) | **GET** /api/v1/{tenant}/flows/{namespace} | Retrieve all flows from a given namespace
@@ -407,9 +404,9 @@ Class | Method | HTTP request | Description
 *RolesApi* | [**getRole**](docs/RolesApi.md#getRole) | **GET** /api/v1/{tenant}/roles/{id} | Get a role
 *RolesApi* | [**getRoleWithResourceTenantasSuperAdmin**](docs/RolesApi.md#getRoleWithResourceTenantasSuperAdmin) | **GET** /api/v1/tenants/{resourceTenant}/roles/{id} | Get a role
 *RolesApi* | [**getRoleasSuperAdmin**](docs/RolesApi.md#getRoleasSuperAdmin) | **GET** /api/v1/tenants/roles/{id} | Get a role
-*RolesApi* | [**listRolesFromGivenIds**](docs/RolesApi.md#listRolesFromGivenIds) | **POST** /api/v1/{tenant}/roles/ids | 
-*RolesApi* | [**listRolesFromGivenIdsWithResourceTenantasSuperAdmin**](docs/RolesApi.md#listRolesFromGivenIdsWithResourceTenantasSuperAdmin) | **POST** /api/v1/tenants/{resourceTenant}/roles/ids | 
-*RolesApi* | [**listRolesFromGivenIdsasSuperAdmin**](docs/RolesApi.md#listRolesFromGivenIdsasSuperAdmin) | **POST** /api/v1/tenants/roles/ids | 
+*RolesApi* | [**listRolesFromGivenIds**](docs/RolesApi.md#listRolesFromGivenIds) | **POST** /api/v1/{tenant}/roles/ids |
+*RolesApi* | [**listRolesFromGivenIdsWithResourceTenantasSuperAdmin**](docs/RolesApi.md#listRolesFromGivenIdsWithResourceTenantasSuperAdmin) | **POST** /api/v1/tenants/{resourceTenant}/roles/ids |
+*RolesApi* | [**listRolesFromGivenIdsasSuperAdmin**](docs/RolesApi.md#listRolesFromGivenIdsasSuperAdmin) | **POST** /api/v1/tenants/roles/ids |
 *RolesApi* | [**searchRoles**](docs/RolesApi.md#searchRoles) | **GET** /api/v1/{tenant}/roles/search | Search for roles
 *RolesApi* | [**searchRolesWithResourceTenantasSuperAdmin**](docs/RolesApi.md#searchRolesWithResourceTenantasSuperAdmin) | **GET** /api/v1/tenants/{resourceTenant}/roles/search | Search for roles
 *RolesApi* | [**searchRolesasSuperAdmin**](docs/RolesApi.md#searchRolesasSuperAdmin) | **GET** /api/v1/tenants/roles/search | Search for roles
@@ -430,11 +427,11 @@ Class | Method | HTTP request | Description
 *ScimApi* | [**queryUsers**](docs/ScimApi.md#queryUsers) | **GET** /api/v1/{tenant}/integrations/{integration}/scim/v2/Users | {@inheritDoc}
 *ScimApi* | [**updateGroups**](docs/ScimApi.md#updateGroups) | **PUT** /api/v1/{tenant}/integrations/{integration}/scim/v2/Groups/{id} | {@inheritDoc}
 *ScimApi* | [**updateUsers**](docs/ScimApi.md#updateUsers) | **PUT** /api/v1/{tenant}/integrations/{integration}/scim/v2/Users/{id} | {@inheritDoc}
-*ScimConfigurationApi* | [**getAllResourceTypes**](docs/ScimConfigurationApi.md#getAllResourceTypes) | **GET** /api/v1/{tenant}/integrations/{integration}/scim/v2/ResourceTypes | 
-*ScimConfigurationApi* | [**getAllSchemas**](docs/ScimConfigurationApi.md#getAllSchemas) | **GET** /api/v1/{tenant}/integrations/{integration}/scim/v2/Schemas | 
-*ScimConfigurationApi* | [**getResourceType**](docs/ScimConfigurationApi.md#getResourceType) | **GET** /api/v1/{tenant}/integrations/{integration}/scim/v2/ResourceTypes/{name} | 
-*ScimConfigurationApi* | [**getSchema**](docs/ScimConfigurationApi.md#getSchema) | **GET** /api/v1/{tenant}/integrations/{integration}/scim/v2/Schemas/{uri} | 
-*ScimConfigurationApi* | [**getServiceProviderConfiguration**](docs/ScimConfigurationApi.md#getServiceProviderConfiguration) | **GET** /api/v1/{tenant}/integrations/{integration}/scim/v2/ServiceProviderConfig | 
+*ScimConfigurationApi* | [**getAllResourceTypes**](docs/ScimConfigurationApi.md#getAllResourceTypes) | **GET** /api/v1/{tenant}/integrations/{integration}/scim/v2/ResourceTypes |
+*ScimConfigurationApi* | [**getAllSchemas**](docs/ScimConfigurationApi.md#getAllSchemas) | **GET** /api/v1/{tenant}/integrations/{integration}/scim/v2/Schemas |
+*ScimConfigurationApi* | [**getResourceType**](docs/ScimConfigurationApi.md#getResourceType) | **GET** /api/v1/{tenant}/integrations/{integration}/scim/v2/ResourceTypes/{name} |
+*ScimConfigurationApi* | [**getSchema**](docs/ScimConfigurationApi.md#getSchema) | **GET** /api/v1/{tenant}/integrations/{integration}/scim/v2/Schemas/{uri} |
+*ScimConfigurationApi* | [**getServiceProviderConfiguration**](docs/ScimConfigurationApi.md#getServiceProviderConfiguration) | **GET** /api/v1/{tenant}/integrations/{integration}/scim/v2/ServiceProviderConfig |
 *SecurityIntegrationsApi* | [**createSecurityIntegration**](docs/SecurityIntegrationsApi.md#createSecurityIntegration) | **POST** /api/v1/{tenant}/security-integrations | Create a security integration.
 *SecurityIntegrationsApi* | [**deleteSecurityIntegration**](docs/SecurityIntegrationsApi.md#deleteSecurityIntegration) | **DELETE** /api/v1/{tenant}/security-integrations/{id} | Delete the security integration.
 *SecurityIntegrationsApi* | [**disableSecurityIntegration**](docs/SecurityIntegrationsApi.md#disableSecurityIntegration) | **POST** /api/v1/{tenant}/security-integrations/{id}/disable | Disable the security integration.
@@ -451,11 +448,11 @@ Class | Method | HTTP request | Description
 *TenantsApi* | [**setLogo**](docs/TenantsApi.md#setLogo) | **POST** /api/v1/tenants/{id}/logo | Set a tenant logo
 *TenantsApi* | [**update**](docs/TenantsApi.md#update) | **PUT** /api/v1/tenants/{id} | Update a tenant
 *TestSuitesApi* | [**createTestSuite**](docs/TestSuitesApi.md#createTestSuite) | **POST** /api/v1/{tenant}/tests | Create a TestSuite from yaml source
-*TestSuitesApi* | [**deleteTestSuite**](docs/TestSuitesApi.md#deleteTestSuite) | **DELETE** /api/v1/{tenant}/tests/{namespace}/{id} | 
-*TestSuitesApi* | [**getTestSuite**](docs/TestSuitesApi.md#getTestSuite) | **GET** /api/v1/{tenant}/tests/{namespace}/{id} | 
+*TestSuitesApi* | [**deleteTestSuite**](docs/TestSuitesApi.md#deleteTestSuite) | **DELETE** /api/v1/{tenant}/tests/{namespace}/{id} |
+*TestSuitesApi* | [**getTestSuite**](docs/TestSuitesApi.md#getTestSuite) | **GET** /api/v1/{tenant}/tests/{namespace}/{id} |
 *TestSuitesApi* | [**runTestSuite**](docs/TestSuitesApi.md#runTestSuite) | **POST** /api/v1/{tenant}/tests/{namespace}/{id}/run | Run a full TestSuite
-*TestSuitesApi* | [**searchTestSuites**](docs/TestSuitesApi.md#searchTestSuites) | **GET** /api/v1/{tenant}/tests/search | 
-*TestSuitesApi* | [**updateTestSuite**](docs/TestSuitesApi.md#updateTestSuite) | **PUT** /api/v1/{tenant}/tests/{namespace}/{id} | 
+*TestSuitesApi* | [**searchTestSuites**](docs/TestSuitesApi.md#searchTestSuites) | **GET** /api/v1/{tenant}/tests/search |
+*TestSuitesApi* | [**updateTestSuite**](docs/TestSuitesApi.md#updateTestSuite) | **PUT** /api/v1/{tenant}/tests/{namespace}/{id} |
 *TestSuitesApi* | [**validateTestSuite**](docs/TestSuitesApi.md#validateTestSuite) | **POST** /api/v1/{tenant}/tests/validate | Run a full TestSuite
 *TriggersApi* | [**deleteBackfill**](docs/TriggersApi.md#deleteBackfill) | **POST** /api/v1/{tenant}/triggers/backfill/delete | Delete a backfill
 *TriggersApi* | [**deleteBackfillByIds**](docs/TriggersApi.md#deleteBackfillByIds) | **POST** /api/v1/{tenant}/triggers/backfill/delete/by-triggers | Delete backfill for given triggers

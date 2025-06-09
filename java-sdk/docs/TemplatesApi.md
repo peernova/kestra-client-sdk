@@ -43,11 +43,11 @@ Create a template
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -55,7 +55,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         TemplatesApi apiInstance = new TemplatesApi(defaultClient);
-        Template template = new Template(); // Template | 
+        Template template = new Template(); // Template |
         try {
             Template result = apiInstance.create12(template);
             System.out.println(result);
@@ -107,11 +107,11 @@ Create a template
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -119,8 +119,8 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         TemplatesApi apiInstance = new TemplatesApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        Template template = new Template(); // Template | 
+        String tenant = "tenant_example"; // String |
+        Template template = new Template(); // Template |
         try {
             Template result = apiInstance.createWithTenant11(tenant, template);
             System.out.println(result);
@@ -173,11 +173,11 @@ Delete a template
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -239,11 +239,11 @@ Delete templates by their IDs.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -251,7 +251,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         TemplatesApi apiInstance = new TemplatesApi(defaultClient);
-        List<IdWithNamespace> idWithNamespace = Arrays.asList(); // List<IdWithNamespace> | 
+        List<IdWithNamespace> idWithNamespace = Arrays.asList(); // List<IdWithNamespace> |
         try {
             BulkResponse result = apiInstance.deleteByIds1(idWithNamespace);
             System.out.println(result);
@@ -303,11 +303,11 @@ Delete templates by their IDs.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -315,8 +315,8 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         TemplatesApi apiInstance = new TemplatesApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        List<IdWithNamespace> idWithNamespace = Arrays.asList(); // List<IdWithNamespace> | 
+        String tenant = "tenant_example"; // String |
+        List<IdWithNamespace> idWithNamespace = Arrays.asList(); // List<IdWithNamespace> |
         try {
             BulkResponse result = apiInstance.deleteByIdsWithTenant1(tenant, idWithNamespace);
             System.out.println(result);
@@ -369,11 +369,11 @@ Delete templates returned by the query parameters.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -435,11 +435,11 @@ Delete templates returned by the query parameters.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -447,7 +447,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         TemplatesApi apiInstance = new TemplatesApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String q = "q_example"; // String | A string filter
         String namespace = "namespace_example"; // String | A namespace filter prefix
         try {
@@ -503,11 +503,11 @@ Delete a template
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -517,7 +517,7 @@ public class Example {
         TemplatesApi apiInstance = new TemplatesApi(defaultClient);
         String namespace = "namespace_example"; // String | The template namespace
         String id = "id_example"; // String | The template id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             apiInstance.deleteWithTenant14(namespace, id, tenant);
         } catch (ApiException e) {
@@ -571,11 +571,11 @@ Export templates as a ZIP archive of yaml sources.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -583,7 +583,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         TemplatesApi apiInstance = new TemplatesApi(defaultClient);
-        List<IdWithNamespace> idWithNamespace = Arrays.asList(); // List<IdWithNamespace> | 
+        List<IdWithNamespace> idWithNamespace = Arrays.asList(); // List<IdWithNamespace> |
         try {
             List<byte[]> result = apiInstance.exportByIds(idWithNamespace);
             System.out.println(result);
@@ -635,11 +635,11 @@ Export templates as a ZIP archive of yaml sources.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -647,8 +647,8 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         TemplatesApi apiInstance = new TemplatesApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        List<IdWithNamespace> idWithNamespace = Arrays.asList(); // List<IdWithNamespace> | 
+        String tenant = "tenant_example"; // String |
+        List<IdWithNamespace> idWithNamespace = Arrays.asList(); // List<IdWithNamespace> |
         try {
             List<byte[]> result = apiInstance.exportByIdsWithTenant(tenant, idWithNamespace);
             System.out.println(result);
@@ -701,11 +701,11 @@ Export templates as a ZIP archive of yaml sources.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -767,11 +767,11 @@ Export templates as a ZIP archive of yaml sources.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -779,7 +779,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         TemplatesApi apiInstance = new TemplatesApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String q = "q_example"; // String | A string filter
         String namespace = "namespace_example"; // String | A namespace filter prefix
         try {
@@ -835,11 +835,11 @@ Search for templates
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -907,11 +907,11 @@ Search for templates
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -921,7 +921,7 @@ public class Example {
         TemplatesApi apiInstance = new TemplatesApi(defaultClient);
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         String q = "q_example"; // String | A string filter
         String namespace = "namespace_example"; // String | A namespace filter prefix
@@ -981,11 +981,11 @@ Import templates as a ZIP archive of yaml sources or a multi-objects YAML file.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1045,11 +1045,11 @@ Import templates as a ZIP archive of yaml sources or a multi-objects YAML file.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1057,7 +1057,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         TemplatesApi apiInstance = new TemplatesApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         File fileUpload = new File("/path/to/file"); // File | The file to import, can be a ZIP archive or a multi-objects YAML file
         try {
             apiInstance.importTemplatesWithTenant(tenant, fileUpload);
@@ -1111,11 +1111,11 @@ Get a template
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1177,11 +1177,11 @@ Get a template
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1191,7 +1191,7 @@ public class Example {
         TemplatesApi apiInstance = new TemplatesApi(defaultClient);
         String namespace = "namespace_example"; // String | The template namespace
         String id = "id_example"; // String | The template id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Template result = apiInstance.indexWithTenant7(namespace, id, tenant);
             System.out.println(result);
@@ -1245,11 +1245,11 @@ List all distinct namespaces
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1305,11 +1305,11 @@ List all distinct namespaces
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1317,7 +1317,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         TemplatesApi apiInstance = new TemplatesApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             List<String> result = apiInstance.listDistinctNamespaceWithTenant1(tenant);
             System.out.println(result);
@@ -1369,11 +1369,11 @@ Update a template
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1383,7 +1383,7 @@ public class Example {
         TemplatesApi apiInstance = new TemplatesApi(defaultClient);
         String namespace = "namespace_example"; // String | The template namespace
         String id = "id_example"; // String | The template id
-        Template template = new Template(); // Template | 
+        Template template = new Template(); // Template |
         try {
             Template result = apiInstance.update8(namespace, id, template);
             System.out.println(result);
@@ -1439,11 +1439,11 @@ All Template will be created / updated for this namespace. Template already crea
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1453,7 +1453,7 @@ public class Example {
         TemplatesApi apiInstance = new TemplatesApi(defaultClient);
         String namespace = "namespace_example"; // String | The template namespace
         Boolean delete = true; // Boolean | If missing template should be deleted
-        List<Template> template = Arrays.asList(); // List<Template> | 
+        List<Template> template = Arrays.asList(); // List<Template> |
         try {
             List<Template> result = apiInstance.updateNamespace(namespace, delete, template);
             System.out.println(result);
@@ -1509,11 +1509,11 @@ All Template will be created / updated for this namespace. Template already crea
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1523,8 +1523,8 @@ public class Example {
         TemplatesApi apiInstance = new TemplatesApi(defaultClient);
         String namespace = "namespace_example"; // String | The template namespace
         Boolean delete = true; // Boolean | If missing template should be deleted
-        String tenant = "tenant_example"; // String | 
-        List<Template> template = Arrays.asList(); // List<Template> | 
+        String tenant = "tenant_example"; // String |
+        List<Template> template = Arrays.asList(); // List<Template> |
         try {
             List<Template> result = apiInstance.updateNamespaceWithTenant(namespace, delete, tenant, template);
             System.out.println(result);
@@ -1579,11 +1579,11 @@ Update a template
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1593,8 +1593,8 @@ public class Example {
         TemplatesApi apiInstance = new TemplatesApi(defaultClient);
         String namespace = "namespace_example"; // String | The template namespace
         String id = "id_example"; // String | The template id
-        String tenant = "tenant_example"; // String | 
-        Template template = new Template(); // Template | 
+        String tenant = "tenant_example"; // String |
+        Template template = new Template(); // Template |
         try {
             Template result = apiInstance.updateWithTenant7(namespace, id, tenant, template);
             System.out.println(result);
@@ -1649,11 +1649,11 @@ Validate a list of templates
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1661,7 +1661,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         TemplatesApi apiInstance = new TemplatesApi(defaultClient);
-        String body = "body_example"; // String | 
+        String body = "body_example"; // String |
         try {
             List<ValidateConstraintViolation> result = apiInstance.validateTemplates(body);
             System.out.println(result);
@@ -1713,11 +1713,11 @@ Validate a list of templates
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.TemplatesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.TemplatesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1725,8 +1725,8 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         TemplatesApi apiInstance = new TemplatesApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        String body = "body_example"; // String | 
+        String tenant = "tenant_example"; // String |
+        String body = "body_example"; // String |
         try {
             List<ValidateConstraintViolation> result = apiInstance.validateTemplatesWithTenant(tenant, body);
             System.out.println(result);

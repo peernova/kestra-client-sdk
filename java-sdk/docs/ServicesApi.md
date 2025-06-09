@@ -20,18 +20,17 @@ Get details about active services
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ServicesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ServicesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -42,7 +41,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ServicesApi apiInstance = new ServicesApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             ClusterControllerApiActiveServiceList result = apiInstance.getActiveServices(tenant);
             System.out.println(result);
@@ -94,18 +93,17 @@ Get details about a service
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ServicesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ServicesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -116,8 +114,8 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ServicesApi apiInstance = new ServicesApi(defaultClient);
-        String id = "id_example"; // String | 
-        String tenant = "tenant_example"; // String | 
+        String id = "id_example"; // String |
+        String tenant = "tenant_example"; // String |
         try {
             ServiceInstance result = apiInstance.getService(id, tenant);
             System.out.println(result);
@@ -170,18 +168,17 @@ Search for service
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ServicesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ServicesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -194,7 +191,7 @@ public class Example {
         ServicesApi apiInstance = new ServicesApi(defaultClient);
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         List<ServiceServiceState> state = Arrays.asList(); // List<ServiceServiceState> | The state filter
         List<ServiceType> type = Arrays.asList(); // List<ServiceType> | The server type filter

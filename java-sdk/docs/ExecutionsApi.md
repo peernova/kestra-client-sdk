@@ -69,18 +69,17 @@ Create a new execution for a flow
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -94,7 +93,7 @@ public class Example {
         String namespace = "namespace_example"; // String | The flow namespace
         String id = "id_example"; // String | The flow id
         Boolean wait = false; // Boolean | If the server will wait the end of the execution
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<String> labels = Arrays.asList(); // List<String> | The labels as a list of 'key:value'
         Integer revision = 56; // Integer | The flow revision or latest if null
         OffsetDateTime scheduleDate = OffsetDateTime.now(); // OffsetDateTime | Schedule the flow on a specific date
@@ -156,18 +155,17 @@ Delete an execution
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -182,7 +180,7 @@ public class Example {
         Boolean deleteLogs = true; // Boolean | Whether to delete execution logs
         Boolean deleteMetrics = true; // Boolean | Whether to delete execution metrics
         Boolean deleteStorage = true; // Boolean | Whether to delete execution files in the internal storage
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             apiInstance.deleteExecution(executionId, deleteLogs, deleteMetrics, deleteStorage, tenant);
         } catch (ApiException e) {
@@ -238,18 +236,17 @@ Delete a list of executions
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -263,7 +260,7 @@ public class Example {
         Boolean deleteLogs = true; // Boolean | Whether to delete execution logs
         Boolean deleteMetrics = true; // Boolean | Whether to delete execution metrics
         Boolean deleteStorage = true; // Boolean | Whether to delete execution files in the internal storage
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<String> requestBody = Arrays.asList(); // List<String> | The execution id
         Boolean includeNonTerminated = false; // Boolean | Whether to delete non-terminated executions
         try {
@@ -323,18 +320,17 @@ Delete executions filter by query parameters
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -348,8 +344,8 @@ public class Example {
         Boolean deleteLogs = true; // Boolean | Whether to delete execution logs
         Boolean deleteMetrics = true; // Boolean | Whether to delete execution metrics
         Boolean deleteStorage = true; // Boolean | Whether to delete execution files in the internal storage
-        String tenant = "tenant_example"; // String | 
-        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest | 
+        String tenant = "tenant_example"; // String |
+        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest |
         String q = "q_example"; // String | A string filter
         List<FlowScope> scope = Arrays.asList(); // List<FlowScope> | The scope of the executions to include
         String namespace = "namespace_example"; // String | A namespace filter prefix
@@ -429,18 +425,17 @@ Download file for an execution
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -453,7 +448,7 @@ public class Example {
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         String executionId = "executionId_example"; // String | The execution id
         URI path = new URI(); // URI | The internal storage uri
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             File result = apiInstance.downloadFileFromExecution(executionId, path, tenant);
             System.out.println(result);
@@ -507,18 +502,17 @@ Evaluate a variable expression for this taskrun
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -531,7 +525,7 @@ public class Example {
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         String executionId = "executionId_example"; // String | The execution id
         String taskRunId = "taskRunId_example"; // String | The taskrun id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String body = "body_example"; // String | The Pebble expression that should be evaluated
         try {
             ExecutionControllerEvalResult result = apiInstance.evalTaskRunExpression(executionId, taskRunId, tenant, body);
@@ -587,18 +581,17 @@ Follow an execution
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -610,7 +603,7 @@ public class Example {
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         String executionId = "executionId_example"; // String | The execution id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             EventExecution result = apiInstance.followExecution(executionId, tenant);
             System.out.println(result);
@@ -663,18 +656,17 @@ Force run a list of executions
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -685,7 +677,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<String> requestBody = Arrays.asList(); // List<String> | The list of executions id
         try {
             BulkResponse result = apiInstance.forceRunByIds(tenant, requestBody);
@@ -740,18 +732,17 @@ Force run an execution
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -763,7 +754,7 @@ public class Example {
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         String executionId = "executionId_example"; // String | The execution id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Execution result = apiInstance.forceRunExecution(executionId, tenant);
             System.out.println(result);
@@ -816,18 +807,17 @@ Force run executions filter by query parameters
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -838,8 +828,8 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest | 
+        String tenant = "tenant_example"; // String |
+        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest |
         String q = "q_example"; // String | A string filter
         List<FlowScope> scope = Arrays.asList(); // List<FlowScope> | The scope of the executions to include
         String namespace = "namespace_example"; // String | A namespace filter prefix
@@ -914,18 +904,17 @@ Get an execution
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -937,7 +926,7 @@ public class Example {
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         String executionId = "executionId_example"; // String | The execution id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Execution result = apiInstance.getExecution(executionId, tenant);
             System.out.println(result);
@@ -990,18 +979,17 @@ Generate a graph for an execution
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1013,7 +1001,7 @@ public class Example {
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         String executionId = "executionId_example"; // String | The execution id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<String> subflows = Arrays.asList(); // List<String> | The subflow tasks to display
         try {
             FlowGraph result = apiInstance.getExecutionFlowGraph(executionId, tenant, subflows);
@@ -1068,18 +1056,17 @@ Get file meta information for an execution
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1092,7 +1079,7 @@ public class Example {
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         String executionId = "executionId_example"; // String | The execution id
         URI path = new URI(); // URI | The internal storage uri
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             FileMetas result = apiInstance.getFileMetadatasFromExecution(executionId, path, tenant);
             System.out.println(result);
@@ -1146,18 +1133,17 @@ Get flow information&#39;s for an execution
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1170,7 +1156,7 @@ public class Example {
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         String namespace = "namespace_example"; // String | The namespace of the flow
         String flowId = "flowId_example"; // String | The flow id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         Integer revision = 56; // Integer | The flow revision
         try {
             FlowForExecution result = apiInstance.getFlowFromExecution(namespace, flowId, tenant, revision);
@@ -1226,18 +1212,17 @@ Get flow information&#39;s for an execution
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1249,7 +1234,7 @@ public class Example {
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         String executionId = "executionId_example"; // String | The execution that you want flow information's
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             FlowForExecution result = apiInstance.getFlowFromExecutionById(executionId, tenant);
             System.out.println(result);
@@ -1302,18 +1287,17 @@ Kill an execution
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1326,7 +1310,7 @@ public class Example {
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         String executionId = "executionId_example"; // String | The execution id
         Boolean isOnKillCascade = true; // Boolean | Specifies whether killing the execution also kill all subflow executions.
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Object result = apiInstance.killExecution(executionId, isOnKillCascade, tenant);
             System.out.println(result);
@@ -1383,18 +1367,17 @@ Kill a list of executions
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1405,7 +1388,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<String> requestBody = Arrays.asList(); // List<String> | The list of executions id
         try {
             BulkResponse result = apiInstance.killExecutionsByIds(tenant, requestBody);
@@ -1460,18 +1443,17 @@ Kill executions filter by query parameters
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1482,8 +1464,8 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest | 
+        String tenant = "tenant_example"; // String |
+        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest |
         String q = "q_example"; // String | A string filter
         List<FlowScope> scope = Arrays.asList(); // List<FlowScope> | The scope of the executions to include
         String namespace = "namespace_example"; // String | A namespace filter prefix
@@ -1558,18 +1540,17 @@ Get all namespaces that have executable flows
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1580,7 +1561,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             List<String> result = apiInstance.listExecutableDistinctNamespaces(tenant);
             System.out.println(result);
@@ -1632,18 +1613,17 @@ Get all flow ids for a namespace. Data returned are FlowForExecution containing 
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1655,7 +1635,7 @@ public class Example {
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         String namespace = "namespace_example"; // String | The namespace
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             List<FlowForExecution> result = apiInstance.listFlowExecutionsByNamespace(namespace, tenant);
             System.out.println(result);
@@ -1708,18 +1688,17 @@ Pause a running execution.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1731,7 +1710,7 @@ public class Example {
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         String executionId = "executionId_example"; // String | The execution id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             apiInstance.pauseExecution(executionId, tenant);
         } catch (ApiException e) {
@@ -1785,18 +1764,17 @@ Pause a list of running executions
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1807,7 +1785,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<String> requestBody = Arrays.asList(); // List<String> | The list of executions id
         try {
             BulkResponse result = apiInstance.pauseExecutionsByIds(tenant, requestBody);
@@ -1862,18 +1840,17 @@ Pause executions filter by query parameters
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1884,8 +1861,8 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest | 
+        String tenant = "tenant_example"; // String |
+        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest |
         String q = "q_example"; // String | A string filter
         List<FlowScope> scope = Arrays.asList(); // List<FlowScope> | The scope of the executions to include
         String namespace = "namespace_example"; // String | A namespace filter prefix
@@ -1960,18 +1937,17 @@ Get file preview for an execution
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1986,7 +1962,7 @@ public class Example {
         URI path = new URI(); // URI | The internal storage uri
         Integer maxRows = 56; // Integer | The max row returns
         String encoding = "UTF-8"; // String | The file encoding as Java charset name. Defaults to UTF-8
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Object result = apiInstance.previewFileFromExecution(executionId, path, maxRows, encoding, tenant);
             System.out.println(result);
@@ -2042,18 +2018,17 @@ Create a new execution from an old one and start it from a specified task run id
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2065,7 +2040,7 @@ public class Example {
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         String executionId = "executionId_example"; // String | the original execution id to clone
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String taskRunId = "taskRunId_example"; // String | The taskrun id
         Integer revision = 56; // Integer | The flow revision to use for new execution
         try {
@@ -2122,18 +2097,17 @@ Create new executions from old ones. Keep the flow revision
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2144,7 +2118,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<String> requestBody = Arrays.asList(); // List<String> | The list of executions id
         Boolean latestRevision = false; // Boolean | If latest revision should be used
         try {
@@ -2201,18 +2175,17 @@ Create new executions from old ones filter by query parameters. Keep the flow re
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2223,8 +2196,8 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest | 
+        String tenant = "tenant_example"; // String |
+        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest |
         String q = "q_example"; // String | A string filter
         List<FlowScope> scope = Arrays.asList(); // List<FlowScope> | The scope of the executions to include
         String namespace = "namespace_example"; // String | A namespace filter prefix
@@ -2301,18 +2274,17 @@ Restart a new execution from an old one
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2324,7 +2296,7 @@ public class Example {
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         String executionId = "executionId_example"; // String | The execution id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         Integer revision = 56; // Integer | The flow revision to use for new execution
         try {
             Execution result = apiInstance.restartExecution(executionId, tenant, revision);
@@ -2379,18 +2351,17 @@ Restart a list of executions
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2401,7 +2372,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<String> requestBody = Arrays.asList(); // List<String> | The list of executions id
         try {
             BulkResponse result = apiInstance.restartExecutionsByIds(tenant, requestBody);
@@ -2456,18 +2427,17 @@ Restart executions filter by query parameters
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2478,8 +2448,8 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest | 
+        String tenant = "tenant_example"; // String |
+        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest |
         String q = "q_example"; // String | A string filter
         List<FlowScope> scope = Arrays.asList(); // List<FlowScope> | The scope of the executions to include
         String namespace = "namespace_example"; // String | A namespace filter prefix
@@ -2554,18 +2524,17 @@ Resume a paused execution.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2577,7 +2546,7 @@ public class Example {
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         String executionId = "executionId_example"; // String | The execution id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Object result = apiInstance.resumeExecution(executionId, tenant);
             System.out.println(result);
@@ -2632,18 +2601,17 @@ Resume a list of paused executions
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2654,7 +2622,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<String> requestBody = Arrays.asList(); // List<String> | The list of executions id
         try {
             BulkResponse result = apiInstance.resumeExecutionsByIds(tenant, requestBody);
@@ -2709,18 +2677,17 @@ Resume executions filter by query parameters
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2731,8 +2698,8 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest | 
+        String tenant = "tenant_example"; // String |
+        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest |
         String q = "q_example"; // String | A string filter
         List<FlowScope> scope = Arrays.asList(); // List<FlowScope> | The scope of the executions to include
         String namespace = "namespace_example"; // String | A namespace filter prefix
@@ -2807,18 +2774,17 @@ Search for executions
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2831,7 +2797,7 @@ public class Example {
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         List<QueryFilter> filters = Arrays.asList(); // List<QueryFilter> | Filters
         String q = "q_example"; // String | A string filter
@@ -2911,18 +2877,17 @@ Search for executions for a flow
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2937,7 +2902,7 @@ public class Example {
         String flowId = "flowId_example"; // String | The flow id
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             PagedResultsExecution result = apiInstance.searchExecutionsByFlowId(namespace, flowId, page, size, tenant);
             System.out.println(result);
@@ -2993,18 +2958,17 @@ Search for taskruns, only available with the Elasticsearch repository
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3017,7 +2981,7 @@ public class Example {
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         List<QueryFilter> filters = Arrays.asList(); // List<QueryFilter> | Filters
         String q = "q_example"; // String | A string filter
@@ -3095,18 +3059,17 @@ Add or update labels of a terminated execution
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3118,7 +3081,7 @@ public class Example {
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         String executionId = "executionId_example"; // String | The execution id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<Label> label = Arrays.asList(); // List<Label> | The labels to add to the execution
         try {
             Object result = apiInstance.setLabelsOnTerminatedExecution(executionId, tenant, label);
@@ -3175,18 +3138,17 @@ Set labels on a list of executions
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3197,7 +3159,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         ExecutionControllerSetLabelsByIdsRequest executionControllerSetLabelsByIdsRequest = new ExecutionControllerSetLabelsByIdsRequest(); // ExecutionControllerSetLabelsByIdsRequest | The request containing a list of labels and a list of executions
         try {
             BulkResponse result = apiInstance.setLabelsOnTerminatedExecutionsByIds(tenant, executionControllerSetLabelsByIdsRequest);
@@ -3252,18 +3214,17 @@ Set label on executions filter by query parameters
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3274,7 +3235,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<Label> label = new Label(); // List<Label> | The labels to add to the execution
         String q = "q_example"; // String | A string filter
         List<FlowScope> scope = Arrays.asList(); // List<FlowScope> | The scope of the executions to include
@@ -3350,18 +3311,17 @@ Trigger a new execution for a flow
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3375,7 +3335,7 @@ public class Example {
         String namespace = "namespace_example"; // String | The flow namespace
         String id = "id_example"; // String | The flow id
         Boolean wait = false; // Boolean | If the server will wait the end of the execution
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<String> labels = Arrays.asList(); // List<String> | The labels as a list of 'key:value'
         Integer revision = 56; // Integer | The flow revision or latest if null
         try {
@@ -3435,18 +3395,17 @@ Trigger a new execution by GET webhook trigger
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3460,7 +3419,7 @@ public class Example {
         String namespace = "namespace_example"; // String | The flow namespace
         String id = "id_example"; // String | The flow id
         String key = "key_example"; // String | The webhook trigger uid
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Execution result = apiInstance.triggerExecutionByGetWebhook(namespace, id, key, tenant);
             System.out.println(result);
@@ -3515,18 +3474,17 @@ Trigger a new execution by POST webhook trigger
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3540,7 +3498,7 @@ public class Example {
         String namespace = "namespace_example"; // String | The flow namespace
         String id = "id_example"; // String | The flow id
         String key = "key_example"; // String | The webhook trigger uid
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Execution result = apiInstance.triggerExecutionByPostWebhook(namespace, id, key, tenant);
             System.out.println(result);
@@ -3595,18 +3553,17 @@ Trigger a new execution by PUT webhook trigger
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3620,7 +3577,7 @@ public class Example {
         String namespace = "namespace_example"; // String | The flow namespace
         String id = "id_example"; // String | The flow id
         String key = "key_example"; // String | The webhook trigger uid
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Execution result = apiInstance.triggerExecutionByPutWebhook(namespace, id, key, tenant);
             System.out.println(result);
@@ -3675,18 +3632,17 @@ Unqueue an execution
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3698,7 +3654,7 @@ public class Example {
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         String executionId = "executionId_example"; // String | The execution id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Execution result = apiInstance.unqueueExecution(executionId, tenant);
             System.out.println(result);
@@ -3751,18 +3707,17 @@ Unqueue a list of executions
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3773,7 +3728,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<String> requestBody = Arrays.asList(); // List<String> | The list of executions id
         try {
             BulkResponse result = apiInstance.unqueueExecutionsByIds(tenant, requestBody);
@@ -3828,18 +3783,17 @@ Unqueue executions filter by query parameters
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3850,8 +3804,8 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest | 
+        String tenant = "tenant_example"; // String |
+        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest |
         String q = "q_example"; // String | A string filter
         List<FlowScope> scope = Arrays.asList(); // List<FlowScope> | The scope of the executions to include
         String namespace = "namespace_example"; // String | A namespace filter prefix
@@ -3926,18 +3880,17 @@ Change the state of an execution
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3950,7 +3903,7 @@ public class Example {
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         String executionId = "executionId_example"; // String | The execution id
         StateType status = StateType.fromValue("CREATED"); // StateType | The new state of the execution
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Execution result = apiInstance.updateExecutionStatus(executionId, status, tenant);
             System.out.println(result);
@@ -4004,18 +3957,17 @@ Change executions state by id
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -4027,7 +3979,7 @@ public class Example {
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         StateType newStatus = StateType.fromValue("CREATED"); // StateType | The new state of the executions
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<String> requestBody = Arrays.asList(); // List<String> | The list of executions id
         try {
             BulkResponse result = apiInstance.updateExecutionsStatusByIds(newStatus, tenant, requestBody);
@@ -4083,18 +4035,17 @@ Change executions state by query parameters
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -4106,8 +4057,8 @@ public class Example {
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         StateType newStatus = StateType.fromValue("CREATED"); // StateType | The new state of the executions
-        String tenant = "tenant_example"; // String | 
-        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest | 
+        String tenant = "tenant_example"; // String |
+        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest |
         String q = "q_example"; // String | A string filter
         List<FlowScope> scope = Arrays.asList(); // List<FlowScope> | The scope of the executions to include
         String namespace = "namespace_example"; // String | A namespace filter prefix
@@ -4184,18 +4135,17 @@ Change state for a taskrun in an execution
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -4207,7 +4157,7 @@ public class Example {
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         String executionId = "executionId_example"; // String | The execution id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         ExecutionControllerStateRequest executionControllerStateRequest = new ExecutionControllerStateRequest(); // ExecutionControllerStateRequest | the taskRun id and state to apply
         try {
             Execution result = apiInstance.updateTaskRunState(executionId, tenant, executionControllerStateRequest);
@@ -4262,18 +4212,17 @@ Validate the creation of a new execution for a flow
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -4287,7 +4236,7 @@ public class Example {
         String namespace = "namespace_example"; // String | The flow namespace
         String id = "id_example"; // String | The flow id
         List<String> labels = Arrays.asList(); // List<String> | The labels as a list of 'key:value'
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         Integer revision = 56; // Integer | The flow revision or latest if null
         try {
             List<ExecutionControllerApiValidateExecutionInputsResponse> result = apiInstance.validateNewExecutionInputs(namespace, id, labels, tenant, revision);
@@ -4345,18 +4294,17 @@ Validate inputs to resume a paused execution.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ExecutionsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ExecutionsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -4368,7 +4316,7 @@ public class Example {
 
         ExecutionsApi apiInstance = new ExecutionsApi(defaultClient);
         String executionId = "executionId_example"; // String | The execution id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             List<ExecutionControllerApiValidateExecutionInputsResponse> result = apiInstance.validateResumeExecutionInputs(executionId, tenant);
             System.out.println(result);

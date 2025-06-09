@@ -41,24 +41,23 @@ All URIs are relative to *http://localhost*
 
 > AppsControllerApiBulkImportResponse bulkImportApps(tenant, fileUpload)
 
-    Import apps as a ZIP archive of yaml sources or a multi-objects YAML file.     When sending a Yaml that contains one or more apps, a list of index is returned.     When sending a ZIP archive, a list of files that couldn&#39;t be imported is returned. 
+    Import apps as a ZIP archive of yaml sources or a multi-objects YAML file.     When sending a Yaml that contains one or more apps, a list of index is returned.     When sending a ZIP archive, a list of files that couldn&#39;t be imported is returned.
 
 ### Example
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -69,7 +68,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         FlowsApi apiInstance = new FlowsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         File fileUpload = new File("/path/to/file"); // File | The file to import, can be a ZIP archive or a multi-objects YAML file
         try {
             AppsControllerApiBulkImportResponse result = apiInstance.bulkImportApps(tenant, fileUpload);
@@ -125,18 +124,17 @@ All flow will be created / updated for this namespace. Flow that already created
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -149,7 +147,7 @@ public class Example {
         FlowsApi apiInstance = new FlowsApi(defaultClient);
         Boolean delete = true; // Boolean | If missing flow should be deleted
         Boolean allowNamespaceChild = false; // Boolean | If namespace child should are allowed to be updated
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String namespace = "namespace_example"; // String | The namespace where to update flows
         String body = "body_example"; // String | A list of flows source code splitted with \"---\"
         try {
@@ -207,18 +205,17 @@ Create a flow from yaml source
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -229,7 +226,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         FlowsApi apiInstance = new FlowsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String body = "body_example"; // String | The flow source code
         try {
             FlowWithSource result = apiInstance.createFlow(tenant, body);
@@ -283,18 +280,17 @@ Delete a flow
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -307,7 +303,7 @@ public class Example {
         FlowsApi apiInstance = new FlowsApi(defaultClient);
         String namespace = "namespace_example"; // String | The flow namespace
         String id = "id_example"; // String | The flow id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             apiInstance.deleteFlow(namespace, id, tenant);
         } catch (ApiException e) {
@@ -361,18 +357,17 @@ Delete flows by their IDs.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -383,7 +378,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         FlowsApi apiInstance = new FlowsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<IdWithNamespace> idWithNamespace = Arrays.asList(); // List<IdWithNamespace> | A list of tuple flow ID and namespace as flow identifiers
         try {
             BulkResponse result = apiInstance.deleteFlowsByIds(tenant, idWithNamespace);
@@ -437,18 +432,17 @@ Delete flows returned by the query parameters.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -459,8 +453,8 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         FlowsApi apiInstance = new FlowsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest | 
+        String tenant = "tenant_example"; // String |
+        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest |
         String q = "q_example"; // String | A string filter
         List<FlowScope> scope = Arrays.asList(); // List<FlowScope> | The scope of the flows to include
         String namespace = "namespace_example"; // String | A namespace filter prefix
@@ -521,18 +515,17 @@ Disable flows by their IDs.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -543,7 +536,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         FlowsApi apiInstance = new FlowsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<IdWithNamespace> idWithNamespace = Arrays.asList(); // List<IdWithNamespace> | A list of tuple flow ID and namespace as flow identifiers
         try {
             BulkResponse result = apiInstance.disableFlowsByIds(tenant, idWithNamespace);
@@ -597,18 +590,17 @@ Disable flows returned by the query parameters.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -619,8 +611,8 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         FlowsApi apiInstance = new FlowsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest | 
+        String tenant = "tenant_example"; // String |
+        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest |
         String q = "q_example"; // String | A string filter
         List<FlowScope> scope = Arrays.asList(); // List<FlowScope> | The scope of the flows to include
         String namespace = "namespace_example"; // String | A namespace filter prefix
@@ -681,18 +673,17 @@ Enable flows by their IDs.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -703,7 +694,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         FlowsApi apiInstance = new FlowsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<IdWithNamespace> idWithNamespace = Arrays.asList(); // List<IdWithNamespace> | A list of tuple flow ID and namespace as flow identifiers
         try {
             BulkResponse result = apiInstance.enableFlowsByIds(tenant, idWithNamespace);
@@ -757,18 +748,17 @@ Enable flows returned by the query parameters.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -779,8 +769,8 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         FlowsApi apiInstance = new FlowsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest | 
+        String tenant = "tenant_example"; // String |
+        DeleteExecutionsByQueryRequest deleteExecutionsByQueryRequest = new DeleteExecutionsByQueryRequest(); // DeleteExecutionsByQueryRequest |
         String q = "q_example"; // String | A string filter
         List<FlowScope> scope = Arrays.asList(); // List<FlowScope> | The scope of the flows to include
         String namespace = "namespace_example"; // String | A namespace filter prefix
@@ -841,18 +831,17 @@ Export flows as a ZIP archive of yaml sources.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -863,7 +852,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         FlowsApi apiInstance = new FlowsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<IdWithNamespace> idWithNamespace = Arrays.asList(); // List<IdWithNamespace> | A list of tuple flow ID and namespace as flow identifiers
         try {
             byte[] result = apiInstance.exportFlowsByIds(tenant, idWithNamespace);
@@ -917,18 +906,17 @@ Export flows as a ZIP archive of yaml sources.
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -939,7 +927,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         FlowsApi apiInstance = new FlowsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<QueryFilter> filters = Arrays.asList(); // List<QueryFilter> | Filters
         String q = "q_example"; // String | A string filter
         List<FlowScope> scope = Arrays.asList(); // List<FlowScope> | The scope of the flows to include
@@ -1001,18 +989,17 @@ Generate a graph for a flow
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1025,7 +1012,7 @@ public class Example {
         FlowsApi apiInstance = new FlowsApi(defaultClient);
         String namespace = "namespace_example"; // String | The flow namespace
         String id = "id_example"; // String | The flow id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         Integer revision = 56; // Integer | The flow revision
         List<String> subflows = Arrays.asList(); // List<String> | The subflow tasks to display
         try {
@@ -1083,18 +1070,17 @@ Generate a graph for a flow source
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1105,7 +1091,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         FlowsApi apiInstance = new FlowsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String body = "body_example"; // String | The flow source code
         List<String> subflows = Arrays.asList(); // List<String> | The subflow tasks to display
         try {
@@ -1161,18 +1147,17 @@ Get a flow
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1187,7 +1172,7 @@ public class Example {
         String id = "id_example"; // String | The flow id
         Boolean source = false; // Boolean | Include the source code
         Boolean allowDeleted = false; // Boolean | Get flow even if deleted
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         Integer revision = 56; // Integer | Get latest revision by default
         try {
             Object result = apiInstance.getFlow(namespace, id, source, allowDeleted, tenant, revision);
@@ -1245,18 +1230,17 @@ Get flow dependencies
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1270,7 +1254,7 @@ public class Example {
         String namespace = "namespace_example"; // String | The flow namespace
         String id = "id_example"; // String | The flow id
         Boolean destinationOnly = false; // Boolean | If true, list only destination dependencies, otherwise list also source dependencies
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             FlowTopologyGraph result = apiInstance.getFlowDependencies(namespace, id, destinationOnly, tenant);
             System.out.println(result);
@@ -1325,18 +1309,17 @@ Get flow dependencies
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1349,7 +1332,7 @@ public class Example {
         FlowsApi apiInstance = new FlowsApi(defaultClient);
         String namespace = "namespace_example"; // String | The flow namespace
         Boolean destinationOnly = false; // Boolean | if true, list only destination dependencies, otherwise list also source dependencies
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             FlowTopologyGraph result = apiInstance.getFlowDependenciesFromNamespace(namespace, destinationOnly, tenant);
             System.out.println(result);
@@ -1403,18 +1386,17 @@ Get a flow task
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1428,7 +1410,7 @@ public class Example {
         String namespace = "namespace_example"; // String | The flow namespace
         String id = "id_example"; // String | The flow id
         String taskId = "taskId_example"; // String | The task id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         Integer revision = 56; // Integer | The flow revision
         try {
             Task result = apiInstance.getTaskFromFlow(namespace, id, taskId, tenant, revision);
@@ -1479,24 +1461,23 @@ public class Example {
 
 > List&lt;String&gt; importFlows(tenant, fileUpload)
 
-    Import flows as a ZIP archive of yaml sources or a multi-objects YAML file.     When sending a Yaml that contains one or more flows, a list of index is returned.     When sending a ZIP archive, a list of files that couldn&#39;t be imported is returned. 
+    Import flows as a ZIP archive of yaml sources or a multi-objects YAML file.     When sending a Yaml that contains one or more flows, a list of index is returned.     When sending a ZIP archive, a list of files that couldn&#39;t be imported is returned.
 
 ### Example
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1507,7 +1488,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         FlowsApi apiInstance = new FlowsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         File fileUpload = new File("/path/to/file"); // File | The file to import, can be a ZIP archive or a multi-objects YAML file
         try {
             List<String> result = apiInstance.importFlows(tenant, fileUpload);
@@ -1561,18 +1542,17 @@ List all distinct namespaces
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1583,7 +1563,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         FlowsApi apiInstance = new FlowsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String q = "q_example"; // String | A string filter
         try {
             List<String> result = apiInstance.listDistinctNamespaces(tenant, q);
@@ -1637,18 +1617,17 @@ Get revisions for a flow
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1661,7 +1640,7 @@ public class Example {
         FlowsApi apiInstance = new FlowsApi(defaultClient);
         String namespace = "namespace_example"; // String | The flow namespace
         String id = "id_example"; // String | The flow id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             List<FlowWithSource> result = apiInstance.listFlowRevisions(namespace, id, tenant);
             System.out.println(result);
@@ -1715,18 +1694,17 @@ Retrieve all flows from a given namespace
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1738,7 +1716,7 @@ public class Example {
 
         FlowsApi apiInstance = new FlowsApi(defaultClient);
         String namespace = "namespace_example"; // String | Namespace to filter flows
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             List<Flow> result = apiInstance.listFlowsByNamespace(namespace, tenant);
             System.out.println(result);
@@ -1791,18 +1769,17 @@ Search for flows
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1815,7 +1792,7 @@ public class Example {
         FlowsApi apiInstance = new FlowsApi(defaultClient);
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         List<QueryFilter> filters = Arrays.asList(); // List<QueryFilter> | Filters
         String q = "q_example"; // String | A string filter
@@ -1881,18 +1858,17 @@ Search for flows source code
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1905,7 +1881,7 @@ public class Example {
         FlowsApi apiInstance = new FlowsApi(defaultClient);
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         String q = "q_example"; // String | A string filter
         String namespace = "namespace_example"; // String | A namespace filter prefix
@@ -1965,18 +1941,17 @@ Update a flow
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1987,7 +1962,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         FlowsApi apiInstance = new FlowsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String namespace = "namespace_example"; // String | The flow namespace
         String id = "id_example"; // String | The flow id
         String body = "body_example"; // String | The flow source code
@@ -2047,18 +2022,17 @@ All flow will be created / updated for this namespace. Flow that already created
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2069,7 +2043,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         FlowsApi apiInstance = new FlowsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String namespace = "namespace_example"; // String | The flow namespace
         Boolean delete = true; // Boolean | If missing flow should be deleted
         List<Flow> flow = Arrays.asList(); // List<Flow> | A list of flows
@@ -2127,18 +2101,17 @@ Update a single task on a flow
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2152,7 +2125,7 @@ public class Example {
         String namespace = "namespace_example"; // String | The flow namespace
         String id = "id_example"; // String | The flow id
         String taskId = "taskId_example"; // String | The task id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         Task task = new Task(); // Task | The task
         try {
             Flow result = apiInstance.updateTask(namespace, id, taskId, tenant, task);
@@ -2209,18 +2182,17 @@ Validate a list of flows
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2231,7 +2203,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         FlowsApi apiInstance = new FlowsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String body = "body_example"; // String | A list of flows source code in a single string
         try {
             List<ValidateConstraintViolation> result = apiInstance.validateFlows(tenant, body);
@@ -2285,18 +2257,17 @@ Validate a task
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2307,7 +2278,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         FlowsApi apiInstance = new FlowsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         FlowControllerTaskValidationType section = FlowControllerTaskValidationType.fromValue("TASKS"); // FlowControllerTaskValidationType | The type of task
         String body = "body_example"; // String | A task definition that can be from tasks or triggers
         try {
@@ -2363,18 +2334,17 @@ Validate trigger
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.FlowsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.FlowsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2385,7 +2355,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         FlowsApi apiInstance = new FlowsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String body = "body_example"; // String | The trigger
         try {
             ValidateConstraintViolation result = apiInstance.validateTrigger(tenant, body);

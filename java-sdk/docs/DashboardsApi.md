@@ -26,11 +26,11 @@ Create a dashboard from yaml source
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.DashboardsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.DashboardsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -38,7 +38,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String body = "body_example"; // String | The dashboard definition as YAML
         try {
             Dashboard result = apiInstance.createDashboard(tenant, body);
@@ -92,11 +92,11 @@ Delete a dashboard
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.DashboardsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.DashboardsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -105,7 +105,7 @@ public class Example {
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         String id = "id_example"; // String | The dashboard id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             apiInstance.deleteDashboard(id, tenant);
         } catch (ApiException e) {
@@ -157,11 +157,11 @@ Get a dashboard
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.DashboardsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.DashboardsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -170,7 +170,7 @@ public class Example {
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         String id = "id_example"; // String | The dashboard id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Dashboard result = apiInstance.getDashboard(id, tenant);
             System.out.println(result);
@@ -223,11 +223,11 @@ Generate a dashboard chart data
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.DashboardsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.DashboardsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -237,7 +237,7 @@ public class Example {
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         String id = "id_example"; // String | The dashboard id
         String chartId = "chartId_example"; // String | The chart id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         GlobalFilter globalFilter = new GlobalFilter(); // GlobalFilter | The filters to apply, some can override chart definition like labels & namespace
         try {
             PagedResultsMapStringObject result = apiInstance.getDashboardChartData(id, chartId, tenant, globalFilter);
@@ -293,11 +293,11 @@ Preview a chart data
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.DashboardsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.DashboardsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -305,8 +305,8 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
-        DashboardControllerPreviewRequest dashboardControllerPreviewRequest = new DashboardControllerPreviewRequest(); // DashboardControllerPreviewRequest | 
+        String tenant = "tenant_example"; // String |
+        DashboardControllerPreviewRequest dashboardControllerPreviewRequest = new DashboardControllerPreviewRequest(); // DashboardControllerPreviewRequest |
         try {
             PagedResultsMapStringObject result = apiInstance.previewChart(tenant, dashboardControllerPreviewRequest);
             System.out.println(result);
@@ -359,11 +359,11 @@ Search for dashboards
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.DashboardsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.DashboardsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -373,7 +373,7 @@ public class Example {
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String q = "q_example"; // String | The filter query
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         try {
@@ -431,11 +431,11 @@ Update a dashboard
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.DashboardsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.DashboardsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -444,7 +444,7 @@ public class Example {
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         String id = "id_example"; // String | The dashboard id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String body = "body_example"; // String | The dashboard definition as YAML
         try {
             Dashboard result = apiInstance.updateDashboard(id, tenant, body);
@@ -499,11 +499,11 @@ Validate a chart from yaml source
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.DashboardsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.DashboardsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -511,7 +511,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String body = "body_example"; // String | The chart definition as YAML
         try {
             ValidateConstraintViolation result = apiInstance.validateChart(tenant, body);
@@ -565,11 +565,11 @@ Validate dashboard from yaml source
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.DashboardsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.DashboardsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -577,7 +577,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String body = "body_example"; // String | The dashboard definition as YAML
         try {
             ValidateConstraintViolation result = apiInstance.validateDashboard(tenant, body);

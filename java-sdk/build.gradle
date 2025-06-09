@@ -1,22 +1,19 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.+'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
-    }
-}
-
 plugins {
+    id 'java-library'
     id "idea"
-    id "eclipse"
+    id 'jacoco'
+    id "com.adarshr.test-logger" version "4.0.0"
+    id "com.github.johnrengelman.shadow" version "8.1.1"
+    id 'ru.vyarus.java-lib' version '3.0.0'
+    id 'ru.vyarus.github-info' version '2.0.0'
+    id 'signing'
     id "io.github.gradle-nexus.publish-plugin" version "2.0.0"
+    id "com.github.ben-manes.versions" version "0.52.0"
+    id 'net.researchgate.release' version '3.1.0'
 }
 
-group = 'io.kestra'
-version = 'v0.0.1'
-
+group 'io.kestra'
+description 'Kestra SDK to interact with the API through Java.'
 
 def isBuildSnapshot = version.toString().endsWith("-SNAPSHOT")
 
@@ -26,6 +23,11 @@ repositories {
     if (isBuildSnapshot) {
         maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/" }
     }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+    options.compilerArgs.add("-parameters")
 }
 
 /**********************************************************************************************************************\
@@ -42,99 +44,43 @@ nexusPublishing {
     }
 }
 
+tasks.withType(GenerateModuleMetadata).configureEach {
+    // Suppression this validation error as we want to enforce the Kestra platform
+    suppressedValidationErrors.add('enforced-platform')
+}
+
+github {
+    user 'kestra-io'
+    license 'Apache'
+}
 
 
-
-if(hasProperty('target') && target == 'android') {
-
-    apply plugin: 'com.android.library'
-    apply plugin: 'com.github.dcendents.android-maven'
-
-    android {
-        compileSdkVersion 25
-        buildToolsVersion '25.0.2'
-        defaultConfig {
-            minSdkVersion 14
-            targetSdkVersion 25
-        }
-
-        compileOptions {
-            sourceCompatibility JavaVersion.VERSION_1_8
-            targetCompatibility JavaVersion.VERSION_1_8
-        }
-
-        // Rename the aar correctly
-        libraryVariants.all { variant ->
-            variant.outputs.each { output ->
-                def outputFile = output.outputFile
-                if (outputFile != null && outputFile.name.endsWith('.aar')) {
-                    def fileName = "${project.name}-${variant.baseName}-${version}.aar"
-                    output.outputFile = new File(outputFile.parent, fileName)
-                }
-            }
-        }
-
-        dependencies {
-            provided "jakarta.annotation:jakarta.annotation-api:$jakarta_annotation_version"
-        }
-    }
-
-    afterEvaluate {
-        android.libraryVariants.all { variant ->
-            def task = project.tasks.create "jar${variant.name.capitalize()}", Jar
-            task.description = "Create jar artifact for ${variant.name}"
-            task.dependsOn variant.javaCompile
-            task.from variant.javaCompile.destinationDirectory
-            task.destinationDirectory = project.file("${project.buildDir}/outputs/jar")
-            task.archiveFileName = "${project.name}-${variant.baseName}-${version}.jar"
-            artifacts.add('archives', task);
-        }
-    }
-
-    task sourcesJar(type: Jar) {
-        from android.sourceSets.main.java.srcDirs
-    }
-
-    artifacts {
-        archives sourcesJar
-    }
-
-} else {
-
-    apply plugin: 'java'
-    apply plugin: 'maven-publish'
-
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-
-    publishing {
-        publications {
-            maven(MavenPublication) {
-               artifactId = 'kestra-api-client'
-
-               from components.java
-            }
-        }
-    }
-
-    task execute(type:JavaExec) {
-       main = System.getProperty('mainClass')
-       classpath = sourceSets.main.runtimeClasspath
-    }
-
-    task sourcesJar(type: Jar, dependsOn: classes) {
-        from sourceSets.main.allSource
-    }
-
-    task javadocJar(type: Jar, dependsOn: javadoc) {
-        from javadoc.destinationDir
-    }
-
-    artifacts {
-        archives sourcesJar
-        archives javadocJar
+jar {
+    manifest {
+        attributes(
+            "X-Kestra-Name": project.name,
+            "X-Kestra-Title": "Kestra SDK",
+            "X-Kestra-Group": project.group,
+            "X-Kestra-Description": project.description,
+            "X-Kestra-Version": project.version
+        )
     }
 }
+
+maven.pom {
+    developers {
+        developer {
+            id = "kestra-technologies"
+            name = "Kestra Technologies"
+        }
+    }
+}
+
+shadowJar {
+    archiveClassifier.set(null)
+    mergeServiceFiles()
+}
+
 
 ext {
     swagger_annotations_version = "1.6.6"

@@ -27,11 +27,11 @@ Create a new internal blueprint
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.BlueprintsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.BlueprintsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -39,7 +39,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         BlueprintsApi apiInstance = new BlueprintsApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         BlueprintControllerApiBlueprintItemWithSource blueprintControllerApiBlueprintItemWithSource = new BlueprintControllerApiBlueprintItemWithSource(); // BlueprintControllerApiBlueprintItemWithSource | The internal blueprint to create
         try {
             BlueprintControllerApiBlueprintItemWithSource result = apiInstance.createInternalBlueprints(tenant, blueprintControllerApiBlueprintItemWithSource);
@@ -93,11 +93,11 @@ Delete an internal blueprint
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.BlueprintsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.BlueprintsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -106,7 +106,7 @@ public class Example {
 
         BlueprintsApi apiInstance = new BlueprintsApi(defaultClient);
         String id = "id_example"; // String | The internal blueprint id to delete
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             apiInstance.deleteInternalBlueprints(id, tenant);
         } catch (ApiException e) {
@@ -158,11 +158,11 @@ Get a blueprint
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.BlueprintsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.BlueprintsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -172,7 +172,7 @@ public class Example {
         BlueprintsApi apiInstance = new BlueprintsApi(defaultClient);
         String id = "id_example"; // String | The blueprint id
         BlueprintControllerKind kind = BlueprintControllerKind.fromValue("APP"); // BlueprintControllerKind | The blueprint kind
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             BlueprintControllerApiBlueprintItemWithSource result = apiInstance.getBlueprint(id, kind, tenant);
             System.out.println(result);
@@ -226,11 +226,11 @@ Get a blueprint graph
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.BlueprintsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.BlueprintsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -240,7 +240,7 @@ public class Example {
         BlueprintsApi apiInstance = new BlueprintsApi(defaultClient);
         String id = "id_example"; // String | The blueprint id
         BlueprintControllerKind kind = BlueprintControllerKind.fromValue("APP"); // BlueprintControllerKind | The blueprint kind
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Map<String, Object> result = apiInstance.getBlueprintGraph(id, kind, tenant);
             System.out.println(result);
@@ -294,11 +294,11 @@ Get a blueprint source code
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.BlueprintsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.BlueprintsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -308,7 +308,7 @@ public class Example {
         BlueprintsApi apiInstance = new BlueprintsApi(defaultClient);
         String id = "id_example"; // String | The blueprint id
         BlueprintControllerKind kind = BlueprintControllerKind.fromValue("APP"); // BlueprintControllerKind | The blueprint kind
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             String result = apiInstance.getBlueprintSource(id, kind, tenant);
             System.out.println(result);
@@ -362,11 +362,11 @@ Get an internal blueprint
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.BlueprintsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.BlueprintsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -375,7 +375,7 @@ public class Example {
 
         BlueprintsApi apiInstance = new BlueprintsApi(defaultClient);
         String id = "id_example"; // String | The blueprint id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             BlueprintControllerApiBlueprintItemWithSource result = apiInstance.internalBlueprint(id, tenant);
             System.out.println(result);
@@ -428,11 +428,11 @@ Get an internal blueprint source code
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.BlueprintsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.BlueprintsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -441,7 +441,7 @@ public class Example {
 
         BlueprintsApi apiInstance = new BlueprintsApi(defaultClient);
         String id = "id_example"; // String | The blueprint id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             String result = apiInstance.internalBlueprintFlow(id, tenant);
             System.out.println(result);
@@ -494,11 +494,11 @@ List all blueprints
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.BlueprintsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.BlueprintsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -509,7 +509,7 @@ public class Example {
         Integer page = 1; // Integer | The current page
         Integer size = 1; // Integer | The current page size
         BlueprintControllerKind kind = BlueprintControllerKind.fromValue("APP"); // BlueprintControllerKind | The blueprint kind
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String q = "q_example"; // String | A string filter
         String sort = "sort_example"; // String | The sort of current page
         List<String> tags = Arrays.asList(); // List<String> | A tags filter
@@ -570,11 +570,11 @@ List all internal blueprints
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.BlueprintsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.BlueprintsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -584,7 +584,7 @@ public class Example {
         BlueprintsApi apiInstance = new BlueprintsApi(defaultClient);
         Integer page = 1; // Integer | The current page
         Integer size = 1; // Integer | The current page size
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String q = "q_example"; // String | A string filter
         String sort = "sort_example"; // String | The sort of current page
         List<String> tags = Arrays.asList(); // List<String> | A tags filter
@@ -644,11 +644,11 @@ Update an internal blueprint
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.BlueprintsApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.BlueprintsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -657,7 +657,7 @@ public class Example {
 
         BlueprintsApi apiInstance = new BlueprintsApi(defaultClient);
         String id = "id_example"; // String | The id of the internal blueprint to update
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         BlueprintControllerApiBlueprintItemWithSource blueprintControllerApiBlueprintItemWithSource = new BlueprintControllerApiBlueprintItemWithSource(); // BlueprintControllerApiBlueprintItemWithSource | The new internal blueprint for update
         try {
             BlueprintWithFlow result = apiInstance.updateInternalBlueprints(id, tenant, blueprintControllerApiBlueprintItemWithSource);

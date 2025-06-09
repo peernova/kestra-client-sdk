@@ -33,11 +33,11 @@ Create
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ScimApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -45,11 +45,11 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String integration = "integration_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        ScimUser scimUser = new ScimUser(); // ScimUser | 
-        String attributes = "attributes_example"; // String | 
-        String excludedAttributes = "excludedAttributes_example"; // String | 
+        String integration = "integration_example"; // String |
+        String tenant = "tenant_example"; // String |
+        ScimUser scimUser = new ScimUser(); // ScimUser |
+        String attributes = "attributes_example"; // String |
+        String excludedAttributes = "excludedAttributes_example"; // String |
         try {
             Object result = apiInstance.createSCIMResourceByIdGroups(integration, tenant, scimUser, attributes, excludedAttributes);
             System.out.println(result);
@@ -112,11 +112,11 @@ Create
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ScimApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -124,11 +124,11 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String integration = "integration_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        ScimUser scimUser = new ScimUser(); // ScimUser | 
-        String attributes = "attributes_example"; // String | 
-        String excludedAttributes = "excludedAttributes_example"; // String | 
+        String integration = "integration_example"; // String |
+        String tenant = "tenant_example"; // String |
+        ScimUser scimUser = new ScimUser(); // ScimUser |
+        String attributes = "attributes_example"; // String |
+        String excludedAttributes = "excludedAttributes_example"; // String |
         try {
             Object result = apiInstance.createSCIMResourceByIdUsers(integration, tenant, scimUser, attributes, excludedAttributes);
             System.out.println(result);
@@ -191,11 +191,11 @@ Delete from the backing store
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ScimApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -203,9 +203,9 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String id = "id_example"; // String | 
-        String integration = "integration_example"; // String | 
-        String tenant = "tenant_example"; // String | 
+        String id = "id_example"; // String |
+        String integration = "integration_example"; // String |
+        String tenant = "tenant_example"; // String |
         try {
             Object result = apiInstance.deleteGroups(id, integration, tenant);
             System.out.println(result);
@@ -266,11 +266,11 @@ Delete from the backing store
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ScimApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -278,9 +278,9 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String id = "id_example"; // String | 
-        String integration = "integration_example"; // String | 
-        String tenant = "tenant_example"; // String | 
+        String id = "id_example"; // String |
+        String integration = "integration_example"; // String |
+        String tenant = "tenant_example"; // String |
         try {
             Object result = apiInstance.deleteUsers(id, integration, tenant);
             System.out.println(result);
@@ -341,11 +341,11 @@ Search
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ScimApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -353,9 +353,9 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String integration = "integration_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        SearchRequest searchRequest = new SearchRequest(); // SearchRequest | 
+        String integration = "integration_example"; // String |
+        String tenant = "tenant_example"; // String |
+        SearchRequest searchRequest = new SearchRequest(); // SearchRequest |
         try {
             ScimResource result = apiInstance.findGroups(integration, tenant, searchRequest);
             System.out.println(result);
@@ -414,11 +414,11 @@ Search
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ScimApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -426,9 +426,9 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String integration = "integration_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        SearchRequest searchRequest = new SearchRequest(); // SearchRequest | 
+        String integration = "integration_example"; // String |
+        String tenant = "tenant_example"; // String |
+        SearchRequest searchRequest = new SearchRequest(); // SearchRequest |
         try {
             ScimResource result = apiInstance.findUsers(integration, tenant, searchRequest);
             System.out.println(result);
@@ -487,11 +487,11 @@ Find by id
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ScimApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -499,11 +499,11 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String id = "id_example"; // String | 
-        String integration = "integration_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        String attributes = "attributes_example"; // String | 
-        String excludedAttributes = "excludedAttributes_example"; // String | 
+        String id = "id_example"; // String |
+        String integration = "integration_example"; // String |
+        String tenant = "tenant_example"; // String |
+        String attributes = "attributes_example"; // String |
+        String excludedAttributes = "excludedAttributes_example"; // String |
         try {
             ScimResource result = apiInstance.getSCIMResourceByIdGroups(id, integration, tenant, attributes, excludedAttributes);
             System.out.println(result);
@@ -565,11 +565,11 @@ Find by id
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ScimApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -577,11 +577,11 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String id = "id_example"; // String | 
-        String integration = "integration_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        String attributes = "attributes_example"; // String | 
-        String excludedAttributes = "excludedAttributes_example"; // String | 
+        String id = "id_example"; // String |
+        String integration = "integration_example"; // String |
+        String tenant = "tenant_example"; // String |
+        String attributes = "attributes_example"; // String |
+        String excludedAttributes = "excludedAttributes_example"; // String |
         try {
             ScimResource result = apiInstance.getSCIMResourceByIdUsers(id, integration, tenant, attributes, excludedAttributes);
             System.out.println(result);
@@ -643,11 +643,11 @@ Patch a portion of the backing store
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ScimApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -655,12 +655,12 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String id = "id_example"; // String | 
-        String integration = "integration_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        PatchRequest patchRequest = new PatchRequest(); // PatchRequest | 
-        String attributes = "attributes_example"; // String | 
-        String excludedAttributes = "excludedAttributes_example"; // String | 
+        String id = "id_example"; // String |
+        String integration = "integration_example"; // String |
+        String tenant = "tenant_example"; // String |
+        PatchRequest patchRequest = new PatchRequest(); // PatchRequest |
+        String attributes = "attributes_example"; // String |
+        String excludedAttributes = "excludedAttributes_example"; // String |
         try {
             Object result = apiInstance.patchGroups(id, integration, tenant, patchRequest, attributes, excludedAttributes);
             System.out.println(result);
@@ -724,11 +724,11 @@ Patch a portion of the backing store
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ScimApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -736,12 +736,12 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String id = "id_example"; // String | 
-        String integration = "integration_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        PatchRequest patchRequest = new PatchRequest(); // PatchRequest | 
-        String attributes = "attributes_example"; // String | 
-        String excludedAttributes = "excludedAttributes_example"; // String | 
+        String id = "id_example"; // String |
+        String integration = "integration_example"; // String |
+        String tenant = "tenant_example"; // String |
+        PatchRequest patchRequest = new PatchRequest(); // PatchRequest |
+        String attributes = "attributes_example"; // String |
+        String excludedAttributes = "excludedAttributes_example"; // String |
         try {
             Object result = apiInstance.patchUsers(id, integration, tenant, patchRequest, attributes, excludedAttributes);
             System.out.println(result);
@@ -805,11 +805,11 @@ Find by a combination of query parameters
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ScimApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -817,15 +817,15 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String integration = "integration_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        String attributes = "attributes_example"; // String | 
-        String excludedAttributes = "excludedAttributes_example"; // String | 
-        String filter = "filter_example"; // String | 
-        String sortBy = "sortBy_example"; // String | 
-        SortOrder sortOrder = SortOrder.fromValue("ASCENDING"); // SortOrder | 
-        Integer startIndex = 56; // Integer | 
-        Integer count = 56; // Integer | 
+        String integration = "integration_example"; // String |
+        String tenant = "tenant_example"; // String |
+        String attributes = "attributes_example"; // String |
+        String excludedAttributes = "excludedAttributes_example"; // String |
+        String filter = "filter_example"; // String |
+        String sortBy = "sortBy_example"; // String |
+        SortOrder sortOrder = SortOrder.fromValue("ASCENDING"); // SortOrder |
+        Integer startIndex = 56; // Integer |
+        Integer count = 56; // Integer |
         try {
             ScimResource result = apiInstance.queryGroups(integration, tenant, attributes, excludedAttributes, filter, sortBy, sortOrder, startIndex, count);
             System.out.println(result);
@@ -891,11 +891,11 @@ Find by a combination of query parameters
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ScimApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -903,15 +903,15 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String integration = "integration_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        String attributes = "attributes_example"; // String | 
-        String excludedAttributes = "excludedAttributes_example"; // String | 
-        String filter = "filter_example"; // String | 
-        String sortBy = "sortBy_example"; // String | 
-        SortOrder sortOrder = SortOrder.fromValue("ASCENDING"); // SortOrder | 
-        Integer startIndex = 56; // Integer | 
-        Integer count = 56; // Integer | 
+        String integration = "integration_example"; // String |
+        String tenant = "tenant_example"; // String |
+        String attributes = "attributes_example"; // String |
+        String excludedAttributes = "excludedAttributes_example"; // String |
+        String filter = "filter_example"; // String |
+        String sortBy = "sortBy_example"; // String |
+        SortOrder sortOrder = SortOrder.fromValue("ASCENDING"); // SortOrder |
+        Integer startIndex = 56; // Integer |
+        Integer count = 56; // Integer |
         try {
             ScimResource result = apiInstance.queryUsers(integration, tenant, attributes, excludedAttributes, filter, sortBy, sortOrder, startIndex, count);
             System.out.println(result);
@@ -977,11 +977,11 @@ Update
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ScimApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -989,12 +989,12 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String id = "id_example"; // String | 
-        String integration = "integration_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        ScimResource scimResource = new ScimResource(); // ScimResource | 
-        String attributes = "attributes_example"; // String | 
-        String excludedAttributes = "excludedAttributes_example"; // String | 
+        String id = "id_example"; // String |
+        String integration = "integration_example"; // String |
+        String tenant = "tenant_example"; // String |
+        ScimResource scimResource = new ScimResource(); // ScimResource |
+        String attributes = "attributes_example"; // String |
+        String excludedAttributes = "excludedAttributes_example"; // String |
         try {
             ScimResource result = apiInstance.updateGroups(id, integration, tenant, scimResource, attributes, excludedAttributes);
             System.out.println(result);
@@ -1056,11 +1056,11 @@ Update
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.ScimApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.ScimApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1068,12 +1068,12 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ScimApi apiInstance = new ScimApi(defaultClient);
-        String id = "id_example"; // String | 
-        String integration = "integration_example"; // String | 
-        String tenant = "tenant_example"; // String | 
-        ScimResource scimResource = new ScimResource(); // ScimResource | 
-        String attributes = "attributes_example"; // String | 
-        String excludedAttributes = "excludedAttributes_example"; // String | 
+        String id = "id_example"; // String |
+        String integration = "integration_example"; // String |
+        String tenant = "tenant_example"; // String |
+        ScimResource scimResource = new ScimResource(); // ScimResource |
+        String attributes = "attributes_example"; // String |
+        String excludedAttributes = "excludedAttributes_example"; // String |
         try {
             ScimResource result = apiInstance.updateUsers(id, integration, tenant, scimResource, attributes, excludedAttributes);
             System.out.println(result);

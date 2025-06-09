@@ -32,18 +32,17 @@ List namespaces for autocomplete
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.NamespacesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -54,9 +53,9 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String q = "q_example"; // String | A string filter
-        ApiIds apiIds = new ApiIds(); // ApiIds | 
+        ApiIds apiIds = new ApiIds(); // ApiIds |
         try {
             List<String> result = apiInstance.autocompleteNamespaces(tenant, q, apiIds);
             System.out.println(result);
@@ -110,18 +109,17 @@ List namespaces for autocomplete
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.NamespacesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -132,9 +130,9 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
-        String resourceTenant = "resourceTenant_example"; // String | 
+        String resourceTenant = "resourceTenant_example"; // String |
         String q = "q_example"; // String | A string filter
-        ApiIds apiIds = new ApiIds(); // ApiIds | 
+        ApiIds apiIds = new ApiIds(); // ApiIds |
         try {
             List<String> result = apiInstance.autocompleteNamespacesWithResourceTenantasSuperAdmin(resourceTenant, q, apiIds);
             System.out.println(result);
@@ -188,18 +186,17 @@ List namespaces for autocomplete
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.NamespacesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -211,7 +208,7 @@ public class Example {
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String q = "q_example"; // String | A string filter
-        ApiIds apiIds = new ApiIds(); // ApiIds | 
+        ApiIds apiIds = new ApiIds(); // ApiIds |
         try {
             List<String> result = apiInstance.autocompleteNamespacesasSuperAdmin(q, apiIds);
             System.out.println(result);
@@ -264,18 +261,17 @@ Create a namespace
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.NamespacesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -286,7 +282,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         Namespace namespace = new Namespace(); // Namespace | The namespace
         try {
             Namespace result = apiInstance.createNamespace(tenant, namespace);
@@ -340,18 +336,17 @@ Delete a flow
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.NamespacesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -363,7 +358,7 @@ public class Example {
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String id = "id_example"; // String | The namespace id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             apiInstance.deleteNamespace(id, tenant);
         } catch (ApiException e) {
@@ -415,18 +410,17 @@ Delete a secret for a namespace
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.NamespacesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -439,7 +433,7 @@ public class Example {
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String namespace = "namespace_example"; // String | The namespace id
         String key = "key_example"; // String | The secret key
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             List<String> result = apiInstance.deleteSecret(namespace, key, tenant);
             System.out.println(result);
@@ -493,18 +487,17 @@ List inherited secrets
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.NamespacesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -516,7 +509,7 @@ public class Example {
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String namespace = "namespace_example"; // String | The namespace id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Map<String, List<String>> result = apiInstance.getInheritedSecrets(namespace, tenant);
             System.out.println(result);
@@ -569,18 +562,17 @@ Get a namespace
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.NamespacesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -592,7 +584,7 @@ public class Example {
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String id = "id_example"; // String | The namespace id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Namespace result = apiInstance.getNamespace(id, tenant);
             System.out.println(result);
@@ -645,18 +637,17 @@ List inherited plugin defaults
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.NamespacesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -668,7 +659,7 @@ public class Example {
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String id = "id_example"; // String | The namespace id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             List<PluginDefault> result = apiInstance.inheritedPluginDefaults(id, tenant);
             System.out.println(result);
@@ -721,18 +712,17 @@ List inherited variables
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.NamespacesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -744,7 +734,7 @@ public class Example {
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String id = "id_example"; // String | The namespace id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         try {
             Map<String, Object> result = apiInstance.inheritedVariables(id, tenant);
             System.out.println(result);
@@ -797,18 +787,17 @@ Get secrets for a namespace
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.NamespacesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -823,7 +812,7 @@ public class Example {
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
         List<QueryFilter> filters = Arrays.asList(); // List<QueryFilter> | Filters
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         try {
             ApiSecretListResponse result = apiInstance.listNamespaceSecrets(namespace, page, size, filters, tenant, sort);
@@ -881,18 +870,17 @@ Patch a secret metadata for a namespace
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.NamespacesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -904,9 +892,9 @@ public class Example {
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String namespace = "namespace_example"; // String | The namespace id
-        String tenant = "tenant_example"; // String | 
-        String key = "key_example"; // String | 
-        ApiSecretMetaEE apiSecretMetaEE = new ApiSecretMetaEE(); // ApiSecretMetaEE | 
+        String tenant = "tenant_example"; // String |
+        String key = "key_example"; // String |
+        ApiSecretMetaEE apiSecretMetaEE = new ApiSecretMetaEE(); // ApiSecretMetaEE |
         try {
             List<ApiSecretMeta> result = apiInstance.patchSecret(namespace, tenant, key, apiSecretMetaEE);
             System.out.println(result);
@@ -961,18 +949,17 @@ Update secrets for a namespace
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.NamespacesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -984,8 +971,8 @@ public class Example {
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String namespace = "namespace_example"; // String | The namespace id
-        String tenant = "tenant_example"; // String | 
-        ApiSecretValue apiSecretValue = new ApiSecretValue(); // ApiSecretValue | 
+        String tenant = "tenant_example"; // String |
+        ApiSecretValue apiSecretValue = new ApiSecretValue(); // ApiSecretValue |
         try {
             List<ApiSecretMeta> result = apiInstance.putSecrets(namespace, tenant, apiSecretValue);
             System.out.println(result);
@@ -1039,18 +1026,17 @@ Search for namespaces
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.NamespacesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1063,7 +1049,7 @@ public class Example {
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         String q = "q_example"; // String | A string filter
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         Boolean existing = false; // Boolean | Return only existing namespace
@@ -1123,18 +1109,17 @@ Update a namespace
 
 ```java
 // Import classes:
-import io.kestra.api.sdk.internal.ApiClient;
-import io.kestra.api.sdk.internal.ApiException;
-import io.kestra.api.sdk.internal.Configuration;
-import io.kestra.api.sdk.internal.auth.*;
-import io.kestra.api.sdk.internal.models.*;
-import io.kestra.api.sdk.api.NamespacesApi;
+
+import internal.sdk.io.kestraClient;
+import internal.sdk.io.kestraException;
+import internal.sdk.io.kestra.Configuration;
+import api.sdk.io.kestra.NamespacesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-        
+
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1146,7 +1131,7 @@ public class Example {
 
         NamespacesApi apiInstance = new NamespacesApi(defaultClient);
         String id = "id_example"; // String | The namespace id
-        String tenant = "tenant_example"; // String | 
+        String tenant = "tenant_example"; // String |
         Namespace namespace = new Namespace(); // Namespace | The namespace
         try {
             Namespace result = apiInstance.updateNamespace(id, tenant, namespace);
