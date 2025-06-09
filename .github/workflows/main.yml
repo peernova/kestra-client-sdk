@@ -21,11 +21,14 @@ on:
 
 jobs:
   check:
-    name: Check & Publish
+    name: Check & Publish Java SDK
     runs-on: ubuntu-latest
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       GOOGLE_SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
+    defaults:
+      run:
+        working-directory: ./java-sdk
     steps:
       - uses: actions/checkout@v4
 
@@ -85,10 +88,11 @@ jobs:
         if: ${{ env.GOOGLE_SERVICE_ACCOUNT != 0 }}
         uses: 'google-github-actions/setup-gcloud@v2'
 
-      - name: 'Copy jacoco files'
-        if: ${{ env.GOOGLE_SERVICE_ACCOUNT != 0 }}
-        run: |
-          gsutil -m rsync -d -r  build/reports/jacoco/test/ gs://internal-kestra-host/${{ format('{0}/{1}', github.repository, 'jacoco') }}
+      # Disabled as no tests are run yet
+#      - name: 'Copy jacoco files'
+#        if: ${{ env.GOOGLE_SERVICE_ACCOUNT != 0 }}
+#        run: |
+#          gsutil -m rsync -d -r  build/reports/jacoco/test/ gs://internal-kestra-host/${{ format('{0}/{1}', github.repository, 'jacoco') }}
 
       # Publish
       - name: Publish package to Sonatype
