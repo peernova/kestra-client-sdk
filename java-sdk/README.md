@@ -1,4 +1,4 @@
-# kestra-api-client
+# kestra-sdk
 
 Kestra EE
 
@@ -44,7 +44,7 @@ Add this dependency to your project's POM:
 ```xml
 <dependency>
   <groupId>io.kestra</groupId>
-  <artifactId>kestra-api-client</artifactId>
+  <artifactId>kestra-sdk</artifactId>
   <version>v0.23.0</version>
   <scope>compile</scope>
 </dependency>
@@ -55,7 +55,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.kestra:kestra-api-client:v0.23.0"
+compile "io.kestra:kestra-sdk:v0.23.0"
 ```
 
 ### Others
@@ -68,7 +68,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/kestra-api-client-v0.23.0.jar`
+- `target/kestra-sdk-v0.23.0.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
