@@ -10,10 +10,18 @@
 
 3. Then multiples files changes are needed to be done manually in the generated SDK:
   - Remove all `classifier` from the build.gradle file.
-  - Add two dependencies in the build.gradle file:
+  - Add this dependency in the build.gradle file:
     ```groovy
     implementation "io.swagger.core.v3:swagger-annotations:$swagger_v3_annotations_version"
     ```
+    - Enforce the SLF4J version to > 2.0
+      ```groovy
+      configurations.all {
+        resolutionStrategy {
+            force("org.slf4j:slf4j-api:2.0.17")
+        }
+      }
+      ```
   - in the ApiClient.java file, we need to make it handle yaml mime type.
 
     First, add this method that will help detecting if a mime type is a yaml mime type:
@@ -29,6 +37,6 @@
     add the following else/if code:
     ```java
       else if (isYamlMime(mimeType)) {
-      return new StringEntity((String) obj, contentType.withCharset(StandardCharsets.UTF_8));
+        return new StringEntity((String) obj, contentType.withCharset(StandardCharsets.UTF_8));
       }
       ```
