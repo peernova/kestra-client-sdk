@@ -1,0 +1,52 @@
+# MiscControllerEEConfiguration
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**uuid** | **str** |  | [optional] 
+**version** | **str** |  | [optional] 
+**commit_id** | **str** |  | [optional] 
+**commit_date** | **datetime** |  | [optional] 
+**is_custom_dashboards_enabled** | **bool** |  | [optional] 
+**is_task_run_enabled** | **bool** |  | [optional] 
+**is_anonymous_usage_enabled** | **bool** |  | [optional] 
+**is_template_enabled** | **bool** |  | [optional] 
+**environment** | [**MiscControllerEnvironment**](MiscControllerEnvironment.md) |  | [optional] 
+**url** | **str** |  | [optional] 
+**preview** | [**MiscControllerPreview**](MiscControllerPreview.md) |  | [optional] 
+**is_basic_auth_enabled** | **bool** |  | [optional] 
+**system_namespace** | **str** |  | [optional] 
+**hidden_labels_prefixes** | **List[str]** |  | [optional] 
+**resource_to_filters** | [**List[QueryFilterResourceField]**](QueryFilterResourceField.md) |  | [optional] 
+**tenants** | [**MiscControllerTenantConfigurationInfo**](MiscControllerTenantConfigurationInfo.md) |  | [optional] 
+**secrets_enabled** | **bool** |  | [optional] 
+**supported_storages** | [**List[MiscControllerPluginIdAndVersion]**](MiscControllerPluginIdAndVersion.md) |  | [optional] 
+**supported_secrets** | [**List[MiscControllerPluginIdAndVersion]**](MiscControllerPluginIdAndVersion.md) |  | [optional] 
+**plugin_management_enabled** | **bool** |  | [optional] 
+**plugin_custom_enabled** | **bool** |  | [optional] 
+**banner** | [**Banner**](Banner.md) |  | [optional] 
+**mail_service_enabled** | **bool** |  | [optional] 
+**outputs_in_internal_storage_enabled** | **bool** |  | [optional] 
+
+## Example
+
+```python
+from kestra_api_client.models.misc_controller_ee_configuration import MiscControllerEEConfiguration
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of MiscControllerEEConfiguration from a JSON string
+misc_controller_ee_configuration_instance = MiscControllerEEConfiguration.from_json(json)
+# print the JSON string representation of the object
+print(MiscControllerEEConfiguration.to_json())
+
+# convert the object into a dict
+misc_controller_ee_configuration_dict = misc_controller_ee_configuration_instance.to_dict()
+# create an instance of MiscControllerEEConfiguration from a dict
+misc_controller_ee_configuration_from_dict = MiscControllerEEConfiguration.from_dict(misc_controller_ee_configuration_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
