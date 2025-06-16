@@ -5,7 +5,7 @@ LANGUAGES=$2
 
 # check if LANGUAGES is empty
 if [ -z "$LANGUAGES" ]; then
-  echo "No languages specified. Please provide a comma-separated list of languages. Possible languages are: 'java' and 'python'"
+  echo "No languages specified. Please provide a comma-separated list of languages. Possible languages are: 'java', 'python' and 'javascript'"
   exit 1
 fi
 
@@ -24,6 +24,14 @@ fi
 if [[ ",$LANGUAGES," == *",python,"* ]]; then
 docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate \
     -i /local/kestra-ee.yml -g python -o /local/python-sdk --skip-validate-spec \
+    --global-property=apiTests=false,modelTests=false \
+    --additional-properties=packageName=kestra_api_client,projectName=kestra_api,packageVersion=$VERSION
+fi
+
+# Generate Python SDK
+if [[ ",$LANGUAGES," == *",javascript,"* ]]; then
+docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate \
+    -i /local/kestra-ee.yml -g javascript -o /local/javascript-sdk --skip-validate-spec \
     --global-property=apiTests=false,modelTests=false \
     --additional-properties=packageName=kestra_api_client,projectName=kestra_api,packageVersion=$VERSION
 fi

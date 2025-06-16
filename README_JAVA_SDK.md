@@ -40,3 +40,8 @@
         return new StringEntity((String) obj, contentType.withCharset(StandardCharsets.UTF_8));
       }
       ```
+
+## Step to use
+
+The openapi generator will generate 1 Api per controller, so we create a custom Kestra Client that need to be instantiated once for every API.
+Use the `io.kestra.sdk.KestraClient` manually written that gather everything in one client.

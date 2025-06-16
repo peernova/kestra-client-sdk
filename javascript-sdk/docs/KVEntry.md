@@ -1,0 +1,12 @@
+# KestraApi.KVEntry
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**key** | **String** |  | [optional] 
+**creationDate** | **Date** |  | [optional] 
+**updateDate** | **Date** |  | [optional] 
+**expirationDate** | **Date** |  | [optional] 
+
+

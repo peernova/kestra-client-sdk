@@ -1,4 +1,4 @@
-# Java SDK
+# Python SDK
 
 ## Steps to generate the SDK
 
@@ -18,3 +18,26 @@
     ```python
     from kestra_api_client.models.list[label] import List[Label]
     ```
+
+## Step to use
+
+The openapi generator will generate 1 Api per controller, so we create a custom Kestra Client that need to be instantiated once for every API.
+Use the `from kestra_api_client import KestraClient` manually written that gather everything in one client.
+
+Then you can create a Configuration, configure it and instantiate the client:
+```python
+configuration = Configuration()
+configuration.host = "http://localhost:8080"
+configuration.username = "root@root.com"
+configuration.password = "Root!1234"
+
+kestra_client = KestraClient(configuration)
+```
+
+Then simply use the client to call the API:
+
+```python
+res = kestra_client.flows.search_flows(1, 10, tenant_id)
+
+print("Found flows:", len(res.results))
+```
