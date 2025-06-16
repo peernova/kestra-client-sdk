@@ -14,10 +14,10 @@
      license = "Apache-2.0"
      requires-python = ">=3.9"
      ```
-  - In the `executions_api.py`, delete the following import, this is an wrong generation from Micronaut OpenAPI generator:
-    ```python
-    from kestra_api_client.models.list[label] import List[Label]
-    ```
+   - In the `executions_api.py`, delete the following import, this is an wrong generation from Micronaut OpenAPI generator:
+     ```python
+     from kestra_api_client.models.list[label] import List[Label]
+     ```
 
 ## Step to use
 
