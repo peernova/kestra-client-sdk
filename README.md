@@ -33,19 +33,12 @@
 <p align="center" style="color:grey;"><i>Get started with Kestra in 4 minutes.</i></p>
 
 
-# Kestra Plugin Template
+# Kestra client SDK
 
-> A template for creating Kestra plugins
+Kestra client SDK in various language to interact with a running Kestra instance.
 
-This repository serves as a general template for creating a new [Kestra](https://github.com/kestra-io/kestra) plugin. It should take only a few minutes! Use this repository as a scaffold to ensure that you've set up the plugin correctly, including unit tests and CI/CD workflows.
-
-![Kestra orchestrator](https://kestra.io/video.gif)
-
-
-## Documentation
-* Full documentation can be found under: [kestra.io/docs](https://kestra.io/docs)
-* Documentation for developing a plugin is included in the [Plugin Developer Guide](https://kestra.io/docs/plugin-developer-guide/)
-
+> [!CAUTION]
+> This SDK is in early development, please do not currently use it. We will communicate when a stable first beta version will be available.
 
 ## License
 Apache 2.0 © [Kestra Technologies](https://kestra.io)
