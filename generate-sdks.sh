@@ -28,14 +28,13 @@ docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate \
     --additional-properties=packageName=kestra_api_client,projectName=kestra_api,packageVersion=$VERSION
 fi
 
-# Generate Python SDK
+# Generate Javascript SDK
 if [[ ",$LANGUAGES," == *",javascript,"* ]]; then
 docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate \
     -i /local/kestra-ee.yml -g javascript -o /local/javascript-sdk --skip-validate-spec \
     --global-property=apiTests=false,modelTests=false \
     --additional-properties=packageName=kestra_api_client,projectName=kestra_api,packageVersion=$VERSION
 fi
-
 
 # Generate GoLang SDK
 if [[ ",$LANGUAGES," == *",go,"* ]]; then
@@ -47,7 +46,5 @@ docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate \
 # these generated structs collides between api_cluster.go and api_maintenance.go, needs to be improved TODO
 sed -i.bak -e 's/ApiEnterMaintenanceRequest/ApiClusterEnterMaintenanceRequest/g' ./go-sdk/api_cluster.go && rm ./go-sdk/api_cluster.go.bak
 sed -i.bak -e 's/ApiExitMaintenanceRequest/ApiClusterExitMaintenanceRequest/g' ./go-sdk/api_cluster.go && rm ./go-sdk/api_cluster.go.bak
-
 gofmt -w ./go-sdk
 fi
-
