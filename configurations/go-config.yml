@@ -10,6 +10,16 @@ additionalProperties:
   packageName: kestra_api_client
   projectName: kestra_api
   enumClassPrefix: true
+  disallowAdditionalPropertiesIfNotPresent: false
 
 gitUserId: kestra-io
 gitRepoId: client-sdk/go-sdk
+
+
+typeMappings:
+  PropertyDuration: string
+  PropertyString: string
+  PropertyBoolean: string
+  PropertyDouble: string
+  PropertyListString: string
+  PropertyObject: string
