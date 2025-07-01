@@ -1,0 +1,11 @@
+generatorName: javascript
+inputSpec: /local/kestra-ee.yml
+outputDir: /local/javascript-sdk
+
+globalProperties:
+  apiTests: false
+  modelTests: false
+
+additionalProperties:
+  packageName: kestra_api_client
+  projectName: kestra_api

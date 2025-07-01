@@ -14,35 +14,32 @@ BASE_PKG=io.kestra.sdk
 # Generate Java SDK
 if [[ ",$LANGUAGES," == *",java,"* ]]; then
 docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate \
-    -i /local/kestra-ee.yml -g java -o /local/java-sdk --skip-validate-spec \
-    --library apache-httpclient --global-property=apiTests=false,modelTests=false \
-    --invoker-package $BASE_PKG.internal --model-package $BASE_PKG.model --api-package $BASE_PKG.api \
-    --group-id io.kestra --artifact-id kestra-api-client --artifact-version $VERSION
+     -c /local/configurations/java-config.yml --artifact-version $VERSION \
+      --skip-validate-spec
 fi
 
 # Generate Python SDK
 if [[ ",$LANGUAGES," == *",python,"* ]]; then
 docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate \
-    -i /local/kestra-ee.yml -g python -o /local/python-sdk --skip-validate-spec \
-    --global-property=apiTests=false,modelTests=false \
-    --additional-properties=packageName=kestra_api_client,projectName=kestra_api,packageVersion=$VERSION
+    -c /local/configurations/python-config.yml \
+    --skip-validate-spec \
+    --additional-properties=packageVersion=$VERSION
 fi
 
 # Generate Javascript SDK
 if [[ ",$LANGUAGES," == *",javascript,"* ]]; then
 docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate \
-    -i /local/kestra-ee.yml -g javascript -o /local/javascript-sdk --skip-validate-spec \
-    --global-property=apiTests=false,modelTests=false \
-    --additional-properties=packageName=kestra_api_client,projectName=kestra_api,packageVersion=$VERSION
+    -c /local/configurations/javascript-config.yml \
+    --skip-validate-spec \
+    --additional-properties=packageVersion=$VERSION
 fi
 
 # Generate GoLang SDK
 if [[ ",$LANGUAGES," == *",go,"* ]]; then
 docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate \
-    -i /local/kestra-ee.yml -g go -o /local/go-sdk --skip-validate-spec \
-    --global-property=apiTests=false,modelTests=false \
-    --additional-properties=packageName=kestra_api_client,projectName=kestra_api,packageVersion=$VERSION,enumClassPrefix=true \
-    --git-user-id=kestra-io --git-repo-id=client-sdk/go-sdk
+      -c /local/configurations/go-config.yml \
+      --skip-validate-spec \
+      --additional-properties=packageVersion=$VERSION
 # these generated structs collides between api_cluster.go and api_maintenance.go, needs to be improved TODO
 sed -i.bak -e 's/ApiEnterMaintenanceRequest/ApiClusterEnterMaintenanceRequest/g' ./go-sdk/api_cluster.go && rm ./go-sdk/api_cluster.go.bak
 sed -i.bak -e 's/ApiExitMaintenanceRequest/ApiClusterExitMaintenanceRequest/g' ./go-sdk/api_cluster.go && rm ./go-sdk/api_cluster.go.bak

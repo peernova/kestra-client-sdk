@@ -1,0 +1,14 @@
+generatorName: java
+inputSpec: /local/kestra-ee.yml
+outputDir: /local/java-sdk
+
+globalProperties:
+  apiTests: false
+  modelTests: false
+
+library: apache-httpclient
+invokerPackage: io.kestra.sdk.internal
+modelPackage: io.kestra.sdk.model
+apiPackage: io.kestra.sdk.api
+groupId: io.kestra
+artifactId: kestra-api-client

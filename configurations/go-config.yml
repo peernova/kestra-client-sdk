@@ -1,0 +1,15 @@
+generatorName: go
+inputSpec: /local/kestra-ee.yml
+outputDir: /local/go-sdk
+
+globalProperties:
+  apiTests: false
+  modelTests: false
+
+additionalProperties:
+  packageName: kestra_api_client
+  projectName: kestra_api
+  enumClassPrefix: true
+
+gitUserId: kestra-io
+gitRepoId: client-sdk/go-sdk
