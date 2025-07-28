@@ -18,10 +18,11 @@
 |**environment** | [**MiscControllerEnvironment**](MiscControllerEnvironment.md) |  |  [optional] |
 |**url** | **String** |  |  [optional] |
 |**preview** | [**MiscControllerPreview**](MiscControllerPreview.md) |  |  [optional] |
-|**isBasicAuthEnabled** | **Boolean** |  |  [optional] |
 |**systemNamespace** | **String** |  |  [optional] |
 |**hiddenLabelsPrefixes** | **List&lt;String&gt;** |  |  [optional] |
 |**resourceToFilters** | [**List&lt;QueryFilterResourceField&gt;**](QueryFilterResourceField.md) |  |  [optional] |
+|**isAiEnabled** | **Boolean** |  |  [optional] |
+|**isBasicAuthInitialized** | **Boolean** |  |  [optional] |
 |**tenants** | [**MiscControllerTenantConfigurationInfo**](MiscControllerTenantConfigurationInfo.md) |  |  [optional] |
 |**secretsEnabled** | **Boolean** |  |  [optional] |
 |**supportedStorages** | [**List&lt;MiscControllerPluginIdAndVersion&gt;**](MiscControllerPluginIdAndVersion.md) |  |  [optional] |
@@ -31,6 +32,9 @@
 |**banner** | [**Banner**](Banner.md) |  |  [optional] |
 |**mailServiceEnabled** | **Boolean** |  |  [optional] |
 |**outputsInInternalStorageEnabled** | **Boolean** |  |  [optional] |
+|**contextCustomLinks** | [**Map&lt;String, CustomLink&gt;**](CustomLink.md) |  |  [optional] |
+|**inMaintenance** | **Boolean** |  |  [optional] |
+|**passwordRegexp** | **String** |  |  [optional] |
 
 
 

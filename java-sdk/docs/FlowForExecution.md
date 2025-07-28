@@ -13,8 +13,9 @@
 |**inputs** | [**List&lt;InputObject&gt;**](InputObject.md) |  |  [optional] |
 |**outputs** | [**List&lt;Output&gt;**](Output.md) |  |  [optional] |
 |**disabled** | **Boolean** |  |  |
-|**labels** | **Object** |  |  [optional] |
+|**labels** | [**FlowForExecutionAllOfLabels**](FlowForExecutionAllOfLabels.md) |  |  [optional] |
 |**variables** | **Map&lt;String, Object&gt;** |  |  [optional] |
+|**workerGroup** | [**WorkerGroup**](WorkerGroup.md) |  |  [optional] |
 |**deleted** | **Boolean** |  |  |
 |**tasks** | [**List&lt;TaskForExecution&gt;**](TaskForExecution.md) |  |  |
 |**errors** | [**List&lt;TaskForExecution&gt;**](TaskForExecution.md) |  |  [optional] |

@@ -26,17 +26,18 @@ Create a directory
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.FilesApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.FilesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -48,7 +49,7 @@ public class Example {
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         String namespace = "namespace_example"; // String | The namespace id
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         String path = "path_example"; // String | The internal storage uri
         try {
             apiInstance.createNamespaceDirectory(namespace, tenant, path);
@@ -102,17 +103,18 @@ Create a file
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.FilesApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.FilesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -125,7 +127,7 @@ public class Example {
         FilesApi apiInstance = new FilesApi(defaultClient);
         String namespace = "namespace_example"; // String | The namespace id
         String path = "path_example"; // String | The internal storage uri
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         File fileContent = new File("/path/to/file"); // File | The file to upload
         try {
             apiInstance.createNamespaceFile(namespace, path, tenant, fileContent);
@@ -180,17 +182,18 @@ Delete a file or directory
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.FilesApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.FilesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -203,7 +206,7 @@ public class Example {
         FilesApi apiInstance = new FilesApi(defaultClient);
         String namespace = "namespace_example"; // String | The namespace id
         String path = "path_example"; // String | The internal storage uri of the file / directory to delete
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         try {
             apiInstance.deleteFileDirectory(namespace, path, tenant);
         } catch (ApiException e) {
@@ -248,7 +251,7 @@ null (empty response body)
 
 ## exportNamespaceFiles
 
-> List&lt;byte[]&gt; exportNamespaceFiles(namespace, tenant)
+> byte[] exportNamespaceFiles(namespace, tenant)
 
 Export namespace files as a ZIP
 
@@ -256,17 +259,18 @@ Export namespace files as a ZIP
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.FilesApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.FilesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -278,9 +282,9 @@ public class Example {
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         String namespace = "namespace_example"; // String | The namespace id
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         try {
-            List<byte[]> result = apiInstance.exportNamespaceFiles(namespace, tenant);
+            byte[] result = apiInstance.exportNamespaceFiles(namespace, tenant);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling FilesApi#exportNamespaceFiles");
@@ -303,7 +307,7 @@ public class Example {
 
 ### Return type
 
-**List&lt;byte[]&gt;**
+**byte[]**
 
 ### Authorization
 
@@ -331,17 +335,18 @@ Get namespace file content
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.FilesApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.FilesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -354,7 +359,7 @@ public class Example {
         FilesApi apiInstance = new FilesApi(defaultClient);
         String namespace = "namespace_example"; // String | The namespace id
         String path = "path_example"; // String | The internal storage uri
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         try {
             File result = apiInstance.getFileContent(namespace, path, tenant);
             System.out.println(result);
@@ -408,17 +413,18 @@ Get namespace file stats such as size, creation &amp; modification dates and typ
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.FilesApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.FilesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -430,7 +436,7 @@ public class Example {
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         String namespace = "namespace_example"; // String | The namespace id
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         String path = "path_example"; // String | The internal storage uri
         try {
             FileAttributes result = apiInstance.getFileMetadatas(namespace, tenant, path);
@@ -485,17 +491,18 @@ List directory content
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.FilesApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.FilesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -507,7 +514,7 @@ public class Example {
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         String namespace = "namespace_example"; // String | The namespace id
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         String path = "path_example"; // String | The internal storage uri
         try {
             List<FileAttributes> result = apiInstance.listNamespaceDirectoryFiles(namespace, tenant, path);
@@ -562,17 +569,18 @@ Move a file or directory
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.FilesApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.FilesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -586,7 +594,7 @@ public class Example {
         String namespace = "namespace_example"; // String | The namespace id
         URI from = new URI(); // URI | The internal storage uri to move from
         URI to = new URI(); // URI | The internal storage uri to move to
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         try {
             apiInstance.moveFileDirectory(namespace, from, to, tenant);
         } catch (ApiException e) {
@@ -640,17 +648,18 @@ Find files which path contain the given string in their URI
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.FilesApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.FilesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -663,7 +672,7 @@ public class Example {
         FilesApi apiInstance = new FilesApi(defaultClient);
         String namespace = "namespace_example"; // String | The namespace id
         String q = "q_example"; // String | The string the file path should contain
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         try {
             List<String> result = apiInstance.searchNamespaceFiles(namespace, q, tenant);
             System.out.println(result);

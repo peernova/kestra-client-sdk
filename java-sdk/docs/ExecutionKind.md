@@ -9,5 +9,7 @@
 
 * `TEST` (value: `"TEST"`)
 
+* `PLAYGROUND` (value: `"PLAYGROUND"`)
+
 
 

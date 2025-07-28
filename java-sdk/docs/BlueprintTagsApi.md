@@ -15,15 +15,17 @@ All URIs are relative to *http://localhost*
 
 List all internal blueprint tags
 
+Lists all tags used by internal (custom) blueprints for the current tenant.
+
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.BlueprintTagsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.BlueprintTagsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -31,7 +33,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         BlueprintTagsApi apiInstance = new BlueprintTagsApi(defaultClient);
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         String q = "q_example"; // String | A string filter to get tags with matching blueprints only
         try {
             List<String> result = apiInstance.internalBlueprintTags(tenant, q);
@@ -81,15 +83,17 @@ No authorization required
 
 List blueprint tags matching the filter
 
+Lists tags for community blueprints of the specified kind, optionally filtered by query.
+
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.BlueprintTagsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.BlueprintTagsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -98,7 +102,7 @@ public class Example {
 
         BlueprintTagsApi apiInstance = new BlueprintTagsApi(defaultClient);
         BlueprintControllerKind kind = BlueprintControllerKind.fromValue("APP"); // BlueprintControllerKind | The blueprint kind
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         String q = "q_example"; // String | A string filter to get tags with matching blueprints only
         try {
             List<BlueprintControllerApiBlueprintTagItem> result = apiInstance.listBlueprintTags(kind, tenant, q);

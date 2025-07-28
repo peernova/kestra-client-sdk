@@ -13,13 +13,14 @@
 |**inputs** | [**List&lt;InputObject&gt;**](InputObject.md) |  |  [optional] |
 |**outputs** | [**List&lt;Output&gt;**](Output.md) | Output values make information about the execution of your Flow available and expose for other Kestra flows to use. Output values are similar to return values in programming languages. |  [optional] |
 |**disabled** | **Boolean** |  |  |
-|**labels** | **Object** |  |  [optional] |
+|**labels** | [**FlowWithSourceAllOfLabels**](FlowWithSourceAllOfLabels.md) |  |  [optional] |
 |**variables** | **Map&lt;String, Object&gt;** |  |  [optional] |
+|**workerGroup** | [**WorkerGroup**](WorkerGroup.md) |  |  [optional] |
 |**deleted** | **Boolean** |  |  |
 |**_finally** | [**List&lt;Task&gt;**](Task.md) |  |  [optional] |
 |**taskDefaults** | [**List&lt;PluginDefault&gt;**](PluginDefault.md) |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**tasks** | [**List&lt;Task&gt;**](Task.md) |  |  |
+|**tasks** | [**Map&lt;Task&gt;**](Task.md) |  |  |
 |**errors** | [**List&lt;Task&gt;**](Task.md) |  |  [optional] |
 |**listeners** | [**List&lt;Listener&gt;**](Listener.md) |  |  [optional] |
 |**afterExecution** | [**List&lt;Task&gt;**](Task.md) |  |  [optional] |

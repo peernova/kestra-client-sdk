@@ -9,9 +9,9 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  |
 |**type** | **String** |  |  |
-|**disabled** | **Boolean** |  |  |
-|**description** | **String** |  |  |
-|**fixtures** | [**Fixtures**](Fixtures.md) |  |  |
+|**disabled** | **Boolean** |  |  [optional] |
+|**description** | **String** |  |  [optional] |
+|**fixtures** | [**Fixtures**](Fixtures.md) |  |  [optional] |
 |**assertions** | [**List&lt;Assertion&gt;**](Assertion.md) |  |  |
 
 

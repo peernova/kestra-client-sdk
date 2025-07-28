@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**chart** | **String** |  |  |
-|**globalFilter** | [**GlobalFilter**](GlobalFilter.md) |  |  [optional] |
+|**globalFilter** | [**ChartFiltersOverrides**](ChartFiltersOverrides.md) |  |  [optional] |
 
 
 

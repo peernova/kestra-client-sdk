@@ -12,7 +12,9 @@
 |**namespace** | **String** |  |  |
 |**flowId** | **String** |  |  |
 |**state** | **TestState** |  |  |
-|**results** | [**List&lt;UnitTestResult&gt;**](UnitTestResult.md) |  |  |
+|**startDate** | **OffsetDateTime** |  |  |
+|**endDate** | **OffsetDateTime** |  |  |
+|**results** | [**List&lt;UnitTestResult&gt;**](UnitTestResult.md) |  |  [optional] |
 
 
 

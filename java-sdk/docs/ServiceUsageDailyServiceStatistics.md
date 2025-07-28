@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**type** | **String** |  |  |
-|**values** | [**List&lt;ServiceUsageDailyStatistics&gt;**](ServiceUsageDailyStatistics.md) |  |  |
+|**type** | **String** |  |  [optional] |
+|**values** | [**List&lt;ServiceUsageDailyStatistics&gt;**](ServiceUsageDailyStatistics.md) |  |  [optional] |
 
 
 

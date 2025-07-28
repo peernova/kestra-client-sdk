@@ -7,11 +7,11 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **String** |  |  |
+|**id** | **String** |  |  [optional] |
 |**name** | **String** |  |  |
-|**description** | **String** |  |  |
+|**description** | **String** |  |  [optional] |
 |**deleted** | **Boolean** |  |  |
-|**provider** | [**IdentityProvider**](IdentityProvider.md) |  |  |
+|**provider** | [**IdentityProvider**](IdentityProvider.md) |  |  [optional] |
 
 
 

@@ -23,17 +23,18 @@ Get metrics aggregations for a specific flow
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.MetricsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.MetricsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -48,7 +49,7 @@ public class Example {
         String flowId = "flowId_example"; // String | The flow Id
         String metric = "metric_example"; // String | The metric name
         String aggregation = "sum"; // String | The type of aggregation: avg, sum, min or max
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | The start datetime, default to now - 30 days
         OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | The end datetime, default to now
         try {
@@ -108,17 +109,18 @@ Get metrics aggregations for a specific flow
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.MetricsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.MetricsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -134,7 +136,7 @@ public class Example {
         String taskId = "taskId_example"; // String | The task Id
         String metric = "metric_example"; // String | The metric name
         String aggregation = "sum"; // String | The type of aggregation: avg, sum, min or max
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | The start datetime, default to now - 30 days
         OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | The end datetime, default to now
         try {
@@ -195,17 +197,18 @@ Get metrics names for a specific flow
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.MetricsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.MetricsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -218,7 +221,7 @@ public class Example {
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String namespace = "namespace_example"; // String | The namespace
         String flowId = "flowId_example"; // String | The flow Id
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         try {
             List<String> result = apiInstance.listFlowMetrics(namespace, flowId, tenant);
             System.out.println(result);
@@ -272,17 +275,18 @@ Get metrics names for a specific task in a flow
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.MetricsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.MetricsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -296,7 +300,7 @@ public class Example {
         String namespace = "namespace_example"; // String | The namespace
         String flowId = "flowId_example"; // String | The flow Id
         String taskId = "taskId_example"; // String | The task Id
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         try {
             List<String> result = apiInstance.listTaskMetrics(namespace, flowId, taskId, tenant);
             System.out.println(result);
@@ -351,17 +355,18 @@ Get tasks id that have metrics for a specific flow, include deleted or renamed t
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.MetricsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.MetricsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -374,7 +379,7 @@ public class Example {
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String namespace = "namespace_example"; // String | The namespace
         String flowId = "flowId_example"; // String | The flow Id
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         try {
             List<String> result = apiInstance.listTasksWithMetrics(namespace, flowId, tenant);
             System.out.println(result);
@@ -428,17 +433,18 @@ Get metrics for a specific execution
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.MetricsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.MetricsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -452,7 +458,7 @@ public class Example {
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
         String executionId = "executionId_example"; // String | The execution id
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         String taskRunId = "taskRunId_example"; // String | The taskrun id
         String taskId = "taskId_example"; // String | The task id

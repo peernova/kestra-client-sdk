@@ -4,61 +4,33 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**autocompleteUsers**](UsersApi.md#autocompleteUsers) | **POST** /api/v1/{tenant}/users/autocomplete | List users for autocomplete |
-| [**autocompleteUsersWithResourceTenantasSuperAdmin**](UsersApi.md#autocompleteUsersWithResourceTenantasSuperAdmin) | **POST** /api/v1/tenants/{resourceTenant}/users/autocomplete | List users for autocomplete |
-| [**autocompleteUsersasSuperAdmin**](UsersApi.md#autocompleteUsersasSuperAdmin) | **POST** /api/v1/tenants/users/autocomplete | List users for autocomplete |
-| [**createApiTokensForUser**](UsersApi.md#createApiTokensForUser) | **POST** /api/v1/{tenant}/users/{id}/api-tokens | Create new API Token for a specific user |
-| [**createApiTokensForUserWithResourceTenantasSuperAdmin**](UsersApi.md#createApiTokensForUserWithResourceTenantasSuperAdmin) | **POST** /api/v1/tenants/{resourceTenant}/users/{id}/api-tokens | Create new API Token for a specific user |
-| [**createApiTokensForUserasSuperAdmin**](UsersApi.md#createApiTokensForUserasSuperAdmin) | **POST** /api/v1/tenants/users/{id}/api-tokens | Create new API Token for a specific user |
-| [**createServiceAccount**](UsersApi.md#createServiceAccount) | **POST** /api/v1/{tenant}/users/service-accounts | Create a user service account |
-| [**createServiceAccountWithResourceTenantasSuperAdmin**](UsersApi.md#createServiceAccountWithResourceTenantasSuperAdmin) | **POST** /api/v1/tenants/{resourceTenant}/users/service-accounts | Create a user service account |
-| [**createServiceAccountasSuperAdmin**](UsersApi.md#createServiceAccountasSuperAdmin) | **POST** /api/v1/tenants/users/service-accounts | Create a user service account |
-| [**createUser**](UsersApi.md#createUser) | **POST** /api/v1/{tenant}/users | Create a standard user |
-| [**createUserBasicAuth**](UsersApi.md#createUserBasicAuth) | **PUT** /api/v1/{tenant}/users/{id}/password | Create a basic auth password for a standard user |
-| [**createUserBasicAuthWithResourceTenantasSuperAdmin**](UsersApi.md#createUserBasicAuthWithResourceTenantasSuperAdmin) | **PUT** /api/v1/tenants/{resourceTenant}/users/{id}/password | Create a basic auth password for a standard user |
-| [**createUserBasicAuthasSuperAdmin**](UsersApi.md#createUserBasicAuthasSuperAdmin) | **PUT** /api/v1/tenants/users/{id}/password | Create a basic auth password for a standard user |
-| [**createUserWithResourceTenantasSuperAdmin**](UsersApi.md#createUserWithResourceTenantasSuperAdmin) | **POST** /api/v1/tenants/{resourceTenant}/users | Create a standard user |
-| [**createUserasSuperAdmin**](UsersApi.md#createUserasSuperAdmin) | **POST** /api/v1/tenants/users | Create a standard user |
-| [**deleteApiToken**](UsersApi.md#deleteApiToken) | **DELETE** /api/v1/{tenant}/users/{id}/api-tokens/{tokenId} | Delete an API Token for specific user and token id |
-| [**deleteApiTokenWithResourceTenantasSuperAdmin**](UsersApi.md#deleteApiTokenWithResourceTenantasSuperAdmin) | **DELETE** /api/v1/tenants/{resourceTenant}/users/{id}/api-tokens/{tokenId} | Delete an API Token for specific user and token id |
-| [**deleteApiTokenasSuperAdmin**](UsersApi.md#deleteApiTokenasSuperAdmin) | **DELETE** /api/v1/tenants/users/{id}/api-tokens/{tokenId} | Delete an API Token for specific user and token id |
-| [**deleteAuth**](UsersApi.md#deleteAuth) | **DELETE** /api/v1/{tenant}/users/{id}/auths/{uid} | Delete an Auth for a user |
-| [**deleteAuthWithResourceTenantasSuperAdmin**](UsersApi.md#deleteAuthWithResourceTenantasSuperAdmin) | **DELETE** /api/v1/tenants/{resourceTenant}/users/{id}/auths/{uid} | Delete an Auth for a user |
-| [**deleteAuthasSuperAdmin**](UsersApi.md#deleteAuthasSuperAdmin) | **DELETE** /api/v1/tenants/users/{id}/auths/{uid} | Delete an Auth for a user |
-| [**deleteRefreshToken**](UsersApi.md#deleteRefreshToken) | **DELETE** /api/v1/{tenant}/users/{id}/refresh-token | Delete a user refresh token |
-| [**deleteRefreshTokenWithResourceTenantasSuperAdmin**](UsersApi.md#deleteRefreshTokenWithResourceTenantasSuperAdmin) | **DELETE** /api/v1/tenants/{resourceTenant}/users/{id}/refresh-token | Delete a user refresh token |
-| [**deleteRefreshTokenasSuperAdmin**](UsersApi.md#deleteRefreshTokenasSuperAdmin) | **DELETE** /api/v1/tenants/users/{id}/refresh-token | Delete a user refresh token |
-| [**deleteUser**](UsersApi.md#deleteUser) | **DELETE** /api/v1/{tenant}/users/{id} | Delete a user |
-| [**deleteUserWithResourceTenantasSuperAdmin**](UsersApi.md#deleteUserWithResourceTenantasSuperAdmin) | **DELETE** /api/v1/tenants/{resourceTenant}/users/{id} | Delete a user |
-| [**deleteUserasSuperAdmin**](UsersApi.md#deleteUserasSuperAdmin) | **DELETE** /api/v1/tenants/users/{id} | Delete a user |
-| [**findAllForAllTenants**](UsersApi.md#findAllForAllTenants) | **GET** /api/v1/tenants/users/instance | Get all users in the instance across all tenantd |
-| [**findAllForAllTenantsWithResourceTenant**](UsersApi.md#findAllForAllTenantsWithResourceTenant) | **GET** /api/v1/tenants/{resourceTenant}/users/instance | Get all users in the instance across all tenantd |
-| [**getUser**](UsersApi.md#getUser) | **GET** /api/v1/{tenant}/users/{id} | Get a user |
-| [**getUserWithResourceTenantasSuperAdmin**](UsersApi.md#getUserWithResourceTenantasSuperAdmin) | **GET** /api/v1/tenants/{resourceTenant}/users/{id} | Get a user |
-| [**getUserasSuperAdmin**](UsersApi.md#getUserasSuperAdmin) | **GET** /api/v1/tenants/users/{id} | Get a user |
-| [**impersonate**](UsersApi.md#impersonate) | **POST** /api/v1/tenants/users/{id}/impersonate | Impersonate a user |
-| [**impersonateWithResourceTenant**](UsersApi.md#impersonateWithResourceTenant) | **POST** /api/v1/tenants/{resourceTenant}/users/{id}/impersonate | Impersonate a user |
-| [**listApiTokens**](UsersApi.md#listApiTokens) | **GET** /api/v1/{tenant}/users/{id}/api-tokens | List all API Tokens for specific user |
-| [**listApiTokensWithResourceTenantasSuperAdmin**](UsersApi.md#listApiTokensWithResourceTenantasSuperAdmin) | **GET** /api/v1/tenants/{resourceTenant}/users/{id}/api-tokens | List all API Tokens for specific user |
-| [**listApiTokensasSuperAdmin**](UsersApi.md#listApiTokensasSuperAdmin) | **GET** /api/v1/tenants/users/{id}/api-tokens | List all API Tokens for specific user |
-| [**searchUsers**](UsersApi.md#searchUsers) | **GET** /api/v1/{tenant}/users/search | Search for users |
-| [**searchUsersWithResourceTenantasSuperAdmin**](UsersApi.md#searchUsersWithResourceTenantasSuperAdmin) | **GET** /api/v1/tenants/{resourceTenant}/users/search | Search for users |
-| [**searchUsersasSuperAdmin**](UsersApi.md#searchUsersasSuperAdmin) | **GET** /api/v1/tenants/users/search | Search for users |
-| [**setSuperAdmin**](UsersApi.md#setSuperAdmin) | **PUT** /api/v1/tenants/users/{id}/set-superadmin | Update a user service account |
-| [**setSuperAdminWithResourceTenant**](UsersApi.md#setSuperAdminWithResourceTenant) | **PUT** /api/v1/tenants/{resourceTenant}/users/{id}/set-superadmin | Update a user service account |
-| [**updateCurrentUserPassword**](UsersApi.md#updateCurrentUserPassword) | **PUT** /api/v1/{tenant}/me/password | Update login password for the current user. |
-| [**updateServiceAccount**](UsersApi.md#updateServiceAccount) | **PUT** /api/v1/{tenant}/users/service-accounts/{id} | Update a user service account |
-| [**updateServiceAccountWithResourceTenantasSuperAdmin**](UsersApi.md#updateServiceAccountWithResourceTenantasSuperAdmin) | **PUT** /api/v1/tenants/{resourceTenant}/users/service-accounts/{id} | Update a user service account |
-| [**updateServiceAccountasSuperAdmin**](UsersApi.md#updateServiceAccountasSuperAdmin) | **PUT** /api/v1/tenants/users/service-accounts/{id} | Update a user service account |
-| [**updateUser**](UsersApi.md#updateUser) | **PUT** /api/v1/{tenant}/users/{id} | Update a standard user |
-| [**updateUserWithResourceTenantasSuperAdmin**](UsersApi.md#updateUserWithResourceTenantasSuperAdmin) | **PUT** /api/v1/tenants/{resourceTenant}/users/{id} | Update a standard user |
-| [**updateUserasSuperAdmin**](UsersApi.md#updateUserasSuperAdmin) | **PUT** /api/v1/tenants/users/{id} | Update a standard user |
+| [**autocompleteUsers**](UsersApi.md#autocompleteUsers) | **POST** /api/v1/{tenant}/tenant-access/autocomplete | List users for autocomplete |
+| [**createApiTokensForUser**](UsersApi.md#createApiTokensForUser) | **POST** /api/v1/users/{id}/api-tokens | Create new API Token for a specific user |
+| [**createApiTokensForUser1**](UsersApi.md#createApiTokensForUser1) | **POST** /api/v1/{tenant}/service-accounts/{id}/api-tokens | Create new API Token for a specific user |
+| [**createUser**](UsersApi.md#createUser) | **POST** /api/v1/users | Create a new user account |
+| [**deleteApiToken**](UsersApi.md#deleteApiToken) | **DELETE** /api/v1/users/{id}/api-tokens/{tokenId} | Delete an API Token for specific user and token id |
+| [**deleteApiToken1**](UsersApi.md#deleteApiToken1) | **DELETE** /api/v1/{tenant}/service-accounts/{id}/api-tokens/{tokenId} | Delete an API Token for specific user and token id |
+| [**deleteRefreshToken**](UsersApi.md#deleteRefreshToken) | **DELETE** /api/v1/users/{id}/refresh-token | Delete a user refresh token |
+| [**deleteUser**](UsersApi.md#deleteUser) | **DELETE** /api/v1/users/{id} | Delete a user |
+| [**deleteUserAuthMethod**](UsersApi.md#deleteUserAuthMethod) | **DELETE** /api/v1/users/{id}/auths/{auth} | Update user password |
+| [**getUser**](UsersApi.md#getUser) | **GET** /api/v1/users/{id} | Get a user |
+| [**impersonate**](UsersApi.md#impersonate) | **POST** /api/v1/users/{id}/impersonate | Impersonate a user |
+| [**listApiTokens**](UsersApi.md#listApiTokens) | **GET** /api/v1/users/{id}/api-tokens | List API tokens for a specific user |
+| [**listApiTokens1**](UsersApi.md#listApiTokens1) | **GET** /api/v1/{tenant}/service-accounts/{id}/api-tokens | List API tokens for a specific user |
+| [**listUsers**](UsersApi.md#listUsers) | **GET** /api/v1/users | Retrieve users |
+| [**patchUser**](UsersApi.md#patchUser) | **PATCH** /api/v1/users/{id} | Update user details |
+| [**patchUserDemo**](UsersApi.md#patchUserDemo) | **PATCH** /api/v1/users/{id}/restricted | Update user demo |
+| [**patchUserPassword**](UsersApi.md#patchUserPassword) | **PATCH** /api/v1/users/{id}/password | Update user password |
+| [**patchUserSuperAdmin**](UsersApi.md#patchUserSuperAdmin) | **PATCH** /api/v1/users/{id}/superadmin | Update user superadmin privileges |
+| [**updateCurrentUserPassword**](UsersApi.md#updateCurrentUserPassword) | **PUT** /api/v1/me/password | Update authenticated user password |
+| [**updateUser**](UsersApi.md#updateUser) | **PUT** /api/v1/users/{id} | Update a user account |
+| [**updateUserGroups**](UsersApi.md#updateUserGroups) | **PUT** /api/v1/{tenant}/users/{id}/groups | Update the list of groups a user belongs to for the given tenant |
 
 
 
 ## autocompleteUsers
 
-> List&lt;ApiUser&gt; autocompleteUsers(tenant, abstractUserControllerUserApiAutocomplete)
+> List&lt;IAMTenantAccessControllerApiUserTenantAccess&gt; autocompleteUsers(tenant, iaMTenantAccessControllerUserApiAutocomplete)
 
 List users for autocomplete
 
@@ -66,17 +38,18 @@ List users for autocomplete
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -87,10 +60,10 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String tenant = "tenant_example"; // String |
-        AbstractUserControllerUserApiAutocomplete abstractUserControllerUserApiAutocomplete = new AbstractUserControllerUserApiAutocomplete(); // AbstractUserControllerUserApiAutocomplete | Autocomplete request
+        String tenant = "tenant_example"; // String | 
+        IAMTenantAccessControllerUserApiAutocomplete iaMTenantAccessControllerUserApiAutocomplete = new IAMTenantAccessControllerUserApiAutocomplete(); // IAMTenantAccessControllerUserApiAutocomplete | Autocomplete request
         try {
-            List<ApiUser> result = apiInstance.autocompleteUsers(tenant, abstractUserControllerUserApiAutocomplete);
+            List<IAMTenantAccessControllerApiUserTenantAccess> result = apiInstance.autocompleteUsers(tenant, iaMTenantAccessControllerUserApiAutocomplete);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#autocompleteUsers");
@@ -109,11 +82,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenant** | **String**|  | |
-| **abstractUserControllerUserApiAutocomplete** | [**AbstractUserControllerUserApiAutocomplete**](AbstractUserControllerUserApiAutocomplete.md)| Autocomplete request | |
+| **iaMTenantAccessControllerUserApiAutocomplete** | [**IAMTenantAccessControllerUserApiAutocomplete**](IAMTenantAccessControllerUserApiAutocomplete.md)| Autocomplete request | |
 
 ### Return type
 
-[**List&lt;ApiUser&gt;**](ApiUser.md)
+[**List&lt;IAMTenantAccessControllerApiUserTenantAccess&gt;**](IAMTenantAccessControllerApiUserTenantAccess.md)
 
 ### Authorization
 
@@ -131,175 +104,30 @@ public class Example {
 | **200** | autocompleteUsers 200 response |  -  |
 
 
-## autocompleteUsersWithResourceTenantasSuperAdmin
-
-> List&lt;ApiUser&gt; autocompleteUsersWithResourceTenantasSuperAdmin(resourceTenant, abstractUserControllerUserApiAutocomplete)
-
-List users for autocomplete
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String resourceTenant = "resourceTenant_example"; // String |
-        AbstractUserControllerUserApiAutocomplete abstractUserControllerUserApiAutocomplete = new AbstractUserControllerUserApiAutocomplete(); // AbstractUserControllerUserApiAutocomplete | Autocomplete request
-        try {
-            List<ApiUser> result = apiInstance.autocompleteUsersWithResourceTenantasSuperAdmin(resourceTenant, abstractUserControllerUserApiAutocomplete);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#autocompleteUsersWithResourceTenantasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **resourceTenant** | **String**|  | |
-| **abstractUserControllerUserApiAutocomplete** | [**AbstractUserControllerUserApiAutocomplete**](AbstractUserControllerUserApiAutocomplete.md)| Autocomplete request | |
-
-### Return type
-
-[**List&lt;ApiUser&gt;**](ApiUser.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | autocompleteUsersWithResourceTenantasSuperAdmin 200 response |  -  |
-
-
-## autocompleteUsersasSuperAdmin
-
-> List&lt;ApiUser&gt; autocompleteUsersasSuperAdmin(abstractUserControllerUserApiAutocomplete)
-
-List users for autocomplete
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        AbstractUserControllerUserApiAutocomplete abstractUserControllerUserApiAutocomplete = new AbstractUserControllerUserApiAutocomplete(); // AbstractUserControllerUserApiAutocomplete | Autocomplete request
-        try {
-            List<ApiUser> result = apiInstance.autocompleteUsersasSuperAdmin(abstractUserControllerUserApiAutocomplete);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#autocompleteUsersasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **abstractUserControllerUserApiAutocomplete** | [**AbstractUserControllerUserApiAutocomplete**](AbstractUserControllerUserApiAutocomplete.md)| Autocomplete request | |
-
-### Return type
-
-[**List&lt;ApiUser&gt;**](ApiUser.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | autocompleteUsersasSuperAdmin 200 response |  -  |
-
-
 ## createApiTokensForUser
 
-> Object createApiTokensForUser(id, tenant, createApiTokenRequest)
+> CreateApiTokenResponse createApiTokensForUser(id, createApiTokenRequest)
 
 Create new API Token for a specific user
 
+Superadmin-only. Create a new API token for a user.
+
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -311,10 +139,9 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String tenant = "tenant_example"; // String |
         CreateApiTokenRequest createApiTokenRequest = new CreateApiTokenRequest(); // CreateApiTokenRequest | The create api-token request
         try {
-            Object result = apiInstance.createApiTokensForUser(id, tenant, createApiTokenRequest);
+            CreateApiTokenResponse result = apiInstance.createApiTokensForUser(id, createApiTokenRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#createApiTokensForUser");
@@ -333,6 +160,84 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The user id | |
+| **createApiTokenRequest** | [**CreateApiTokenRequest**](CreateApiTokenRequest.md)| The create api-token request | |
+
+### Return type
+
+[**CreateApiTokenResponse**](CreateApiTokenResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | API token successfully created |  -  |
+| **404** | User not found |  -  |
+
+
+## createApiTokensForUser1
+
+> Object createApiTokensForUser1(id, tenant, createApiTokenRequest)
+
+Create new API Token for a specific user
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.UsersApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        String id = "id_example"; // String | The user id
+        String tenant = "tenant_example"; // String | 
+        CreateApiTokenRequest createApiTokenRequest = new CreateApiTokenRequest(); // CreateApiTokenRequest | The create api-token request
+        try {
+            Object result = apiInstance.createApiTokensForUser1(id, tenant, createApiTokenRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#createApiTokensForUser1");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| The user id | |
 | **tenant** | **String**|  | |
 | **createApiTokenRequest** | [**CreateApiTokenRequest**](CreateApiTokenRequest.md)| The create api-token request | |
 
@@ -353,405 +258,33 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | createApiTokensForUser 200 response |  -  |
-
-
-## createApiTokensForUserWithResourceTenantasSuperAdmin
-
-> Object createApiTokensForUserWithResourceTenantasSuperAdmin(id, resourceTenant, createApiTokenRequest)
-
-Create new API Token for a specific user
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String id = "id_example"; // String | The user id
-        String resourceTenant = "resourceTenant_example"; // String |
-        CreateApiTokenRequest createApiTokenRequest = new CreateApiTokenRequest(); // CreateApiTokenRequest | The create api-token request
-        try {
-            Object result = apiInstance.createApiTokensForUserWithResourceTenantasSuperAdmin(id, resourceTenant, createApiTokenRequest);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#createApiTokensForUserWithResourceTenantasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The user id | |
-| **resourceTenant** | **String**|  | |
-| **createApiTokenRequest** | [**CreateApiTokenRequest**](CreateApiTokenRequest.md)| The create api-token request | |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | createApiTokensForUserWithResourceTenantasSuperAdmin 200 response |  -  |
-
-
-## createApiTokensForUserasSuperAdmin
-
-> Object createApiTokensForUserasSuperAdmin(id, createApiTokenRequest)
-
-Create new API Token for a specific user
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String id = "id_example"; // String | The user id
-        CreateApiTokenRequest createApiTokenRequest = new CreateApiTokenRequest(); // CreateApiTokenRequest | The create api-token request
-        try {
-            Object result = apiInstance.createApiTokensForUserasSuperAdmin(id, createApiTokenRequest);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#createApiTokensForUserasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The user id | |
-| **createApiTokenRequest** | [**CreateApiTokenRequest**](CreateApiTokenRequest.md)| The create api-token request | |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | createApiTokensForUserasSuperAdmin 200 response |  -  |
-
-
-## createServiceAccount
-
-> ApiServiceAccount createServiceAccount(tenant, apiServiceAccount)
-
-Create a user service account
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String tenant = "tenant_example"; // String |
-        ApiServiceAccount apiServiceAccount = new ApiServiceAccount(); // ApiServiceAccount | The service account
-        try {
-            ApiServiceAccount result = apiInstance.createServiceAccount(tenant, apiServiceAccount);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#createServiceAccount");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
-| **apiServiceAccount** | [**ApiServiceAccount**](ApiServiceAccount.md)| The service account | |
-
-### Return type
-
-[**ApiServiceAccount**](ApiServiceAccount.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | createServiceAccount 200 response |  -  |
-
-
-## createServiceAccountWithResourceTenantasSuperAdmin
-
-> ApiServiceAccount createServiceAccountWithResourceTenantasSuperAdmin(resourceTenant, apiServiceAccount)
-
-Create a user service account
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String resourceTenant = "resourceTenant_example"; // String |
-        ApiServiceAccount apiServiceAccount = new ApiServiceAccount(); // ApiServiceAccount | The service account
-        try {
-            ApiServiceAccount result = apiInstance.createServiceAccountWithResourceTenantasSuperAdmin(resourceTenant, apiServiceAccount);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#createServiceAccountWithResourceTenantasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **resourceTenant** | **String**|  | |
-| **apiServiceAccount** | [**ApiServiceAccount**](ApiServiceAccount.md)| The service account | |
-
-### Return type
-
-[**ApiServiceAccount**](ApiServiceAccount.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | createServiceAccountWithResourceTenantasSuperAdmin 200 response |  -  |
-
-
-## createServiceAccountasSuperAdmin
-
-> ApiServiceAccount createServiceAccountasSuperAdmin(apiServiceAccount)
-
-Create a user service account
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        ApiServiceAccount apiServiceAccount = new ApiServiceAccount(); // ApiServiceAccount | The service account
-        try {
-            ApiServiceAccount result = apiInstance.createServiceAccountasSuperAdmin(apiServiceAccount);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#createServiceAccountasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **apiServiceAccount** | [**ApiServiceAccount**](ApiServiceAccount.md)| The service account | |
-
-### Return type
-
-[**ApiServiceAccount**](ApiServiceAccount.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | createServiceAccountasSuperAdmin 200 response |  -  |
+| **200** | createApiTokensForUser_1 200 response |  -  |
 
 
 ## createUser
 
-> ApiUser createUser(tenant, apiUser)
+> createUser(iaMUserControllerApiCreateOrUpdateUserRequest)
 
-Create a standard user
+Create a new user account
+
+Superadmin-only. Create a new user account with an optional password based authentication method.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -762,11 +295,9 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String tenant = "tenant_example"; // String |
-        ApiUser apiUser = new ApiUser(); // ApiUser | The user
+        IAMUserControllerApiCreateOrUpdateUserRequest iaMUserControllerApiCreateOrUpdateUserRequest = new IAMUserControllerApiCreateOrUpdateUserRequest(); // IAMUserControllerApiCreateOrUpdateUserRequest | 
         try {
-            ApiUser result = apiInstance.createUser(tenant, apiUser);
-            System.out.println(result);
+            apiInstance.createUser(iaMUserControllerApiCreateOrUpdateUserRequest);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#createUser");
             System.err.println("Status code: " + e.getCode());
@@ -783,12 +314,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
-| **apiUser** | [**ApiUser**](ApiUser.md)| The user | |
+| **iaMUserControllerApiCreateOrUpdateUserRequest** | [**IAMUserControllerApiCreateOrUpdateUserRequest**](IAMUserControllerApiCreateOrUpdateUserRequest.md)|  | |
 
 ### Return type
 
-[**ApiUser**](ApiUser.md)
+null (empty response body)
 
 ### Authorization
 
@@ -797,413 +327,40 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: Not defined
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | createUser 200 response |  -  |
-
-
-## createUserBasicAuth
-
-> ApiUser createUserBasicAuth(id, tenant, abstractUserControllerPasswordRequest)
-
-Create a basic auth password for a standard user
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String id = "id_example"; // String | The user id
-        String tenant = "tenant_example"; // String |
-        AbstractUserControllerPasswordRequest abstractUserControllerPasswordRequest = new AbstractUserControllerPasswordRequest(); // AbstractUserControllerPasswordRequest | The password
-        try {
-            ApiUser result = apiInstance.createUserBasicAuth(id, tenant, abstractUserControllerPasswordRequest);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#createUserBasicAuth");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The user id | |
-| **tenant** | **String**|  | |
-| **abstractUserControllerPasswordRequest** | [**AbstractUserControllerPasswordRequest**](AbstractUserControllerPasswordRequest.md)| The password | |
-
-### Return type
-
-[**ApiUser**](ApiUser.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | createUserBasicAuth 200 response |  -  |
-
-
-## createUserBasicAuthWithResourceTenantasSuperAdmin
-
-> ApiUser createUserBasicAuthWithResourceTenantasSuperAdmin(id, resourceTenant, abstractUserControllerPasswordRequest)
-
-Create a basic auth password for a standard user
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String id = "id_example"; // String | The user id
-        String resourceTenant = "resourceTenant_example"; // String |
-        AbstractUserControllerPasswordRequest abstractUserControllerPasswordRequest = new AbstractUserControllerPasswordRequest(); // AbstractUserControllerPasswordRequest | The password
-        try {
-            ApiUser result = apiInstance.createUserBasicAuthWithResourceTenantasSuperAdmin(id, resourceTenant, abstractUserControllerPasswordRequest);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#createUserBasicAuthWithResourceTenantasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The user id | |
-| **resourceTenant** | **String**|  | |
-| **abstractUserControllerPasswordRequest** | [**AbstractUserControllerPasswordRequest**](AbstractUserControllerPasswordRequest.md)| The password | |
-
-### Return type
-
-[**ApiUser**](ApiUser.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | createUserBasicAuthWithResourceTenantasSuperAdmin 200 response |  -  |
-
-
-## createUserBasicAuthasSuperAdmin
-
-> ApiUser createUserBasicAuthasSuperAdmin(id, abstractUserControllerPasswordRequest)
-
-Create a basic auth password for a standard user
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String id = "id_example"; // String | The user id
-        AbstractUserControllerPasswordRequest abstractUserControllerPasswordRequest = new AbstractUserControllerPasswordRequest(); // AbstractUserControllerPasswordRequest | The password
-        try {
-            ApiUser result = apiInstance.createUserBasicAuthasSuperAdmin(id, abstractUserControllerPasswordRequest);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#createUserBasicAuthasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The user id | |
-| **abstractUserControllerPasswordRequest** | [**AbstractUserControllerPasswordRequest**](AbstractUserControllerPasswordRequest.md)| The password | |
-
-### Return type
-
-[**ApiUser**](ApiUser.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | createUserBasicAuthasSuperAdmin 200 response |  -  |
-
-
-## createUserWithResourceTenantasSuperAdmin
-
-> ApiUser createUserWithResourceTenantasSuperAdmin(resourceTenant, apiUser)
-
-Create a standard user
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String resourceTenant = "resourceTenant_example"; // String |
-        ApiUser apiUser = new ApiUser(); // ApiUser | The user
-        try {
-            ApiUser result = apiInstance.createUserWithResourceTenantasSuperAdmin(resourceTenant, apiUser);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#createUserWithResourceTenantasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **resourceTenant** | **String**|  | |
-| **apiUser** | [**ApiUser**](ApiUser.md)| The user | |
-
-### Return type
-
-[**ApiUser**](ApiUser.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | createUserWithResourceTenantasSuperAdmin 200 response |  -  |
-
-
-## createUserasSuperAdmin
-
-> ApiUser createUserasSuperAdmin(apiUser)
-
-Create a standard user
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        ApiUser apiUser = new ApiUser(); // ApiUser | The user
-        try {
-            ApiUser result = apiInstance.createUserasSuperAdmin(apiUser);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#createUserasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **apiUser** | [**ApiUser**](ApiUser.md)| The user | |
-
-### Return type
-
-[**ApiUser**](ApiUser.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | createUserasSuperAdmin 200 response |  -  |
+| **201** | User was successfully created |  -  |
+| **404** | Tenant, or group not found |  -  |
 
 
 ## deleteApiToken
 
-> Object deleteApiToken(id, tokenId, tenant)
+> deleteApiToken(id, tokenId)
 
 Delete an API Token for specific user and token id
+
+Superadmin-only. Delete an API token for a user.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1216,10 +373,8 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
         String tokenId = "tokenId_example"; // String | The token id
-        String tenant = "tenant_example"; // String |
         try {
-            Object result = apiInstance.deleteApiToken(id, tokenId, tenant);
-            System.out.println(result);
+            apiInstance.deleteApiToken(id, tokenId);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#deleteApiToken");
             System.err.println("Status code: " + e.getCode());
@@ -1238,6 +393,84 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The user id | |
 | **tokenId** | **String**| The token id | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | API token successfully deleted |  -  |
+| **404** | User, or API Token not found |  -  |
+
+
+## deleteApiToken1
+
+> Object deleteApiToken1(id, tokenId, tenant)
+
+Delete an API Token for specific user and token id
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.UsersApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        String id = "id_example"; // String | The user id
+        String tokenId = "tokenId_example"; // String | The token id
+        String tenant = "tenant_example"; // String | 
+        try {
+            Object result = apiInstance.deleteApiToken1(id, tokenId, tenant);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#deleteApiToken1");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| The user id | |
+| **tokenId** | **String**| The token id | |
 | **tenant** | **String**|  | |
 
 ### Return type
@@ -1257,396 +490,12 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | deleteApiToken 200 response |  -  |
-
-
-## deleteApiTokenWithResourceTenantasSuperAdmin
-
-> Object deleteApiTokenWithResourceTenantasSuperAdmin(id, tokenId, resourceTenant)
-
-Delete an API Token for specific user and token id
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String id = "id_example"; // String | The user id
-        String tokenId = "tokenId_example"; // String | The token id
-        String resourceTenant = "resourceTenant_example"; // String |
-        try {
-            Object result = apiInstance.deleteApiTokenWithResourceTenantasSuperAdmin(id, tokenId, resourceTenant);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#deleteApiTokenWithResourceTenantasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The user id | |
-| **tokenId** | **String**| The token id | |
-| **resourceTenant** | **String**|  | |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | deleteApiTokenWithResourceTenantasSuperAdmin 200 response |  -  |
-
-
-## deleteApiTokenasSuperAdmin
-
-> Object deleteApiTokenasSuperAdmin(id, tokenId)
-
-Delete an API Token for specific user and token id
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String id = "id_example"; // String | The user id
-        String tokenId = "tokenId_example"; // String | The token id
-        try {
-            Object result = apiInstance.deleteApiTokenasSuperAdmin(id, tokenId);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#deleteApiTokenasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The user id | |
-| **tokenId** | **String**| The token id | |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | deleteApiTokenasSuperAdmin 200 response |  -  |
-
-
-## deleteAuth
-
-> ApiUser deleteAuth(id, uid, tenant)
-
-Delete an Auth for a user
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String id = "id_example"; // String | The user id
-        String uid = "uid_example"; // String | The auth id
-        String tenant = "tenant_example"; // String |
-        try {
-            ApiUser result = apiInstance.deleteAuth(id, uid, tenant);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#deleteAuth");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The user id | |
-| **uid** | **String**| The auth id | |
-| **tenant** | **String**|  | |
-
-### Return type
-
-[**ApiUser**](ApiUser.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | On user not found |  -  |
-| **200** | deleteAuth 200 response |  -  |
-
-
-## deleteAuthWithResourceTenantasSuperAdmin
-
-> ApiUser deleteAuthWithResourceTenantasSuperAdmin(id, uid, resourceTenant)
-
-Delete an Auth for a user
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String id = "id_example"; // String | The user id
-        String uid = "uid_example"; // String | The auth id
-        String resourceTenant = "resourceTenant_example"; // String |
-        try {
-            ApiUser result = apiInstance.deleteAuthWithResourceTenantasSuperAdmin(id, uid, resourceTenant);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#deleteAuthWithResourceTenantasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The user id | |
-| **uid** | **String**| The auth id | |
-| **resourceTenant** | **String**|  | |
-
-### Return type
-
-[**ApiUser**](ApiUser.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | On user not found |  -  |
-| **200** | deleteAuthWithResourceTenantasSuperAdmin 200 response |  -  |
-
-
-## deleteAuthasSuperAdmin
-
-> ApiUser deleteAuthasSuperAdmin(id, uid)
-
-Delete an Auth for a user
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String id = "id_example"; // String | The user id
-        String uid = "uid_example"; // String | The auth id
-        try {
-            ApiUser result = apiInstance.deleteAuthasSuperAdmin(id, uid);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#deleteAuthasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The user id | |
-| **uid** | **String**| The auth id | |
-
-### Return type
-
-[**ApiUser**](ApiUser.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | On user not found |  -  |
-| **200** | deleteAuthasSuperAdmin 200 response |  -  |
+| **200** | deleteApiToken_1 200 response |  -  |
 
 
 ## deleteRefreshToken
 
-> ApiUser deleteRefreshToken(id, tenant)
+> deleteRefreshToken(id)
 
 Delete a user refresh token
 
@@ -1654,17 +503,18 @@ Delete a user refresh token
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1676,10 +526,8 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String tenant = "tenant_example"; // String |
         try {
-            ApiUser result = apiInstance.deleteRefreshToken(id, tenant);
-            System.out.println(result);
+            apiInstance.deleteRefreshToken(id);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#deleteRefreshToken");
             System.err.println("Status code: " + e.getCode());
@@ -1697,11 +545,10 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The user id | |
-| **tenant** | **String**|  | |
 
 ### Return type
 
-[**ApiUser**](ApiUser.md)
+null (empty response body)
 
 ### Authorization
 
@@ -1710,184 +557,40 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | deleteRefreshToken 200 response |  -  |
-
-
-## deleteRefreshTokenWithResourceTenantasSuperAdmin
-
-> ApiUser deleteRefreshTokenWithResourceTenantasSuperAdmin(id, resourceTenant)
-
-Delete a user refresh token
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String id = "id_example"; // String | The user id
-        String resourceTenant = "resourceTenant_example"; // String |
-        try {
-            ApiUser result = apiInstance.deleteRefreshTokenWithResourceTenantasSuperAdmin(id, resourceTenant);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#deleteRefreshTokenWithResourceTenantasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The user id | |
-| **resourceTenant** | **String**|  | |
-
-### Return type
-
-[**ApiUser**](ApiUser.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | deleteRefreshTokenWithResourceTenantasSuperAdmin 200 response |  -  |
-
-
-## deleteRefreshTokenasSuperAdmin
-
-> ApiUser deleteRefreshTokenasSuperAdmin(id)
-
-Delete a user refresh token
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String id = "id_example"; // String | The user id
-        try {
-            ApiUser result = apiInstance.deleteRefreshTokenasSuperAdmin(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#deleteRefreshTokenasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The user id | |
-
-### Return type
-
-[**ApiUser**](ApiUser.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | deleteRefreshTokenasSuperAdmin 200 response |  -  |
+| **204** | Refresh token successfully deleted |  -  |
+| **404** | User not found |  -  |
 
 
 ## deleteUser
 
-> deleteUser(id, tenant)
+> deleteUser(id)
 
 Delete a user
+
+Superadmin-only. Delete a user including all its access.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1899,9 +602,8 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String tenant = "tenant_example"; // String |
         try {
-            apiInstance.deleteUser(id, tenant);
+            apiInstance.deleteUser(id);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#deleteUser");
             System.err.println("Status code: " + e.getCode());
@@ -1919,7 +621,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The user id | |
-| **tenant** | **String**|  | |
 
 ### Return type
 
@@ -1938,31 +639,34 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | On success |  -  |
-| **404** | On user not found |  -  |
+| **204** | User successfully deleted |  -  |
+| **404** | User not found |  -  |
 
 
-## deleteUserWithResourceTenantasSuperAdmin
+## deleteUserAuthMethod
 
-> deleteUserWithResourceTenantasSuperAdmin(id, resourceTenant)
+> IAMUserControllerApiUser deleteUserAuthMethod(id, auth)
 
-Delete a user
+Update user password
+
+Superadmin-only. Updates whether a user is a superadmin.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -1974,11 +678,12 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String resourceTenant = "resourceTenant_example"; // String |
+        String auth = "auth_example"; // String | The user auth method id
         try {
-            apiInstance.deleteUserWithResourceTenantasSuperAdmin(id, resourceTenant);
+            IAMUserControllerApiUser result = apiInstance.deleteUserAuthMethod(id, auth);
+            System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#deleteUserWithResourceTenantasSuperAdmin");
+            System.err.println("Exception when calling UsersApi#deleteUserAuthMethod");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1994,166 +699,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The user id | |
-| **resourceTenant** | **String**|  | |
+| **auth** | **String**| The user auth method id | |
 
 ### Return type
 
-null (empty response body)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | On success |  -  |
-| **404** | On user not found |  -  |
-
-
-## deleteUserasSuperAdmin
-
-> deleteUserasSuperAdmin(id)
-
-Delete a user
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String id = "id_example"; // String | The user id
-        try {
-            apiInstance.deleteUserasSuperAdmin(id);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#deleteUserasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The user id | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | On success |  -  |
-| **404** | On user not found |  -  |
-
-
-## findAllForAllTenants
-
-> PagedResultsApiUser findAllForAllTenants(page, size, q, type, sort)
-
-Get all users in the instance across all tenantd
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        Integer page = 1; // Integer | The current page
-        Integer size = 10; // Integer | The current page size
-        String q = "q_example"; // String | A string filter
-        UserType type = UserType.fromValue("STANDARD"); // UserType | The type of user
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        try {
-            PagedResultsApiUser result = apiInstance.findAllForAllTenants(page, size, q, type, sort);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#findAllForAllTenants");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | **Integer**| The current page | [default to 1] |
-| **size** | **Integer**| The current page size | [default to 10] |
-| **q** | **String**| A string filter | [optional] |
-| **type** | [**UserType**](.md)| The type of user | [optional] [enum: STANDARD, SERVICE_ACCOUNT, SUPER_ADMIN] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-
-### Return type
-
-[**PagedResultsApiUser**](PagedResultsApiUser.md)
+[**IAMUserControllerApiUser**](IAMUserControllerApiUser.md)
 
 ### Authorization
 
@@ -2168,113 +718,34 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | findAllForAllTenants 200 response |  -  |
-
-
-## findAllForAllTenantsWithResourceTenant
-
-> PagedResultsApiUser findAllForAllTenantsWithResourceTenant(page, resourceTenant, size, q, type, sort)
-
-Get all users in the instance across all tenantd
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        Integer page = 1; // Integer | The current page
-        String resourceTenant = "resourceTenant_example"; // String |
-        Integer size = 10; // Integer | The current page size
-        String q = "q_example"; // String | A string filter
-        UserType type = UserType.fromValue("STANDARD"); // UserType | The type of user
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        try {
-            PagedResultsApiUser result = apiInstance.findAllForAllTenantsWithResourceTenant(page, resourceTenant, size, q, type, sort);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#findAllForAllTenantsWithResourceTenant");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | **Integer**| The current page | [default to 1] |
-| **resourceTenant** | **String**|  | |
-| **size** | **Integer**| The current page size | [default to 10] |
-| **q** | **String**| A string filter | [optional] |
-| **type** | [**UserType**](.md)| The type of user | [optional] [enum: STANDARD, SERVICE_ACCOUNT, SUPER_ADMIN] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-
-### Return type
-
-[**PagedResultsApiUser**](PagedResultsApiUser.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | findAllForAllTenantsWithResourceTenant 200 response |  -  |
+| **200** | User auth method successfully updated |  -  |
+| **404** | User or auth method not found |  -  |
 
 
 ## getUser
 
-> ApiUser getUser(id, tenant)
+> IAMUserControllerApiUser getUser(id)
 
 Get a user
+
+Superadmin-only. Get user account details.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2286,9 +757,8 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String tenant = "tenant_example"; // String |
         try {
-            ApiUser result = apiInstance.getUser(id, tenant);
+            IAMUserControllerApiUser result = apiInstance.getUser(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#getUser");
@@ -2307,11 +777,10 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The user id | |
-| **tenant** | **String**|  | |
 
 ### Return type
 
-[**ApiUser**](ApiUser.md)
+[**IAMUserControllerApiUser**](IAMUserControllerApiUser.md)
 
 ### Authorization
 
@@ -2326,158 +795,8 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | On user not found |  -  |
+| **404** | User not found |  -  |
 | **200** | getUser 200 response |  -  |
-
-
-## getUserWithResourceTenantasSuperAdmin
-
-> ApiUser getUserWithResourceTenantasSuperAdmin(id, resourceTenant)
-
-Get a user
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String id = "id_example"; // String | The user id
-        String resourceTenant = "resourceTenant_example"; // String |
-        try {
-            ApiUser result = apiInstance.getUserWithResourceTenantasSuperAdmin(id, resourceTenant);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#getUserWithResourceTenantasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The user id | |
-| **resourceTenant** | **String**|  | |
-
-### Return type
-
-[**ApiUser**](ApiUser.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | On user not found |  -  |
-| **200** | getUserWithResourceTenantasSuperAdmin 200 response |  -  |
-
-
-## getUserasSuperAdmin
-
-> ApiUser getUserasSuperAdmin(id)
-
-Get a user
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String id = "id_example"; // String | The user id
-        try {
-            ApiUser result = apiInstance.getUserasSuperAdmin(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#getUserasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The user id | |
-
-### Return type
-
-[**ApiUser**](ApiUser.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | On user not found |  -  |
-| **200** | getUserasSuperAdmin 200 response |  -  |
 
 
 ## impersonate
@@ -2486,21 +805,24 @@ public class Example {
 
 Impersonate a user
 
+Superadmin-only. Allows an admin to impersonate another user.
+
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2550,105 +872,34 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **404** | User not found |  -  |
 | **200** | impersonate 200 response |  -  |
-
-
-## impersonateWithResourceTenant
-
-> Object impersonateWithResourceTenant(resourceTenant, id)
-
-Impersonate a user
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String resourceTenant = "resourceTenant_example"; // String |
-        String id = "id_example"; // String | The user id
-        try {
-            Object result = apiInstance.impersonateWithResourceTenant(resourceTenant, id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#impersonateWithResourceTenant");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **resourceTenant** | **String**|  | |
-| **id** | **String**| The user id | |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | impersonateWithResourceTenant 200 response |  -  |
 
 
 ## listApiTokens
 
-> Object listApiTokens(id, tenant)
+> Object listApiTokens(id)
 
-List all API Tokens for specific user
+List API tokens for a specific user
+
+Superadmin-only. Get all API token existing for a user.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2660,9 +911,8 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String tenant = "tenant_example"; // String |
         try {
-            Object result = apiInstance.listApiTokens(id, tenant);
+            Object result = apiInstance.listApiTokens(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#listApiTokens");
@@ -2681,7 +931,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The user id | |
-| **tenant** | **String**|  | |
 
 ### Return type
 
@@ -2700,30 +949,32 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **404** | User not found |  -  |
 | **200** | listApiTokens 200 response |  -  |
 
 
-## listApiTokensWithResourceTenantasSuperAdmin
+## listApiTokens1
 
-> Object listApiTokensWithResourceTenantasSuperAdmin(id, resourceTenant)
+> Object listApiTokens1(id, tenant)
 
-List all API Tokens for specific user
+List API tokens for a specific user
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -2735,12 +986,12 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String resourceTenant = "resourceTenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         try {
-            Object result = apiInstance.listApiTokensWithResourceTenantasSuperAdmin(id, resourceTenant);
+            Object result = apiInstance.listApiTokens1(id, tenant);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#listApiTokensWithResourceTenantasSuperAdmin");
+            System.err.println("Exception when calling UsersApi#listApiTokens1");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -2756,167 +1007,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The user id | |
-| **resourceTenant** | **String**|  | |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | listApiTokensWithResourceTenantasSuperAdmin 200 response |  -  |
-
-
-## listApiTokensasSuperAdmin
-
-> Object listApiTokensasSuperAdmin(id)
-
-List all API Tokens for specific user
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String id = "id_example"; // String | The user id
-        try {
-            Object result = apiInstance.listApiTokensasSuperAdmin(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#listApiTokensasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The user id | |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | listApiTokensasSuperAdmin 200 response |  -  |
-
-
-## searchUsers
-
-> PagedResultsApiUser searchUsers(page, size, tenant, q, sort, type)
-
-Search for users
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        Integer page = 1; // Integer | The current page
-        Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String |
-        String q = "q_example"; // String | A string filter
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        UserType type = UserType.fromValue("STANDARD"); // UserType | The type of user
-        try {
-            PagedResultsApiUser result = apiInstance.searchUsers(page, size, tenant, q, sort, type);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#searchUsers");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | **Integer**| The current page | [default to 1] |
-| **size** | **Integer**| The current page size | [default to 10] |
 | **tenant** | **String**|  | |
-| **q** | **String**| A string filter | [optional] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-| **type** | [**UserType**](.md)| The type of user | [optional] [enum: STANDARD, SERVICE_ACCOUNT, SUPER_ADMIN] |
 
 ### Return type
 
-[**PagedResultsApiUser**](PagedResultsApiUser.md)
+**Object**
 
 ### Authorization
 
@@ -2931,113 +1026,31 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | searchUsers 200 response |  -  |
+| **200** | listApiTokens_1 200 response |  -  |
 
 
-## searchUsersWithResourceTenantasSuperAdmin
+## listUsers
 
-> PagedResultsApiUser searchUsersWithResourceTenantasSuperAdmin(page, size, resourceTenant, q, sort, type)
+> PagedResultsIAMUserControllerApiUserSummary listUsers(page, size, q, sort)
 
-Search for users
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        Integer page = 1; // Integer | The current page
-        Integer size = 10; // Integer | The current page size
-        String resourceTenant = "resourceTenant_example"; // String |
-        String q = "q_example"; // String | A string filter
-        List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        UserType type = UserType.fromValue("STANDARD"); // UserType | The type of user
-        try {
-            PagedResultsApiUser result = apiInstance.searchUsersWithResourceTenantasSuperAdmin(page, size, resourceTenant, q, sort, type);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#searchUsersWithResourceTenantasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **page** | **Integer**| The current page | [default to 1] |
-| **size** | **Integer**| The current page size | [default to 10] |
-| **resourceTenant** | **String**|  | |
-| **q** | **String**| A string filter | [optional] |
-| **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-| **type** | [**UserType**](.md)| The type of user | [optional] [enum: STANDARD, SERVICE_ACCOUNT, SUPER_ADMIN] |
-
-### Return type
-
-[**PagedResultsApiUser**](PagedResultsApiUser.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | searchUsersWithResourceTenantasSuperAdmin 200 response |  -  |
-
-
-## searchUsersasSuperAdmin
-
-> PagedResultsApiUser searchUsersasSuperAdmin(page, size, q, sort, type)
-
-Search for users
+Retrieve users
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3052,12 +1065,11 @@ public class Example {
         Integer size = 10; // Integer | The current page size
         String q = "q_example"; // String | A string filter
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
-        UserType type = UserType.fromValue("STANDARD"); // UserType | The type of user
         try {
-            PagedResultsApiUser result = apiInstance.searchUsersasSuperAdmin(page, size, q, sort, type);
+            PagedResultsIAMUserControllerApiUserSummary result = apiInstance.listUsers(page, size, q, sort);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#searchUsersasSuperAdmin");
+            System.err.println("Exception when calling UsersApi#listUsers");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -3076,11 +1088,10 @@ public class Example {
 | **size** | **Integer**| The current page size | [default to 10] |
 | **q** | **String**| A string filter | [optional] |
 | **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
-| **type** | [**UserType**](.md)| The type of user | [optional] [enum: STANDARD, SERVICE_ACCOUNT, SUPER_ADMIN] |
 
 ### Return type
 
-[**PagedResultsApiUser**](PagedResultsApiUser.md)
+[**PagedResultsIAMUserControllerApiUserSummary**](PagedResultsIAMUserControllerApiUserSummary.md)
 
 ### Authorization
 
@@ -3095,30 +1106,33 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | searchUsersasSuperAdmin 200 response |  -  |
+| **200** | listUsers 200 response |  -  |
 
 
-## setSuperAdmin
+## patchUser
 
-> ApiUser setSuperAdmin(id, body)
+> IAMUserControllerApiUser patchUser(id, meControllerApiUserDetailsRequest)
 
-Update a user service account
+Update user details
+
+Superadmin-only. Updates the the details of a user.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3130,12 +1144,12 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        Boolean body = true; // Boolean |
+        MeControllerApiUserDetailsRequest meControllerApiUserDetailsRequest = new MeControllerApiUserDetailsRequest(); // MeControllerApiUserDetailsRequest | The user details
         try {
-            ApiUser result = apiInstance.setSuperAdmin(id, body);
+            IAMUserControllerApiUser result = apiInstance.patchUser(id, meControllerApiUserDetailsRequest);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#setSuperAdmin");
+            System.err.println("Exception when calling UsersApi#patchUser");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -3151,11 +1165,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The user id | |
-| **body** | **Boolean**|  | |
+| **meControllerApiUserDetailsRequest** | [**MeControllerApiUserDetailsRequest**](MeControllerApiUserDetailsRequest.md)| The user details | |
 
 ### Return type
 
-[**ApiUser**](ApiUser.md)
+[**IAMUserControllerApiUser**](IAMUserControllerApiUser.md)
 
 ### Authorization
 
@@ -3170,31 +1184,33 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | On user not found |  -  |
-| **200** | setSuperAdmin 200 response |  -  |
+| **200** | patchUser 200 response |  -  |
 
 
-## setSuperAdminWithResourceTenant
+## patchUserDemo
 
-> ApiUser setSuperAdminWithResourceTenant(resourceTenant, id, body)
+> patchUserDemo(id, iaMUserControllerApiPatchRestrictedRequest)
 
-Update a user service account
+Update user demo
+
+Superadmin-only. Updates whether a user is for demo.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3205,14 +1221,12 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String resourceTenant = "resourceTenant_example"; // String |
         String id = "id_example"; // String | The user id
-        Boolean body = true; // Boolean |
+        IAMUserControllerApiPatchRestrictedRequest iaMUserControllerApiPatchRestrictedRequest = new IAMUserControllerApiPatchRestrictedRequest(); // IAMUserControllerApiPatchRestrictedRequest | 
         try {
-            ApiUser result = apiInstance.setSuperAdminWithResourceTenant(resourceTenant, id, body);
-            System.out.println(result);
+            apiInstance.patchUserDemo(id, iaMUserControllerApiPatchRestrictedRequest);
         } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#setSuperAdminWithResourceTenant");
+            System.err.println("Exception when calling UsersApi#patchUserDemo");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -3227,13 +1241,91 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **resourceTenant** | **String**|  | |
 | **id** | **String**| The user id | |
-| **body** | **Boolean**|  | |
+| **iaMUserControllerApiPatchRestrictedRequest** | [**IAMUserControllerApiPatchRestrictedRequest**](IAMUserControllerApiPatchRestrictedRequest.md)|  | |
 
 ### Return type
 
-[**ApiUser**](ApiUser.md)
+null (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | User successfully updated |  -  |
+| **404** | User not found |  -  |
+
+
+## patchUserPassword
+
+> Object patchUserPassword(id, iaMUserControllerApiPatchUserPasswordRequest)
+
+Update user password
+
+Superadmin-only. Updates whether a user is a superadmin.
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.UsersApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        String id = "id_example"; // String | The user id
+        IAMUserControllerApiPatchUserPasswordRequest iaMUserControllerApiPatchUserPasswordRequest = new IAMUserControllerApiPatchUserPasswordRequest(); // IAMUserControllerApiPatchUserPasswordRequest | 
+        try {
+            Object result = apiInstance.patchUserPassword(id, iaMUserControllerApiPatchUserPasswordRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#patchUserPassword");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| The user id | |
+| **iaMUserControllerApiPatchUserPasswordRequest** | [**IAMUserControllerApiPatchUserPasswordRequest**](IAMUserControllerApiPatchUserPasswordRequest.md)|  | |
+
+### Return type
+
+**Object**
 
 ### Authorization
 
@@ -3248,31 +1340,112 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | On user not found |  -  |
-| **200** | setSuperAdminWithResourceTenant 200 response |  -  |
+| **200** | User successfully updated |  -  |
+| **404** | User not found |  -  |
+
+
+## patchUserSuperAdmin
+
+> patchUserSuperAdmin(id, iaMUserControllerApiPatchSuperAdminRequest)
+
+Update user superadmin privileges
+
+Superadmin-only. Updates whether a user is a superadmin.
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.UsersApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        String id = "id_example"; // String | The user id
+        IAMUserControllerApiPatchSuperAdminRequest iaMUserControllerApiPatchSuperAdminRequest = new IAMUserControllerApiPatchSuperAdminRequest(); // IAMUserControllerApiPatchSuperAdminRequest | 
+        try {
+            apiInstance.patchUserSuperAdmin(id, iaMUserControllerApiPatchSuperAdminRequest);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#patchUserSuperAdmin");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| The user id | |
+| **iaMUserControllerApiPatchSuperAdminRequest** | [**IAMUserControllerApiPatchSuperAdminRequest**](IAMUserControllerApiPatchSuperAdminRequest.md)|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | User successfully updated |  -  |
+| **404** | User not found |  -  |
 
 
 ## updateCurrentUserPassword
 
-> Object updateCurrentUserPassword(tenant, meControllerUpdatePasswordRequest)
+> Object updateCurrentUserPassword(meControllerApiUpdatePasswordRequest)
 
-Update login password for the current user.
+Update authenticated user password
+
+Changes the login password for the authenticated user.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3283,10 +1456,9 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String tenant = "tenant_example"; // String |
-        MeControllerUpdatePasswordRequest meControllerUpdatePasswordRequest = new MeControllerUpdatePasswordRequest(); // MeControllerUpdatePasswordRequest |
+        MeControllerApiUpdatePasswordRequest meControllerApiUpdatePasswordRequest = new MeControllerApiUpdatePasswordRequest(); // MeControllerApiUpdatePasswordRequest | 
         try {
-            Object result = apiInstance.updateCurrentUserPassword(tenant, meControllerUpdatePasswordRequest);
+            Object result = apiInstance.updateCurrentUserPassword(meControllerApiUpdatePasswordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#updateCurrentUserPassword");
@@ -3304,8 +1476,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
-| **meControllerUpdatePasswordRequest** | [**MeControllerUpdatePasswordRequest**](MeControllerUpdatePasswordRequest.md)|  | |
+| **meControllerApiUpdatePasswordRequest** | [**MeControllerApiUpdatePasswordRequest**](MeControllerApiUpdatePasswordRequest.md)|  | |
 
 ### Return type
 
@@ -3327,259 +1498,30 @@ public class Example {
 | **200** | updateCurrentUserPassword 200 response |  -  |
 
 
-## updateServiceAccount
-
-> ApiServiceAccount updateServiceAccount(id, tenant, apiServiceAccount)
-
-Update a user service account
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String id = "id_example"; // String | The user id
-        String tenant = "tenant_example"; // String |
-        ApiServiceAccount apiServiceAccount = new ApiServiceAccount(); // ApiServiceAccount | The user
-        try {
-            ApiServiceAccount result = apiInstance.updateServiceAccount(id, tenant, apiServiceAccount);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#updateServiceAccount");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The user id | |
-| **tenant** | **String**|  | |
-| **apiServiceAccount** | [**ApiServiceAccount**](ApiServiceAccount.md)| The user | |
-
-### Return type
-
-[**ApiServiceAccount**](ApiServiceAccount.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | On user not found |  -  |
-| **200** | updateServiceAccount 200 response |  -  |
-
-
-## updateServiceAccountWithResourceTenantasSuperAdmin
-
-> ApiServiceAccount updateServiceAccountWithResourceTenantasSuperAdmin(id, resourceTenant, apiServiceAccount)
-
-Update a user service account
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String id = "id_example"; // String | The user id
-        String resourceTenant = "resourceTenant_example"; // String |
-        ApiServiceAccount apiServiceAccount = new ApiServiceAccount(); // ApiServiceAccount | The user
-        try {
-            ApiServiceAccount result = apiInstance.updateServiceAccountWithResourceTenantasSuperAdmin(id, resourceTenant, apiServiceAccount);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#updateServiceAccountWithResourceTenantasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The user id | |
-| **resourceTenant** | **String**|  | |
-| **apiServiceAccount** | [**ApiServiceAccount**](ApiServiceAccount.md)| The user | |
-
-### Return type
-
-[**ApiServiceAccount**](ApiServiceAccount.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | On user not found |  -  |
-| **200** | updateServiceAccountWithResourceTenantasSuperAdmin 200 response |  -  |
-
-
-## updateServiceAccountasSuperAdmin
-
-> ApiServiceAccount updateServiceAccountasSuperAdmin(id, apiServiceAccount)
-
-Update a user service account
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String id = "id_example"; // String | The user id
-        ApiServiceAccount apiServiceAccount = new ApiServiceAccount(); // ApiServiceAccount | The user
-        try {
-            ApiServiceAccount result = apiInstance.updateServiceAccountasSuperAdmin(id, apiServiceAccount);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#updateServiceAccountasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The user id | |
-| **apiServiceAccount** | [**ApiServiceAccount**](ApiServiceAccount.md)| The user | |
-
-### Return type
-
-[**ApiServiceAccount**](ApiServiceAccount.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | On user not found |  -  |
-| **200** | updateServiceAccountasSuperAdmin 200 response |  -  |
-
-
 ## updateUser
 
-> ApiUser updateUser(id, tenant, apiUser)
+> IAMUserControllerApiUser updateUser(id, iaMUserControllerApiCreateOrUpdateUserRequest)
 
-Update a standard user
+Update a user account
+
+Superadmin-only. Update an existing user account with an optional password based authentication method.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3591,10 +1533,9 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String id = "id_example"; // String | The user id
-        String tenant = "tenant_example"; // String |
-        ApiUser apiUser = new ApiUser(); // ApiUser | The user
+        IAMUserControllerApiCreateOrUpdateUserRequest iaMUserControllerApiCreateOrUpdateUserRequest = new IAMUserControllerApiCreateOrUpdateUserRequest(); // IAMUserControllerApiCreateOrUpdateUserRequest | 
         try {
-            ApiUser result = apiInstance.updateUser(id, tenant, apiUser);
+            IAMUserControllerApiUser result = apiInstance.updateUser(id, iaMUserControllerApiCreateOrUpdateUserRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#updateUser");
@@ -3613,12 +1554,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**| The user id | |
-| **tenant** | **String**|  | |
-| **apiUser** | [**ApiUser**](ApiUser.md)| The user | |
+| **iaMUserControllerApiCreateOrUpdateUserRequest** | [**IAMUserControllerApiCreateOrUpdateUserRequest**](IAMUserControllerApiCreateOrUpdateUserRequest.md)|  | |
 
 ### Return type
 
-[**ApiUser**](ApiUser.md)
+[**IAMUserControllerApiUser**](IAMUserControllerApiUser.md)
 
 ### Authorization
 
@@ -3633,31 +1573,32 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | On user not found |  -  |
+| **404** | Tenant, or group not found |  -  |
 | **200** | updateUser 200 response |  -  |
 
 
-## updateUserWithResourceTenantasSuperAdmin
+## updateUserGroups
 
-> ApiUser updateUserWithResourceTenantasSuperAdmin(id, resourceTenant, apiUser)
+> updateUserGroups(id, tenant, iaMUserGroupControllerApiUpdateUserGroupsRequest)
 
-Update a standard user
+Update the list of groups a user belongs to for the given tenant
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -3668,14 +1609,13 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String id = "id_example"; // String | The user id
-        String resourceTenant = "resourceTenant_example"; // String |
-        ApiUser apiUser = new ApiUser(); // ApiUser | The user
+        String id = "id_example"; // String | The user ID
+        String tenant = "tenant_example"; // String | 
+        IAMUserGroupControllerApiUpdateUserGroupsRequest iaMUserGroupControllerApiUpdateUserGroupsRequest = new IAMUserGroupControllerApiUpdateUserGroupsRequest(); // IAMUserGroupControllerApiUpdateUserGroupsRequest | 
         try {
-            ApiUser result = apiInstance.updateUserWithResourceTenantasSuperAdmin(id, resourceTenant, apiUser);
-            System.out.println(result);
+            apiInstance.updateUserGroups(id, tenant, iaMUserGroupControllerApiUpdateUserGroupsRequest);
         } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#updateUserWithResourceTenantasSuperAdmin");
+            System.err.println("Exception when calling UsersApi#updateUserGroups");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -3690,13 +1630,13 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The user id | |
-| **resourceTenant** | **String**|  | |
-| **apiUser** | [**ApiUser**](ApiUser.md)| The user | |
+| **id** | **String**| The user ID | |
+| **tenant** | **String**|  | |
+| **iaMUserGroupControllerApiUpdateUserGroupsRequest** | [**IAMUserGroupControllerApiUpdateUserGroupsRequest**](IAMUserGroupControllerApiUpdateUserGroupsRequest.md)|  | |
 
 ### Return type
 
-[**ApiUser**](ApiUser.md)
+null (empty response body)
 
 ### Authorization
 
@@ -3705,88 +1645,13 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: Not defined
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | On user not found |  -  |
-| **200** | updateUserWithResourceTenantasSuperAdmin 200 response |  -  |
-
-
-## updateUserasSuperAdmin
-
-> ApiUser updateUserasSuperAdmin(id, apiUser)
-
-Update a standard user
-
-### Example
-
-```java
-// Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.UsersApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure HTTP bearer authorization: bearerAuth
-        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-        bearerAuth.setBearerToken("BEARER TOKEN");
-
-        UsersApi apiInstance = new UsersApi(defaultClient);
-        String id = "id_example"; // String | The user id
-        ApiUser apiUser = new ApiUser(); // ApiUser | The user
-        try {
-            ApiUser result = apiInstance.updateUserasSuperAdmin(id, apiUser);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsersApi#updateUserasSuperAdmin");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The user id | |
-| **apiUser** | [**ApiUser**](ApiUser.md)| The user | |
-
-### Return type
-
-[**ApiUser**](ApiUser.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | On user not found |  -  |
-| **200** | updateUserasSuperAdmin 200 response |  -  |
+| **204** | User&#39;s groups successfully updated |  -  |
+| **404** | User or one of the groups not found |  -  |
+| **400** | Invalid request payload |  -  |
 

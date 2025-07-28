@@ -29,7 +29,7 @@
 
 * `REGEX` (value: `"REGEX"`)
 
-* `NAMESPACE_PREFIX` (value: `"NAMESPACE_PREFIX"`)
+* `PREFIX` (value: `"PREFIX"`)
 
 
 

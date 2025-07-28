@@ -24,11 +24,11 @@ Get All Resource Types
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.ScimConfigurationApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.ScimConfigurationApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -36,8 +36,8 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ScimConfigurationApi apiInstance = new ScimConfigurationApi(defaultClient);
-        String integration = "integration_example"; // String |
-        String tenant = "tenant_example"; // String |
+        String integration = "integration_example"; // String | 
+        String tenant = "tenant_example"; // String | 
         try {
             List<ResourceType> result = apiInstance.getAllResourceTypes(integration, tenant);
             System.out.println(result);
@@ -92,11 +92,11 @@ Get All Schemas
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.ScimConfigurationApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.ScimConfigurationApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -104,8 +104,8 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ScimConfigurationApi apiInstance = new ScimConfigurationApi(defaultClient);
-        String integration = "integration_example"; // String |
-        String tenant = "tenant_example"; // String |
+        String integration = "integration_example"; // String | 
+        String tenant = "tenant_example"; // String | 
         try {
             List<Schema> result = apiInstance.getAllSchemas(integration, tenant);
             System.out.println(result);
@@ -160,11 +160,11 @@ Get Resource Type by URN
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.ScimConfigurationApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.ScimConfigurationApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -172,9 +172,9 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ScimConfigurationApi apiInstance = new ScimConfigurationApi(defaultClient);
-        String name = "name_example"; // String |
-        String integration = "integration_example"; // String |
-        String tenant = "tenant_example"; // String |
+        String name = "name_example"; // String | 
+        String integration = "integration_example"; // String | 
+        String tenant = "tenant_example"; // String | 
         try {
             ResourceType result = apiInstance.getResourceType(name, integration, tenant);
             System.out.println(result);
@@ -230,11 +230,11 @@ Get Schemas by URN
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.ScimConfigurationApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.ScimConfigurationApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -242,9 +242,9 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ScimConfigurationApi apiInstance = new ScimConfigurationApi(defaultClient);
-        String uri = "uri_example"; // String |
-        String integration = "integration_example"; // String |
-        String tenant = "tenant_example"; // String |
+        String uri = "uri_example"; // String | 
+        String integration = "integration_example"; // String | 
+        String tenant = "tenant_example"; // String | 
         try {
             Schema result = apiInstance.getSchema(uri, integration, tenant);
             System.out.println(result);
@@ -300,11 +300,11 @@ Get Service Provider Configuration
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.ScimConfigurationApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.ScimConfigurationApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -312,8 +312,8 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         ScimConfigurationApi apiInstance = new ScimConfigurationApi(defaultClient);
-        String integration = "integration_example"; // String |
-        String tenant = "tenant_example"; // String |
+        String integration = "integration_example"; // String | 
+        String tenant = "tenant_example"; // String | 
         try {
             ServiceProviderConfiguration result = apiInstance.getServiceProviderConfiguration(integration, tenant);
             System.out.println(result);

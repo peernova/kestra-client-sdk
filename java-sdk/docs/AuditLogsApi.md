@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**findAuditLog**](AuditLogsApi.md#findAuditLog) | **POST** /api/v1/{tenant}/auditlogs/find | Find a specific audit log |
-| [**getResourceDiffFromAuditLog**](AuditLogsApi.md#getResourceDiffFromAuditLog) | **GET** /api/v1/{tenant}/auditlogs/{id}/diff | Get the diff of an object between current version and a previous version. Can also compare two version from specific audit logs. |
+| [**getResourceDiffFromAuditLog**](AuditLogsApi.md#getResourceDiffFromAuditLog) | **GET** /api/v1/{tenant}/auditlogs/{id}/diff | Retrieve the diff between audit logs |
 | [**listAuditLogFromResourceId**](AuditLogsApi.md#listAuditLogFromResourceId) | **GET** /api/v1/{tenant}/auditlogs/history/{detailId} | Find all audit logs about a specific resource. |
 | [**searchAuditLogs**](AuditLogsApi.md#searchAuditLogs) | **GET** /api/v1/{tenant}/auditlogs/search | Search for audit logs |
 
@@ -21,17 +21,18 @@ Find a specific audit log
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.AuditLogsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.AuditLogsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -42,7 +43,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         AuditLogsApi apiInstance = new AuditLogsApi(defaultClient);
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         AuditLogControllerFindRequest auditLogControllerFindRequest = new AuditLogControllerFindRequest(); // AuditLogControllerFindRequest | The find request
         try {
             AuditLogControllerAuditLogWithUser result = apiInstance.findAuditLog(tenant, auditLogControllerFindRequest);
@@ -90,23 +91,26 @@ public class Example {
 
 > AuditLogControllerAuditLogDiff getResourceDiffFromAuditLog(id, tenant, previousId)
 
-Get the diff of an object between current version and a previous version. Can also compare two version from specific audit logs.
+Retrieve the diff between audit logs
+
+Retrieves the diff between the current version and a selected previous version of a given resource based on audit logs.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.AuditLogsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.AuditLogsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -118,7 +122,7 @@ public class Example {
 
         AuditLogsApi apiInstance = new AuditLogsApi(defaultClient);
         String id = "id_example"; // String | The id of the audit log
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         String previousId = "previousId_example"; // String | The id of a previous audit log to compare with
         try {
             AuditLogControllerAuditLogDiff result = apiInstance.getResourceDiffFromAuditLog(id, tenant, previousId);
@@ -173,17 +177,18 @@ Find all audit logs about a specific resource.
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.AuditLogsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.AuditLogsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -195,7 +200,7 @@ public class Example {
 
         AuditLogsApi apiInstance = new AuditLogsApi(defaultClient);
         String detailId = "detailId_example"; // String | The resource Id
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         try {
             List<AuditLogControllerAuditLogOption> result = apiInstance.listAuditLogFromResourceId(detailId, tenant);
             System.out.println(result);
@@ -248,17 +253,18 @@ Search for audit logs
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.AuditLogsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.AuditLogsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -271,7 +277,7 @@ public class Example {
         AuditLogsApi apiInstance = new AuditLogsApi(defaultClient);
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         String q = "q_example"; // String | A string filter
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         String namespace = "namespace_example"; // String | A namespace filter
@@ -313,7 +319,7 @@ public class Example {
 | **executionId** | **String**| An execution filter | [optional] |
 | **userId** | **String**| A user id filter | [optional] |
 | **id** | **String**| A id filter | [optional] |
-| **permission** | [**Permission**](.md)| A permission filter | [optional] [enum: FLOW, BLUEPRINT, TEMPLATE, NAMESPACE, EXECUTION, USER, GROUP, ROLE, BINDING, AUDITLOG, SECRET, KVSTORE, IMPERSONATE, SETTING, INFRASTRUCTURE, APP, APPEXECUTION, TEST, ME, APITOKEN, DASHBOARD, TENANT, UNKNOWN] |
+| **permission** | [**Permission**](.md)| A permission filter | [optional] [enum: FLOW, BLUEPRINT, TEMPLATE, NAMESPACE, EXECUTION, USER, GROUP, ROLE, BINDING, AUDITLOG, SECRET, KVSTORE, IMPERSONATE, SETTING, INFRASTRUCTURE, APP, APPEXECUTION, TEST, ME, APITOKEN, DASHBOARD, TENANT_ACCESS, TENANT, SERVICE_ACCOUNT, INVITATION, GROUP_MEMBERSHIP, UNKNOWN] |
 | **startDate** | **OffsetDateTime**| The start datetime | [optional] |
 | **endDate** | **OffsetDateTime**| The end datetime | [optional] |
 | **details** | [**Map&lt;String, String&gt;**](String.md)| A list of auditLog details | [optional] |

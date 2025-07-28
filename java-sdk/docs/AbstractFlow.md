@@ -15,6 +15,7 @@
 |**disabled** | **Boolean** |  |  |
 |**labels** | [**AbstractFlowLabels**](AbstractFlowLabels.md) |  |  [optional] |
 |**variables** | **Map&lt;String, Object&gt;** |  |  [optional] |
+|**workerGroup** | [**WorkerGroup**](WorkerGroup.md) |  |  [optional] |
 |**deleted** | **Boolean** |  |  |
 
 

@@ -4,10 +4,10 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createBanner**](BannersApi.md#createBanner) | **POST** /api/v1/banners | Create a new banner |
-| [**deleteBanner**](BannersApi.md#deleteBanner) | **DELETE** /api/v1/banners/{id} | Delete a banner |
-| [**searchBanners**](BannersApi.md#searchBanners) | **GET** /api/v1/banners/search | Get banners |
-| [**updateBanner**](BannersApi.md#updateBanner) | **PUT** /api/v1/banners/{id} | Update a banner |
+| [**createBanner**](BannersApi.md#createBanner) | **POST** /api/v1/banners | Create an announcement banner |
+| [**deleteBanner**](BannersApi.md#deleteBanner) | **DELETE** /api/v1/banners/{id} | Delete an announcement banner |
+| [**searchBanners**](BannersApi.md#searchBanners) | **GET** /api/v1/banners/search | Retrieve all announcement banners |
+| [**updateBanner**](BannersApi.md#updateBanner) | **PUT** /api/v1/banners/{id} | Update an announcement banner |
 
 
 
@@ -15,23 +15,26 @@ All URIs are relative to *http://localhost*
 
 > Banner createBanner(banner)
 
-Create a new banner
+Create an announcement banner
+
+Superadmin-only. Creates a global announcement banner visible to all tenants.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.BannersApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.BannersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -42,7 +45,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         BannersApi apiInstance = new BannersApi(defaultClient);
-        Banner banner = new Banner(); // Banner | The banner to create
+        Banner banner = new Banner(); // Banner | The announcement banner to create
         try {
             Banner result = apiInstance.createBanner(banner);
             System.out.println(result);
@@ -62,7 +65,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **banner** | [**Banner**](Banner.md)| The banner to create | |
+| **banner** | [**Banner**](Banner.md)| The announcement banner to create | |
 
 ### Return type
 
@@ -88,23 +91,26 @@ public class Example {
 
 > deleteBanner(id)
 
-Delete a banner
+Delete an announcement banner
+
+Superadmin-only. Deletes a global announcement banner by its ID.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.BannersApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.BannersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -160,23 +166,26 @@ null (empty response body)
 
 > List&lt;Banner&gt; searchBanners()
 
-Get banners
+Retrieve all announcement banners
+
+Superadmin-only. Returns all global announcement banners.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.BannersApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.BannersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -229,23 +238,26 @@ This endpoint does not need any parameter.
 
 > Banner updateBanner(id, banner)
 
-Update a banner
+Update an announcement banner
+
+Superadmin-only. Updates a global announcement banner by its ID.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.BannersApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.BannersApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");

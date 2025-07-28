@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**date** | **LocalDate** |  |  |
-|**min** | **Long** |  |  |
-|**max** | **Long** |  |  |
-|**avg** | **Long** |  |  |
+|**date** | **LocalDate** |  |  [optional] |
+|**min** | **Long** |  |  [optional] |
+|**max** | **Long** |  |  [optional] |
+|**avg** | **Long** |  |  [optional] |
 
 
 

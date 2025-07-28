@@ -16,11 +16,11 @@
 |**uri** | **String** |  |  [optional] |
 |**environments** | **List&lt;String&gt;** |  |  [optional] |
 |**startTime** | **OffsetDateTime** |  |  |
-|**host** | [**HostUsage**](HostUsage.md) |  |  |
-|**configurations** | [**ConfigurationUsage**](ConfigurationUsage.md) |  |  |
-|**plugins** | [**List&lt;PluginUsage&gt;**](PluginUsage.md) |  |  |
-|**flows** | [**FlowUsage**](FlowUsage.md) |  |  |
-|**executions** | [**ExecutionUsage**](ExecutionUsage.md) |  |  |
+|**host** | [**HostUsage**](HostUsage.md) |  |  [optional] |
+|**configurations** | [**ConfigurationUsage**](ConfigurationUsage.md) |  |  [optional] |
+|**plugins** | [**List&lt;PluginUsage&gt;**](PluginUsage.md) |  |  [optional] |
+|**flows** | [**FlowUsage**](FlowUsage.md) |  |  [optional] |
+|**executions** | [**ExecutionUsage**](ExecutionUsage.md) |  |  [optional] |
 |**services** | [**ServiceUsage**](ServiceUsage.md) |  |  [optional] |
 |**pluginMetrics** | [**List&lt;PluginMetric&gt;**](PluginMetric.md) |  |  [optional] |
 

@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**type** | **UserType** |  |  |
-|**groupList** | [**List&lt;AbstractUserGroupIdentifier&gt;**](AbstractUserGroupIdentifier.md) |  |  [optional] |
+|**groupList** | [**List&lt;GroupIdentifier&gt;**](GroupIdentifier.md) |  |  [optional] |
 |**groups** | **List&lt;Object&gt;** |  |  [optional] |
 |**username** | **String** |  |  |
 |**email** | **String** |  |  |
@@ -19,7 +19,6 @@
 |**firstName** | **String** |  |  [optional] |
 |**lastName** | **String** |  |  [optional] |
 |**providers** | [**List&lt;AbstractUserTenantIdentityProvider&gt;**](AbstractUserTenantIdentityProvider.md) |  |  [optional] |
-|**isSuperAdmin** | **Boolean** |  |  [optional] |
 
 
 

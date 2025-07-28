@@ -11,7 +11,8 @@ A User Service Account.
 |**id** | **String** | the identifier of this service account. |  |
 |**name** | **String** | the name of this service account. |  |
 |**description** | **String** | the description of this service account. |  |
-|**groupList** | [**List&lt;AbstractUserGroupIdentifier&gt;**](AbstractUserGroupIdentifier.md) |  |  |
+|**groupList** | [**List&lt;GroupIdentifier&gt;**](GroupIdentifier.md) |  |  |
+|**isSuperAdmin** | **Boolean** |  |  |
 
 
 

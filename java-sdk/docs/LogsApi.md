@@ -23,17 +23,18 @@ Delete logs for a specific execution, taskrun or task
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.LogsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.LogsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -45,7 +46,7 @@ public class Example {
 
         LogsApi apiInstance = new LogsApi(defaultClient);
         String executionId = "executionId_example"; // String | The execution id
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         Level minLevel = Level.fromValue("ERROR"); // Level | The min log level filter
         String taskRunId = "taskRunId_example"; // String | The taskrun id
         String taskId = "taskId_example"; // String | The task id
@@ -105,17 +106,18 @@ Delete logs for a specific execution, taskrun or task
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.LogsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.LogsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -129,7 +131,7 @@ public class Example {
         String namespace = "namespace_example"; // String | The namespace
         String flowId = "flowId_example"; // String | The flow identifier
         String triggerId = "triggerId_example"; // String | The trigger id
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         try {
             apiInstance.deleteLogsFromFlow(namespace, flowId, triggerId, tenant);
         } catch (ApiException e) {
@@ -183,17 +185,18 @@ Download logs for a specific execution, taskrun or task
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.LogsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.LogsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -205,7 +208,7 @@ public class Example {
 
         LogsApi apiInstance = new LogsApi(defaultClient);
         String executionId = "executionId_example"; // String | The execution id
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         Level minLevel = Level.fromValue("ERROR"); // Level | The min log level filter
         String taskRunId = "taskRunId_example"; // String | The taskrun id
         String taskId = "taskId_example"; // String | The task id
@@ -266,17 +269,18 @@ Follow logs for a specific execution
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.LogsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.LogsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -288,7 +292,7 @@ public class Example {
 
         LogsApi apiInstance = new LogsApi(defaultClient);
         String executionId = "executionId_example"; // String | The execution id
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         Level minLevel = Level.fromValue("ERROR"); // Level | The min log level filter
         try {
             EventLogEntry result = apiInstance.followLogsFromExecution(executionId, tenant, minLevel);
@@ -343,17 +347,18 @@ Get logs for a specific execution, taskrun or task
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.LogsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.LogsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -365,7 +370,7 @@ public class Example {
 
         LogsApi apiInstance = new LogsApi(defaultClient);
         String executionId = "executionId_example"; // String | The execution id
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         Level minLevel = Level.fromValue("ERROR"); // Level | The min log level filter
         String taskRunId = "taskRunId_example"; // String | The taskrun id
         String taskId = "taskId_example"; // String | The task id
@@ -426,17 +431,18 @@ Search for logs
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.LogsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.LogsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -449,7 +455,7 @@ public class Example {
         LogsApi apiInstance = new LogsApi(defaultClient);
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         List<QueryFilter> filters = Arrays.asList(); // List<QueryFilter> | Filters
         String q = "q_example"; // String | A string filter

@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**permission** | **Permission** |  |  |
-|**type** | **CrudEventType** |  |  |
-|**detail** | **Map&lt;String, Object&gt;** |  |  |
+|**permission** | **Permission** |  |  [optional] |
+|**type** | **CrudEventType** |  |  [optional] |
+|**detail** | **Map&lt;String, Object&gt;** |  |  [optional] |
 
 
 

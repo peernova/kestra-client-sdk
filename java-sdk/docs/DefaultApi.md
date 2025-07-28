@@ -7,6 +7,7 @@ All URIs are relative to *http://localhost*
 | [**acceptInvitation**](DefaultApi.md#acceptInvitation) | **POST** /api/v1/invitation/accept/{invitationId} |  |
 | [**createFromInvitation**](DefaultApi.md#createFromInvitation) | **POST** /api/v1/invitation/create/{invitationId} |  |
 | [**forgottenPassword**](DefaultApi.md#forgottenPassword) | **GET** /api/v1/forgotten-password | Sends an email to reset a password. |
+| [**generate**](DefaultApi.md#generate) | **GET** /api/v1/{tenant}/stats/generate-reports |  |
 | [**login**](DefaultApi.md#login) | **POST** /login |  |
 | [**resetPassword**](DefaultApi.md#resetPassword) | **POST** /api/v1/reset-password | Change a password for given token. |
 
@@ -22,11 +23,11 @@ All URIs are relative to *http://localhost*
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.DefaultApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.DefaultApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -34,7 +35,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         DefaultApi apiInstance = new DefaultApi(defaultClient);
-        String invitationId = "invitationId_example"; // String |
+        String invitationId = "invitationId_example"; // String | 
         try {
             Object result = apiInstance.acceptInvitation(invitationId);
             System.out.println(result);
@@ -86,11 +87,11 @@ No authorization required
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.DefaultApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.DefaultApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -98,7 +99,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         DefaultApi apiInstance = new DefaultApi(defaultClient);
-        String invitationId = "invitationId_example"; // String |
+        String invitationId = "invitationId_example"; // String | 
         AuthControllerInvitationUserRequest authControllerInvitationUserRequest = new AuthControllerInvitationUserRequest(); // AuthControllerInvitationUserRequest | The basic information to create an account from an invitation
         try {
             Object result = apiInstance.createFromInvitation(invitationId, authControllerInvitationUserRequest);
@@ -154,11 +155,11 @@ Sends an email to reset a password. Note that whatever the username is found or 
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.DefaultApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.DefaultApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -208,6 +209,82 @@ No authorization required
 | **200** | forgottenPassword 200 response |  -  |
 
 
+## generate
+
+> byte[] generate(tenant, from)
+
+
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.DefaultApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        DefaultApi apiInstance = new DefaultApi(defaultClient);
+        String tenant = "tenant_example"; // String | 
+        LocalDate from = LocalDate.now(); // LocalDate | The start date
+        try {
+            byte[] result = apiInstance.generate(tenant, from);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#generate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenant** | **String**|  | |
+| **from** | **LocalDate**| The start date | [optional] |
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/octet-stream
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | generate 200 response |  -  |
+
+
 ## login
 
 > Object login(username, password, identity, secret)
@@ -218,11 +295,11 @@ No authorization required
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.DefaultApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.DefaultApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -230,10 +307,10 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         DefaultApi apiInstance = new DefaultApi(defaultClient);
-        String username = "username_example"; // String |
-        String password = "password_example"; // String |
-        String identity = "identity_example"; // String |
-        String secret = "secret_example"; // String |
+        String username = "username_example"; // String | 
+        String password = "password_example"; // String | 
+        String identity = "identity_example"; // String | 
+        String secret = "secret_example"; // String | 
         try {
             Object result = apiInstance.login(username, password, identity, secret);
             System.out.println(result);
@@ -290,11 +367,11 @@ Change a password for given token. If password does not match password policy, u
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.DefaultApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.DefaultApi;
 
 public class Example {
     public static void main(String[] args) {

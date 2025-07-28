@@ -21,6 +21,7 @@
 |**RETRYING** | **Long** |  |  [optional] |
 |**RETRIED** | **Long** |  |  [optional] |
 |**SKIPPED** | **Long** |  |  [optional] |
+|**BREAKPOINT** | **Long** |  |  [optional] |
 
 
 

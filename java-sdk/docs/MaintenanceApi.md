@@ -4,32 +4,35 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**enterMaintenance**](MaintenanceApi.md#enterMaintenance) | **POST** /api/v1/{tenant}/cluster/maintenance/enter | Enter cluster maintenance mode. |
-| [**exitMaintenance**](MaintenanceApi.md#exitMaintenance) | **POST** /api/v1/{tenant}/cluster/maintenance/exit | Exit cluster maintenance mode. |
+| [**enterMaintenance**](MaintenanceApi.md#enterMaintenance) | **POST** /api/v1/instance/maintenance/enter | Enter cluster maintenance mode |
+| [**exitMaintenance**](MaintenanceApi.md#exitMaintenance) | **POST** /api/v1/instance/maintenance/exit | Exit cluster maintenance mode |
 
 
 
 ## enterMaintenance
 
-> enterMaintenance(tenant)
+> enterMaintenance()
 
-Enter cluster maintenance mode.
+Enter cluster maintenance mode
+
+Requires a role with the INFRASTRUCTURE permission (Superadmin-only).
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.MaintenanceApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.MaintenanceApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -40,9 +43,8 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         MaintenanceApi apiInstance = new MaintenanceApi(defaultClient);
-        String tenant = "tenant_example"; // String |
         try {
-            apiInstance.enterMaintenance(tenant);
+            apiInstance.enterMaintenance();
         } catch (ApiException e) {
             System.err.println("Exception when calling MaintenanceApi#enterMaintenance");
             System.err.println("Status code: " + e.getCode());
@@ -56,10 +58,7 @@ public class Example {
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -83,25 +82,28 @@ null (empty response body)
 
 ## exitMaintenance
 
-> exitMaintenance(tenant)
+> exitMaintenance()
 
-Exit cluster maintenance mode.
+Exit cluster maintenance mode
+
+Requires a role with the INFRASTRUCTURE permission (Superadmin-only).
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.MaintenanceApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.MaintenanceApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -112,9 +114,8 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         MaintenanceApi apiInstance = new MaintenanceApi(defaultClient);
-        String tenant = "tenant_example"; // String |
         try {
-            apiInstance.exitMaintenance(tenant);
+            apiInstance.exitMaintenance();
         } catch (ApiException e) {
             System.err.println("Exception when calling MaintenanceApi#exitMaintenance");
             System.err.println("Status code: " + e.getCode());
@@ -128,10 +129,7 @@ public class Example {
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
+This endpoint does not need any parameter.
 
 ### Return type
 

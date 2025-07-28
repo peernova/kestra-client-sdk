@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createSecurityIntegration**](SecurityIntegrationsApi.md#createSecurityIntegration) | **POST** /api/v1/{tenant}/security-integrations | Create a security integration. |
-| [**deleteSecurityIntegration**](SecurityIntegrationsApi.md#deleteSecurityIntegration) | **DELETE** /api/v1/{tenant}/security-integrations/{id} | Delete the security integration. |
-| [**disableSecurityIntegration**](SecurityIntegrationsApi.md#disableSecurityIntegration) | **POST** /api/v1/{tenant}/security-integrations/{id}/disable | Disable the security integration. |
-| [**enableSecurityIntegration**](SecurityIntegrationsApi.md#enableSecurityIntegration) | **POST** /api/v1/{tenant}/security-integrations/{id}/enable | Enable the security integration. |
-| [**getSecurityIntegration**](SecurityIntegrationsApi.md#getSecurityIntegration) | **GET** /api/v1/{tenant}/security-integrations/{id} | Get a security integration. |
-| [**listSecurityIntegrations**](SecurityIntegrationsApi.md#listSecurityIntegrations) | **GET** /api/v1/{tenant}/security-integrations | List all security integrations. |
+| [**createSecurityIntegration**](SecurityIntegrationsApi.md#createSecurityIntegration) | **POST** /api/v1/{tenant}/security-integrations | Create a security integration |
+| [**deleteSecurityIntegration**](SecurityIntegrationsApi.md#deleteSecurityIntegration) | **DELETE** /api/v1/{tenant}/security-integrations/{id} | Delete a security integration |
+| [**disableSecurityIntegration**](SecurityIntegrationsApi.md#disableSecurityIntegration) | **POST** /api/v1/{tenant}/security-integrations/{id}/disable | Disable a security integration |
+| [**enableSecurityIntegration**](SecurityIntegrationsApi.md#enableSecurityIntegration) | **POST** /api/v1/{tenant}/security-integrations/{id}/enable | Enable a security integration |
+| [**getSecurityIntegration**](SecurityIntegrationsApi.md#getSecurityIntegration) | **GET** /api/v1/{tenant}/security-integrations/{id} | Retrieve a security integration |
+| [**listSecurityIntegrations**](SecurityIntegrationsApi.md#listSecurityIntegrations) | **GET** /api/v1/{tenant}/security-integrations | List all security integrations |
 
 
 
@@ -17,23 +17,26 @@ All URIs are relative to *http://localhost*
 
 > Object createSecurityIntegration(tenant, createSecurityIntegrationRequest)
 
-Create a security integration.
+Create a security integration
+
+Superadmin-only.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.SecurityIntegrationsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.SecurityIntegrationsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -44,7 +47,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         SecurityIntegrationsApi apiInstance = new SecurityIntegrationsApi(defaultClient);
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         CreateSecurityIntegrationRequest createSecurityIntegrationRequest = new CreateSecurityIntegrationRequest(); // CreateSecurityIntegrationRequest | The security integration definition
         try {
             Object result = apiInstance.createSecurityIntegration(tenant, createSecurityIntegrationRequest);
@@ -92,23 +95,26 @@ public class Example {
 
 > Object deleteSecurityIntegration(id, tenant)
 
-Delete the security integration.
+Delete a security integration
+
+Superadmin-only.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.SecurityIntegrationsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.SecurityIntegrationsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -120,7 +126,7 @@ public class Example {
 
         SecurityIntegrationsApi apiInstance = new SecurityIntegrationsApi(defaultClient);
         String id = "id_example"; // String | The ID of security integration
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         try {
             Object result = apiInstance.deleteSecurityIntegration(id, tenant);
             System.out.println(result);
@@ -167,23 +173,26 @@ public class Example {
 
 > Object disableSecurityIntegration(id, tenant)
 
-Disable the security integration.
+Disable a security integration
+
+Superadmin-only. Disables the specified integration.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.SecurityIntegrationsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.SecurityIntegrationsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -195,7 +204,7 @@ public class Example {
 
         SecurityIntegrationsApi apiInstance = new SecurityIntegrationsApi(defaultClient);
         String id = "id_example"; // String | The ID of security integration
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         try {
             Object result = apiInstance.disableSecurityIntegration(id, tenant);
             System.out.println(result);
@@ -242,23 +251,26 @@ public class Example {
 
 > Object enableSecurityIntegration(id, tenant)
 
-Enable the security integration.
+Enable a security integration
+
+Superadmin-only. Enables the specified integration.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.SecurityIntegrationsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.SecurityIntegrationsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -270,7 +282,7 @@ public class Example {
 
         SecurityIntegrationsApi apiInstance = new SecurityIntegrationsApi(defaultClient);
         String id = "id_example"; // String | The ID of security integration
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         try {
             Object result = apiInstance.enableSecurityIntegration(id, tenant);
             System.out.println(result);
@@ -317,23 +329,26 @@ public class Example {
 
 > Object getSecurityIntegration(id, tenant)
 
-Get a security integration.
+Retrieve a security integration
+
+Superadmin-only.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.SecurityIntegrationsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.SecurityIntegrationsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -345,7 +360,7 @@ public class Example {
 
         SecurityIntegrationsApi apiInstance = new SecurityIntegrationsApi(defaultClient);
         String id = "id_example"; // String | The ID of security integration
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         try {
             Object result = apiInstance.getSecurityIntegration(id, tenant);
             System.out.println(result);
@@ -392,23 +407,26 @@ public class Example {
 
 > Object listSecurityIntegrations(tenant)
 
-List all security integrations.
+List all security integrations
+
+Superadmin-only.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.SecurityIntegrationsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.SecurityIntegrationsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -419,7 +437,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         SecurityIntegrationsApi apiInstance = new SecurityIntegrationsApi(defaultClient);
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         try {
             Object result = apiInstance.listSecurityIntegrations(tenant);
             System.out.println(result);

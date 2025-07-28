@@ -12,11 +12,11 @@
 |**detail** | [**AuditLogDetail**](AuditLogDetail.md) |  |  |
 |**date** | **OffsetDateTime** |  |  |
 |**userId** | **String** |  |  |
-|**ipAddress** | **String** |  |  |
-|**impersonatedBy** | **String** |  |  |
-|**deleted** | **Boolean** |  |  |
-|**appliedPatch** | **List&lt;Object&gt;** |  |  |
-|**revertPatch** | **List&lt;Object&gt;** |  |  |
+|**ipAddress** | **String** |  |  [optional] |
+|**impersonatedBy** | **String** |  |  [optional] |
+|**deleted** | **Boolean** |  |  [optional] |
+|**appliedPatch** | **List&lt;Object&gt;** |  |  [optional] |
+|**revertPatch** | **List&lt;Object&gt;** |  |  [optional] |
 
 
 

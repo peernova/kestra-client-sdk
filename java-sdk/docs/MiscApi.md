@@ -4,39 +4,43 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createBasicAuth**](MiscApi.md#createBasicAuth) | **POST** /api/v1/main/basicAuth | Create basic auth for the current instance |
-| [**getConfiguration**](MiscApi.md#getConfiguration) | **GET** /api/v1/configs | Get current configurations |
-| [**getUsages**](MiscApi.md#getUsages) | **GET** /api/v1/{tenant}/usages/all | Get instance usage information |
-| [**licenseInfo**](MiscApi.md#licenseInfo) | **GET** /api/v1/license-info | Get current license information |
-| [**listActions**](MiscApi.md#listActions) | **GET** /api/v1/{tenant}/acls/actions | Get list of actions |
-| [**listPermissions**](MiscApi.md#listPermissions) | **GET** /api/v1/{tenant}/acls/permissions | Get list of permissions |
-| [**setupConfiguration**](MiscApi.md#setupConfiguration) | **GET** /api/v1/setup | Currently running configuration |
-| [**setupKestra**](MiscApi.md#setupKestra) | **POST** /api/v1/setup | Create the first user |
-| [**tenantUsage**](MiscApi.md#tenantUsage) | **GET** /api/v1/{tenant}/usages | Get instance usage information for the current tenant |
+| [**createBasicAuth**](MiscApi.md#createBasicAuth) | **POST** /api/v1/{tenant}/basicAuth | Configure basic authentication for the instance. |
+| [**getBasicAuthConfigErrors**](MiscApi.md#getBasicAuthConfigErrors) | **GET** /api/v1/basicAuthValidationErrors | Retrieve the instance configuration. |
+| [**getConfiguration**](MiscApi.md#getConfiguration) | **GET** /api/v1/configs | Retrieve the instance configuration. |
+| [**getUsages**](MiscApi.md#getUsages) | **GET** /api/v1/{tenant}/usages/all | Retrieve instance usage information |
+| [**licenseInfo**](MiscApi.md#licenseInfo) | **GET** /api/v1/license-info | Retrieve license information |
+| [**listActions**](MiscApi.md#listActions) | **GET** /api/v1/{tenant}/acls/actions | Retrieve list of actions |
+| [**listPermissions**](MiscApi.md#listPermissions) | **GET** /api/v1/{tenant}/acls/permissions | Retrieve list of permissions |
+| [**setupConfiguration**](MiscApi.md#setupConfiguration) | **GET** /api/v1/setup | Retrieve current setup configuration |
+| [**setupKestra**](MiscApi.md#setupKestra) | **POST** /api/v1/setup | Create the first Superadmin user |
+| [**tenantUsage**](MiscApi.md#tenantUsage) | **GET** /api/v1/{tenant}/usages | Retrieve usage information for the current tenant |
 
 
 
 ## createBasicAuth
 
-> createBasicAuth(miscControllerBasicAuthCredentials)
+> createBasicAuth(tenant, miscControllerBasicAuthCredentials)
 
-Create basic auth for the current instance
+Configure basic authentication for the instance.
+
+Sets up basic authentication credentials.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.MiscApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.MiscApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -47,9 +51,10 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         MiscApi apiInstance = new MiscApi(defaultClient);
-        MiscControllerBasicAuthCredentials miscControllerBasicAuthCredentials = new MiscControllerBasicAuthCredentials(); // MiscControllerBasicAuthCredentials |
+        String tenant = "tenant_example"; // String | 
+        MiscControllerBasicAuthCredentials miscControllerBasicAuthCredentials = new MiscControllerBasicAuthCredentials(); // MiscControllerBasicAuthCredentials | 
         try {
-            apiInstance.createBasicAuth(miscControllerBasicAuthCredentials);
+            apiInstance.createBasicAuth(tenant, miscControllerBasicAuthCredentials);
         } catch (ApiException e) {
             System.err.println("Exception when calling MiscApi#createBasicAuth");
             System.err.println("Status code: " + e.getCode());
@@ -66,6 +71,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenant** | **String**|  | |
 | **miscControllerBasicAuthCredentials** | [**MiscControllerBasicAuthCredentials**](MiscControllerBasicAuthCredentials.md)|  | |
 
 ### Return type
@@ -88,27 +94,102 @@ null (empty response body)
 | **200** | createBasicAuth 200 response |  -  |
 
 
-## getConfiguration
+## getBasicAuthConfigErrors
 
-> MiscControllerEEConfiguration getConfiguration()
+> List&lt;String&gt; getBasicAuthConfigErrors()
 
-Get current configurations
+Retrieve the instance configuration.
+
+Global endpoint available to all users.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.MiscApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.MiscApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
+        
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
 
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        MiscApi apiInstance = new MiscApi(defaultClient);
+        try {
+            List<String> result = apiInstance.getBasicAuthConfigErrors();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MiscApi#getBasicAuthConfigErrors");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+**List&lt;String&gt;**
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | getBasicAuthConfigErrors 200 response |  -  |
+
+
+## getConfiguration
+
+> MiscControllerEEConfiguration getConfiguration()
+
+Retrieve the instance configuration.
+
+Global endpoint available to all users.
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.MiscApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -161,23 +242,24 @@ This endpoint does not need any parameter.
 
 > Usage getUsages(tenant)
 
-Get instance usage information
+Retrieve instance usage information
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.MiscApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.MiscApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -188,7 +270,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         MiscApi apiInstance = new MiscApi(defaultClient);
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         try {
             Usage result = apiInstance.getUsages(tenant);
             System.out.println(result);
@@ -234,23 +316,26 @@ public class Example {
 
 > MiscControllerLicenseInfo licenseInfo()
 
-Get current license information
+Retrieve license information
+
+Global endpoint, available to any authenticated user.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.MiscApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.MiscApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -303,23 +388,26 @@ This endpoint does not need any parameter.
 
 > List&lt;Action&gt; listActions(tenant)
 
-Get list of actions
+Retrieve list of actions
+
+Actions are used to restrict possible operations for each permission. Each action must be one of the following: CREATE, READ, UPDATE, DELETE. Using permissions and actions together, you can control access to resources e.g. only allow a user to read a flow, but not update or delete it.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.MiscApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.MiscApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -330,7 +418,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         MiscApi apiInstance = new MiscApi(defaultClient);
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         try {
             List<Action> result = apiInstance.listActions(tenant);
             System.out.println(result);
@@ -376,23 +464,26 @@ public class Example {
 
 > List&lt;Permission&gt; listPermissions(tenant)
 
-Get list of permissions
+Retrieve list of permissions
+
+Permissions are used to control access to resources within the Kestra platform. Example of permissions are: FLOW, EXECUTION, NAMESPACE, APP, TEST, etc.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.MiscApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.MiscApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -403,7 +494,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         MiscApi apiInstance = new MiscApi(defaultClient);
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         try {
             List<Permission> result = apiInstance.listPermissions(tenant);
             System.out.println(result);
@@ -449,23 +540,24 @@ public class Example {
 
 > SetupConfiguration setupConfiguration()
 
-Currently running configuration
+Retrieve current setup configuration
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.MiscApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.MiscApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -518,23 +610,26 @@ This endpoint does not need any parameter.
 
 > ApiUser setupKestra(setupConfigurationSetupData)
 
-Create the first user
+Create the first Superadmin user
+
+Only used during initial instance setup.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.MiscApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.MiscApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -545,7 +640,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         MiscApi apiInstance = new MiscApi(defaultClient);
-        SetupConfigurationSetupData setupConfigurationSetupData = new SetupConfigurationSetupData(); // SetupConfigurationSetupData |
+        SetupConfigurationSetupData setupConfigurationSetupData = new SetupConfigurationSetupData(); // SetupConfigurationSetupData | 
         try {
             ApiUser result = apiInstance.setupKestra(setupConfigurationSetupData);
             System.out.println(result);
@@ -591,23 +686,24 @@ public class Example {
 
 > UsageEE tenantUsage(tenant)
 
-Get instance usage information for the current tenant
+Retrieve usage information for the current tenant
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.MiscApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.MiscApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -618,7 +714,7 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         MiscApi apiInstance = new MiscApi(defaultClient);
-        String tenant = "tenant_example"; // String |
+        String tenant = "tenant_example"; // String | 
         try {
             UsageEE result = apiInstance.tenantUsage(tenant);
             System.out.println(result);

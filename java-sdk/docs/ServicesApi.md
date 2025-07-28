@@ -4,33 +4,36 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getActiveServices**](ServicesApi.md#getActiveServices) | **GET** /api/v1/{tenant}/cluster/services/active | Get details about active services |
-| [**getService**](ServicesApi.md#getService) | **GET** /api/v1/{tenant}/cluster/services/{id} | Get details about a service |
-| [**searchServices**](ServicesApi.md#searchServices) | **GET** /api/v1/{tenant}/cluster/services/search | Search for service |
+| [**getActiveServices**](ServicesApi.md#getActiveServices) | **GET** /api/v1/instance/services/active | List all active services |
+| [**getService**](ServicesApi.md#getService) | **GET** /api/v1/instance/services/{id} | Retrieve details of a specific service |
+| [**searchServices**](ServicesApi.md#searchServices) | **GET** /api/v1/instance/services/search | Search for a service (e.g. Worker, Executor, etc) |
 
 
 
 ## getActiveServices
 
-> ClusterControllerApiActiveServiceList getActiveServices(tenant)
+> InstanceControllerApiActiveServiceList getActiveServices()
 
-Get details about active services
+List all active services
+
+Requires a role with the INFRASTRUCTURE permission (Superadmin-only).
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.ServicesApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.ServicesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -41,9 +44,8 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ServicesApi apiInstance = new ServicesApi(defaultClient);
-        String tenant = "tenant_example"; // String |
         try {
-            ClusterControllerApiActiveServiceList result = apiInstance.getActiveServices(tenant);
+            InstanceControllerApiActiveServiceList result = apiInstance.getActiveServices();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ServicesApi#getActiveServices");
@@ -58,14 +60,11 @@ public class Example {
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**ClusterControllerApiActiveServiceList**](ClusterControllerApiActiveServiceList.md)
+[**InstanceControllerApiActiveServiceList**](InstanceControllerApiActiveServiceList.md)
 
 ### Authorization
 
@@ -85,25 +84,28 @@ public class Example {
 
 ## getService
 
-> ServiceInstance getService(id, tenant)
+> ServiceInstance getService(id)
 
-Get details about a service
+Retrieve details of a specific service
+
+Requires a role with the INFRASTRUCTURE permission (Superadmin-only).
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.ServicesApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.ServicesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -114,10 +116,9 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         ServicesApi apiInstance = new ServicesApi(defaultClient);
-        String id = "id_example"; // String |
-        String tenant = "tenant_example"; // String |
+        String id = "id_example"; // String | 
         try {
-            ServiceInstance result = apiInstance.getService(id, tenant);
+            ServiceInstance result = apiInstance.getService(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ServicesApi#getService");
@@ -136,7 +137,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**|  | |
-| **tenant** | **String**|  | |
 
 ### Return type
 
@@ -160,25 +160,28 @@ public class Example {
 
 ## searchServices
 
-> PagedResultsClusterControllerApiServiceInstance searchServices(page, size, tenant, sort, state, type)
+> PagedResultsInstanceControllerApiServiceInstance searchServices(page, size, sort, state, type)
 
-Search for service
+Search for a service (e.g. Worker, Executor, etc)
+
+Requires a role with the INFRASTRUCTURE permission (Superadmin-only).
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.ServicesApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.ServicesApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -191,12 +194,11 @@ public class Example {
         ServicesApi apiInstance = new ServicesApi(defaultClient);
         Integer page = 1; // Integer | The current page
         Integer size = 10; // Integer | The current page size
-        String tenant = "tenant_example"; // String |
         List<String> sort = Arrays.asList(); // List<String> | The sort of current page
         List<ServiceServiceState> state = Arrays.asList(); // List<ServiceServiceState> | The state filter
         List<ServiceType> type = Arrays.asList(); // List<ServiceType> | The server type filter
         try {
-            PagedResultsClusterControllerApiServiceInstance result = apiInstance.searchServices(page, size, tenant, sort, state, type);
+            PagedResultsInstanceControllerApiServiceInstance result = apiInstance.searchServices(page, size, sort, state, type);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ServicesApi#searchServices");
@@ -216,14 +218,13 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **page** | **Integer**| The current page | [default to 1] |
 | **size** | **Integer**| The current page size | [default to 10] |
-| **tenant** | **String**|  | |
 | **sort** | [**List&lt;String&gt;**](String.md)| The sort of current page | [optional] |
 | **state** | [**List&lt;ServiceServiceState&gt;**](ServiceServiceState.md)| The state filter | [optional] |
 | **type** | [**List&lt;ServiceType&gt;**](ServiceType.md)| The server type filter | [optional] |
 
 ### Return type
 
-[**PagedResultsClusterControllerApiServiceInstance**](PagedResultsClusterControllerApiServiceInstance.md)
+[**PagedResultsInstanceControllerApiServiceInstance**](PagedResultsInstanceControllerApiServiceInstance.md)
 
 ### Authorization
 

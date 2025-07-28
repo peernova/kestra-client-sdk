@@ -8,10 +8,10 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  |
-|**value** | **String** |  |  |
-|**state** | **StateType** |  |  |
-|**outputs** | **Map&lt;String, Object&gt;** |  |  |
-|**description** | [**PropertyString**](PropertyString.md) |  |  |
+|**value** | **String** |  |  [optional] |
+|**state** | **StateType** |  |  [optional] |
+|**outputs** | **Map&lt;String, Object&gt;** |  |  [optional] |
+|**description** | [**PropertyString**](PropertyString.md) |  |  [optional] |
 
 
 

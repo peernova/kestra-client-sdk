@@ -17,6 +17,7 @@
 |**inputs** | [**List&lt;InputObject&gt;**](InputObject.md) |  |  [optional] |
 |**outputs** | [**List&lt;Output&gt;**](Output.md) |  |  [optional] |
 |**variables** | **Map&lt;String, Object&gt;** |  |  [optional] |
+|**workerGroup** | [**WorkerGroup**](WorkerGroup.md) |  |  [optional] |
 |**concurrency** | [**Concurrency**](Concurrency.md) |  |  [optional] |
 |**sla** | [**List&lt;SLA&gt;**](SLA.md) |  |  [optional] |
 |**source** | **String** |  |  [optional] |

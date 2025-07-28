@@ -29,7 +29,9 @@ tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
     options.compilerArgs.add("-parameters")
 }
-
+tasks.withType(Sign) {
+    onlyIf { !project.gradle.startParameter.taskNames.contains('publishToMavenLocal') }
+}
 /**********************************************************************************************************************\
  * Publish
  **********************************************************************************************************************/

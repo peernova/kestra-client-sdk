@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  |
 |**type** | **String** |  |  |
-|**variables** | **Map&lt;String, Object&gt;** |  |  |
+|**variables** | **Map&lt;String, Object&gt;** |  |  [optional] |
 
 
 

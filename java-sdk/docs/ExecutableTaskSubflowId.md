@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**namespace** | **String** |  |  |
-|**flowId** | **String** |  |  |
-|**revision** | **Integer** |  |  |
+|**namespace** | **String** |  |  [optional] |
+|**flowId** | **String** |  |  [optional] |
+|**revision** | **Integer** |  |  [optional] |
 
 
 

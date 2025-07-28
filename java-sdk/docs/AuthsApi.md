@@ -4,36 +4,37 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createApiTokenForCurrentUser**](AuthsApi.md#createApiTokenForCurrentUser) | **POST** /api/v1/{tenant}/me/api-tokens | Create new API Token for authenticated user |
-| [**deleteApiTokenForCurrentUser**](AuthsApi.md#deleteApiTokenForCurrentUser) | **DELETE** /api/v1/{tenant}/me/api-tokens/{tokenId} | Delete an API Token for authenticated user |
-| [**getCurrentUser**](AuthsApi.md#getCurrentUser) | **GET** /api/v1/{tenant}/me | Get current user |
-| [**index**](AuthsApi.md#index) | **GET** /api/v1/auths | Get list of authentication methods |
-| [**listApiTokensForCurrentUser**](AuthsApi.md#listApiTokensForCurrentUser) | **GET** /api/v1/{tenant}/me/api-tokens | List all API Tokens for the authenticated user |
-| [**patchCurrentUser**](AuthsApi.md#patchCurrentUser) | **PATCH** /api/v1/{tenant}/me | Updates details for the current user. Returns user&#39;s updated information upon success. |
+| [**createApiTokenForCurrentUser**](AuthsApi.md#createApiTokenForCurrentUser) | **POST** /api/v1/me/api-tokens | Create API token for the authenticated user |
+| [**deleteApiTokenForCurrentUser**](AuthsApi.md#deleteApiTokenForCurrentUser) | **DELETE** /api/v1/me/api-tokens/{tokenId} | Delete API token for the authenticated user |
+| [**getCurrentUser**](AuthsApi.md#getCurrentUser) | **GET** /api/v1/me | Get details about the authenticated user |
+| [**index**](AuthsApi.md#index) | **GET** /api/v1/auths | Retrieve list of authentication methods |
+| [**listApiTokensForCurrentUser**](AuthsApi.md#listApiTokensForCurrentUser) | **GET** /api/v1/me/api-tokens | List API tokens for authenticated user |
+| [**patchCurrentUser**](AuthsApi.md#patchCurrentUser) | **PATCH** /api/v1/me | Update authenticated user details |
 
 
 
 ## createApiTokenForCurrentUser
 
-> Object createApiTokenForCurrentUser(tenant, createApiTokenRequest)
+> Object createApiTokenForCurrentUser(createApiTokenRequest)
 
-Create new API Token for authenticated user
+Create API token for the authenticated user
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.AuthsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.AuthsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -44,10 +45,9 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         AuthsApi apiInstance = new AuthsApi(defaultClient);
-        String tenant = "tenant_example"; // String |
-        CreateApiTokenRequest createApiTokenRequest = new CreateApiTokenRequest(); // CreateApiTokenRequest |
+        CreateApiTokenRequest createApiTokenRequest = new CreateApiTokenRequest(); // CreateApiTokenRequest | 
         try {
-            Object result = apiInstance.createApiTokenForCurrentUser(tenant, createApiTokenRequest);
+            Object result = apiInstance.createApiTokenForCurrentUser(createApiTokenRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AuthsApi#createApiTokenForCurrentUser");
@@ -65,7 +65,6 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
 | **createApiTokenRequest** | [**CreateApiTokenRequest**](CreateApiTokenRequest.md)|  | |
 
 ### Return type
@@ -90,25 +89,26 @@ public class Example {
 
 ## deleteApiTokenForCurrentUser
 
-> Object deleteApiTokenForCurrentUser(tokenId, tenant)
+> Object deleteApiTokenForCurrentUser(tokenId)
 
-Delete an API Token for authenticated user
+Delete API token for the authenticated user
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.AuthsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.AuthsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -120,9 +120,8 @@ public class Example {
 
         AuthsApi apiInstance = new AuthsApi(defaultClient);
         String tokenId = "tokenId_example"; // String | The token id
-        String tenant = "tenant_example"; // String |
         try {
-            Object result = apiInstance.deleteApiTokenForCurrentUser(tokenId, tenant);
+            Object result = apiInstance.deleteApiTokenForCurrentUser(tokenId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AuthsApi#deleteApiTokenForCurrentUser");
@@ -141,7 +140,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tokenId** | **String**| The token id | |
-| **tenant** | **String**|  | |
 
 ### Return type
 
@@ -165,25 +163,28 @@ public class Example {
 
 ## getCurrentUser
 
-> MeControllerMe getCurrentUser(tenant)
+> MeControllerApiMe getCurrentUser()
 
-Get current user
+Get details about the authenticated user
+
+Requires the ME permission.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.AuthsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.AuthsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -194,9 +195,8 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         AuthsApi apiInstance = new AuthsApi(defaultClient);
-        String tenant = "tenant_example"; // String |
         try {
-            MeControllerMe result = apiInstance.getCurrentUser(tenant);
+            MeControllerApiMe result = apiInstance.getCurrentUser();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AuthsApi#getCurrentUser");
@@ -211,14 +211,11 @@ public class Example {
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**MeControllerMe**](MeControllerMe.md)
+[**MeControllerApiMe**](MeControllerApiMe.md)
 
 ### Authorization
 
@@ -240,17 +237,17 @@ public class Example {
 
 > AuthControllerAuth index()
 
-Get list of authentication methods
+Retrieve list of authentication methods
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.AuthsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.AuthsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -298,25 +295,28 @@ No authorization required
 
 ## listApiTokensForCurrentUser
 
-> Object listApiTokensForCurrentUser(tenant)
+> Object listApiTokensForCurrentUser()
 
-List all API Tokens for the authenticated user
+List API tokens for authenticated user
+
+Returns all API tokens belonging to the authenticated user.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.AuthsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.AuthsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -327,9 +327,8 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         AuthsApi apiInstance = new AuthsApi(defaultClient);
-        String tenant = "tenant_example"; // String |
         try {
-            Object result = apiInstance.listApiTokensForCurrentUser(tenant);
+            Object result = apiInstance.listApiTokensForCurrentUser();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AuthsApi#listApiTokensForCurrentUser");
@@ -344,10 +343,7 @@ public class Example {
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -371,25 +367,28 @@ public class Example {
 
 ## patchCurrentUser
 
-> Object patchCurrentUser(tenant, meControllerUserDetailsRequest)
+> Object patchCurrentUser(meControllerApiUserDetailsRequest)
 
-Updates details for the current user. Returns user&#39;s updated information upon success.
+Update authenticated user details
+
+Updates the authenticated user&#39;s profile information and returns the updated user.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.AuthsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.auth.*;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.AuthsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
-
+        
         // Configure HTTP basic authorization: basicAuth
         HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
         basicAuth.setUsername("YOUR USERNAME");
@@ -400,10 +399,9 @@ public class Example {
         bearerAuth.setBearerToken("BEARER TOKEN");
 
         AuthsApi apiInstance = new AuthsApi(defaultClient);
-        String tenant = "tenant_example"; // String |
-        MeControllerUserDetailsRequest meControllerUserDetailsRequest = new MeControllerUserDetailsRequest(); // MeControllerUserDetailsRequest | The user details
+        MeControllerApiUserDetailsRequest meControllerApiUserDetailsRequest = new MeControllerApiUserDetailsRequest(); // MeControllerApiUserDetailsRequest | The user details
         try {
-            Object result = apiInstance.patchCurrentUser(tenant, meControllerUserDetailsRequest);
+            Object result = apiInstance.patchCurrentUser(meControllerApiUserDetailsRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AuthsApi#patchCurrentUser");
@@ -421,8 +419,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenant** | **String**|  | |
-| **meControllerUserDetailsRequest** | [**MeControllerUserDetailsRequest**](MeControllerUserDetailsRequest.md)| The user details | |
+| **meControllerApiUserDetailsRequest** | [**MeControllerApiUserDetailsRequest**](MeControllerApiUserDetailsRequest.md)| The user details | |
 
 ### Return type
 

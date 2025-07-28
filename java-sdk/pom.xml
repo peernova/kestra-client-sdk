@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.kestra</groupId>
-    <artifactId>sdk</artifactId>
+    <artifactId>kestra-api-client</artifactId>
     <packaging>jar</packaging>
-    <name>sdk</name>
-    <version>v0.0.2-SNAPSHOT</version>
+    <name>kestra-api-client</name>
+    <version>v0.24.0</version>
     <url>https://github.com/openapitools/openapi-generator</url>
     <description>OpenAPI Java</description>
     <scm>

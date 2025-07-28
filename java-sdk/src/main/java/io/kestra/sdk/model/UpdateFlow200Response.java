@@ -1,6 +1,6 @@
 /*
  * Kestra EE
- * All API operations allow an optional tenant identifier in the HTTP path, if you don't use multi-tenancy you must omit the tenant identifier.<br/> This means that, for example, when trying to access the Flows API, instead of using <code>/api/v1/{tenant}/flows</code> you must use <code>/api/v1/flows</code>.
+ * All API operations, except for Superadmin-only endpoints, require a tenant identifier in the HTTP path.<br/> Endpoints designated as Superadmin-only are not tenant-scoped.
  *
  * The version of the OpenAPI document: v1
  *
@@ -14,17 +14,31 @@
 package io.kestra.sdk.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
+import com.fasterxml.jackson.annotation.JsonValue;
+import io.kestra.sdk.model.AbstractTrigger;
+import io.kestra.sdk.model.Concurrency;
+import io.kestra.sdk.model.Flow;
+import io.kestra.sdk.model.FlowAllOfLabels;
+import io.kestra.sdk.model.FlowWithSource;
+import io.kestra.sdk.model.InputObject;
+import io.kestra.sdk.model.Listener;
+import io.kestra.sdk.model.Output;
+import io.kestra.sdk.model.PluginDefault;
+import io.kestra.sdk.model.SLA;
+import io.kestra.sdk.model.Task;
+import io.kestra.sdk.model.WorkerGroup;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.StringJoiner;
@@ -41,6 +55,7 @@ import java.util.StringJoiner;
   UpdateFlow200Response.JSON_PROPERTY_DISABLED,
   UpdateFlow200Response.JSON_PROPERTY_LABELS,
   UpdateFlow200Response.JSON_PROPERTY_VARIABLES,
+  UpdateFlow200Response.JSON_PROPERTY_WORKER_GROUP,
   UpdateFlow200Response.JSON_PROPERTY_DELETED,
   UpdateFlow200Response.JSON_PROPERTY_FINALLY,
   UpdateFlow200Response.JSON_PROPERTY_TASK_DEFAULTS,
@@ -56,7 +71,7 @@ import java.util.StringJoiner;
   UpdateFlow200Response.JSON_PROPERTY_SLA
 })
 @JsonTypeName("updateFlow_200_response")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T07:35:23.657005690Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-28T12:15:52.743487342Z[Etc/UTC]", comments = "Generator version: 7.14.0-SNAPSHOT")
 public class UpdateFlow200Response {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nonnull
@@ -84,11 +99,15 @@ public class UpdateFlow200Response {
 
   public static final String JSON_PROPERTY_LABELS = "labels";
   @javax.annotation.Nullable
-  private Object labels;
+  private FlowAllOfLabels labels;
 
   public static final String JSON_PROPERTY_VARIABLES = "variables";
   @javax.annotation.Nullable
   private Map<String, Object> variables = new HashMap<>();
+
+  public static final String JSON_PROPERTY_WORKER_GROUP = "workerGroup";
+  @javax.annotation.Nullable
+  private WorkerGroup workerGroup;
 
   public static final String JSON_PROPERTY_DELETED = "deleted";
   @javax.annotation.Nonnull
@@ -312,7 +331,7 @@ public class UpdateFlow200Response {
     this.disabled = disabled;
   }
 
-  public UpdateFlow200Response labels(@javax.annotation.Nullable Object labels) {
+  public UpdateFlow200Response labels(@javax.annotation.Nullable FlowAllOfLabels labels) {
 
     this.labels = labels;
     return this;
@@ -326,14 +345,14 @@ public class UpdateFlow200Response {
   @JsonProperty(JSON_PROPERTY_LABELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Object getLabels() {
+  public FlowAllOfLabels getLabels() {
     return labels;
   }
 
 
   @JsonProperty(JSON_PROPERTY_LABELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLabels(@javax.annotation.Nullable Object labels) {
+  public void setLabels(@javax.annotation.Nullable FlowAllOfLabels labels) {
     this.labels = labels;
   }
 
@@ -357,7 +376,7 @@ public class UpdateFlow200Response {
    */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VARIABLES)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, Object> getVariables() {
     return variables;
@@ -365,9 +384,34 @@ public class UpdateFlow200Response {
 
 
   @JsonProperty(JSON_PROPERTY_VARIABLES)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVariables(@javax.annotation.Nullable Map<String, Object> variables) {
     this.variables = variables;
+  }
+
+  public UpdateFlow200Response workerGroup(@javax.annotation.Nullable WorkerGroup workerGroup) {
+
+    this.workerGroup = workerGroup;
+    return this;
+  }
+
+  /**
+   * Get workerGroup
+   * @return workerGroup
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WORKER_GROUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public WorkerGroup getWorkerGroup() {
+    return workerGroup;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_WORKER_GROUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setWorkerGroup(@javax.annotation.Nullable WorkerGroup workerGroup) {
+    this.workerGroup = workerGroup;
   }
 
   public UpdateFlow200Response deleted(@javax.annotation.Nonnull Boolean deleted) {
@@ -788,6 +832,7 @@ public class UpdateFlow200Response {
         Objects.equals(this.disabled, updateFlow200Response.disabled) &&
         Objects.equals(this.labels, updateFlow200Response.labels) &&
         Objects.equals(this.variables, updateFlow200Response.variables) &&
+        Objects.equals(this.workerGroup, updateFlow200Response.workerGroup) &&
         Objects.equals(this.deleted, updateFlow200Response.deleted) &&
         Objects.equals(this._finally, updateFlow200Response._finally) &&
         Objects.equals(this.taskDefaults, updateFlow200Response.taskDefaults) &&
@@ -805,7 +850,7 @@ public class UpdateFlow200Response {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, namespace, revision, inputs, outputs, disabled, labels, variables, deleted, _finally, taskDefaults, description, tasks, errors, listeners, afterExecution, triggers, pluginDefaults, concurrency, retry, sla);
+    return Objects.hash(id, namespace, revision, inputs, outputs, disabled, labels, variables, workerGroup, deleted, _finally, taskDefaults, description, tasks, errors, listeners, afterExecution, triggers, pluginDefaults, concurrency, retry, sla);
   }
 
   @Override
@@ -820,6 +865,7 @@ public class UpdateFlow200Response {
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
+    sb.append("    workerGroup: ").append(toIndentedString(workerGroup)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    _finally: ").append(toIndentedString(_finally)).append("\n");
     sb.append("    taskDefaults: ").append(toIndentedString(taskDefaults)).append("\n");
@@ -942,12 +988,7 @@ public class UpdateFlow200Response {
 
     // add `labels` to the URL query string
     if (getLabels() != null) {
-      try {
-        joiner.add(String.format("%slabels%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLabels()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      joiner.add(getLabels().toUrlQueryString(prefix + "labels" + suffix));
     }
 
     // add `variables` to the URL query string
@@ -962,6 +1003,11 @@ public class UpdateFlow200Response {
           throw new RuntimeException(e);
         }
       }
+    }
+
+    // add `workerGroup` to the URL query string
+    if (getWorkerGroup() != null) {
+      joiner.add(getWorkerGroup().toUrlQueryString(prefix + "workerGroup" + suffix));
     }
 
     // add `deleted` to the URL query string

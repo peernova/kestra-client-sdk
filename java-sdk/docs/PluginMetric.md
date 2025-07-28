@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**type** | **String** |  |  |
-|**count** | **Double** |  |  |
-|**totalTime** | **Double** |  |  |
-|**meanTime** | **Double** |  |  |
+|**type** | **String** |  |  [optional] |
+|**count** | **Double** |  |  [optional] |
+|**totalTime** | **Double** |  |  [optional] |
+|**meanTime** | **Double** |  |  [optional] |
 
 
 

@@ -5,9 +5,10 @@ All URIs are relative to *http://localhost*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**create**](TenantsApi.md#create) | **POST** /api/v1/tenants | Create a tenant |
-| [**delete**](TenantsApi.md#delete) | **DELETE** /api/v1/tenants/{id} | Delete a tenant and all its resources (flows, namespaces, apps, ... |
+| [**delete**](TenantsApi.md#delete) | **DELETE** /api/v1/tenants/{id} | Delete a tenant and all its resources |
 | [**find**](TenantsApi.md#find) | **GET** /api/v1/tenants/search | Search for tenants |
-| [**get**](TenantsApi.md#get) | **GET** /api/v1/tenants/{id} | Get a tenant |
+| [**get**](TenantsApi.md#get) | **GET** /api/v1/tenants/{id} | Retrieve a tenant |
+| [**getFlowDependenciesFromTenant**](TenantsApi.md#getFlowDependenciesFromTenant) | **GET** /api/v1/{tenant}/dependencies | Get tenant dependencies |
 | [**setLogo**](TenantsApi.md#setLogo) | **POST** /api/v1/tenants/{id}/logo | Set a tenant logo |
 | [**update**](TenantsApi.md#update) | **PUT** /api/v1/tenants/{id} | Update a tenant |
 
@@ -19,15 +20,17 @@ All URIs are relative to *http://localhost*
 
 Create a tenant
 
+Superadmin-only.
+
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.TenantsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.TenantsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -35,7 +38,7 @@ public class Example {
         defaultClient.setBasePath("http://localhost");
 
         TenantsApi apiInstance = new TenantsApi(defaultClient);
-        Tenant tenant = new Tenant(); // Tenant |
+        Tenant tenant = new Tenant(); // Tenant | 
         try {
             Tenant result = apiInstance.create(tenant);
             System.out.println(result);
@@ -81,17 +84,19 @@ No authorization required
 
 > delete(id)
 
-Delete a tenant and all its resources (flows, namespaces, apps, ...
+Delete a tenant and all its resources
+
+Superadmin-only. Deletes all resources linked to the tenant, including flows, namespaces, apps, etc.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.TenantsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.TenantsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -146,15 +151,17 @@ No authorization required
 
 Search for tenants
 
+Superadmin-only.
+
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.TenantsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.TenantsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -214,17 +221,19 @@ No authorization required
 
 > Tenant get(id)
 
-Get a tenant
+Retrieve a tenant
+
+Superadmin-only.
 
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.TenantsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.TenantsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -274,21 +283,89 @@ No authorization required
 | **200** | get 200 response |  -  |
 
 
+## getFlowDependenciesFromTenant
+
+> FlowTopologyGraph getFlowDependenciesFromTenant(destinationOnly, tenant)
+
+Get tenant dependencies
+
+### Example
+
+```java
+// Import classes:
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.TenantsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+
+        TenantsApi apiInstance = new TenantsApi(defaultClient);
+        Boolean destinationOnly = false; // Boolean | if true, list only destination dependencies, otherwise list also source dependencies
+        String tenant = "tenant_example"; // String | 
+        try {
+            FlowTopologyGraph result = apiInstance.getFlowDependenciesFromTenant(destinationOnly, tenant);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TenantsApi#getFlowDependenciesFromTenant");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **destinationOnly** | **Boolean**| if true, list only destination dependencies, otherwise list also source dependencies | [default to false] |
+| **tenant** | **String**|  | |
+
+### Return type
+
+[**FlowTopologyGraph**](FlowTopologyGraph.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | getFlowDependenciesFromTenant 200 response |  -  |
+
+
 ## setLogo
 
 > ApiTenant setLogo(id, logo)
 
 Set a tenant logo
 
+Superadmin-only.
+
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.TenantsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.TenantsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -346,15 +423,17 @@ No authorization required
 
 Update a tenant
 
+Superadmin-only.
+
 ### Example
 
 ```java
 // Import classes:
-
-import internal.sdk.io.kestraClient;
-import internal.sdk.io.kestraException;
-import internal.sdk.io.kestra.Configuration;
-import api.sdk.io.kestra.TenantsApi;
+import io.kestra.sdk.internal.ApiClient;
+import io.kestra.sdk.internal.ApiException;
+import io.kestra.sdk.internal.Configuration;
+import io.kestra.sdk.internal.models.*;
+import io.kestra.sdk.api.TenantsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -363,7 +442,7 @@ public class Example {
 
         TenantsApi apiInstance = new TenantsApi(defaultClient);
         String id = "id_example"; // String | The tenant id
-        Tenant tenant = new Tenant(); // Tenant |
+        Tenant tenant = new Tenant(); // Tenant | 
         try {
             Tenant result = apiInstance.update(id, tenant);
             System.out.println(result);
