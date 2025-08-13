@@ -37,8 +37,10 @@
 
 Kestra client SDK in various language to interact with a running Kestra instance.
 
+Documention is avaible on https://kestra.io/docs/api-reference/kestra-sdk
+
 > [!CAUTION]
-> This SDK is in early development, please do not currently use it. We will communicate when a stable first beta version will be available.
+> This SDK is in early development. We will communicate when a stable first beta version will be available.
 
 ## License
 Apache 2.0 © [Kestra Technologies](https://kestra.io)
