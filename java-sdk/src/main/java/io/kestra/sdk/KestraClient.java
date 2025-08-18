@@ -5,6 +5,7 @@ It is an easy-to-use entry point to create a client and access the different API
 package io.kestra.sdk;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.kestra.sdk.api.*;
 import io.kestra.sdk.api.*;
 import io.kestra.sdk.internal.ApiClient;
@@ -169,6 +170,7 @@ public class KestraClient {
         private String token;
         private String username;
         private String password;
+        private ObjectMapper objectMapper;
 
         /**
          * The base URL of the Kestra API.
@@ -200,9 +202,16 @@ public class KestraClient {
             return this;
         }
 
+        public KestraClientBuilder objectMapper(ObjectMapper objectMapper) {
+            this.objectMapper = objectMapper;
+
+            return this;
+        }
+
         public KestraClient build() {
-            ApiClient apiClient = new ApiClient();
+            var apiClient = new ApiClient();
             apiClient.setBasePath(url);
+            apiClient.setObjectMapper(objectMapper);
             switch (auth) {
                 case TOKEN: {
                     apiClient.addDefaultHeader("Authorization", "Bearer " + token);
