@@ -14,6 +14,7 @@ package io.kestra.sdk.internal;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -100,6 +101,7 @@ public class ApiClient extends JavaTimeFormatter {
 
   protected CloseableHttpClient httpClient;
   protected ObjectMapper objectMapper;
+    protected YAMLMapper yamlMapper;
   protected String tempFolderPath = null;
 
   protected Map<String, Authentication> authentications;
@@ -125,7 +127,16 @@ public class ApiClient extends JavaTimeFormatter {
     objectMapper.registerModule(new RFC3339JavaTimeModule());
     objectMapper.setDateFormat(ApiClient.buildDefaultDateFormat());
 
-    dateFormat = ApiClient.buildDefaultDateFormat();
+      yamlMapper = new YAMLMapper();
+      yamlMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+      yamlMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+      yamlMapper.registerModule(new JavaTimeModule());
+      yamlMapper.registerModule(new JsonNullableModule());
+      yamlMapper.registerModule(new RFC3339JavaTimeModule());
+      yamlMapper.setDateFormat(ApiClient.buildDefaultDateFormat());
+
+
+      dateFormat = ApiClient.buildDefaultDateFormat();
 
     // Set default User-Agent.
     setUserAgent("OpenAPI-Generator/v0.24.0/java");
@@ -717,8 +728,12 @@ public class ApiClient extends JavaTimeFormatter {
       } catch (JsonProcessingException e) {
         throw new ApiException(e);
       }
-    } else if (isYamlMime(mimeType)) {
-        return new StringEntity((String) obj, contentType.withCharset(StandardCharsets.UTF_8));
+    } else if (mimeType.equals("application/x-yaml")) {
+        try {
+            return new StringEntity(yamlMapper.writeValueAsString(obj), contentType.withCharset(StandardCharsets.UTF_8));
+        } catch (JsonProcessingException e) {
+            throw new ApiException(e);
+        }
     } else if (mimeType.equals(ContentType.MULTIPART_FORM_DATA.getMimeType())) {
       MultipartEntityBuilder multiPartBuilder = MultipartEntityBuilder.create();
       for (Entry<String, Object> paramEntry : formParams.entrySet()) {
