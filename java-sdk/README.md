@@ -43,7 +43,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.kestra</groupId>
   <artifactId>kestra-api-client</artifactId>
-  <version>1.0.0-beta2</version>
+  <version>1.0.0-beta3</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.kestra:kestra-api-client:1.0.0-beta2"
+compile "io.kestra:kestra-api-client:1.0.0-beta3"
 ```
 
 ### Others
@@ -66,7 +66,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/kestra-api-client-1.0.0-beta2.jar`
+- `target/kestra-api-client-1.0.0-beta3.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
