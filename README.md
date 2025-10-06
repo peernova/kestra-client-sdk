@@ -39,9 +39,6 @@ Kestra client SDK in various language to interact with a running Kestra instance
 
 Documention is avaible on https://kestra.io/docs/api-reference/kestra-sdk
 
-> [!CAUTION]
-> This SDK is in early development. We will communicate when a stable first beta version will be available.
-
 ## SDK usage by language
 
 The repository currently ships SDKs for Python, Java, JavaScript, and Go. The snippets below show how to install each package, authenticate with either Basic credentials or a service account API key, and perform a basic flow lifecycle: create a flow, update it, then trigger a new execution.
