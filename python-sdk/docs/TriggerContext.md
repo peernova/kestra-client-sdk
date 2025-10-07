@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**disabled** | **bool** |  | [optional] 
+**disabled** | **bool** |  | [optional] [default to False]
 **tenant_id** | **str** |  | [optional] 
 **namespace** | **str** |  | 
 **flow_id** | **str** |  | 

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from kestrapy.models.query_filter_field_op import QueryFilterFieldOp
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,8 +27,8 @@ class QueryFilterResourceField(BaseModel):
     """
     QueryFilterResourceField
     """ # noqa: E501
-    name: StrictStr
-    fields: List[QueryFilterFieldOp]
+    name: Optional[StrictStr] = None
+    fields: Optional[List[QueryFilterFieldOp]] = None
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["name", "fields"]
 

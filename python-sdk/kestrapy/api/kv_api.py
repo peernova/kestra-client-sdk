@@ -1214,7 +1214,7 @@ class KVApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[KVEntry]:
-        """List all keys for a namespace and parent namespaces
+        """List all keys for inherited namespaces
 
 
         :param namespace: The namespace id (required)
@@ -1284,7 +1284,7 @@ class KVApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[KVEntry]]:
-        """List all keys for a namespace and parent namespaces
+        """List all keys for inherited namespaces
 
 
         :param namespace: The namespace id (required)
@@ -1354,7 +1354,7 @@ class KVApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """List all keys for a namespace and parent namespaces
+        """List all keys for inherited namespaces
 
 
         :param namespace: The namespace id (required)

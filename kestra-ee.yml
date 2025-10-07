@@ -950,22 +950,6 @@ paths:
       security:
         - bearerAuth: []
         - basicAuth: []
-  /api/v1/main-tenant-flows:
-    get:
-      tags:
-        - Misc
-      summary: Check if flows are present on the main tenant.
-      operationId: mainTenantFlows
-      responses:
-        "200":
-          description: mainTenantFlows 200 response
-          content:
-            application/json:
-              schema:
-                type: boolean
-      security:
-        - bearerAuth: []
-        - basicAuth: []
   /api/v1/me:
     get:
       tags:
@@ -1376,6 +1360,25 @@ paths:
       security:
         - bearerAuth: []
         - basicAuth: []
+  /api/v1/request-code/{email}:
+    get:
+      tags:
+        - Authentication Code
+      summary: Request an authentication code for login verification
+      operationId: requestCode
+      parameters:
+        - name: email
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: requestCode 200 response
+          content:
+            application/json:
+              schema:
+                type: object
   /api/v1/reset-password:
     post:
       summary: Change a password for given token.
@@ -12036,7 +12039,7 @@ paths:
     get:
       tags:
         - KV
-      summary: List all keys for a namespace and parent namespaces
+      summary: List all keys for inherited namespaces
       operationId: listKeysWithInheritence
       parameters:
         - name: namespace
@@ -12990,6 +12993,155 @@ paths:
               schema:
                 type: string
                 format: byte
+      security:
+        - bearerAuth: []
+        - basicAuth: []
+  /api/v1/{tenant}/taskruns/search:
+    get:
+      tags:
+        - Executions
+      summary: "Search for taskruns, only available with the Elasticsearch repository"
+      operationId: searchTaskRun
+      parameters:
+        - name: page
+          in: query
+          description: The current page
+          required: true
+          explode: false
+          schema:
+            minimum: 1
+            type: integer
+            format: int32
+            default: 1
+        - name: size
+          in: query
+          description: The current page size
+          required: true
+          explode: false
+          schema:
+            minimum: 1
+            type: integer
+            format: int32
+            default: 10
+        - name: sort
+          in: query
+          description: The sort of current page
+          explode: false
+          schema:
+            type: array
+            nullable: true
+            items:
+              type: string
+        - name: filters
+          in: query
+          description: Filters
+          explode: false
+          schema:
+            type: array
+            nullable: true
+            items:
+              $ref: "#/components/schemas/QueryFilter"
+        - name: q
+          in: query
+          description: A string filter
+          deprecated: true
+          explode: false
+          schema:
+            type: string
+            nullable: true
+        - name: namespace
+          in: query
+          description: A namespace filter prefix
+          deprecated: true
+          explode: false
+          schema:
+            type: string
+            nullable: true
+        - name: flowId
+          in: query
+          description: A flow id filter
+          deprecated: true
+          explode: false
+          schema:
+            type: string
+            nullable: true
+        - name: startDate
+          in: query
+          description: The start datetime
+          deprecated: true
+          schema:
+            type: string
+            format: date-time
+            nullable: true
+        - name: endDate
+          in: query
+          description: The end datetime
+          deprecated: true
+          schema:
+            type: string
+            format: date-time
+            nullable: true
+        - name: timeRange
+          in: query
+          description: A time range filter relative to the current time
+          deprecated: true
+          explode: false
+          schema:
+            type: string
+            nullable: true
+          examples:
+            Filter last 5 minutes:
+              value: PT5M
+            Filter last 24 hours:
+              value: P1D
+        - name: state
+          in: query
+          description: A state filter
+          deprecated: true
+          explode: false
+          schema:
+            type: array
+            nullable: true
+            items:
+              $ref: "#/components/schemas/State.Type"
+        - name: labels
+          in: query
+          description: A labels filter as a list of 'key:value'
+          deprecated: true
+          schema:
+            type: array
+            nullable: true
+            items:
+              type: string
+        - name: triggerExecutionId
+          in: query
+          description: The trigger execution id
+          deprecated: true
+          explode: false
+          schema:
+            type: string
+            nullable: true
+        - name: childFilter
+          in: query
+          description: A execution child filter
+          deprecated: true
+          explode: false
+          schema:
+            nullable: true
+            allOf:
+              - $ref: "#/components/schemas/ExecutionRepositoryInterface.ChildFilter"
+        - name: tenant
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: searchTaskRun 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PagedResults_TaskRun_"
       security:
         - bearerAuth: []
         - basicAuth: []
@@ -14600,7 +14752,7 @@ components:
             $ref: "#/components/schemas/Label"
         variables:
           type: object
-          additionalProperties: true
+          additionalProperties: false
         workerGroup:
           $ref: "#/components/schemas/WorkerGroup"
         deleted:
@@ -14661,20 +14813,12 @@ components:
         type:
           title: The class name for this current trigger.
           minLength: 1
-          pattern: "\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*(\\.\\\
-            p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*)*"
+          pattern: "^[A-Za-z_$][A-Za-z0-9_$]*(\\.[A-Za-z_$][A-Za-z0-9_$]*)*$"
           type: string
         version:
-          title: Plugin Version
+          title: The version of the plugin to use.
+          pattern: "\\d+\\.\\d+\\.\\d+(-[a-zA-Z0-9-]+)?|([a-zA-Z0-9]+)"
           type: string
-          description: |
-            Defines the version of the plugin to use.
-
-            The version must follow the Semantic Versioning (SemVer) specification:
-              - A single-digit MAJOR version (e.g., `1`).
-              - A MAJOR.MINOR version (e.g., `1.1`).
-              - A MAJOR.MINOR.PATCH version, optionally with any qualifier
-                (e.g., `1.1.2`, `1.1.0-SNAPSHOT`).
         description:
           type: string
         conditions:
@@ -14684,6 +14828,7 @@ components:
             $ref: "#/components/schemas/Condition"
         disabled:
           type: boolean
+          default: false
         workerGroup:
           $ref: "#/components/schemas/WorkerGroup"
         logLevel:
@@ -14717,20 +14862,12 @@ components:
         type:
           title: The class name for this current trigger.
           minLength: 1
-          pattern: "\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*(\\.\\\
-            p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*)*"
+          pattern: "^[A-Za-z_$][A-Za-z0-9_$]*(\\.[A-Za-z_$][A-Za-z0-9_$]*)*$"
           type: string
         version:
-          title: Plugin Version
+          title: The version of the plugin to use.
+          pattern: "\\d+\\.\\d+\\.\\d+(-[a-zA-Z0-9-]+)?|([a-zA-Z0-9]+)"
           type: string
-          description: |
-            Defines the version of the plugin to use.
-
-            The version must follow the Semantic Versioning (SemVer) specification:
-              - A single-digit MAJOR version (e.g., `1`).
-              - A MAJOR.MINOR version (e.g., `1.1`).
-              - A MAJOR.MINOR.PATCH version, optionally with any qualifier
-                (e.g., `1.1.2`, `1.1.0-SNAPSHOT`).
     AbstractUser:
       required:
         - email
@@ -14962,8 +15099,6 @@ components:
         type:
           type: string
         namespace:
-          type: string
-        flowId:
           type: string
         tags:
           type: array
@@ -15204,6 +15339,8 @@ components:
         loginPassword:
           type: boolean
         mailsEnabled:
+          type: boolean
+        passwordless:
           type: boolean
         oauths:
           type: array
@@ -15527,8 +15664,7 @@ components:
           type: string
         type:
           minLength: 1
-          pattern: "\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*(\\.\\\
-            p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*)*"
+          pattern: "^[A-Za-z_$][A-Za-z0-9_$]*(\\.[A-Za-z_$][A-Za-z0-9_$]*)*$"
           type: string
         chartOptions:
           type: object
@@ -15556,8 +15692,7 @@ components:
       type: object
       properties:
         type:
-          pattern: "\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*(\\.\\\
-            p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*)*"
+          pattern: "^[A-Za-z_$][A-Za-z0-9_$]*(\\.[A-Za-z_$][A-Za-z0-9_$]*)*$"
           type: string
     ConversionService:
       type: object
@@ -16103,6 +16238,10 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/DailyExecutionStatistics"
+        dailyTaskRunsCount:
+          type: array
+          items:
+            $ref: "#/components/schemas/DailyExecutionStatistics"
     FileAttributes:
       type: object
       properties:
@@ -16221,8 +16360,7 @@ components:
                 $ref: "#/components/schemas/PluginDefault"
             variables:
               type: object
-              additionalProperties:
-                type: object
+              additionalProperties: false
             tasks:
               minItems: 1
               type: array
@@ -16319,7 +16457,7 @@ components:
                 $ref: "#/components/schemas/Label"
             variables:
               type: object
-              additionalProperties: true
+              additionalProperties: false
             workerGroup:
               $ref: "#/components/schemas/WorkerGroup"
             deleted:
@@ -16567,8 +16705,7 @@ components:
               type: boolean
             variables:
               type: object
-              additionalProperties:
-                type: object
+              additionalProperties: false
             concurrency:
               $ref: "#/components/schemas/Concurrency"
             outputs:
@@ -17903,6 +18040,8 @@ components:
           format: date-time
         isCustomDashboardsEnabled:
           type: boolean
+        isTaskRunEnabled:
+          type: boolean
         isAnonymousUsageEnabled:
           type: boolean
         isUiAnonymousUsageEnabled:
@@ -17921,6 +18060,10 @@ components:
           type: array
           items:
             type: string
+        resourceToFilters:
+          type: array
+          items:
+            $ref: "#/components/schemas/QueryFilter.ResourceField"
         isAiEnabled:
           type: boolean
         isBasicAuthInitialized:
@@ -17964,6 +18107,8 @@ components:
               type: boolean
             passwordRegexp:
               type: string
+            passwordlessEnabled:
+              type: boolean
     MiscController.Environment:
       type: object
       properties:
@@ -18117,7 +18262,9 @@ components:
         description:
           type: string
         value:
-          type: object
+          oneOf:
+            - type: object
+            - type: string
         type:
           $ref: "#/components/schemas/Type"
         displayName:
@@ -18434,6 +18581,19 @@ components:
         total:
           type: integer
           format: int64
+    PagedResults_TaskRun_:
+      required:
+        - results
+        - total
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: "#/components/schemas/TaskRun"
+        total:
+          type: integer
+          format: int64
     PagedResults_Tenant_:
       required:
         - results
@@ -18707,8 +18867,10 @@ components:
           type: boolean
         values:
           type: object
-          additionalProperties:
-            type: object
+          additionalProperties: false
+          oneOf:
+            - $ref: "#/components/schemas/Map_Object.Object_"
+            - type: string
     PluginIcon:
       type: object
       properties:
@@ -18757,6 +18919,9 @@ components:
           type: string
         value:
           type: boolean
+      oneOf:
+        - type: object
+        - type: string
     Property_Double_:
       type: object
       properties:
@@ -18765,6 +18930,9 @@ components:
         value:
           type: number
           format: double
+      oneOf:
+        - type: object
+        - type: string
     Property_Duration_:
       type: object
       properties:
@@ -18772,6 +18940,9 @@ components:
           type: string
         value:
           type: string
+      oneOf:
+        - type: object
+        - type: string
     Property_List_String__:
       type: object
       properties:
@@ -18781,6 +18952,9 @@ components:
           type: array
           items:
             type: string
+      oneOf:
+        - type: object
+        - type: string
     Property_Object_:
       type: object
       properties:
@@ -18788,6 +18962,9 @@ components:
           type: string
         value:
           type: object
+      oneOf:
+        - type: object
+        - type: string
     Property_String_:
       type: object
       properties:
@@ -18795,6 +18972,9 @@ components:
           type: string
         value:
           type: string
+      oneOf:
+        - type: object
+        - type: string
     QueryFilter:
       type: object
       properties:
@@ -18824,6 +19004,17 @@ components:
         - EXISTING_ONLY
         - MIN_LEVEL
       x-type: String
+    QueryFilter.FieldOp:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+        operations:
+          type: array
+          items:
+            $ref: "#/components/schemas/QueryFilter.Operation"
     QueryFilter.Op:
       type: string
       enum:
@@ -18840,6 +19031,22 @@ components:
         - CONTAINS
         - REGEX
         - PREFIX
+    QueryFilter.Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+    QueryFilter.ResourceField:
+      type: object
+      properties:
+        name:
+          type: string
+        fields:
+          type: array
+          items:
+            $ref: "#/components/schemas/QueryFilter.FieldOp"
     RBACService.RoleAssignment.RoleOrigin:
       type: string
       enum:
@@ -19299,13 +19506,6 @@ components:
           type: string
           default: 3s
     ServerInstance:
-      required:
-        - hostname
-        - id
-        - metrics
-        - props
-        - type
-        - version
       type: object
       properties:
         id:
@@ -19487,6 +19687,8 @@ components:
           type: string
         passwordRegexp:
           type: string
+        haveAuthNotBasic:
+          type: boolean
     SetupConfiguration.SetupData:
       type: object
       properties:
@@ -19575,20 +19777,12 @@ components:
         type:
           title: The class name of this task.
           minLength: 1
-          pattern: "\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*(\\.\\\
-            p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*)*"
+          pattern: "^[A-Za-z_$][A-Za-z0-9_$]*(\\.[A-Za-z_$][A-Za-z0-9_$]*)*$"
           type: string
         version:
-          title: Plugin Version
+          title: The version of the plugin to use.
+          pattern: "\\d+\\.\\d+\\.\\d+(-[a-zA-Z0-9-]+)?|([a-zA-Z0-9]+)"
           type: string
-          description: |
-            Defines the version of the plugin to use.
-
-            The version must follow the Semantic Versioning (SemVer) specification:
-              - A single-digit MAJOR version (e.g., `1`).
-              - A MAJOR.MINOR version (e.g., `1.1`).
-              - A MAJOR.MINOR.PATCH version, optionally with any qualifier
-                (e.g., `1.1.2`, `1.1.0-SNAPSHOT`).
         description:
           type: string
         retry:
@@ -19641,20 +19835,12 @@ components:
         type:
           title: The class name of this task.
           minLength: 1
-          pattern: "\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*(\\.\\\
-            p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*)*"
+          pattern: "^[A-Za-z_$][A-Za-z0-9_$]*(\\.[A-Za-z_$][A-Za-z0-9_$]*)*$"
           type: string
         version:
-          title: Plugin Version
+          title: The version of the plugin to use.
+          pattern: "\\d+\\.\\d+\\.\\d+(-[a-zA-Z0-9-]+)?|([a-zA-Z0-9]+)"
           type: string
-          description: |
-            Defines the version of the plugin to use.
-
-            The version must follow the Semantic Versioning (SemVer) specification:
-              - A single-digit MAJOR version (e.g., `1`).
-              - A MAJOR.MINOR version (e.g., `1.1`).
-              - A MAJOR.MINOR.PATCH version, optionally with any qualifier
-                (e.g., `1.1.2`, `1.1.0-SNAPSHOT`).
         tasks:
           type: array
           items:
@@ -19671,7 +19857,6 @@ components:
         - flowId
         - id
         - namespace
-        - outputs
         - state
         - taskId
       type: object
@@ -19964,6 +20149,7 @@ components:
       properties:
         disabled:
           type: boolean
+          default: false
         tenantId:
           pattern: "^[a-z0-9][a-z0-9_-]"
           type: string

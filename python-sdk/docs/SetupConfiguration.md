@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **storage_type** | **str** |  | [optional] 
 **secret_type** | **str** |  | [optional] 
 **password_regexp** | **str** |  | [optional] 
+**have_auth_not_basic** | **bool** |  | [optional] 
 
 ## Example
 

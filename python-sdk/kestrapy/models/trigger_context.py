@@ -30,7 +30,7 @@ class TriggerContext(BaseModel):
     """
     TriggerContext
     """ # noqa: E501
-    disabled: Optional[StrictBool] = None
+    disabled: Optional[StrictBool] = False
     tenant_id: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, alias="tenantId")
     namespace: StrictStr
     flow_id: StrictStr = Field(alias="flowId")
@@ -128,7 +128,7 @@ class TriggerContext(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "disabled": obj.get("disabled"),
+            "disabled": obj.get("disabled") if obj.get("disabled") is not None else False,
             "tenantId": obj.get("tenantId"),
             "namespace": obj.get("namespace"),
             "flowId": obj.get("flowId"),

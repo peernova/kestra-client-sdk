@@ -32,8 +32,9 @@ class SetupConfiguration(BaseModel):
     storage_type: Optional[StrictStr] = Field(default=None, alias="storageType")
     secret_type: Optional[StrictStr] = Field(default=None, alias="secretType")
     password_regexp: Optional[StrictStr] = Field(default=None, alias="passwordRegexp")
+    have_auth_not_basic: Optional[StrictBool] = Field(default=None, alias="haveAuthNotBasic")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["done", "repositoryType", "queueType", "storageType", "secretType", "passwordRegexp"]
+    __properties: ClassVar[List[str]] = ["done", "repositoryType", "queueType", "storageType", "secretType", "passwordRegexp", "haveAuthNotBasic"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -98,7 +99,8 @@ class SetupConfiguration(BaseModel):
             "queueType": obj.get("queueType"),
             "storageType": obj.get("storageType"),
             "secretType": obj.get("secretType"),
-            "passwordRegexp": obj.get("passwordRegexp")
+            "passwordRegexp": obj.get("passwordRegexp"),
+            "haveAuthNotBasic": obj.get("haveAuthNotBasic")
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

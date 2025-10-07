@@ -14,13 +14,14 @@
 """  # noqa: E501
 
 
-__version__ = "v1.0.1"
+__version__ = "v1.0.2-snapshot"
 
 # Define package exports
 __all__ = [
     "AIApi",
     "AppsApi",
     "AuditLogsApi",
+    "AuthenticationCodeApi",
     "AuthsApi",
     "BannersApi",
     "BindingsApi",
@@ -298,6 +299,7 @@ __all__ = [
     "NamespaceAllowedTrigger",
     "NamespaceLight",
     "Output",
+    "OutputValue",
     "PageRequest",
     "PagedResultsApiGroupSummary",
     "PagedResultsApiRoleSummary",
@@ -322,6 +324,7 @@ __all__ = [
     "PagedResultsMetricEntry",
     "PagedResultsNamespace",
     "PagedResultsSearchResultFlow",
+    "PagedResultsTaskRun",
     "PagedResultsTenant",
     "PagedResultsTestSuite",
     "PagedResultsTestSuiteRunResult",
@@ -337,6 +340,7 @@ __all__ = [
     "PluginArtifactMetadata",
     "PluginControllerApiPluginVersions",
     "PluginDefault",
+    "PluginDefaultValues",
     "PluginIcon",
     "PluginPluginElementMetadata",
     "PluginSchema",
@@ -350,7 +354,10 @@ __all__ = [
     "PropertyString",
     "QueryFilter",
     "QueryFilterField",
+    "QueryFilterFieldOp",
     "QueryFilterOp",
+    "QueryFilterOperation",
+    "QueryFilterResourceField",
     "RBACServiceRoleAssignmentRoleOrigin",
     "Relation",
     "RelationType",
@@ -446,6 +453,7 @@ __all__ = [
 from kestrapy.api.ai_api import AIApi as AIApi
 from kestrapy.api.apps_api import AppsApi as AppsApi
 from kestrapy.api.audit_logs_api import AuditLogsApi as AuditLogsApi
+from kestrapy.api.authentication_code_api import AuthenticationCodeApi as AuthenticationCodeApi
 from kestrapy.api.auths_api import AuthsApi as AuthsApi
 from kestrapy.api.banners_api import BannersApi as BannersApi
 from kestrapy.api.bindings_api import BindingsApi as BindingsApi
@@ -727,6 +735,7 @@ from kestrapy.models.namespace_allowed_namespace import NamespaceAllowedNamespac
 from kestrapy.models.namespace_allowed_trigger import NamespaceAllowedTrigger as NamespaceAllowedTrigger
 from kestrapy.models.namespace_light import NamespaceLight as NamespaceLight
 from kestrapy.models.output import Output as Output
+from kestrapy.models.output_value import OutputValue as OutputValue
 from kestrapy.models.page_request import PageRequest as PageRequest
 from kestrapy.models.paged_results_api_group_summary import PagedResultsApiGroupSummary as PagedResultsApiGroupSummary
 from kestrapy.models.paged_results_api_role_summary import PagedResultsApiRoleSummary as PagedResultsApiRoleSummary
@@ -751,6 +760,7 @@ from kestrapy.models.paged_results_map_string_object import PagedResultsMapStrin
 from kestrapy.models.paged_results_metric_entry import PagedResultsMetricEntry as PagedResultsMetricEntry
 from kestrapy.models.paged_results_namespace import PagedResultsNamespace as PagedResultsNamespace
 from kestrapy.models.paged_results_search_result_flow import PagedResultsSearchResultFlow as PagedResultsSearchResultFlow
+from kestrapy.models.paged_results_task_run import PagedResultsTaskRun as PagedResultsTaskRun
 from kestrapy.models.paged_results_tenant import PagedResultsTenant as PagedResultsTenant
 from kestrapy.models.paged_results_test_suite import PagedResultsTestSuite as PagedResultsTestSuite
 from kestrapy.models.paged_results_test_suite_run_result import PagedResultsTestSuiteRunResult as PagedResultsTestSuiteRunResult
@@ -766,6 +776,7 @@ from kestrapy.models.plugin_artifact import PluginArtifact as PluginArtifact
 from kestrapy.models.plugin_artifact_metadata import PluginArtifactMetadata as PluginArtifactMetadata
 from kestrapy.models.plugin_controller_api_plugin_versions import PluginControllerApiPluginVersions as PluginControllerApiPluginVersions
 from kestrapy.models.plugin_default import PluginDefault as PluginDefault
+from kestrapy.models.plugin_default_values import PluginDefaultValues as PluginDefaultValues
 from kestrapy.models.plugin_icon import PluginIcon as PluginIcon
 from kestrapy.models.plugin_plugin_element_metadata import PluginPluginElementMetadata as PluginPluginElementMetadata
 from kestrapy.models.plugin_schema import PluginSchema as PluginSchema
@@ -779,7 +790,10 @@ from kestrapy.models.property_object import PropertyObject as PropertyObject
 from kestrapy.models.property_string import PropertyString as PropertyString
 from kestrapy.models.query_filter import QueryFilter as QueryFilter
 from kestrapy.models.query_filter_field import QueryFilterField as QueryFilterField
+from kestrapy.models.query_filter_field_op import QueryFilterFieldOp as QueryFilterFieldOp
 from kestrapy.models.query_filter_op import QueryFilterOp as QueryFilterOp
+from kestrapy.models.query_filter_operation import QueryFilterOperation as QueryFilterOperation
+from kestrapy.models.query_filter_resource_field import QueryFilterResourceField as QueryFilterResourceField
 from kestrapy.models.rbac_service_role_assignment_role_origin import RBACServiceRoleAssignmentRoleOrigin as RBACServiceRoleAssignmentRoleOrigin
 from kestrapy.models.relation import Relation as Relation
 from kestrapy.models.relation_type import RelationType as RelationType

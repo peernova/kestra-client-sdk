@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from kestrapy.models.output_value import OutputValue
 from kestrapy.models.type import Type
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,7 +31,7 @@ class Output(BaseModel):
     """ # noqa: E501
     id: Annotated[str, Field(min_length=1, strict=True)]
     description: Optional[StrictStr] = None
-    value: Dict[str, Any]
+    value: OutputValue
     type: Type
     display_name: Optional[StrictStr] = Field(default=None, alias="displayName")
     required: Optional[StrictBool] = None
@@ -85,6 +86,9 @@ class Output(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of value
+        if self.value:
+            _dict['value'] = self.value.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -104,7 +108,7 @@ class Output(BaseModel):
         _obj = cls.model_validate({
             "id": obj.get("id"),
             "description": obj.get("description"),
-            "value": obj.get("value"),
+            "value": OutputValue.from_dict(obj["value"]) if obj.get("value") is not None else None,
             "type": obj.get("type"),
             "displayName": obj.get("displayName"),
             "required": obj.get("required")

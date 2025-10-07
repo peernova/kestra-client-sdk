@@ -1,4 +1,4 @@
-from kestrapy import KestraClient, Configuration, ApiException
+from kestrapy import KestraClient, Configuration
 import json
 
 from kestrapy.exceptions import UnprocessableEntityException
@@ -16,8 +16,8 @@ def kestra_client():
 api_client = kestra_client()
 
 
-tenant = 'test'
-flow_id = 'sdk-test-flow-abc'
+tenant = 'main'
+flow_id = 'sdk-flow-with-label'
 namespace = 'demo'
 body = f"""
 id: {flow_id}

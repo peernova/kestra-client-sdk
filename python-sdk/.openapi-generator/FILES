@@ -51,6 +51,7 @@ docs/AuditLogsApi.md
 docs/AuthControllerAuth.md
 docs/AuthControllerInvitationUserRequest.md
 docs/AuthControllerResetPasswordRequest.md
+docs/AuthenticationCodeApi.md
 docs/AuthsApi.md
 docs/Backfill.md
 docs/Banner.md
@@ -260,6 +261,7 @@ docs/NamespaceAllowedTrigger.md
 docs/NamespaceLight.md
 docs/NamespacesApi.md
 docs/Output.md
+docs/OutputValue.md
 docs/PageRequest.md
 docs/PagedResultsApiGroupSummary.md
 docs/PagedResultsApiRoleSummary.md
@@ -284,6 +286,7 @@ docs/PagedResultsMapStringObject.md
 docs/PagedResultsMetricEntry.md
 docs/PagedResultsNamespace.md
 docs/PagedResultsSearchResultFlow.md
+docs/PagedResultsTaskRun.md
 docs/PagedResultsTenant.md
 docs/PagedResultsTestSuite.md
 docs/PagedResultsTestSuiteRunResult.md
@@ -299,6 +302,7 @@ docs/PluginArtifact.md
 docs/PluginArtifactMetadata.md
 docs/PluginControllerApiPluginVersions.md
 docs/PluginDefault.md
+docs/PluginDefaultValues.md
 docs/PluginIcon.md
 docs/PluginPluginElementMetadata.md
 docs/PluginSchema.md
@@ -313,7 +317,10 @@ docs/PropertyObject.md
 docs/PropertyString.md
 docs/QueryFilter.md
 docs/QueryFilterField.md
+docs/QueryFilterFieldOp.md
 docs/QueryFilterOp.md
+docs/QueryFilterOperation.md
+docs/QueryFilterResourceField.md
 docs/RBACServiceRoleAssignmentRoleOrigin.md
 docs/Relation.md
 docs/RelationType.md
@@ -422,6 +429,7 @@ kestrapy/api/__init__.py
 kestrapy/api/ai_api.py
 kestrapy/api/apps_api.py
 kestrapy/api/audit_logs_api.py
+kestrapy/api/authentication_code_api.py
 kestrapy/api/auths_api.py
 kestrapy/api/banners_api.py
 kestrapy/api/bindings_api.py
@@ -695,6 +703,7 @@ kestrapy/models/namespace_allowed_namespace.py
 kestrapy/models/namespace_allowed_trigger.py
 kestrapy/models/namespace_light.py
 kestrapy/models/output.py
+kestrapy/models/output_value.py
 kestrapy/models/page_request.py
 kestrapy/models/paged_results_api_group_summary.py
 kestrapy/models/paged_results_api_role_summary.py
@@ -719,6 +728,7 @@ kestrapy/models/paged_results_map_string_object.py
 kestrapy/models/paged_results_metric_entry.py
 kestrapy/models/paged_results_namespace.py
 kestrapy/models/paged_results_search_result_flow.py
+kestrapy/models/paged_results_task_run.py
 kestrapy/models/paged_results_tenant.py
 kestrapy/models/paged_results_test_suite.py
 kestrapy/models/paged_results_test_suite_run_result.py
@@ -734,6 +744,7 @@ kestrapy/models/plugin_artifact.py
 kestrapy/models/plugin_artifact_metadata.py
 kestrapy/models/plugin_controller_api_plugin_versions.py
 kestrapy/models/plugin_default.py
+kestrapy/models/plugin_default_values.py
 kestrapy/models/plugin_icon.py
 kestrapy/models/plugin_plugin_element_metadata.py
 kestrapy/models/plugin_schema.py
@@ -747,7 +758,10 @@ kestrapy/models/property_object.py
 kestrapy/models/property_string.py
 kestrapy/models/query_filter.py
 kestrapy/models/query_filter_field.py
+kestrapy/models/query_filter_field_op.py
 kestrapy/models/query_filter_op.py
+kestrapy/models/query_filter_operation.py
+kestrapy/models/query_filter_resource_field.py
 kestrapy/models/rbac_service_role_assignment_role_origin.py
 kestrapy/models/relation.py
 kestrapy/models/relation_type.py

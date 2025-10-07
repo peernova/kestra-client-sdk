@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from kestrapy.models.plugin_default_values import PluginDefaultValues
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +29,7 @@ class PluginDefault(BaseModel):
     """ # noqa: E501
     type: StrictStr
     forced: Optional[StrictBool] = None
-    values: Optional[Dict[str, Dict[str, Any]]] = None
+    values: Optional[PluginDefaultValues] = None
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["type", "forced", "values"]
 
@@ -73,6 +74,9 @@ class PluginDefault(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of values
+        if self.values:
+            _dict['values'] = self.values.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -92,7 +96,7 @@ class PluginDefault(BaseModel):
         _obj = cls.model_validate({
             "type": obj.get("type"),
             "forced": obj.get("forced"),
-            "values": obj.get("values")
+            "values": PluginDefaultValues.from_dict(obj["values"]) if obj.get("values") is not None else None
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

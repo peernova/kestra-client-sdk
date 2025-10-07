@@ -4,6 +4,7 @@
 from kestrapy.api.ai_api import AIApi
 from kestrapy.api.apps_api import AppsApi
 from kestrapy.api.audit_logs_api import AuditLogsApi
+from kestrapy.api.authentication_code_api import AuthenticationCodeApi
 from kestrapy.api.auths_api import AuthsApi
 from kestrapy.api.banners_api import BannersApi
 from kestrapy.api.bindings_api import BindingsApi

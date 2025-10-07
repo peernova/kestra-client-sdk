@@ -28,9 +28,10 @@ class AuthControllerAuth(BaseModel):
     """ # noqa: E501
     login_password: Optional[StrictBool] = Field(default=None, alias="loginPassword")
     mails_enabled: Optional[StrictBool] = Field(default=None, alias="mailsEnabled")
+    passwordless: Optional[StrictBool] = None
     oauths: Optional[List[StrictStr]] = None
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["loginPassword", "mailsEnabled", "oauths"]
+    __properties: ClassVar[List[str]] = ["loginPassword", "mailsEnabled", "passwordless", "oauths"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -92,6 +93,7 @@ class AuthControllerAuth(BaseModel):
         _obj = cls.model_validate({
             "loginPassword": obj.get("loginPassword"),
             "mailsEnabled": obj.get("mailsEnabled"),
+            "passwordless": obj.get("passwordless"),
             "oauths": obj.get("oauths")
         })
         # store additional fields in additional_properties

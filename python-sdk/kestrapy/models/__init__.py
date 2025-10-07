@@ -249,6 +249,7 @@ from kestrapy.models.namespace_allowed_namespace import NamespaceAllowedNamespac
 from kestrapy.models.namespace_allowed_trigger import NamespaceAllowedTrigger
 from kestrapy.models.namespace_light import NamespaceLight
 from kestrapy.models.output import Output
+from kestrapy.models.output_value import OutputValue
 from kestrapy.models.page_request import PageRequest
 from kestrapy.models.paged_results_api_group_summary import PagedResultsApiGroupSummary
 from kestrapy.models.paged_results_api_role_summary import PagedResultsApiRoleSummary
@@ -273,6 +274,7 @@ from kestrapy.models.paged_results_map_string_object import PagedResultsMapStrin
 from kestrapy.models.paged_results_metric_entry import PagedResultsMetricEntry
 from kestrapy.models.paged_results_namespace import PagedResultsNamespace
 from kestrapy.models.paged_results_search_result_flow import PagedResultsSearchResultFlow
+from kestrapy.models.paged_results_task_run import PagedResultsTaskRun
 from kestrapy.models.paged_results_tenant import PagedResultsTenant
 from kestrapy.models.paged_results_test_suite import PagedResultsTestSuite
 from kestrapy.models.paged_results_test_suite_run_result import PagedResultsTestSuiteRunResult
@@ -288,6 +290,7 @@ from kestrapy.models.plugin_artifact import PluginArtifact
 from kestrapy.models.plugin_artifact_metadata import PluginArtifactMetadata
 from kestrapy.models.plugin_controller_api_plugin_versions import PluginControllerApiPluginVersions
 from kestrapy.models.plugin_default import PluginDefault
+from kestrapy.models.plugin_default_values import PluginDefaultValues
 from kestrapy.models.plugin_icon import PluginIcon
 from kestrapy.models.plugin_plugin_element_metadata import PluginPluginElementMetadata
 from kestrapy.models.plugin_schema import PluginSchema
@@ -301,7 +304,10 @@ from kestrapy.models.property_object import PropertyObject
 from kestrapy.models.property_string import PropertyString
 from kestrapy.models.query_filter import QueryFilter
 from kestrapy.models.query_filter_field import QueryFilterField
+from kestrapy.models.query_filter_field_op import QueryFilterFieldOp
 from kestrapy.models.query_filter_op import QueryFilterOp
+from kestrapy.models.query_filter_operation import QueryFilterOperation
+from kestrapy.models.query_filter_resource_field import QueryFilterResourceField
 from kestrapy.models.rbac_service_role_assignment_role_origin import RBACServiceRoleAssignmentRoleOrigin
 from kestrapy.models.relation import Relation
 from kestrapy.models.relation_type import RelationType

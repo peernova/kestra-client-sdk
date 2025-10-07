@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **str** |  | 
 **forced** | **bool** |  | [optional] 
-**values** | **Dict[str, object]** |  | [optional] 
+**values** | [**PluginDefaultValues**](PluginDefaultValues.md) |  | [optional] 
 
 ## Example
 

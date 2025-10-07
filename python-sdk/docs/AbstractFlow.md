@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **outputs** | [**List[Output]**](Output.md) |  | [optional] 
 **disabled** | **bool** |  | 
 **labels** | [**List[Label]**](Label.md) | Labels as a list of Label (key/value pairs) or as a map of string to string. | [optional] 
-**variables** | **Dict[str, object]** |  | [optional] 
+**variables** | **object** |  | [optional] 
 **worker_group** | [**WorkerGroup**](WorkerGroup.md) |  | [optional] 
 **deleted** | **bool** |  | 
 

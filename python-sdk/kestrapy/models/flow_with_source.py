@@ -45,7 +45,7 @@ class FlowWithSource(BaseModel):
     outputs: Optional[List[Output]] = Field(default=None, description="Output values make information about the execution of your Flow available and expose for other Kestra flows to use. Output values are similar to return values in programming languages.")
     disabled: StrictBool
     labels: Optional[List[Label]] = Field(default=None, description="Labels as a list of Label (key/value pairs) or as a map of string to string.")
-    variables: Optional[Dict[str, Dict[str, Any]]] = None
+    variables: Optional[Dict[str, Any]] = None
     worker_group: Optional[WorkerGroup] = Field(default=None, alias="workerGroup")
     deleted: StrictBool
     var_finally: Optional[List[Task]] = Field(default=None, alias="finally")

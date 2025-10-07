@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **login_password** | **bool** |  | [optional] 
 **mails_enabled** | **bool** |  | [optional] 
+**passwordless** | **bool** |  | [optional] 
 **oauths** | **List[str]** |  | [optional] 
 
 ## Example
