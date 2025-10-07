@@ -5,18 +5,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tenant_id** | **str** |  | 
-**user_id** | **str** |  | 
-**username** | **str** |  | 
-**display_name** | **str** |  | 
-**groups** | [**List[IAMTenantAccessControllerApiGroup]**](IAMTenantAccessControllerApiGroup.md) |  | 
-**roles** | [**List[IAMTenantAccessControllerApiRoleAssignment]**](IAMTenantAccessControllerApiRoleAssignment.md) |  | 
-**super_admin** | **bool** |  | 
+**tenant_id** | **str** |  | [optional] 
+**user_id** | **str** |  | [optional] 
+**username** | **str** |  | [optional] 
+**display_name** | **str** |  | [optional] 
+**groups** | [**List[IAMTenantAccessControllerApiGroup]**](IAMTenantAccessControllerApiGroup.md) |  | [optional] 
+**roles** | [**List[IAMTenantAccessControllerApiRoleAssignment]**](IAMTenantAccessControllerApiRoleAssignment.md) |  | [optional] 
+**super_admin** | **bool** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.iam_tenant_access_controller_api_tenant_access import IAMTenantAccessControllerApiTenantAccess
+from kestrapy.models.iam_tenant_access_controller_api_tenant_access import IAMTenantAccessControllerApiTenantAccess
 
 # TODO update the JSON string below
 json = "{}"

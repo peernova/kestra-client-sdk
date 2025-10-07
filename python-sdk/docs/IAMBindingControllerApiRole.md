@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**name** | **str** |  | 
+**id** | **str** |  | [optional] 
+**name** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.iam_binding_controller_api_role import IAMBindingControllerApiRole
+from kestrapy.models.iam_binding_controller_api_role import IAMBindingControllerApiRole
 
 # TODO update the JSON string below
 json = "{}"

@@ -6,13 +6,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | 
-**value** | **float** |  | 
+**value** | **float** |  | [optional] 
 **var_date** | **datetime** |  | 
 
 ## Example
 
 ```python
-from kestra_api_client.models.metric_aggregation import MetricAggregation
+from kestrapy.models.metric_aggregation import MetricAggregation
 
 # TODO update the JSON string below
 json = "{}"

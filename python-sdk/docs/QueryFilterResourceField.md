@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | 
-**fields** | [**List[QueryFilterFieldOp]**](QueryFilterFieldOp.md) |  | 
+**name** | **str** |  | [optional] 
+**fields** | [**List[QueryFilterFieldOp]**](QueryFilterFieldOp.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.query_filter_resource_field import QueryFilterResourceField
+from kestrapy.models.query_filter_resource_field import QueryFilterResourceField
 
 # TODO update the JSON string below
 json = "{}"

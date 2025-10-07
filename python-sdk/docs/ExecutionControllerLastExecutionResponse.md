@@ -5,16 +5,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**flow_id** | **str** |  | 
-**namespace** | **str** |  | 
-**start_date** | **datetime** |  | 
-**status** | [**StateType**](StateType.md) |  | 
+**id** | **str** |  | [optional] 
+**flow_id** | **str** |  | [optional] 
+**namespace** | **str** |  | [optional] 
+**start_date** | **datetime** |  | [optional] 
+**status** | [**StateType**](StateType.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.execution_controller_last_execution_response import ExecutionControllerLastExecutionResponse
+from kestrapy.models.execution_controller_last_execution_response import ExecutionControllerLastExecutionResponse
 
 # TODO update the JSON string below
 json = "{}"

@@ -5,18 +5,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**artifact_id** | **str** |  | 
-**group_id** | **str** |  | 
-**version** | **str** |  | 
-**title** | **str** |  | 
-**description** | **str** |  | 
-**icon** | **str** |  | 
-**classes** | [**List[InstanceControllerApiPluginVersionDetailsApiPluginClasses]**](InstanceControllerApiPluginVersionDetailsApiPluginClasses.md) |  | 
+**artifact_id** | **str** |  | [optional] 
+**group_id** | **str** |  | [optional] 
+**version** | **str** |  | [optional] 
+**title** | **str** |  | [optional] 
+**description** | **str** |  | [optional] 
+**icon** | **str** |  | [optional] 
+**classes** | [**List[InstanceControllerApiPluginVersionDetailsApiPluginClasses]**](InstanceControllerApiPluginVersionDetailsApiPluginClasses.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.instance_controller_api_plugin_version_details import InstanceControllerApiPluginVersionDetails
+from kestrapy.models.instance_controller_api_plugin_version_details import InstanceControllerApiPluginVersionDetails
 
 # TODO update the JSON string below
 json = "{}"

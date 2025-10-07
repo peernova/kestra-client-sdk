@@ -6,13 +6,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **str** |  | 
-**forced** | **bool** |  | 
-**values** | **Dict[str, object]** |  | 
+**forced** | **bool** |  | [optional] 
+**values** | [**PluginDefaultValues**](PluginDefaultValues.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.plugin_default import PluginDefault
+from kestrapy.models.plugin_default import PluginDefault
 
 # TODO update the JSON string below
 json = "{}"

@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value_path_expression** | [**ValuePathExpression**](ValuePathExpression.md) |  | 
+**value_path_expression** | [**ValuePathExpression**](ValuePathExpression.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.patch_operation_path import PatchOperationPath
+from kestrapy.models.patch_operation_path import PatchOperationPath
 
 # TODO update the JSON string below
 json = "{}"

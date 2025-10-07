@@ -5,22 +5,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**username** | **str** |  | 
-**display_name** | **str** |  | 
-**first_name** | **str** |  | 
-**last_name** | **str** |  | 
-**email** | **str** |  | 
-**tenants** | [**List[IAMUserControllerApiTenant]**](IAMUserControllerApiTenant.md) |  | 
-**auths** | [**List[IAMUserControllerApiUserAuth]**](IAMUserControllerApiUserAuth.md) |  | 
-**groups** | [**List[IAMUserControllerApiGroup]**](IAMUserControllerApiGroup.md) |  | 
-**super_admin** | **bool** |  | 
-**restricted** | **bool** |  | 
+**id** | **str** |  | [optional] 
+**username** | **str** |  | [optional] 
+**display_name** | **str** |  | [optional] 
+**first_name** | **str** |  | [optional] 
+**last_name** | **str** |  | [optional] 
+**email** | **str** |  | [optional] 
+**tenants** | [**List[ApiTenantSummary]**](ApiTenantSummary.md) |  | [optional] 
+**auths** | [**List[IAMUserControllerApiUserAuth]**](IAMUserControllerApiUserAuth.md) |  | [optional] 
+**groups** | [**List[IAMUserControllerApiGroup]**](IAMUserControllerApiGroup.md) |  | [optional] 
+**super_admin** | **bool** |  | [optional] 
+**restricted** | **bool** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.iam_user_controller_api_user import IAMUserControllerApiUser
+from kestrapy.models.iam_user_controller_api_user import IAMUserControllerApiUser
 
 # TODO update the JSON string below
 json = "{}"

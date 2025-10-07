@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**nodes** | [**List[FlowNode]**](FlowNode.md) |  | 
-**edges** | [**List[FlowTopologyGraphEdge]**](FlowTopologyGraphEdge.md) |  | 
+**nodes** | [**List[FlowNode]**](FlowNode.md) |  | [optional] 
+**edges** | [**List[FlowTopologyGraphEdge]**](FlowTopologyGraphEdge.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.flow_topology_graph import FlowTopologyGraph
+from kestrapy.models.flow_topology_graph import FlowTopologyGraph
 
 # TODO update the JSON string below
 json = "{}"

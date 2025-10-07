@@ -5,15 +5,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tags** | [**List[ApiSecretTag]**](ApiSecretTag.md) |  | 
+**tags** | [**List[ApiSecretTag]**](ApiSecretTag.md) |  | [optional] 
 **key** | **str** |  | 
 **value** | **str** |  | 
-**description** | **str** |  | 
+**description** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.api_secret_value import ApiSecretValue
+from kestrapy.models.api_secret_value import ApiSecretValue
 
 # TODO update the JSON string below
 json = "{}"

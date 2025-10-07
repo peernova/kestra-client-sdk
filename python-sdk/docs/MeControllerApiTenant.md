@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**name** | **str** |  | 
-**logo** | **str** |  | 
+**id** | **str** |  | [optional] 
+**name** | **str** |  | [optional] 
+**logo** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.me_controller_api_tenant import MeControllerApiTenant
+from kestrapy.models.me_controller_api_tenant import MeControllerApiTenant
 
 # TODO update the JSON string below
 json = "{}"

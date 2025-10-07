@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | **str** |  | 
-**conditions** | [**List[Condition]**](Condition.md) |  | 
+**description** | **str** |  | [optional] 
+**conditions** | [**List[Condition]**](Condition.md) |  | [optional] 
 **tasks** | [**List[Task]**](Task.md) |  | 
 
 ## Example
 
 ```python
-from kestra_api_client.models.listener import Listener
+from kestrapy.models.listener import Listener
 
 # TODO update the JSON string below
 json = "{}"

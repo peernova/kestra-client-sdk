@@ -5,19 +5,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
+**id** | **str** |  | [optional] 
 **title** | **str** |  | 
-**description** | **str** |  | 
-**tags** | **List[str]** |  | 
-**included_tasks** | **List[str]** |  | 
-**published_at** | **datetime** |  | 
+**description** | **str** |  | [optional] 
+**tags** | **List[str]** |  | [optional] 
+**included_tasks** | **List[str]** |  | [optional] 
+**published_at** | **datetime** |  | [optional] 
 **deleted** | **bool** |  | 
 **flow** | **str** |  | 
 
 ## Example
 
 ```python
-from kestra_api_client.models.blueprint_with_flow import BlueprintWithFlow
+from kestrapy.models.blueprint_with_flow import BlueprintWithFlow
 
 # TODO update the JSON string below
 json = "{}"

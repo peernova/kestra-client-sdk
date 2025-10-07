@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**title** | **str** |  | 
-**url** | **str** |  | 
+**title** | **str** |  | [optional] 
+**url** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.right_sidebar_configuration_custom_link import RightSidebarConfigurationCustomLink
+from kestrapy.models.right_sidebar_configuration_custom_link import RightSidebarConfigurationCustomLink
 
 # TODO update the JSON string below
 json = "{}"

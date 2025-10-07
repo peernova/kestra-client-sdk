@@ -7,12 +7,12 @@ Represents updatable properties for a Group.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | of the group. | 
-**description** | **str** | of the group. | 
+**description** | **str** | of the group. | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.iam_group_controller_api_update_group_request import IAMGroupControllerApiUpdateGroupRequest
+from kestrapy.models.iam_group_controller_api_update_group_request import IAMGroupControllerApiUpdateGroupRequest
 
 # TODO update the JSON string below
 json = "{}"

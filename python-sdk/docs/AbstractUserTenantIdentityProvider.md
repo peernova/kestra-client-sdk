@@ -5,16 +5,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | **Dict[str, object]** |  | 
-**external_id** | **str** |  | 
-**security_integration_id** | **str** |  | 
-**security_integration_name** | **str** |  | 
+**attributes** | **Dict[str, object]** |  | [optional] 
+**external_id** | **str** |  | [optional] 
+**security_integration_id** | **str** |  | [optional] 
+**security_integration_name** | **str** |  | [optional] 
 **tenant_id** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.abstract_user_tenant_identity_provider import AbstractUserTenantIdentityProvider
+from kestrapy.models.abstract_user_tenant_identity_provider import AbstractUserTenantIdentityProvider
 
 # TODO update the JSON string below
 json = "{}"

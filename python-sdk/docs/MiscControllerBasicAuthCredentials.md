@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uid** | **str** |  | 
-**username** | **str** |  | 
-**password** | **str** |  | 
+**uid** | **str** |  | [optional] 
+**username** | **str** |  | [optional] 
+**password** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.misc_controller_basic_auth_credentials import MiscControllerBasicAuthCredentials
+from kestrapy.models.misc_controller_basic_auth_credentials import MiscControllerBasicAuthCredentials
 
 # TODO update the JSON string below
 json = "{}"

@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**resource** | [**ResourceType1**](ResourceType1.md) |  | 
+**resource** | [**ResourceType1**](ResourceType1.md) |  | [optional] 
 **type** | [**CrudEventType**](CrudEventType.md) |  | [optional] 
-**detail** | **Dict[str, object]** |  | 
+**detail** | **Dict[str, object]** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.audit_log_controller_find_request import AuditLogControllerFindRequest
+from kestrapy.models.audit_log_controller_find_request import AuditLogControllerFindRequest
 
 # TODO update the JSON string below
 json = "{}"

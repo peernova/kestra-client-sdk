@@ -12,17 +12,17 @@ Name | Type | Description | Notes
 **task_run_id** | **str** |  | [optional] 
 **attempt_number** | **int** |  | [optional] 
 **trigger_id** | **str** |  | [optional] 
-**timestamp** | **datetime** |  | 
-**level** | [**Level**](Level.md) |  | 
-**thread** | **str** |  | 
-**message** | **str** |  | 
+**timestamp** | **datetime** |  | [optional] 
+**level** | [**Level**](Level.md) |  | [optional] 
+**thread** | **str** |  | [optional] 
+**message** | **str** |  | [optional] 
 **deleted** | **bool** |  | 
 **execution_kind** | [**ExecutionKind**](ExecutionKind.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.log_entry import LogEntry
+from kestrapy.models.log_entry import LogEntry
 
 # TODO update the JSON string below
 json = "{}"

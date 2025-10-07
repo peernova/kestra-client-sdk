@@ -5,15 +5,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**name** | **str** |  | 
-**is_default** | **bool** |  | 
-**is_managed** | **bool** |  | 
+**id** | **str** |  | [optional] 
+**name** | **str** |  | [optional] 
+**is_default** | **bool** |  | [optional] 
+**is_managed** | **bool** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.api_role_summary import ApiRoleSummary
+from kestrapy.models.api_role_summary import ApiRoleSummary
 
 # TODO update the JSON string below
 json = "{}"

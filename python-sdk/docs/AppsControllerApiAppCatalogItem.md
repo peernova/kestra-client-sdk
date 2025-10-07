@@ -5,16 +5,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uid** | **str** |  | 
-**name** | **str** |  | 
-**description** | **str** |  | 
-**type** | **str** |  | 
-**tags** | **List[str]** |  | 
+**uid** | **str** |  | [optional] 
+**name** | **str** |  | [optional] 
+**description** | **str** |  | [optional] 
+**type** | **str** |  | [optional] 
+**tags** | **List[str]** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.apps_controller_api_app_catalog_item import AppsControllerApiAppCatalogItem
+from kestrapy.models.apps_controller_api_app_catalog_item import AppsControllerApiAppCatalogItem
 
 # TODO update the JSON string below
 json = "{}"

@@ -5,19 +5,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tenants** | **List[str]** |  | 
-**groups** | **List[str]** |  | 
-**first_name** | **str** |  | 
-**last_name** | **str** |  | 
+**tenants** | **List[str]** |  | [optional] 
+**groups** | **List[str]** |  | [optional] 
+**first_name** | **str** |  | [optional] 
+**last_name** | **str** |  | [optional] 
 **email** | **str** |  | 
-**password** | **str** |  | 
-**super_admin** | **bool** |  | 
-**restricted** | **bool** |  | 
+**password** | **str** |  | [optional] 
+**super_admin** | **bool** |  | [optional] 
+**restricted** | **bool** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.iam_user_controller_api_create_or_update_user_request import IAMUserControllerApiCreateOrUpdateUserRequest
+from kestrapy.models.iam_user_controller_api_create_or_update_user_request import IAMUserControllerApiCreateOrUpdateUserRequest
 
 # TODO update the JSON string below
 json = "{}"

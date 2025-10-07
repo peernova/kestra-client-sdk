@@ -6,13 +6,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | 
-**description** | **str** |  | 
-**members_id** | **List[str]** |  | 
+**description** | **str** |  | [optional] 
+**members_id** | **List[str]** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.iam_group_controller_api_create_group_request import IAMGroupControllerApiCreateGroupRequest
+from kestrapy.models.iam_group_controller_api_create_group_request import IAMGroupControllerApiCreateGroupRequest
 
 # TODO update the JSON string below
 json = "{}"

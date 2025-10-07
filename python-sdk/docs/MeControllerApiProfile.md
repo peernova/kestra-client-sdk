@@ -5,15 +5,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**email** | **str** |  | 
-**first_name** | **str** |  | 
-**last_name** | **str** |  | 
-**username** | **str** |  | 
+**email** | **str** |  | [optional] 
+**first_name** | **str** |  | [optional] 
+**last_name** | **str** |  | [optional] 
+**username** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.me_controller_api_profile import MeControllerApiProfile
+from kestrapy.models.me_controller_api_profile import MeControllerApiProfile
 
 # TODO update the JSON string below
 json = "{}"

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **meta** | [**Meta**](Meta.md) |  | 
 **id** | **str** |  | [optional] 
 **external_id** | **str** |  | [optional] 
-**resource_type** | **str** |  | 
+**resource_type** | **str** |  | [optional] 
 **documentation_url** | **str** |  | [optional] 
 **patch** | [**ServiceProviderConfigurationSupportedConfiguration**](ServiceProviderConfigurationSupportedConfiguration.md) |  | [optional] 
 **bulk** | [**ServiceProviderConfigurationBulkConfiguration**](ServiceProviderConfigurationBulkConfiguration.md) |  | [optional] 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from kestra_api_client.models.service_provider_configuration import ServiceProviderConfiguration
+from kestrapy.models.service_provider_configuration import ServiceProviderConfiguration
 
 # TODO update the JSON string below
 json = "{}"

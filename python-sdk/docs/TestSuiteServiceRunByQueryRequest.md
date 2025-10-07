@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**namespace** | **str** |  | 
-**flow_id** | **str** |  | 
+**namespace** | **str** |  | [optional] 
+**flow_id** | **str** |  | [optional] 
 **include_child_namespaces** | **bool** | Should child namespaces be included or not | [default to True]
 
 ## Example
 
 ```python
-from kestra_api_client.models.test_suite_service_run_by_query_request import TestSuiteServiceRunByQueryRequest
+from kestrapy.models.test_suite_service_run_by_query_request import TestSuiteServiceRunByQueryRequest
 
 # TODO update the JSON string below
 json = "{}"

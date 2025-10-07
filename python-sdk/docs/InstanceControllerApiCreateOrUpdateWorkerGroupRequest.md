@@ -7,13 +7,13 @@ ApiCreateWorkerGroupRequest.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **key** | **str** | The key of the worker group. | 
-**description** | **str** | The description of the worker group. | 
-**allowed_tenants** | **List[str]** |  | 
+**description** | **str** | The description of the worker group. | [optional] 
+**allowed_tenants** | **List[str]** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.instance_controller_api_create_or_update_worker_group_request import InstanceControllerApiCreateOrUpdateWorkerGroupRequest
+from kestrapy.models.instance_controller_api_create_or_update_worker_group_request import InstanceControllerApiCreateOrUpdateWorkerGroupRequest
 
 # TODO update the JSON string below
 json = "{}"

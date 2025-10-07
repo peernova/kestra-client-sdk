@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**name** | **str** |  | 
-**full_token** | **str** |  | 
+**id** | **str** |  | [optional] 
+**name** | **str** |  | [optional] 
+**full_token** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.create_api_token_response import CreateApiTokenResponse
+from kestrapy.models.create_api_token_response import CreateApiTokenResponse
 
 # TODO update the JSON string below
 json = "{}"

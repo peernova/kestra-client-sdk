@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**initial** | **int** |  | 
-**max** | **int** |  | 
+**initial** | **int** |  | [optional] 
+**max** | **int** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.misc_controller_preview import MiscControllerPreview
+from kestrapy.models.misc_controller_preview import MiscControllerPreview
 
 # TODO update the JSON string below
 json = "{}"

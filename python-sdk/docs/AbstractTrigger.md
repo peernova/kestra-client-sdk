@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **version** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
 **conditions** | [**List[Condition]**](Condition.md) |  | [optional] 
-**disabled** | **bool** |  | 
+**disabled** | **bool** |  | [default to False]
 **worker_group** | [**WorkerGroup**](WorkerGroup.md) |  | [optional] 
 **log_level** | [**Level**](Level.md) |  | [optional] 
 **labels** | [**TheLabelsToPassToTheExecutionCreated**](TheLabelsToPassToTheExecutionCreated.md) |  | [optional] 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from kestra_api_client.models.abstract_trigger import AbstractTrigger
+from kestrapy.models.abstract_trigger import AbstractTrigger
 
 # TODO update the JSON string below
 json = "{}"

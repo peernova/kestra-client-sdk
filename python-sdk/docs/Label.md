@@ -1,5 +1,6 @@
 # Label
 
+A key/value pair that can be attached to a Flow or Execution. Labels are often used to organize and categorize objects.
 
 ## Properties
 
@@ -11,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from kestra_api_client.models.label import Label
+from kestrapy.models.label import Label
 
 # TODO update the JSON string below
 json = "{}"

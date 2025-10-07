@@ -5,16 +5,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**execution_id** | **str** |  | 
-**tenant_id** | **str** |  | 
-**namespace** | **str** |  | 
-**flow_id** | **str** |  | 
-**state** | [**State**](State.md) |  | 
+**execution_id** | **str** |  | [optional] 
+**tenant_id** | **str** |  | [optional] 
+**namespace** | **str** |  | [optional] 
+**flow_id** | **str** |  | [optional] 
+**state** | [**State**](State.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.execution_status_event import ExecutionStatusEvent
+from kestrapy.models.execution_status_event import ExecutionStatusEvent
 
 # TODO update the JSON string below
 json = "{}"

@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dispatch** | **str** |  | 
-**stream** | **str** |  | 
-**layout** | [**AppResponseUILayout**](AppResponseUILayout.md) |  | 
+**dispatch** | **str** |  | [optional] 
+**stream** | **str** |  | [optional] 
+**layout** | [**AppResponseUILayout**](AppResponseUILayout.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.app_response import AppResponse
+from kestrapy.models.app_response import AppResponse
 
 # TODO update the JSON string below
 json = "{}"

@@ -5,17 +5,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
+**id** | **str** |  | [optional] 
 **type** | [**BindingType**](BindingType.md) |  | 
 **external_id** | **str** |  | 
 **role_id** | **str** |  | 
-**namespace_id** | **str** |  | 
+**namespace_id** | **str** |  | [optional] 
 **deleted** | **bool** |  | 
 
 ## Example
 
 ```python
-from kestra_api_client.models.binding import Binding
+from kestrapy.models.binding import Binding
 
 # TODO update the JSON string below
 json = "{}"

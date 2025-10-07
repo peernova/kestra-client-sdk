@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**version** | **str** |  | 
-**metadata** | [**PluginArtifactMetadata**](PluginArtifactMetadata.md) |  | 
+**version** | **str** |  | [optional] 
+**metadata** | [**PluginArtifactMetadata**](PluginArtifactMetadata.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.instance_controller_api_plugin_versions_api_plugin_version_and_metadata import InstanceControllerApiPluginVersionsApiPluginVersionAndMetadata
+from kestrapy.models.instance_controller_api_plugin_versions_api_plugin_version_and_metadata import InstanceControllerApiPluginVersionsApiPluginVersionAndMetadata
 
 # TODO update the JSON string below
 json = "{}"

@@ -11,12 +11,12 @@ Name | Type | Description | Notes
 **meta** | [**Meta**](Meta.md) |  | 
 **id** | **str** |  | [optional] 
 **external_id** | **str** |  | [optional] 
-**resource_type** | **str** |  | 
+**resource_type** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.scim_resource_with_optional_id import ScimResourceWithOptionalId
+from kestrapy.models.scim_resource_with_optional_id import ScimResourceWithOptionalId
 
 # TODO update the JSON string below
 json = "{}"

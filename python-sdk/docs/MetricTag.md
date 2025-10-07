@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**key** | **str** |  | 
-**value** | **str** |  | 
+**key** | **str** |  | [optional] 
+**value** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.metric_tag import MetricTag
+from kestrapy.models.metric_tag import MetricTag
 
 # TODO update the JSON string below
 json = "{}"

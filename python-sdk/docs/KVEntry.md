@@ -5,16 +5,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**key** | **str** |  | 
-**description** | **str** |  | 
-**creation_date** | **datetime** |  | 
-**update_date** | **datetime** |  | 
-**expiration_date** | **datetime** |  | 
+**key** | **str** |  | [optional] 
+**description** | **str** |  | [optional] 
+**creation_date** | **datetime** |  | [optional] 
+**update_date** | **datetime** |  | [optional] 
+**expiration_date** | **datetime** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.kv_entry import KVEntry
+from kestrapy.models.kv_entry import KVEntry
 
 # TODO update the JSON string below
 json = "{}"

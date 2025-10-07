@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **start_date** | **datetime** |  | 
 **duration** | [**DailyExecutionStatisticsDuration**](DailyExecutionStatisticsDuration.md) |  | 
-**execution_counts** | [**DailyExecutionStatisticsExecutionCounts**](DailyExecutionStatisticsExecutionCounts.md) |  | 
-**group_by** | **str** |  | 
+**execution_counts** | [**DailyExecutionStatisticsExecutionCounts**](DailyExecutionStatisticsExecutionCounts.md) |  | [optional] 
+**group_by** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.daily_execution_statistics import DailyExecutionStatistics
+from kestrapy.models.daily_execution_statistics import DailyExecutionStatistics
 
 # TODO update the JSON string below
 json = "{}"

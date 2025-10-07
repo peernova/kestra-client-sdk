@@ -5,17 +5,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**type** | [**BindingType**](BindingType.md) |  | 
+**id** | **str** |  | [optional] 
+**type** | [**BindingType**](BindingType.md) |  | [optional] 
 **namespace** | **str** |  | [optional] 
-**role** | [**IAMBindingControllerApiRole**](IAMBindingControllerApiRole.md) |  | 
+**role** | [**IAMBindingControllerApiRole**](IAMBindingControllerApiRole.md) |  | [optional] 
 **group** | [**IAMBindingControllerApiBindingGroup**](IAMBindingControllerApiBindingGroup.md) |  | [optional] 
 **user** | [**IAMBindingControllerApiBindingUser**](IAMBindingControllerApiBindingUser.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.iam_binding_controller_api_binding_detail import IAMBindingControllerApiBindingDetail
+from kestrapy.models.iam_binding_controller_api_binding_detail import IAMBindingControllerApiBindingDetail
 
 # TODO update the JSON string below
 json = "{}"

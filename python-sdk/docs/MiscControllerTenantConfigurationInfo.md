@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**storage_by_tenant** | **bool** |  | 
-**secret_by_tenant** | **bool** |  | 
+**storage_by_tenant** | **bool** |  | [optional] 
+**secret_by_tenant** | **bool** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.misc_controller_tenant_configuration_info import MiscControllerTenantConfigurationInfo
+from kestrapy.models.misc_controller_tenant_configuration_info import MiscControllerTenantConfigurationInfo
 
 # TODO update the JSON string below
 json = "{}"

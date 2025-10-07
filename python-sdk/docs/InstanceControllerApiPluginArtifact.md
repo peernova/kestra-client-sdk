@@ -5,16 +5,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**title** | **str** |  | 
-**icon** | **str** |  | 
-**group_id** | **str** |  | 
-**artifact_id** | **str** |  | 
-**versions** | **List[str]** |  | 
+**title** | **str** |  | [optional] 
+**icon** | **str** |  | [optional] 
+**group_id** | **str** |  | [optional] 
+**artifact_id** | **str** |  | [optional] 
+**versions** | **List[str]** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.instance_controller_api_plugin_artifact import InstanceControllerApiPluginArtifact
+from kestrapy.models.instance_controller_api_plugin_artifact import InstanceControllerApiPluginArtifact
 
 # TODO update the JSON string below
 json = "{}"

@@ -7,14 +7,11 @@ log_and_run() {
   "$@"
 }
 
-# Check for exactly one argument
-if [ "$#" -ne 1 ]; then
-  echo "Usage: $0 <kestra_version>"
-  echo "kestra_version: is the version for Kestra to run the tests with (develop, v0.24..)"
-  exit 1
+if [ $# -ge 1 ]; then
+  KESTRA_VERSION="$1"
+else
+  KESTRA_VERSION=$(cat ../COMPATIBLE_KESTRA_VERSION.properties)
 fi
-
-KESTRA_VERSION="$1"
 
 #CURRENT_TIMESTAMP=$(date -u "+%Y%m%d%H%M%S" 2>/dev/null || date -u -j "+%Y%m%d%H%M%S")
 

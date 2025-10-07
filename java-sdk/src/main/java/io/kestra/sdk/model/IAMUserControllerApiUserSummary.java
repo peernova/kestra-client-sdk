@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.kestra.sdk.model.IAMUserControllerApiTenant;
+import io.kestra.sdk.model.ApiTenantSummary;
 import io.kestra.sdk.model.IAMUserControllerApiUserAuth;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -56,7 +56,7 @@ public class IAMUserControllerApiUserSummary {
 
   public static final String JSON_PROPERTY_TENANTS = "tenants";
   @javax.annotation.Nonnull
-  private List<IAMUserControllerApiTenant> tenants = new ArrayList<>();
+  private List<ApiTenantSummary> tenants = new ArrayList<>();
 
   public static final String JSON_PROPERTY_AUTHS = "auths";
   @javax.annotation.Nonnull
@@ -144,13 +144,13 @@ public class IAMUserControllerApiUserSummary {
     this.displayName = displayName;
   }
 
-  public IAMUserControllerApiUserSummary tenants(@javax.annotation.Nonnull List<IAMUserControllerApiTenant> tenants) {
+  public IAMUserControllerApiUserSummary tenants(@javax.annotation.Nonnull List<ApiTenantSummary> tenants) {
     
     this.tenants = tenants;
     return this;
   }
 
-  public IAMUserControllerApiUserSummary addTenantsItem(IAMUserControllerApiTenant tenantsItem) {
+  public IAMUserControllerApiUserSummary addTenantsItem(ApiTenantSummary tenantsItem) {
     if (this.tenants == null) {
       this.tenants = new ArrayList<>();
     }
@@ -166,14 +166,14 @@ public class IAMUserControllerApiUserSummary {
   @JsonProperty(JSON_PROPERTY_TENANTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<IAMUserControllerApiTenant> getTenants() {
+  public List<ApiTenantSummary> getTenants() {
     return tenants;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TENANTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTenants(@javax.annotation.Nonnull List<IAMUserControllerApiTenant> tenants) {
+  public void setTenants(@javax.annotation.Nonnull List<ApiTenantSummary> tenants) {
     this.tenants = tenants;
   }
 

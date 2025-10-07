@@ -5,22 +5,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**roles** | [**List[ApiRoleSummary]**](ApiRoleSummary.md) |  | 
-**groups** | [**List[ApiGroupSummary]**](ApiGroupSummary.md) |  | 
-**tenant_id** | **str** |  | 
-**email** | **str** |  | 
-**status** | [**InvitationInvitationStatus**](InvitationInvitationStatus.md) |  | 
-**sent_at** | **datetime** |  | 
-**expired_at** | **datetime** |  | 
-**accepted_at** | **datetime** |  | 
-**super_admin** | **bool** |  | 
-**link** | **str** |  | 
+**id** | **str** |  | [optional] 
+**roles** | [**List[ApiRoleSummary]**](ApiRoleSummary.md) |  | [optional] 
+**groups** | [**List[ApiGroupSummary]**](ApiGroupSummary.md) |  | [optional] 
+**tenant_id** | **str** |  | [optional] 
+**email** | **str** |  | [optional] 
+**status** | [**InvitationInvitationStatus**](InvitationInvitationStatus.md) |  | [optional] 
+**sent_at** | **datetime** |  | [optional] 
+**expired_at** | **datetime** |  | [optional] 
+**accepted_at** | **datetime** |  | [optional] 
+**super_admin** | **bool** |  | [optional] 
+**link** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.iam_invitation_controller_api_invitation_detail import IAMInvitationControllerApiInvitationDetail
+from kestrapy.models.iam_invitation_controller_api_invitation_detail import IAMInvitationControllerApiInvitationDetail
 
 # TODO update the JSON string below
 json = "{}"

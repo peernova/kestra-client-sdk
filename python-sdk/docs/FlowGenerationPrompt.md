@@ -5,13 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**conversation_id** | **str** |  | 
 **user_prompt** | **str** |  | 
-**flow_yaml** | **str** |  | 
+**flow_yaml** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.flow_generation_prompt import FlowGenerationPrompt
+from kestrapy.models.flow_generation_prompt import FlowGenerationPrompt
 
 # TODO update the JSON string below
 json = "{}"

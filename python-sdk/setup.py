@@ -11,6 +11,7 @@
     Do not edit the class manually.
 """  # noqa: E501
 
+
 from setuptools import setup, find_packages  # noqa: H301
 
 # To install the library, run the following
@@ -19,8 +20,8 @@ from setuptools import setup, find_packages  # noqa: H301
 #
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
-NAME = "@kestra-io/kestra_api_client"
-VERSION = "1.0.0-beta5"
+NAME = "@kestra-io/kestrapy"
+VERSION = "v1.0.2"
 PYTHON_REQUIRES = ">= 3.9"
 REQUIRES = [
     "urllib3 >= 2.1.0, < 3.0.0",
@@ -44,5 +45,5 @@ setup(
     long_description="""\
     All API operations, except for Superadmin-only endpoints, require a tenant identifier in the HTTP path.&lt;br/&gt; Endpoints designated as Superadmin-only are not tenant-scoped.
     """,  # noqa: E501
-    package_data={"kestra_api_client": ["py.typed"]},
+    package_data={"kestrapy": ["py.typed"]},
 )

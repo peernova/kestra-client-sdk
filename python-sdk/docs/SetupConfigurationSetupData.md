@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**username** | **str** |  | 
-**password** | **str** |  | 
-**tenant** | [**Tenant**](Tenant.md) |  | 
+**username** | **str** |  | [optional] 
+**password** | **str** |  | [optional] 
+**tenant** | [**Tenant**](Tenant.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.setup_configuration_setup_data import SetupConfigurationSetupData
+from kestrapy.models.setup_configuration_setup_data import SetupConfigurationSetupData
 
 # TODO update the JSON string below
 json = "{}"

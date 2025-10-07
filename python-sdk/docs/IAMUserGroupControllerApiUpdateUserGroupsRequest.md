@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**group_ids** | **List[str]** |  | 
+**group_ids** | **List[str]** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.iam_user_group_controller_api_update_user_groups_request import IAMUserGroupControllerApiUpdateUserGroupsRequest
+from kestrapy.models.iam_user_group_controller_api_update_user_groups_request import IAMUserGroupControllerApiUpdateUserGroupsRequest
 
 # TODO update the JSON string below
 json = "{}"

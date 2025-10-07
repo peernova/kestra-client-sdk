@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | 
-**color** | **str** |  | 
+**name** | **str** |  | [optional] 
+**color** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.misc_controller_environment import MiscControllerEnvironment
+from kestrapy.models.misc_controller_environment import MiscControllerEnvironment
 
 # TODO update the JSON string below
 json = "{}"

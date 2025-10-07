@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**source** | **str** |  | 
-**target** | **str** |  | 
-**relation** | [**Relation**](Relation.md) |  | 
+**source** | **str** |  | [optional] 
+**target** | **str** |  | [optional] 
+**relation** | [**Relation**](Relation.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.flow_graph_edge import FlowGraphEdge
+from kestrapy.models.flow_graph_edge import FlowGraphEdge
 
 # TODO update the JSON string below
 json = "{}"

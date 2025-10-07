@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **str** |  | 
-**classes** | [**List[InstanceControllerApiPluginVersionDetailsApiPluginClass]**](InstanceControllerApiPluginVersionDetailsApiPluginClass.md) |  | 
+**type** | **str** |  | [optional] 
+**classes** | [**List[InstanceControllerApiPluginVersionDetailsApiPluginClass]**](InstanceControllerApiPluginVersionDetailsApiPluginClass.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.instance_controller_api_plugin_version_details_api_plugin_classes import InstanceControllerApiPluginVersionDetailsApiPluginClasses
+from kestrapy.models.instance_controller_api_plugin_version_details_api_plugin_classes import InstanceControllerApiPluginVersionDetailsApiPluginClasses
 
 # TODO update the JSON string below
 json = "{}"

@@ -5,17 +5,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**super_admin** | **bool** |  | 
-**restricted** | **bool** |  | 
-**profile** | [**MeControllerApiProfile**](MeControllerApiProfile.md) |  | 
-**auths** | [**List[IAMTenantAccessControllerApiAuthentication]**](IAMTenantAccessControllerApiAuthentication.md) |  | 
-**tenants** | [**List[MeControllerApiTenant]**](MeControllerApiTenant.md) |  | 
+**id** | **str** |  | [optional] 
+**super_admin** | **bool** |  | [optional] 
+**restricted** | **bool** |  | [optional] 
+**profile** | [**MeControllerApiProfile**](MeControllerApiProfile.md) |  | [optional] 
+**auths** | [**List[IAMTenantAccessControllerApiAuthentication]**](IAMTenantAccessControllerApiAuthentication.md) |  | [optional] 
+**tenants** | [**List[MeControllerApiTenant]**](MeControllerApiTenant.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.me_controller_api_me import MeControllerApiMe
+from kestrapy.models.me_controller_api_me import MeControllerApiMe
 
 # TODO update the JSON string below
 json = "{}"

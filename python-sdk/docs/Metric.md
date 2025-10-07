@@ -5,17 +5,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | 
-**type** | **str** |  | 
-**description** | **str** |  | 
-**base_unit** | **str** |  | 
-**tags** | [**List[MetricTag]**](MetricTag.md) |  | 
-**value** | **object** |  | 
+**name** | **str** |  | [optional] 
+**type** | **str** |  | [optional] 
+**description** | **str** |  | [optional] 
+**base_unit** | **str** |  | [optional] 
+**tags** | [**List[MetricTag]**](MetricTag.md) |  | [optional] 
+**value** | **object** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.metric import Metric
+from kestrapy.models.metric import Metric
 
 # TODO update the JSON string below
 json = "{}"

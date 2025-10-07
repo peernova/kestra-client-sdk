@@ -5,16 +5,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**request_made** | [**TestSuiteServiceRunByQueryRequest**](TestSuiteServiceRunByQueryRequest.md) |  | 
-**tenant_id** | **str** |  | 
-**number_of_test_suites_to_be_run** | **int** |  | 
-**number_of_test_cases_to_be_run** | **int** |  | 
-**results** | [**List[TestSuiteRunResult]**](TestSuiteRunResult.md) |  | 
+**request_made** | [**TestSuiteServiceRunByQueryRequest**](TestSuiteServiceRunByQueryRequest.md) |  | [optional] 
+**tenant_id** | **str** |  | [optional] 
+**number_of_test_suites_to_be_run** | **int** |  | [optional] 
+**number_of_test_cases_to_be_run** | **int** |  | [optional] 
+**results** | [**List[TestSuiteRunResult]**](TestSuiteRunResult.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.test_suite_service_test_run_by_query_result import TestSuiteServiceTestRunByQueryResult
+from kestrapy.models.test_suite_service_test_run_by_query_result import TestSuiteServiceTestRunByQueryResult
 
 # TODO update the JSON string below
 json = "{}"

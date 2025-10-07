@@ -5,19 +5,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**title** | **str** |  | 
-**description** | **str** |  | 
-**included_tasks** | **List[str]** |  | 
-**tags** | **List[str]** |  | 
-**published_at** | **datetime** |  | 
+**id** | **str** |  | [optional] 
+**title** | **str** |  | [optional] 
+**description** | **str** |  | [optional] 
+**included_tasks** | **List[str]** |  | [optional] 
+**tags** | **List[str]** |  | [optional] 
+**published_at** | **datetime** |  | [optional] 
 **source** | **str** |  | [optional] 
 **kind** | [**BlueprintControllerKind**](BlueprintControllerKind.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.blueprint_controller_api_blueprint_item_with_source import BlueprintControllerApiBlueprintItemWithSource
+from kestrapy.models.blueprint_controller_api_blueprint_item_with_source import BlueprintControllerApiBlueprintItemWithSource
 
 # TODO update the JSON string below
 json = "{}"

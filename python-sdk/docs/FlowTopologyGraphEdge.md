@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**source** | **str** |  | 
-**target** | **str** |  | 
-**relation** | [**FlowRelation**](FlowRelation.md) |  | 
+**source** | **str** |  | [optional] 
+**target** | **str** |  | [optional] 
+**relation** | [**FlowRelation**](FlowRelation.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.flow_topology_graph_edge import FlowTopologyGraphEdge
+from kestrapy.models.flow_topology_graph_edge import FlowTopologyGraphEdge
 
 # TODO update the JSON string below
 json = "{}"

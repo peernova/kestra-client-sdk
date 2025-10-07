@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**token** | **str** |  | 
-**password** | **str** |  | 
+**token** | **str** |  | [optional] 
+**password** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.auth_controller_reset_password_request import AuthControllerResetPasswordRequest
+from kestrapy.models.auth_controller_reset_password_request import AuthControllerResetPasswordRequest
 
 # TODO update the JSON string below
 json = "{}"

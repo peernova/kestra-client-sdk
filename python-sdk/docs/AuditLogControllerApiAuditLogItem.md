@@ -5,14 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**audit_log** | [**AuditLog**](AuditLog.md) |  | 
-**user** | [**ApiUser**](ApiUser.md) |  | 
-**permission** | [**Permission**](Permission.md) |  | 
+**audit_log** | [**AuditLog**](AuditLog.md) |  | [optional] 
+**user** | [**ApiUser**](ApiUser.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.audit_log_controller_api_audit_log_item import AuditLogControllerApiAuditLogItem
+from kestrapy.models.audit_log_controller_api_audit_log_item import AuditLogControllerApiAuditLogItem
 
 # TODO update the JSON string below
 json = "{}"

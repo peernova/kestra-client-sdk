@@ -8,12 +8,12 @@ Name | Type | Description | Notes
 **id** | **str** |  | 
 **type** | [**SLAType**](SLAType.md) |  | 
 **behavior** | [**SLABehavior**](SLABehavior.md) |  | 
-**labels** | [**FlowWithSourceAllOfLabels**](FlowWithSourceAllOfLabels.md) |  | [optional] 
+**labels** | [**SLALabels**](SLALabels.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.sla import SLA
+from kestrapy.models.sla import SLA
 
 # TODO update the JSON string below
 json = "{}"

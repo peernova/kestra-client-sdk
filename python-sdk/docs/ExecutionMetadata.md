@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attempt_number** | **int** |  | 
-**original_created_date** | **datetime** |  | 
+**attempt_number** | **int** |  | [optional] 
+**original_created_date** | **datetime** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.execution_metadata import ExecutionMetadata
+from kestrapy.models.execution_metadata import ExecutionMetadata
 
 # TODO update the JSON string below
 json = "{}"

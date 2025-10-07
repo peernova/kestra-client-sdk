@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
 **type** | **str** |  | 
-**variables** | **Dict[str, object]** |  | 
-**log_file** | **str** |  | 
+**variables** | **Dict[str, object]** |  | [optional] 
+**log_file** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.execution_trigger import ExecutionTrigger
+from kestrapy.models.execution_trigger import ExecutionTrigger
 
 # TODO update the JSON string below
 json = "{}"

@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | [**ServiceType**](ServiceType.md) |  | 
-**total** | **int** |  | 
+**type** | [**ServiceType**](ServiceType.md) |  | [optional] 
+**total** | **int** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.instance_controller_api_active_service import InstanceControllerApiActiveService
+from kestrapy.models.instance_controller_api_active_service import InstanceControllerApiActiveService
 
 # TODO update the JSON string below
 json = "{}"

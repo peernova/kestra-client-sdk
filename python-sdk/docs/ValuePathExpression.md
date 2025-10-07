@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attribute_path** | [**AttributeReference**](AttributeReference.md) |  | 
+**attribute_path** | [**AttributeReference**](AttributeReference.md) |  | [optional] 
 **attribute_expression** | **object** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.value_path_expression import ValuePathExpression
+from kestrapy.models.value_path_expression import ValuePathExpression
 
 # TODO update the JSON string below
 json = "{}"

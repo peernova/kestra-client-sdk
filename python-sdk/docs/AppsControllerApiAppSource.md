@@ -5,19 +5,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uid** | **str** |  | 
-**name** | **str** |  | 
-**namespace** | **str** |  | 
-**tags** | **List[str]** |  | 
-**disabled** | **bool** |  | 
-**source** | **str** |  | 
-**created** | **datetime** |  | 
-**updated** | **datetime** |  | 
+**uid** | **str** |  | [optional] 
+**name** | **str** |  | [optional] 
+**namespace** | **str** |  | [optional] 
+**tags** | **List[str]** |  | [optional] 
+**disabled** | **bool** |  | [optional] 
+**source** | **str** |  | [optional] 
+**created** | **datetime** |  | [optional] 
+**updated** | **datetime** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.apps_controller_api_app_source import AppsControllerApiAppSource
+from kestrapy.models.apps_controller_api_app_source import AppsControllerApiAppSource
 
 # TODO update the JSON string below
 json = "{}"

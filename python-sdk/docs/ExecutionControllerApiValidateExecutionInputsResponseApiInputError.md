@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **str** |  | 
+**message** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.execution_controller_api_validate_execution_inputs_response_api_input_error import ExecutionControllerApiValidateExecutionInputsResponseApiInputError
+from kestrapy.models.execution_controller_api_validate_execution_inputs_response_api_input_error import ExecutionControllerApiValidateExecutionInputsResponseApiInputError
 
 # TODO update the JSON string below
 json = "{}"

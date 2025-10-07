@@ -11,19 +11,19 @@ Name | Type | Description | Notes
 **namespace** | **str** |  | 
 **flow_id** | **str** |  | 
 **task_id** | **str** |  | 
-**parent_task_run_id** | **str** |  | 
-**value** | **str** |  | 
-**attempts** | [**List[TaskRunAttempt]**](TaskRunAttempt.md) |  | 
-**outputs** | **Dict[str, object]** |  | 
+**parent_task_run_id** | **str** |  | [optional] 
+**value** | **str** |  | [optional] 
+**attempts** | [**List[TaskRunAttempt]**](TaskRunAttempt.md) |  | [optional] 
+**outputs** | **Dict[str, object]** |  | [optional] 
 **state** | [**State**](State.md) |  | 
-**iteration** | **int** |  | 
-**dynamic** | **bool** |  | 
+**iteration** | **int** |  | [optional] 
+**dynamic** | **bool** |  | [optional] 
 **force_execution** | **bool** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.task_run import TaskRun
+from kestrapy.models.task_run import TaskRun
 
 # TODO update the JSON string below
 json = "{}"

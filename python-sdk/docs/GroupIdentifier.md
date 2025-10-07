@@ -5,15 +5,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tenant_id** | **str** |  | 
-**group_id** | **str** |  | 
-**membership** | [**GroupIdentifierMembership**](GroupIdentifierMembership.md) |  | 
-**managed_externally** | **bool** |  | 
+**tenant_id** | **str** |  | [optional] 
+**group_id** | **str** |  | [optional] 
+**membership** | [**GroupIdentifierMembership**](GroupIdentifierMembership.md) |  | [optional] 
+**managed_externally** | **bool** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.group_identifier import GroupIdentifier
+from kestrapy.models.group_identifier import GroupIdentifier
 
 # TODO update the JSON string below
 json = "{}"

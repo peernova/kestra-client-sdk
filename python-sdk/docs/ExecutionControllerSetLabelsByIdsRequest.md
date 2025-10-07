@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**executions_id** | **List[str]** |  | 
-**execution_labels** | [**List[Label]**](Label.md) |  | 
+**executions_id** | **List[str]** |  | [optional] 
+**execution_labels** | [**List[Label]**](Label.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.execution_controller_set_labels_by_ids_request import ExecutionControllerSetLabelsByIdsRequest
+from kestrapy.models.execution_controller_set_labels_by_ids_request import ExecutionControllerSetLabelsByIdsRequest
 
 # TODO update the JSON string below
 json = "{}"

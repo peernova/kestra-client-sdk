@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**namespace** | **str** |  | 
-**flow_id** | **str** |  | 
+**namespace** | **str** |  | [optional] 
+**flow_id** | **str** |  | [optional] 
 **revision** | **int** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.executable_task_subflow_id import ExecutableTaskSubflowId
+from kestrapy.models.executable_task_subflow_id import ExecutableTaskSubflowId
 
 # TODO update the JSON string below
 json = "{}"

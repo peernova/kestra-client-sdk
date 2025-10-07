@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**relation_type** | [**RelationType**](RelationType.md) |  | 
-**value** | **str** |  | 
+**relation_type** | [**RelationType**](RelationType.md) |  | [optional] 
+**value** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.relation import Relation
+from kestrapy.models.relation import Relation
 
 # TODO update the JSON string below
 json = "{}"

@@ -5,17 +5,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **str** |  | 
-**expiry** | **datetime** |  | 
-**expired** | **bool** |  | 
-**max_servers** | **int** |  | 
-**standalone** | **bool** |  | 
-**worker_groups** | **bool** |  | 
+**type** | **str** |  | [optional] 
+**expiry** | **datetime** |  | [optional] 
+**expired** | **bool** |  | [optional] 
+**max_servers** | **int** |  | [optional] 
+**standalone** | **bool** |  | [optional] 
+**worker_groups** | **bool** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.misc_controller_license_info import MiscControllerLicenseInfo
+from kestrapy.models.misc_controller_license_info import MiscControllerLicenseInfo
 
 # TODO update the JSON string below
 json = "{}"

@@ -5,17 +5,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**name** | **str** |  | 
-**namespace** | **str** |  | 
-**origin** | [**RBACServiceRoleAssignmentRoleOrigin**](RBACServiceRoleAssignmentRoleOrigin.md) |  | 
-**source_id** | **str** |  | 
-**permissions** | [**List[IAMTenantAccessControllerApiUserPermission]**](IAMTenantAccessControllerApiUserPermission.md) |  | 
+**id** | **str** |  | [optional] 
+**name** | **str** |  | [optional] 
+**namespace** | **str** |  | [optional] 
+**origin** | [**RBACServiceRoleAssignmentRoleOrigin**](RBACServiceRoleAssignmentRoleOrigin.md) |  | [optional] 
+**source_id** | **str** |  | [optional] 
+**permissions** | [**List[IAMTenantAccessControllerApiUserPermission]**](IAMTenantAccessControllerApiUserPermission.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.iam_tenant_access_controller_api_role_assignment import IAMTenantAccessControllerApiRoleAssignment
+from kestrapy.models.iam_tenant_access_controller_api_role_assignment import IAMTenantAccessControllerApiRoleAssignment
 
 # TODO update the JSON string below
 json = "{}"

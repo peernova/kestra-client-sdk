@@ -5,16 +5,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**input** | [**InputObject**](InputObject.md) |  | 
-**value** | **object** |  | 
-**enabled** | **bool** |  | 
-**is_default** | **bool** |  | 
-**errors** | [**List[ExecutionControllerApiValidateExecutionInputsResponseApiInputError]**](ExecutionControllerApiValidateExecutionInputsResponseApiInputError.md) |  | 
+**input** | [**InputObject**](InputObject.md) |  | [optional] 
+**value** | **object** |  | [optional] 
+**enabled** | **bool** |  | [optional] 
+**is_default** | **bool** |  | [optional] 
+**errors** | [**List[ExecutionControllerApiValidateExecutionInputsResponseApiInputError]**](ExecutionControllerApiValidateExecutionInputsResponseApiInputError.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.execution_controller_api_validate_execution_inputs_response_api_input_and_value import ExecutionControllerApiValidateExecutionInputsResponseApiInputAndValue
+from kestrapy.models.execution_controller_api_validate_execution_inputs_response_api_input_and_value import ExecutionControllerApiValidateExecutionInputsResponseApiInputAndValue
 
 # TODO update the JSON string below
 json = "{}"

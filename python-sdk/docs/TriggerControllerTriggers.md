@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**abstract_trigger** | [**AbstractTrigger**](AbstractTrigger.md) |  | 
-**trigger_context** | [**Trigger**](Trigger.md) |  | 
+**abstract_trigger** | [**AbstractTrigger**](AbstractTrigger.md) |  | [optional] 
+**trigger_context** | [**Trigger**](Trigger.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.trigger_controller_triggers import TriggerControllerTriggers
+from kestrapy.models.trigger_controller_triggers import TriggerControllerTriggers
 
 # TODO update the JSON string below
 json = "{}"

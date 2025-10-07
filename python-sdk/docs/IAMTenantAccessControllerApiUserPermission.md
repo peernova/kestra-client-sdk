@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**permission** | [**Permission**](Permission.md) |  | 
-**actions** | [**List[Action]**](Action.md) |  | 
+**permission** | [**Permission**](Permission.md) |  | [optional] 
+**actions** | [**List[Action]**](Action.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.iam_tenant_access_controller_api_user_permission import IAMTenantAccessControllerApiUserPermission
+from kestrapy.models.iam_tenant_access_controller_api_user_permission import IAMTenantAccessControllerApiUserPermission
 
 # TODO update the JSON string below
 json = "{}"

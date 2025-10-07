@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **str** |  | 
-**versions** | **List[str]** |  | 
+**type** | **str** |  | [optional] 
+**versions** | **List[str]** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.plugin_controller_api_plugin_versions import PluginControllerApiPluginVersions
+from kestrapy.models.plugin_controller_api_plugin_versions import PluginControllerApiPluginVersions
 
 # TODO update the JSON string below
 json = "{}"

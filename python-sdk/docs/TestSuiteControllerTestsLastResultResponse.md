@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | [**List[TestSuiteRunResult]**](TestSuiteRunResult.md) |  | 
+**results** | [**List[TestSuiteRunResult]**](TestSuiteRunResult.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.test_suite_controller_tests_last_result_response import TestSuiteControllerTestsLastResultResponse
+from kestrapy.models.test_suite_controller_tests_last_result_response import TestSuiteControllerTestsLastResultResponse
 
 # TODO update the JSON string below
 json = "{}"

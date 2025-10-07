@@ -7,12 +7,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **login_password** | **bool** |  | [optional] 
 **mails_enabled** | **bool** |  | [optional] 
+**passwordless** | **bool** |  | [optional] 
 **oauths** | **List[str]** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.auth_controller_auth import AuthControllerAuth
+from kestrapy.models.auth_controller_auth import AuthControllerAuth
 
 # TODO update the JSON string below
 json = "{}"

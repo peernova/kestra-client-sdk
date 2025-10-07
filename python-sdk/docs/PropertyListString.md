@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**expression** | **str** |  | 
+**expression** | **str** |  | [optional] 
 **value** | **List[str]** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.property_list_string import PropertyListString
+from kestrapy.models.property_list_string import PropertyListString
 
 # TODO update the JSON string below
 json = "{}"

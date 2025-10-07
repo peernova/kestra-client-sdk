@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**keys** | **List[str]** |  | 
+**keys** | **List[str]** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.kv_controller_api_delete_bulk_request import KVControllerApiDeleteBulkRequest
+from kestrapy.models.kv_controller_api_delete_bulk_request import KVControllerApiDeleteBulkRequest
 
 # TODO update the JSON string below
 json = "{}"

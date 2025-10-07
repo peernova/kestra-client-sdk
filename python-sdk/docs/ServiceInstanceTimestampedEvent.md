@@ -5,15 +5,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ts** | **datetime** |  | 
-**value** | **str** |  | 
-**type** | **str** |  | 
-**state** | [**ServiceServiceState**](ServiceServiceState.md) |  | 
+**ts** | **datetime** |  | [optional] 
+**value** | **str** |  | [optional] 
+**type** | **str** |  | [optional] 
+**state** | [**ServiceServiceState**](ServiceServiceState.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.service_instance_timestamped_event import ServiceInstanceTimestampedEvent
+from kestrapy.models.service_instance_timestamped_event import ServiceInstanceTimestampedEvent
 
 # TODO update the JSON string below
 json = "{}"

@@ -5,17 +5,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**group_id** | **str** |  | 
-**artifact_id** | **str** |  | 
-**extension** | **str** |  | 
-**classifier** | **str** |  | 
-**version** | **str** |  | 
-**uri** | **str** |  | 
+**group_id** | **str** |  | [optional] 
+**artifact_id** | **str** |  | [optional] 
+**extension** | **str** |  | [optional] 
+**classifier** | **str** |  | [optional] 
+**version** | **str** |  | [optional] 
+**uri** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.plugin_artifact import PluginArtifact
+from kestrapy.models.plugin_artifact import PluginArtifact
 
 # TODO update the JSON string below
 json = "{}"

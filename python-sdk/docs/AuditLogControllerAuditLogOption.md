@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**var_date** | **datetime** |  | 
-**username** | **str** |  | 
+**id** | **str** |  | [optional] 
+**var_date** | **datetime** |  | [optional] 
+**username** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.audit_log_controller_audit_log_option import AuditLogControllerAuditLogOption
+from kestrapy.models.audit_log_controller_audit_log_option import AuditLogControllerAuditLogOption
 
 # TODO update the JSON string below
 json = "{}"

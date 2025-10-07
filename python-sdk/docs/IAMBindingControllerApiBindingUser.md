@@ -5,15 +5,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**username** | **str** |  | 
-**display_name** | **str** |  | 
-**type** | [**UserType**](UserType.md) |  | 
+**id** | **str** |  | [optional] 
+**username** | **str** |  | [optional] 
+**display_name** | **str** |  | [optional] 
+**type** | [**UserType**](UserType.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.iam_binding_controller_api_binding_user import IAMBindingControllerApiBindingUser
+from kestrapy.models.iam_binding_controller_api_binding_user import IAMBindingControllerApiBindingUser
 
 # TODO update the JSON string below
 json = "{}"

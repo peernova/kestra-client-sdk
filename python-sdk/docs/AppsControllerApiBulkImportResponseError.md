@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**source** | **str** |  | 
-**message** | **str** |  | 
+**source** | **str** |  | [optional] 
+**message** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.apps_controller_api_bulk_import_response_error import AppsControllerApiBulkImportResponseError
+from kestrapy.models.apps_controller_api_bulk_import_response_error import AppsControllerApiBulkImportResponseError
 
 # TODO update the JSON string below
 json = "{}"

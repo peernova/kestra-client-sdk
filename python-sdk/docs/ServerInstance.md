@@ -5,17 +5,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**type** | [**ServerInstanceType**](ServerInstanceType.md) |  | 
-**version** | **str** |  | 
-**hostname** | **str** |  | 
-**props** | **Dict[str, object]** |  | 
-**metrics** | [**List[Metric]**](Metric.md) |  | 
+**id** | **str** |  | [optional] 
+**type** | [**ServerInstanceType**](ServerInstanceType.md) |  | [optional] 
+**version** | **str** |  | [optional] 
+**hostname** | **str** |  | [optional] 
+**props** | **Dict[str, object]** |  | [optional] 
+**metrics** | [**List[Metric]**](Metric.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.server_instance import ServerInstance
+from kestrapy.models.server_instance import ServerInstance
 
 # TODO update the JSON string below
 json = "{}"

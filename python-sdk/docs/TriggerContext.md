@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**disabled** | **bool** |  | [optional] 
+**disabled** | **bool** |  | [optional] [default to False]
 **tenant_id** | **str** |  | [optional] 
 **namespace** | **str** |  | 
 **flow_id** | **str** |  | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from kestra_api_client.models.trigger_context import TriggerContext
+from kestrapy.models.trigger_context import TriggerContext
 
 # TODO update the JSON string below
 json = "{}"

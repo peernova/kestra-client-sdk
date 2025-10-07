@@ -5,17 +5,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**done** | **bool** |  | 
+**done** | **bool** |  | [optional] 
 **repository_type** | **str** |  | [optional] 
 **queue_type** | **str** |  | [optional] 
 **storage_type** | **str** |  | [optional] 
 **secret_type** | **str** |  | [optional] 
-**password_regexp** | **str** |  | 
+**password_regexp** | **str** |  | [optional] 
+**have_auth_not_basic** | **bool** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.setup_configuration import SetupConfiguration
+from kestrapy.models.setup_configuration import SetupConfiguration
 
 # TODO update the JSON string below
 json = "{}"

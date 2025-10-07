@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **meta** | [**Meta**](Meta.md) |  | 
 **id** | **str** |  | [optional] 
 **external_id** | **str** |  | [optional] 
-**resource_type** | **str** |  | 
+**resource_type** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
 **endpoint** | **str** |  | [optional] 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from kestra_api_client.models.resource_type import ResourceType
+from kestrapy.models.resource_type import ResourceType
 
 # TODO update the JSON string below
 json = "{}"

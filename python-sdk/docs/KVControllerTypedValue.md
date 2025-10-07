@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | [**KVType**](KVType.md) |  | 
-**value** | **object** |  | 
+**type** | [**KVType**](KVType.md) |  | [optional] 
+**value** | **object** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.kv_controller_typed_value import KVControllerTypedValue
+from kestrapy.models.kv_controller_typed_value import KVControllerTypedValue
 
 # TODO update the JSON string below
 json = "{}"

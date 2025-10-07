@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**name** | **str** |  | 
+**id** | **str** |  | [optional] 
+**name** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.api_group_summary import ApiGroupSummary
+from kestrapy.models.api_group_summary import ApiGroupSummary
 
 # TODO update the JSON string below
 json = "{}"

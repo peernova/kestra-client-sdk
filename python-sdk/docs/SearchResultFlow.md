@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**model** | [**Flow**](Flow.md) |  | 
-**fragments** | **List[str]** |  | 
+**model** | [**Flow**](Flow.md) |  | [optional] 
+**fragments** | **List[str]** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.search_result_flow import SearchResultFlow
+from kestrapy.models.search_result_flow import SearchResultFlow
 
 # TODO update the JSON string below
 json = "{}"

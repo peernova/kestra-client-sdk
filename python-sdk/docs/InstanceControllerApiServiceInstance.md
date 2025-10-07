@@ -5,17 +5,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**type** | [**ServiceType**](ServiceType.md) |  | 
-**state** | [**ServiceServiceState**](ServiceServiceState.md) |  | 
-**server** | [**InstanceControllerApiServerInstance**](InstanceControllerApiServerInstance.md) |  | 
-**created_at** | **datetime** |  | 
-**updated_at** | **datetime** |  | 
+**id** | **str** |  | [optional] 
+**type** | [**ServiceType**](ServiceType.md) |  | [optional] 
+**state** | [**ServiceServiceState**](ServiceServiceState.md) |  | [optional] 
+**server** | [**InstanceControllerApiServerInstance**](InstanceControllerApiServerInstance.md) |  | [optional] 
+**created_at** | **datetime** |  | [optional] 
+**updated_at** | **datetime** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.instance_controller_api_service_instance import InstanceControllerApiServiceInstance
+from kestrapy.models.instance_controller_api_service_instance import InstanceControllerApiServiceInstance
 
 # TODO update the JSON string below
 json = "{}"

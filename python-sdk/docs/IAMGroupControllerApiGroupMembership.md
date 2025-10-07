@@ -5,15 +5,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**name** | **str** |  | 
-**external** | **bool** |  | 
-**membership** | [**GroupIdentifierMembership**](GroupIdentifierMembership.md) |  | 
+**id** | **str** |  | [optional] 
+**name** | **str** |  | [optional] 
+**external** | **bool** |  | [optional] 
+**membership** | [**GroupIdentifierMembership**](GroupIdentifierMembership.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.iam_group_controller_api_group_membership import IAMGroupControllerApiGroupMembership
+from kestrapy.models.iam_group_controller_api_group_membership import IAMGroupControllerApiGroupMembership
 
 # TODO update the JSON string below
 json = "{}"

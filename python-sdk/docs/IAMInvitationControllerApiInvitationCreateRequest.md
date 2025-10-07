@@ -5,16 +5,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**create_user_if_not_exist** | **bool** |  | 
-**super_admin** | **bool** |  | 
-**roles** | [**List[IAMInvitationControllerApiInvitationRole]**](IAMInvitationControllerApiInvitationRole.md) |  | 
-**groups** | **List[str]** |  | 
+**create_user_if_not_exist** | **bool** |  | [optional] 
+**super_admin** | **bool** |  | [optional] 
+**roles** | [**List[IAMInvitationControllerApiInvitationRole]**](IAMInvitationControllerApiInvitationRole.md) |  | [optional] 
+**groups** | **List[str]** |  | [optional] 
 **email** | **str** |  | 
 
 ## Example
 
 ```python
-from kestra_api_client.models.iam_invitation_controller_api_invitation_create_request import IAMInvitationControllerApiInvitationCreateRequest
+from kestrapy.models.iam_invitation_controller_api_invitation_create_request import IAMInvitationControllerApiInvitationCreateRequest
 
 # TODO update the JSON string below
 json = "{}"

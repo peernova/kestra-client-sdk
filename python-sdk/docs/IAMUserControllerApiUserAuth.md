@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**name** | **str** |  | 
-**type** | **str** |  | 
+**id** | **str** |  | [optional] 
+**name** | **str** |  | [optional] 
+**type** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.iam_user_controller_api_user_auth import IAMUserControllerApiUserAuth
+from kestrapy.models.iam_user_controller_api_user_auth import IAMUserControllerApiUserAuth
 
 # TODO update the JSON string below
 json = "{}"

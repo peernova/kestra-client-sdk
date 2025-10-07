@@ -6,15 +6,15 @@ A User Service Account.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**groups** | [**List[IAMServiceAccountControllerApiGroup]**](IAMServiceAccountControllerApiGroup.md) |  | 
+**groups** | [**List[IAMServiceAccountControllerApiGroup]**](IAMServiceAccountControllerApiGroup.md) |  | [optional] 
 **name** | **str** |  | 
-**description** | **str** |  | 
-**super_admin** | **bool** |  | 
+**description** | **str** |  | [optional] 
+**super_admin** | **bool** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.iam_service_account_controller_api_service_account_request import IAMServiceAccountControllerApiServiceAccountRequest
+from kestrapy.models.iam_service_account_controller_api_service_account_request import IAMServiceAccountControllerApiServiceAccountRequest
 
 # TODO update the JSON string below
 json = "{}"

@@ -5,16 +5,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cluster** | [**AbstractGraph**](AbstractGraph.md) |  | 
-**nodes** | **List[str]** |  | 
-**parents** | **List[str]** |  | 
-**start** | **str** |  | 
-**end** | **str** |  | 
+**cluster** | [**AbstractGraph**](AbstractGraph.md) |  | [optional] 
+**nodes** | **List[str]** |  | [optional] 
+**parents** | **List[str]** |  | [optional] 
+**start** | **str** |  | [optional] 
+**end** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.flow_graph_cluster import FlowGraphCluster
+from kestrapy.models.flow_graph_cluster import FlowGraphCluster
 
 # TODO update the JSON string below
 json = "{}"

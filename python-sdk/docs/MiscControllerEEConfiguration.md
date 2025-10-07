@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uuid** | **str** |  | [optional] 
 **version** | **str** |  | [optional] 
-**edition** | [**MiscControllerEdition**](MiscControllerEdition.md) |  | [optional] 
+**edition** | [**EditionProviderEdition**](EditionProviderEdition.md) |  | [optional] 
 **commit_id** | **str** |  | [optional] 
 **commit_date** | **datetime** |  | [optional] 
 **is_custom_dashboards_enabled** | **bool** |  | [optional] 
@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **resource_to_filters** | [**List[QueryFilterResourceField]**](QueryFilterResourceField.md) |  | [optional] 
 **is_ai_enabled** | **bool** |  | [optional] 
 **is_basic_auth_initialized** | **bool** |  | [optional] 
+**plugins_hash** | **int** |  | [optional] 
 **tenants** | [**MiscControllerTenantConfigurationInfo**](MiscControllerTenantConfigurationInfo.md) |  | [optional] 
 **secrets_enabled** | **bool** |  | [optional] 
 **supported_storages** | [**List[MiscControllerPluginIdAndVersion]**](MiscControllerPluginIdAndVersion.md) |  | [optional] 
@@ -36,11 +37,12 @@ Name | Type | Description | Notes
 **right_sidebar** | [**RightSidebarConfiguration**](RightSidebarConfiguration.md) |  | [optional] 
 **in_maintenance** | **bool** |  | [optional] 
 **password_regexp** | **str** |  | [optional] 
+**passwordless_enabled** | **bool** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.misc_controller_ee_configuration import MiscControllerEEConfiguration
+from kestrapy.models.misc_controller_ee_configuration import MiscControllerEEConfiguration
 
 # TODO update the JSON string below
 json = "{}"

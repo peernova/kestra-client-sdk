@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uids** | **List[str]** |  | 
+**uids** | **List[str]** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.apps_controller_api_bulk_operation_request import AppsControllerApiBulkOperationRequest
+from kestrapy.models.apps_controller_api_bulk_operation_request import AppsControllerApiBulkOperationRequest
 
 # TODO update the JSON string below
 json = "{}"

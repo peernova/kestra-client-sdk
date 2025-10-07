@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | 
-**value** | **str** |  | 
-**operations** | [**List[QueryFilterOperation]**](QueryFilterOperation.md) |  | 
+**name** | **str** |  | [optional] 
+**value** | **str** |  | [optional] 
+**operations** | [**List[QueryFilterOperation]**](QueryFilterOperation.md) |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.query_filter_field_op import QueryFilterFieldOp
+from kestrapy.models.query_filter_field_op import QueryFilterFieldOp
 
 # TODO update the JSON string below
 json = "{}"

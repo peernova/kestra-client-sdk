@@ -5,20 +5,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tenant_id** | **str** |  | 
+**tenant_id** | **str** |  | [optional] 
 **id** | **str** |  | 
 **type** | [**CrudEventType**](CrudEventType.md) |  | 
 **detail** | [**AuditLogDetail**](AuditLogDetail.md) |  | 
 **var_date** | **datetime** |  | 
 **user_id** | **str** |  | 
-**ip_address** | **str** |  | 
-**impersonated_by** | **str** |  | 
-**deleted** | **bool** |  | 
+**ip_address** | **str** |  | [optional] 
+**impersonated_by** | **str** |  | [optional] 
+**deleted** | **bool** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.base_audit_log import BaseAuditLog
+from kestrapy.models.base_audit_log import BaseAuditLog
 
 # TODO update the JSON string below
 json = "{}"

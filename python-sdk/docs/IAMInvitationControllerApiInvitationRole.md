@@ -6,12 +6,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
-**namespaces** | **List[str]** |  | 
+**namespaces** | **List[str]** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.iam_invitation_controller_api_invitation_role import IAMInvitationControllerApiInvitationRole
+from kestrapy.models.iam_invitation_controller_api_invitation_role import IAMInvitationControllerApiInvitationRole
 
 # TODO update the JSON string below
 json = "{}"

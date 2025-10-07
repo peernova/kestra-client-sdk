@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tags** | **List[str]** |  | 
+**tags** | **List[str]** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.apps_controller_api_app_tags import AppsControllerApiAppTags
+from kestrapy.models.apps_controller_api_app_tags import AppsControllerApiAppTags
 
 # TODO update the JSON string below
 json = "{}"

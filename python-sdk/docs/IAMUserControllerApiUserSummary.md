@@ -5,17 +5,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**username** | **str** |  | 
-**display_name** | **str** |  | 
-**tenants** | [**List[IAMUserControllerApiTenant]**](IAMUserControllerApiTenant.md) |  | 
-**auths** | [**List[IAMUserControllerApiUserAuth]**](IAMUserControllerApiUserAuth.md) |  | 
-**super_admin** | **bool** |  | 
+**id** | **str** |  | [optional] 
+**username** | **str** |  | [optional] 
+**display_name** | **str** |  | [optional] 
+**tenants** | [**List[ApiTenantSummary]**](ApiTenantSummary.md) |  | [optional] 
+**auths** | [**List[IAMUserControllerApiUserAuth]**](IAMUserControllerApiUserAuth.md) |  | [optional] 
+**super_admin** | **bool** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.iam_user_controller_api_user_summary import IAMUserControllerApiUserSummary
+from kestrapy.models.iam_user_controller_api_user_summary import IAMUserControllerApiUserSummary
 
 # TODO update the JSON string below
 json = "{}"

@@ -6,13 +6,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uid** | **str** |  | 
-**namespace** | **str** |  | 
-**id** | **str** |  | 
+**namespace** | **str** |  | [optional] 
+**id** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.flow_node import FlowNode
+from kestrapy.models.flow_node import FlowNode
 
 # TODO update the JSON string below
 json = "{}"

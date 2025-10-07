@@ -6,12 +6,12 @@ ApiWorkerGroupList.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**worker_groups** | [**List[InstanceControllerApiWorkerGroupItem]**](InstanceControllerApiWorkerGroupItem.md) | The list of worker groups. | 
+**worker_groups** | [**List[InstanceControllerApiWorkerGroupItem]**](InstanceControllerApiWorkerGroupItem.md) | The list of worker groups. | [optional] 
 
 ## Example
 
 ```python
-from kestra_api_client.models.instance_controller_api_worker_group_list import InstanceControllerApiWorkerGroupList
+from kestrapy.models.instance_controller_api_worker_group_list import InstanceControllerApiWorkerGroupList
 
 # TODO update the JSON string below
 json = "{}"

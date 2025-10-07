@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
 **description** | **str** |  | [optional] 
-**value** | **object** |  | 
+**value** | [**OutputValue**](OutputValue.md) |  | 
 **type** | [**Type**](Type.md) |  | 
 **display_name** | **str** |  | [optional] 
 **required** | **bool** |  | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from kestra_api_client.models.output import Output
+from kestrapy.models.output import Output
 
 # TODO update the JSON string below
 json = "{}"
