@@ -19,6 +19,7 @@ import java.time.OffsetDateTime;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JavaType;
+import lombok.extern.slf4j.Slf4j;
 import org.openapitools.jackson.nullable.JsonNullableModule;
 
 import org.apache.hc.client5.http.cookie.BasicCookieStore;
@@ -80,6 +81,7 @@ import io.kestra.sdk.internal.auth.Authentication;
 import io.kestra.sdk.internal.auth.HttpBasicAuth;
 import io.kestra.sdk.internal.auth.HttpBearerAuth;
 
+@Slf4j
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0-SNAPSHOT")
 public class ApiClient extends JavaTimeFormatter {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
@@ -1036,7 +1038,9 @@ public class ApiClient extends JavaTimeFormatter {
       builder.setEntity(new StringEntity("", contentTypeObj));
     }
 
-    try (CloseableHttpResponse response = httpClient.execute(builder.build(), context)) {
+    log.info("Kestra api request [{}]", builder.getEntity());
+
+    try (var response = httpClient.execute(builder.build(), context)) {
       return processResponse(response, returnType);
     } catch (IOException | ParseException e) {
       throw new ApiException(e);
