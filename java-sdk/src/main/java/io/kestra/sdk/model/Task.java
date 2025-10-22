@@ -13,6 +13,7 @@
 
 package io.kestra.sdk.model;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -66,7 +67,11 @@ public class Task {
 
   public static final String JSON_PROPERTY_RETRY = "retry";
   @javax.annotation.Nullable
-  private Object retry;
+  private Retry retry;
+
+    public static final String JSON_PROPERTY_TASKS = "tasks";
+    @javax.annotation.Nullable
+  private List<DependTask> tasks;
 
   public static final String JSON_PROPERTY_TIMEOUT = "timeout";
   @javax.annotation.Nullable
@@ -265,7 +270,32 @@ public class Task {
     this.description = description;
   }
 
-  public Task retry(@javax.annotation.Nullable Object retry) {
+    /**
+     * Get description
+     * @return description
+     */
+    @javax.annotation.Nullable
+    @JsonProperty(JSON_PROPERTY_TASKS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+    public List<DependTask> getTasks() {
+        return tasks;
+    }
+
+
+    @JsonProperty(JSON_PROPERTY_TASKS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setTasks(@javax.annotation.Nullable List<DependTask> tasks) {
+        this.tasks = tasks;
+    }
+
+    public Task tasks(@javax.annotation.Nullable List<DependTask> tasks) {
+
+        this.tasks = tasks;
+        return this;
+    }
+
+  public Task retry(@javax.annotation.Nullable Retry retry) {
 
     this.retry = retry;
     return this;
@@ -279,14 +309,14 @@ public class Task {
   @JsonProperty(JSON_PROPERTY_RETRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Object getRetry() {
+  public Retry getRetry() {
     return retry;
   }
 
 
   @JsonProperty(JSON_PROPERTY_RETRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRetry(@javax.annotation.Nullable Object retry) {
+  public void setRetry(@javax.annotation.Nullable Retry retry) {
     this.retry = retry;
   }
 
