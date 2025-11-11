@@ -2553,8 +2553,8 @@ public class ExecutionsApi extends BaseApi {
    * @return Execution
    * @throws ApiException if fails to make API call
    */
-  public Execution replayExecution(@javax.annotation.Nonnull String executionId, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String taskRunId, @javax.annotation.Nullable Integer revision, @javax.annotation.Nullable String breakpoints) throws ApiException {
-    return this.replayExecution(executionId, tenant, taskRunId, revision, breakpoints, Collections.emptyMap());
+  public Execution replayExecution(@javax.annotation.Nonnull String executionId, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String taskRunId, @javax.annotation.Nullable Integer revision, @javax.annotation.Nullable String breakpoints, @javax.annotation.Nullable Map<String, Object> input) throws ApiException {
+    return this.replayExecution(executionId, tenant, taskRunId, revision, breakpoints, Collections.emptyMap(), input);
   }
 
 
@@ -2570,7 +2570,7 @@ public class ExecutionsApi extends BaseApi {
    * @return Execution
    * @throws ApiException if fails to make API call
    */
-  public Execution replayExecution(@javax.annotation.Nonnull String executionId, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String taskRunId, @javax.annotation.Nullable Integer revision, @javax.annotation.Nullable String breakpoints, Map<String, String> additionalHeaders) throws ApiException {
+  public Execution replayExecution(@javax.annotation.Nonnull String executionId, @javax.annotation.Nonnull String tenant, @javax.annotation.Nullable String taskRunId, @javax.annotation.Nullable Integer revision, @javax.annotation.Nullable String breakpoints, Map<String, String> additionalHeaders, @javax.annotation.Nullable Map<String, Object> input) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'executionId' is set

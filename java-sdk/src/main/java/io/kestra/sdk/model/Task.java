@@ -13,9 +13,13 @@
 
 package io.kestra.sdk.model;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Arrays;
+
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -116,6 +120,22 @@ public class Task {
     public static final String JSON_PROPERTY_MESSAGE = "message";
     @javax.annotation.Nullable
     private String message;
+
+    private Map<String, Object> properties = new HashMap<>();
+
+    @JsonAnySetter
+    public void setProperties(String name, Object value) {
+        properties.put(name, value);
+    }
+
+    public Map<String, Object> getProperties() {
+        return properties;
+    }
+
+    public Task properties(Map<String, Object> properties) {
+        this.properties = properties;
+        return this;
+    }
 
   public Task() {
   }
