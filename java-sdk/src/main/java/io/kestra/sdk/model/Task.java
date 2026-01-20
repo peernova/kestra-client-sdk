@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import io.kestra.sdk.internal.StringOrArrayDeserializer;
 import io.kestra.sdk.model.Cache;
 import io.kestra.sdk.model.Level;
 import io.kestra.sdk.model.PropertyDuration;
@@ -117,11 +119,7 @@ public class Task {
     @javax.annotation.Nullable
     private String commands;
 
-    public static final String JSON_PROPERTY_MESSAGE = "message";
-    @javax.annotation.Nullable
-    private String message;
-
-    private Map<String, Object> properties = new HashMap<>();
+private Map<String, Object> properties = new HashMap<>();
 
     @JsonAnySetter
     public void setProperties(String name, Object value) {
@@ -193,31 +191,6 @@ public class Task {
     public Task commands(@javax.annotation.Nonnull String commands) {
 
         this.commands = commands;
-        return this;
-    }
-
-    /**
-     * Get message
-     * @return message
-     */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_MESSAGE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-    public String getMessage() {
-        return message;
-    }
-
-
-    @JsonProperty(JSON_PROPERTY_MESSAGE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setMessage(@javax.annotation.Nonnull String message) {
-        this.message = message;
-    }
-
-    public Task message(@javax.annotation.Nonnull String message) {
-
-        this.message = message;
         return this;
     }
 
